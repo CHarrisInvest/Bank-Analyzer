@@ -136,9 +136,9 @@ async function getCompanyFacts(cik) {
 }
 
 /**
- * Get latest value for a specific XBRL concept
+ * Get latest point-in-time value (for balance sheet items like Assets, Equity)
  */
-function getLatestConceptValue(companyFacts, concept, taxonomy = 'us-gaap') {
+function getLatestPointInTimeValue(companyFacts, concept, taxonomy = 'us-gaap') {
   try {
     const conceptData = companyFacts.facts?.[taxonomy]?.[concept];
     if (!conceptData) return null;
@@ -146,27 +146,16 @@ function getLatestConceptValue(companyFacts, concept, taxonomy = 'us-gaap') {
     const usdUnits = conceptData.units?.USD;
     if (!usdUnits || usdUnits.length === 0) return null;
 
-    // Prefer annual data (10-K)
-    const annualData = usdUnits
-      .filter(item => item.form === '10-K' && item.val && item.end)
+    // Get most recent value (from either 10-K or 10-Q)
+    const allData = usdUnits
+      .filter(item => (item.form === '10-K' || item.form === '10-Q') && item.val && item.end)
       .sort((a, b) => new Date(b.end) - new Date(a.end));
 
-    if (annualData.length > 0) {
+    if (allData.length > 0) {
       return {
-        value: annualData[0].val,
-        date: annualData[0].end
-      };
-    }
-
-    // Fallback to quarterly (10-Q)
-    const quarterlyData = usdUnits
-      .filter(item => item.form === '10-Q' && item.val && item.end)
-      .sort((a, b) => new Date(b.end) - new Date(a.end));
-
-    if (quarterlyData.length > 0) {
-      return {
-        value: quarterlyData[0].val,
-        date: quarterlyData[0].end
+        value: allData[0].val,
+        date: allData[0].end,
+        form: allData[0].form
       };
     }
 
@@ -177,22 +166,116 @@ function getLatestConceptValue(companyFacts, concept, taxonomy = 'us-gaap') {
 }
 
 /**
- * Calculate all banking metrics
+ * Get TTM (Trailing Twelve Months) value for period-based items like Net Income, EPS
+ * This ensures we always have 12 months of data regardless of filing type
+ */
+function getTTMValue(companyFacts, concept, taxonomy = 'us-gaap') {
+  try {
+    const conceptData = companyFacts.facts?.[taxonomy]?.[concept];
+    if (!conceptData) return null;
+
+    const usdUnits = conceptData.units?.USD;
+    if (!usdUnits || usdUnits.length === 0) return null;
+
+    // Check for most recent annual report (10-K)
+    const annualData = usdUnits
+      .filter(item => item.form === '10-K' && item.val && item.end && item.fy)
+      .sort((a, b) => new Date(b.end) - new Date(a.end));
+
+    if (annualData.length > 0) {
+      // Most recent 10-K covers full fiscal year (TTM)
+      return {
+        value: annualData[0].val,
+        date: annualData[0].end,
+        form: '10-K',
+        method: 'annual'
+      };
+    }
+
+    // If no 10-K, calculate TTM from last 4 quarters
+    const quarterlyData = usdUnits
+      .filter(item =>
+        item.form === '10-Q' &&
+        item.val &&
+        item.end &&
+        item.fy &&
+        item.fp && // Fiscal period (Q1, Q2, Q3, Q4)
+        item.fp.startsWith('Q') // Only quarterly data, not YTD
+      )
+      .sort((a, b) => new Date(b.end) - new Date(a.end));
+
+    if (quarterlyData.length >= 4) {
+      // Sum last 4 quarters to get TTM
+      const last4Quarters = quarterlyData.slice(0, 4);
+      const ttmValue = last4Quarters.reduce((sum, q) => sum + q.val, 0);
+
+      return {
+        value: ttmValue,
+        date: quarterlyData[0].end, // Most recent quarter end date
+        form: '10-Q',
+        method: 'sum-4Q',
+        quarters: last4Quarters.map(q => ({
+          end: q.end,
+          period: q.fp,
+          value: q.val
+        }))
+      };
+    }
+
+    // Fallback: Try to get YTD data from most recent 10-Q
+    const ytdData = usdUnits
+      .filter(item => item.form === '10-Q' && item.val && item.end)
+      .sort((a, b) => new Date(b.end) - new Date(a.end));
+
+    if (ytdData.length > 0) {
+      console.warn(`  Warning: Using YTD data for ${concept} (not full TTM)`);
+      return {
+        value: ytdData[0].val,
+        date: ytdData[0].end,
+        form: '10-Q',
+        method: 'ytd-fallback'
+      };
+    }
+
+    return null;
+  } catch (error) {
+    return null;
+  }
+}
+
+/**
+ * Calculate all banking metrics using TTM for period-based items
  */
 function calculateMetrics(companyFacts, currentPrice) {
-  // Extract raw values
-  const totalAssets = getLatestConceptValue(companyFacts, 'Assets');
-  const totalEquity = getLatestConceptValue(companyFacts, 'StockholdersEquity') ||
-                      getLatestConceptValue(companyFacts, 'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest');
-  const netIncome = getLatestConceptValue(companyFacts, 'NetIncomeLoss') ||
-                    getLatestConceptValue(companyFacts, 'ProfitLoss') ||
-                    getLatestConceptValue(companyFacts, 'NetIncomeLossAvailableToCommonStockholdersBasic');
-  const sharesOutstanding = getLatestConceptValue(companyFacts, 'CommonStockSharesOutstanding') ||
-                            getLatestConceptValue(companyFacts, 'WeightedAverageNumberOfSharesOutstandingBasic');
-  const eps = getLatestConceptValue(companyFacts, 'EarningsPerShareBasic') ||
-              getLatestConceptValue(companyFacts, 'EarningsPerShareDiluted');
-  const goodwill = getLatestConceptValue(companyFacts, 'Goodwill');
-  const intangibleAssets = getLatestConceptValue(companyFacts, 'IntangibleAssetsNetExcludingGoodwill');
+  // Balance sheet items (point-in-time) - use latest value
+  const totalAssets = getLatestPointInTimeValue(companyFacts, 'Assets');
+  const totalEquity = getLatestPointInTimeValue(companyFacts, 'StockholdersEquity') ||
+                      getLatestPointInTimeValue(companyFacts, 'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest');
+  const sharesOutstanding = getLatestPointInTimeValue(companyFacts, 'CommonStockSharesOutstanding') ||
+                            getLatestPointInTimeValue(companyFacts, 'WeightedAverageNumberOfSharesOutstandingBasic');
+  const goodwill = getLatestPointInTimeValue(companyFacts, 'Goodwill');
+  const intangibleAssets = getLatestPointInTimeValue(companyFacts, 'IntangibleAssetsNetExcludingGoodwill');
+
+  // Income statement items (period-based) - use TTM
+  const netIncome = getTTMValue(companyFacts, 'NetIncomeLoss') ||
+                    getTTMValue(companyFacts, 'ProfitLoss') ||
+                    getTTMValue(companyFacts, 'NetIncomeLossAvailableToCommonStockholdersBasic');
+  const eps = getTTMValue(companyFacts, 'EarningsPerShareBasic') ||
+              getTTMValue(companyFacts, 'EarningsPerShareDiluted');
+
+  // Determine most recent data date
+  const dataDate = netIncome?.date || totalEquity?.date || totalAssets?.date;
+
+  // Check if data is stale (before 2024)
+  const isStale = dataDate ? new Date(dataDate) < new Date('2024-01-01') : false;
+
+  // Log TTM calculation method for debugging
+  if (netIncome?.method) {
+    console.log(`  Net Income: ${netIncome.method} (${netIncome.form})`);
+  }
+  if (eps?.method) {
+    console.log(`  EPS: ${eps.method} (${eps.form})`);
+  }
 
   // Calculate derived values
   const tangibleBookValue = totalEquity?.value ?
@@ -248,7 +331,9 @@ function calculateMetrics(companyFacts, currentPrice) {
     grahamNum: grahamNumber ? parseFloat(grahamNumber.toFixed(4)) : null,
     grahamMoS: grahamMoS ? parseFloat(grahamMoS.toFixed(4)) : null,
     grahamMoSPct: grahamMoSPct ? parseFloat(grahamMoSPct.toFixed(4)) : null,
-    dataDate: netIncome?.date || totalEquity?.date || new Date().toISOString().split('T')[0]
+    dataDate: dataDate,
+    isStale: isStale, // Flag if data is before 2024
+    ttmMethod: netIncome?.method || 'unknown' // Track how TTM was calculated
   };
 }
 
@@ -294,11 +379,18 @@ async function processBank(ticker, index) {
 
     // Calculate metrics
     const metrics = calculateMetrics(companyFacts, currentPrice);
-    console.log(`  ✓ Calculated metrics`);
+    console.log(`  ✓ Calculated metrics (TTM: ${metrics.ttmMethod})`);
+
+    // Add asterisk to ticker if data is stale (before 2024)
+    const displayTicker = metrics.isStale ? `${ticker}*` : ticker;
+
+    if (metrics.isStale) {
+      console.log(`  ⚠ Warning: Data is stale (last report: ${metrics.dataDate})`);
+    }
 
     return {
       id: `bank-${index}`,
-      ticker: ticker,
+      ticker: displayTicker,
       bankName: companyInfo.name,
       exchange: determineExchange(ticker, companyInfo.name),
       ...metrics,
@@ -393,6 +485,28 @@ async function main() {
   if (errors.length > 0) {
     console.log(`\nFailed tickers: ${errors.join(', ')}`);
   }
+
+  // Show stale data warnings
+  const staleBanks = results.filter(b => b.isStale);
+  if (staleBanks.length > 0) {
+    console.log(`\n⚠ Stale Data Warning (${staleBanks.length} banks):`);
+    console.log('The following banks have data from before 2024:');
+    staleBanks.forEach(b => {
+      console.log(`  - ${b.ticker} (${b.dataDate})`);
+    });
+    console.log('Note: Tickers marked with * indicate data not current');
+  }
+
+  // Show TTM calculation methods
+  const ttmMethods = {};
+  results.forEach(b => {
+    const method = b.ttmMethod || 'unknown';
+    ttmMethods[method] = (ttmMethods[method] || 0) + 1;
+  });
+  console.log(`\nTTM Calculation Methods:`);
+  Object.entries(ttmMethods).forEach(([method, count]) => {
+    console.log(`  - ${method}: ${count} banks`);
+  });
 
   console.log(`\nOutput saved to: ${outputPath}`);
   console.log(`File size: ${fs.statSync(outputPath).size} bytes`);
