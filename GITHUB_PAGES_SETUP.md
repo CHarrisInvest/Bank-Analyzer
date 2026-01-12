@@ -125,7 +125,7 @@ Your bank screener is now live with automated daily SEC data updates.
 ## What Happens Automatically
 
 ### Daily at 2 AM UTC:
-1. GitHub Actions runs `scripts/fetch-sec-data.js`
+1. GitHub Actions runs `scripts/fetch-sec-data.cjs`
 2. Fetches latest SEC EDGAR data for all banks
 3. Calculates Graham Number, ROE, ROTA, etc.
 4. Saves to `public/data/banks.json`
@@ -141,7 +141,7 @@ Your bank screener is now live with automated daily SEC data updates.
 
 ## Managing Your Bank List
 
-Edit the tickers in `scripts/fetch-sec-data.js`:
+Edit the tickers in `scripts/fetch-sec-data.cjs`:
 
 ```javascript
 bankTickers: [
@@ -195,7 +195,7 @@ on:
 
 ### Add More Metrics
 
-Edit `scripts/fetch-sec-data.js` in the `calculateMetrics` function to add custom calculations.
+Edit `scripts/fetch-sec-data.cjs` in the `calculateMetrics` function to add custom calculations.
 
 ### Change Data Source
 
@@ -349,7 +349,7 @@ Browse to: public/data/banks.json
 Actions tab → Select workflow
 
 # Update bank list
-Edit: scripts/fetch-sec-data.js
+Edit: scripts/fetch-sec-data.cjs
 
 # Deploy changes
 git add .
