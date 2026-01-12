@@ -167,11 +167,11 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
 
           <RangeFilter
             label="P-TBV"
-            minValue={filters.ptbv?.min ?? ''}
-            maxValue={filters.ptbv?.max ?? ''}
+            minValue={filters.ptbvps?.min ?? ''}
+            maxValue={filters.ptbvps?.max ?? ''}
             minPlaceholder="Min"
             maxPlaceholder="Max"
-            onChange={handleRangeChange('ptbv')}
+            onChange={handleRangeChange('ptbvps')}
           />
 
           <RangeFilter

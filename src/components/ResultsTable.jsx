@@ -49,8 +49,8 @@ const COLUMNS = [
     format: (value) => formatNumber(value, { decimals: 2 }),
   },
   {
-    key: 'ptbv',
-    label: 'P-TBV',
+    key: 'ptbvps',
+    label: 'P/TBVPS',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2 }),
@@ -63,8 +63,29 @@ const COLUMNS = [
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
   },
   {
+    key: 'rota',
+    label: 'RoTA',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
+  },
+  {
+    key: 'grahamNum',
+    label: 'Graham #',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+  },
+  {
     key: 'grahamMoS',
     label: 'Graham MoS',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+  },
+  {
+    key: 'grahamMoSPct',
+    label: 'MoS %',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
@@ -174,7 +195,7 @@ function ResultsTable({ banks, loading }) {
       else if (value < 0) classes.push('value-negative');
     }
 
-    if (column.key === 'grahamMoS' && typeof value === 'number') {
+    if (column.key === 'grahamMoSPct' && typeof value === 'number') {
       if (value >= 30) classes.push('value-positive');
       else if (value < 0) classes.push('value-negative');
     }
