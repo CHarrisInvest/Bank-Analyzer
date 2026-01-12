@@ -1,12 +1,14 @@
 /**
- * Bank Data API Client
- * Fetches bank financial data from backend API with SEC EDGAR integration
+ * Bank Data Fetcher for GitHub Pages
+ * Fetches bank financial data from static JSON file updated by GitHub Actions
  */
 
-// Configuration for the backend API
-const API_CONFIG = {
-  baseUrl: import.meta.env.VITE_API_URL || 'http://localhost:3001',
-  timeout: 30000, // 30 seconds
+// Configuration
+const DATA_CONFIG = {
+  // Path to the static JSON file (updated daily by GitHub Actions)
+  dataFile: '/data/banks.json',
+  // Cache-busting parameter
+  cacheBuster: true,
 };
 
 /**
@@ -48,7 +50,7 @@ function sleep(ms) {
 }
 
 /**
- * Fetch bank data from backend API with retry logic
+ * Fetch bank data from static JSON file with retry logic
  * @param {Object} options - Fetch options
  * @param {number} options.maxRetries - Maximum number of retry attempts
  * @returns {Promise<Object>} Bank data and metadata
@@ -63,33 +65,25 @@ export async function fetchBankData(options = {}) {
 
   while (attemptCount <= maxRetries) {
     try {
-      const url = `${API_CONFIG.baseUrl}/api/banks`;
-
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), API_CONFIG.timeout);
+      // Build URL with optional cache-busting
+      let url = DATA_CONFIG.dataFile;
+      if (DATA_CONFIG.cacheBuster) {
+        url += `?t=${Date.now()}`;
+      }
 
       const response = await fetch(url, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache',
         },
-        signal: controller.signal,
       });
-
-      clearTimeout(timeoutId);
 
       if (!response.ok) {
         throw new Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
       }
 
-      const result = await response.json();
-
-      if (!result.success) {
-        throw new Error(result.error || 'API returned unsuccessful response');
-      }
-
-      const banks = result.data || [];
+      const banks = await response.json();
 
       // Validate data completeness
       const validation = validateBankData(banks);
@@ -110,17 +104,18 @@ export async function fetchBankData(options = {}) {
       }
 
       // Data is valid, return success
-      console.log(`Successfully fetched ${banks.length} bank records from API on attempt ${attemptCount + 1}`);
+      console.log(`Successfully fetched ${banks.length} bank records from data file on attempt ${attemptCount + 1}`);
 
       return {
         success: true,
         data: banks,
         metadata: {
           totalRecords: banks.length,
-          fetchedAt: result.timestamp || new Date().toISOString(),
-          sourceUrl: url,
+          fetchedAt: new Date().toISOString(),
+          sourceUrl: DATA_CONFIG.dataFile,
           attemptCount: attemptCount + 1,
-          source: 'backend-api',
+          source: 'static-json',
+          lastUpdated: banks[0]?.updatedAt || null,
         },
       };
     } catch (error) {
@@ -151,9 +146,9 @@ export async function fetchBankData(options = {}) {
     },
     metadata: {
       fetchedAt: new Date().toISOString(),
-      sourceUrl: `${API_CONFIG.baseUrl}/api/banks`,
+      sourceUrl: DATA_CONFIG.dataFile,
       attemptCount: attemptCount + 1,
-      source: 'backend-api',
+      source: 'static-json',
     },
   };
 }

@@ -2,32 +2,82 @@
 
 A comprehensive bank screening tool with SEC EDGAR data integration. Analyze publicly traded banks using financial metrics, value investing criteria, and custom filters.
 
+## 🚀 Quick Start (Recommended)
+
+**Want the simplest setup? Use GitHub Pages!**
+
+✅ No downloads required
+✅ No accounts beyond GitHub
+✅ Completely free
+✅ Automated daily updates
+✅ Live in 5 minutes
+
+👉 **[Follow the GitHub Pages Setup Guide](GITHUB_PAGES_SETUP.md)** 👈
+
+---
+
 ## Features
 
 - **Real SEC Filing Data**: Direct integration with SEC EDGAR API for official financial data
 - **Automated Metrics**: Calculates Graham Number, ROE, ROTA, P/E, and more
 - **Real-time Pricing**: Fetches current stock prices from Yahoo Finance
 - **Advanced Filtering**: Screen banks by multiple criteria
-- **Historical Tracking**: Store and track metrics over time
-- **Daily Updates**: Automated daily data refresh
+- **Historical Tracking**: Store and track metrics over time (backend only)
+- **Daily Updates**: Automated daily data refresh via GitHub Actions
+
+## Deployment Options
+
+Choose the setup that fits your needs:
+
+### Option 1: GitHub Pages (Recommended ⭐)
+
+**Perfect for:** Simple deployment, no maintenance, zero cost
+
+| Feature | Details |
+|---------|---------|
+| **Setup Time** | 5 minutes |
+| **Cost** | $0/month |
+| **Requirements** | GitHub account only |
+| **Updates** | Automated daily via GitHub Actions |
+| **Hosting** | GitHub Pages (free) |
+| **Historical Data** | Limited to file commits |
+
+📖 **[GitHub Pages Setup Guide →](GITHUB_PAGES_SETUP.md)**
+
+### Option 2: Full Backend (Advanced)
+
+**Perfect for:** Historical data analysis, custom features, on-demand updates
+
+| Feature | Details |
+|---------|---------|
+| **Setup Time** | 1-2 hours |
+| **Cost** | $5-12/month |
+| **Requirements** | Node.js, PostgreSQL, hosting |
+| **Updates** | Daily cron + on-demand API |
+| **Hosting** | Heroku, Railway, VPS, etc. |
+| **Historical Data** | Full database tracking |
+
+📖 **[Backend Setup Guide →](SETUP_GUIDE.md)** | **[Deployment Guide →](DEPLOYMENT.md)**
+
+---
 
 ## Architecture
 
-This project consists of two main components:
+### GitHub Pages Approach (Simplified)
+```
+GitHub Actions → Fetch SEC Data → Save JSON → Deploy to Pages
+```
 
-### Frontend (React + Vite)
-- Modern React application with screener interface
-- Fetches data from backend API
-- Client-side filtering and sorting
-- Responsive design for financial data analysis
+### Full Backend Approach (Advanced)
+```
+SEC EDGAR API → Backend Service → PostgreSQL → REST API → React Frontend
+```
 
-### Backend (Node.js + Express)
-- SEC EDGAR API integration for official financial data
-- PostgreSQL database for persistent storage
-- Automatic daily data refresh via cron job
-- REST API for frontend consumption
+---
 
-## Quick Start
+## Quick Start - Full Backend
+
+> **Note:** For GitHub Pages setup, see [GITHUB_PAGES_SETUP.md](GITHUB_PAGES_SETUP.md)
 
 ### Prerequisites
 - Node.js 16+
