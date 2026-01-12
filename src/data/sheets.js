@@ -251,11 +251,22 @@ export function getFieldStats(banks, field) {
 
   const sorted = [...values].sort((a, b) => a - b);
 
+  // Calculate median correctly for both odd and even length arrays
+  let median;
+  const midIndex = Math.floor(sorted.length / 2);
+  if (sorted.length % 2 === 0) {
+    // Even length: average of two middle values
+    median = (sorted[midIndex - 1] + sorted[midIndex]) / 2;
+  } else {
+    // Odd length: middle value
+    median = sorted[midIndex];
+  }
+
   return {
     min: sorted[0],
     max: sorted[sorted.length - 1],
     avg: values.reduce((a, b) => a + b, 0) / values.length,
-    median: sorted[Math.floor(sorted.length / 2)],
+    median: median,
     count: values.length,
   };
 }
