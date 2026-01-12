@@ -35,6 +35,9 @@ jobs:
       - name: Install dependencies
         run: npm install axios
 
+      - name: Run diagnostic test
+        run: node scripts/test-fetch.cjs
+
       - name: Fetch SEC EDGAR data
         run: node scripts/fetch-sec-data.cjs
         env:

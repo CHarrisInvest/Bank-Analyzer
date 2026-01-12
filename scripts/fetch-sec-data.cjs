@@ -281,9 +281,19 @@ async function main() {
   console.log('========================================');
   console.log('SEC EDGAR Bank Data Fetcher');
   console.log('========================================\n');
+  console.log(`Node version: ${process.version}`);
+  console.log(`Working directory: ${process.cwd()}`);
   console.log(`User-Agent: ${CONFIG.edgarUserAgent}`);
   console.log(`Banks to process: ${CONFIG.bankTickers.length}`);
   console.log(`Started: ${new Date().toISOString()}\n`);
+
+  // Verify axios is loaded
+  try {
+    console.log(`Axios loaded: ${typeof axios}`);
+  } catch (err) {
+    console.error('ERROR: axios not available:', err.message);
+    process.exit(1);
+  }
 
   const results = [];
   const errors = [];
@@ -314,12 +324,26 @@ async function main() {
   const outputPath = path.join(__dirname, '..', 'public', 'data', 'banks.json');
   const outputDir = path.dirname(outputPath);
 
-  // Create data directory if it doesn't exist
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
-  }
+  console.log(`\nOutput path: ${outputPath}`);
+  console.log(`Output directory: ${outputDir}`);
 
-  fs.writeFileSync(outputPath, JSON.stringify(results, null, 2));
+  // Create data directory if it doesn't exist
+  try {
+    if (!fs.existsSync(outputDir)) {
+      console.log('Creating output directory...');
+      fs.mkdirSync(outputDir, { recursive: true });
+      console.log('✓ Directory created');
+    } else {
+      console.log('✓ Directory exists');
+    }
+
+    console.log('Writing JSON file...');
+    fs.writeFileSync(outputPath, JSON.stringify(results, null, 2));
+    console.log('✓ File written successfully');
+  } catch (writeError) {
+    console.error('ERROR writing output file:', writeError);
+    throw writeError;
+  }
 
   // Summary
   console.log('\n========================================');
@@ -334,15 +358,28 @@ async function main() {
   }
 
   console.log(`\nOutput saved to: ${outputPath}`);
+  console.log(`File size: ${fs.statSync(outputPath).size} bytes`);
   console.log(`Completed: ${new Date().toISOString()}`);
   console.log('========================================\n');
 
-  // Exit with appropriate code
-  process.exit(errors.length === CONFIG.bankTickers.length ? 1 : 0);
+  // Exit successfully if we got at least some data
+  // Only fail if ALL banks failed
+  if (results.length === 0) {
+    console.error('FATAL: No banks were processed successfully!');
+    process.exit(1);
+  } else {
+    console.log(`✓ Success! Processed ${results.length}/${CONFIG.bankTickers.length} banks`);
+    process.exit(0);
+  }
 }
 
 // Run main function
 main().catch(error => {
-  console.error('Fatal error:', error);
+  console.error('\n========================================');
+  console.error('FATAL ERROR');
+  console.error('========================================');
+  console.error('Error message:', error.message);
+  console.error('Error stack:', error.stack);
+  console.error('========================================\n');
   process.exit(1);
 });
