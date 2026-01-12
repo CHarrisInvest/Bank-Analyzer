@@ -9,7 +9,18 @@
     <title>Bank Equity Screener</title>
   </head>
   <body>
-    <div id="root"></div>
+    <noscript>
+      <div style="padding: 20px; text-align: center; font-family: sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>Please enable JavaScript to use the Bank Equity Screener.</p>
+      </div>
+    </noscript>
+    <div id="root">
+      <!-- Loading fallback - will be replaced by React -->
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif;">
+        <p>Loading Bank Equity Screener...</p>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
