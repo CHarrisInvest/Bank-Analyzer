@@ -11,8 +11,8 @@ const SHEETS_CONFIG = {
   // Original: https://docs.google.com/spreadsheets/d/e/2PACX-1vSdP5XIBWUyEDpYuWbdSy4IZzh-gGDU5dIKX5u_atOvs3xedyMpQngc17U3Gzar4sOllsHadO-IpOAp/pubhtml
   baseUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSdP5XIBWUyEDpYuWbdSy4IZzh-gGDU5dIKX5u_atOvs3xedyMpQngc17U3Gzar4sOllsHadO-IpOAp/pub',
   outputFormat: 'csv',
-  // Header row index (0-based) - adjust if your data has different structure
-  headerRowIndex: 0,
+  // Header row index (0-based) - row 6 in spreadsheet = index 5
+  headerRowIndex: 5,
 };
 
 /**
@@ -22,20 +22,27 @@ const SHEETS_CONFIG = {
 const COLUMN_MAPPING = {
   // Primary identifiers
   ticker: ['Ticker', 'Symbol', 'ticker', 'symbol', 'TICKER', 'SYMBOL'],
-  bankName: ['Bank Name', 'Name', 'Company', 'Bank', 'bank_name', 'BANK NAME', 'Company Name'],
+  bankName: ['BankName', 'Bank Name', 'Name', 'Company', 'Bank', 'bank_name', 'BANK NAME', 'Company Name'],
   exchange: ['Exchange', 'exchange', 'EXCHANGE', 'Market', 'Listed'],
 
   // Price data
   price: ['Price', 'price', 'PRICE', 'Stock Price', 'Current Price', 'Last Price'],
-  marketCap: ['Market Cap', 'MarketCap', 'market_cap', 'MARKET CAP', 'Mkt Cap', 'Market Capitalization'],
+  marketCap: ['MktCap', 'Market Cap', 'MarketCap', 'market_cap', 'MARKET CAP', 'Mkt Cap', 'Market Capitalization'],
 
   // Valuation metrics
-  pni: ['P/NI', 'P-NI', 'PNI', 'P/E', 'PE', 'Price/NI', 'Price to NI', 'P/Net Income'],
-  ptbv: ['P-TBV', 'P/TBV', 'PTBV', 'Price/TBV', 'Price to TBV', 'P-Tangible Book'],
+  pni: ['PNI', 'P/NI', 'P-NI', 'P/E', 'PE', 'Price/NI', 'Price to NI', 'P/Net Income'],
+  ptbvps: ['PTBVPS', 'P-TBV', 'P/TBV', 'PTBV', 'Price/TBV', 'Price to TBV', 'P-Tangible Book'],
+  mktCapSE: ['MktCapSE', 'Mkt Cap/SE', 'Market Cap to SE'],
+  niTBV: ['NITBV', 'NI/TBV', 'Net Income to TBV'],
 
   // Performance metrics
   roe: ['RoE', 'ROE', 'roe', 'Return on Equity', 'ROE %', 'RoE %'],
-  grahamMoS: ['Graham MoS', 'Graham Margin of Safety', 'MoS', 'Margin of Safety', 'Graham MoS %', 'MOS'],
+  rota: ['RoTA', 'ROTA', 'Return on Total Assets', 'ROA', 'RoA'],
+
+  // Graham metrics
+  grahamNum: ['GrahamNum', 'Graham Number', 'Graham Num'],
+  grahamMoS: ['GrahamMoS', 'Graham MoS', 'Graham Margin of Safety', 'MoS', 'Margin of Safety', 'Graham MoS %', 'MOS'],
+  grahamMoSPct: ['GrahamMoSPct', 'Graham MoS %', 'Graham MoS Pct', 'MoS %'],
 };
 
 /**
@@ -109,9 +116,14 @@ function transformBankData(rawData, headers) {
         price: parseNumericValue(getValue('price')),
         marketCap: parseNumericValue(getValue('marketCap')),
         pni: parseNumericValue(getValue('pni')),
-        ptbv: parseNumericValue(getValue('ptbv')),
+        ptbvps: parseNumericValue(getValue('ptbvps')),
+        mktCapSE: parseNumericValue(getValue('mktCapSE')),
+        niTBV: parseNumericValue(getValue('niTBV')),
         roe: parseNumericValue(getValue('roe')),
+        rota: parseNumericValue(getValue('rota')),
+        grahamNum: parseNumericValue(getValue('grahamNum')),
         grahamMoS: parseNumericValue(getValue('grahamMoS')),
+        grahamMoSPct: parseNumericValue(getValue('grahamMoSPct')),
       };
     })
     .filter(Boolean);

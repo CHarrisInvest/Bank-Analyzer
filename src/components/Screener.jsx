@@ -9,7 +9,7 @@ import { getUniqueExchanges } from '../data/sheets.js';
 const DEFAULT_FILTERS = {
   roe: { min: '', max: '' },
   pni: { min: '', max: '' },
-  ptbv: { min: '', max: '' },
+  ptbvps: { min: '', max: '' },
   marketCap: { min: '', max: '' },
   grahamMoS: '',
   exchanges: [],
@@ -56,10 +56,10 @@ function Screener({ banks, loading }) {
       }
 
       // P-TBV filter
-      if (filters.ptbv.min !== '' && (bank.ptbv === null || bank.ptbv < filters.ptbv.min)) {
+      if (filters.ptbvps.min !== '' && (bank.ptbvps === null || bank.ptbvps < filters.ptbvps.min)) {
         return false;
       }
-      if (filters.ptbv.max !== '' && (bank.ptbv === null || bank.ptbv > filters.ptbv.max)) {
+      if (filters.ptbvps.max !== '' && (bank.ptbvps === null || bank.ptbvps > filters.ptbvps.max)) {
         return false;
       }
 
@@ -77,8 +77,8 @@ function Screener({ banks, loading }) {
         }
       }
 
-      // Graham Margin of Safety filter (minimum)
-      if (filters.grahamMoS !== '' && (bank.grahamMoS === null || bank.grahamMoS < filters.grahamMoS)) {
+      // Graham Margin of Safety % filter (minimum)
+      if (filters.grahamMoS !== '' && (bank.grahamMoSPct === null || bank.grahamMoSPct < filters.grahamMoS)) {
         return false;
       }
 
@@ -121,8 +121,8 @@ function Screener({ banks, loading }) {
       filters.roe.max !== '' ||
       filters.pni.min !== '' ||
       filters.pni.max !== '' ||
-      filters.ptbv.min !== '' ||
-      filters.ptbv.max !== '' ||
+      filters.ptbvps.min !== '' ||
+      filters.ptbvps.max !== '' ||
       filters.marketCap.min !== '' ||
       filters.marketCap.max !== '' ||
       filters.grahamMoS !== '' ||
