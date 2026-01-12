@@ -156,77 +156,198 @@ function normalizeExchange(exchange) {
 }
 
 /**
- * Fetch bank data from Google Sheets
+ * Check if CSV data contains loading or error indicators
+ * @param {string} csvText - Raw CSV text
+ * @returns {boolean} True if data appears to be loading or incomplete
+ */
+function containsLoadingIndicators(csvText) {
+  const lowerText = csvText.toLowerCase();
+  const loadingPatterns = [
+    'loading...',
+    'loading',
+    '#n/a',
+    '#ref!',
+    '#error',
+    '#value!',
+    '#div/0!',
+    'calculating...',
+  ];
+
+  return loadingPatterns.some(pattern => lowerText.includes(pattern));
+}
+
+/**
+ * Validate that bank data is complete and doesn't contain loading indicators
+ * @param {Object[]} banks - Array of bank records
+ * @param {string} csvText - Original CSV text
+ * @returns {Object} Validation result with isValid flag and reason
+ */
+function validateBankData(banks, csvText) {
+  // Check CSV for loading indicators
+  if (containsLoadingIndicators(csvText)) {
+    return {
+      isValid: false,
+      reason: 'Data contains loading indicators or formula errors',
+    };
+  }
+
+  // Check if we have a reasonable amount of data
+  if (banks.length === 0) {
+    return {
+      isValid: false,
+      reason: 'No valid bank records found',
+    };
+  }
+
+  // Check if at least some banks have numeric data
+  const banksWithData = banks.filter(bank =>
+    bank.price !== null || bank.marketCap !== null || bank.roe !== null
+  );
+
+  if (banksWithData.length === 0) {
+    return {
+      isValid: false,
+      reason: 'No banks have valid numeric data - formulas may still be calculating',
+    };
+  }
+
+  return { isValid: true };
+}
+
+/**
+ * Sleep for a specified duration
+ * @param {number} ms - Milliseconds to sleep
+ * @returns {Promise<void>}
+ */
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/**
+ * Fetch bank data from Google Sheets with retry logic
  * @param {Object} options - Fetch options
  * @param {string} options.sheetId - Specific sheet ID (gid)
  * @param {number} options.headerRowIndex - Header row index (0-based)
+ * @param {number} options.maxRetries - Maximum number of retry attempts
+ * @param {number} options.initialDelay - Initial delay before first fetch (ms)
  * @returns {Promise<Object>} Bank data and metadata
  */
 export async function fetchBankData(options = {}) {
   const {
     sheetId = null,
     headerRowIndex = SHEETS_CONFIG.headerRowIndex,
+    maxRetries = 3,
+    initialDelay = 1000,
   } = options;
 
-  const url = buildSheetUrl(sheetId);
+  // Wait before initial fetch to allow Google Sheets formulas to calculate
+  await sleep(initialDelay);
 
-  try {
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Accept': 'text/csv,text/plain,*/*',
-      },
-    });
+  let lastError = null;
+  let attemptCount = 0;
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
+  while (attemptCount <= maxRetries) {
+    try {
+      // Add cache-busting timestamp to ensure fresh data
+      const timestamp = Date.now();
+      let url = buildSheetUrl(sheetId);
+      url += `&t=${timestamp}`;
+
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Accept': 'text/csv,text/plain,*/*',
+          'Cache-Control': 'no-cache',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
+      }
+
+      const csvText = await response.text();
+
+      if (!csvText || csvText.trim() === '') {
+        throw new Error('Empty response received from Google Sheets');
+      }
+
+      // Parse CSV
+      const { headers, data: rawData } = parseCSV(csvText, {
+        headerRowIndex,
+        skipEmptyRows: true,
+      });
+
+      if (headers.length === 0) {
+        throw new Error('No headers found in CSV data');
+      }
+
+      // Transform to normalized format
+      const banks = transformBankData(rawData, headers);
+
+      // Validate data completeness
+      const validation = validateBankData(banks, csvText);
+
+      if (!validation.isValid) {
+        if (attemptCount < maxRetries) {
+          console.warn(`Attempt ${attemptCount + 1}: ${validation.reason}. Retrying...`);
+          lastError = new Error(validation.reason);
+          attemptCount++;
+
+          // Exponential backoff: 2s, 4s, 8s
+          const retryDelay = 2000 * Math.pow(2, attemptCount - 1);
+          await sleep(retryDelay);
+          continue;
+        } else {
+          throw new Error(`${validation.reason} (after ${maxRetries} retries)`);
+        }
+      }
+
+      // Data is valid, return success
+      console.log(`Successfully fetched ${banks.length} bank records on attempt ${attemptCount + 1}`);
+
+      return {
+        success: true,
+        data: banks,
+        metadata: {
+          totalRecords: banks.length,
+          headers: headers,
+          fetchedAt: new Date().toISOString(),
+          sourceUrl: url,
+          attemptCount: attemptCount + 1,
+        },
+      };
+    } catch (error) {
+      lastError = error;
+
+      if (attemptCount < maxRetries) {
+        console.warn(`Attempt ${attemptCount + 1} failed: ${error.message}. Retrying...`);
+        attemptCount++;
+
+        // Exponential backoff: 2s, 4s, 8s
+        const retryDelay = 2000 * Math.pow(2, attemptCount - 1);
+        await sleep(retryDelay);
+      } else {
+        break;
+      }
     }
-
-    const csvText = await response.text();
-
-    if (!csvText || csvText.trim() === '') {
-      throw new Error('Empty response received from Google Sheets');
-    }
-
-    // Parse CSV
-    const { headers, data: rawData } = parseCSV(csvText, {
-      headerRowIndex,
-      skipEmptyRows: true,
-    });
-
-    if (headers.length === 0) {
-      throw new Error('No headers found in CSV data');
-    }
-
-    // Transform to normalized format
-    const banks = transformBankData(rawData, headers);
-
-    return {
-      success: true,
-      data: banks,
-      metadata: {
-        totalRecords: banks.length,
-        headers: headers,
-        fetchedAt: new Date().toISOString(),
-        sourceUrl: url,
-      },
-    };
-  } catch (error) {
-    console.error('Error fetching bank data:', error);
-
-    return {
-      success: false,
-      data: [],
-      error: {
-        message: error.message || 'Unknown error occurred',
-        type: error.name || 'Error',
-      },
-      metadata: {
-        fetchedAt: new Date().toISOString(),
-        sourceUrl: url,
-      },
-    };
   }
+
+  // All retries exhausted
+  console.error('Error fetching bank data after all retries:', lastError);
+
+  return {
+    success: false,
+    data: [],
+    error: {
+      message: lastError?.message || 'Unknown error occurred',
+      type: lastError?.name || 'Error',
+    },
+    metadata: {
+      fetchedAt: new Date().toISOString(),
+      sourceUrl: buildSheetUrl(sheetId),
+      attemptCount: attemptCount + 1,
+    },
+  };
 }
 
 /**
