@@ -156,20 +156,15 @@ function normalizeExchange(exchange) {
 }
 
 /**
- * Check if CSV data contains loading or error indicators
+ * Check if CSV data contains loading indicators
  * @param {string} csvText - Raw CSV text
- * @returns {boolean} True if data appears to be loading or incomplete
+ * @returns {boolean} True if data appears to be still loading
  */
 function containsLoadingIndicators(csvText) {
   const lowerText = csvText.toLowerCase();
   const loadingPatterns = [
     'loading...',
     'loading',
-    '#n/a',
-    '#ref!',
-    '#error',
-    '#value!',
-    '#div/0!',
     'calculating...',
   ];
 
@@ -187,7 +182,7 @@ function validateBankData(banks, csvText) {
   if (containsLoadingIndicators(csvText)) {
     return {
       isValid: false,
-      reason: 'Data contains loading indicators or formula errors',
+      reason: 'Data is still loading',
     };
   }
 
