@@ -23,6 +23,9 @@ const CONFIG = {
   ]
 };
 
+// Global cache for SEC ticker-to-CIK mapping
+let tickerToCikMap = null;
+
 // Delay helper
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -46,32 +49,66 @@ async function getCurrentPrice(ticker) {
 }
 
 /**
- * Get company CIK and info from SEC
+ * Load SEC's ticker-to-CIK mapping (cached globally)
  */
-async function getCompanyInfo(ticker) {
+async function loadTickerToCikMap() {
+  if (tickerToCikMap) {
+    return tickerToCikMap; // Return cached version
+  }
+
   try {
+    console.log('Loading SEC ticker-to-CIK mapping...');
     await delay(CONFIG.requestDelay);
 
     const response = await axios.get(
-      `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${ticker}&type=&dateb=&owner=exclude&count=1&output=atom`,
+      'https://www.sec.gov/files/company_tickers.json',
       {
         headers: { 'User-Agent': CONFIG.edgarUserAgent },
-        timeout: 10000
+        timeout: 30000
       }
     );
 
-    // Parse XML response to extract CIK
-    const cikMatch = response.data.match(/<CIK>(\d+)<\/CIK>/);
-    const nameMatch = response.data.match(/<title>([^<]+)<\/title>/);
+    // Convert array format to ticker-keyed map
+    // SEC returns: { "0": { "cik_str": 320193, "ticker": "AAPL", "title": "Apple Inc." }, ... }
+    tickerToCikMap = {};
 
-    if (!cikMatch) {
-      throw new Error('CIK not found');
+    for (const key in response.data) {
+      const company = response.data[key];
+      if (company.ticker && company.cik_str) {
+        // Store with uppercase ticker as key
+        tickerToCikMap[company.ticker.toUpperCase()] = {
+          cik: String(company.cik_str).padStart(10, '0'),
+          name: company.title
+        };
+      }
     }
 
-    const cik = cikMatch[1].padStart(10, '0');
-    const name = nameMatch ? nameMatch[1].trim() : ticker;
+    console.log(`✓ Loaded ${Object.keys(tickerToCikMap).length} company mappings`);
+    return tickerToCikMap;
+  } catch (error) {
+    throw new Error(`Failed to load ticker-to-CIK map: ${error.message}`);
+  }
+}
 
-    return { cik, name };
+/**
+ * Get company CIK and info from ticker
+ */
+async function getCompanyInfo(ticker) {
+  try {
+    // Load mapping if not already loaded
+    const map = await loadTickerToCikMap();
+
+    const upperTicker = ticker.toUpperCase();
+    const company = map[upperTicker];
+
+    if (!company) {
+      throw new Error(`Ticker ${ticker} not found in SEC database`);
+    }
+
+    return {
+      cik: company.cik,
+      name: company.name
+    };
   } catch (error) {
     throw new Error(`Failed to get company info: ${error.message}`);
   }
