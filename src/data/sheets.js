@@ -6,7 +6,8 @@
 // Configuration
 const DATA_CONFIG = {
   // Path to the static JSON file (updated daily by GitHub Actions)
-  dataFile: '/data/banks.json',
+  // Use relative path that works with GitHub Pages base URL
+  dataFile: import.meta.env.BASE_URL + 'data/banks.json',
   // Cache-busting parameter
   cacheBuster: true,
 };
