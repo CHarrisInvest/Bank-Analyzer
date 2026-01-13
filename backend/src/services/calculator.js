@@ -6,27 +6,45 @@ const axios = require('axios');
  */
 class MetricsCalculator {
   /**
-   * Get current stock price from Yahoo Finance (free alternative)
+   * Get prior close stock price from Marketstack API
+   * Requires MARKETSTACK_API_KEY environment variable
+   * Commercial use allowed on Professional plan ($49.99/mo) and above
+   * @see https://marketstack.com/documentation
    * @param {string} ticker - Stock ticker symbol
-   * @returns {Promise<number>} Current stock price
+   * @returns {Promise<number>} Prior close stock price
    */
   async getCurrentPrice(ticker) {
+    const apiKey = process.env.MARKETSTACK_API_KEY;
+
+    if (!apiKey) {
+      console.warn(`MARKETSTACK_API_KEY not set, skipping price fetch for ${ticker}`);
+      return null;
+    }
+
     try {
-      // Using Yahoo Finance API (via query2.finance.yahoo.com)
-      const url = `https://query2.finance.yahoo.com/v8/finance/chart/${ticker}`;
+      // Using Marketstack EOD endpoint for prior close price
+      const url = `http://api.marketstack.com/v1/eod/latest?access_key=${apiKey}&symbols=${ticker}`;
       const response = await axios.get(url, {
-        timeout: 10000,
+        timeout: 15000,
         headers: {
-          'User-Agent': 'Mozilla/5.0'
+          'User-Agent': 'Bank-Analyzer/1.0'
         }
       });
 
-      const quote = response.data?.chart?.result?.[0]?.meta?.regularMarketPrice;
-      if (!quote) {
+      // Check for API error
+      if (response.data?.error) {
+        console.warn(`Marketstack API error for ${ticker}: ${response.data.error.message}`);
+        return null;
+      }
+
+      // Extract close price from the first data entry
+      const data = response.data?.data?.[0];
+      const price = data?.close;
+      if (!price) {
         throw new Error('Price not found in response');
       }
 
-      return parseFloat(quote);
+      return parseFloat(price);
     } catch (error) {
       console.error(`Error fetching price for ${ticker}:`, error.message);
       // Return null to indicate price fetch failed

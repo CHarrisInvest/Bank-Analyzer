@@ -47,6 +47,10 @@ jobs:
         env:
           # SEC requires User-Agent with contact info
           EDGAR_USER_AGENT: ${{ secrets.EDGAR_USER_AGENT || 'Bank-Analyzer github-actions@example.com' }}
+          # Marketstack API key for stock prices (prior close)
+          # Get API key at: https://marketstack.com/signup/free
+          # Commercial use requires Professional plan ($49.99/mo) or higher
+          MARKETSTACK_API_KEY: ${{ secrets.MARKETSTACK_API_KEY }}
 
       - name: Check for changes
         id: git-check

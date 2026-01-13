@@ -36,9 +36,11 @@ Calculates metrics        Auto-deploys              Real-time screener
    - **Source:** GitHub Actions
    - (That's it! No branch selection needed)
 
-### Step 2: Set SEC User-Agent Secret (1 minute)
+### Step 2: Set Repository Secrets (2 minutes)
 
-GitHub Actions needs your contact info for SEC API access:
+GitHub Actions needs API credentials for SEC and stock price data:
+
+#### Secret 1: SEC User-Agent
 
 1. Go to **Settings** → **Secrets and variables** → **Actions**
 2. Click **New repository secret**
@@ -50,6 +52,16 @@ GitHub Actions needs your contact info for SEC API access:
 ```
 Acme Investments info@acme.com
 ```
+
+#### Secret 2: Marketstack API Key (for stock prices)
+
+1. Get an API key from [Marketstack](https://marketstack.com/signup/free)
+2. Click **New repository secret**
+3. Name: `MARKETSTACK_API_KEY`
+4. Value: Your API key (e.g., `abc123xyz789`)
+5. Click **Add secret**
+
+**Note:** The free tier allows 100 API requests/month (testing only). For production use, the Basic plan ($9.99/mo) provides 10,000 requests/month. For commercial use, the Professional plan ($49.99/mo) provides 100,000 requests/month with explicit commercial licensing.
 
 ### Step 3: Trigger Initial Data Load (1 minute)
 
@@ -200,10 +212,10 @@ Edit `scripts/fetch-sec-data.cjs` in the `calculateMetrics` function to add cust
 ### Change Data Source
 
 The script fetches from:
-- **SEC EDGAR API** - Financial metrics
-- **Yahoo Finance** - Stock prices
+- **SEC EDGAR API** - Financial metrics (free, no API key required)
+- **Marketstack** - Stock prices / prior close (requires API key)
 
-Both are free and don't require API keys.
+**Important:** Marketstack offers commercial use on their Professional plan ($49.99/mo) and above. The free tier (100 requests/month) is for testing only. See [Marketstack pricing](https://marketstack.com/pricing) for details.
 
 ---
 
@@ -218,6 +230,16 @@ Both are free and don't require API keys.
 2. Check `EDGAR_USER_AGENT` secret
 3. Must be: `"CompanyName email@example.com"`
 4. Update and rerun workflow
+
+### "Stock prices showing null"
+
+**Problem:** Marketstack API key missing or request limit exceeded
+
+**Solution:**
+1. Ensure `MARKETSTACK_API_KEY` secret is set in repository settings
+2. Free tier limit: 100 requests/month (each symbol = 1 request)
+3. For more banks, upgrade to Basic ($9.99/mo, 10K req) or Professional ($49.99/mo, 100K req)
+4. Check [Marketstack dashboard](https://marketstack.com/dashboard) for usage stats
 
 ### "No data appearing on site"
 
@@ -253,12 +275,15 @@ Both are free and don't require API keys.
 | GitHub Actions | **Free** (2,000 minutes/month) |
 | GitHub Pages | **Free** (100 GB bandwidth/month) |
 | SEC EDGAR API | **Free** (no limits) |
-| Yahoo Finance | **Free** (no API key needed) |
-| **Total** | **$0/month** |
+| Marketstack | **Free** (100 req/mo), **$9.99/mo** (10K req), or **$49.99/mo** (100K req, commercial) |
+| **Total** | **$0-9.99/month** (testing/personal) or **$49.99/mo** (commercial) |
 
 **Usage:**
-- Data refresh: ~10 minutes/day = 300 min/month (well under limit)
+- Data refresh: ~5 minutes/day = 150 min/month (well under limit)
 - Pages bandwidth: Typical usage < 1 GB/month
+- Marketstack: Each bank ticker = 1 API request toward monthly quota
+
+**Note for Commercial Use:** Commercial use requires Marketstack Professional plan ($49.99/mo) or higher. See [Marketstack pricing](https://marketstack.com/pricing) for details.
 
 ---
 

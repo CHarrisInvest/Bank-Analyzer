@@ -30,20 +30,40 @@ let tickerToCikMap = null;
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 /**
- * Get current stock price from Yahoo Finance
+ * Get prior close stock price from Marketstack API
+ * Requires MARKETSTACK_API_KEY environment variable
+ * Uses EOD (end-of-day) endpoint for prior close prices
+ * Commercial use allowed on Professional plan ($49.99/mo) and above
+ * @see https://marketstack.com/documentation
  */
 async function getCurrentPrice(ticker) {
+  const apiKey = process.env.MARKETSTACK_API_KEY;
+
+  if (!apiKey) {
+    console.warn(`  Warning: MARKETSTACK_API_KEY not set, skipping price fetch for ${ticker}`);
+    return null;
+  }
+
   try {
-    const url = `https://query2.finance.yahoo.com/v8/finance/chart/${ticker}`;
+    // Using Marketstack EOD endpoint for prior close price
+    const url = `http://api.marketstack.com/v1/eod/latest?access_key=${apiKey}&symbols=${ticker}`;
     const response = await axios.get(url, {
-      timeout: 10000,
-      headers: { 'User-Agent': 'Mozilla/5.0' }
+      timeout: 15000,
+      headers: { 'User-Agent': 'Bank-Analyzer/1.0' }
     });
 
-    const price = response.data?.chart?.result?.[0]?.meta?.regularMarketPrice;
+    // Check for API error
+    if (response.data?.error) {
+      console.warn(`  Warning: Marketstack API error for ${ticker}: ${response.data.error.message}`);
+      return null;
+    }
+
+    // Extract close price from the first data entry
+    const data = response.data?.data?.[0];
+    const price = data?.close;
     return price ? parseFloat(price) : null;
   } catch (error) {
-    console.warn(`  Warning: Could not fetch price for ${ticker}`);
+    console.warn(`  Warning: Could not fetch price for ${ticker}: ${error.message}`);
     return null;
   }
 }
@@ -466,8 +486,9 @@ async function processBank(ticker, index) {
     const companyFacts = await getCompanyFacts(companyInfo.cik);
     console.log(`  ✓ Fetched SEC EDGAR data`);
 
-    // Get current price
-    await delay(100); // Small delay for Yahoo Finance
+    // Get prior close price from Marketstack
+    // Marketstack counts each symbol as 1 API request toward monthly quota
+    await delay(500); // Small delay between price requests
     const currentPrice = await getCurrentPrice(ticker);
     if (currentPrice) {
       console.log(`  ✓ Current price: $${currentPrice.toFixed(2)}`);
