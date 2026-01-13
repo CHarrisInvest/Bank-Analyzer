@@ -167,7 +167,13 @@ function getLatestPointInTimeValue(companyFacts, concept, taxonomy = 'us-gaap') 
 
 /**
  * Get TTM (Trailing Twelve Months) value for period-based items like Net Income, EPS
- * This ensures we always have 12 months of data regardless of filing type
+ * Always starts from the most recent filing period (10-K or 10-Q) to show the most current data.
+ *
+ * Logic:
+ * - If most recent filing is a 10-K: Use it directly (it's already a full year / TTM)
+ * - If most recent filing is a 10-Q: Calculate TTM by summing the last 4 quarters
+ *   - Q1, Q2, Q3 come from 10-Q filings
+ *   - Q4 is derived from: Annual (10-K) value - Q1 - Q2 - Q3 of that fiscal year
  */
 function getTTMValue(companyFacts, concept, taxonomy = 'us-gaap') {
   try {
@@ -177,13 +183,34 @@ function getTTMValue(companyFacts, concept, taxonomy = 'us-gaap') {
     const usdUnits = conceptData.units?.USD;
     if (!usdUnits || usdUnits.length === 0) return null;
 
-    // Check for most recent annual report (10-K)
+    // Get all annual data (10-K filings)
     const annualData = usdUnits
-      .filter(item => item.form === '10-K' && item.val && item.end && item.fy)
+      .filter(item => item.form === '10-K' && item.val !== undefined && item.val !== null && item.end && item.fy)
       .sort((a, b) => new Date(b.end) - new Date(a.end));
 
-    if (annualData.length > 0) {
-      // Most recent 10-K covers full fiscal year (TTM)
+    // Get all quarterly data (10-Q filings with Q1, Q2, Q3 periods)
+    const quarterlyData = usdUnits
+      .filter(item =>
+        item.form === '10-Q' &&
+        item.val !== undefined && item.val !== null &&
+        item.end &&
+        item.fy &&
+        item.fp &&
+        ['Q1', 'Q2', 'Q3'].includes(item.fp) // Only Q1-Q3 from 10-Q filings
+      )
+      .sort((a, b) => new Date(b.end) - new Date(a.end));
+
+    // Determine the most recent filing date
+    const mostRecentAnnualDate = annualData.length > 0 ? new Date(annualData[0].end) : null;
+    const mostRecentQuarterlyDate = quarterlyData.length > 0 ? new Date(quarterlyData[0].end) : null;
+
+    // Case 1: No data at all
+    if (!mostRecentAnnualDate && !mostRecentQuarterlyDate) {
+      return null;
+    }
+
+    // Case 2: Only annual data available, or 10-K is more recent than any 10-Q
+    if (mostRecentAnnualDate && (!mostRecentQuarterlyDate || mostRecentAnnualDate >= mostRecentQuarterlyDate)) {
       return {
         value: annualData[0].val,
         date: annualData[0].end,
@@ -192,48 +219,114 @@ function getTTMValue(companyFacts, concept, taxonomy = 'us-gaap') {
       };
     }
 
-    // If no 10-K, calculate TTM from last 4 quarters
-    const quarterlyData = usdUnits
-      .filter(item =>
-        item.form === '10-Q' &&
-        item.val &&
-        item.end &&
-        item.fy &&
-        item.fp && // Fiscal period (Q1, Q2, Q3, Q4)
-        item.fp.startsWith('Q') // Only quarterly data, not YTD
-      )
+    // Case 3: 10-Q is more recent - calculate TTM from quarters
+    // We need to build a list of all quarters including derived Q4 values
+
+    // Build a map of quarterly values by fiscal year and period
+    const quarterMap = new Map(); // Key: "YYYY-Q#", Value: { value, end, fy, fp, source }
+
+    // Add Q1, Q2, Q3 from 10-Q filings
+    for (const q of quarterlyData) {
+      const key = `${q.fy}-${q.fp}`;
+      if (!quarterMap.has(key)) {
+        quarterMap.set(key, {
+          value: q.val,
+          end: q.end,
+          fy: q.fy,
+          fp: q.fp,
+          source: '10-Q'
+        });
+      }
+    }
+
+    // Derive Q4 values from annual data
+    // Q4 = Annual - Q1 - Q2 - Q3 for the same fiscal year
+    for (const annual of annualData) {
+      const fy = annual.fy;
+      const q1Key = `${fy}-Q1`;
+      const q2Key = `${fy}-Q2`;
+      const q3Key = `${fy}-Q3`;
+      const q4Key = `${fy}-Q4`;
+
+      // Only derive Q4 if we don't already have it and have the annual value
+      if (!quarterMap.has(q4Key)) {
+        const q1 = quarterMap.get(q1Key);
+        const q2 = quarterMap.get(q2Key);
+        const q3 = quarterMap.get(q3Key);
+
+        if (q1 && q2 && q3) {
+          // Derive Q4 from annual minus Q1-Q3
+          const q4Value = annual.val - q1.value - q2.value - q3.value;
+          quarterMap.set(q4Key, {
+            value: q4Value,
+            end: annual.end, // Use annual end date for Q4
+            fy: fy,
+            fp: 'Q4',
+            source: 'derived'
+          });
+        } else {
+          // If we don't have all quarters, use the annual value as Q4 approximation
+          // This handles cases where we might be missing some Q data
+          quarterMap.set(q4Key, {
+            value: annual.val, // Use full annual as placeholder (not ideal but better than nothing)
+            end: annual.end,
+            fy: fy,
+            fp: 'Q4',
+            source: '10-K-fallback'
+          });
+        }
+      }
+    }
+
+    // Convert map to sorted array (most recent first)
+    const allQuarters = Array.from(quarterMap.values())
       .sort((a, b) => new Date(b.end) - new Date(a.end));
 
-    if (quarterlyData.length >= 4) {
-      // Sum last 4 quarters to get TTM
-      const last4Quarters = quarterlyData.slice(0, 4);
-      const ttmValue = last4Quarters.reduce((sum, q) => sum + q.val, 0);
+    if (allQuarters.length >= 4) {
+      // Sum the last 4 quarters to get TTM
+      const last4Quarters = allQuarters.slice(0, 4);
+      const ttmValue = last4Quarters.reduce((sum, q) => sum + q.value, 0);
 
       return {
         value: ttmValue,
-        date: quarterlyData[0].end, // Most recent quarter end date
+        date: last4Quarters[0].end, // Most recent quarter end date
         form: '10-Q',
         method: 'sum-4Q',
         quarters: last4Quarters.map(q => ({
           end: q.end,
           period: q.fp,
-          value: q.val
+          value: q.value,
+          source: q.source
         }))
       };
     }
 
-    // Fallback: Try to get YTD data from most recent 10-Q
-    const ytdData = usdUnits
-      .filter(item => item.form === '10-Q' && item.val && item.end)
-      .sort((a, b) => new Date(b.end) - new Date(a.end));
-
-    if (ytdData.length > 0) {
-      console.warn(`  Warning: Using YTD data for ${concept} (not full TTM)`);
+    // Fallback: If we have the most recent annual data, use it
+    if (annualData.length > 0) {
+      console.warn(`  Warning: Using annual data as fallback for ${concept} (insufficient quarterly data)`);
       return {
-        value: ytdData[0].val,
-        date: ytdData[0].end,
+        value: annualData[0].val,
+        date: annualData[0].end,
+        form: '10-K',
+        method: 'annual-fallback'
+      };
+    }
+
+    // Last resort: Use whatever quarterly data we have
+    if (allQuarters.length > 0) {
+      console.warn(`  Warning: Using partial quarterly data for ${concept} (only ${allQuarters.length} quarters available)`);
+      const partialTTM = allQuarters.reduce((sum, q) => sum + q.value, 0);
+      return {
+        value: partialTTM,
+        date: allQuarters[0].end,
         form: '10-Q',
-        method: 'ytd-fallback'
+        method: `partial-${allQuarters.length}Q`,
+        quarters: allQuarters.map(q => ({
+          end: q.end,
+          period: q.fp,
+          value: q.value,
+          source: q.source
+        }))
       };
     }
 
@@ -271,10 +364,13 @@ function calculateMetrics(companyFacts, currentPrice) {
 
   // Log TTM calculation method for debugging
   if (netIncome?.method) {
-    console.log(`  Net Income: ${netIncome.method} (${netIncome.form})`);
+    console.log(`  Net Income TTM: ${netIncome.method} (${netIncome.form}) as of ${netIncome.date}`);
+    if (netIncome.quarters && netIncome.quarters.length > 0) {
+      console.log(`    Quarters used: ${netIncome.quarters.map(q => `${q.period}(${q.source})`).join(', ')}`);
+    }
   }
   if (eps?.method) {
-    console.log(`  EPS: ${eps.method} (${eps.form})`);
+    console.log(`  EPS TTM: ${eps.method} (${eps.form}) as of ${eps.date}`);
   }
 
   // Calculate derived values
