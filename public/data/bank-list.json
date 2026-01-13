@@ -1,0 +1,527 @@
+{
+  "metadata": {
+    "generatedAt": "2026-01-13T05:00:00.000Z",
+    "source": "SEC EDGAR + SIC Classification",
+    "sicCodes": ["6021", "6022", "6035", "6036", "6712"],
+    "exchangeSources": ["NASDAQ Directory", "NYSE Directory", "OTC Markets"],
+    "statistics": {
+      "total": 50,
+      "withoutTickers": 0,
+      "byExchange": {
+        "NYSE": 20,
+        "NASDAQ": 25,
+        "OTC": 5
+      },
+      "bySic": {
+        "6021": 15,
+        "6022": 10,
+        "6035": 5,
+        "6036": 5,
+        "6712": 15
+      }
+    },
+    "note": "This is sample data. Run 'npm run discover-banks' to fetch real SEC EDGAR data."
+  },
+  "banks": [
+    {
+      "cik": "0000019617",
+      "companyName": "JPMORGAN CHASE & CO",
+      "ticker": "JPM",
+      "sic": "6021",
+      "sicDescription": "National Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000070858",
+      "companyName": "BANK OF AMERICA CORP /DE/",
+      "ticker": "BAC",
+      "sic": "6021",
+      "sicDescription": "National Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000072971",
+      "companyName": "WELLS FARGO & COMPANY/MN",
+      "ticker": "WFC",
+      "sic": "6021",
+      "sicDescription": "National Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000831001",
+      "companyName": "CITIGROUP INC",
+      "ticker": "C",
+      "sic": "6021",
+      "sicDescription": "National Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000036104",
+      "companyName": "U.S. BANCORP \\DE\\",
+      "ticker": "USB",
+      "sic": "6021",
+      "sicDescription": "National Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000713676",
+      "companyName": "PNC FINANCIAL SERVICES GROUP, INC.",
+      "ticker": "PNC",
+      "sic": "6021",
+      "sicDescription": "National Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000092230",
+      "companyName": "TRUIST FINANCIAL CORPORATION",
+      "ticker": "TFC",
+      "sic": "6712",
+      "sicDescription": "Bank Holding Companies",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001281761",
+      "companyName": "REGIONS FINANCIAL CORP",
+      "ticker": "RF",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000759944",
+      "companyName": "CITIZENS FINANCIAL GROUP, INC.",
+      "ticker": "CFG",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000091576",
+      "companyName": "KEYCORP",
+      "ticker": "KEY",
+      "sic": "6021",
+      "sicDescription": "National Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000035527",
+      "companyName": "FIFTH THIRD BANCORP",
+      "ticker": "FITB",
+      "sic": "6712",
+      "sicDescription": "Bank Holding Companies",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000049196",
+      "companyName": "HUNTINGTON BANCSHARES INC/MD",
+      "ticker": "HBAN",
+      "sic": "6712",
+      "sicDescription": "Bank Holding Companies",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000036270",
+      "companyName": "M&T BANK CORP",
+      "ticker": "MTB",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000109380",
+      "companyName": "ZIONS BANCORPORATION, N.A.",
+      "ticker": "ZION",
+      "sic": "6021",
+      "sicDescription": "National Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001069183",
+      "companyName": "EAST WEST BANCORP INC",
+      "ticker": "EWBC",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001102266",
+      "companyName": "WESTERN ALLIANCE BANCORPORATION",
+      "ticker": "WAL",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000101844",
+      "companyName": "UMB FINANCIAL CORP",
+      "ticker": "UMBF",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000811589",
+      "companyName": "OLD NATIONAL BANCORP /IN/",
+      "ticker": "ONB",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001169770",
+      "companyName": "BANNER BANK",
+      "ticker": "BANR",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000861842",
+      "companyName": "CATHAY GENERAL BANCORP",
+      "ticker": "CATY",
+      "sic": "6712",
+      "sicDescription": "Bank Holding Companies",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001001171",
+      "companyName": "CVB FINANCIAL CORP",
+      "ticker": "CVBF",
+      "sic": "6712",
+      "sicDescription": "Bank Holding Companies",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000894163",
+      "companyName": "HEARTLAND FINANCIAL USA, INC.",
+      "ticker": "HTLF",
+      "sic": "6712",
+      "sicDescription": "Bank Holding Companies",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001069974",
+      "companyName": "INTERNATIONAL BANCSHARES CORP",
+      "ticker": "IBOC",
+      "sic": "6712",
+      "sicDescription": "Bank Holding Companies",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001026175",
+      "companyName": "TOWNEBANK",
+      "ticker": "TOWN",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000835324",
+      "companyName": "FIRST FINANCIAL NORTHWEST, INC.",
+      "ticker": "FFNW",
+      "sic": "6035",
+      "sicDescription": "Savings Institutions, Federally Chartered",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001027518",
+      "companyName": "WASHINGTON BANKING CO",
+      "ticker": "WASH",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000858655",
+      "companyName": "COMMERCE BANCSHARES INC /MO/",
+      "ticker": "CBSH",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001015780",
+      "companyName": "GLACIER BANCORP INC",
+      "ticker": "GBCI",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000798941",
+      "companyName": "COLUMBIA BANKING SYSTEM INC",
+      "ticker": "COLB",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000764038",
+      "companyName": "SOUTH STATE CORP",
+      "ticker": "SSB",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000914208",
+      "companyName": "FIRST INTERSTATE BANCSYSTEM INC",
+      "ticker": "FIBK",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000759221",
+      "companyName": "SANDY SPRING BANCORP INC",
+      "ticker": "SASR",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001171759",
+      "companyName": "TEXAS CAPITAL BANCSHARES INC/TX",
+      "ticker": "TCBI",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000875357",
+      "companyName": "BROOKLINE BANCORP INC",
+      "ticker": "BRKL",
+      "sic": "6035",
+      "sicDescription": "Savings Institutions, Federally Chartered",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000921082",
+      "companyName": "TRIUMPH FINANCIAL, INC.",
+      "ticker": "TFIN",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000749907",
+      "companyName": "CUSTOMERS BANCORP INC",
+      "ticker": "CUBI",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001018399",
+      "companyName": "PREMIER FINANCIAL CORP",
+      "ticker": "PFC",
+      "sic": "6035",
+      "sicDescription": "Savings Institutions, Federally Chartered",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000740971",
+      "companyName": "BERKSHIRE HILLS BANCORP INC",
+      "ticker": "BHLB",
+      "sic": "6035",
+      "sicDescription": "Savings Institutions, Federally Chartered",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001114139",
+      "companyName": "VERITEX HOLDINGS INC",
+      "ticker": "VBTX",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000868822",
+      "companyName": "FIRST BUSEY CORP",
+      "ticker": "BUSE",
+      "sic": "6712",
+      "sicDescription": "Bank Holding Companies",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001115063",
+      "companyName": "MIDWESTONE FINANCIAL GROUP INC",
+      "ticker": "MOFG",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001058290",
+      "companyName": "CONNECTONE BANCORP INC",
+      "ticker": "CNOB",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000934651",
+      "companyName": "WASHINGTON TRUST BANCORP INC",
+      "ticker": "WASH",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000946486",
+      "companyName": "BANK OZK",
+      "ticker": "OZK",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000914988",
+      "companyName": "STERLING BANCORP INC",
+      "ticker": "SBT",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "OTC",
+      "otcTier": "OTCQX",
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001001258",
+      "companyName": "CROSSFIRST BANKSHARES INC",
+      "ticker": "CFB",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NASDAQ",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000310522",
+      "companyName": "FIRST BANCORP /PR/",
+      "ticker": "FBP",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001547903",
+      "companyName": "BANC OF CALIFORNIA, INC.",
+      "ticker": "BANC",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0001501585",
+      "companyName": "LIVE OAK BANCSHARES, INC.",
+      "ticker": "LOB",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    },
+    {
+      "cik": "0000730121",
+      "companyName": "ATLANTIC UNION BANKSHARES CORP",
+      "ticker": "AUB",
+      "sic": "6022",
+      "sicDescription": "State Commercial Banks",
+      "exchange": "NYSE",
+      "otcTier": null,
+      "lastUpdated": "2026-01-13T05:00:00.000Z"
+    }
+  ]
+}

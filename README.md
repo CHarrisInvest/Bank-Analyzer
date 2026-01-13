@@ -305,18 +305,60 @@ If you want to continue using Google Sheets:
 1. Keep the old data fetching code
 2. Comment out the backend API configuration
 
-## Data Sources
+## Data Sources & Bank Discovery
 
-### Current: SEC EDGAR API (Recommended)
-- **Source**: Official SEC EDGAR database
-- **Frequency**: Daily automatic refresh (2 AM)
-- **Pros**: Real SEC filing data, automated updates, historical tracking
-- **Cons**: Requires PostgreSQL database and backend server
+### Bank List Generation (SEC EDGAR + SIC)
 
-### Legacy: Google Sheets (Deprecated)
-- Previous implementation used published Google Sheets
-- Replaced by SEC EDGAR integration for production use
-- Provides real-time SEC filing data instead of manual spreadsheet updates
+The bank list is **automatically generated** from SEC EDGAR using SIC (Standard Industrial Classification) codes. This replaces any hardcoded ticker lists.
+
+**SIC Codes for Banks:**
+| SIC Code | Description |
+|----------|-------------|
+| 6021 | National Commercial Banks |
+| 6022 | State Commercial Banks |
+| 6035 | Savings Institutions, Federally Chartered |
+| 6036 | Savings Institutions, Not Federally Chartered |
+| 6712 | Bank Holding Companies |
+
+**How it works:**
+1. `scripts/discover-banks.cjs` queries SEC EDGAR for all companies with bank SIC codes
+2. For each company, it resolves ticker symbols via SEC's ticker-to-CIK mapping
+3. Exchange information is determined by checking:
+   - NASDAQ Symbol Directory (includes NYSE, NASDAQ, AMEX)
+   - OTC Markets Directory (OTCQX, OTCQB, Pink Sheets)
+4. Results are saved to `public/data/bank-list.json` and `public/data/bank-list.csv`
+
+**Exchange Assignment Rules:**
+1. If ticker is found in NASDAQ directory → use directory's exchange (NYSE/NASDAQ)
+2. Else if found in OTC Markets → assign OTC with tier info
+3. Else → assign "N/A" (may be delisted or private)
+
+**Running the Discovery:**
+```bash
+npm run discover-banks  # Generate bank list from SEC EDGAR
+npm run fetch-data      # Fetch financial data for discovered banks
+npm run refresh-all     # Run both in sequence
+```
+
+### Financial Data: SEC EDGAR API
+- **Source**: Official SEC EDGAR XBRL API
+- **Frequency**: Daily automatic refresh (2 AM UTC)
+- **Data**: Balance sheet, income statement, shares outstanding
+- **Metrics**: TTM (Trailing Twelve Months) calculations for income-based metrics
+
+### Stock Prices: Marketstack API
+- Requires `MARKETSTACK_API_KEY` environment variable
+- Fetches prior close prices for Graham Number calculations
+
+### Why Some Banks Show Exchange = "N/A"
+
+Some banks identified via SIC codes may show `Exchange = "N/A"` because:
+- The company is **delisted** (no longer publicly traded)
+- The ticker is **not found** in exchange directories (data lag)
+- The company trades on an **unlisted exchange** not covered by our directories
+- The company is **private** (files with SEC but has no public shares)
+
+These entries are included for completeness but may have limited trading data.
 
 ## Project Structure
 
