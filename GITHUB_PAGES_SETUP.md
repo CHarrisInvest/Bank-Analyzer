@@ -36,9 +36,11 @@ Calculates metrics        Auto-deploys              Real-time screener
    - **Source:** GitHub Actions
    - (That's it! No branch selection needed)
 
-### Step 2: Set SEC User-Agent Secret (1 minute)
+### Step 2: Set Repository Secrets (2 minutes)
 
-GitHub Actions needs your contact info for SEC API access:
+GitHub Actions needs API credentials for SEC and stock price data:
+
+#### Secret 1: SEC User-Agent
 
 1. Go to **Settings** → **Secrets and variables** → **Actions**
 2. Click **New repository secret**
@@ -50,6 +52,16 @@ GitHub Actions needs your contact info for SEC API access:
 ```
 Acme Investments info@acme.com
 ```
+
+#### Secret 2: Alpha Vantage API Key (for stock prices)
+
+1. Get a free API key from [Alpha Vantage](https://www.alphavantage.co/support/#api-key)
+2. Click **New repository secret**
+3. Name: `ALPHA_VANTAGE_API_KEY`
+4. Value: Your API key (e.g., `ABC123XYZ`)
+5. Click **Add secret**
+
+**Note:** The free tier allows 25 API requests/day (sufficient for ~25 banks). For commercial use or more banks, you'll need a [paid plan](https://www.alphavantage.co/premium/) ($49.99+/month). Alpha Vantage is a NASDAQ-licensed data provider, making it suitable for commercial applications.
 
 ### Step 3: Trigger Initial Data Load (1 minute)
 
@@ -200,10 +212,10 @@ Edit `scripts/fetch-sec-data.cjs` in the `calculateMetrics` function to add cust
 ### Change Data Source
 
 The script fetches from:
-- **SEC EDGAR API** - Financial metrics
-- **Yahoo Finance** - Stock prices
+- **SEC EDGAR API** - Financial metrics (free, no API key required)
+- **Alpha Vantage** - Stock prices (requires free API key, NASDAQ-licensed)
 
-Both are free and don't require API keys.
+**Important:** Alpha Vantage is a NASDAQ-licensed data provider, making it suitable for commercial use. The free tier is for testing/personal use. For commercial applications, obtain a [commercial license](https://www.alphavantage.co/premium/).
 
 ---
 
@@ -218,6 +230,16 @@ Both are free and don't require API keys.
 2. Check `EDGAR_USER_AGENT` secret
 3. Must be: `"CompanyName email@example.com"`
 4. Update and rerun workflow
+
+### "Stock prices showing null"
+
+**Problem:** Alpha Vantage API key missing or rate limit exceeded
+
+**Solution:**
+1. Ensure `ALPHA_VANTAGE_API_KEY` secret is set in repository settings
+2. Free tier limit: 25 requests/day, 5 requests/minute
+3. If you have more than 25 banks, consider a [paid plan](https://www.alphavantage.co/premium/)
+4. Wait 24 hours if daily limit reached, or upgrade to higher tier
 
 ### "No data appearing on site"
 
@@ -253,12 +275,15 @@ Both are free and don't require API keys.
 | GitHub Actions | **Free** (2,000 minutes/month) |
 | GitHub Pages | **Free** (100 GB bandwidth/month) |
 | SEC EDGAR API | **Free** (no limits) |
-| Yahoo Finance | **Free** (no API key needed) |
-| **Total** | **$0/month** |
+| Alpha Vantage | **Free tier** (25 req/day) or **$49.99+/mo** for commercial |
+| **Total** | **$0/month** (testing) or **$49.99+/mo** (commercial) |
 
 **Usage:**
-- Data refresh: ~10 minutes/day = 300 min/month (well under limit)
+- Data refresh: ~15 minutes/day = 450 min/month (well under limit)
 - Pages bandwidth: Typical usage < 1 GB/month
+- Alpha Vantage: 25 banks/day on free tier (sufficient for included bank list)
+
+**Note for Commercial Use:** Alpha Vantage is NASDAQ-licensed, making it appropriate for commercial applications. Contact Alpha Vantage for commercial licensing.
 
 ---
 

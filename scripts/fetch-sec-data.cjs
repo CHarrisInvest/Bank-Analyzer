@@ -30,20 +30,37 @@ let tickerToCikMap = null;
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 /**
- * Get current stock price from Yahoo Finance
+ * Get current stock price from Alpha Vantage
+ * Requires ALPHA_VANTAGE_API_KEY environment variable
+ * Free tier: 25 requests/day - sufficient for daily bank updates
+ * For commercial use, obtain a proper license from https://www.alphavantage.co/
  */
 async function getCurrentPrice(ticker) {
+  const apiKey = process.env.ALPHA_VANTAGE_API_KEY;
+
+  if (!apiKey) {
+    console.warn(`  Warning: ALPHA_VANTAGE_API_KEY not set, skipping price fetch for ${ticker}`);
+    return null;
+  }
+
   try {
-    const url = `https://query2.finance.yahoo.com/v8/finance/chart/${ticker}`;
+    // Using Alpha Vantage Global Quote endpoint for latest price
+    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${ticker}&apikey=${apiKey}`;
     const response = await axios.get(url, {
-      timeout: 10000,
-      headers: { 'User-Agent': 'Mozilla/5.0' }
+      timeout: 15000,
+      headers: { 'User-Agent': 'Bank-Analyzer/1.0' }
     });
 
-    const price = response.data?.chart?.result?.[0]?.meta?.regularMarketPrice;
+    // Check for API limit message
+    if (response.data?.Note || response.data?.Information) {
+      console.warn(`  Warning: Alpha Vantage API limit reached for ${ticker}`);
+      return null;
+    }
+
+    const price = response.data?.['Global Quote']?.['05. price'];
     return price ? parseFloat(price) : null;
   } catch (error) {
-    console.warn(`  Warning: Could not fetch price for ${ticker}`);
+    console.warn(`  Warning: Could not fetch price for ${ticker}: ${error.message}`);
     return null;
   }
 }
@@ -466,8 +483,9 @@ async function processBank(ticker, index) {
     const companyFacts = await getCompanyFacts(companyInfo.cik);
     console.log(`  ✓ Fetched SEC EDGAR data`);
 
-    // Get current price
-    await delay(100); // Small delay for Yahoo Finance
+    // Get current price from Alpha Vantage
+    // Alpha Vantage free tier: 5 requests/minute, so 12+ seconds between requests
+    await delay(13000); // 13 second delay between price requests
     const currentPrice = await getCurrentPrice(ticker);
     if (currentPrice) {
       console.log(`  ✓ Current price: $${currentPrice.toFixed(2)}`);

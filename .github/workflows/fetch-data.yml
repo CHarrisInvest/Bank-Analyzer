@@ -47,6 +47,10 @@ jobs:
         env:
           # SEC requires User-Agent with contact info
           EDGAR_USER_AGENT: ${{ secrets.EDGAR_USER_AGENT || 'Bank-Analyzer github-actions@example.com' }}
+          # Alpha Vantage API key for stock prices (NASDAQ-licensed data provider)
+          # Get free key at: https://www.alphavantage.co/support/#api-key
+          # For commercial use, obtain a license: https://www.alphavantage.co/premium/
+          ALPHA_VANTAGE_API_KEY: ${{ secrets.ALPHA_VANTAGE_API_KEY }}
 
       - name: Check for changes
         id: git-check

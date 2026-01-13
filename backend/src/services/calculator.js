@@ -6,27 +6,42 @@ const axios = require('axios');
  */
 class MetricsCalculator {
   /**
-   * Get current stock price from Yahoo Finance (free alternative)
+   * Get current stock price from Alpha Vantage (NASDAQ-licensed data provider)
+   * Requires ALPHA_VANTAGE_API_KEY environment variable
+   * For commercial use, obtain a proper license from https://www.alphavantage.co/
    * @param {string} ticker - Stock ticker symbol
    * @returns {Promise<number>} Current stock price
    */
   async getCurrentPrice(ticker) {
+    const apiKey = process.env.ALPHA_VANTAGE_API_KEY;
+
+    if (!apiKey) {
+      console.warn(`ALPHA_VANTAGE_API_KEY not set, skipping price fetch for ${ticker}`);
+      return null;
+    }
+
     try {
-      // Using Yahoo Finance API (via query2.finance.yahoo.com)
-      const url = `https://query2.finance.yahoo.com/v8/finance/chart/${ticker}`;
+      // Using Alpha Vantage Global Quote endpoint for latest price
+      const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${ticker}&apikey=${apiKey}`;
       const response = await axios.get(url, {
-        timeout: 10000,
+        timeout: 15000,
         headers: {
-          'User-Agent': 'Mozilla/5.0'
+          'User-Agent': 'Bank-Analyzer/1.0'
         }
       });
 
-      const quote = response.data?.chart?.result?.[0]?.meta?.regularMarketPrice;
-      if (!quote) {
+      // Check for API limit message
+      if (response.data?.Note || response.data?.Information) {
+        console.warn(`Alpha Vantage API limit reached for ${ticker}`);
+        return null;
+      }
+
+      const price = response.data?.['Global Quote']?.['05. price'];
+      if (!price) {
         throw new Error('Price not found in response');
       }
 
-      return parseFloat(quote);
+      return parseFloat(price);
     } catch (error) {
       console.error(`Error fetching price for ${ticker}:`, error.message);
       // Return null to indicate price fetch failed

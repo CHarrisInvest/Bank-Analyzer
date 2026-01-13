@@ -20,7 +20,7 @@ A comprehensive bank screening tool with SEC EDGAR data integration. Analyze pub
 
 - **Real SEC Filing Data**: Direct integration with SEC EDGAR API for official financial data
 - **Automated Metrics**: Calculates Graham Number, ROE, ROTA, P/E, and more
-- **Real-time Pricing**: Fetches current stock prices from Yahoo Finance
+- **Stock Pricing**: Fetches current stock prices from Alpha Vantage (NASDAQ-licensed data provider)
 - **Advanced Filtering**: Screen banks by multiple criteria
 - **Historical Tracking**: Store and track metrics over time (backend only)
 - **Daily Updates**: Automated daily data refresh via GitHub Actions
