@@ -214,6 +214,54 @@ function getLatestPointInTimeValue(companyFacts, concept, taxonomy = 'us-gaap') 
 }
 
 /**
+ * Get latest two point-in-time values for calculating averages (e.g., average assets)
+ * Returns current and prior period values
+ */
+function getLatestTwoPointInTimeValues(companyFacts, concept, taxonomy = 'us-gaap') {
+  try {
+    const conceptData = companyFacts.facts?.[taxonomy]?.[concept];
+    if (!conceptData) return null;
+
+    const usdUnits = conceptData.units?.USD;
+    if (!usdUnits || usdUnits.length === 0) return null;
+
+    // Get all values sorted by date (most recent first)
+    const allData = usdUnits
+      .filter(item => (item.form === '10-K' || item.form === '10-Q') && item.val && item.end)
+      .sort((a, b) => new Date(b.end) - new Date(a.end));
+
+    if (allData.length >= 2) {
+      return {
+        current: {
+          value: allData[0].val,
+          date: allData[0].end,
+          form: allData[0].form
+        },
+        prior: {
+          value: allData[1].val,
+          date: allData[1].end,
+          form: allData[1].form
+        }
+      };
+    } else if (allData.length === 1) {
+      // Only one value available, use it for both (average = current)
+      return {
+        current: {
+          value: allData[0].val,
+          date: allData[0].end,
+          form: allData[0].form
+        },
+        prior: null
+      };
+    }
+
+    return null;
+  } catch (error) {
+    return null;
+  }
+}
+
+/**
  * Get TTM (Trailing Twelve Months) value for period-based items like Net Income, EPS
  * Always starts from the most recent filing period (10-K or 10-Q) to show the most current data.
  *
@@ -397,6 +445,13 @@ function calculateMetrics(companyFacts, currentPrice) {
   const goodwill = getLatestPointInTimeValue(companyFacts, 'Goodwill');
   const intangibleAssets = getLatestPointInTimeValue(companyFacts, 'IntangibleAssetsNetExcludingGoodwill');
 
+  // Preferred stock for tangible common equity calculation
+  const preferredStock = getLatestPointInTimeValue(companyFacts, 'PreferredStockValue') ||
+                         getLatestPointInTimeValue(companyFacts, 'PreferredStockValueOutstanding');
+
+  // Get two periods of assets for average assets calculation (ROAA)
+  const assetsForAverage = getLatestTwoPointInTimeValues(companyFacts, 'Assets');
+
   // Income statement items (period-based) - use TTM
   const netIncome = getTTMValue(companyFacts, 'NetIncomeLoss') ||
                     getTTMValue(companyFacts, 'ProfitLoss') ||
@@ -425,6 +480,19 @@ function calculateMetrics(companyFacts, currentPrice) {
   const tangibleBookValue = totalEquity?.value ?
     totalEquity.value - (goodwill?.value || 0) - (intangibleAssets?.value || 0) : null;
 
+  // Tangible Common Equity = Total Equity - Preferred Stock - Goodwill - Intangible Assets
+  const tangibleCommonEquity = totalEquity?.value ?
+    totalEquity.value - (preferredStock?.value || 0) - (goodwill?.value || 0) - (intangibleAssets?.value || 0) : null;
+
+  // Tangible Assets = Total Assets - Goodwill - Intangible Assets
+  const tangibleAssets = totalAssets?.value ?
+    totalAssets.value - (goodwill?.value || 0) - (intangibleAssets?.value || 0) : null;
+
+  // Average Assets for ROAA calculation
+  const averageAssets = assetsForAverage?.current?.value && assetsForAverage?.prior?.value ?
+    (assetsForAverage.current.value + assetsForAverage.prior.value) / 2 :
+    (assetsForAverage?.current?.value || null);
+
   const marketCap = currentPrice && sharesOutstanding?.value ?
     currentPrice * sharesOutstanding.value : null;
 
@@ -447,11 +515,22 @@ function calculateMetrics(companyFacts, currentPrice) {
   const niTBV = netIncome?.value && tangibleBookValue && tangibleBookValue > 0 ?
     netIncome.value / tangibleBookValue : null;
 
+  // ROE = Net Income / Total Equity
   const roe = netIncome?.value && totalEquity?.value && totalEquity.value > 0 ?
     (netIncome.value / totalEquity.value) * 100 : null;
 
-  const rota = netIncome?.value && totalAssets?.value && totalAssets.value > 0 ?
-    (netIncome.value / totalAssets.value) * 100 : null;
+  // Return on Tangible Assets = Net Income / Tangible Assets
+  // (Tangible Assets = Total Assets - Goodwill - Intangible Assets)
+  const rota = netIncome?.value && tangibleAssets && tangibleAssets > 0 ?
+    (netIncome.value / tangibleAssets) * 100 : null;
+
+  // Return on Average Assets (ROAA) = Net Income / Average Total Assets
+  const roaa = netIncome?.value && averageAssets && averageAssets > 0 ?
+    (netIncome.value / averageAssets) * 100 : null;
+
+  // Return on Tangible Common Equity (ROTCE) = Net Income / Tangible Common Equity
+  const rotce = netIncome?.value && tangibleCommonEquity && tangibleCommonEquity > 0 ?
+    (netIncome.value / tangibleCommonEquity) * 100 : null;
 
   // Graham metrics
   const grahamNumber = eps?.value && bookValuePerShare && eps.value > 0 && bookValuePerShare > 0 ?
@@ -472,6 +551,10 @@ function calculateMetrics(companyFacts, currentPrice) {
     niTBV: niTBV ? parseFloat(niTBV.toFixed(4)) : null,
     roe: roe ? parseFloat(roe.toFixed(4)) : null,
     rota: rota ? parseFloat(rota.toFixed(4)) : null,
+    roaa: roaa ? parseFloat(roaa.toFixed(4)) : null,
+    rotce: rotce ? parseFloat(rotce.toFixed(4)) : null,
+    bvps: bookValuePerShare ? parseFloat(bookValuePerShare.toFixed(4)) : null,
+    tbvps: tangibleBookValuePerShare ? parseFloat(tangibleBookValuePerShare.toFixed(4)) : null,
     grahamNum: grahamNumber ? parseFloat(grahamNumber.toFixed(4)) : null,
     grahamMoS: grahamMoS ? parseFloat(grahamMoS.toFixed(4)) : null,
     grahamMoSPct: grahamMoSPct ? parseFloat(grahamMoSPct.toFixed(4)) : null,

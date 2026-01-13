@@ -56,6 +56,20 @@ const COLUMNS = [
     format: (value) => formatNumber(value, { decimals: 2 }),
   },
   {
+    key: 'bvps',
+    label: 'BVPS',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+  },
+  {
+    key: 'tbvps',
+    label: 'TBVPS',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+  },
+  {
     key: 'roe',
     label: 'RoE',
     sortable: true,
@@ -63,11 +77,25 @@ const COLUMNS = [
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
   },
   {
+    key: 'roaa',
+    label: 'ROAA',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
+  },
+  {
     key: 'rota',
     label: 'RoTA',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
+  },
+  {
+    key: 'rotce',
+    label: 'ROTCE',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
   },
   {
     key: 'grahamNum',
@@ -192,6 +220,21 @@ function ResultsTable({ banks, loading }) {
     // Add value-based classes for specific columns
     if (column.key === 'roe' && typeof value === 'number') {
       if (value >= 10) classes.push('value-positive');
+      else if (value < 0) classes.push('value-negative');
+    }
+
+    if (column.key === 'rotce' && typeof value === 'number') {
+      if (value >= 12) classes.push('value-positive');
+      else if (value < 0) classes.push('value-negative');
+    }
+
+    if (column.key === 'roaa' && typeof value === 'number') {
+      if (value >= 1) classes.push('value-positive');
+      else if (value < 0) classes.push('value-negative');
+    }
+
+    if (column.key === 'rota' && typeof value === 'number') {
+      if (value >= 1) classes.push('value-positive');
       else if (value < 0) classes.push('value-negative');
     }
 

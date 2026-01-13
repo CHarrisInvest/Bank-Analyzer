@@ -8,8 +8,13 @@ import { getUniqueExchanges } from '../data/sheets.js';
  */
 const DEFAULT_FILTERS = {
   roe: { min: '', max: '' },
+  roaa: { min: '', max: '' },
+  rota: { min: '', max: '' },
+  rotce: { min: '', max: '' },
   pni: { min: '', max: '' },
   ptbvps: { min: '', max: '' },
+  bvps: { min: '', max: '' },
+  tbvps: { min: '', max: '' },
   marketCap: { min: '', max: '' },
   grahamMoS: '',
   exchanges: [],
@@ -47,6 +52,30 @@ function Screener({ banks, loading }) {
         return false;
       }
 
+      // ROAA filter (Return on Average Assets)
+      if (filters.roaa.min !== '' && (bank.roaa === null || bank.roaa < filters.roaa.min)) {
+        return false;
+      }
+      if (filters.roaa.max !== '' && (bank.roaa === null || bank.roaa > filters.roaa.max)) {
+        return false;
+      }
+
+      // RoTA filter (Return on Tangible Assets)
+      if (filters.rota.min !== '' && (bank.rota === null || bank.rota < filters.rota.min)) {
+        return false;
+      }
+      if (filters.rota.max !== '' && (bank.rota === null || bank.rota > filters.rota.max)) {
+        return false;
+      }
+
+      // ROTCE filter (Return on Tangible Common Equity)
+      if (filters.rotce.min !== '' && (bank.rotce === null || bank.rotce < filters.rotce.min)) {
+        return false;
+      }
+      if (filters.rotce.max !== '' && (bank.rotce === null || bank.rotce > filters.rotce.max)) {
+        return false;
+      }
+
       // P/NI filter
       if (filters.pni.min !== '' && (bank.pni === null || bank.pni < filters.pni.min)) {
         return false;
@@ -60,6 +89,22 @@ function Screener({ banks, loading }) {
         return false;
       }
       if (filters.ptbvps.max !== '' && (bank.ptbvps === null || bank.ptbvps > filters.ptbvps.max)) {
+        return false;
+      }
+
+      // BVPS filter (Book Value per Share)
+      if (filters.bvps.min !== '' && (bank.bvps === null || bank.bvps < filters.bvps.min)) {
+        return false;
+      }
+      if (filters.bvps.max !== '' && (bank.bvps === null || bank.bvps > filters.bvps.max)) {
+        return false;
+      }
+
+      // TBVPS filter (Tangible Book Value per Share)
+      if (filters.tbvps.min !== '' && (bank.tbvps === null || bank.tbvps < filters.tbvps.min)) {
+        return false;
+      }
+      if (filters.tbvps.max !== '' && (bank.tbvps === null || bank.tbvps > filters.tbvps.max)) {
         return false;
       }
 
@@ -119,10 +164,20 @@ function Screener({ banks, loading }) {
     return (
       filters.roe.min !== '' ||
       filters.roe.max !== '' ||
+      filters.roaa.min !== '' ||
+      filters.roaa.max !== '' ||
+      filters.rota.min !== '' ||
+      filters.rota.max !== '' ||
+      filters.rotce.min !== '' ||
+      filters.rotce.max !== '' ||
       filters.pni.min !== '' ||
       filters.pni.max !== '' ||
       filters.ptbvps.min !== '' ||
       filters.ptbvps.max !== '' ||
+      filters.bvps.min !== '' ||
+      filters.bvps.max !== '' ||
+      filters.tbvps.min !== '' ||
+      filters.tbvps.max !== '' ||
       filters.marketCap.min !== '' ||
       filters.marketCap.max !== '' ||
       filters.grahamMoS !== '' ||
