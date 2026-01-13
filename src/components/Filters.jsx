@@ -198,12 +198,66 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             unit="%"
           />
 
+          <RangeFilter
+            label="ROAA"
+            minValue={filters.roaa?.min ?? ''}
+            maxValue={filters.roaa?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('roaa')}
+            unit="%"
+          />
+
+          <RangeFilter
+            label="RoTA"
+            minValue={filters.rota?.min ?? ''}
+            maxValue={filters.rota?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('rota')}
+            unit="%"
+          />
+
+          <RangeFilter
+            label="ROTCE"
+            minValue={filters.rotce?.min ?? ''}
+            maxValue={filters.rotce?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('rotce')}
+            unit="%"
+          />
+
           <MinFilter
             label="Graham Margin of Safety"
             value={filters.grahamMoS ?? ''}
             placeholder="Min %"
             onChange={handleSingleChange('grahamMoS')}
             unit="%"
+          />
+        </div>
+
+        <div className="filters-section">
+          <h3 className="filters-section-title">Book Value</h3>
+
+          <RangeFilter
+            label="BVPS"
+            minValue={filters.bvps?.min ?? ''}
+            maxValue={filters.bvps?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('bvps')}
+            unit="$"
+          />
+
+          <RangeFilter
+            label="TBVPS"
+            minValue={filters.tbvps?.min ?? ''}
+            maxValue={filters.tbvps?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('tbvps')}
+            unit="$"
           />
         </div>
 

@@ -140,15 +140,68 @@ class MetricsCalculator {
   }
 
   /**
-   * Calculate Return on Total Assets (ROTA)
-   * ROTA = (Net Income / Total Assets) × 100
+   * Calculate Return on Tangible Assets (RoTA)
+   * RoTA = (Net Income / Tangible Assets) × 100
+   * Tangible Assets = Total Assets - Goodwill - Intangible Assets
    * @param {number} netIncome
-   * @param {number} totalAssets
-   * @returns {number} ROTA as percentage
+   * @param {number} tangibleAssets
+   * @returns {number} RoTA as percentage
    */
-  calculateROTA(netIncome, totalAssets) {
-    if (!netIncome || !totalAssets || totalAssets <= 0) return null;
-    return (netIncome / totalAssets) * 100;
+  calculateROTA(netIncome, tangibleAssets) {
+    if (!netIncome || !tangibleAssets || tangibleAssets <= 0) return null;
+    return (netIncome / tangibleAssets) * 100;
+  }
+
+  /**
+   * Calculate Return on Average Assets (ROAA)
+   * ROAA = (Net Income / Average Total Assets) × 100
+   * @param {number} netIncome
+   * @param {number} averageAssets - Average of beginning and ending total assets
+   * @returns {number} ROAA as percentage
+   */
+  calculateROAA(netIncome, averageAssets) {
+    if (!netIncome || !averageAssets || averageAssets <= 0) return null;
+    return (netIncome / averageAssets) * 100;
+  }
+
+  /**
+   * Calculate Return on Tangible Common Equity (ROTCE)
+   * ROTCE = (Net Income / Tangible Common Equity) × 100
+   * Tangible Common Equity = Total Equity - Preferred Stock - Goodwill - Intangible Assets
+   * @param {number} netIncome
+   * @param {number} tangibleCommonEquity
+   * @returns {number} ROTCE as percentage
+   */
+  calculateROTCE(netIncome, tangibleCommonEquity) {
+    if (!netIncome || !tangibleCommonEquity || tangibleCommonEquity <= 0) return null;
+    return (netIncome / tangibleCommonEquity) * 100;
+  }
+
+  /**
+   * Calculate Tangible Assets
+   * Tangible Assets = Total Assets - Goodwill - Intangible Assets
+   * @param {number} totalAssets
+   * @param {number} goodwill
+   * @param {number} intangibleAssets
+   * @returns {number}
+   */
+  calculateTangibleAssets(totalAssets, goodwill = 0, intangibleAssets = 0) {
+    if (!totalAssets) return null;
+    return totalAssets - goodwill - intangibleAssets;
+  }
+
+  /**
+   * Calculate Tangible Common Equity
+   * TCE = Total Equity - Preferred Stock - Goodwill - Intangible Assets
+   * @param {number} totalEquity
+   * @param {number} preferredStock
+   * @param {number} goodwill
+   * @param {number} intangibleAssets
+   * @returns {number}
+   */
+  calculateTangibleCommonEquity(totalEquity, preferredStock = 0, goodwill = 0, intangibleAssets = 0) {
+    if (!totalEquity) return null;
+    return totalEquity - preferredStock - goodwill - intangibleAssets;
   }
 
   /**
@@ -202,9 +255,14 @@ class MetricsCalculator {
     const eps = edgarMetrics.eps?.value || null;
     const goodwill = edgarMetrics.goodwill?.value || 0;
     const intangibleAssets = edgarMetrics.intangibleAssets?.value || 0;
+    const preferredStock = edgarMetrics.preferredStock?.value || 0;
+    const priorTotalAssets = edgarMetrics.priorTotalAssets?.value || totalAssets;
 
     // Calculate derived values
     const tangibleBookValue = totalEquity ? this.calculateTangibleBookValue(totalEquity, goodwill, intangibleAssets) : null;
+    const tangibleAssets = this.calculateTangibleAssets(totalAssets, goodwill, intangibleAssets);
+    const tangibleCommonEquity = this.calculateTangibleCommonEquity(totalEquity, preferredStock, goodwill, intangibleAssets);
+    const averageAssets = totalAssets && priorTotalAssets ? (totalAssets + priorTotalAssets) / 2 : totalAssets;
     const marketCap = currentPrice && sharesOutstanding ? this.calculateMarketCap(currentPrice, sharesOutstanding) : null;
     const bookValuePerShare = totalEquity && sharesOutstanding ? totalEquity / sharesOutstanding : null;
     const tangibleBookValuePerShare = tangibleBookValue && sharesOutstanding ? tangibleBookValue / sharesOutstanding : null;
@@ -215,7 +273,9 @@ class MetricsCalculator {
     const mktCapSE = this.calculateMktCapSE(marketCap, totalEquity);
     const niTBV = this.calculateNITBV(netIncome, tangibleBookValue);
     const roe = this.calculateROE(netIncome, totalEquity);
-    const rota = this.calculateROTA(netIncome, totalAssets);
+    const rota = this.calculateROTA(netIncome, tangibleAssets);
+    const roaa = this.calculateROAA(netIncome, averageAssets);
+    const rotce = this.calculateROTCE(netIncome, tangibleCommonEquity);
     const grahamNumber = this.calculateGrahamNumber(eps, bookValuePerShare);
     const grahamMoS = this.calculateGrahamMoS(grahamNumber, currentPrice);
     const grahamMoSPct = this.calculateGrahamMoSPct(grahamNumber, currentPrice);
@@ -235,6 +295,8 @@ class MetricsCalculator {
       total_assets: totalAssets,
       total_equity: totalEquity,
       tangible_book_value: tangibleBookValue,
+      tangible_assets: tangibleAssets,
+      tangible_common_equity: tangibleCommonEquity,
       net_income: netIncome,
       shares_outstanding: sharesOutstanding,
       eps: eps,
@@ -248,6 +310,8 @@ class MetricsCalculator {
       ni_tbv: niTBV,
       roe: roe,
       rota: rota,
+      roaa: roaa,
+      rotce: rotce,
 
       // Graham value investing metrics
       graham_number: grahamNumber,
