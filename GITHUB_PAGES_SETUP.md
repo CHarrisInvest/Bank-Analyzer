@@ -53,15 +53,15 @@ GitHub Actions needs API credentials for SEC and stock price data:
 Acme Investments info@acme.com
 ```
 
-#### Secret 2: Alpha Vantage API Key (for stock prices)
+#### Secret 2: Marketstack API Key (for stock prices)
 
-1. Get a free API key from [Alpha Vantage](https://www.alphavantage.co/support/#api-key)
+1. Get an API key from [Marketstack](https://marketstack.com/signup/free)
 2. Click **New repository secret**
-3. Name: `ALPHA_VANTAGE_API_KEY`
-4. Value: Your API key (e.g., `ABC123XYZ`)
+3. Name: `MARKETSTACK_API_KEY`
+4. Value: Your API key (e.g., `abc123xyz789`)
 5. Click **Add secret**
 
-**Note:** The free tier allows 25 API requests/day (sufficient for ~25 banks). For commercial use or more banks, you'll need a [paid plan](https://www.alphavantage.co/premium/) ($49.99+/month). Alpha Vantage is a NASDAQ-licensed data provider, making it suitable for commercial applications.
+**Note:** The free tier allows 100 API requests/month (testing only). For production use, the Basic plan ($9.99/mo) provides 10,000 requests/month. For commercial use, the Professional plan ($49.99/mo) provides 100,000 requests/month with explicit commercial licensing.
 
 ### Step 3: Trigger Initial Data Load (1 minute)
 
@@ -213,9 +213,9 @@ Edit `scripts/fetch-sec-data.cjs` in the `calculateMetrics` function to add cust
 
 The script fetches from:
 - **SEC EDGAR API** - Financial metrics (free, no API key required)
-- **Alpha Vantage** - Stock prices (requires free API key, NASDAQ-licensed)
+- **Marketstack** - Stock prices / prior close (requires API key)
 
-**Important:** Alpha Vantage is a NASDAQ-licensed data provider, making it suitable for commercial use. The free tier is for testing/personal use. For commercial applications, obtain a [commercial license](https://www.alphavantage.co/premium/).
+**Important:** Marketstack offers commercial use on their Professional plan ($49.99/mo) and above. The free tier (100 requests/month) is for testing only. See [Marketstack pricing](https://marketstack.com/pricing) for details.
 
 ---
 
@@ -233,13 +233,13 @@ The script fetches from:
 
 ### "Stock prices showing null"
 
-**Problem:** Alpha Vantage API key missing or rate limit exceeded
+**Problem:** Marketstack API key missing or request limit exceeded
 
 **Solution:**
-1. Ensure `ALPHA_VANTAGE_API_KEY` secret is set in repository settings
-2. Free tier limit: 25 requests/day, 5 requests/minute
-3. If you have more than 25 banks, consider a [paid plan](https://www.alphavantage.co/premium/)
-4. Wait 24 hours if daily limit reached, or upgrade to higher tier
+1. Ensure `MARKETSTACK_API_KEY` secret is set in repository settings
+2. Free tier limit: 100 requests/month (each symbol = 1 request)
+3. For more banks, upgrade to Basic ($9.99/mo, 10K req) or Professional ($49.99/mo, 100K req)
+4. Check [Marketstack dashboard](https://marketstack.com/dashboard) for usage stats
 
 ### "No data appearing on site"
 
@@ -275,15 +275,15 @@ The script fetches from:
 | GitHub Actions | **Free** (2,000 minutes/month) |
 | GitHub Pages | **Free** (100 GB bandwidth/month) |
 | SEC EDGAR API | **Free** (no limits) |
-| Alpha Vantage | **Free tier** (25 req/day) or **$49.99+/mo** for commercial |
-| **Total** | **$0/month** (testing) or **$49.99+/mo** (commercial) |
+| Marketstack | **Free** (100 req/mo), **$9.99/mo** (10K req), or **$49.99/mo** (100K req, commercial) |
+| **Total** | **$0-9.99/month** (testing/personal) or **$49.99/mo** (commercial) |
 
 **Usage:**
-- Data refresh: ~15 minutes/day = 450 min/month (well under limit)
+- Data refresh: ~5 minutes/day = 150 min/month (well under limit)
 - Pages bandwidth: Typical usage < 1 GB/month
-- Alpha Vantage: 25 banks/day on free tier (sufficient for included bank list)
+- Marketstack: Each bank ticker = 1 API request toward monthly quota
 
-**Note for Commercial Use:** Alpha Vantage is NASDAQ-licensed, making it appropriate for commercial applications. Contact Alpha Vantage for commercial licensing.
+**Note for Commercial Use:** Commercial use requires Marketstack Professional plan ($49.99/mo) or higher. See [Marketstack pricing](https://marketstack.com/pricing) for details.
 
 ---
 

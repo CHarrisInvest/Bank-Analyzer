@@ -30,34 +30,37 @@ let tickerToCikMap = null;
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 /**
- * Get current stock price from Alpha Vantage
- * Requires ALPHA_VANTAGE_API_KEY environment variable
- * Free tier: 25 requests/day - sufficient for daily bank updates
- * For commercial use, obtain a proper license from https://www.alphavantage.co/
+ * Get prior close stock price from Marketstack API
+ * Requires MARKETSTACK_API_KEY environment variable
+ * Uses EOD (end-of-day) endpoint for prior close prices
+ * Commercial use allowed on Professional plan ($49.99/mo) and above
+ * @see https://marketstack.com/documentation
  */
 async function getCurrentPrice(ticker) {
-  const apiKey = process.env.ALPHA_VANTAGE_API_KEY;
+  const apiKey = process.env.MARKETSTACK_API_KEY;
 
   if (!apiKey) {
-    console.warn(`  Warning: ALPHA_VANTAGE_API_KEY not set, skipping price fetch for ${ticker}`);
+    console.warn(`  Warning: MARKETSTACK_API_KEY not set, skipping price fetch for ${ticker}`);
     return null;
   }
 
   try {
-    // Using Alpha Vantage Global Quote endpoint for latest price
-    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${ticker}&apikey=${apiKey}`;
+    // Using Marketstack EOD endpoint for prior close price
+    const url = `http://api.marketstack.com/v1/eod/latest?access_key=${apiKey}&symbols=${ticker}`;
     const response = await axios.get(url, {
       timeout: 15000,
       headers: { 'User-Agent': 'Bank-Analyzer/1.0' }
     });
 
-    // Check for API limit message
-    if (response.data?.Note || response.data?.Information) {
-      console.warn(`  Warning: Alpha Vantage API limit reached for ${ticker}`);
+    // Check for API error
+    if (response.data?.error) {
+      console.warn(`  Warning: Marketstack API error for ${ticker}: ${response.data.error.message}`);
       return null;
     }
 
-    const price = response.data?.['Global Quote']?.['05. price'];
+    // Extract close price from the first data entry
+    const data = response.data?.data?.[0];
+    const price = data?.close;
     return price ? parseFloat(price) : null;
   } catch (error) {
     console.warn(`  Warning: Could not fetch price for ${ticker}: ${error.message}`);
@@ -483,9 +486,9 @@ async function processBank(ticker, index) {
     const companyFacts = await getCompanyFacts(companyInfo.cik);
     console.log(`  ✓ Fetched SEC EDGAR data`);
 
-    // Get current price from Alpha Vantage
-    // Alpha Vantage free tier: 5 requests/minute, so 12+ seconds between requests
-    await delay(13000); // 13 second delay between price requests
+    // Get prior close price from Marketstack
+    // Marketstack counts each symbol as 1 API request toward monthly quota
+    await delay(500); // Small delay between price requests
     const currentPrice = await getCurrentPrice(ticker);
     if (currentPrice) {
       console.log(`  ✓ Current price: $${currentPrice.toFixed(2)}`);

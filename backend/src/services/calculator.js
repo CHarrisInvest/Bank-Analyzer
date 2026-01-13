@@ -6,23 +6,24 @@ const axios = require('axios');
  */
 class MetricsCalculator {
   /**
-   * Get current stock price from Alpha Vantage (NASDAQ-licensed data provider)
-   * Requires ALPHA_VANTAGE_API_KEY environment variable
-   * For commercial use, obtain a proper license from https://www.alphavantage.co/
+   * Get prior close stock price from Marketstack API
+   * Requires MARKETSTACK_API_KEY environment variable
+   * Commercial use allowed on Professional plan ($49.99/mo) and above
+   * @see https://marketstack.com/documentation
    * @param {string} ticker - Stock ticker symbol
-   * @returns {Promise<number>} Current stock price
+   * @returns {Promise<number>} Prior close stock price
    */
   async getCurrentPrice(ticker) {
-    const apiKey = process.env.ALPHA_VANTAGE_API_KEY;
+    const apiKey = process.env.MARKETSTACK_API_KEY;
 
     if (!apiKey) {
-      console.warn(`ALPHA_VANTAGE_API_KEY not set, skipping price fetch for ${ticker}`);
+      console.warn(`MARKETSTACK_API_KEY not set, skipping price fetch for ${ticker}`);
       return null;
     }
 
     try {
-      // Using Alpha Vantage Global Quote endpoint for latest price
-      const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${ticker}&apikey=${apiKey}`;
+      // Using Marketstack EOD endpoint for prior close price
+      const url = `http://api.marketstack.com/v1/eod/latest?access_key=${apiKey}&symbols=${ticker}`;
       const response = await axios.get(url, {
         timeout: 15000,
         headers: {
@@ -30,13 +31,15 @@ class MetricsCalculator {
         }
       });
 
-      // Check for API limit message
-      if (response.data?.Note || response.data?.Information) {
-        console.warn(`Alpha Vantage API limit reached for ${ticker}`);
+      // Check for API error
+      if (response.data?.error) {
+        console.warn(`Marketstack API error for ${ticker}: ${response.data.error.message}`);
         return null;
       }
 
-      const price = response.data?.['Global Quote']?.['05. price'];
+      // Extract close price from the first data entry
+      const data = response.data?.data?.[0];
+      const price = data?.close;
       if (!price) {
         throw new Error('Price not found in response');
       }
