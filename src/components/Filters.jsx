@@ -116,7 +116,7 @@ function SecurityTypeFilter({ value, onChange }) {
   const options = [
     { value: 'all', label: 'All' },
     { value: 'common', label: 'Common Shares' },
-    { value: 'exchange-traded', label: 'Exchange-Traded Security' },
+    { value: 'exchange-traded', label: 'Exchange-Traded Securities' },
   ];
 
   return (
