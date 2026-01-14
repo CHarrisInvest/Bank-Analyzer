@@ -161,43 +161,8 @@ const COLUMNS = [
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
   },
   {
-    key: 'aclToLoans',
-    label: 'ACL/Loans',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
-  },
-  {
-    key: 'provisionToAvgLoans',
-    label: 'Prov/Loans',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
-  },
-  {
-    key: 'loansToAssets',
-    label: 'Loans/Assets',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
-  },
-  {
     key: 'depositsToAssets',
     label: 'Dep/Assets',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
-  },
-  {
-    key: 'loansToDeposits',
-    label: 'LDR',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
-  },
-  {
-    key: 'cashSecuritiesToAssets',
-    label: 'Cash+Sec/A',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
@@ -346,23 +311,6 @@ function ResultsTable({ banks, loading }) {
     if (column.key === 'efficiencyRatio' && typeof value === 'number') {
       if (value <= 55) classes.push('value-positive');
       else if (value >= 70) classes.push('value-negative');
-    }
-
-    // ACL/Loans: higher reserve is more conservative (1.2-1.8% typical)
-    if (column.key === 'aclToLoans' && typeof value === 'number') {
-      if (value >= 1.5) classes.push('value-positive');
-      else if (value < 1.0) classes.push('value-negative');
-    }
-
-    // Provision/Avg Loans: lower is better but context matters
-    if (column.key === 'provisionToAvgLoans' && typeof value === 'number') {
-      if (value > 1.0) classes.push('value-negative');
-    }
-
-    // Loans/Deposits (LDR): 80-95% is healthy range
-    if (column.key === 'loansToDeposits' && typeof value === 'number') {
-      if (value > 100) classes.push('value-negative');
-      else if (value >= 80 && value <= 95) classes.push('value-positive');
     }
 
     // Equity/Assets: higher means less leverage (> 10% is strong)

@@ -3,9 +3,15 @@
  * Standalone SEC EDGAR Data Fetcher for GitHub Actions
  * Fetches bank financial data from SEC EDGAR API and saves to JSON file
  *
+ * Data Source: SEC Financial Statement Data Sets (Primary Financial Statements only)
+ * This ensures maximum accuracy and comparability across banks by using only
+ * concepts that appear on the face of financial statements (Balance Sheet,
+ * Income Statement, Cash Flow Statement) as rendered by the SEC.
+ *
  * Features:
  * - Security type identification (common shares vs exchange-traded securities)
  * - Dividend metrics (TTM dividends, dividend payout ratio)
+ * - Data quality validation with outlier detection
  */
 
 const axios = require('axios');
@@ -38,113 +44,77 @@ const CONFIG = {
   ],
 
   /**
-   * XBRL Concept Classification for Data Quality
+   * XBRL Concepts used in this application
    *
-   * Tier 1 (PRIMARY_FS): Concepts that appear on primary financial statements
-   *   - Balance Sheet, Income Statement, Cash Flow Statement
-   *   - These are included in SEC Financial Statement Data Sets
-   *   - High reliability and comparability across all companies
+   * ALL concepts are from PRIMARY FINANCIAL STATEMENTS only:
+   * - Balance Sheet, Income Statement, Cash Flow Statement
+   * - These are included in SEC Financial Statement Data Sets
+   * - High reliability and comparability across all companies
    *
-   * Tier 2 (NOTES): Concepts typically found in footnotes/notes disclosures
-   *   - More granular breakdowns, bank-specific metrics
-   *   - NOT in Financial Statement Data Sets (only in Notes Data Sets)
-   *   - Lower reliability, may cause concept mismatches
+   * EXCLUDED: Notes/Supplementary concepts (loan breakdowns, ACL details, securities breakdowns)
+   * These were removed to ensure data accuracy and prevent concept mismatches.
    *
    * Based on SEC's December 2024 reprocessing which limited FS Data Sets
    * to "numeric data from primary financial statements as rendered by the Commission"
    */
-  conceptTiers: {
-    // Tier 1: Primary Financial Statement concepts (high reliability)
-    PRIMARY_FS: [
-      // Balance Sheet - Universal
-      'Assets',
-      'StockholdersEquity',
-      'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest',
-      'Liabilities',
-      'LiabilitiesAndStockholdersEquity',
-      'CashAndCashEquivalentsAtCarryingValue',
-      'Cash',
-      'Goodwill',
-      'IntangibleAssetsNetExcludingGoodwill',
-      'PreferredStockValue',
-      'PreferredStockValueOutstanding',
-      'CommonStockSharesOutstanding',
-      'Deposits', // Banks report this on face of balance sheet
+  primaryFSConcepts: [
+    // Balance Sheet - Universal
+    'Assets',
+    'StockholdersEquity',
+    'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest',
+    'Liabilities',
+    'LiabilitiesAndStockholdersEquity',
+    'CashAndCashEquivalentsAtCarryingValue',
+    'Cash',
+    'Goodwill',
+    'IntangibleAssetsNetExcludingGoodwill',
+    'PreferredStockValue',
+    'PreferredStockValueOutstanding',
+    'CommonStockSharesOutstanding',
+    'Deposits', // Banks report this on face of balance sheet
 
-      // Income Statement - Universal
-      'NetIncomeLoss',
-      'ProfitLoss',
-      'NetIncomeLossAvailableToCommonStockholdersBasic',
-      'EarningsPerShareBasic',
-      'EarningsPerShareDiluted',
-      'Revenues',
-      'OperatingExpenses',
+    // Income Statement - Universal
+    'NetIncomeLoss',
+    'ProfitLoss',
+    'NetIncomeLossAvailableToCommonStockholdersBasic',
+    'EarningsPerShareBasic',
+    'EarningsPerShareDiluted',
+    'Revenues',
+    'OperatingExpenses',
 
-      // Income Statement - Bank-specific (on face)
-      'InterestIncomeExpenseNet',
-      'NetInterestIncome',
-      'NoninterestIncome',
-      'NoninterestExpense',
-      'ProvisionForLoanLeaseAndOtherLosses',
-      'ProvisionForLoanAndLeaseLosses',
-      'ProvisionForCreditLosses',
+    // Income Statement - Bank-specific (on face)
+    'InterestIncomeExpenseNet',
+    'NetInterestIncome',
+    'NoninterestIncome',
+    'NoninterestExpense',
+    'ProvisionForLoanLeaseAndOtherLosses',
+    'ProvisionForLoanAndLeaseLosses',
+    'ProvisionForCreditLosses',
 
-      // Cash Flow Statement
-      'NetCashProvidedByUsedInOperatingActivities',
-      'NetCashProvidedByUsedInInvestingActivities',
-      'NetCashProvidedByUsedInFinancingActivities',
-      'PaymentsOfDividendsCommonStock',
-      'PaymentsOfDividends',
+    // Cash Flow Statement
+    'NetCashProvidedByUsedInOperatingActivities',
+    'NetCashProvidedByUsedInInvestingActivities',
+    'NetCashProvidedByUsedInFinancingActivities',
+    'PaymentsOfDividendsCommonStock',
+    'PaymentsOfDividends',
 
-      // DEI taxonomy (always reliable)
-      'EntityCommonStockSharesOutstanding',
-    ],
-
-    // Tier 2: Notes/Supplementary concepts (lower reliability, may cause mismatches)
-    NOTES: [
-      // Loan details (often in notes, not on face)
-      'LoansAndLeasesReceivableNetReportedAmount',
-      'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss',
-      'NotesReceivableNet',
-      'LoansAndLeasesReceivableNetOfDeferredIncome',
-
-      // Allowance details (almost always in notes)
-      'FinancingReceivableAllowanceForCreditLosses',
-      'LoansAndLeasesReceivableAllowance',
-      'FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest',
-      'AllowanceForDoubtfulAccountsReceivable',
-
-      // Securities breakdowns (may be on face or notes)
-      'AvailableForSaleSecuritiesDebtSecurities',
-      'AvailableForSaleSecurities',
-      'HeldToMaturitySecurities',
-      'HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss',
-
-      // Other bank-specific details
-      'InterestBearingDepositsInBanks',
-      'DepositsInBanks',
-      'FederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell',
-      'FederalFundsSold',
-      'DepositsDomestic',
-    ],
-  },
+    // DEI taxonomy (always reliable)
+    'EntityCommonStockSharesOutstanding',
+  ],
 
   /**
    * Outlier detection thresholds for data quality validation
-   * Values outside these ranges indicate likely data issues (concept mismatches, calculation errors)
+   * Values outside these ranges indicate likely data issues
+   * Only includes metrics calculated from PRIMARY_FS concepts
    */
   outlierThresholds: {
     // Ratios that should be percentages in reasonable ranges
     efficiencyRatio: { min: 20, max: 150, unit: '%' },      // 50-70% typical, >150% definitely wrong
-    aclToLoans: { min: 0, max: 15, unit: '%' },             // 1-2% typical, >15% likely mismatch
-    loansToAssets: { min: 1, max: 95, unit: '%' },          // 60-75% typical, <1% likely wrong concept
     depositsToAssets: { min: 10, max: 100, unit: '%' },     // 70-85% typical
-    loansToDeposits: { min: 5, max: 200, unit: '%' },       // 80-100% typical
     equityToAssets: { min: 1, max: 50, unit: '%' },         // 8-12% typical
     tceToTa: { min: 0, max: 40, unit: '%' },                // 6-10% typical
     roe: { min: -100, max: 100, unit: '%' },                // Negative OK, but extreme values wrong
     roaa: { min: -10, max: 10, unit: '%' },                 // ~1% typical
-    provisionToAvgLoans: { min: -5, max: 10, unit: '%' },   // Negative possible (releases)
   },
 };
 
@@ -193,21 +163,6 @@ let knownBaseTickers = new Set();
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 /**
- * Get the tier classification for an XBRL concept
- * @param {string} concept - XBRL concept name
- * @returns {'PRIMARY_FS'|'NOTES'|'UNKNOWN'} - Tier classification
- */
-function getConceptTier(concept) {
-  if (CONFIG.conceptTiers.PRIMARY_FS.includes(concept)) {
-    return 'PRIMARY_FS';
-  }
-  if (CONFIG.conceptTiers.NOTES.includes(concept)) {
-    return 'NOTES';
-  }
-  return 'UNKNOWN';
-}
-
-/**
  * Check if a metric value is within acceptable bounds (outlier detection)
  * @param {string} metricName - Name of the metric
  * @param {number} value - The calculated value
@@ -241,48 +196,17 @@ function validateMetricValue(metricName, value) {
 }
 
 /**
- * Validate that numerator and denominator concepts are from compatible families
- * Prevents mixing concepts that would produce meaningless ratios
- * @param {string} numeratorConcept - Concept used for numerator
- * @param {string} denominatorConcept - Concept used for denominator
- * @param {string} ratioName - Name of the ratio for logging
- * @returns {{isCompatible: boolean, reason: string|null}}
- */
-function validateConceptCompatibility(numeratorConcept, denominatorConcept, ratioName) {
-  const numTier = getConceptTier(numeratorConcept);
-  const denTier = getConceptTier(denominatorConcept);
-
-  // If one is from PRIMARY_FS and the other is from NOTES, they might not be comparable
-  // This is a heuristic - not all cross-tier combinations are invalid
-  if (numTier === 'PRIMARY_FS' && denTier === 'NOTES') {
-    return {
-      isCompatible: false,
-      reason: `${ratioName}: numerator from primary FS, denominator from notes - may be inconsistent`
-    };
-  }
-  if (numTier === 'NOTES' && denTier === 'PRIMARY_FS') {
-    return {
-      isCompatible: false,
-      reason: `${ratioName}: numerator from notes, denominator from primary FS - may be inconsistent`
-    };
-  }
-
-  return { isCompatible: true, reason: null };
-}
-
-/**
  * Apply data quality validation and return cleaned metrics with quality flags
  * @param {Object} metrics - Raw calculated metrics
- * @param {Object} conceptsUsed - Which concepts were used for each metric
  * @returns {Object} Metrics with validation applied and quality flags
  */
-function applyDataQualityValidation(metrics, conceptsUsed) {
+function applyDataQualityValidation(metrics) {
   const dataQualityIssues = [];
 
   // Validate each metric against outlier thresholds
+  // Only metrics from PRIMARY_FS concepts
   const metricsToValidate = [
-    'efficiencyRatio', 'aclToLoans', 'loansToAssets', 'depositsToAssets',
-    'loansToDeposits', 'equityToAssets', 'tceToTa', 'roe', 'roaa', 'provisionToAvgLoans'
+    'efficiencyRatio', 'depositsToAssets', 'equityToAssets', 'tceToTa', 'roe', 'roaa'
   ];
 
   for (const metricName of metricsToValidate) {
@@ -953,13 +877,20 @@ function getTTMValue(companyFacts, concept, taxonomy = 'us-gaap', unitType = 'US
 /**
  * Calculate all banking metrics using TTM for period-based items
  *
+ * IMPORTANT: Only uses concepts from PRIMARY FINANCIAL STATEMENTS
+ * This ensures maximum accuracy and comparability across banks.
+ * Metrics that relied on notes/supplementary concepts have been removed.
+ *
  * @param {Object} companyFacts - SEC EDGAR company facts data
  * @param {number} currentPrice - Current stock price
  * @param {boolean} isExchangeTraded - If true, null out price-related metrics
  * @returns {Object} Calculated financial metrics
  */
 function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) {
-  // Balance sheet items (point-in-time) - use latest value
+  // ============================================================================
+  // BALANCE SHEET ITEMS (PRIMARY FINANCIAL STATEMENTS)
+  // ============================================================================
+
   const totalAssets = getLatestPointInTimeValue(companyFacts, 'Assets');
   const totalEquity = getLatestPointInTimeValue(companyFacts, 'StockholdersEquity') ||
                       getLatestPointInTimeValue(companyFacts, 'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest');
@@ -979,81 +910,11 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   // Get two periods of assets for average assets calculation (ROAA)
   const assetsForAverage = getLatestTwoPointInTimeValues(companyFacts, 'Assets');
 
-  // ============================================================================
-  // BANK-SPECIFIC BALANCE SHEET ITEMS
-  // ============================================================================
-
-  // Track which concepts were used for data quality assessment
-  const conceptsUsed = {};
-
-  // Loans and Leases (for Loans/Assets, Loans/Deposits, ACL/Loans, Provision/Loans)
-  // Try concepts in order and track which one was used
-  let loans = null;
-  let loansConcept = null;
-  const loanConcepts = [
-    'LoansAndLeasesReceivableNetReportedAmount',
-    'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss',
-    'NotesReceivableNet',
-    'LoansAndLeasesReceivableNetOfDeferredIncome'
-  ];
-  for (const concept of loanConcepts) {
-    const result = getLatestPointInTimeValue(companyFacts, concept);
-    if (result) {
-      loans = result;
-      loansConcept = concept;
-      conceptsUsed.loans = { concept, tier: getConceptTier(concept), fallbackPosition: loanConcepts.indexOf(concept) + 1 };
-      break;
-    }
-  }
-
-  // Get two periods of loans for average loans calculation (Provision/Avg Loans)
-  const loansForAverage = getLatestTwoPointInTimeValues(companyFacts, 'LoansAndLeasesReceivableNetReportedAmount') ||
-                          getLatestTwoPointInTimeValues(companyFacts, 'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss') ||
-                          getLatestTwoPointInTimeValues(companyFacts, 'NotesReceivableNet');
-
-  // Deposits (for Deposits/Assets, Loans/Deposits)
-  const deposits = getLatestPointInTimeValue(companyFacts, 'Deposits') ||
-                   getLatestPointInTimeValue(companyFacts, 'DepositsDomestic');
-
-  // Allowance for Credit Losses (for ACL/Loans ratio)
-  // Note: Removed AllowanceForLoanAndLeaseLossesRealEstate as it only covers real estate loans
-  let allowanceForCreditLosses = null;
-  let aclConcept = null;
-  const aclConcepts = [
-    'FinancingReceivableAllowanceForCreditLosses',
-    'LoansAndLeasesReceivableAllowance',
-    'FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest',
-    'AllowanceForDoubtfulAccountsReceivable'
-  ];
-  for (const concept of aclConcepts) {
-    const result = getLatestPointInTimeValue(companyFacts, concept);
-    if (result) {
-      allowanceForCreditLosses = result;
-      aclConcept = concept;
-      conceptsUsed.acl = { concept, tier: getConceptTier(concept), fallbackPosition: aclConcepts.indexOf(concept) + 1 };
-      break;
-    }
-  }
-
-  // Cash and Securities (for Cash & Securities/Assets)
-  const cashAndEquivalents = getLatestPointInTimeValue(companyFacts, 'CashAndCashEquivalentsAtCarryingValue') ||
-                             getLatestPointInTimeValue(companyFacts, 'CashAndDueFromBanks') ||
-                             getLatestPointInTimeValue(companyFacts, 'Cash');
-  // Additional bank liquidity: interest-bearing deposits at other banks
-  const depositsAtBanks = getLatestPointInTimeValue(companyFacts, 'InterestBearingDepositsInBanks') ||
-                          getLatestPointInTimeValue(companyFacts, 'DepositsInBanks');
-  // Federal funds sold and securities purchased under agreements to resell
-  const fedFundsSold = getLatestPointInTimeValue(companyFacts, 'FederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell') ||
-                       getLatestPointInTimeValue(companyFacts, 'FederalFundsSold');
-  const afsSecurities = getLatestPointInTimeValue(companyFacts, 'AvailableForSaleSecuritiesDebtSecurities') ||
-                        getLatestPointInTimeValue(companyFacts, 'AvailableForSaleSecurities') ||
-                        getLatestPointInTimeValue(companyFacts, 'AvailableForSaleSecuritiesDebtSecuritiesCurrent');
-  const htmSecurities = getLatestPointInTimeValue(companyFacts, 'HeldToMaturitySecurities') ||
-                        getLatestPointInTimeValue(companyFacts, 'HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss') ||
-                        getLatestPointInTimeValue(companyFacts, 'HeldToMaturitySecuritiesFairValue');
+  // Deposits (PRIMARY_FS - banks report on face of balance sheet)
+  const deposits = getLatestPointInTimeValue(companyFacts, 'Deposits');
 
   // ============================================================================
-  // BANK-SPECIFIC INCOME STATEMENT ITEMS (TTM)
+  // INCOME STATEMENT ITEMS (PRIMARY FINANCIAL STATEMENTS - TTM)
   // ============================================================================
 
   // Net Interest Income (for Efficiency Ratio)
@@ -1070,12 +931,6 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   const noninterestExpense = getTTMValue(companyFacts, 'NoninterestExpense') ||
                              getTTMValue(companyFacts, 'OtherCostAndExpenseOperating') ||
                              getTTMValue(companyFacts, 'OperatingExpenses');
-
-  // Provision for Credit Losses (for Provision/Avg Loans)
-  const provisionForCreditLosses = getTTMValue(companyFacts, 'ProvisionForLoanLeaseAndOtherLosses') ||
-                                   getTTMValue(companyFacts, 'ProvisionForLoanAndLeaseLosses') ||
-                                   getTTMValue(companyFacts, 'ProvisionForCreditLosses') ||
-                                   getTTMValue(companyFacts, 'ProvisionForLoanLossesExpensed');
 
   // Income statement items (period-based) - use TTM
   const netIncome = getTTMValue(companyFacts, 'NetIncomeLoss') ||
@@ -1122,7 +977,10 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
     }
   }
 
-  // Calculate derived values
+  // ============================================================================
+  // CALCULATED METRICS (All from PRIMARY_FS concepts)
+  // ============================================================================
+
   const tangibleBookValue = totalEquity?.value ?
     totalEquity.value - (goodwill?.value || 0) - (intangibleAssets?.value || 0) : null;
 
@@ -1190,7 +1048,7 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
     ((grahamNumber - currentPrice) / currentPrice) * 100 : null;
 
   // ============================================================================
-  // NEW BANK-SPECIFIC RATIOS
+  // BANK-SPECIFIC RATIOS (PRIMARY_FS CONCEPTS ONLY)
   // ============================================================================
 
   // 1. Efficiency Ratio = Noninterest Expense / (Net Interest Income + Noninterest Income)
@@ -1199,60 +1057,17 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   const efficiencyRatio = noninterestExpense?.value && totalRevenue > 0 ?
     (noninterestExpense.value / totalRevenue) * 100 : null;
 
-  // 2. ACL/Loans = Allowance for Credit Losses / Total Loans
-  // Credit loss reserve as percentage of loan portfolio. Typical range: 1-2%
-  // VALIDATION: Only calculate if both concepts are from compatible families
-  let aclToLoans = null;
-  if (allowanceForCreditLosses?.value && loans?.value && loans.value > 0) {
-    // Check if we're mixing incompatible concepts (e.g., total ACL with subset of loans)
-    const compatCheck = validateConceptCompatibility(aclConcept, loansConcept, 'ACL/Loans');
-    if (compatCheck.isCompatible) {
-      aclToLoans = (allowanceForCreditLosses.value / loans.value) * 100;
-    } else {
-      console.warn(`  ⚠ ${compatCheck.reason} - skipping ACL/Loans calculation`);
-      conceptsUsed.aclToLoansSkipped = compatCheck.reason;
-    }
-  }
-
-  // 3. Provision/Avg Loans = Provision for Credit Losses / Average Loans
-  // Annual provision expense as percentage of average loans. Typical range: 0.1-0.5%
-  const averageLoans = loansForAverage?.current?.value && loansForAverage?.prior?.value ?
-    (loansForAverage.current.value + loansForAverage.prior.value) / 2 :
-    (loansForAverage?.current?.value || loans?.value || null);
-  const provisionToAvgLoans = provisionForCreditLosses?.value && averageLoans && averageLoans > 0 ?
-    (provisionForCreditLosses.value / averageLoans) * 100 : null;
-
-  // 4. Loans/Assets = Total Loans / Total Assets
-  // Loan concentration ratio. Typical range: 60-75%
-  const loansToAssets = loans?.value && totalAssets?.value && totalAssets.value > 0 ?
-    (loans.value / totalAssets.value) * 100 : null;
-
-  // 5. Deposits/Assets = Deposits / Total Assets
+  // 2. Deposits/Assets = Deposits / Total Assets
   // Funding reliance on deposits. Typical range: 70-85%
   const depositsToAssets = deposits?.value && totalAssets?.value && totalAssets.value > 0 ?
     (deposits.value / totalAssets.value) * 100 : null;
 
-  // 6. Loans/Deposits = Total Loans / Total Deposits
-  // Loan-to-deposit ratio (LDR). Typical range: 80-100%
-  const loansToDeposits = loans?.value && deposits?.value && deposits.value > 0 ?
-    (loans.value / deposits.value) * 100 : null;
-
-  // 7. Cash & Securities/Assets = (Cash + Deposits at Banks + Fed Funds Sold + AFS + HTM) / Total Assets
-  // Liquidity position. Typical range: 15-30%
-  const cashAndSecurities = (cashAndEquivalents?.value || 0) +
-                            (depositsAtBanks?.value || 0) +
-                            (fedFundsSold?.value || 0) +
-                            (afsSecurities?.value || 0) +
-                            (htmSecurities?.value || 0);
-  const cashSecuritiesToAssets = totalAssets?.value && totalAssets.value > 0 && cashAndSecurities > 0 ?
-    (cashAndSecurities / totalAssets.value) * 100 : null;
-
-  // 8. Equity/Assets = Stockholders' Equity / Total Assets
+  // 3. Equity/Assets = Stockholders' Equity / Total Assets
   // Leverage ratio (higher = less leveraged). Typical range: 8-12%
   const equityToAssets = totalEquity?.value && totalAssets?.value && totalAssets.value > 0 ?
     (totalEquity.value / totalAssets.value) * 100 : null;
 
-  // 9. TCE/TA = Tangible Common Equity / Tangible Assets
+  // 4. TCE/TA = Tangible Common Equity / Tangible Assets
   // More conservative capital ratio. Typical range: 6-10%
   const tceToTa = tangibleCommonEquity && tangibleAssets && tangibleAssets > 0 ?
     (tangibleCommonEquity / tangibleAssets) * 100 : null;
@@ -1280,14 +1095,9 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
       ttmDividendPerShare: null,
       dividendPayoutRatio: null,
       dividendMethod: null,
-      // Bank-specific ratios (keep for exchange-traded since they're fundamental metrics)
+      // Bank-specific ratios (PRIMARY_FS only)
       efficiencyRatio: efficiencyRatio ? parseFloat(efficiencyRatio.toFixed(2)) : null,
-      aclToLoans: aclToLoans ? parseFloat(aclToLoans.toFixed(2)) : null,
-      provisionToAvgLoans: provisionToAvgLoans ? parseFloat(provisionToAvgLoans.toFixed(2)) : null,
-      loansToAssets: loansToAssets ? parseFloat(loansToAssets.toFixed(2)) : null,
       depositsToAssets: depositsToAssets ? parseFloat(depositsToAssets.toFixed(2)) : null,
-      loansToDeposits: loansToDeposits ? parseFloat(loansToDeposits.toFixed(2)) : null,
-      cashSecuritiesToAssets: cashSecuritiesToAssets ? parseFloat(cashSecuritiesToAssets.toFixed(2)) : null,
       equityToAssets: equityToAssets ? parseFloat(equityToAssets.toFixed(2)) : null,
       tceToTa: tceToTa ? parseFloat(tceToTa.toFixed(2)) : null,
       dataDate: dataDate,
@@ -1317,14 +1127,9 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
     ttmDividendPerShare: dividendMetrics.ttmDividendPerShare,
     dividendPayoutRatio: dividendMetrics.dividendPayoutRatio,
     dividendMethod: dividendMetrics.dividendMethod,
-    // Bank-specific ratios
+    // Bank-specific ratios (PRIMARY_FS only)
     efficiencyRatio: efficiencyRatio ? parseFloat(efficiencyRatio.toFixed(2)) : null,
-    aclToLoans: aclToLoans ? parseFloat(aclToLoans.toFixed(2)) : null,
-    provisionToAvgLoans: provisionToAvgLoans ? parseFloat(provisionToAvgLoans.toFixed(2)) : null,
-    loansToAssets: loansToAssets ? parseFloat(loansToAssets.toFixed(2)) : null,
     depositsToAssets: depositsToAssets ? parseFloat(depositsToAssets.toFixed(2)) : null,
-    loansToDeposits: loansToDeposits ? parseFloat(loansToDeposits.toFixed(2)) : null,
-    cashSecuritiesToAssets: cashSecuritiesToAssets ? parseFloat(cashSecuritiesToAssets.toFixed(2)) : null,
     equityToAssets: equityToAssets ? parseFloat(equityToAssets.toFixed(2)) : null,
     tceToTa: tceToTa ? parseFloat(tceToTa.toFixed(2)) : null,
     dataDate: dataDate,
@@ -1334,10 +1139,7 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   };
 
   // Apply data quality validation - this will null out outlier values and add quality flags
-  rawMetrics = applyDataQualityValidation(rawMetrics, conceptsUsed);
-
-  // Add concept tracking for transparency
-  rawMetrics.conceptsUsed = Object.keys(conceptsUsed).length > 0 ? conceptsUsed : null;
+  rawMetrics = applyDataQualityValidation(rawMetrics);
 
   return rawMetrics;
 }
@@ -1471,6 +1273,8 @@ async function main() {
   console.log('========================================');
   console.log('SEC EDGAR Bank Data Fetcher');
   console.log('========================================\n');
+  console.log('Data Source: SEC Financial Statement Data Sets');
+  console.log('(Primary Financial Statements only - maximum accuracy)\n');
   console.log(`Node version: ${process.version}`);
   console.log(`Working directory: ${process.cwd()}`);
   console.log(`User-Agent: ${CONFIG.edgarUserAgent}`);

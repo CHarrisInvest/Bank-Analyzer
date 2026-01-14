@@ -150,6 +150,7 @@ function SecurityTypeFilter({ value, onChange }) {
  * - Performance: RoE, ROAA, RoTA, ROTCE, Graham MoS
  * - Book Value: BVPS, TBVPS
  * - Dividends: TTM Dividend, Dividend Payout Ratio
+ * - Bank Ratios: Efficiency, Deposits/Assets, Equity/Assets, TCE/TA
  * - Classification: Security Type, Exchange
  */
 function Filters({ filters, exchanges, onFilterChange, onReset }) {
@@ -363,62 +364,12 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
           />
 
           <RangeFilter
-            label="ACL/Loans"
-            minValue={filters.aclToLoans?.min ?? ''}
-            maxValue={filters.aclToLoans?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('aclToLoans')}
-            unit="%"
-          />
-
-          <RangeFilter
-            label="Provision/Avg Loans"
-            minValue={filters.provisionToAvgLoans?.min ?? ''}
-            maxValue={filters.provisionToAvgLoans?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('provisionToAvgLoans')}
-            unit="%"
-          />
-
-          <RangeFilter
-            label="Loans/Assets"
-            minValue={filters.loansToAssets?.min ?? ''}
-            maxValue={filters.loansToAssets?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('loansToAssets')}
-            unit="%"
-          />
-
-          <RangeFilter
             label="Deposits/Assets"
             minValue={filters.depositsToAssets?.min ?? ''}
             maxValue={filters.depositsToAssets?.max ?? ''}
             minPlaceholder="Min"
             maxPlaceholder="Max"
             onChange={handleRangeChange('depositsToAssets')}
-            unit="%"
-          />
-
-          <RangeFilter
-            label="Loans/Deposits (LDR)"
-            minValue={filters.loansToDeposits?.min ?? ''}
-            maxValue={filters.loansToDeposits?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('loansToDeposits')}
-            unit="%"
-          />
-
-          <RangeFilter
-            label="Cash & Sec/Assets"
-            minValue={filters.cashSecuritiesToAssets?.min ?? ''}
-            maxValue={filters.cashSecuritiesToAssets?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('cashSecuritiesToAssets')}
             unit="%"
           />
 
