@@ -359,6 +359,7 @@ function aggregateBankData(quarterlyResults, bankList) {
         exchange: bank.exchange,
         sic: bank.sic,
         sicDescription: bank.sicDescription,
+        otcTier: bank.otcTier || null,  // OTC tier from bank list
         concepts: {},  // tag -> array of values
         submissions: []
       });
@@ -611,13 +612,14 @@ function calculateBankMetrics(bankData) {
 
   return {
     metrics: {
-      // Identifiers
+      // Identifiers (id will be added in main loop)
       cik: bankData.cik,
       ticker: bankData.ticker,
       bankName: bankData.companyName,
       exchange: bankData.exchange,
       sic: bankData.sic,
       sicDescription: bankData.sicDescription,
+      otcTier: bankData.otcTier,
 
       // Raw balance sheet values
       totalAssets,
@@ -667,6 +669,7 @@ function calculateBankMetrics(bankData) {
       dataDate: formattedDate,
       ttmMethod: netIncome?.method || 'unknown',
       isStale: formattedDate ? new Date(formattedDate) < new Date('2024-01-01') : true,
+      isAnnualized: false,  // FS Data Sets provide actual quarterly data, not annualized
 
       // Price metrics (null - require external price data)
       price: null,
@@ -776,6 +779,7 @@ async function main() {
   const rawDataStore = {};
 
   let processed = 0;
+  let bankIndex = 0;
   bankDataMap.forEach((bankData, cik) => {
     if (Object.keys(bankData.concepts).length === 0) {
       return;  // Skip banks with no data
@@ -783,6 +787,9 @@ async function main() {
 
     const { metrics, rawData } = calculateBankMetrics(bankData);
     const validatedMetrics = applyDataQualityValidation(metrics);
+
+    // Add id field for frontend compatibility
+    validatedMetrics.id = `bank-${bankIndex++}`;
 
     results.push(validatedMetrics);
     rawDataStore[cik] = {
