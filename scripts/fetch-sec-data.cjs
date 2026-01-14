@@ -329,15 +329,14 @@ function extractDividendMetrics(companyFacts, sharesOutstanding, netIncome, eps)
   }
 
   // Try to get TTM dividends per share using various XBRL concepts
-  // Priority order: actual cash paid first, then declared as fallback
-  // Using "paid" avoids potential double-counting of declared vs paid dividends
+  // Priority order: declared first (more commonly reported), then cash paid as fallback
 
-  // Method 1: CommonStockDividendsPerShareCashPaid (actual cash paid - most accurate)
-  let dps = getTTMValueForDividends(companyFacts, 'CommonStockDividendsPerShareCashPaid');
+  // Method 1: CommonStockDividendsPerShareDeclared (most commonly reported by banks)
+  let dps = getTTMValueForDividends(companyFacts, 'CommonStockDividendsPerShareDeclared');
 
-  // Method 2: CommonStockDividendsPerShareDeclared (fallback if paid not available)
+  // Method 2: CommonStockDividendsPerShareCashPaid (fallback if declared not available)
   if (!dps) {
-    dps = getTTMValueForDividends(companyFacts, 'CommonStockDividendsPerShareDeclared');
+    dps = getTTMValueForDividends(companyFacts, 'CommonStockDividendsPerShareCashPaid');
   }
 
   // Method 3: Try Dividends (generic concept)
@@ -734,8 +733,11 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   const totalEquity = getLatestPointInTimeValue(companyFacts, 'StockholdersEquity') ||
                       getLatestPointInTimeValue(companyFacts, 'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest');
   // Note: Share counts use 'shares' unit, not 'USD'
+  // Priority: actual shares outstanding first, then DEI taxonomy, then weighted average as last resort
   const sharesOutstanding = getLatestPointInTimeValue(companyFacts, 'CommonStockSharesOutstanding', 'us-gaap', 'shares') ||
-                            getLatestPointInTimeValue(companyFacts, 'WeightedAverageNumberOfSharesOutstandingBasic', 'us-gaap', 'shares');
+                            getLatestPointInTimeValue(companyFacts, 'EntityCommonStockSharesOutstanding', 'dei', 'shares') ||
+                            getLatestPointInTimeValue(companyFacts, 'WeightedAverageNumberOfSharesOutstandingBasic', 'us-gaap', 'shares') ||
+                            getLatestPointInTimeValue(companyFacts, 'WeightedAverageNumberOfDilutedSharesOutstanding', 'us-gaap', 'shares');
   const goodwill = getLatestPointInTimeValue(companyFacts, 'Goodwill');
   const intangibleAssets = getLatestPointInTimeValue(companyFacts, 'IntangibleAssetsNetExcludingGoodwill');
 
@@ -766,15 +768,22 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
                    getLatestPointInTimeValue(companyFacts, 'DepositsDomestic');
 
   // Allowance for Credit Losses (for ACL/Loans ratio)
+  // Note: Removed AllowanceForLoanAndLeaseLossesRealEstate as it only covers real estate loans
   const allowanceForCreditLosses = getLatestPointInTimeValue(companyFacts, 'FinancingReceivableAllowanceForCreditLosses') ||
-                                   getLatestPointInTimeValue(companyFacts, 'AllowanceForLoanAndLeaseLossesRealEstate') ||
                                    getLatestPointInTimeValue(companyFacts, 'LoansAndLeasesReceivableAllowance') ||
-                                   getLatestPointInTimeValue(companyFacts, 'FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest');
+                                   getLatestPointInTimeValue(companyFacts, 'FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest') ||
+                                   getLatestPointInTimeValue(companyFacts, 'AllowanceForDoubtfulAccountsReceivable');
 
   // Cash and Securities (for Cash & Securities/Assets)
   const cashAndEquivalents = getLatestPointInTimeValue(companyFacts, 'CashAndCashEquivalentsAtCarryingValue') ||
                              getLatestPointInTimeValue(companyFacts, 'CashAndDueFromBanks') ||
                              getLatestPointInTimeValue(companyFacts, 'Cash');
+  // Additional bank liquidity: interest-bearing deposits at other banks
+  const depositsAtBanks = getLatestPointInTimeValue(companyFacts, 'InterestBearingDepositsInBanks') ||
+                          getLatestPointInTimeValue(companyFacts, 'DepositsInBanks');
+  // Federal funds sold and securities purchased under agreements to resell
+  const fedFundsSold = getLatestPointInTimeValue(companyFacts, 'FederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell') ||
+                       getLatestPointInTimeValue(companyFacts, 'FederalFundsSold');
   const afsSecurities = getLatestPointInTimeValue(companyFacts, 'AvailableForSaleSecuritiesDebtSecurities') ||
                         getLatestPointInTimeValue(companyFacts, 'AvailableForSaleSecurities') ||
                         getLatestPointInTimeValue(companyFacts, 'AvailableForSaleSecuritiesDebtSecuritiesCurrent');
@@ -787,13 +796,13 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   // ============================================================================
 
   // Net Interest Income (for Efficiency Ratio)
+  // Note: Do NOT use InterestIncomeExpenseAfterProvisionForLoanLoss as it has provisions deducted
   const netInterestIncome = getTTMValue(companyFacts, 'InterestIncomeExpenseNet') ||
-                            getTTMValue(companyFacts, 'NetInterestIncome') ||
-                            getTTMValue(companyFacts, 'InterestIncomeExpenseAfterProvisionForLoanLoss');
+                            getTTMValue(companyFacts, 'NetInterestIncome');
 
   // Noninterest Income (for Efficiency Ratio)
+  // Note: Do NOT use RevenuesNetOfInterestExpense as it includes net interest income (causes double-counting)
   const noninterestIncome = getTTMValue(companyFacts, 'NoninterestIncome') ||
-                            getTTMValue(companyFacts, 'RevenuesNetOfInterestExpense') ||
                             getTTMValue(companyFacts, 'FeesAndCommissions');
 
   // Noninterest Expense (for Efficiency Ratio)
@@ -875,8 +884,9 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   const bookValuePerShare = totalEquity?.value && sharesOutstanding?.value ?
     totalEquity.value / sharesOutstanding.value : null;
 
-  const tangibleBookValuePerShare = tangibleBookValue && sharesOutstanding?.value ?
-    tangibleBookValue / sharesOutstanding.value : null;
+  // TBVPS uses Tangible Common Equity (excludes preferred stock) for common shareholders
+  const tangibleBookValuePerShare = tangibleCommonEquity && sharesOutstanding?.value ?
+    tangibleCommonEquity / sharesOutstanding.value : null;
 
   // Calculate ratios
   const pni = marketCap && netIncome?.value && netIncome.value > 0 ?
@@ -956,9 +966,13 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   const loansToDeposits = loans?.value && deposits?.value && deposits.value > 0 ?
     (loans.value / deposits.value) * 100 : null;
 
-  // 7. Cash & Securities/Assets = (Cash + AFS + HTM) / Total Assets
+  // 7. Cash & Securities/Assets = (Cash + Deposits at Banks + Fed Funds Sold + AFS + HTM) / Total Assets
   // Liquidity position. Typical range: 15-30%
-  const cashAndSecurities = (cashAndEquivalents?.value || 0) + (afsSecurities?.value || 0) + (htmSecurities?.value || 0);
+  const cashAndSecurities = (cashAndEquivalents?.value || 0) +
+                            (depositsAtBanks?.value || 0) +
+                            (fedFundsSold?.value || 0) +
+                            (afsSecurities?.value || 0) +
+                            (htmSecurities?.value || 0);
   const cashSecuritiesToAssets = totalAssets?.value && totalAssets.value > 0 && cashAndSecurities > 0 ?
     (cashAndSecurities / totalAssets.value) * 100 : null;
 
