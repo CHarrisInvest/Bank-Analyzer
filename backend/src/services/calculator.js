@@ -240,6 +240,132 @@ class MetricsCalculator {
     return ((grahamNumber - currentPrice) / currentPrice) * 100;
   }
 
+  // ============================================================================
+  // BANK-SPECIFIC RATIO CALCULATIONS
+  // ============================================================================
+
+  /**
+   * Calculate Efficiency Ratio
+   * Efficiency Ratio = Noninterest Expense / (Net Interest Income + Noninterest Income)
+   * Lower is better - measures operational efficiency. Typical range: 50-70%
+   * @param {number} noninterestExpense
+   * @param {number} netInterestIncome
+   * @param {number} noninterestIncome
+   * @returns {number}
+   */
+  calculateEfficiencyRatio(noninterestExpense, netInterestIncome, noninterestIncome) {
+    const totalRevenue = (netInterestIncome || 0) + (noninterestIncome || 0);
+    if (!noninterestExpense || totalRevenue <= 0) return null;
+    return (noninterestExpense / totalRevenue) * 100;
+  }
+
+  /**
+   * Calculate Allowance for Credit Losses / Total Loans
+   * ACL/Loans = Allowance for Credit Losses / Total Loans
+   * Credit loss reserve as percentage of loan portfolio. Typical range: 1-2%
+   * @param {number} allowanceForCreditLosses
+   * @param {number} loans
+   * @returns {number}
+   */
+  calculateAclToLoans(allowanceForCreditLosses, loans) {
+    if (!allowanceForCreditLosses || !loans || loans <= 0) return null;
+    return (allowanceForCreditLosses / loans) * 100;
+  }
+
+  /**
+   * Calculate Provision for Credit Losses / Average Loans
+   * Provision/Avg Loans = Provision for Credit Losses / Average Loans
+   * Annual provision expense as percentage of average loans. Typical range: 0.1-0.5%
+   * @param {number} provisionForCreditLosses
+   * @param {number} averageLoans
+   * @returns {number}
+   */
+  calculateProvisionToAvgLoans(provisionForCreditLosses, averageLoans) {
+    if (!provisionForCreditLosses || !averageLoans || averageLoans <= 0) return null;
+    return (provisionForCreditLosses / averageLoans) * 100;
+  }
+
+  /**
+   * Calculate Loans / Total Assets
+   * Loans/Assets = Total Loans / Total Assets
+   * Loan concentration ratio. Typical range: 60-75%
+   * @param {number} loans
+   * @param {number} totalAssets
+   * @returns {number}
+   */
+  calculateLoansToAssets(loans, totalAssets) {
+    if (!loans || !totalAssets || totalAssets <= 0) return null;
+    return (loans / totalAssets) * 100;
+  }
+
+  /**
+   * Calculate Deposits / Total Assets
+   * Deposits/Assets = Deposits / Total Assets
+   * Funding reliance on deposits. Typical range: 70-85%
+   * @param {number} deposits
+   * @param {number} totalAssets
+   * @returns {number}
+   */
+  calculateDepositsToAssets(deposits, totalAssets) {
+    if (!deposits || !totalAssets || totalAssets <= 0) return null;
+    return (deposits / totalAssets) * 100;
+  }
+
+  /**
+   * Calculate Loans / Deposits (LDR)
+   * Loans/Deposits = Total Loans / Total Deposits
+   * Loan-to-deposit ratio. Typical range: 80-100%
+   * @param {number} loans
+   * @param {number} deposits
+   * @returns {number}
+   */
+  calculateLoansToDeposits(loans, deposits) {
+    if (!loans || !deposits || deposits <= 0) return null;
+    return (loans / deposits) * 100;
+  }
+
+  /**
+   * Calculate Cash & Securities / Total Assets
+   * Cash+Sec/Assets = (Cash + AFS + HTM) / Total Assets
+   * Liquidity position. Typical range: 15-30%
+   * @param {number} cash
+   * @param {number} afsSecurities
+   * @param {number} htmSecurities
+   * @param {number} totalAssets
+   * @returns {number}
+   */
+  calculateCashSecuritiesToAssets(cash, afsSecurities, htmSecurities, totalAssets) {
+    const cashAndSecurities = (cash || 0) + (afsSecurities || 0) + (htmSecurities || 0);
+    if (!totalAssets || totalAssets <= 0 || cashAndSecurities <= 0) return null;
+    return (cashAndSecurities / totalAssets) * 100;
+  }
+
+  /**
+   * Calculate Equity / Total Assets
+   * Equity/Assets = Stockholders' Equity / Total Assets
+   * Leverage ratio (higher = less leveraged). Typical range: 8-12%
+   * @param {number} totalEquity
+   * @param {number} totalAssets
+   * @returns {number}
+   */
+  calculateEquityToAssets(totalEquity, totalAssets) {
+    if (!totalEquity || !totalAssets || totalAssets <= 0) return null;
+    return (totalEquity / totalAssets) * 100;
+  }
+
+  /**
+   * Calculate TCE/TA (Tangible Common Equity / Tangible Assets)
+   * TCE/TA = (Equity - Goodwill - Intangibles) / (Assets - Goodwill - Intangibles)
+   * More conservative capital ratio. Typical range: 6-10%
+   * @param {number} tangibleCommonEquity
+   * @param {number} tangibleAssets
+   * @returns {number}
+   */
+  calculateTceToTa(tangibleCommonEquity, tangibleAssets) {
+    if (!tangibleCommonEquity || !tangibleAssets || tangibleAssets <= 0) return null;
+    return (tangibleCommonEquity / tangibleAssets) * 100;
+  }
+
   /**
    * Calculate all metrics for a bank
    * @param {Object} edgarMetrics - Metrics extracted from SEC EDGAR
@@ -258,11 +384,25 @@ class MetricsCalculator {
     const preferredStock = edgarMetrics.preferredStock?.value || 0;
     const priorTotalAssets = edgarMetrics.priorTotalAssets?.value || totalAssets;
 
+    // Bank-specific metrics
+    const loans = edgarMetrics.loans?.value || null;
+    const deposits = edgarMetrics.deposits?.value || null;
+    const allowanceForCreditLosses = edgarMetrics.allowanceForCreditLosses?.value || null;
+    const cashAndEquivalents = edgarMetrics.cashAndEquivalents?.value || 0;
+    const afsSecurities = edgarMetrics.afsSecurities?.value || 0;
+    const htmSecurities = edgarMetrics.htmSecurities?.value || 0;
+    const netInterestIncome = edgarMetrics.netInterestIncome?.value || null;
+    const noninterestIncome = edgarMetrics.noninterestIncome?.value || null;
+    const noninterestExpense = edgarMetrics.noninterestExpense?.value || null;
+    const provisionForCreditLosses = edgarMetrics.provisionForCreditLosses?.value || null;
+    const priorLoans = edgarMetrics.priorLoans?.value || loans;
+
     // Calculate derived values
     const tangibleBookValue = totalEquity ? this.calculateTangibleBookValue(totalEquity, goodwill, intangibleAssets) : null;
     const tangibleAssets = this.calculateTangibleAssets(totalAssets, goodwill, intangibleAssets);
     const tangibleCommonEquity = this.calculateTangibleCommonEquity(totalEquity, preferredStock, goodwill, intangibleAssets);
     const averageAssets = totalAssets && priorTotalAssets ? (totalAssets + priorTotalAssets) / 2 : totalAssets;
+    const averageLoans = loans && priorLoans ? (loans + priorLoans) / 2 : loans;
     const marketCap = currentPrice && sharesOutstanding ? this.calculateMarketCap(currentPrice, sharesOutstanding) : null;
     const bookValuePerShare = totalEquity && sharesOutstanding ? totalEquity / sharesOutstanding : null;
     const tangibleBookValuePerShare = tangibleBookValue && sharesOutstanding ? tangibleBookValue / sharesOutstanding : null;
@@ -279,6 +419,17 @@ class MetricsCalculator {
     const grahamNumber = this.calculateGrahamNumber(eps, bookValuePerShare);
     const grahamMoS = this.calculateGrahamMoS(grahamNumber, currentPrice);
     const grahamMoSPct = this.calculateGrahamMoSPct(grahamNumber, currentPrice);
+
+    // Calculate bank-specific ratios
+    const efficiencyRatio = this.calculateEfficiencyRatio(noninterestExpense, netInterestIncome, noninterestIncome);
+    const aclToLoans = this.calculateAclToLoans(allowanceForCreditLosses, loans);
+    const provisionToAvgLoans = this.calculateProvisionToAvgLoans(provisionForCreditLosses, averageLoans);
+    const loansToAssets = this.calculateLoansToAssets(loans, totalAssets);
+    const depositsToAssets = this.calculateDepositsToAssets(deposits, totalAssets);
+    const loansToDeposits = this.calculateLoansToDeposits(loans, deposits);
+    const cashSecuritiesToAssets = this.calculateCashSecuritiesToAssets(cashAndEquivalents, afsSecurities, htmSecurities, totalAssets);
+    const equityToAssets = this.calculateEquityToAssets(totalEquity, totalAssets);
+    const tceToTa = this.calculateTceToTa(tangibleCommonEquity, tangibleAssets);
 
     // Get the most recent data date from EDGAR metrics
     const dataDate = edgarMetrics.netIncome?.date ||
@@ -317,6 +468,17 @@ class MetricsCalculator {
       graham_number: grahamNumber,
       graham_mos: grahamMoS,
       graham_mos_pct: grahamMoSPct,
+
+      // Bank-specific ratios
+      efficiency_ratio: efficiencyRatio,
+      acl_to_loans: aclToLoans,
+      provision_to_avg_loans: provisionToAvgLoans,
+      loans_to_assets: loansToAssets,
+      deposits_to_assets: depositsToAssets,
+      loans_to_deposits: loansToDeposits,
+      cash_securities_to_assets: cashSecuritiesToAssets,
+      equity_to_assets: equityToAssets,
+      tce_to_ta: tceToTa,
 
       // Metadata
       data_date: dataDate

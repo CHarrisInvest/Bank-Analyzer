@@ -350,6 +350,100 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
         </div>
 
         <div className="filters-section">
+          <h3 className="filters-section-title">Bank Ratios</h3>
+
+          <RangeFilter
+            label="Efficiency Ratio"
+            minValue={filters.efficiencyRatio?.min ?? ''}
+            maxValue={filters.efficiencyRatio?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('efficiencyRatio')}
+            unit="%"
+          />
+
+          <RangeFilter
+            label="ACL/Loans"
+            minValue={filters.aclToLoans?.min ?? ''}
+            maxValue={filters.aclToLoans?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('aclToLoans')}
+            unit="%"
+          />
+
+          <RangeFilter
+            label="Provision/Avg Loans"
+            minValue={filters.provisionToAvgLoans?.min ?? ''}
+            maxValue={filters.provisionToAvgLoans?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('provisionToAvgLoans')}
+            unit="%"
+          />
+
+          <RangeFilter
+            label="Loans/Assets"
+            minValue={filters.loansToAssets?.min ?? ''}
+            maxValue={filters.loansToAssets?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('loansToAssets')}
+            unit="%"
+          />
+
+          <RangeFilter
+            label="Deposits/Assets"
+            minValue={filters.depositsToAssets?.min ?? ''}
+            maxValue={filters.depositsToAssets?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('depositsToAssets')}
+            unit="%"
+          />
+
+          <RangeFilter
+            label="Loans/Deposits (LDR)"
+            minValue={filters.loansToDeposits?.min ?? ''}
+            maxValue={filters.loansToDeposits?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('loansToDeposits')}
+            unit="%"
+          />
+
+          <RangeFilter
+            label="Cash & Sec/Assets"
+            minValue={filters.cashSecuritiesToAssets?.min ?? ''}
+            maxValue={filters.cashSecuritiesToAssets?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('cashSecuritiesToAssets')}
+            unit="%"
+          />
+
+          <RangeFilter
+            label="Equity/Assets"
+            minValue={filters.equityToAssets?.min ?? ''}
+            maxValue={filters.equityToAssets?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('equityToAssets')}
+            unit="%"
+          />
+
+          <RangeFilter
+            label="TCE/TA"
+            minValue={filters.tceToTa?.min ?? ''}
+            maxValue={filters.tceToTa?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('tceToTa')}
+            unit="%"
+          />
+        </div>
+
+        <div className="filters-section">
           <h3 className="filters-section-title">Listing</h3>
 
           <ExchangeFilter

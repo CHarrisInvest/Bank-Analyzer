@@ -175,6 +175,75 @@ class EdgarClient {
     metrics.goodwill = this.getLatestConceptValue(companyFacts, 'Goodwill');
     metrics.intangibleAssets = this.getLatestConceptValue(companyFacts, 'IntangibleAssetsNetExcludingGoodwill');
 
+    // ============================================================================
+    // BANK-SPECIFIC BALANCE SHEET ITEMS
+    // ============================================================================
+
+    // Loans and Leases
+    metrics.loans = this.getLatestConceptValue(companyFacts, 'LoansAndLeasesReceivableNetReportedAmount');
+    if (!metrics.loans) {
+      metrics.loans = this.getLatestConceptValue(companyFacts, 'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss');
+    }
+    if (!metrics.loans) {
+      metrics.loans = this.getLatestConceptValue(companyFacts, 'NotesReceivableNet');
+    }
+
+    // Deposits
+    metrics.deposits = this.getLatestConceptValue(companyFacts, 'Deposits');
+    if (!metrics.deposits) {
+      metrics.deposits = this.getLatestConceptValue(companyFacts, 'DepositsDomestic');
+    }
+
+    // Allowance for Credit Losses
+    metrics.allowanceForCreditLosses = this.getLatestConceptValue(companyFacts, 'FinancingReceivableAllowanceForCreditLosses');
+    if (!metrics.allowanceForCreditLosses) {
+      metrics.allowanceForCreditLosses = this.getLatestConceptValue(companyFacts, 'LoansAndLeasesReceivableAllowance');
+    }
+
+    // Cash and Securities
+    metrics.cashAndEquivalents = this.getLatestConceptValue(companyFacts, 'CashAndCashEquivalentsAtCarryingValue');
+    if (!metrics.cashAndEquivalents) {
+      metrics.cashAndEquivalents = this.getLatestConceptValue(companyFacts, 'CashAndDueFromBanks');
+    }
+
+    metrics.afsSecurities = this.getLatestConceptValue(companyFacts, 'AvailableForSaleSecuritiesDebtSecurities');
+    if (!metrics.afsSecurities) {
+      metrics.afsSecurities = this.getLatestConceptValue(companyFacts, 'AvailableForSaleSecurities');
+    }
+
+    metrics.htmSecurities = this.getLatestConceptValue(companyFacts, 'HeldToMaturitySecurities');
+    if (!metrics.htmSecurities) {
+      metrics.htmSecurities = this.getLatestConceptValue(companyFacts, 'HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss');
+    }
+
+    // ============================================================================
+    // BANK-SPECIFIC INCOME STATEMENT ITEMS
+    // ============================================================================
+
+    // Net Interest Income
+    metrics.netInterestIncome = this.getLatestConceptValue(companyFacts, 'InterestIncomeExpenseNet');
+    if (!metrics.netInterestIncome) {
+      metrics.netInterestIncome = this.getLatestConceptValue(companyFacts, 'NetInterestIncome');
+    }
+
+    // Noninterest Income
+    metrics.noninterestIncome = this.getLatestConceptValue(companyFacts, 'NoninterestIncome');
+
+    // Noninterest Expense
+    metrics.noninterestExpense = this.getLatestConceptValue(companyFacts, 'NoninterestExpense');
+    if (!metrics.noninterestExpense) {
+      metrics.noninterestExpense = this.getLatestConceptValue(companyFacts, 'OtherCostAndExpenseOperating');
+    }
+
+    // Provision for Credit Losses
+    metrics.provisionForCreditLosses = this.getLatestConceptValue(companyFacts, 'ProvisionForLoanLeaseAndOtherLosses');
+    if (!metrics.provisionForCreditLosses) {
+      metrics.provisionForCreditLosses = this.getLatestConceptValue(companyFacts, 'ProvisionForLoanAndLeaseLosses');
+    }
+    if (!metrics.provisionForCreditLosses) {
+      metrics.provisionForCreditLosses = this.getLatestConceptValue(companyFacts, 'ProvisionForCreditLosses');
+    }
+
     // Income Statement Items
     metrics.netIncome = this.getLatestConceptValue(companyFacts, 'NetIncomeLoss');
 

@@ -727,6 +727,67 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   // Get two periods of assets for average assets calculation (ROAA)
   const assetsForAverage = getLatestTwoPointInTimeValues(companyFacts, 'Assets');
 
+  // ============================================================================
+  // BANK-SPECIFIC BALANCE SHEET ITEMS
+  // ============================================================================
+
+  // Loans and Leases (for Loans/Assets, Loans/Deposits, ACL/Loans, Provision/Loans)
+  const loans = getLatestPointInTimeValue(companyFacts, 'LoansAndLeasesReceivableNetReportedAmount') ||
+                getLatestPointInTimeValue(companyFacts, 'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss') ||
+                getLatestPointInTimeValue(companyFacts, 'NotesReceivableNet') ||
+                getLatestPointInTimeValue(companyFacts, 'LoansAndLeasesReceivableNetOfDeferredIncome');
+
+  // Get two periods of loans for average loans calculation (Provision/Avg Loans)
+  const loansForAverage = getLatestTwoPointInTimeValues(companyFacts, 'LoansAndLeasesReceivableNetReportedAmount') ||
+                          getLatestTwoPointInTimeValues(companyFacts, 'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss') ||
+                          getLatestTwoPointInTimeValues(companyFacts, 'NotesReceivableNet');
+
+  // Deposits (for Deposits/Assets, Loans/Deposits)
+  const deposits = getLatestPointInTimeValue(companyFacts, 'Deposits') ||
+                   getLatestPointInTimeValue(companyFacts, 'DepositsDomestic');
+
+  // Allowance for Credit Losses (for ACL/Loans ratio)
+  const allowanceForCreditLosses = getLatestPointInTimeValue(companyFacts, 'FinancingReceivableAllowanceForCreditLosses') ||
+                                   getLatestPointInTimeValue(companyFacts, 'AllowanceForLoanAndLeaseLossesRealEstate') ||
+                                   getLatestPointInTimeValue(companyFacts, 'LoansAndLeasesReceivableAllowance') ||
+                                   getLatestPointInTimeValue(companyFacts, 'FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest');
+
+  // Cash and Securities (for Cash & Securities/Assets)
+  const cashAndEquivalents = getLatestPointInTimeValue(companyFacts, 'CashAndCashEquivalentsAtCarryingValue') ||
+                             getLatestPointInTimeValue(companyFacts, 'CashAndDueFromBanks') ||
+                             getLatestPointInTimeValue(companyFacts, 'Cash');
+  const afsSecurities = getLatestPointInTimeValue(companyFacts, 'AvailableForSaleSecuritiesDebtSecurities') ||
+                        getLatestPointInTimeValue(companyFacts, 'AvailableForSaleSecurities') ||
+                        getLatestPointInTimeValue(companyFacts, 'AvailableForSaleSecuritiesDebtSecuritiesCurrent');
+  const htmSecurities = getLatestPointInTimeValue(companyFacts, 'HeldToMaturitySecurities') ||
+                        getLatestPointInTimeValue(companyFacts, 'HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss') ||
+                        getLatestPointInTimeValue(companyFacts, 'HeldToMaturitySecuritiesFairValue');
+
+  // ============================================================================
+  // BANK-SPECIFIC INCOME STATEMENT ITEMS (TTM)
+  // ============================================================================
+
+  // Net Interest Income (for Efficiency Ratio)
+  const netInterestIncome = getTTMValue(companyFacts, 'InterestIncomeExpenseNet') ||
+                            getTTMValue(companyFacts, 'NetInterestIncome') ||
+                            getTTMValue(companyFacts, 'InterestIncomeExpenseAfterProvisionForLoanLoss');
+
+  // Noninterest Income (for Efficiency Ratio)
+  const noninterestIncome = getTTMValue(companyFacts, 'NoninterestIncome') ||
+                            getTTMValue(companyFacts, 'RevenuesNetOfInterestExpense') ||
+                            getTTMValue(companyFacts, 'FeesAndCommissions');
+
+  // Noninterest Expense (for Efficiency Ratio)
+  const noninterestExpense = getTTMValue(companyFacts, 'NoninterestExpense') ||
+                             getTTMValue(companyFacts, 'OtherCostAndExpenseOperating') ||
+                             getTTMValue(companyFacts, 'OperatingExpenses');
+
+  // Provision for Credit Losses (for Provision/Avg Loans)
+  const provisionForCreditLosses = getTTMValue(companyFacts, 'ProvisionForLoanLeaseAndOtherLosses') ||
+                                   getTTMValue(companyFacts, 'ProvisionForLoanAndLeaseLosses') ||
+                                   getTTMValue(companyFacts, 'ProvisionForCreditLosses') ||
+                                   getTTMValue(companyFacts, 'ProvisionForLoanLossesExpensed');
+
   // Income statement items (period-based) - use TTM
   const netIncome = getTTMValue(companyFacts, 'NetIncomeLoss') ||
                     getTTMValue(companyFacts, 'ProfitLoss') ||
@@ -837,6 +898,60 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   const grahamMoSPct = grahamNumber && currentPrice && currentPrice > 0 ?
     ((grahamNumber - currentPrice) / currentPrice) * 100 : null;
 
+  // ============================================================================
+  // NEW BANK-SPECIFIC RATIOS
+  // ============================================================================
+
+  // 1. Efficiency Ratio = Noninterest Expense / (Net Interest Income + Noninterest Income)
+  // Lower is better - measures operational efficiency. Typical range: 50-70%
+  const totalRevenue = (netInterestIncome?.value || 0) + (noninterestIncome?.value || 0);
+  const efficiencyRatio = noninterestExpense?.value && totalRevenue > 0 ?
+    (noninterestExpense.value / totalRevenue) * 100 : null;
+
+  // 2. ACL/Loans = Allowance for Credit Losses / Total Loans
+  // Credit loss reserve as percentage of loan portfolio. Typical range: 1-2%
+  const aclToLoans = allowanceForCreditLosses?.value && loans?.value && loans.value > 0 ?
+    (allowanceForCreditLosses.value / loans.value) * 100 : null;
+
+  // 3. Provision/Avg Loans = Provision for Credit Losses / Average Loans
+  // Annual provision expense as percentage of average loans. Typical range: 0.1-0.5%
+  const averageLoans = loansForAverage?.current?.value && loansForAverage?.prior?.value ?
+    (loansForAverage.current.value + loansForAverage.prior.value) / 2 :
+    (loansForAverage?.current?.value || loans?.value || null);
+  const provisionToAvgLoans = provisionForCreditLosses?.value && averageLoans && averageLoans > 0 ?
+    (provisionForCreditLosses.value / averageLoans) * 100 : null;
+
+  // 4. Loans/Assets = Total Loans / Total Assets
+  // Loan concentration ratio. Typical range: 60-75%
+  const loansToAssets = loans?.value && totalAssets?.value && totalAssets.value > 0 ?
+    (loans.value / totalAssets.value) * 100 : null;
+
+  // 5. Deposits/Assets = Deposits / Total Assets
+  // Funding reliance on deposits. Typical range: 70-85%
+  const depositsToAssets = deposits?.value && totalAssets?.value && totalAssets.value > 0 ?
+    (deposits.value / totalAssets.value) * 100 : null;
+
+  // 6. Loans/Deposits = Total Loans / Total Deposits
+  // Loan-to-deposit ratio (LDR). Typical range: 80-100%
+  const loansToDeposits = loans?.value && deposits?.value && deposits.value > 0 ?
+    (loans.value / deposits.value) * 100 : null;
+
+  // 7. Cash & Securities/Assets = (Cash + AFS + HTM) / Total Assets
+  // Liquidity position. Typical range: 15-30%
+  const cashAndSecurities = (cashAndEquivalents?.value || 0) + (afsSecurities?.value || 0) + (htmSecurities?.value || 0);
+  const cashSecuritiesToAssets = totalAssets?.value && totalAssets.value > 0 && cashAndSecurities > 0 ?
+    (cashAndSecurities / totalAssets.value) * 100 : null;
+
+  // 8. Equity/Assets = Stockholders' Equity / Total Assets
+  // Leverage ratio (higher = less leveraged). Typical range: 8-12%
+  const equityToAssets = totalEquity?.value && totalAssets?.value && totalAssets.value > 0 ?
+    (totalEquity.value / totalAssets.value) * 100 : null;
+
+  // 9. TCE/TA = Tangible Common Equity / Tangible Assets
+  // More conservative capital ratio. Typical range: 6-10%
+  const tceToTa = tangibleCommonEquity && tangibleAssets && tangibleAssets > 0 ?
+    (tangibleCommonEquity / tangibleAssets) * 100 : null;
+
   // For exchange-traded securities (preferred, debt), null out price-related metrics
   // These metrics don't apply to non-common shares
   if (isExchangeTraded) {
@@ -860,6 +975,16 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
       ttmDividendPerShare: null,
       dividendPayoutRatio: null,
       dividendMethod: null,
+      // Bank-specific ratios (keep for exchange-traded since they're fundamental metrics)
+      efficiencyRatio: efficiencyRatio ? parseFloat(efficiencyRatio.toFixed(2)) : null,
+      aclToLoans: aclToLoans ? parseFloat(aclToLoans.toFixed(2)) : null,
+      provisionToAvgLoans: provisionToAvgLoans ? parseFloat(provisionToAvgLoans.toFixed(2)) : null,
+      loansToAssets: loansToAssets ? parseFloat(loansToAssets.toFixed(2)) : null,
+      depositsToAssets: depositsToAssets ? parseFloat(depositsToAssets.toFixed(2)) : null,
+      loansToDeposits: loansToDeposits ? parseFloat(loansToDeposits.toFixed(2)) : null,
+      cashSecuritiesToAssets: cashSecuritiesToAssets ? parseFloat(cashSecuritiesToAssets.toFixed(2)) : null,
+      equityToAssets: equityToAssets ? parseFloat(equityToAssets.toFixed(2)) : null,
+      tceToTa: tceToTa ? parseFloat(tceToTa.toFixed(2)) : null,
       dataDate: dataDate,
       isStale: isStale,
       ttmMethod: netIncome?.method || 'unknown'
@@ -886,6 +1011,16 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
     ttmDividendPerShare: dividendMetrics.ttmDividendPerShare,
     dividendPayoutRatio: dividendMetrics.dividendPayoutRatio,
     dividendMethod: dividendMetrics.dividendMethod,
+    // Bank-specific ratios
+    efficiencyRatio: efficiencyRatio ? parseFloat(efficiencyRatio.toFixed(2)) : null,
+    aclToLoans: aclToLoans ? parseFloat(aclToLoans.toFixed(2)) : null,
+    provisionToAvgLoans: provisionToAvgLoans ? parseFloat(provisionToAvgLoans.toFixed(2)) : null,
+    loansToAssets: loansToAssets ? parseFloat(loansToAssets.toFixed(2)) : null,
+    depositsToAssets: depositsToAssets ? parseFloat(depositsToAssets.toFixed(2)) : null,
+    loansToDeposits: loansToDeposits ? parseFloat(loansToDeposits.toFixed(2)) : null,
+    cashSecuritiesToAssets: cashSecuritiesToAssets ? parseFloat(cashSecuritiesToAssets.toFixed(2)) : null,
+    equityToAssets: equityToAssets ? parseFloat(equityToAssets.toFixed(2)) : null,
+    tceToTa: tceToTa ? parseFloat(tceToTa.toFixed(2)) : null,
     dataDate: dataDate,
     isStale: isStale, // Flag if data is before 2024
     ttmMethod: netIncome?.method || 'unknown' // Track how TTM was calculated
