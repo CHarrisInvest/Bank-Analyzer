@@ -3,6 +3,15 @@ import { formatNumber } from '../utils/csv.js';
 
 /**
  * Table column configuration
+ *
+ * Columns include:
+ * - Basic info: Ticker, Bank Name, Exchange, Type
+ * - Price metrics: Price, Market Cap
+ * - Valuation: P/NI, P/TBVPS
+ * - Book Value: BVPS, TBVPS
+ * - Performance: RoE, ROAA, RoTA, ROTCE
+ * - Dividends: TTM Div, Payout %
+ * - Graham: Graham #, Graham MoS, MoS %
  */
 const COLUMNS = [
   {
@@ -26,6 +35,17 @@ const COLUMNS = [
     sortable: true,
     align: 'center',
     format: (value) => value || '-',
+  },
+  {
+    key: 'securityType',
+    label: 'Type',
+    sortable: true,
+    align: 'center',
+    format: (value) => {
+      if (value === 'common') return 'Common';
+      if (value === 'exchange-traded') return 'ExchTrd';
+      return value || '-';
+    },
   },
   {
     key: 'price',
@@ -93,6 +113,20 @@ const COLUMNS = [
   {
     key: 'rotce',
     label: 'ROTCE',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
+  },
+  {
+    key: 'ttmDividendPerShare',
+    label: 'TTM Div',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+  },
+  {
+    key: 'dividendPayoutRatio',
+    label: 'Payout %',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),

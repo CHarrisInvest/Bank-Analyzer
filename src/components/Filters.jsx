@@ -104,8 +104,77 @@ function ExchangeFilter({ exchanges, selectedExchanges, onChange }) {
 }
 
 /**
+ * Security Type Filter
+ * Allows filtering by common shares vs exchange-traded securities (preferred, debt)
+ *
+ * Options:
+ * - "all": Show all securities (default)
+ * - "common": Only common shares
+ * - "exchange-traded": Only exchange-traded securities (preferred, debt)
+ */
+function SecurityTypeFilter({ value, onChange }) {
+  return (
+    <div className="filter-group">
+      <label className="filter-label">Security Type</label>
+      <select
+        className="filter-select"
+        value={value || 'all'}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        <option value="all">All Securities</option>
+        <option value="common">Common Shares Only</option>
+        <option value="exchange-traded">Exchange-Traded Only</option>
+      </select>
+      <div className="filter-help">
+        Exchange-traded includes preferred stock and debt securities
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Country Filter
+ * Allows filtering by US vs Non-US bank holding companies
+ *
+ * Classification is based on SEC EDGAR data:
+ * - State of incorporation
+ * - Business address country
+ * - Mailing address country
+ *
+ * Limitations:
+ * - US-incorporated subsidiaries of foreign parents may be classified as US
+ * - Some foreign banks with US presence may have ambiguous classification
+ */
+function CountryFilter({ value, onChange }) {
+  return (
+    <div className="filter-group">
+      <label className="filter-label">Country</label>
+      <select
+        className="filter-select"
+        value={value || 'all'}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        <option value="all">All Countries</option>
+        <option value="us">US Only</option>
+        <option value="non-us">Non-US Only</option>
+      </select>
+      <div className="filter-help">
+        Based on incorporation state and business address
+      </div>
+    </div>
+  );
+}
+
+/**
  * Filters Component
  * Provides all filtering controls for the bank screener
+ *
+ * Filter categories:
+ * - Valuation: P/NI, P-TBV, Market Cap
+ * - Performance: RoE, ROAA, RoTA, ROTCE, Graham MoS
+ * - Book Value: BVPS, TBVPS
+ * - Dividends: TTM Dividend, Dividend Payout Ratio
+ * - Classification: Security Type, Country, Exchange
  */
 function Filters({ filters, exchanges, onFilterChange, onReset }) {
   /**
@@ -134,6 +203,16 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
   };
 
   /**
+   * Handle string filter change (for select dropdowns)
+   */
+  const handleSelectChange = (filterKey) => (value) => {
+    onFilterChange({
+      ...filters,
+      [filterKey]: value,
+    });
+  };
+
+  /**
    * Handle exchange selection change
    */
   const handleExchangeChange = (selectedExchanges) => {
@@ -153,6 +232,20 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
       </div>
 
       <div className="filters-content">
+        <div className="filters-section">
+          <h3 className="filters-section-title">Classification</h3>
+
+          <SecurityTypeFilter
+            value={filters.securityType || 'all'}
+            onChange={handleSelectChange('securityType')}
+          />
+
+          <CountryFilter
+            value={filters.country || 'all'}
+            onChange={handleSelectChange('country')}
+          />
+        </div>
+
         <div className="filters-section">
           <h3 className="filters-section-title">Valuation</h3>
 
@@ -258,6 +351,30 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             maxPlaceholder="Max"
             onChange={handleRangeChange('tbvps')}
             unit="$"
+          />
+        </div>
+
+        <div className="filters-section">
+          <h3 className="filters-section-title">Dividends</h3>
+
+          <RangeFilter
+            label="TTM Dividend"
+            minValue={filters.ttmDividend?.min ?? ''}
+            maxValue={filters.ttmDividend?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('ttmDividend')}
+            unit="$/share"
+          />
+
+          <RangeFilter
+            label="Dividend Payout Ratio"
+            minValue={filters.dividendPayoutRatio?.min ?? ''}
+            maxValue={filters.dividendPayoutRatio?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('dividendPayoutRatio')}
+            unit="%"
           />
         </div>
 
