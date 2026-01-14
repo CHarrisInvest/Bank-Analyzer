@@ -104,8 +104,53 @@ function ExchangeFilter({ exchanges, selectedExchanges, onChange }) {
 }
 
 /**
+ * Security Type Filter
+ * Allows filtering by common shares vs exchange-traded securities (preferred, debt)
+ *
+ * Options:
+ * - "all": Show all securities (default)
+ * - "common": Only common shares
+ * - "exchange-traded": Only exchange-traded securities (preferred, debt)
+ */
+function SecurityTypeFilter({ value, onChange }) {
+  const options = [
+    { value: 'all', label: 'All' },
+    { value: 'common', label: 'Common Shares' },
+    { value: 'exchange-traded', label: 'Exchange-Traded Securities' },
+  ];
+
+  return (
+    <div className="filter-group">
+      <label className="filter-label">Security Type</label>
+      <div className="filter-button-group">
+        {options.map((option) => (
+          <button
+            key={option.value}
+            type="button"
+            className={`filter-button ${value === option.value ? 'active' : ''}`}
+            onClick={() => onChange(option.value)}
+          >
+            {option.label}
+          </button>
+        ))}
+      </div>
+      <div className="filter-help">
+        Exchange-traded includes preferred stock and debt securities
+      </div>
+    </div>
+  );
+}
+
+/**
  * Filters Component
  * Provides all filtering controls for the bank screener
+ *
+ * Filter categories:
+ * - Valuation: P/NI, P-TBV, Market Cap
+ * - Performance: RoE, ROAA, RoTA, ROTCE, Graham MoS
+ * - Book Value: BVPS, TBVPS
+ * - Dividends: TTM Dividend, Dividend Payout Ratio
+ * - Classification: Security Type, Exchange
  */
 function Filters({ filters, exchanges, onFilterChange, onReset }) {
   /**
@@ -134,6 +179,16 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
   };
 
   /**
+   * Handle string filter change (for select dropdowns)
+   */
+  const handleSelectChange = (filterKey) => (value) => {
+    onFilterChange({
+      ...filters,
+      [filterKey]: value,
+    });
+  };
+
+  /**
    * Handle exchange selection change
    */
   const handleExchangeChange = (selectedExchanges) => {
@@ -153,6 +208,15 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
       </div>
 
       <div className="filters-content">
+        <div className="filters-section">
+          <h3 className="filters-section-title">Classification</h3>
+
+          <SecurityTypeFilter
+            value={filters.securityType || 'all'}
+            onChange={handleSelectChange('securityType')}
+          />
+        </div>
+
         <div className="filters-section">
           <h3 className="filters-section-title">Valuation</h3>
 
@@ -258,6 +322,30 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             maxPlaceholder="Max"
             onChange={handleRangeChange('tbvps')}
             unit="$"
+          />
+        </div>
+
+        <div className="filters-section">
+          <h3 className="filters-section-title">Dividends</h3>
+
+          <RangeFilter
+            label="TTM Dividend"
+            minValue={filters.ttmDividend?.min ?? ''}
+            maxValue={filters.ttmDividend?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('ttmDividend')}
+            unit="$/share"
+          />
+
+          <RangeFilter
+            label="Dividend Payout Ratio"
+            minValue={filters.dividendPayoutRatio?.min ?? ''}
+            maxValue={filters.dividendPayoutRatio?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('dividendPayoutRatio')}
+            unit="%"
           />
         </div>
 

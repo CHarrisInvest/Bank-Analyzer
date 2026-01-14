@@ -5,18 +5,34 @@ import { getUniqueExchanges } from '../data/sheets.js';
 
 /**
  * Default filter state
+ *
+ * Filter categories:
+ * - Classification: securityType
+ * - Valuation: pni, ptbvps, marketCap
+ * - Performance: roe, roaa, rota, rotce, grahamMoS
+ * - Book Value: bvps, tbvps
+ * - Dividends: ttmDividend, dividendPayoutRatio
+ * - Listing: exchanges
  */
 const DEFAULT_FILTERS = {
+  // Classification filters
+  securityType: 'all', // 'all', 'common', 'exchange-traded'
+  // Performance filters
   roe: { min: '', max: '' },
   roaa: { min: '', max: '' },
   rota: { min: '', max: '' },
   rotce: { min: '', max: '' },
+  // Valuation filters
   pni: { min: '', max: '' },
   ptbvps: { min: '', max: '' },
   bvps: { min: '', max: '' },
   tbvps: { min: '', max: '' },
   marketCap: { min: '', max: '' },
   grahamMoS: '',
+  // Dividend filters
+  ttmDividend: { min: '', max: '' },
+  dividendPayoutRatio: { min: '', max: '' },
+  // Listing filter
   exchanges: [],
 };
 
@@ -41,9 +57,28 @@ function Screener({ banks, loading }) {
 
   /**
    * Apply filters to bank data
+   *
+   * Filter categories:
+   * - Classification: securityType
+   * - Performance: roe, roaa, rota, rotce
+   * - Valuation: pni, ptbvps, marketCap, grahamMoS
+   * - Book Value: bvps, tbvps
+   * - Dividends: ttmDividend, dividendPayoutRatio
+   * - Listing: exchanges
    */
   const filteredBanks = useMemo(() => {
     return banks.filter((bank) => {
+      // Security Type filter
+      // Options: 'all', 'common', 'exchange-traded'
+      if (filters.securityType && filters.securityType !== 'all') {
+        if (filters.securityType === 'common' && bank.securityType !== 'common') {
+          return false;
+        }
+        if (filters.securityType === 'exchange-traded' && bank.securityType !== 'exchange-traded') {
+          return false;
+        }
+      }
+
       // RoE filter
       if (filters.roe.min !== '' && (bank.roe === null || bank.roe < filters.roe.min)) {
         return false;
@@ -127,6 +162,31 @@ function Screener({ banks, loading }) {
         return false;
       }
 
+      // TTM Dividend filter ($/share)
+      // Note: Exchange-traded securities have null dividends
+      if (filters.ttmDividend?.min !== '' && filters.ttmDividend?.min !== undefined) {
+        if (bank.ttmDividendPerShare === null || bank.ttmDividendPerShare < filters.ttmDividend.min) {
+          return false;
+        }
+      }
+      if (filters.ttmDividend?.max !== '' && filters.ttmDividend?.max !== undefined) {
+        if (bank.ttmDividendPerShare === null || bank.ttmDividendPerShare > filters.ttmDividend.max) {
+          return false;
+        }
+      }
+
+      // Dividend Payout Ratio filter (%)
+      if (filters.dividendPayoutRatio?.min !== '' && filters.dividendPayoutRatio?.min !== undefined) {
+        if (bank.dividendPayoutRatio === null || bank.dividendPayoutRatio < filters.dividendPayoutRatio.min) {
+          return false;
+        }
+      }
+      if (filters.dividendPayoutRatio?.max !== '' && filters.dividendPayoutRatio?.max !== undefined) {
+        if (bank.dividendPayoutRatio === null || bank.dividendPayoutRatio > filters.dividendPayoutRatio.max) {
+          return false;
+        }
+      }
+
       // Exchange filter
       if (filters.exchanges.length > 0 && !filters.exchanges.includes(bank.exchange)) {
         return false;
@@ -162,6 +222,9 @@ function Screener({ banks, loading }) {
    */
   const hasActiveFilters = useMemo(() => {
     return (
+      // Classification filters
+      (filters.securityType && filters.securityType !== 'all') ||
+      // Performance filters
       filters.roe.min !== '' ||
       filters.roe.max !== '' ||
       filters.roaa.min !== '' ||
@@ -170,6 +233,7 @@ function Screener({ banks, loading }) {
       filters.rota.max !== '' ||
       filters.rotce.min !== '' ||
       filters.rotce.max !== '' ||
+      // Valuation filters
       filters.pni.min !== '' ||
       filters.pni.max !== '' ||
       filters.ptbvps.min !== '' ||
@@ -181,6 +245,12 @@ function Screener({ banks, loading }) {
       filters.marketCap.min !== '' ||
       filters.marketCap.max !== '' ||
       filters.grahamMoS !== '' ||
+      // Dividend filters
+      (filters.ttmDividend?.min !== '' && filters.ttmDividend?.min !== undefined) ||
+      (filters.ttmDividend?.max !== '' && filters.ttmDividend?.max !== undefined) ||
+      (filters.dividendPayoutRatio?.min !== '' && filters.dividendPayoutRatio?.min !== undefined) ||
+      (filters.dividendPayoutRatio?.max !== '' && filters.dividendPayoutRatio?.max !== undefined) ||
+      // Listing filter
       filters.exchanges.length > 0
     );
   }, [filters]);

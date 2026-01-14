@@ -559,6 +559,89 @@ body {
   color: var(--color-accent);
 }
 
+/* Select dropdown filter (for Security Type, Country) */
+.filter-select {
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-800);
+  background-color: var(--color-white);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right var(--spacing-2) center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+.filter-select:hover:not(:focus) {
+  border-color: var(--color-gray-400);
+}
+
+/* Button group filter (for Security Type) */
+.filter-button-group {
+  display: flex;
+  gap: var(--spacing-1);
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: var(--spacing-1) var(--spacing-2);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-600);
+  background-color: var(--color-white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-button:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.filter-button.active {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.filter-button.active:hover {
+  background-color: var(--color-accent-dark, #2563eb);
+  border-color: var(--color-accent-dark, #2563eb);
+}
+
+/* Filter help text */
+.filter-help {
+  margin-top: var(--spacing-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  line-height: 1.4;
+}
+
+/* Security type column styling */
+.col-securityType {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Dividend column styling */
+.col-ttmDividendPerShare,
+.col-dividendPayoutRatio {
+  font-family: var(--font-family-mono);
+}
+
 /* --------------------------------------------------------------------------
    Results Table
    -------------------------------------------------------------------------- */
