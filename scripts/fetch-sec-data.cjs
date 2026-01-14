@@ -33,18 +33,6 @@ const CONFIG = {
     /P$/i,              // Single P suffix for some preferreds (rare)
   ],
 
-  /**
-   * US state codes recognized by SEC (2-letter codes)
-   * Non-US jurisdictions use different codes
-   */
-  usStateCodes: [
-    'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
-    'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
-    'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
-    'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
-    'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',
-    'DC', 'PR', 'VI', 'GU', 'AS', 'MP' // Plus territories
-  ]
 };
 
 /**
@@ -214,34 +202,6 @@ async function getCompanyFacts(cik) {
 }
 
 /**
- * Fetch company submissions from SEC EDGAR
- * Returns company metadata including state of incorporation and business address
- * This is used for US vs Non-US classification
- *
- * @param {string} cik - Company CIK number
- * @returns {Promise<Object>} Company submission data with incorporation and address info
- */
-async function getCompanySubmissions(cik) {
-  try {
-    await delay(CONFIG.requestDelay);
-
-    const paddedCik = cik.padStart(10, '0');
-    const url = `https://data.sec.gov/submissions/CIK${paddedCik}.json`;
-
-    const response = await axios.get(url, {
-      headers: { 'User-Agent': CONFIG.edgarUserAgent },
-      timeout: 30000
-    });
-
-    return response.data;
-  } catch (error) {
-    // Don't fail the whole process if we can't get submissions
-    console.warn(`  Warning: Could not fetch company submissions: ${error.message}`);
-    return null;
-  }
-}
-
-/**
  * Determine security type based on ticker symbol and SEC EDGAR data
  *
  * Security Types:
@@ -300,107 +260,6 @@ function determineSecurityType(ticker, companyFacts) {
     securityType,
     isExchangeTraded,
     reason
-  };
-}
-
-/**
- * Determine if bank is US-based or Non-US-based
- *
- * Classification Logic (using SEC EDGAR data):
- * 1. Check state of incorporation - Non-US states/countries indicate foreign bank
- * 2. Check business address country
- * 3. Check mailing address country
- *
- * Assumptions & Limitations:
- * - SEC filings are required for US-listed companies, so all banks in our dataset file with SEC
- * - State of incorporation is the most reliable indicator
- * - Some US-incorporated subsidiaries of foreign parents may be classified as US
- * - Address data may not always indicate ultimate parent jurisdiction
- *
- * @param {Object} companySubmissions - SEC company submissions data
- * @returns {Object} Country classification with confidence and reasoning
- */
-function determineCountryClassification(companySubmissions) {
-  if (!companySubmissions) {
-    return {
-      isUS: true, // Default to US if we can't determine
-      country: 'US',
-      confidence: 'low',
-      reason: 'no submission data available, defaulting to US'
-    };
-  }
-
-  const stateOfIncorp = companySubmissions.stateOfIncorporation?.toUpperCase();
-  const addresses = companySubmissions.addresses || {};
-
-  // Check 1: State of incorporation
-  if (stateOfIncorp) {
-    const isUSState = CONFIG.usStateCodes.includes(stateOfIncorp);
-    if (isUSState) {
-      return {
-        isUS: true,
-        country: 'US',
-        stateOfIncorporation: stateOfIncorp,
-        confidence: 'high',
-        reason: `incorporated in US state: ${stateOfIncorp}`
-      };
-    } else {
-      // Non-US incorporation code
-      return {
-        isUS: false,
-        country: stateOfIncorp, // Foreign jurisdiction code
-        stateOfIncorporation: stateOfIncorp,
-        confidence: 'high',
-        reason: `incorporated in non-US jurisdiction: ${stateOfIncorp}`
-      };
-    }
-  }
-
-  // Check 2: Business address
-  const businessAddr = addresses.business || {};
-  const businessCountry = businessAddr.stateOrCountry?.toUpperCase() ||
-                         businessAddr.country?.toUpperCase();
-
-  if (businessCountry) {
-    // Check if it's a US state code or "US"/"USA"
-    const isUSAddress = CONFIG.usStateCodes.includes(businessCountry) ||
-                       ['US', 'USA', 'UNITED STATES'].includes(businessCountry);
-
-    if (!isUSAddress) {
-      return {
-        isUS: false,
-        country: businessCountry,
-        confidence: 'medium',
-        reason: `business address in: ${businessCountry}`
-      };
-    }
-  }
-
-  // Check 3: Mailing address
-  const mailingAddr = addresses.mailing || {};
-  const mailingCountry = mailingAddr.stateOrCountry?.toUpperCase() ||
-                        mailingAddr.country?.toUpperCase();
-
-  if (mailingCountry) {
-    const isUSAddress = CONFIG.usStateCodes.includes(mailingCountry) ||
-                       ['US', 'USA', 'UNITED STATES'].includes(mailingCountry);
-
-    if (!isUSAddress) {
-      return {
-        isUS: false,
-        country: mailingCountry,
-        confidence: 'medium',
-        reason: `mailing address in: ${mailingCountry}`
-      };
-    }
-  }
-
-  // Default: Assume US-based
-  return {
-    isUS: true,
-    country: 'US',
-    confidence: 'medium',
-    reason: 'no non-US indicators found'
   };
 }
 
@@ -1052,21 +911,10 @@ async function processBank(ticker, index, bankListEntry = null) {
     const companyFacts = await getCompanyFacts(companyInfo.cik);
     console.log(`  ✓ Fetched SEC EDGAR company facts`);
 
-    // Fetch company submissions for country classification
-    // This provides incorporation state/country and address information
-    const companySubmissions = await getCompanySubmissions(companyInfo.cik);
-    if (companySubmissions) {
-      console.log(`  ✓ Fetched SEC EDGAR company submissions`);
-    }
-
     // Determine security type (common vs exchange-traded)
     // Exchange-traded securities include preferred stock, debt securities
     const securityTypeInfo = determineSecurityType(ticker, companyFacts);
     console.log(`  ✓ Security type: ${securityTypeInfo.securityType} (${securityTypeInfo.reason})`);
-
-    // Determine US vs Non-US classification
-    const countryInfo = determineCountryClassification(companySubmissions);
-    console.log(`  ✓ Country: ${countryInfo.country} (${countryInfo.confidence} confidence - ${countryInfo.reason})`);
 
     // Get prior close price from Marketstack
     // Marketstack counts each symbol as 1 API request toward monthly quota
@@ -1113,11 +961,6 @@ async function processBank(ticker, index, bankListEntry = null) {
       // Security type classification
       securityType: securityTypeInfo.securityType,
       isExchangeTraded: securityTypeInfo.isExchangeTraded,
-      // Country classification
-      isUS: countryInfo.isUS,
-      country: countryInfo.country,
-      stateOfIncorporation: countryInfo.stateOfIncorporation || null,
-      countryConfidence: countryInfo.confidence,
       // Financial metrics (including dividend metrics)
       ...metrics,
       updatedAt: new Date().toISOString()

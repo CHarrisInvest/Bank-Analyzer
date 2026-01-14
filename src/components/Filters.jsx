@@ -113,53 +113,29 @@ function ExchangeFilter({ exchanges, selectedExchanges, onChange }) {
  * - "exchange-traded": Only exchange-traded securities (preferred, debt)
  */
 function SecurityTypeFilter({ value, onChange }) {
+  const options = [
+    { value: 'all', label: 'All' },
+    { value: 'common', label: 'Common Shares' },
+    { value: 'exchange-traded', label: 'Exchange-Traded Security' },
+  ];
+
   return (
     <div className="filter-group">
       <label className="filter-label">Security Type</label>
-      <select
-        className="filter-select"
-        value={value || 'all'}
-        onChange={(e) => onChange(e.target.value)}
-      >
-        <option value="all">All Securities</option>
-        <option value="common">Common Shares Only</option>
-        <option value="exchange-traded">Exchange-Traded Only</option>
-      </select>
+      <div className="filter-button-group">
+        {options.map((option) => (
+          <button
+            key={option.value}
+            type="button"
+            className={`filter-button ${value === option.value ? 'active' : ''}`}
+            onClick={() => onChange(option.value)}
+          >
+            {option.label}
+          </button>
+        ))}
+      </div>
       <div className="filter-help">
         Exchange-traded includes preferred stock and debt securities
-      </div>
-    </div>
-  );
-}
-
-/**
- * Country Filter
- * Allows filtering by US vs Non-US bank holding companies
- *
- * Classification is based on SEC EDGAR data:
- * - State of incorporation
- * - Business address country
- * - Mailing address country
- *
- * Limitations:
- * - US-incorporated subsidiaries of foreign parents may be classified as US
- * - Some foreign banks with US presence may have ambiguous classification
- */
-function CountryFilter({ value, onChange }) {
-  return (
-    <div className="filter-group">
-      <label className="filter-label">Country</label>
-      <select
-        className="filter-select"
-        value={value || 'all'}
-        onChange={(e) => onChange(e.target.value)}
-      >
-        <option value="all">All Countries</option>
-        <option value="us">US Only</option>
-        <option value="non-us">Non-US Only</option>
-      </select>
-      <div className="filter-help">
-        Based on incorporation state and business address
       </div>
     </div>
   );
@@ -174,7 +150,7 @@ function CountryFilter({ value, onChange }) {
  * - Performance: RoE, ROAA, RoTA, ROTCE, Graham MoS
  * - Book Value: BVPS, TBVPS
  * - Dividends: TTM Dividend, Dividend Payout Ratio
- * - Classification: Security Type, Country, Exchange
+ * - Classification: Security Type, Exchange
  */
 function Filters({ filters, exchanges, onFilterChange, onReset }) {
   /**
@@ -238,11 +214,6 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
           <SecurityTypeFilter
             value={filters.securityType || 'all'}
             onChange={handleSelectChange('securityType')}
-          />
-
-          <CountryFilter
-            value={filters.country || 'all'}
-            onChange={handleSelectChange('country')}
           />
         </div>
 

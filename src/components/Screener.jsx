@@ -7,7 +7,7 @@ import { getUniqueExchanges } from '../data/sheets.js';
  * Default filter state
  *
  * Filter categories:
- * - Classification: securityType, country
+ * - Classification: securityType
  * - Valuation: pni, ptbvps, marketCap
  * - Performance: roe, roaa, rota, rotce, grahamMoS
  * - Book Value: bvps, tbvps
@@ -17,7 +17,6 @@ import { getUniqueExchanges } from '../data/sheets.js';
 const DEFAULT_FILTERS = {
   // Classification filters
   securityType: 'all', // 'all', 'common', 'exchange-traded'
-  country: 'all', // 'all', 'us', 'non-us'
   // Performance filters
   roe: { min: '', max: '' },
   roaa: { min: '', max: '' },
@@ -60,7 +59,7 @@ function Screener({ banks, loading }) {
    * Apply filters to bank data
    *
    * Filter categories:
-   * - Classification: securityType, country
+   * - Classification: securityType
    * - Performance: roe, roaa, rota, rotce
    * - Valuation: pni, ptbvps, marketCap, grahamMoS
    * - Book Value: bvps, tbvps
@@ -76,18 +75,6 @@ function Screener({ banks, loading }) {
           return false;
         }
         if (filters.securityType === 'exchange-traded' && bank.securityType !== 'exchange-traded') {
-          return false;
-        }
-      }
-
-      // Country filter
-      // Options: 'all', 'us', 'non-us'
-      // Based on SEC EDGAR incorporation state and business address
-      if (filters.country && filters.country !== 'all') {
-        if (filters.country === 'us' && bank.isUS !== true) {
-          return false;
-        }
-        if (filters.country === 'non-us' && bank.isUS !== false) {
           return false;
         }
       }
@@ -237,7 +224,6 @@ function Screener({ banks, loading }) {
     return (
       // Classification filters
       (filters.securityType && filters.securityType !== 'all') ||
-      (filters.country && filters.country !== 'all') ||
       // Performance filters
       filters.roe.min !== '' ||
       filters.roe.max !== '' ||

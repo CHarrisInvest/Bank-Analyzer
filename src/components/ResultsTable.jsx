@@ -38,12 +38,12 @@ const COLUMNS = [
   },
   {
     key: 'securityType',
-    label: 'Type',
+    label: 'Share Class',
     sortable: true,
     align: 'center',
     format: (value) => {
       if (value === 'common') return 'Common';
-      if (value === 'exchange-traded') return 'ExchTrd';
+      if (value === 'exchange-traded') return 'Non-Common';
       return value || '-';
     },
   },
