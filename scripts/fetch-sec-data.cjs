@@ -37,6 +37,115 @@ const CONFIG = {
     /\.PR[A-Z]?$/i,     // Dot + PR + optional letter (e.g., BAC.PRA)
   ],
 
+  /**
+   * XBRL Concept Classification for Data Quality
+   *
+   * Tier 1 (PRIMARY_FS): Concepts that appear on primary financial statements
+   *   - Balance Sheet, Income Statement, Cash Flow Statement
+   *   - These are included in SEC Financial Statement Data Sets
+   *   - High reliability and comparability across all companies
+   *
+   * Tier 2 (NOTES): Concepts typically found in footnotes/notes disclosures
+   *   - More granular breakdowns, bank-specific metrics
+   *   - NOT in Financial Statement Data Sets (only in Notes Data Sets)
+   *   - Lower reliability, may cause concept mismatches
+   *
+   * Based on SEC's December 2024 reprocessing which limited FS Data Sets
+   * to "numeric data from primary financial statements as rendered by the Commission"
+   */
+  conceptTiers: {
+    // Tier 1: Primary Financial Statement concepts (high reliability)
+    PRIMARY_FS: [
+      // Balance Sheet - Universal
+      'Assets',
+      'StockholdersEquity',
+      'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest',
+      'Liabilities',
+      'LiabilitiesAndStockholdersEquity',
+      'CashAndCashEquivalentsAtCarryingValue',
+      'Cash',
+      'Goodwill',
+      'IntangibleAssetsNetExcludingGoodwill',
+      'PreferredStockValue',
+      'PreferredStockValueOutstanding',
+      'CommonStockSharesOutstanding',
+      'Deposits', // Banks report this on face of balance sheet
+
+      // Income Statement - Universal
+      'NetIncomeLoss',
+      'ProfitLoss',
+      'NetIncomeLossAvailableToCommonStockholdersBasic',
+      'EarningsPerShareBasic',
+      'EarningsPerShareDiluted',
+      'Revenues',
+      'OperatingExpenses',
+
+      // Income Statement - Bank-specific (on face)
+      'InterestIncomeExpenseNet',
+      'NetInterestIncome',
+      'NoninterestIncome',
+      'NoninterestExpense',
+      'ProvisionForLoanLeaseAndOtherLosses',
+      'ProvisionForLoanAndLeaseLosses',
+      'ProvisionForCreditLosses',
+
+      // Cash Flow Statement
+      'NetCashProvidedByUsedInOperatingActivities',
+      'NetCashProvidedByUsedInInvestingActivities',
+      'NetCashProvidedByUsedInFinancingActivities',
+      'PaymentsOfDividendsCommonStock',
+      'PaymentsOfDividends',
+
+      // DEI taxonomy (always reliable)
+      'EntityCommonStockSharesOutstanding',
+    ],
+
+    // Tier 2: Notes/Supplementary concepts (lower reliability, may cause mismatches)
+    NOTES: [
+      // Loan details (often in notes, not on face)
+      'LoansAndLeasesReceivableNetReportedAmount',
+      'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss',
+      'NotesReceivableNet',
+      'LoansAndLeasesReceivableNetOfDeferredIncome',
+
+      // Allowance details (almost always in notes)
+      'FinancingReceivableAllowanceForCreditLosses',
+      'LoansAndLeasesReceivableAllowance',
+      'FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest',
+      'AllowanceForDoubtfulAccountsReceivable',
+
+      // Securities breakdowns (may be on face or notes)
+      'AvailableForSaleSecuritiesDebtSecurities',
+      'AvailableForSaleSecurities',
+      'HeldToMaturitySecurities',
+      'HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss',
+
+      // Other bank-specific details
+      'InterestBearingDepositsInBanks',
+      'DepositsInBanks',
+      'FederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell',
+      'FederalFundsSold',
+      'DepositsDomestic',
+    ],
+  },
+
+  /**
+   * Outlier detection thresholds for data quality validation
+   * Values outside these ranges indicate likely data issues (concept mismatches, calculation errors)
+   */
+  outlierThresholds: {
+    // Ratios that should be percentages in reasonable ranges
+    efficiencyRatio: { min: 20, max: 150, unit: '%' },      // 50-70% typical, >150% definitely wrong
+    aclToLoans: { min: 0, max: 15, unit: '%' },             // 1-2% typical, >15% likely mismatch
+    loansToAssets: { min: 1, max: 95, unit: '%' },          // 60-75% typical, <1% likely wrong concept
+    depositsToAssets: { min: 10, max: 100, unit: '%' },     // 70-85% typical
+    loansToDeposits: { min: 5, max: 200, unit: '%' },       // 80-100% typical
+    equityToAssets: { min: 1, max: 50, unit: '%' },         // 8-12% typical
+    tceToTa: { min: 0, max: 40, unit: '%' },                // 6-10% typical
+    roe: { min: -100, max: 100, unit: '%' },                // Negative OK, but extreme values wrong
+    roaa: { min: -10, max: 10, unit: '%' },                 // ~1% typical
+    provisionToAvgLoans: { min: -5, max: 10, unit: '%' },   // Negative possible (releases)
+  },
 };
 
 /**
@@ -82,6 +191,116 @@ let knownBaseTickers = new Set();
 
 // Delay helper
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+/**
+ * Get the tier classification for an XBRL concept
+ * @param {string} concept - XBRL concept name
+ * @returns {'PRIMARY_FS'|'NOTES'|'UNKNOWN'} - Tier classification
+ */
+function getConceptTier(concept) {
+  if (CONFIG.conceptTiers.PRIMARY_FS.includes(concept)) {
+    return 'PRIMARY_FS';
+  }
+  if (CONFIG.conceptTiers.NOTES.includes(concept)) {
+    return 'NOTES';
+  }
+  return 'UNKNOWN';
+}
+
+/**
+ * Check if a metric value is within acceptable bounds (outlier detection)
+ * @param {string} metricName - Name of the metric
+ * @param {number} value - The calculated value
+ * @returns {{isValid: boolean, reason: string|null}}
+ */
+function validateMetricValue(metricName, value) {
+  if (value === null || value === undefined) {
+    return { isValid: true, reason: null };
+  }
+
+  const thresholds = CONFIG.outlierThresholds[metricName];
+  if (!thresholds) {
+    return { isValid: true, reason: null };
+  }
+
+  if (value < thresholds.min) {
+    return {
+      isValid: false,
+      reason: `${metricName} value ${value.toFixed(2)}${thresholds.unit} below minimum ${thresholds.min}${thresholds.unit}`
+    };
+  }
+
+  if (value > thresholds.max) {
+    return {
+      isValid: false,
+      reason: `${metricName} value ${value.toFixed(2)}${thresholds.unit} exceeds maximum ${thresholds.max}${thresholds.unit}`
+    };
+  }
+
+  return { isValid: true, reason: null };
+}
+
+/**
+ * Validate that numerator and denominator concepts are from compatible families
+ * Prevents mixing concepts that would produce meaningless ratios
+ * @param {string} numeratorConcept - Concept used for numerator
+ * @param {string} denominatorConcept - Concept used for denominator
+ * @param {string} ratioName - Name of the ratio for logging
+ * @returns {{isCompatible: boolean, reason: string|null}}
+ */
+function validateConceptCompatibility(numeratorConcept, denominatorConcept, ratioName) {
+  const numTier = getConceptTier(numeratorConcept);
+  const denTier = getConceptTier(denominatorConcept);
+
+  // If one is from PRIMARY_FS and the other is from NOTES, they might not be comparable
+  // This is a heuristic - not all cross-tier combinations are invalid
+  if (numTier === 'PRIMARY_FS' && denTier === 'NOTES') {
+    return {
+      isCompatible: false,
+      reason: `${ratioName}: numerator from primary FS, denominator from notes - may be inconsistent`
+    };
+  }
+  if (numTier === 'NOTES' && denTier === 'PRIMARY_FS') {
+    return {
+      isCompatible: false,
+      reason: `${ratioName}: numerator from notes, denominator from primary FS - may be inconsistent`
+    };
+  }
+
+  return { isCompatible: true, reason: null };
+}
+
+/**
+ * Apply data quality validation and return cleaned metrics with quality flags
+ * @param {Object} metrics - Raw calculated metrics
+ * @param {Object} conceptsUsed - Which concepts were used for each metric
+ * @returns {Object} Metrics with validation applied and quality flags
+ */
+function applyDataQualityValidation(metrics, conceptsUsed) {
+  const dataQualityIssues = [];
+
+  // Validate each metric against outlier thresholds
+  const metricsToValidate = [
+    'efficiencyRatio', 'aclToLoans', 'loansToAssets', 'depositsToAssets',
+    'loansToDeposits', 'equityToAssets', 'tceToTa', 'roe', 'roaa', 'provisionToAvgLoans'
+  ];
+
+  for (const metricName of metricsToValidate) {
+    const validation = validateMetricValue(metricName, metrics[metricName]);
+    if (!validation.isValid) {
+      dataQualityIssues.push(validation.reason);
+      // Null out invalid metrics to prevent showing misleading data
+      metrics[metricName] = null;
+      console.warn(`  ⚠ Data quality: ${validation.reason} - nulling out`);
+    }
+  }
+
+  // Add quality flags to the metrics
+  metrics.dataQualityIssues = dataQualityIssues.length > 0 ? dataQualityIssues : null;
+  metrics.hasDataQualityIssues = dataQualityIssues.length > 0;
+
+  return metrics;
+}
 
 /**
  * Get prior close stock price from Marketstack API
@@ -357,7 +576,13 @@ function extractDividendMetrics(companyFacts, sharesOutstanding, netIncome, eps)
     // Payout Ratio = DPS / EPS (or Total Dividends / Net Income)
     if (eps && eps > 0) {
       dividendPayoutRatio = (ttmDividendPerShare / eps) * 100;
+    } else if (eps && eps < 0 && ttmDividendPerShare > 0) {
+      // Negative EPS but still paying dividends - this is a sustainability concern
+      // Mark payout ratio as null but note the situation
+      dividendPayoutRatio = null;
+      dividendMethod = dps.method + ' (EPS negative, payout ratio N/A)';
     }
+    // If EPS is zero, payout ratio is undefined (null)
   } else {
     // Method 4: Try total dividend payments and divide by shares
     const totalDividends = getTTMValueForDividends(companyFacts, 'PaymentsOfDividendsCommonStock') ||
@@ -640,6 +865,13 @@ function getTTMValue(companyFacts, concept, taxonomy = 'us-gaap', unitType = 'US
         if (q1 && q2 && q3) {
           // Derive Q4 from annual minus Q1-Q3
           const q4Value = annual.val - q1.value - q2.value - q3.value;
+
+          // Validate derived Q4 is reasonable (not negative or absurdly large)
+          // Negative Q4 can happen with restatements or unusual accounting adjustments
+          if (q4Value < 0 && annual.val > 0) {
+            console.warn(`  ⚠ Derived Q4 is negative (${q4Value}) for FY${fy}, may indicate data quality issue`);
+          }
+
           quarterMap.set(q4Key, {
             value: q4Value,
             end: annual.end, // Use annual end date for Q4
@@ -647,17 +879,10 @@ function getTTMValue(companyFacts, concept, taxonomy = 'us-gaap', unitType = 'US
             fp: 'Q4',
             source: 'derived'
           });
-        } else {
-          // If we don't have all quarters, use the annual value as Q4 approximation
-          // This handles cases where we might be missing some Q data
-          quarterMap.set(q4Key, {
-            value: annual.val, // Use full annual as placeholder (not ideal but better than nothing)
-            end: annual.end,
-            fy: fy,
-            fp: 'Q4',
-            source: '10-K-fallback'
-          });
         }
+        // FIX: Do NOT set Q4 to full annual value as fallback
+        // This causes double-counting when summing quarters (Q1 + Q2 + Q3 + annual = wrong TTM)
+        // Instead, we'll handle missing quarters in the final TTM calculation below
       }
     }
 
@@ -695,15 +920,21 @@ function getTTMValue(companyFacts, concept, taxonomy = 'us-gaap', unitType = 'US
       };
     }
 
-    // Last resort: Use whatever quarterly data we have
-    if (allQuarters.length > 0) {
-      console.warn(`  Warning: Using partial quarterly data for ${concept} (only ${allQuarters.length} quarters available)`);
-      const partialTTM = allQuarters.reduce((sum, q) => sum + q.value, 0);
+    // Last resort: Use whatever quarterly data we have, but annualize it
+    if (allQuarters.length > 0 && allQuarters.length < 4) {
+      console.warn(`  Warning: Only ${allQuarters.length} quarters available for ${concept}, annualizing`);
+      const partialSum = allQuarters.reduce((sum, q) => sum + q.value, 0);
+
+      // Annualize: scale up to 4 quarters
+      // This is an approximation but better than showing a partial-year value
+      const annualizedValue = (partialSum / allQuarters.length) * 4;
+
       return {
-        value: partialTTM,
+        value: annualizedValue,
         date: allQuarters[0].end,
         form: '10-Q',
-        method: `partial-${allQuarters.length}Q`,
+        method: `annualized-${allQuarters.length}Q`,
+        isAnnualized: true,
         quarters: allQuarters.map(q => ({
           end: q.end,
           period: q.fp,
@@ -752,11 +983,28 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   // BANK-SPECIFIC BALANCE SHEET ITEMS
   // ============================================================================
 
+  // Track which concepts were used for data quality assessment
+  const conceptsUsed = {};
+
   // Loans and Leases (for Loans/Assets, Loans/Deposits, ACL/Loans, Provision/Loans)
-  const loans = getLatestPointInTimeValue(companyFacts, 'LoansAndLeasesReceivableNetReportedAmount') ||
-                getLatestPointInTimeValue(companyFacts, 'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss') ||
-                getLatestPointInTimeValue(companyFacts, 'NotesReceivableNet') ||
-                getLatestPointInTimeValue(companyFacts, 'LoansAndLeasesReceivableNetOfDeferredIncome');
+  // Try concepts in order and track which one was used
+  let loans = null;
+  let loansConcept = null;
+  const loanConcepts = [
+    'LoansAndLeasesReceivableNetReportedAmount',
+    'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss',
+    'NotesReceivableNet',
+    'LoansAndLeasesReceivableNetOfDeferredIncome'
+  ];
+  for (const concept of loanConcepts) {
+    const result = getLatestPointInTimeValue(companyFacts, concept);
+    if (result) {
+      loans = result;
+      loansConcept = concept;
+      conceptsUsed.loans = { concept, tier: getConceptTier(concept), fallbackPosition: loanConcepts.indexOf(concept) + 1 };
+      break;
+    }
+  }
 
   // Get two periods of loans for average loans calculation (Provision/Avg Loans)
   const loansForAverage = getLatestTwoPointInTimeValues(companyFacts, 'LoansAndLeasesReceivableNetReportedAmount') ||
@@ -769,10 +1017,23 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
 
   // Allowance for Credit Losses (for ACL/Loans ratio)
   // Note: Removed AllowanceForLoanAndLeaseLossesRealEstate as it only covers real estate loans
-  const allowanceForCreditLosses = getLatestPointInTimeValue(companyFacts, 'FinancingReceivableAllowanceForCreditLosses') ||
-                                   getLatestPointInTimeValue(companyFacts, 'LoansAndLeasesReceivableAllowance') ||
-                                   getLatestPointInTimeValue(companyFacts, 'FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest') ||
-                                   getLatestPointInTimeValue(companyFacts, 'AllowanceForDoubtfulAccountsReceivable');
+  let allowanceForCreditLosses = null;
+  let aclConcept = null;
+  const aclConcepts = [
+    'FinancingReceivableAllowanceForCreditLosses',
+    'LoansAndLeasesReceivableAllowance',
+    'FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest',
+    'AllowanceForDoubtfulAccountsReceivable'
+  ];
+  for (const concept of aclConcepts) {
+    const result = getLatestPointInTimeValue(companyFacts, concept);
+    if (result) {
+      allowanceForCreditLosses = result;
+      aclConcept = concept;
+      conceptsUsed.acl = { concept, tier: getConceptTier(concept), fallbackPosition: aclConcepts.indexOf(concept) + 1 };
+      break;
+    }
+  }
 
   // Cash and Securities (for Cash & Securities/Assets)
   const cashAndEquivalents = getLatestPointInTimeValue(companyFacts, 'CashAndCashEquivalentsAtCarryingValue') ||
@@ -940,8 +1201,18 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
 
   // 2. ACL/Loans = Allowance for Credit Losses / Total Loans
   // Credit loss reserve as percentage of loan portfolio. Typical range: 1-2%
-  const aclToLoans = allowanceForCreditLosses?.value && loans?.value && loans.value > 0 ?
-    (allowanceForCreditLosses.value / loans.value) * 100 : null;
+  // VALIDATION: Only calculate if both concepts are from compatible families
+  let aclToLoans = null;
+  if (allowanceForCreditLosses?.value && loans?.value && loans.value > 0) {
+    // Check if we're mixing incompatible concepts (e.g., total ACL with subset of loans)
+    const compatCheck = validateConceptCompatibility(aclConcept, loansConcept, 'ACL/Loans');
+    if (compatCheck.isCompatible) {
+      aclToLoans = (allowanceForCreditLosses.value / loans.value) * 100;
+    } else {
+      console.warn(`  ⚠ ${compatCheck.reason} - skipping ACL/Loans calculation`);
+      conceptsUsed.aclToLoansSkipped = compatCheck.reason;
+    }
+  }
 
   // 3. Provision/Avg Loans = Provision for Credit Losses / Average Loans
   // Annual provision expense as percentage of average loans. Typical range: 0.1-0.5%
@@ -1025,7 +1296,8 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
     };
   }
 
-  return {
+  // Build raw metrics object
+  let rawMetrics = {
     price: currentPrice,
     marketCap: marketCap ? marketCap / 1000000 : null, // Convert to millions
     pni: pni ? parseFloat(pni.toFixed(4)) : null,
@@ -1057,8 +1329,17 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
     tceToTa: tceToTa ? parseFloat(tceToTa.toFixed(2)) : null,
     dataDate: dataDate,
     isStale: isStale, // Flag if data is before 2024
-    ttmMethod: netIncome?.method || 'unknown' // Track how TTM was calculated
+    ttmMethod: netIncome?.method || 'unknown', // Track how TTM was calculated
+    isAnnualized: netIncome?.isAnnualized || false, // Flag if TTM was annualized from partial data
   };
+
+  // Apply data quality validation - this will null out outlier values and add quality flags
+  rawMetrics = applyDataQualityValidation(rawMetrics, conceptsUsed);
+
+  // Add concept tracking for transparency
+  rawMetrics.conceptsUsed = Object.keys(conceptsUsed).length > 0 ? conceptsUsed : null;
+
+  return rawMetrics;
 }
 
 /**
@@ -1138,13 +1419,18 @@ async function processBank(ticker, index, bankListEntry = null) {
 
     // Calculate metrics (pass isExchangeTraded to null out price metrics)
     const metrics = calculateMetrics(companyFacts, currentPrice, securityTypeInfo.isExchangeTraded);
-    console.log(`  ✓ Calculated metrics (TTM: ${metrics.ttmMethod})`);
+    console.log(`  ✓ Calculated metrics (TTM: ${metrics.ttmMethod}${metrics.isAnnualized ? ' [annualized]' : ''})`);
 
     // Add asterisk to ticker if data is stale (before 2024)
     const displayTicker = metrics.isStale ? `${ticker}*` : ticker;
 
     if (metrics.isStale) {
       console.log(`  ⚠ Warning: Data is stale (last report: ${metrics.dataDate})`);
+    }
+
+    // Log data quality issues
+    if (metrics.hasDataQualityIssues) {
+      console.log(`  ⚠ Data quality issues detected (${metrics.dataQualityIssues.length} metrics nulled out)`);
     }
 
     // Get exchange from bank list entry (authoritative source)
@@ -1332,6 +1618,40 @@ async function main() {
   Object.entries(ttmMethods).forEach(([method, count]) => {
     console.log(`  - ${method}: ${count} banks`);
   });
+
+  // Show data quality summary
+  const banksWithIssues = results.filter(b => b.hasDataQualityIssues);
+  if (banksWithIssues.length > 0) {
+    console.log(`\n⚠ Data Quality Issues Summary (${banksWithIssues.length} banks affected):`);
+    // Count issue types
+    const issueTypes = {};
+    banksWithIssues.forEach(b => {
+      if (b.dataQualityIssues) {
+        b.dataQualityIssues.forEach(issue => {
+          // Extract metric name from issue string
+          const metricMatch = issue.match(/^(\w+) value/);
+          if (metricMatch) {
+            const metric = metricMatch[1];
+            issueTypes[metric] = (issueTypes[metric] || 0) + 1;
+          }
+        });
+      }
+    });
+    Object.entries(issueTypes)
+      .sort((a, b) => b[1] - a[1])
+      .forEach(([metric, count]) => {
+        console.log(`  - ${metric}: ${count} banks had outlier values nulled`);
+      });
+  } else {
+    console.log(`\n✓ Data Quality: No outlier issues detected`);
+  }
+
+  // Show annualized data summary
+  const annualizedBanks = results.filter(b => b.isAnnualized);
+  if (annualizedBanks.length > 0) {
+    console.log(`\n⚠ Annualized TTM (${annualizedBanks.length} banks):`);
+    console.log('  These banks had incomplete quarterly data; TTM values are annualized estimates');
+  }
 
   console.log(`\nOutput saved to: ${outputPath}`);
   console.log(`File size: ${fs.statSync(outputPath).size} bytes`);
