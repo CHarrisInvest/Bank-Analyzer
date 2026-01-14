@@ -22,6 +22,15 @@ async function getAllBanks(req, res) {
         graham_number,
         graham_mos,
         graham_mos_pct,
+        efficiency_ratio,
+        acl_to_loans,
+        provision_to_avg_loans,
+        loans_to_assets,
+        deposits_to_assets,
+        loans_to_deposits,
+        cash_securities_to_assets,
+        equity_to_assets,
+        tce_to_ta,
         data_date,
         updated_at
       FROM latest_bank_metrics
@@ -45,6 +54,16 @@ async function getAllBanks(req, res) {
       grahamNum: row.graham_number ? parseFloat(row.graham_number) : null,
       grahamMoS: row.graham_mos ? parseFloat(row.graham_mos) : null,
       grahamMoSPct: row.graham_mos_pct ? parseFloat(row.graham_mos_pct) : null,
+      // Bank-specific ratios
+      efficiencyRatio: row.efficiency_ratio ? parseFloat(row.efficiency_ratio) : null,
+      aclToLoans: row.acl_to_loans ? parseFloat(row.acl_to_loans) : null,
+      provisionToAvgLoans: row.provision_to_avg_loans ? parseFloat(row.provision_to_avg_loans) : null,
+      loansToAssets: row.loans_to_assets ? parseFloat(row.loans_to_assets) : null,
+      depositsToAssets: row.deposits_to_assets ? parseFloat(row.deposits_to_assets) : null,
+      loansToDeposits: row.loans_to_deposits ? parseFloat(row.loans_to_deposits) : null,
+      cashSecuritiesToAssets: row.cash_securities_to_assets ? parseFloat(row.cash_securities_to_assets) : null,
+      equityToAssets: row.equity_to_assets ? parseFloat(row.equity_to_assets) : null,
+      tceToTa: row.tce_to_ta ? parseFloat(row.tce_to_ta) : null,
       dataDate: row.data_date,
       updatedAt: row.updated_at
     }));
@@ -88,6 +107,15 @@ async function getBankByTicker(req, res) {
         graham_number,
         graham_mos,
         graham_mos_pct,
+        efficiency_ratio,
+        acl_to_loans,
+        provision_to_avg_loans,
+        loans_to_assets,
+        deposits_to_assets,
+        loans_to_deposits,
+        cash_securities_to_assets,
+        equity_to_assets,
+        tce_to_ta,
         data_date,
         updated_at
       FROM latest_bank_metrics
@@ -117,6 +145,16 @@ async function getBankByTicker(req, res) {
       grahamNum: row.graham_number ? parseFloat(row.graham_number) : null,
       grahamMoS: row.graham_mos ? parseFloat(row.graham_mos) : null,
       grahamMoSPct: row.graham_mos_pct ? parseFloat(row.graham_mos_pct) : null,
+      // Bank-specific ratios
+      efficiencyRatio: row.efficiency_ratio ? parseFloat(row.efficiency_ratio) : null,
+      aclToLoans: row.acl_to_loans ? parseFloat(row.acl_to_loans) : null,
+      provisionToAvgLoans: row.provision_to_avg_loans ? parseFloat(row.provision_to_avg_loans) : null,
+      loansToAssets: row.loans_to_assets ? parseFloat(row.loans_to_assets) : null,
+      depositsToAssets: row.deposits_to_assets ? parseFloat(row.deposits_to_assets) : null,
+      loansToDeposits: row.loans_to_deposits ? parseFloat(row.loans_to_deposits) : null,
+      cashSecuritiesToAssets: row.cash_securities_to_assets ? parseFloat(row.cash_securities_to_assets) : null,
+      equityToAssets: row.equity_to_assets ? parseFloat(row.equity_to_assets) : null,
+      tceToTa: row.tce_to_ta ? parseFloat(row.tce_to_ta) : null,
       dataDate: row.data_date,
       updatedAt: row.updated_at
     };

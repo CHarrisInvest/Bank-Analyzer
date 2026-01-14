@@ -47,6 +47,17 @@ CREATE TABLE bank_metrics (
     graham_mos DECIMAL(12, 4), -- Margin of Safety in dollars
     graham_mos_pct DECIMAL(12, 4), -- Margin of Safety as percentage
 
+    -- Bank-specific ratios
+    efficiency_ratio DECIMAL(12, 4), -- Noninterest Expense / (Net Interest Income + Noninterest Income)
+    acl_to_loans DECIMAL(12, 4), -- Allowance for Credit Losses / Total Loans
+    provision_to_avg_loans DECIMAL(12, 4), -- Provision for Credit Losses / Average Loans
+    loans_to_assets DECIMAL(12, 4), -- Total Loans / Total Assets
+    deposits_to_assets DECIMAL(12, 4), -- Deposits / Total Assets
+    loans_to_deposits DECIMAL(12, 4), -- Total Loans / Total Deposits (LDR)
+    cash_securities_to_assets DECIMAL(12, 4), -- (Cash + AFS + HTM) / Total Assets
+    equity_to_assets DECIMAL(12, 4), -- Stockholders' Equity / Total Assets
+    tce_to_ta DECIMAL(12, 4), -- Tangible Common Equity / Tangible Assets
+
     -- Metadata
     data_date DATE NOT NULL, -- Date of the financial data
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -79,6 +90,16 @@ SELECT
     m.graham_number,
     m.graham_mos,
     m.graham_mos_pct,
+    -- Bank-specific ratios
+    m.efficiency_ratio,
+    m.acl_to_loans,
+    m.provision_to_avg_loans,
+    m.loans_to_assets,
+    m.deposits_to_assets,
+    m.loans_to_deposits,
+    m.cash_securities_to_assets,
+    m.equity_to_assets,
+    m.tce_to_ta,
     m.data_date,
     m.updated_at
 FROM banks b

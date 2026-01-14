@@ -81,9 +81,14 @@ async function refreshBankData(ticker) {
         tangible_book_value, net_income, shares_outstanding, eps,
         book_value_per_share, tangible_book_value_per_share,
         pni, ptbvps, mkt_cap_se, ni_tbv, roe, rota,
-        graham_number, graham_mos, graham_mos_pct, data_date
+        graham_number, graham_mos, graham_mos_pct,
+        efficiency_ratio, acl_to_loans, provision_to_avg_loans,
+        loans_to_assets, deposits_to_assets, loans_to_deposits,
+        cash_securities_to_assets, equity_to_assets, tce_to_ta,
+        data_date
       ) VALUES (
-        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21
+        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20,
+        $21, $22, $23, $24, $25, $26, $27, $28, $29, $30
       )
       ON CONFLICT (bank_id, data_date)
       DO UPDATE SET
@@ -106,6 +111,15 @@ async function refreshBankData(ticker) {
         graham_number = EXCLUDED.graham_number,
         graham_mos = EXCLUDED.graham_mos,
         graham_mos_pct = EXCLUDED.graham_mos_pct,
+        efficiency_ratio = EXCLUDED.efficiency_ratio,
+        acl_to_loans = EXCLUDED.acl_to_loans,
+        provision_to_avg_loans = EXCLUDED.provision_to_avg_loans,
+        loans_to_assets = EXCLUDED.loans_to_assets,
+        deposits_to_assets = EXCLUDED.deposits_to_assets,
+        loans_to_deposits = EXCLUDED.loans_to_deposits,
+        cash_securities_to_assets = EXCLUDED.cash_securities_to_assets,
+        equity_to_assets = EXCLUDED.equity_to_assets,
+        tce_to_ta = EXCLUDED.tce_to_ta,
         updated_at = CURRENT_TIMESTAMP`,
       [
         bankId,
@@ -128,6 +142,15 @@ async function refreshBankData(ticker) {
         metrics.graham_number,
         metrics.graham_mos,
         metrics.graham_mos_pct,
+        metrics.efficiency_ratio,
+        metrics.acl_to_loans,
+        metrics.provision_to_avg_loans,
+        metrics.loans_to_assets,
+        metrics.deposits_to_assets,
+        metrics.loans_to_deposits,
+        metrics.cash_securities_to_assets,
+        metrics.equity_to_assets,
+        metrics.tce_to_ta,
         metrics.data_date
       ]
     );

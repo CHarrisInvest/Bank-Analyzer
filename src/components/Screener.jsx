@@ -32,6 +32,16 @@ const DEFAULT_FILTERS = {
   // Dividend filters
   ttmDividend: { min: '', max: '' },
   dividendPayoutRatio: { min: '', max: '' },
+  // Bank-specific ratio filters
+  efficiencyRatio: { min: '', max: '' },
+  aclToLoans: { min: '', max: '' },
+  provisionToAvgLoans: { min: '', max: '' },
+  loansToAssets: { min: '', max: '' },
+  depositsToAssets: { min: '', max: '' },
+  loansToDeposits: { min: '', max: '' },
+  cashSecuritiesToAssets: { min: '', max: '' },
+  equityToAssets: { min: '', max: '' },
+  tceToTa: { min: '', max: '' },
   // Listing filter
   exchanges: [],
 };
@@ -187,6 +197,116 @@ function Screener({ banks, loading }) {
         }
       }
 
+      // Bank-specific ratio filters
+
+      // Efficiency Ratio filter
+      if (filters.efficiencyRatio?.min !== '' && filters.efficiencyRatio?.min !== undefined) {
+        if (bank.efficiencyRatio === null || bank.efficiencyRatio < filters.efficiencyRatio.min) {
+          return false;
+        }
+      }
+      if (filters.efficiencyRatio?.max !== '' && filters.efficiencyRatio?.max !== undefined) {
+        if (bank.efficiencyRatio === null || bank.efficiencyRatio > filters.efficiencyRatio.max) {
+          return false;
+        }
+      }
+
+      // ACL/Loans filter
+      if (filters.aclToLoans?.min !== '' && filters.aclToLoans?.min !== undefined) {
+        if (bank.aclToLoans === null || bank.aclToLoans < filters.aclToLoans.min) {
+          return false;
+        }
+      }
+      if (filters.aclToLoans?.max !== '' && filters.aclToLoans?.max !== undefined) {
+        if (bank.aclToLoans === null || bank.aclToLoans > filters.aclToLoans.max) {
+          return false;
+        }
+      }
+
+      // Provision/Avg Loans filter
+      if (filters.provisionToAvgLoans?.min !== '' && filters.provisionToAvgLoans?.min !== undefined) {
+        if (bank.provisionToAvgLoans === null || bank.provisionToAvgLoans < filters.provisionToAvgLoans.min) {
+          return false;
+        }
+      }
+      if (filters.provisionToAvgLoans?.max !== '' && filters.provisionToAvgLoans?.max !== undefined) {
+        if (bank.provisionToAvgLoans === null || bank.provisionToAvgLoans > filters.provisionToAvgLoans.max) {
+          return false;
+        }
+      }
+
+      // Loans/Assets filter
+      if (filters.loansToAssets?.min !== '' && filters.loansToAssets?.min !== undefined) {
+        if (bank.loansToAssets === null || bank.loansToAssets < filters.loansToAssets.min) {
+          return false;
+        }
+      }
+      if (filters.loansToAssets?.max !== '' && filters.loansToAssets?.max !== undefined) {
+        if (bank.loansToAssets === null || bank.loansToAssets > filters.loansToAssets.max) {
+          return false;
+        }
+      }
+
+      // Deposits/Assets filter
+      if (filters.depositsToAssets?.min !== '' && filters.depositsToAssets?.min !== undefined) {
+        if (bank.depositsToAssets === null || bank.depositsToAssets < filters.depositsToAssets.min) {
+          return false;
+        }
+      }
+      if (filters.depositsToAssets?.max !== '' && filters.depositsToAssets?.max !== undefined) {
+        if (bank.depositsToAssets === null || bank.depositsToAssets > filters.depositsToAssets.max) {
+          return false;
+        }
+      }
+
+      // Loans/Deposits (LDR) filter
+      if (filters.loansToDeposits?.min !== '' && filters.loansToDeposits?.min !== undefined) {
+        if (bank.loansToDeposits === null || bank.loansToDeposits < filters.loansToDeposits.min) {
+          return false;
+        }
+      }
+      if (filters.loansToDeposits?.max !== '' && filters.loansToDeposits?.max !== undefined) {
+        if (bank.loansToDeposits === null || bank.loansToDeposits > filters.loansToDeposits.max) {
+          return false;
+        }
+      }
+
+      // Cash & Securities/Assets filter
+      if (filters.cashSecuritiesToAssets?.min !== '' && filters.cashSecuritiesToAssets?.min !== undefined) {
+        if (bank.cashSecuritiesToAssets === null || bank.cashSecuritiesToAssets < filters.cashSecuritiesToAssets.min) {
+          return false;
+        }
+      }
+      if (filters.cashSecuritiesToAssets?.max !== '' && filters.cashSecuritiesToAssets?.max !== undefined) {
+        if (bank.cashSecuritiesToAssets === null || bank.cashSecuritiesToAssets > filters.cashSecuritiesToAssets.max) {
+          return false;
+        }
+      }
+
+      // Equity/Assets filter
+      if (filters.equityToAssets?.min !== '' && filters.equityToAssets?.min !== undefined) {
+        if (bank.equityToAssets === null || bank.equityToAssets < filters.equityToAssets.min) {
+          return false;
+        }
+      }
+      if (filters.equityToAssets?.max !== '' && filters.equityToAssets?.max !== undefined) {
+        if (bank.equityToAssets === null || bank.equityToAssets > filters.equityToAssets.max) {
+          return false;
+        }
+      }
+
+      // TCE/TA filter
+      if (filters.tceToTa?.min !== '' && filters.tceToTa?.min !== undefined) {
+        if (bank.tceToTa === null || bank.tceToTa < filters.tceToTa.min) {
+          return false;
+        }
+      }
+      if (filters.tceToTa?.max !== '' && filters.tceToTa?.max !== undefined) {
+        if (bank.tceToTa === null || bank.tceToTa > filters.tceToTa.max) {
+          return false;
+        }
+      }
+
       // Exchange filter
       if (filters.exchanges.length > 0 && !filters.exchanges.includes(bank.exchange)) {
         return false;
@@ -250,6 +370,25 @@ function Screener({ banks, loading }) {
       (filters.ttmDividend?.max !== '' && filters.ttmDividend?.max !== undefined) ||
       (filters.dividendPayoutRatio?.min !== '' && filters.dividendPayoutRatio?.min !== undefined) ||
       (filters.dividendPayoutRatio?.max !== '' && filters.dividendPayoutRatio?.max !== undefined) ||
+      // Bank-specific ratio filters
+      (filters.efficiencyRatio?.min !== '' && filters.efficiencyRatio?.min !== undefined) ||
+      (filters.efficiencyRatio?.max !== '' && filters.efficiencyRatio?.max !== undefined) ||
+      (filters.aclToLoans?.min !== '' && filters.aclToLoans?.min !== undefined) ||
+      (filters.aclToLoans?.max !== '' && filters.aclToLoans?.max !== undefined) ||
+      (filters.provisionToAvgLoans?.min !== '' && filters.provisionToAvgLoans?.min !== undefined) ||
+      (filters.provisionToAvgLoans?.max !== '' && filters.provisionToAvgLoans?.max !== undefined) ||
+      (filters.loansToAssets?.min !== '' && filters.loansToAssets?.min !== undefined) ||
+      (filters.loansToAssets?.max !== '' && filters.loansToAssets?.max !== undefined) ||
+      (filters.depositsToAssets?.min !== '' && filters.depositsToAssets?.min !== undefined) ||
+      (filters.depositsToAssets?.max !== '' && filters.depositsToAssets?.max !== undefined) ||
+      (filters.loansToDeposits?.min !== '' && filters.loansToDeposits?.min !== undefined) ||
+      (filters.loansToDeposits?.max !== '' && filters.loansToDeposits?.max !== undefined) ||
+      (filters.cashSecuritiesToAssets?.min !== '' && filters.cashSecuritiesToAssets?.min !== undefined) ||
+      (filters.cashSecuritiesToAssets?.max !== '' && filters.cashSecuritiesToAssets?.max !== undefined) ||
+      (filters.equityToAssets?.min !== '' && filters.equityToAssets?.min !== undefined) ||
+      (filters.equityToAssets?.max !== '' && filters.equityToAssets?.max !== undefined) ||
+      (filters.tceToTa?.min !== '' && filters.tceToTa?.min !== undefined) ||
+      (filters.tceToTa?.max !== '' && filters.tceToTa?.max !== undefined) ||
       // Listing filter
       filters.exchanges.length > 0
     );
