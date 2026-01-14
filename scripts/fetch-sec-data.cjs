@@ -455,17 +455,23 @@ function getTTMValueForDividends(companyFacts, concept) {
 
 /**
  * Get latest point-in-time value (for balance sheet items like Assets, Equity)
+ *
+ * @param {Object} companyFacts - SEC EDGAR company facts
+ * @param {string} concept - XBRL concept name
+ * @param {string} taxonomy - XBRL taxonomy (default: 'us-gaap')
+ * @param {string} unitType - Unit type to look for: 'USD', 'shares', or 'USD/shares' (default: 'USD')
  */
-function getLatestPointInTimeValue(companyFacts, concept, taxonomy = 'us-gaap') {
+function getLatestPointInTimeValue(companyFacts, concept, taxonomy = 'us-gaap', unitType = 'USD') {
   try {
     const conceptData = companyFacts.facts?.[taxonomy]?.[concept];
     if (!conceptData) return null;
 
-    const usdUnits = conceptData.units?.USD;
-    if (!usdUnits || usdUnits.length === 0) return null;
+    // Get units based on the specified unit type
+    const units = conceptData.units?.[unitType];
+    if (!units || units.length === 0) return null;
 
     // Get most recent value (from either 10-K or 10-Q)
-    const allData = usdUnits
+    const allData = units
       .filter(item => (item.form === '10-K' || item.form === '10-Q') && item.val && item.end)
       .sort((a, b) => new Date(b.end) - new Date(a.end));
 
@@ -486,17 +492,23 @@ function getLatestPointInTimeValue(companyFacts, concept, taxonomy = 'us-gaap') 
 /**
  * Get latest two point-in-time values for calculating averages (e.g., average assets)
  * Returns current and prior period values
+ *
+ * @param {Object} companyFacts - SEC EDGAR company facts
+ * @param {string} concept - XBRL concept name
+ * @param {string} taxonomy - XBRL taxonomy (default: 'us-gaap')
+ * @param {string} unitType - Unit type to look for: 'USD', 'shares', or 'USD/shares' (default: 'USD')
  */
-function getLatestTwoPointInTimeValues(companyFacts, concept, taxonomy = 'us-gaap') {
+function getLatestTwoPointInTimeValues(companyFacts, concept, taxonomy = 'us-gaap', unitType = 'USD') {
   try {
     const conceptData = companyFacts.facts?.[taxonomy]?.[concept];
     if (!conceptData) return null;
 
-    const usdUnits = conceptData.units?.USD;
-    if (!usdUnits || usdUnits.length === 0) return null;
+    // Get units based on the specified unit type
+    const units = conceptData.units?.[unitType];
+    if (!units || units.length === 0) return null;
 
     // Get all values sorted by date (most recent first)
-    const allData = usdUnits
+    const allData = units
       .filter(item => (item.form === '10-K' || item.form === '10-Q') && item.val && item.end)
       .sort((a, b) => new Date(b.end) - new Date(a.end));
 
@@ -540,22 +552,28 @@ function getLatestTwoPointInTimeValues(companyFacts, concept, taxonomy = 'us-gaa
  * - If most recent filing is a 10-Q: Calculate TTM by summing the last 4 quarters
  *   - Q1, Q2, Q3 come from 10-Q filings
  *   - Q4 is derived from: Annual (10-K) value - Q1 - Q2 - Q3 of that fiscal year
+ *
+ * @param {Object} companyFacts - SEC EDGAR company facts
+ * @param {string} concept - XBRL concept name
+ * @param {string} taxonomy - XBRL taxonomy (default: 'us-gaap')
+ * @param {string} unitType - Unit type to look for: 'USD', 'shares', or 'USD/shares' (default: 'USD')
  */
-function getTTMValue(companyFacts, concept, taxonomy = 'us-gaap') {
+function getTTMValue(companyFacts, concept, taxonomy = 'us-gaap', unitType = 'USD') {
   try {
     const conceptData = companyFacts.facts?.[taxonomy]?.[concept];
     if (!conceptData) return null;
 
-    const usdUnits = conceptData.units?.USD;
-    if (!usdUnits || usdUnits.length === 0) return null;
+    // Get units based on the specified unit type
+    const units = conceptData.units?.[unitType];
+    if (!units || units.length === 0) return null;
 
     // Get all annual data (10-K filings)
-    const annualData = usdUnits
+    const annualData = units
       .filter(item => item.form === '10-K' && item.val !== undefined && item.val !== null && item.end && item.fy)
       .sort((a, b) => new Date(b.end) - new Date(a.end));
 
     // Get all quarterly data (10-Q filings with Q1, Q2, Q3 periods)
-    const quarterlyData = usdUnits
+    const quarterlyData = units
       .filter(item =>
         item.form === '10-Q' &&
         item.val !== undefined && item.val !== null &&
@@ -715,8 +733,9 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   const totalAssets = getLatestPointInTimeValue(companyFacts, 'Assets');
   const totalEquity = getLatestPointInTimeValue(companyFacts, 'StockholdersEquity') ||
                       getLatestPointInTimeValue(companyFacts, 'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest');
-  const sharesOutstanding = getLatestPointInTimeValue(companyFacts, 'CommonStockSharesOutstanding') ||
-                            getLatestPointInTimeValue(companyFacts, 'WeightedAverageNumberOfSharesOutstandingBasic');
+  // Note: Share counts use 'shares' unit, not 'USD'
+  const sharesOutstanding = getLatestPointInTimeValue(companyFacts, 'CommonStockSharesOutstanding', 'us-gaap', 'shares') ||
+                            getLatestPointInTimeValue(companyFacts, 'WeightedAverageNumberOfSharesOutstandingBasic', 'us-gaap', 'shares');
   const goodwill = getLatestPointInTimeValue(companyFacts, 'Goodwill');
   const intangibleAssets = getLatestPointInTimeValue(companyFacts, 'IntangibleAssetsNetExcludingGoodwill');
 
@@ -792,8 +811,9 @@ function calculateMetrics(companyFacts, currentPrice, isExchangeTraded = false) 
   const netIncome = getTTMValue(companyFacts, 'NetIncomeLoss') ||
                     getTTMValue(companyFacts, 'ProfitLoss') ||
                     getTTMValue(companyFacts, 'NetIncomeLossAvailableToCommonStockholdersBasic');
-  const eps = getTTMValue(companyFacts, 'EarningsPerShareBasic') ||
-              getTTMValue(companyFacts, 'EarningsPerShareDiluted');
+  // Note: EPS uses 'USD/shares' unit, not 'USD'
+  const eps = getTTMValue(companyFacts, 'EarningsPerShareBasic', 'us-gaap', 'USD/shares') ||
+              getTTMValue(companyFacts, 'EarningsPerShareDiluted', 'us-gaap', 'USD/shares');
 
   // Determine most recent data date
   const dataDate = netIncome?.date || totalEquity?.date || totalAssets?.date;
