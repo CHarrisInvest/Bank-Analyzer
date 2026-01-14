@@ -6,7 +6,6 @@
  * Features:
  * - Security type identification (common shares vs exchange-traded securities)
  * - Dividend metrics (TTM dividends, dividend payout ratio)
- * - US vs Non-US bank holding company classification
  */
 
 const axios = require('axios');
@@ -24,13 +23,18 @@ const CONFIG = {
   /**
    * Patterns to identify exchange-traded securities (preferred stock, debt securities)
    * These are securities that trade on exchanges but are NOT common shares
-   * Examples: PRA, PRB (preferred), bonds, notes
+   *
+   * IMPORTANT: Only use separator-based patterns to avoid false positives
+   * - Removed /PR[A-Z]$/i - caused false positives (PRK = Park National, BPRN = Princeton Bancorp)
+   * - Removed /P$/i - caused false positives (FBP = First BanCorp, TMP = Tompkins Financial)
+   *
+   * Reliable patterns require explicit separators (hyphen, dot) before the preferred indicator
    */
   exchangeTradedPatterns: [
-    /PR[A-Z]$/i,        // Preferred stock (e.g., BAC-PRA, WFC-PRB)
-    /-P[A-Z]$/i,        // Alternative preferred notation
-    /\.P[A-Z]$/i,       // Dot notation preferred
-    /P$/i,              // Single P suffix for some preferreds (rare)
+    /-P[A-Z]?$/i,       // Hyphen + P + optional letter (e.g., BAC-PA, WFC-PB, BANF-P)
+    /\.P[A-Z]?$/i,      // Dot + P + optional letter (e.g., BAC.PA, WFC.PB)
+    /-PR[A-Z]?$/i,      // Hyphen + PR + optional letter (e.g., BAC-PRA, WFC-PRB)
+    /\.PR[A-Z]?$/i,     // Dot + PR + optional letter (e.g., BAC.PRA)
   ],
 
 };
@@ -71,6 +75,10 @@ function loadBankList() {
 
 // Global cache for SEC ticker-to-CIK mapping
 let tickerToCikMap = null;
+
+// Global set of known base tickers from bank-list.json for cross-reference
+// Used to identify if removing a suffix yields a known base ticker (e.g., BANF exists → BANFP is likely preferred)
+let knownBaseTickers = new Set();
 
 // Delay helper
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -207,12 +215,12 @@ async function getCompanyFacts(cik) {
  * Security Types:
  * - "common": Common shares (standard equity)
  * - "exchange-traded": Preferred stock, debt securities, or other exchange-traded instruments
- * - "both": Company issues both (rare for individual tickers, more for company-level)
  *
- * Classification Logic:
- * 1. Check ticker symbol patterns for preferred/debt indicators (PR, .P, -P suffixes)
- * 2. Check SEC EDGAR data for preferred stock outstanding
- * 3. Default to "common" if no indicators found
+ * Classification Logic (in order of priority):
+ * 1. Check ticker symbol patterns with separators (-P, .P, -PR, .PR)
+ * 2. Cross-reference: Check if removing suffix yields a known base ticker (e.g., BANF exists → BANFP is preferred)
+ * 3. SEC EDGAR XBRL: Check for preferred stock-specific concepts in the filings
+ * 4. Default to "common" if no indicators found
  *
  * @param {string} ticker - Stock ticker symbol
  * @param {Object} companyFacts - SEC EDGAR company facts data
@@ -224,38 +232,67 @@ function determineSecurityType(ticker, companyFacts) {
   let isExchangeTraded = false;
   let reason = 'default';
 
-  // Check 1: Ticker symbol patterns indicating preferred/debt securities
+  // Check 1: Ticker symbol patterns with explicit separators (most reliable)
+  // Only patterns with hyphen or dot separators to avoid false positives
   for (const pattern of CONFIG.exchangeTradedPatterns) {
     if (pattern.test(upperTicker)) {
       securityType = 'exchange-traded';
       isExchangeTraded = true;
       reason = `ticker pattern match: ${pattern}`;
-      break;
+      return { securityType, isExchangeTraded, reason };
     }
   }
 
-  // Check 2: If not already identified, check SEC EDGAR data for preferred stock
-  // Note: This checks if the COMPANY has preferred stock, not if this ticker IS preferred
-  // For most common stock tickers, this will show "both" if the company has preferred outstanding
-  if (!isExchangeTraded && companyFacts) {
-    // Check for preferred stock value outstanding
-    const preferredStock = companyFacts.facts?.['us-gaap']?.['PreferredStockValue']?.units?.USD ||
-                          companyFacts.facts?.['us-gaap']?.['PreferredStockValueOutstanding']?.units?.USD;
+  // Check 2: Cross-reference - if ticker ends in P and removing P yields a known base ticker
+  // This catches cases like BANFP (BANF is a known common stock) or HBANP (HBAN is known)
+  if (upperTicker.endsWith('P') && upperTicker.length > 2) {
+    const potentialBase = upperTicker.slice(0, -1);
+    if (knownBaseTickers.has(potentialBase)) {
+      securityType = 'exchange-traded';
+      isExchangeTraded = true;
+      reason = `suffix P with known base ticker: ${potentialBase}`;
+      return { securityType, isExchangeTraded, reason };
+    }
+  }
 
-    if (preferredStock && preferredStock.length > 0) {
-      // Get most recent value
-      const sorted = preferredStock
-        .filter(item => item.val && item.end)
-        .sort((a, b) => new Date(b.end) - new Date(a.end));
+  // Check 3: SEC EDGAR XBRL - Check for preferred stock dividend concepts
+  // If the filing reports preferred dividends, this is likely a preferred share ticker
+  if (companyFacts) {
+    // Check for preferred stock-specific dividend concepts
+    // These would only be reported for preferred share tickers, not common stock
+    const preferredDividendConcepts = [
+      'PreferredStockDividendsPerShareDeclared',
+      'PreferredStockDividendsPerShareCashPaid',
+      'DividendsPreferredStock',
+      'PreferredStockDividendsAndOtherAdjustments'
+    ];
 
-      if (sorted.length > 0 && sorted[0].val > 0) {
-        // Company has preferred stock outstanding, but this ticker is still common
-        // The "both" classification is at company level, not ticker level
-        reason = 'common stock with company preferred stock outstanding';
+    for (const concept of preferredDividendConcepts) {
+      const conceptData = companyFacts.facts?.['us-gaap']?.[concept];
+      if (conceptData) {
+        const units = conceptData.units?.USD || conceptData.units?.['USD/shares'];
+        if (units && units.length > 0) {
+          // Check if there's recent data (within last 2 years)
+          const recentData = units.filter(item => {
+            if (!item.end) return false;
+            const endDate = new Date(item.end);
+            const twoYearsAgo = new Date();
+            twoYearsAgo.setFullYear(twoYearsAgo.getFullYear() - 2);
+            return endDate >= twoYearsAgo && item.val > 0;
+          });
+
+          if (recentData.length > 0) {
+            securityType = 'exchange-traded';
+            isExchangeTraded = true;
+            reason = `SEC EDGAR preferred dividend concept: ${concept}`;
+            return { securityType, isExchangeTraded, reason };
+          }
+        }
       }
     }
   }
 
+  // Default: common stock
   return {
     securityType,
     isExchangeTraded,
@@ -292,14 +329,15 @@ function extractDividendMetrics(companyFacts, sharesOutstanding, netIncome, eps)
   }
 
   // Try to get TTM dividends per share using various XBRL concepts
-  // Priority order based on data quality and availability
+  // Priority order: actual cash paid first, then declared as fallback
+  // Using "paid" avoids potential double-counting of declared vs paid dividends
 
-  // Method 1: CommonStockDividendsPerShareDeclared (most accurate for per-share)
-  let dps = getTTMValueForDividends(companyFacts, 'CommonStockDividendsPerShareDeclared');
+  // Method 1: CommonStockDividendsPerShareCashPaid (actual cash paid - most accurate)
+  let dps = getTTMValueForDividends(companyFacts, 'CommonStockDividendsPerShareCashPaid');
 
-  // Method 2: CommonStockDividendsPerShareCashPaid
+  // Method 2: CommonStockDividendsPerShareDeclared (fallback if paid not available)
   if (!dps) {
-    dps = getTTMValueForDividends(companyFacts, 'CommonStockDividendsPerShareCashPaid');
+    dps = getTTMValueForDividends(companyFacts, 'CommonStockDividendsPerShareDeclared');
   }
 
   // Method 3: Try Dividends (generic concept)
@@ -880,10 +918,9 @@ function determineExchange(ticker, companyName, bankListEntry) {
 /**
  * Process a single bank
  *
- * New features included:
+ * Features:
  * - Security type identification (common vs exchange-traded)
  * - Dividend metrics (TTM dividends, payout ratio)
- * - US vs Non-US classification
  *
  * @param {string} ticker - Stock ticker symbol
  * @param {number} index - Index in the bank list
@@ -1003,6 +1040,15 @@ async function main() {
     banksToProcess = bankList;
     useBankList = true;
     console.log(`\nProcessing ${banksToProcess.length} banks from SEC EDGAR SIC-based discovery`);
+
+    // Build set of known base tickers for cross-reference in security type detection
+    // This helps identify preferred shares (e.g., if BANF exists, BANFP is likely preferred)
+    bankList.forEach(b => {
+      if (b.ticker) {
+        knownBaseTickers.add(b.ticker.toUpperCase());
+      }
+    });
+    console.log(`Built cross-reference set with ${knownBaseTickers.size} known base tickers`);
 
     // Show breakdown by exchange
     const byExchange = {};
