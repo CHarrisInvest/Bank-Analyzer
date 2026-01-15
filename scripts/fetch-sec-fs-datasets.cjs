@@ -417,6 +417,90 @@ function getLatestPointInTime(conceptData) {
 }
 
 /**
+ * Get the average of point-in-time values over available periods.
+ *
+ * REGULATORY/INVESTOR STANDARD:
+ * =============================
+ * Return ratios (ROE, ROAA, ROTCE) and Net Interest Margin should use
+ * AVERAGE balance sheet values, not point-in-time ending values.
+ *
+ * This aligns with:
+ * - FFIEC Uniform Bank Performance Report (UBPR) methodology
+ * - Standard investor analysis practices
+ * - Bank earnings releases (which typically report "average" metrics)
+ *
+ * AVERAGING METHODS:
+ * ------------------
+ * 1. Simple 2-point average: (Beginning + Ending) / 2
+ *    - Minimum requirement, used when only 2 data points available
+ *
+ * 2. 5-point average (preferred): Average of 5 quarterly end values
+ *    - More accurate, smooths seasonality
+ *    - (Q-4 + Q-3 + Q-2 + Q-1 + Q0) / 5
+ *    - Used by FFIEC and most bank analysts
+ *
+ * This function returns both the average value and the ending value,
+ * along with metadata about the calculation method.
+ *
+ * @param {Array} conceptData - Array of data points for a concept
+ * @returns {Object|null} - { average, ending, method, periodCount, periods }
+ */
+function getAveragePointInTime(conceptData) {
+  if (!conceptData || conceptData.length === 0) return null;
+
+  // Filter for point-in-time values (qtrs = 0) from 10-K or 10-Q
+  // Sort by date descending (most recent first)
+  const pointInTime = conceptData
+    .filter(d => d.qtrs === 0 && (d.form === '10-K' || d.form === '10-Q'))
+    .sort((a, b) => b.ddate.localeCompare(a.ddate));
+
+  if (pointInTime.length === 0) return null;
+
+  // Get the most recent value (ending)
+  const ending = pointInTime[0];
+
+  // If only one data point, cannot compute average - return ending only
+  if (pointInTime.length === 1) {
+    return {
+      average: ending.value,
+      ending: ending.value,
+      endingDate: ending.ddate,
+      method: 'single-period',
+      periodCount: 1,
+      periods: [ending]
+    };
+  }
+
+  // Use up to 5 periods for averaging (current + 4 prior quarters)
+  // This gives us a 5-point average aligned with TTM period
+  const periodsToUse = pointInTime.slice(0, 5);
+
+  // Calculate average
+  const sum = periodsToUse.reduce((acc, d) => acc + d.value, 0);
+  const average = sum / periodsToUse.length;
+
+  // Determine averaging method based on periods available
+  let method;
+  if (periodsToUse.length >= 5) {
+    method = '5-point-avg';  // Full 5-point average (preferred)
+  } else if (periodsToUse.length >= 2) {
+    method = `${periodsToUse.length}-point-avg`;  // Partial average
+  } else {
+    method = 'single-period';
+  }
+
+  return {
+    average,
+    ending: ending.value,
+    endingDate: ending.ddate,
+    beginningDate: periodsToUse[periodsToUse.length - 1].ddate,
+    method,
+    periodCount: periodsToUse.length,
+    periods: periodsToUse
+  };
+}
+
+/**
  * Get TTM (Trailing Twelve Months) value by summing quarters or using annual fallback.
  *
  * CRITICAL ACCOUNTING LOGIC:
@@ -574,6 +658,45 @@ function calculateBankMetrics(bankData) {
   const sharesData = getSharesOutstanding(concepts['CommonStockSharesOutstanding']);
 
   // ==========================================================================
+  // AVERAGES FOR RETURN RATIOS (FFIEC/Investor Standard)
+  // ==========================================================================
+  // Return ratios (ROE, ROAA, ROTCE) and NIM should use AVERAGE values
+  // rather than point-in-time ending values per FFIEC UBPR methodology.
+
+  // Average Assets (for ROAA)
+  const avgAssets = getAveragePointInTime(concepts['Assets']);
+
+  // Average Equity (for ROE)
+  const avgEquity = getAveragePointInTime(concepts['StockholdersEquity']) ||
+                    getAveragePointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
+
+  // Average components for earning assets (for NIM)
+  const avgLoans = getAveragePointInTime(concepts['LoansAndLeasesReceivableNetReportedAmount']) ||
+                   getAveragePointInTime(concepts['LoansAndLeasesReceivableNetOfDeferredIncome']) ||
+                   getAveragePointInTime(concepts['FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss']) ||
+                   getAveragePointInTime(concepts['NotesReceivableNet']);
+  const avgAfsSecurities = getAveragePointInTime(concepts['AvailableForSaleSecuritiesDebtSecurities']) ||
+                           getAveragePointInTime(concepts['AvailableForSaleSecurities']) ||
+                           getAveragePointInTime(concepts['AvailableForSaleSecuritiesDebt']);
+  const avgHtmSecurities = getAveragePointInTime(concepts['HeldToMaturitySecurities']) ||
+                           getAveragePointInTime(concepts['HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss']);
+  const avgCash = getAveragePointInTime(concepts['CashAndCashEquivalentsAtCarryingValue']) ||
+                  getAveragePointInTime(concepts['CashAndDueFromBanks']);
+
+  // Average Goodwill and Intangibles (for tangible calculations)
+  const avgGoodwill = getAveragePointInTime(concepts['Goodwill']) ||
+                      getAveragePointInTime(concepts['GoodwillAndIntangibleAssetsNet']);
+  const avgIntangibles = getAveragePointInTime(concepts['IntangibleAssetsNetExcludingGoodwill']) ||
+                         getAveragePointInTime(concepts['IntangibleAssetsNetIncludingGoodwill']) ||
+                         getAveragePointInTime(concepts['FiniteLivedIntangibleAssetsNet']) ||
+                         getAveragePointInTime(concepts['IndefiniteLivedIntangibleAssetsExcludingGoodwill']) ||
+                         getAveragePointInTime(concepts['OtherIntangibleAssetsNet']);
+
+  // Average Preferred Stock (for TCE)
+  const avgPreferred = getAveragePointInTime(concepts['PreferredStockValue']) ||
+                       getAveragePointInTime(concepts['PreferredStockValueOutstanding']);
+
+  // ==========================================================================
   // INCOME STATEMENT (TTM)
   // ==========================================================================
   const interestIncome = getTTMValue(concepts['InterestIncome']) ||
@@ -646,26 +769,66 @@ function calculateBankMetrics(bankData) {
   const ttmDps = dps?.value;
 
   // ==========================================================================
-  // DERIVED VALUES
+  // DERIVED VALUES (Point-in-Time)
   // ==========================================================================
   const tangibleBookValue = totalEquity ? totalEquity - goodwillValue - intangiblesValue : null;
   const tangibleCommonEquity = totalEquity ? totalEquity - preferredValue - goodwillValue - intangiblesValue : null;
   const tangibleAssets = totalAssets ? totalAssets - goodwillValue - intangiblesValue : null;
 
-  // Per-share metrics
+  // Per-share metrics (use ending values per convention)
   const bvps = totalEquity && sharesOutstanding ? totalEquity / sharesOutstanding : null;
   const tbvps = tangibleCommonEquity && sharesOutstanding ? tangibleCommonEquity / sharesOutstanding : null;
 
-  // Profitability ratios
-  const roe = ttmNetIncome && totalEquity ? (ttmNetIncome / totalEquity) * 100 : null;
-  const rota = ttmNetIncome && tangibleAssets ? (ttmNetIncome / tangibleAssets) * 100 : null;
-  const roaa = ttmNetIncome && totalAssets ? (ttmNetIncome / totalAssets) * 100 : null;
-  const rotce = ttmNetIncome && tangibleCommonEquity ? (ttmNetIncome / tangibleCommonEquity) * 100 : null;
-  const niTbv = ttmNetIncome && tangibleBookValue ? ttmNetIncome / tangibleBookValue : null;
+  // ==========================================================================
+  // DERIVED VALUES (Averages for Return Ratios)
+  // ==========================================================================
+  // Extract average values (use ending if average unavailable)
+  const avgAssetsValue = avgAssets?.average || totalAssets;
+  const avgEquityValue = avgEquity?.average || totalEquity;
+  const avgGoodwillValue = avgGoodwill?.average || goodwillValue;
+  const avgIntangiblesValue = avgIntangibles?.average || intangiblesValue;
+  const avgPreferredValue = avgPreferred?.average || preferredValue;
 
-  // Bank-specific ratios
+  // Calculate average tangible values
+  const avgTangibleAssets = avgAssetsValue ? avgAssetsValue - avgGoodwillValue - avgIntangiblesValue : null;
+  const avgTangibleCommonEquity = avgEquityValue
+    ? avgEquityValue - avgPreferredValue - avgGoodwillValue - avgIntangiblesValue
+    : null;
+  const avgTangibleBookValue = avgEquityValue
+    ? avgEquityValue - avgGoodwillValue - avgIntangiblesValue
+    : null;
+
+  // ==========================================================================
+  // PROFITABILITY RATIOS (Using Average Values per FFIEC/Investor Standard)
+  // ==========================================================================
+  // These ratios now use AVERAGE balance sheet values instead of ending values,
+  // which aligns with FFIEC UBPR methodology and standard investor analysis.
+
+  // ROE = TTM Net Income / Average Total Equity
+  const roe = ttmNetIncome && avgEquityValue ? (ttmNetIncome / avgEquityValue) * 100 : null;
+
+  // ROTA = TTM Net Income / Average Tangible Assets
+  const rota = ttmNetIncome && avgTangibleAssets ? (ttmNetIncome / avgTangibleAssets) * 100 : null;
+
+  // ROAA = TTM Net Income / Average Total Assets
+  const roaa = ttmNetIncome && avgAssetsValue ? (ttmNetIncome / avgAssetsValue) * 100 : null;
+
+  // ROTCE = TTM Net Income / Average Tangible Common Equity
+  const rotce = ttmNetIncome && avgTangibleCommonEquity ? (ttmNetIncome / avgTangibleCommonEquity) * 100 : null;
+
+  // NI/TBV ratio (for internal use)
+  const niTbv = ttmNetIncome && avgTangibleBookValue ? ttmNetIncome / avgTangibleBookValue : null;
+
+  // Track averaging method used for return ratios
+  const returnRatioAvgMethod = avgAssets?.method || avgEquity?.method || 'single-period';
+
+  // ==========================================================================
+  // BANK-SPECIFIC RATIOS
+  // ==========================================================================
   const totalRevenue = (ttmNii || 0) + (ttmNonintIncome || 0);
   const efficiencyRatio = ttmNonintExpense && totalRevenue > 0 ? (ttmNonintExpense / totalRevenue) * 100 : null;
+
+  // Capital ratios (point-in-time is correct for these)
   const depositsToAssets = totalDeposits && totalAssets ? (totalDeposits / totalAssets) * 100 : null;
   const equityToAssets = totalEquity && totalAssets ? (totalEquity / totalAssets) * 100 : null;
   const tceToTa = tangibleCommonEquity && tangibleAssets ? (tangibleCommonEquity / tangibleAssets) * 100 : null;
@@ -673,9 +836,23 @@ function calculateBankMetrics(bankData) {
   const loansToDeposits = loansValue && totalDeposits ? (loansValue / totalDeposits) * 100 : null;
   const aclToLoans = allowanceForCreditLossesValue && loansValue ? (allowanceForCreditLossesValue / loansValue) * 100 : null;
 
-  // Net Interest Margin (NIM) = NII / Average Earning Assets
+  // ==========================================================================
+  // NET INTEREST MARGIN (NIM) - Using Average Earning Assets
+  // ==========================================================================
+  // NIM = TTM Net Interest Income / Average Earning Assets
+  // Per FFIEC methodology, this should use average earning assets over the TTM period
+
+  // Ending earning assets (for display/reference)
   const earningAssets = (loansValue || 0) + (afsSecuritiesValue || 0) + (htmSecuritiesValue || 0) + (cashAndCashEquivalentsValue || 0);
-  const netInterestMargin = ttmNii && earningAssets > 0 ? (ttmNii / earningAssets) * 100 : null;
+
+  // Average earning assets (for NIM calculation)
+  const avgEarningAssets = (avgLoans?.average || loansValue || 0) +
+                           (avgAfsSecurities?.average || afsSecuritiesValue || 0) +
+                           (avgHtmSecurities?.average || htmSecuritiesValue || 0) +
+                           (avgCash?.average || cashAndCashEquivalentsValue || 0);
+
+  // NIM using average earning assets
+  const netInterestMargin = ttmNii && avgEarningAssets > 0 ? (ttmNii / avgEarningAssets) * 100 : null;
 
   // Graham metrics
   const grahamNum = ttmEps && bvps && ttmEps > 0 && bvps > 0 ? Math.sqrt(22.5 * ttmEps * bvps) : null;
@@ -723,6 +900,18 @@ function calculateBankMetrics(bankData) {
     },
     dividends: {
       CommonStockDividendsPerShareDeclared: dps
+    },
+    // Averaging data for return ratio calculations (FFIEC/investor standard)
+    averages: {
+      Assets: avgAssets,
+      Equity: avgEquity,
+      Loans: avgLoans,
+      AvailableForSaleSecurities: avgAfsSecurities,
+      HeldToMaturitySecurities: avgHtmSecurities,
+      CashAndCashEquivalents: avgCash,
+      Goodwill: avgGoodwill,
+      Intangibles: avgIntangibles,
+      PreferredStock: avgPreferred
     }
   };
 
@@ -803,9 +992,15 @@ function calculateBankMetrics(bankData) {
       dividendPayoutRatio: dividendPayoutRatio ? parseFloat(dividendPayoutRatio.toFixed(2)) : null,
       dividendMethod: dps?.method,
 
+      // Average values used in return ratio calculations (for transparency)
+      avgAssets: avgAssetsValue ? parseFloat(avgAssetsValue.toFixed(0)) : null,
+      avgEquity: avgEquityValue ? parseFloat(avgEquityValue.toFixed(0)) : null,
+      avgEarningAssets: avgEarningAssets ? parseFloat(avgEarningAssets.toFixed(0)) : null,
+
       // Metadata
       dataDate: formattedDate,
       ttmMethod: netIncome?.method || 'unknown',
+      returnRatioAvgMethod,  // Method used for averaging (e.g., '5-point-avg', '3-point-avg')
       isStale: formattedDate ? new Date(formattedDate) < new Date('2024-01-01') : true,
       isAnnualized: false,  // FS Data Sets provide actual quarterly data, not annualized
 
@@ -1126,5 +1321,6 @@ if (require.main === module) {
 module.exports = {
   getTTMValue,
   getLatestPointInTime,
+  getAveragePointInTime,
   getSharesOutstanding
 };

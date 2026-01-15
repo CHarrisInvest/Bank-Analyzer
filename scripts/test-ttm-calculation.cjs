@@ -11,7 +11,7 @@
  */
 
 const assert = require('assert');
-const { getTTMValue } = require('./fetch-sec-fs-datasets.cjs');
+const { getTTMValue, getAveragePointInTime } = require('./fetch-sec-fs-datasets.cjs');
 
 // Test utilities
 let testsRun = 0;
@@ -76,6 +76,25 @@ function createAnnual(value, endDate, form = '10-K') {
     form,
     fy: endDate.slice(0, 4),
     fp: 'FY',
+    filed: endDate,
+    period: endDate
+  };
+}
+
+/**
+ * Create a point-in-time balance sheet data point
+ */
+function createPointInTime(value, endDate, form = '10-Q') {
+  const year = endDate.slice(0, 4);
+  const month = parseInt(endDate.slice(4, 6));
+  const fp = month <= 3 ? 'Q1' : month <= 6 ? 'Q2' : month <= 9 ? 'Q3' : 'Q4';
+  return {
+    value,
+    ddate: endDate,
+    qtrs: 0,  // Point-in-time (balance sheet)
+    form,
+    fy: year,
+    fp: form === '10-K' ? 'FY' : fp,
     filed: endDate,
     period: endDate
   };
@@ -434,6 +453,240 @@ test('Company with annual report but no quarterly breakdown', () => {
 
   assertEqual(result.value, 10000000, 'Should use annual');
   assertEqual(result.method, 'annual', 'Method should be annual');
+});
+
+// ===========================================================================
+// getAveragePointInTime TESTS
+// ===========================================================================
+// These tests verify that average calculations for return ratios (ROE, ROAA,
+// ROTCE, NIM) work correctly per FFIEC/investor standards.
+// ===========================================================================
+
+console.log('\n═══════════════════════════════════════════════════════════════════════════════');
+console.log('AVERAGE POINT-IN-TIME TESTS (for ROE, ROAA, ROTCE, NIM)');
+console.log('═══════════════════════════════════════════════════════════════════════════════');
+
+// ---------------------------------------------------------------------------
+// Test Suite 8: Basic Averaging
+// ---------------------------------------------------------------------------
+console.log('\n8. Basic Averaging');
+
+test('5-point average with 5 quarters of data', () => {
+  // Most common scenario: 5 quarters of balance sheet data
+  const data = [
+    createPointInTime(100000000000, '20241231', '10-K'),  // Q4 2024: $100B
+    createPointInTime(102000000000, '20250331', '10-Q'),  // Q1 2025: $102B
+    createPointInTime(104000000000, '20250630', '10-Q'),  // Q2 2025: $104B
+    createPointInTime(106000000000, '20250930', '10-Q'),  // Q3 2025: $106B
+    createPointInTime(108000000000, '20251231', '10-K'),  // Q4 2025: $108B
+  ];
+
+  const result = getAveragePointInTime(data);
+
+  // Average = (100 + 102 + 104 + 106 + 108) / 5 = 104B
+  assertEqual(result.average, 104000000000, 'Average should be 104B');
+  assertEqual(result.ending, 108000000000, 'Ending should be 108B');
+  assertEqual(result.method, '5-point-avg', 'Method should be 5-point-avg');
+  assertEqual(result.periodCount, 5, 'Should use 5 periods');
+});
+
+test('4-point average with 4 quarters of data', () => {
+  const data = [
+    createPointInTime(100000000000, '20250331', '10-Q'),
+    createPointInTime(104000000000, '20250630', '10-Q'),
+    createPointInTime(108000000000, '20250930', '10-Q'),
+    createPointInTime(112000000000, '20251231', '10-K'),
+  ];
+
+  const result = getAveragePointInTime(data);
+
+  // Average = (100 + 104 + 108 + 112) / 4 = 106B
+  assertEqual(result.average, 106000000000, 'Average should be 106B');
+  assertEqual(result.ending, 112000000000, 'Ending should be 112B');
+  assertEqual(result.method, '4-point-avg', 'Method should be 4-point-avg');
+  assertEqual(result.periodCount, 4, 'Should use 4 periods');
+});
+
+test('2-point average (minimum for averaging)', () => {
+  const data = [
+    createPointInTime(100000000000, '20250930', '10-Q'),
+    createPointInTime(110000000000, '20251231', '10-K'),
+  ];
+
+  const result = getAveragePointInTime(data);
+
+  // Average = (100 + 110) / 2 = 105B
+  assertEqual(result.average, 105000000000, 'Average should be 105B');
+  assertEqual(result.ending, 110000000000, 'Ending should be 110B');
+  assertEqual(result.method, '2-point-avg', 'Method should be 2-point-avg');
+  assertEqual(result.periodCount, 2, 'Should use 2 periods');
+});
+
+test('Single period returns ending value as average', () => {
+  const data = [
+    createPointInTime(100000000000, '20251231', '10-K'),
+  ];
+
+  const result = getAveragePointInTime(data);
+
+  assertEqual(result.average, 100000000000, 'Average should equal ending');
+  assertEqual(result.ending, 100000000000, 'Ending should be 100B');
+  assertEqual(result.method, 'single-period', 'Method should be single-period');
+  assertEqual(result.periodCount, 1, 'Should use 1 period');
+});
+
+// ---------------------------------------------------------------------------
+// Test Suite 9: Average Edge Cases
+// ---------------------------------------------------------------------------
+console.log('\n9. Average Edge Cases');
+
+test('Empty array returns null', () => {
+  const result = getAveragePointInTime([]);
+  assertEqual(result, null, 'Empty array should return null');
+});
+
+test('Null input returns null', () => {
+  const result = getAveragePointInTime(null);
+  assertEqual(result, null, 'Null input should return null');
+});
+
+test('Undefined input returns null', () => {
+  const result = getAveragePointInTime(undefined);
+  assertEqual(result, null, 'Undefined input should return null');
+});
+
+test('Only uses point-in-time data (qtrs=0), ignores quarterly flows', () => {
+  // Mix of point-in-time (qtrs=0) and quarterly flows (qtrs=1)
+  const data = [
+    createPointInTime(100000000000, '20250930', '10-Q'),  // Point-in-time
+    createPointInTime(110000000000, '20251231', '10-K'),  // Point-in-time
+    createQuarter(5000000000, '20250930', '10-Q'),        // Quarterly flow (should be ignored)
+    createQuarter(6000000000, '20251231', '10-K'),        // Quarterly flow (should be ignored)
+  ];
+
+  const result = getAveragePointInTime(data);
+
+  // Should only average the point-in-time values
+  assertEqual(result.average, 105000000000, 'Should only average point-in-time values');
+  assertEqual(result.periodCount, 2, 'Should only count point-in-time periods');
+});
+
+test('Sorts by date and uses most recent 5', () => {
+  // Data provided out of order with more than 5 periods
+  const data = [
+    createPointInTime(108000000000, '20251231', '10-K'),  // Most recent
+    createPointInTime(100000000000, '20241231', '10-K'),  // Oldest in range
+    createPointInTime(104000000000, '20250630', '10-Q'),
+    createPointInTime(98000000000, '20240930', '10-Q'),   // Outside 5-period range
+    createPointInTime(102000000000, '20250331', '10-Q'),
+    createPointInTime(106000000000, '20250930', '10-Q'),
+  ];
+
+  const result = getAveragePointInTime(data);
+
+  // Should use most recent 5: Q4'24(100), Q1'25(102), Q2'25(104), Q3'25(106), Q4'25(108)
+  // Average = (108 + 106 + 104 + 102 + 100) / 5 = 104B
+  assertEqual(result.average, 104000000000, 'Should average most recent 5 periods');
+  assertEqual(result.ending, 108000000000, 'Ending should be most recent');
+  assertEqual(result.method, '5-point-avg', 'Method should be 5-point-avg');
+});
+
+test('Ignores invalid form types', () => {
+  const data = [
+    createPointInTime(100000000000, '20250930', '10-Q'),
+    createPointInTime(110000000000, '20251231', '10-K'),
+    { value: 999000000000, ddate: '20260101', qtrs: 0, form: '8-K' },  // Invalid form
+  ];
+
+  const result = getAveragePointInTime(data);
+
+  // Should ignore the 8-K form
+  assertEqual(result.average, 105000000000, 'Should ignore invalid forms');
+  assertEqual(result.periodCount, 2, 'Should only count valid periods');
+});
+
+// ---------------------------------------------------------------------------
+// Test Suite 10: Averaging Impact on Return Ratios
+// ---------------------------------------------------------------------------
+console.log('\n10. Averaging Impact on Return Ratios');
+
+test('Growing balance sheet: average lower than ending', () => {
+  // Bank with growing assets - average will be lower than ending
+  const data = [
+    createPointInTime(100000000000, '20241231', '10-K'),  // $100B
+    createPointInTime(105000000000, '20250331', '10-Q'),  // $105B
+    createPointInTime(110000000000, '20250630', '10-Q'),  // $110B
+    createPointInTime(115000000000, '20250930', '10-Q'),  // $115B
+    createPointInTime(120000000000, '20251231', '10-K'),  // $120B
+  ];
+
+  const result = getAveragePointInTime(data);
+
+  // Average = (100 + 105 + 110 + 115 + 120) / 5 = 110B
+  // Ending = 120B
+  // For ROAA: TTM NI / Avg Assets gives higher ratio than TTM NI / Ending Assets
+  assertEqual(result.average, 110000000000, 'Average should be 110B');
+  assertEqual(result.ending, 120000000000, 'Ending should be 120B');
+  assert.ok(result.average < result.ending, 'For growing bank, average < ending');
+});
+
+test('Shrinking balance sheet: average higher than ending', () => {
+  // Bank with shrinking assets - average will be higher than ending
+  const data = [
+    createPointInTime(120000000000, '20241231', '10-K'),  // $120B
+    createPointInTime(115000000000, '20250331', '10-Q'),  // $115B
+    createPointInTime(110000000000, '20250630', '10-Q'),  // $110B
+    createPointInTime(105000000000, '20250930', '10-Q'),  // $105B
+    createPointInTime(100000000000, '20251231', '10-K'),  // $100B
+  ];
+
+  const result = getAveragePointInTime(data);
+
+  // Average = (120 + 115 + 110 + 105 + 100) / 5 = 110B
+  // Ending = 100B
+  // For ROAA: TTM NI / Avg Assets gives lower ratio than TTM NI / Ending Assets
+  assertEqual(result.average, 110000000000, 'Average should be 110B');
+  assertEqual(result.ending, 100000000000, 'Ending should be 100B');
+  assert.ok(result.average > result.ending, 'For shrinking bank, average > ending');
+});
+
+test('Stable balance sheet: average equals ending', () => {
+  // Bank with stable assets - average will equal ending
+  const data = [
+    createPointInTime(100000000000, '20241231', '10-K'),
+    createPointInTime(100000000000, '20250331', '10-Q'),
+    createPointInTime(100000000000, '20250630', '10-Q'),
+    createPointInTime(100000000000, '20250930', '10-Q'),
+    createPointInTime(100000000000, '20251231', '10-K'),
+  ];
+
+  const result = getAveragePointInTime(data);
+
+  assertEqual(result.average, 100000000000, 'Average should equal ending for stable bank');
+  assertEqual(result.ending, 100000000000, 'Ending should be 100B');
+  assertEqual(result.average, result.ending, 'Average should equal ending');
+});
+
+// ---------------------------------------------------------------------------
+// Test Suite 11: Mixed 10-K and 10-Q Data
+// ---------------------------------------------------------------------------
+console.log('\n11. Mixed 10-K and 10-Q Balance Sheet Data');
+
+test('Point-in-time values from both 10-K and 10-Q filings', () => {
+  // Balance sheet values can come from either filing type
+  const data = [
+    createPointInTime(100000000000, '20241231', '10-K'),  // From 10-K
+    createPointInTime(102000000000, '20250331', '10-Q'),  // From 10-Q
+    createPointInTime(104000000000, '20250630', '10-Q'),  // From 10-Q
+    createPointInTime(106000000000, '20250930', '10-Q'),  // From 10-Q
+    createPointInTime(108000000000, '20251231', '10-K'),  // From 10-K
+  ];
+
+  const result = getAveragePointInTime(data);
+
+  // Should treat all point-in-time values equally regardless of filing type
+  assertEqual(result.average, 104000000000, 'Should average all point-in-time values');
+  assertEqual(result.periodCount, 5, 'Should include all 5 periods');
 });
 
 // ---------------------------------------------------------------------------
