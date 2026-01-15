@@ -35,19 +35,45 @@ jobs:
       - name: Download SEC quarterly data
         run: |
           mkdir -p .sec-data-cache
+          SUCCESS=0
+          FAILED=0
 
           for q in ${{ github.event.inputs.quarters }}; do
             echo "Downloading $q.zip..."
-            curl -sf -A "Bank-Analyzer/1.0 (GitHub Actions; +https://github.com/${{ github.repository }})" \
-              -o ".sec-data-cache/$q.zip" \
-              "https://www.sec.gov/files/dera/data/financial-statement-data-sets/$q.zip" \
-              && echo "  ✓ $q.zip downloaded" \
-              || echo "  ✗ $q.zip failed (may not be available yet)"
+
+            # Try up to 3 times with backoff
+            for attempt in 1 2 3; do
+              if curl -f -L \
+                -A "Bank-Analyzer/1.0 (contact: github.com/${{ github.repository }})" \
+                -H "Accept: application/zip" \
+                -o ".sec-data-cache/$q.zip" \
+                "https://www.sec.gov/files/dera/data/financial-statement-data-sets/$q.zip" 2>/dev/null; then
+                echo "  ✓ $q.zip downloaded (attempt $attempt)"
+                SUCCESS=$((SUCCESS + 1))
+                break
+              else
+                if [ $attempt -lt 3 ]; then
+                  echo "  Attempt $attempt failed, retrying in ${attempt}s..."
+                  sleep $attempt
+                else
+                  echo "  ✗ $q.zip failed after 3 attempts (may not be available yet)"
+                  FAILED=$((FAILED + 1))
+                  rm -f ".sec-data-cache/$q.zip"  # Remove any partial file
+                fi
+              fi
+            done
           done
 
           echo ""
           echo "Downloaded files:"
-          ls -la .sec-data-cache/
+          ls -la .sec-data-cache/ || true
+          echo ""
+          echo "Summary: $SUCCESS succeeded, $FAILED failed"
+
+          if [ $SUCCESS -eq 0 ]; then
+            echo "ERROR: No files were downloaded. Check SEC website availability."
+            exit 1
+          fi
 
       - name: Process SEC data
         run: node scripts/fetch-sec-fs-datasets.cjs --local-only
