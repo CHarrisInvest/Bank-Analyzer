@@ -866,12 +866,14 @@ LOCAL-ONLY MODE:
 
   To use this mode:
   1. Download ZIP files manually from SEC:
+     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q4.zip
      https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q3.zip
      https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q2.zip
      https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q1.zip
      https://www.sec.gov/files/dera/data/financial-statement-data-sets/2024q4.zip
 
   2. Place them in .sec-data-cache/ with exact names:
+     .sec-data-cache/2025q4.zip
      .sec-data-cache/2025q3.zip
      .sec-data-cache/2025q2.zip
      .sec-data-cache/2025q1.zip

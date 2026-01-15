@@ -16,7 +16,7 @@ echo ""
 mkdir -p "$CACHE_DIR"
 
 # Quarters to download (most recent first)
-QUARTERS="2025q3 2025q2 2025q1 2024q4"
+QUARTERS="2025q4 2025q3 2025q2 2025q1 2024q4"
 
 echo "Downloading quarterly data from SEC..."
 echo ""
