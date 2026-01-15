@@ -56,14 +56,30 @@ const CONFIG = {
 
   // XBRL concepts to extract (Primary Financial Statement concepts only)
   conceptsToExtract: [
-    // Balance Sheet
+    // Balance Sheet - Assets
     'Assets',
-    'Liabilities',
-    'StockholdersEquity',
-    'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest',
-    'LiabilitiesAndStockholdersEquity',
     'CashAndCashEquivalentsAtCarryingValue',
     'CashAndDueFromBanks',
+    'InterestBearingDepositsInBanks',
+    'InterestBearingDepositsInBanksAndOtherFinancialInstitutions',
+    // Securities
+    'AvailableForSaleSecuritiesDebtSecurities',
+    'AvailableForSaleSecurities',
+    'AvailableForSaleSecuritiesDebt',
+    'HeldToMaturitySecurities',
+    'HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss',
+    // Loans
+    'LoansAndLeasesReceivableNetReportedAmount',
+    'LoansAndLeasesReceivableNetOfDeferredIncome',
+    'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss',
+    'NotesReceivableNet',
+    // Allowance for Credit Losses
+    'AllowanceForLoanAndLeaseLosses',
+    'FinancingReceivableAllowanceForCreditLosses',
+    'AllowanceForCreditLossesOnFinancingReceivables',
+    // Fixed Assets
+    'PremisesAndEquipmentNet',
+    'PropertyPlantAndEquipmentNet',
     // Goodwill - multiple tag variants used by different companies
     'Goodwill',
     'GoodwillAndIntangibleAssetsNet',
@@ -73,13 +89,35 @@ const CONFIG = {
     'FiniteLivedIntangibleAssetsNet',
     'IndefiniteLivedIntangibleAssetsExcludingGoodwill',
     'OtherIntangibleAssetsNet',
+
+    // Balance Sheet - Liabilities & Equity
+    'Liabilities',
+    'Deposits',
+    'DepositsDomestic',
+    'ShortTermBorrowings',
+    'LongTermDebt',
+    'LongTermDebtNoncurrent',
+    'StockholdersEquity',
+    'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest',
+    'LiabilitiesAndStockholdersEquity',
     'PreferredStockValue',
     'PreferredStockValueOutstanding',
     'CommonStockSharesOutstanding',
-    'Deposits',
-    'DepositsDomestic',
 
     // Income Statement
+    'InterestIncome',
+    'InterestAndDividendIncomeOperating',
+    'InterestExpense',
+    'InterestIncomeExpenseNet',
+    'NetInterestIncome',
+    'NoninterestIncome',
+    'NoninterestExpense',
+    'OperatingExpenses',
+    'ProvisionForLoanLeaseAndOtherLosses',
+    'ProvisionForLoanAndLeaseLosses',
+    'ProvisionForCreditLosses',
+    'IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest',
+    'IncomeLossFromContinuingOperationsBeforeIncomeTaxes',
     'NetIncomeLoss',
     'ProfitLoss',
     'NetIncomeLossAvailableToCommonStockholdersBasic',
@@ -87,15 +125,6 @@ const CONFIG = {
     'EarningsPerShareDiluted',
     'Revenues',
     'RevenueFromContractWithCustomerExcludingAssessedTax',
-    'InterestIncomeExpenseNet',
-    'NetInterestIncome',
-    'InterestAndDividendIncomeOperating',
-    'NoninterestIncome',
-    'NoninterestExpense',
-    'OperatingExpenses',
-    'ProvisionForLoanLeaseAndOtherLosses',
-    'ProvisionForLoanAndLeaseLosses',
-    'ProvisionForCreditLosses',
 
     // Cash Flow
     'NetCashProvidedByUsedInOperatingActivities',
@@ -676,12 +705,28 @@ function getSharesOutstanding(conceptData) {
 function calculateBankMetrics(bankData) {
   const concepts = bankData.concepts;
 
-  // Balance Sheet (point-in-time)
+  // ==========================================================================
+  // BALANCE SHEET - ASSETS (point-in-time)
+  // ==========================================================================
   const assets = getLatestPointInTime(concepts['Assets']);
-  const equity = getLatestPointInTime(concepts['StockholdersEquity']) ||
-                 getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
-  const deposits = getLatestPointInTime(concepts['Deposits']) ||
-                   getLatestPointInTime(concepts['DepositsDomestic']);
+  const cashAndDueFromBanks = getLatestPointInTime(concepts['CashAndDueFromBanks']) ||
+                              getLatestPointInTime(concepts['CashAndCashEquivalentsAtCarryingValue']);
+  const interestBearingDepositsInBanks = getLatestPointInTime(concepts['InterestBearingDepositsInBanks']) ||
+                                          getLatestPointInTime(concepts['InterestBearingDepositsInBanksAndOtherFinancialInstitutions']);
+  const afsSecurities = getLatestPointInTime(concepts['AvailableForSaleSecuritiesDebtSecurities']) ||
+                        getLatestPointInTime(concepts['AvailableForSaleSecurities']) ||
+                        getLatestPointInTime(concepts['AvailableForSaleSecuritiesDebt']);
+  const htmSecurities = getLatestPointInTime(concepts['HeldToMaturitySecurities']) ||
+                        getLatestPointInTime(concepts['HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss']);
+  const loans = getLatestPointInTime(concepts['LoansAndLeasesReceivableNetReportedAmount']) ||
+                getLatestPointInTime(concepts['LoansAndLeasesReceivableNetOfDeferredIncome']) ||
+                getLatestPointInTime(concepts['FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss']) ||
+                getLatestPointInTime(concepts['NotesReceivableNet']);
+  const allowanceForCreditLosses = getLatestPointInTime(concepts['AllowanceForLoanAndLeaseLosses']) ||
+                                    getLatestPointInTime(concepts['FinancingReceivableAllowanceForCreditLosses']) ||
+                                    getLatestPointInTime(concepts['AllowanceForCreditLossesOnFinancingReceivables']);
+  const premisesAndEquipment = getLatestPointInTime(concepts['PremisesAndEquipmentNet']) ||
+                               getLatestPointInTime(concepts['PropertyPlantAndEquipmentNet']);
   // Goodwill - try multiple tag variants
   const goodwill = getLatestPointInTime(concepts['Goodwill']) ||
                    getLatestPointInTime(concepts['GoodwillAndIntangibleAssetsNet']);
@@ -691,42 +736,98 @@ function calculateBankMetrics(bankData) {
                       getLatestPointInTime(concepts['FiniteLivedIntangibleAssetsNet']) ||
                       getLatestPointInTime(concepts['IndefiniteLivedIntangibleAssetsExcludingGoodwill']) ||
                       getLatestPointInTime(concepts['OtherIntangibleAssetsNet']);
+
+  // ==========================================================================
+  // BALANCE SHEET - LIABILITIES & EQUITY (point-in-time)
+  // ==========================================================================
+  const liabilities = getLatestPointInTime(concepts['Liabilities']);
+  const deposits = getLatestPointInTime(concepts['Deposits']) ||
+                   getLatestPointInTime(concepts['DepositsDomestic']);
+  const shortTermBorrowings = getLatestPointInTime(concepts['ShortTermBorrowings']);
+  const longTermDebt = getLatestPointInTime(concepts['LongTermDebt']) ||
+                       getLatestPointInTime(concepts['LongTermDebtNoncurrent']);
+  const equity = getLatestPointInTime(concepts['StockholdersEquity']) ||
+                 getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
   const preferredStock = getLatestPointInTime(concepts['PreferredStockValue']) ||
                          getLatestPointInTime(concepts['PreferredStockValueOutstanding']);
   const sharesData = getSharesOutstanding(concepts['CommonStockSharesOutstanding']);
 
-  // Income Statement (TTM)
-  const netIncome = getTTMValue(concepts['NetIncomeLoss']) ||
-                    getTTMValue(concepts['ProfitLoss']) ||
-                    getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
-  const eps = getTTMValue(concepts['EarningsPerShareBasic']) ||
-              getTTMValue(concepts['EarningsPerShareDiluted']);
+  // ==========================================================================
+  // INCOME STATEMENT (TTM)
+  // ==========================================================================
+  const interestIncome = getTTMValue(concepts['InterestIncome']) ||
+                         getTTMValue(concepts['InterestAndDividendIncomeOperating']);
+  const interestExpense = getTTMValue(concepts['InterestExpense']);
   const netInterestIncome = getTTMValue(concepts['InterestIncomeExpenseNet']) ||
                             getTTMValue(concepts['NetInterestIncome']);
   const noninterestIncome = getTTMValue(concepts['NoninterestIncome']);
   const noninterestExpense = getTTMValue(concepts['NoninterestExpense']) ||
                              getTTMValue(concepts['OperatingExpenses']);
+  const provisionForCreditLosses = getTTMValue(concepts['ProvisionForLoanLeaseAndOtherLosses']) ||
+                                    getTTMValue(concepts['ProvisionForLoanAndLeaseLosses']) ||
+                                    getTTMValue(concepts['ProvisionForCreditLosses']);
+  const preTaxIncome = getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest']) ||
+                       getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxes']);
+  const netIncome = getTTMValue(concepts['NetIncomeLoss']) ||
+                    getTTMValue(concepts['ProfitLoss']) ||
+                    getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
+  const eps = getTTMValue(concepts['EarningsPerShareBasic']) ||
+              getTTMValue(concepts['EarningsPerShareDiluted']);
+
+  // ==========================================================================
+  // CASH FLOW (TTM)
+  // ==========================================================================
+  const operatingCashFlow = getTTMValue(concepts['NetCashProvidedByUsedInOperatingActivities']);
 
   // Dividends
   const dps = getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
 
-  // Extract values
+  // ==========================================================================
+  // EXTRACT VALUES
+  // ==========================================================================
+
+  // Balance Sheet - Assets
   const totalAssets = assets?.value;
-  const totalEquity = equity?.value;
-  const totalDeposits = deposits?.value;
+  const cashAndDueFromBanksValue = cashAndDueFromBanks?.value;
+  const interestBearingDepositsInBanksValue = interestBearingDepositsInBanks?.value;
+  const afsSecuritiesValue = afsSecurities?.value;
+  const htmSecuritiesValue = htmSecurities?.value;
+  const loansValue = loans?.value;
+  const allowanceForCreditLossesValue = allowanceForCreditLosses?.value;
+  const premisesAndEquipmentValue = premisesAndEquipment?.value;
   const goodwillValue = goodwill?.value || 0;
   const intangiblesValue = intangibles?.value || 0;
+
+  // Balance Sheet - Liabilities & Equity
+  const totalLiabilities = liabilities?.value;
+  const totalDeposits = deposits?.value;
+  const shortTermBorrowingsValue = shortTermBorrowings?.value;
+  const longTermDebtValue = longTermDebt?.value;
+  const totalEquity = equity?.value;
   const preferredValue = preferredStock?.value || 0;
   const sharesOutstanding = sharesData?.value;
-  const ttmNetIncome = netIncome?.value;
-  const ttmEps = eps?.value;
+
+  // Income Statement (TTM)
+  const ttmInterestIncome = interestIncome?.value;
+  const ttmInterestExpense = interestExpense?.value;
   const ttmNii = netInterestIncome?.value;
   const ttmNonintIncome = noninterestIncome?.value;
   const ttmNonintExpense = noninterestExpense?.value;
+  const ttmProvision = provisionForCreditLosses?.value;
+  const ttmPreTaxIncome = preTaxIncome?.value;
+  const ttmNetIncome = netIncome?.value;
+  const ttmEps = eps?.value;
+
+  // Cash Flow (TTM)
+  const ttmOperatingCashFlow = operatingCashFlow?.value;
+
+  // Dividends
   const ttmDps = dps?.value;
 
-  // Derived values
+  // ==========================================================================
+  // DERIVED VALUES
+  // ==========================================================================
   const tangibleBookValue = totalEquity ? totalEquity - goodwillValue - intangiblesValue : null;
   const tangibleCommonEquity = totalEquity ? totalEquity - preferredValue - goodwillValue - intangiblesValue : null;
   const tangibleAssets = totalAssets ? totalAssets - goodwillValue - intangiblesValue : null;
@@ -748,6 +849,13 @@ function calculateBankMetrics(bankData) {
   const depositsToAssets = totalDeposits && totalAssets ? (totalDeposits / totalAssets) * 100 : null;
   const equityToAssets = totalEquity && totalAssets ? (totalEquity / totalAssets) * 100 : null;
   const tceToTa = tangibleCommonEquity && tangibleAssets ? (tangibleCommonEquity / tangibleAssets) * 100 : null;
+  const loansToAssets = loansValue && totalAssets ? (loansValue / totalAssets) * 100 : null;
+  const loansToDeposits = loansValue && totalDeposits ? (loansValue / totalDeposits) * 100 : null;
+  const aclToLoans = allowanceForCreditLossesValue && loansValue ? (allowanceForCreditLossesValue / loansValue) * 100 : null;
+
+  // Net Interest Margin (NIM) = NII / Average Earning Assets
+  const earningAssets = (loansValue || 0) + (afsSecuritiesValue || 0) + (htmSecuritiesValue || 0) + (interestBearingDepositsInBanksValue || 0);
+  const netInterestMargin = ttmNii && earningAssets > 0 ? (ttmNii / earningAssets) * 100 : null;
 
   // Graham metrics
   const grahamNum = ttmEps && bvps && ttmEps > 0 && bvps > 0 ? Math.sqrt(22.5 * ttmEps * bvps) : null;
@@ -763,19 +871,36 @@ function calculateBankMetrics(bankData) {
   const rawData = {
     balanceSheet: {
       Assets: assets,
-      StockholdersEquity: equity,
-      Deposits: deposits,
+      CashAndDueFromBanks: cashAndDueFromBanks,
+      InterestBearingDepositsInBanks: interestBearingDepositsInBanks,
+      AvailableForSaleSecurities: afsSecurities,
+      HeldToMaturitySecurities: htmSecurities,
+      LoansAndLeasesReceivable: loans,
+      AllowanceForLoanAndLeaseLosses: allowanceForCreditLosses,
+      PremisesAndEquipmentNet: premisesAndEquipment,
       Goodwill: goodwill,
       IntangibleAssetsNetExcludingGoodwill: intangibles,
+      Liabilities: liabilities,
+      Deposits: deposits,
+      ShortTermBorrowings: shortTermBorrowings,
+      LongTermDebt: longTermDebt,
+      StockholdersEquity: equity,
       PreferredStockValue: preferredStock,
       CommonStockSharesOutstanding: sharesData
     },
     incomeStatement: {
-      NetIncomeLoss: netIncome,
-      EarningsPerShareBasic: eps,
-      InterestIncomeExpenseNet: netInterestIncome,
+      InterestIncome: interestIncome,
+      InterestExpense: interestExpense,
+      NetInterestIncome: netInterestIncome,
       NoninterestIncome: noninterestIncome,
-      NoninterestExpense: noninterestExpense
+      NoninterestExpense: noninterestExpense,
+      ProvisionForCreditLosses: provisionForCreditLosses,
+      PreTaxIncome: preTaxIncome,
+      NetIncomeLoss: netIncome,
+      EarningsPerShareBasic: eps
+    },
+    cashFlow: {
+      NetCashProvidedByUsedInOperatingActivities: operatingCashFlow
     },
     dividends: {
       CommonStockDividendsPerShareDeclared: dps
@@ -793,24 +918,43 @@ function calculateBankMetrics(bankData) {
       sicDescription: bankData.sicDescription,
       otcTier: bankData.otcTier,
 
-      // Raw balance sheet values
+      // Balance Sheet - Assets
       totalAssets,
-      totalEquity,
-      totalDeposits,
+      cashAndDueFromBanks: cashAndDueFromBanksValue,
+      interestBearingDepositsInBanks: interestBearingDepositsInBanksValue,
+      afsSecurities: afsSecuritiesValue,
+      htmSecurities: htmSecuritiesValue,
+      loans: loansValue,
+      allowanceForCreditLosses: allowanceForCreditLossesValue,
+      premisesAndEquipment: premisesAndEquipmentValue,
       goodwill: goodwillValue,
       intangibles: intangiblesValue,
+      tangibleAssets,
+
+      // Balance Sheet - Liabilities & Equity
+      totalLiabilities,
+      totalDeposits,
+      shortTermBorrowings: shortTermBorrowingsValue,
+      longTermDebt: longTermDebtValue,
+      totalEquity,
       preferredStock: preferredValue,
       sharesOutstanding,
       tangibleBookValue,
       tangibleCommonEquity,
-      tangibleAssets,
 
-      // Raw income statement values (TTM)
-      ttmNetIncome,
-      ttmEps,
+      // Income Statement (TTM)
+      ttmInterestIncome,
+      ttmInterestExpense,
       ttmNetInterestIncome: ttmNii,
       ttmNoninterestIncome: ttmNonintIncome,
       ttmNoninterestExpense: ttmNonintExpense,
+      ttmProvisionForCreditLosses: ttmProvision,
+      ttmPreTaxIncome,
+      ttmNetIncome,
+      ttmEps,
+
+      // Cash Flow (TTM)
+      ttmOperatingCashFlow,
 
       // Per-share metrics
       bvps: bvps ? parseFloat(bvps.toFixed(4)) : null,
@@ -828,6 +972,10 @@ function calculateBankMetrics(bankData) {
       depositsToAssets: depositsToAssets ? parseFloat(depositsToAssets.toFixed(2)) : null,
       equityToAssets: equityToAssets ? parseFloat(equityToAssets.toFixed(2)) : null,
       tceToTa: tceToTa ? parseFloat(tceToTa.toFixed(2)) : null,
+      loansToAssets: loansToAssets ? parseFloat(loansToAssets.toFixed(2)) : null,
+      loansToDeposits: loansToDeposits ? parseFloat(loansToDeposits.toFixed(2)) : null,
+      aclToLoans: aclToLoans ? parseFloat(aclToLoans.toFixed(2)) : null,
+      netInterestMargin: netInterestMargin ? parseFloat(netInterestMargin.toFixed(2)) : null,
 
       // Graham metrics
       grahamNum: grahamNum ? parseFloat(grahamNum.toFixed(4)) : null,
