@@ -64,8 +64,15 @@ const CONFIG = {
     'LiabilitiesAndStockholdersEquity',
     'CashAndCashEquivalentsAtCarryingValue',
     'CashAndDueFromBanks',
+    // Goodwill - multiple tag variants used by different companies
     'Goodwill',
+    'GoodwillAndIntangibleAssetsNet',
+    // Intangibles - multiple tag variants used by different companies
     'IntangibleAssetsNetExcludingGoodwill',
+    'IntangibleAssetsNetIncludingGoodwill',
+    'FiniteLivedIntangibleAssetsNet',
+    'IndefiniteLivedIntangibleAssetsExcludingGoodwill',
+    'OtherIntangibleAssetsNet',
     'PreferredStockValue',
     'PreferredStockValueOutstanding',
     'CommonStockSharesOutstanding',
@@ -675,8 +682,15 @@ function calculateBankMetrics(bankData) {
                  getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
   const deposits = getLatestPointInTime(concepts['Deposits']) ||
                    getLatestPointInTime(concepts['DepositsDomestic']);
-  const goodwill = getLatestPointInTime(concepts['Goodwill']);
-  const intangibles = getLatestPointInTime(concepts['IntangibleAssetsNetExcludingGoodwill']);
+  // Goodwill - try multiple tag variants
+  const goodwill = getLatestPointInTime(concepts['Goodwill']) ||
+                   getLatestPointInTime(concepts['GoodwillAndIntangibleAssetsNet']);
+  // Intangibles - try multiple tag variants
+  const intangibles = getLatestPointInTime(concepts['IntangibleAssetsNetExcludingGoodwill']) ||
+                      getLatestPointInTime(concepts['IntangibleAssetsNetIncludingGoodwill']) ||
+                      getLatestPointInTime(concepts['FiniteLivedIntangibleAssetsNet']) ||
+                      getLatestPointInTime(concepts['IndefiniteLivedIntangibleAssetsExcludingGoodwill']) ||
+                      getLatestPointInTime(concepts['OtherIntangibleAssetsNet']);
   const preferredStock = getLatestPointInTime(concepts['PreferredStockValue']) ||
                          getLatestPointInTime(concepts['PreferredStockValueOutstanding']);
   const sharesData = getSharesOutstanding(concepts['CommonStockSharesOutstanding']);
