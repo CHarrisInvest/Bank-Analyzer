@@ -16,6 +16,8 @@ import { formatNumber } from '../utils/csv.js';
  * - Bank Ratios: Efficiency, Dep/Assets, Eq/Assets, TCE/TA, Loans/Deposits
  * - Graham: Graham #, Graham MoS
  * - Dividends: TTM Div, Payout %
+ *
+ * Each column includes the XBRL tag(s) used to extract the data as tooltips.
  */
 const COLUMNS = [
   // ===========================================================================
@@ -28,6 +30,7 @@ const COLUMNS = [
     align: 'left',
     format: (value) => value || '-',
     group: 'info',
+    tooltip: 'Stock ticker symbol',
   },
   {
     key: 'bankName',
@@ -37,6 +40,7 @@ const COLUMNS = [
     format: (value) => value || '-',
     className: 'col-bank-name',
     group: 'info',
+    tooltip: 'Company name from SEC filings',
   },
   {
     key: 'exchange',
@@ -45,6 +49,7 @@ const COLUMNS = [
     align: 'center',
     format: (value) => value || '-',
     group: 'info',
+    tooltip: 'Stock exchange listing',
   },
   {
     key: 'securityType',
@@ -57,6 +62,7 @@ const COLUMNS = [
       return value || '-';
     },
     group: 'info',
+    tooltip: 'Security type: Common stock or Non-common (preferred, units, etc.)',
   },
 
   // ===========================================================================
@@ -69,6 +75,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
     group: 'market',
+    tooltip: 'Current stock price (from market data provider)',
   },
   {
     key: 'marketCap',
@@ -77,6 +84,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
     group: 'market',
+    tooltip: 'Market Capitalization = Price × Shares Outstanding',
   },
 
   // ===========================================================================
@@ -89,6 +97,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
     group: 'bs-assets',
+    tooltip: 'XBRL: us-gaap:Assets\nTotal Assets (Point-in-Time)',
   },
   {
     key: 'totalDeposits',
@@ -97,6 +106,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
     group: 'bs-liab',
+    tooltip: 'XBRL: us-gaap:Deposits\nTotal Deposits (Point-in-Time)',
   },
   {
     key: 'totalEquity',
@@ -105,6 +115,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
     group: 'bs-liab',
+    tooltip: 'XBRL: us-gaap:StockholdersEquity\nTotal Stockholders\' Equity (Point-in-Time)',
   },
 
   // ===========================================================================
@@ -117,6 +128,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
     group: 'income',
+    tooltip: 'XBRL: us-gaap:InterestIncomeExpenseNet or us-gaap:NetInterestIncome\nNet Interest Income (TTM = Trailing Twelve Months)',
   },
   {
     key: 'ttmNoninterestIncome',
@@ -125,6 +137,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
     group: 'income',
+    tooltip: 'XBRL: us-gaap:NoninterestIncome\nNoninterest Income (TTM)',
   },
   {
     key: 'ttmNetIncome',
@@ -133,6 +146,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
     group: 'income',
+    tooltip: 'XBRL: us-gaap:NetIncomeLoss\nNet Income (TTM = Trailing Twelve Months)',
   },
 
   // ===========================================================================
@@ -145,6 +159,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, abbreviate: true }),
     group: 'per-share',
+    tooltip: 'XBRL: dei:EntityCommonStockSharesOutstanding or us-gaap:CommonStockSharesOutstanding\nCommon shares outstanding',
   },
   {
     key: 'bvps',
@@ -153,6 +168,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
     group: 'per-share',
+    tooltip: 'Book Value Per Share = us-gaap:StockholdersEquity ÷ Shares Outstanding',
   },
   {
     key: 'tbvps',
@@ -161,6 +177,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
     group: 'per-share',
+    tooltip: 'Tangible Book Value Per Share = (Equity - us-gaap:Goodwill - us-gaap:IntangibleAssetsNetExcludingGoodwill) ÷ Shares Outstanding',
   },
   {
     key: 'ttmEps',
@@ -169,6 +186,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
     group: 'per-share',
+    tooltip: 'XBRL: us-gaap:EarningsPerShareBasic\nEarnings Per Share (TTM)',
   },
 
   // ===========================================================================
@@ -181,6 +199,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2 }),
     group: 'valuation',
+    tooltip: 'Price-to-Earnings = Market Cap ÷ us-gaap:NetIncomeLoss (TTM)',
   },
   {
     key: 'ptbvps',
@@ -189,6 +208,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2 }),
     group: 'valuation',
+    tooltip: 'Price-to-Tangible Book Value = Price ÷ TBVPS',
   },
 
   // ===========================================================================
@@ -201,6 +221,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'performance',
+    tooltip: 'Return on Equity = us-gaap:NetIncomeLoss ÷ us-gaap:StockholdersEquity × 100',
   },
   {
     key: 'roaa',
@@ -209,6 +230,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
     group: 'performance',
+    tooltip: 'Return on Average Assets = us-gaap:NetIncomeLoss ÷ Average(us-gaap:Assets) × 100',
   },
   {
     key: 'rota',
@@ -217,6 +239,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
     group: 'performance',
+    tooltip: 'Return on Tangible Assets = us-gaap:NetIncomeLoss ÷ Tangible Assets × 100\nTangible Assets = us-gaap:Assets - us-gaap:Goodwill - us-gaap:IntangibleAssetsNetExcludingGoodwill',
   },
   {
     key: 'rotce',
@@ -225,6 +248,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'performance',
+    tooltip: 'Return on Tangible Common Equity = us-gaap:NetIncomeLoss ÷ TCE × 100\nTCE = Equity - Preferred - Goodwill - Intangibles',
   },
 
   // ===========================================================================
@@ -237,6 +261,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'bank-ratios',
+    tooltip: 'Efficiency Ratio = us-gaap:NoninterestExpense ÷ (us-gaap:NetInterestIncome + us-gaap:NoninterestIncome) × 100\nLower is better (typically 50-70%)',
   },
   {
     key: 'depositsToAssets',
@@ -245,6 +270,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'bank-ratios',
+    tooltip: 'Deposits to Assets = us-gaap:Deposits ÷ us-gaap:Assets × 100',
   },
   {
     key: 'equityToAssets',
@@ -253,6 +279,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'bank-ratios',
+    tooltip: 'Equity to Assets = us-gaap:StockholdersEquity ÷ us-gaap:Assets × 100\nHigher indicates less leverage',
   },
   {
     key: 'tceToTa',
@@ -261,6 +288,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'bank-ratios',
+    tooltip: 'TCE to Tangible Assets = Tangible Common Equity ÷ Tangible Assets × 100\nKey capital strength metric',
   },
 
   // ===========================================================================
@@ -273,6 +301,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
     group: 'dividends',
+    tooltip: 'XBRL: us-gaap:CommonStockDividendsPerShareDeclared\nDividends Per Share (TTM)',
   },
   {
     key: 'dividendPayoutRatio',
@@ -281,6 +310,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'dividends',
+    tooltip: 'Dividend Payout Ratio = us-gaap:CommonStockDividendsPerShareDeclared ÷ us-gaap:EarningsPerShareBasic × 100',
   },
 
   // ===========================================================================
@@ -293,6 +323,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
     group: 'graham',
+    tooltip: 'Graham Number = √(22.5 × us-gaap:EarningsPerShareBasic × BVPS)\nBenjamin Graham\'s intrinsic value estimate',
   },
   {
     key: 'grahamMoSPct',
@@ -301,6 +332,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'graham',
+    tooltip: 'Graham Margin of Safety = (Graham Number - Price) ÷ Price × 100\nPositive = undervalued vs Graham Number',
   },
 ];
 
@@ -483,6 +515,7 @@ function ResultsTable({ banks, loading }) {
                 onClick={column.sortable ? () => handleSort(column.key) : undefined}
                 role={column.sortable ? 'button' : undefined}
                 tabIndex={column.sortable ? 0 : undefined}
+                title={column.tooltip}
                 onKeyDown={
                   column.sortable
                     ? (e) => {
