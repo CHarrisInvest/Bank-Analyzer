@@ -33,6 +33,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const readline = require('readline');
 
 // Parse command line arguments
 const args = process.argv.slice(2);
@@ -309,32 +310,59 @@ function extractZip(zipPath, destDir) {
 }
 
 /**
- * Parse TSV file (tab-separated values)
+ * Parse TSV file (tab-separated values) using streaming for large files
+ * This avoids Node.js string length limits for files > 512MB
  */
-function parseTsvFile(filePath) {
+async function parseTsvFile(filePath, filterFn = null) {
   if (!fs.existsSync(filePath)) {
     console.warn(`  File not found: ${filePath}`);
     return [];
   }
 
-  const content = fs.readFileSync(filePath, 'utf8');
-  const lines = content.split('\n').filter(line => line.trim());
+  return new Promise((resolve, reject) => {
+    const rows = [];
+    let headers = null;
+    let lineCount = 0;
 
-  if (lines.length === 0) return [];
-
-  const headers = lines[0].split('\t').map(h => h.trim().toLowerCase());
-  const rows = [];
-
-  for (let i = 1; i < lines.length; i++) {
-    const values = lines[i].split('\t');
-    const row = {};
-    headers.forEach((header, idx) => {
-      row[header] = values[idx]?.trim() || '';
+    const rl = readline.createInterface({
+      input: fs.createReadStream(filePath, { encoding: 'utf8' }),
+      crlfDelay: Infinity
     });
-    rows.push(row);
-  }
 
-  return rows;
+    rl.on('line', (line) => {
+      if (!line.trim()) return;
+
+      lineCount++;
+      const values = line.split('\t');
+
+      if (!headers) {
+        // First line is headers
+        headers = values.map(h => h.trim().toLowerCase());
+        return;
+      }
+
+      // Build row object
+      const row = {};
+      headers.forEach((header, idx) => {
+        row[header] = values[idx]?.trim() || '';
+      });
+
+      // Apply filter if provided (for memory efficiency with large files)
+      if (filterFn && !filterFn(row)) {
+        return;
+      }
+
+      rows.push(row);
+    });
+
+    rl.on('close', () => {
+      resolve(rows);
+    });
+
+    rl.on('error', (err) => {
+      reject(err);
+    });
+  });
 }
 
 /**
@@ -400,7 +428,7 @@ async function processQuarterlyDataset(datasetInfo, bankCiks) {
 
   // Parse sub.txt (submission data)
   console.log(`  Parsing sub.txt...`);
-  const subData = parseTsvFile(path.join(extractDir, 'sub.txt'));
+  const subData = await parseTsvFile(path.join(extractDir, 'sub.txt'));
   console.log(`    Found ${subData.length} submissions`);
 
   // Filter for our bank CIKs
@@ -413,33 +441,28 @@ async function processQuarterlyDataset(datasetInfo, bankCiks) {
   // Get ADSHs (accession numbers) for bank submissions
   const bankAdshs = new Set(bankSubmissions.map(s => s.adsh));
 
-  // Parse num.txt (numeric data)
-  console.log(`  Parsing num.txt...`);
-  const numData = parseTsvFile(path.join(extractDir, 'num.txt'));
-  console.log(`    Found ${numData.length} numeric values`);
-
-  // Filter for bank data and relevant concepts
-  // CRITICAL: Filter for consolidated entity only (coreg=NULL, segments=NULL)
-  // - coreg: "if specified, indicates a specific co-registrant, the parent company,
-  //          or other entity (e.g., guarantor). NULL indicates the consolidated entity."
-  // - segments: dimensional/segment breakdown data (added Dec 2024)
-  // See: https://www.sec.gov/files/financial-statement-data-sets.pdf
+  // Parse num.txt (numeric data) with inline filtering for memory efficiency
+  // This file can be very large (500MB+), so we filter during streaming
+  console.log(`  Parsing num.txt (streaming)...`);
   const conceptSet = new Set(CONFIG.conceptsToExtract);
+  const numData = await parseTsvFile(
+    path.join(extractDir, 'num.txt'),
+    // Filter function applied during streaming to reduce memory usage
+    (row) => bankAdshs.has(row.adsh) && conceptSet.has(row.tag)
+  );
+  console.log(`    Found ${numData.length} matching numeric values`);
 
-  // First, filter for bank submissions and relevant concepts
-  const bankConceptData = numData.filter(num => {
-    return bankAdshs.has(num.adsh) && conceptSet.has(num.tag);
-  });
-  console.log(`    Matched ${bankConceptData.length} bank concept values (before consolidation filter)`);
-
-  // Then filter for consolidated entity only (coreg and segments must be empty)
-  const bankNumData = bankConceptData.filter(num => {
+  // Filter for consolidated entity only (coreg=NULL, segments=NULL)
+  // CRITICAL: coreg indicates co-registrant/subsidiary, segments indicates dimensional breakdown
+  // We want only consolidated entity data (both must be empty)
+  // See: https://www.sec.gov/files/financial-statement-data-sets.pdf
+  const bankNumData = numData.filter(num => {
     const isConsolidated = !num.coreg || num.coreg.trim() === '';
     const isNotSegment = !num.segments || num.segments.trim() === '';
     return isConsolidated && isNotSegment;
   });
 
-  const filteredOut = bankConceptData.length - bankNumData.length;
+  const filteredOut = numData.length - bankNumData.length;
   console.log(`    Filtered to ${bankNumData.length} consolidated values (removed ${filteredOut} subsidiary/segment entries)`);
 
   // Build submission lookup
