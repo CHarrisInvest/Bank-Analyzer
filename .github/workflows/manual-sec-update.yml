@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       quarters:
-        description: 'Quarters to download (space-separated, e.g., "2025q4 2025q3 2025q2")'
+        description: 'Quarters to process (space-separated)'
         required: false
         default: '2025q4 2025q3 2025q2 2025q1 2024q4'
 
@@ -32,36 +32,25 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Download SEC quarterly data
+      - name: Download SEC data from GitHub Release
         run: |
           mkdir -p .sec-data-cache
           SUCCESS=0
           FAILED=0
 
           for q in ${{ github.event.inputs.quarters }}; do
-            echo "Downloading $q.zip..."
+            echo "Downloading $q.zip from GitHub Release..."
 
-            # Try up to 3 times with backoff
-            for attempt in 1 2 3; do
-              if curl -f -L \
-                -A "Bank-Analyzer/1.0 (contact: github.com/${{ github.repository }})" \
-                -H "Accept: application/zip" \
-                -o ".sec-data-cache/$q.zip" \
-                "https://www.sec.gov/files/dera/data/financial-statement-data-sets/$q.zip" 2>/dev/null; then
-                echo "  ✓ $q.zip downloaded (attempt $attempt)"
-                SUCCESS=$((SUCCESS + 1))
-                break
-              else
-                if [ $attempt -lt 3 ]; then
-                  echo "  Attempt $attempt failed, retrying in ${attempt}s..."
-                  sleep $attempt
-                else
-                  echo "  ✗ $q.zip failed after 3 attempts (may not be available yet)"
-                  FAILED=$((FAILED + 1))
-                  rm -f ".sec-data-cache/$q.zip"  # Remove any partial file
-                fi
-              fi
-            done
+            if curl -f -L \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -o ".sec-data-cache/$q.zip" \
+              "https://github.com/${{ github.repository }}/releases/download/sec-data/$q.zip" 2>/dev/null; then
+              echo "  ✓ $q.zip downloaded"
+              SUCCESS=$((SUCCESS + 1))
+            else
+              echo "  ✗ $q.zip not found in release (upload it first)"
+              FAILED=$((FAILED + 1))
+            fi
           done
 
           echo ""
@@ -71,7 +60,15 @@ jobs:
           echo "Summary: $SUCCESS succeeded, $FAILED failed"
 
           if [ $SUCCESS -eq 0 ]; then
-            echo "ERROR: No files were downloaded. Check SEC website availability."
+            echo ""
+            echo "ERROR: No files found in the 'sec-data' release."
+            echo ""
+            echo "To fix this:"
+            echo "1. Download ZIP files from: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets"
+            echo "2. Go to: https://github.com/${{ github.repository }}/releases/new"
+            echo "3. Create a release with tag 'sec-data'"
+            echo "4. Drag & drop your ZIP files into the release"
+            echo "5. Run this workflow again"
             exit 1
           fi
 
