@@ -8,34 +8,39 @@ async function getAllBanks(req, res) {
   try {
     const result = await db.query(`
       SELECT
-        ticker,
-        bank_name,
-        exchange,
-        price,
-        market_cap,
-        pni,
-        ptbvps,
-        mkt_cap_se,
-        ni_tbv,
-        roe,
-        rota,
-        graham_number,
-        graham_mos,
-        graham_mos_pct,
-        efficiency_ratio,
-        acl_to_loans,
-        provision_to_avg_loans,
-        loans_to_assets,
-        deposits_to_assets,
-        loans_to_deposits,
-        cash_securities_to_assets,
-        equity_to_assets,
-        tce_to_ta,
-        data_date,
-        updated_at
+        ticker, bank_name, exchange, price, market_cap,
+        -- Balance Sheet - Assets
+        total_assets, cash_and_due_from_banks, interest_bearing_deposits_in_banks,
+        afs_securities, htm_securities, loans, allowance_for_credit_losses, premises_and_equipment,
+        -- Balance Sheet - Liabilities & Equity
+        total_liabilities, deposits, short_term_borrowings, long_term_debt,
+        total_equity, goodwill, intangible_assets, tangible_book_value, tangible_assets, tangible_common_equity,
+        -- Income Statement
+        interest_income, interest_expense, net_interest_income,
+        noninterest_income, noninterest_expense, provision_for_credit_losses, pre_tax_income, net_income,
+        -- Cash Flow
+        operating_cash_flow,
+        -- Per-Share
+        shares_outstanding, eps, dividends_per_share, book_value_per_share, tangible_book_value_per_share,
+        -- Valuation Ratios
+        pni, ptbvps, mkt_cap_se, ni_tbv,
+        -- Performance Ratios
+        roe, rota, roaa, rotce,
+        -- Graham Metrics
+        graham_number, graham_mos, graham_mos_pct,
+        -- Bank-Specific Ratios
+        efficiency_ratio, acl_to_loans, provision_to_avg_loans,
+        loans_to_assets, deposits_to_assets, loans_to_deposits,
+        cash_securities_to_assets, equity_to_assets, tce_to_ta, net_interest_margin,
+        -- Metadata
+        data_date, updated_at
       FROM latest_bank_metrics
       ORDER BY market_cap DESC NULLS LAST
     `);
+
+    // Helper to parse numeric values (convert to millions for large dollar amounts)
+    const parseNum = (val) => val ? parseFloat(val) : null;
+    const parseMillions = (val) => val ? parseFloat(val) / 1000000 : null;
 
     // Transform to match frontend expected format
     const banks = result.rows.map((row, index) => ({
@@ -43,27 +48,86 @@ async function getAllBanks(req, res) {
       ticker: row.ticker,
       bankName: row.bank_name,
       exchange: row.exchange,
-      price: row.price ? parseFloat(row.price) : null,
-      marketCap: row.market_cap ? parseInt(row.market_cap) / 1000000 : null, // Convert to millions
-      pni: row.pni ? parseFloat(row.pni) : null,
-      ptbvps: row.ptbvps ? parseFloat(row.ptbvps) : null,
-      mktCapSE: row.mkt_cap_se ? parseFloat(row.mkt_cap_se) : null,
-      niTBV: row.ni_tbv ? parseFloat(row.ni_tbv) : null,
-      roe: row.roe ? parseFloat(row.roe) : null,
-      rota: row.rota ? parseFloat(row.rota) : null,
-      grahamNum: row.graham_number ? parseFloat(row.graham_number) : null,
-      grahamMoS: row.graham_mos ? parseFloat(row.graham_mos) : null,
-      grahamMoSPct: row.graham_mos_pct ? parseFloat(row.graham_mos_pct) : null,
-      // Bank-specific ratios
-      efficiencyRatio: row.efficiency_ratio ? parseFloat(row.efficiency_ratio) : null,
-      aclToLoans: row.acl_to_loans ? parseFloat(row.acl_to_loans) : null,
-      provisionToAvgLoans: row.provision_to_avg_loans ? parseFloat(row.provision_to_avg_loans) : null,
-      loansToAssets: row.loans_to_assets ? parseFloat(row.loans_to_assets) : null,
-      depositsToAssets: row.deposits_to_assets ? parseFloat(row.deposits_to_assets) : null,
-      loansToDeposits: row.loans_to_deposits ? parseFloat(row.loans_to_deposits) : null,
-      cashSecuritiesToAssets: row.cash_securities_to_assets ? parseFloat(row.cash_securities_to_assets) : null,
-      equityToAssets: row.equity_to_assets ? parseFloat(row.equity_to_assets) : null,
-      tceToTa: row.tce_to_ta ? parseFloat(row.tce_to_ta) : null,
+      price: parseNum(row.price),
+      marketCap: parseMillions(row.market_cap),
+
+      // Balance Sheet - Assets (in millions)
+      totalAssets: parseMillions(row.total_assets),
+      cashAndDueFromBanks: parseMillions(row.cash_and_due_from_banks),
+      interestBearingDepositsInBanks: parseMillions(row.interest_bearing_deposits_in_banks),
+      afsSecurities: parseMillions(row.afs_securities),
+      htmSecurities: parseMillions(row.htm_securities),
+      loans: parseMillions(row.loans),
+      allowanceForCreditLosses: parseMillions(row.allowance_for_credit_losses),
+      premisesAndEquipment: parseMillions(row.premises_and_equipment),
+
+      // Balance Sheet - Liabilities & Equity (in millions)
+      totalLiabilities: parseMillions(row.total_liabilities),
+      totalDeposits: parseMillions(row.deposits),
+      shortTermBorrowings: parseMillions(row.short_term_borrowings),
+      longTermDebt: parseMillions(row.long_term_debt),
+      totalEquity: parseMillions(row.total_equity),
+      goodwill: parseMillions(row.goodwill),
+      intangibles: parseMillions(row.intangible_assets),
+      tangibleBookValue: parseMillions(row.tangible_book_value),
+      tangibleAssets: parseMillions(row.tangible_assets),
+      tangibleCommonEquity: parseMillions(row.tangible_common_equity),
+
+      // Income Statement (TTM, in millions)
+      ttmInterestIncome: parseMillions(row.interest_income),
+      ttmInterestExpense: parseMillions(row.interest_expense),
+      ttmNetInterestIncome: parseMillions(row.net_interest_income),
+      ttmNoninterestIncome: parseMillions(row.noninterest_income),
+      ttmNoninterestExpense: parseMillions(row.noninterest_expense),
+      ttmProvisionForCreditLosses: parseMillions(row.provision_for_credit_losses),
+      ttmPreTaxIncome: parseMillions(row.pre_tax_income),
+      ttmNetIncome: parseMillions(row.net_income),
+
+      // Cash Flow (TTM, in millions)
+      ttmOperatingCashFlow: parseMillions(row.operating_cash_flow),
+
+      // Per-Share
+      sharesOutstanding: parseNum(row.shares_outstanding),
+      ttmEps: parseNum(row.eps),
+      ttmDividendPerShare: parseNum(row.dividends_per_share),
+      bvps: parseNum(row.book_value_per_share),
+      tbvps: parseNum(row.tangible_book_value_per_share),
+
+      // Valuation Ratios
+      pni: parseNum(row.pni),
+      ptbvps: parseNum(row.ptbvps),
+      mktCapSE: parseNum(row.mkt_cap_se),
+      niTBV: parseNum(row.ni_tbv),
+
+      // Performance Ratios (percentages)
+      roe: parseNum(row.roe),
+      rota: parseNum(row.rota),
+      roaa: parseNum(row.roaa),
+      rotce: parseNum(row.rotce),
+
+      // Graham Metrics
+      grahamNum: parseNum(row.graham_number),
+      grahamMoS: parseNum(row.graham_mos),
+      grahamMoSPct: parseNum(row.graham_mos_pct),
+
+      // Bank-Specific Ratios (percentages)
+      efficiencyRatio: parseNum(row.efficiency_ratio),
+      aclToLoans: parseNum(row.acl_to_loans),
+      provisionToAvgLoans: parseNum(row.provision_to_avg_loans),
+      loansToAssets: parseNum(row.loans_to_assets),
+      depositsToAssets: parseNum(row.deposits_to_assets),
+      loansToDeposits: parseNum(row.loans_to_deposits),
+      cashSecuritiesToAssets: parseNum(row.cash_securities_to_assets),
+      equityToAssets: parseNum(row.equity_to_assets),
+      tceToTa: parseNum(row.tce_to_ta),
+      netInterestMargin: parseNum(row.net_interest_margin),
+
+      // Calculated frontend-only fields
+      dividendPayoutRatio: (row.dividends_per_share && row.eps && parseFloat(row.eps) > 0)
+        ? (parseFloat(row.dividends_per_share) / parseFloat(row.eps)) * 100
+        : null,
+
+      // Metadata
       dataDate: row.data_date,
       updatedAt: row.updated_at
     }));
@@ -93,31 +157,32 @@ async function getBankByTicker(req, res) {
 
     const result = await db.query(`
       SELECT
-        ticker,
-        bank_name,
-        exchange,
-        price,
-        market_cap,
-        pni,
-        ptbvps,
-        mkt_cap_se,
-        ni_tbv,
-        roe,
-        rota,
-        graham_number,
-        graham_mos,
-        graham_mos_pct,
-        efficiency_ratio,
-        acl_to_loans,
-        provision_to_avg_loans,
-        loans_to_assets,
-        deposits_to_assets,
-        loans_to_deposits,
-        cash_securities_to_assets,
-        equity_to_assets,
-        tce_to_ta,
-        data_date,
-        updated_at
+        ticker, bank_name, exchange, price, market_cap,
+        -- Balance Sheet - Assets
+        total_assets, cash_and_due_from_banks, interest_bearing_deposits_in_banks,
+        afs_securities, htm_securities, loans, allowance_for_credit_losses, premises_and_equipment,
+        -- Balance Sheet - Liabilities & Equity
+        total_liabilities, deposits, short_term_borrowings, long_term_debt,
+        total_equity, goodwill, intangible_assets, tangible_book_value, tangible_assets, tangible_common_equity,
+        -- Income Statement
+        interest_income, interest_expense, net_interest_income,
+        noninterest_income, noninterest_expense, provision_for_credit_losses, pre_tax_income, net_income,
+        -- Cash Flow
+        operating_cash_flow,
+        -- Per-Share
+        shares_outstanding, eps, dividends_per_share, book_value_per_share, tangible_book_value_per_share,
+        -- Valuation Ratios
+        pni, ptbvps, mkt_cap_se, ni_tbv,
+        -- Performance Ratios
+        roe, rota, roaa, rotce,
+        -- Graham Metrics
+        graham_number, graham_mos, graham_mos_pct,
+        -- Bank-Specific Ratios
+        efficiency_ratio, acl_to_loans, provision_to_avg_loans,
+        loans_to_assets, deposits_to_assets, loans_to_deposits,
+        cash_securities_to_assets, equity_to_assets, tce_to_ta, net_interest_margin,
+        -- Metadata
+        data_date, updated_at
       FROM latest_bank_metrics
       WHERE ticker = $1
     `, [ticker.toUpperCase()]);
@@ -130,31 +195,93 @@ async function getBankByTicker(req, res) {
     }
 
     const row = result.rows[0];
+    const parseNum = (val) => val ? parseFloat(val) : null;
+    const parseMillions = (val) => val ? parseFloat(val) / 1000000 : null;
+
     const bank = {
       ticker: row.ticker,
       bankName: row.bank_name,
       exchange: row.exchange,
-      price: row.price ? parseFloat(row.price) : null,
-      marketCap: row.market_cap ? parseInt(row.market_cap) / 1000000 : null,
-      pni: row.pni ? parseFloat(row.pni) : null,
-      ptbvps: row.ptbvps ? parseFloat(row.ptbvps) : null,
-      mktCapSE: row.mkt_cap_se ? parseFloat(row.mkt_cap_se) : null,
-      niTBV: row.ni_tbv ? parseFloat(row.ni_tbv) : null,
-      roe: row.roe ? parseFloat(row.roe) : null,
-      rota: row.rota ? parseFloat(row.rota) : null,
-      grahamNum: row.graham_number ? parseFloat(row.graham_number) : null,
-      grahamMoS: row.graham_mos ? parseFloat(row.graham_mos) : null,
-      grahamMoSPct: row.graham_mos_pct ? parseFloat(row.graham_mos_pct) : null,
-      // Bank-specific ratios
-      efficiencyRatio: row.efficiency_ratio ? parseFloat(row.efficiency_ratio) : null,
-      aclToLoans: row.acl_to_loans ? parseFloat(row.acl_to_loans) : null,
-      provisionToAvgLoans: row.provision_to_avg_loans ? parseFloat(row.provision_to_avg_loans) : null,
-      loansToAssets: row.loans_to_assets ? parseFloat(row.loans_to_assets) : null,
-      depositsToAssets: row.deposits_to_assets ? parseFloat(row.deposits_to_assets) : null,
-      loansToDeposits: row.loans_to_deposits ? parseFloat(row.loans_to_deposits) : null,
-      cashSecuritiesToAssets: row.cash_securities_to_assets ? parseFloat(row.cash_securities_to_assets) : null,
-      equityToAssets: row.equity_to_assets ? parseFloat(row.equity_to_assets) : null,
-      tceToTa: row.tce_to_ta ? parseFloat(row.tce_to_ta) : null,
+      price: parseNum(row.price),
+      marketCap: parseMillions(row.market_cap),
+
+      // Balance Sheet - Assets (in millions)
+      totalAssets: parseMillions(row.total_assets),
+      cashAndDueFromBanks: parseMillions(row.cash_and_due_from_banks),
+      interestBearingDepositsInBanks: parseMillions(row.interest_bearing_deposits_in_banks),
+      afsSecurities: parseMillions(row.afs_securities),
+      htmSecurities: parseMillions(row.htm_securities),
+      loans: parseMillions(row.loans),
+      allowanceForCreditLosses: parseMillions(row.allowance_for_credit_losses),
+      premisesAndEquipment: parseMillions(row.premises_and_equipment),
+
+      // Balance Sheet - Liabilities & Equity (in millions)
+      totalLiabilities: parseMillions(row.total_liabilities),
+      totalDeposits: parseMillions(row.deposits),
+      shortTermBorrowings: parseMillions(row.short_term_borrowings),
+      longTermDebt: parseMillions(row.long_term_debt),
+      totalEquity: parseMillions(row.total_equity),
+      goodwill: parseMillions(row.goodwill),
+      intangibles: parseMillions(row.intangible_assets),
+      tangibleBookValue: parseMillions(row.tangible_book_value),
+      tangibleAssets: parseMillions(row.tangible_assets),
+      tangibleCommonEquity: parseMillions(row.tangible_common_equity),
+
+      // Income Statement (TTM, in millions)
+      ttmInterestIncome: parseMillions(row.interest_income),
+      ttmInterestExpense: parseMillions(row.interest_expense),
+      ttmNetInterestIncome: parseMillions(row.net_interest_income),
+      ttmNoninterestIncome: parseMillions(row.noninterest_income),
+      ttmNoninterestExpense: parseMillions(row.noninterest_expense),
+      ttmProvisionForCreditLosses: parseMillions(row.provision_for_credit_losses),
+      ttmPreTaxIncome: parseMillions(row.pre_tax_income),
+      ttmNetIncome: parseMillions(row.net_income),
+
+      // Cash Flow (TTM, in millions)
+      ttmOperatingCashFlow: parseMillions(row.operating_cash_flow),
+
+      // Per-Share
+      sharesOutstanding: parseNum(row.shares_outstanding),
+      ttmEps: parseNum(row.eps),
+      ttmDividendPerShare: parseNum(row.dividends_per_share),
+      bvps: parseNum(row.book_value_per_share),
+      tbvps: parseNum(row.tangible_book_value_per_share),
+
+      // Valuation Ratios
+      pni: parseNum(row.pni),
+      ptbvps: parseNum(row.ptbvps),
+      mktCapSE: parseNum(row.mkt_cap_se),
+      niTBV: parseNum(row.ni_tbv),
+
+      // Performance Ratios (percentages)
+      roe: parseNum(row.roe),
+      rota: parseNum(row.rota),
+      roaa: parseNum(row.roaa),
+      rotce: parseNum(row.rotce),
+
+      // Graham Metrics
+      grahamNum: parseNum(row.graham_number),
+      grahamMoS: parseNum(row.graham_mos),
+      grahamMoSPct: parseNum(row.graham_mos_pct),
+
+      // Bank-Specific Ratios (percentages)
+      efficiencyRatio: parseNum(row.efficiency_ratio),
+      aclToLoans: parseNum(row.acl_to_loans),
+      provisionToAvgLoans: parseNum(row.provision_to_avg_loans),
+      loansToAssets: parseNum(row.loans_to_assets),
+      depositsToAssets: parseNum(row.deposits_to_assets),
+      loansToDeposits: parseNum(row.loans_to_deposits),
+      cashSecuritiesToAssets: parseNum(row.cash_securities_to_assets),
+      equityToAssets: parseNum(row.equity_to_assets),
+      tceToTa: parseNum(row.tce_to_ta),
+      netInterestMargin: parseNum(row.net_interest_margin),
+
+      // Calculated frontend-only fields
+      dividendPayoutRatio: (row.dividends_per_share && row.eps && parseFloat(row.eps) > 0)
+        ? (parseFloat(row.dividends_per_share) / parseFloat(row.eps)) * 100
+        : null,
+
+      // Metadata
       dataDate: row.data_date,
       updatedAt: row.updated_at
     };

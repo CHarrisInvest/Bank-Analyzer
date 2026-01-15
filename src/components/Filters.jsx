@@ -137,36 +137,6 @@ function ExchangeFilter({ exchanges, selectedExchanges, onChange }) {
 }
 
 /**
- * Security Type Filter
- * Allows filtering by common shares vs exchange-traded securities (preferred, debt)
- */
-function SecurityTypeFilter({ value, onChange }) {
-  const options = [
-    { value: 'all', label: 'All' },
-    { value: 'common', label: 'Common' },
-    { value: 'exchange-traded', label: 'Non-Common' },
-  ];
-
-  return (
-    <div className="filter-group">
-      <label className="filter-label">Security Type</label>
-      <div className="filter-button-group">
-        {options.map((option) => (
-          <button
-            key={option.value}
-            type="button"
-            className={`filter-button ${value === option.value ? 'active' : ''}`}
-            onClick={() => onChange(option.value)}
-          >
-            {option.label}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/**
  * Filters Component
  * Provides all filtering controls for the bank screener
  *
@@ -203,16 +173,6 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
     onFilterChange({
       ...filters,
       [filterKey]: isNaN(numValue) ? '' : numValue,
-    });
-  };
-
-  /**
-   * Handle string filter change (for select dropdowns)
-   */
-  const handleSelectChange = (filterKey) => (value) => {
-    onFilterChange({
-      ...filters,
-      [filterKey]: value,
     });
   };
 
@@ -258,12 +218,8 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
         <FilterSection
           title="Quick Filters"
           defaultOpen={true}
-          badge={countActiveFilters(['securityType', 'exchanges']) || null}
+          badge={countActiveFilters(['exchanges']) || null}
         >
-          <SecurityTypeFilter
-            value={filters.securityType || 'all'}
-            onChange={handleSelectChange('securityType')}
-          />
           <ExchangeFilter
             exchanges={exchanges}
             selectedExchanges={filters.exchanges || []}
