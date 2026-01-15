@@ -266,24 +266,15 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
         <FilterSection
           title="Balance Sheet - Assets"
           defaultOpen={false}
-          badge={countActiveFilters(['cashAndDueFromBanks', 'interestBearingDepositsInBanks', 'afsSecurities', 'htmSecurities', 'loans', 'allowanceForCreditLosses']) || null}
+          badge={countActiveFilters(['cashAndCashEquivalents', 'afsSecurities', 'htmSecurities', 'loans', 'allowanceForCreditLosses']) || null}
         >
           <RangeFilter
-            label="Cash & Due From Banks"
-            minValue={filters.cashAndDueFromBanks?.min ?? ''}
-            maxValue={filters.cashAndDueFromBanks?.max ?? ''}
+            label="Cash & Cash Equivalents"
+            minValue={filters.cashAndCashEquivalents?.min ?? ''}
+            maxValue={filters.cashAndCashEquivalents?.max ?? ''}
             minPlaceholder="Min"
             maxPlaceholder="Max"
-            onChange={handleRangeChange('cashAndDueFromBanks')}
-            unit="$M"
-          />
-          <RangeFilter
-            label="IB Deposits in Banks"
-            minValue={filters.interestBearingDepositsInBanks?.min ?? ''}
-            maxValue={filters.interestBearingDepositsInBanks?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('interestBearingDepositsInBanks')}
+            onChange={handleRangeChange('cashAndCashEquivalents')}
             unit="$M"
           />
           <RangeFilter
