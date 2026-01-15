@@ -6,40 +6,85 @@ import { getUniqueExchanges } from '../data/sheets.js';
 /**
  * Default filter state
  *
- * Filter categories:
- * - Classification: securityType
- * - Valuation: pni, ptbvps, marketCap
- * - Performance: roe, roaa, rota, rotce, grahamMoS
+ * Filter categories organized by:
+ * - Quick Filters: securityType, exchanges
+ * - Size & Scale: marketCap, totalAssets, totalDeposits
+ * - Valuation: pni, ptbvps
+ * - Profitability: roe, roaa, rota, rotce
+ * - Capital & Leverage: equityToAssets, tceToTa, depositsToAssets
+ * - Efficiency: efficiencyRatio
  * - Book Value: bvps, tbvps
  * - Dividends: ttmDividend, dividendPayoutRatio
- * - Listing: exchanges
+ * - Value Investing: grahamMoS
+ * - Income Statement: ttmNetIncome, ttmNetInterestIncome
+ * - Per-Share: ttmEps, sharesOutstanding
  */
 const DEFAULT_FILTERS = {
-  // Classification filters
+  // Quick Filters
   securityType: 'all', // 'all', 'common', 'exchange-traded'
-  // Performance filters
+  exchanges: [],
+
+  // Size & Scale
+  marketCap: { min: '', max: '' },
+  totalAssets: { min: '', max: '' },
+  totalDeposits: { min: '', max: '' },
+
+  // Valuation
+  pni: { min: '', max: '' },
+  ptbvps: { min: '', max: '' },
+
+  // Profitability
   roe: { min: '', max: '' },
   roaa: { min: '', max: '' },
   rota: { min: '', max: '' },
   rotce: { min: '', max: '' },
-  // Valuation filters
-  pni: { min: '', max: '' },
-  ptbvps: { min: '', max: '' },
-  bvps: { min: '', max: '' },
-  tbvps: { min: '', max: '' },
-  marketCap: { min: '', max: '' },
-  grahamMoS: '',
-  // Dividend filters
-  ttmDividend: { min: '', max: '' },
-  dividendPayoutRatio: { min: '', max: '' },
-  // Bank-specific ratio filters (Primary Financial Statement data only)
-  efficiencyRatio: { min: '', max: '' },
-  depositsToAssets: { min: '', max: '' },
+
+  // Capital & Leverage
   equityToAssets: { min: '', max: '' },
   tceToTa: { min: '', max: '' },
-  // Listing filter
-  exchanges: [],
+  depositsToAssets: { min: '', max: '' },
+
+  // Efficiency
+  efficiencyRatio: { min: '', max: '' },
+
+  // Book Value
+  bvps: { min: '', max: '' },
+  tbvps: { min: '', max: '' },
+
+  // Dividends
+  ttmDividend: { min: '', max: '' },
+  dividendPayoutRatio: { min: '', max: '' },
+
+  // Value Investing
+  grahamMoS: '',
+
+  // Income Statement
+  ttmNetIncome: { min: '', max: '' },
+  ttmNetInterestIncome: { min: '', max: '' },
+
+  // Per-Share
+  ttmEps: { min: '', max: '' },
+  sharesOutstanding: { min: '', max: '' },
 };
+
+/**
+ * Helper function to apply a range filter
+ */
+function applyRangeFilter(value, filterConfig, multiplier = 1) {
+  if (filterConfig?.min !== '' && filterConfig?.min !== undefined) {
+    const minValue = filterConfig.min * multiplier;
+    if (value === null || value === undefined || value < minValue) {
+      return false;
+    }
+  }
+  if (filterConfig?.max !== '' && filterConfig?.max !== undefined) {
+    const maxValue = filterConfig.max * multiplier;
+    if (value === null || value === undefined || value > maxValue) {
+      return false;
+    }
+  }
+  return true;
+}
 
 /**
  * Screener Component
@@ -62,19 +107,14 @@ function Screener({ banks, loading }) {
 
   /**
    * Apply filters to bank data
-   *
-   * Filter categories:
-   * - Classification: securityType
-   * - Performance: roe, roaa, rota, rotce
-   * - Valuation: pni, ptbvps, marketCap, grahamMoS
-   * - Book Value: bvps, tbvps
-   * - Dividends: ttmDividend, dividendPayoutRatio
-   * - Listing: exchanges
    */
   const filteredBanks = useMemo(() => {
     return banks.filter((bank) => {
+      // ========================================================================
+      // QUICK FILTERS
+      // ========================================================================
+
       // Security Type filter
-      // Options: 'all', 'common', 'exchange-traded'
       if (filters.securityType && filters.securityType !== 'all') {
         if (filters.securityType === 'common' && bank.securityType !== 'common') {
           return false;
@@ -84,168 +124,120 @@ function Screener({ banks, loading }) {
         }
       }
 
-      // RoE filter
-      if (filters.roe.min !== '' && (bank.roe === null || bank.roe < filters.roe.min)) {
-        return false;
-      }
-      if (filters.roe.max !== '' && (bank.roe === null || bank.roe > filters.roe.max)) {
-        return false;
-      }
-
-      // ROAA filter (Return on Average Assets)
-      if (filters.roaa.min !== '' && (bank.roaa === null || bank.roaa < filters.roaa.min)) {
-        return false;
-      }
-      if (filters.roaa.max !== '' && (bank.roaa === null || bank.roaa > filters.roaa.max)) {
-        return false;
-      }
-
-      // RoTA filter (Return on Tangible Assets)
-      if (filters.rota.min !== '' && (bank.rota === null || bank.rota < filters.rota.min)) {
-        return false;
-      }
-      if (filters.rota.max !== '' && (bank.rota === null || bank.rota > filters.rota.max)) {
-        return false;
-      }
-
-      // ROTCE filter (Return on Tangible Common Equity)
-      if (filters.rotce.min !== '' && (bank.rotce === null || bank.rotce < filters.rotce.min)) {
-        return false;
-      }
-      if (filters.rotce.max !== '' && (bank.rotce === null || bank.rotce > filters.rotce.max)) {
-        return false;
-      }
-
-      // P/NI filter
-      if (filters.pni.min !== '' && (bank.pni === null || bank.pni < filters.pni.min)) {
-        return false;
-      }
-      if (filters.pni.max !== '' && (bank.pni === null || bank.pni > filters.pni.max)) {
-        return false;
-      }
-
-      // P-TBV filter
-      if (filters.ptbvps.min !== '' && (bank.ptbvps === null || bank.ptbvps < filters.ptbvps.min)) {
-        return false;
-      }
-      if (filters.ptbvps.max !== '' && (bank.ptbvps === null || bank.ptbvps > filters.ptbvps.max)) {
-        return false;
-      }
-
-      // BVPS filter (Book Value per Share)
-      if (filters.bvps.min !== '' && (bank.bvps === null || bank.bvps < filters.bvps.min)) {
-        return false;
-      }
-      if (filters.bvps.max !== '' && (bank.bvps === null || bank.bvps > filters.bvps.max)) {
-        return false;
-      }
-
-      // TBVPS filter (Tangible Book Value per Share)
-      if (filters.tbvps.min !== '' && (bank.tbvps === null || bank.tbvps < filters.tbvps.min)) {
-        return false;
-      }
-      if (filters.tbvps.max !== '' && (bank.tbvps === null || bank.tbvps > filters.tbvps.max)) {
-        return false;
-      }
-
-      // Market Cap filter (in millions)
-      if (filters.marketCap.min !== '') {
-        const minCap = filters.marketCap.min * 1e6;
-        if (bank.marketCap === null || bank.marketCap < minCap) {
-          return false;
-        }
-      }
-      if (filters.marketCap.max !== '') {
-        const maxCap = filters.marketCap.max * 1e6;
-        if (bank.marketCap === null || bank.marketCap > maxCap) {
-          return false;
-        }
-      }
-
-      // Graham Margin of Safety % filter (minimum)
-      if (filters.grahamMoS !== '' && (bank.grahamMoSPct === null || bank.grahamMoSPct < filters.grahamMoS)) {
-        return false;
-      }
-
-      // TTM Dividend filter ($/share)
-      // Note: Exchange-traded securities have null dividends
-      if (filters.ttmDividend?.min !== '' && filters.ttmDividend?.min !== undefined) {
-        if (bank.ttmDividendPerShare === null || bank.ttmDividendPerShare < filters.ttmDividend.min) {
-          return false;
-        }
-      }
-      if (filters.ttmDividend?.max !== '' && filters.ttmDividend?.max !== undefined) {
-        if (bank.ttmDividendPerShare === null || bank.ttmDividendPerShare > filters.ttmDividend.max) {
-          return false;
-        }
-      }
-
-      // Dividend Payout Ratio filter (%)
-      if (filters.dividendPayoutRatio?.min !== '' && filters.dividendPayoutRatio?.min !== undefined) {
-        if (bank.dividendPayoutRatio === null || bank.dividendPayoutRatio < filters.dividendPayoutRatio.min) {
-          return false;
-        }
-      }
-      if (filters.dividendPayoutRatio?.max !== '' && filters.dividendPayoutRatio?.max !== undefined) {
-        if (bank.dividendPayoutRatio === null || bank.dividendPayoutRatio > filters.dividendPayoutRatio.max) {
-          return false;
-        }
-      }
-
-      // Bank-specific ratio filters (Primary Financial Statement data only)
-
-      // Efficiency Ratio filter
-      if (filters.efficiencyRatio?.min !== '' && filters.efficiencyRatio?.min !== undefined) {
-        if (bank.efficiencyRatio === null || bank.efficiencyRatio < filters.efficiencyRatio.min) {
-          return false;
-        }
-      }
-      if (filters.efficiencyRatio?.max !== '' && filters.efficiencyRatio?.max !== undefined) {
-        if (bank.efficiencyRatio === null || bank.efficiencyRatio > filters.efficiencyRatio.max) {
-          return false;
-        }
-      }
-
-      // Deposits/Assets filter
-      if (filters.depositsToAssets?.min !== '' && filters.depositsToAssets?.min !== undefined) {
-        if (bank.depositsToAssets === null || bank.depositsToAssets < filters.depositsToAssets.min) {
-          return false;
-        }
-      }
-      if (filters.depositsToAssets?.max !== '' && filters.depositsToAssets?.max !== undefined) {
-        if (bank.depositsToAssets === null || bank.depositsToAssets > filters.depositsToAssets.max) {
-          return false;
-        }
-      }
-
-      // Equity/Assets filter
-      if (filters.equityToAssets?.min !== '' && filters.equityToAssets?.min !== undefined) {
-        if (bank.equityToAssets === null || bank.equityToAssets < filters.equityToAssets.min) {
-          return false;
-        }
-      }
-      if (filters.equityToAssets?.max !== '' && filters.equityToAssets?.max !== undefined) {
-        if (bank.equityToAssets === null || bank.equityToAssets > filters.equityToAssets.max) {
-          return false;
-        }
-      }
-
-      // TCE/TA filter
-      if (filters.tceToTa?.min !== '' && filters.tceToTa?.min !== undefined) {
-        if (bank.tceToTa === null || bank.tceToTa < filters.tceToTa.min) {
-          return false;
-        }
-      }
-      if (filters.tceToTa?.max !== '' && filters.tceToTa?.max !== undefined) {
-        if (bank.tceToTa === null || bank.tceToTa > filters.tceToTa.max) {
-          return false;
-        }
-      }
-
       // Exchange filter
       if (filters.exchanges.length > 0 && !filters.exchanges.includes(bank.exchange)) {
         return false;
       }
+
+      // ========================================================================
+      // SIZE & SCALE (values in millions for filter input)
+      // ========================================================================
+
+      // Market Cap filter (input in millions)
+      if (!applyRangeFilter(bank.marketCap, filters.marketCap, 1e6)) return false;
+
+      // Total Assets filter (input in millions)
+      if (!applyRangeFilter(bank.totalAssets, filters.totalAssets, 1e6)) return false;
+
+      // Total Deposits filter (input in millions)
+      if (!applyRangeFilter(bank.totalDeposits, filters.totalDeposits, 1e6)) return false;
+
+      // ========================================================================
+      // VALUATION
+      // ========================================================================
+
+      // P/NI (P/E) filter
+      if (!applyRangeFilter(bank.pni, filters.pni)) return false;
+
+      // P/TBVPS filter
+      if (!applyRangeFilter(bank.ptbvps, filters.ptbvps)) return false;
+
+      // ========================================================================
+      // PROFITABILITY
+      // ========================================================================
+
+      // RoE filter
+      if (!applyRangeFilter(bank.roe, filters.roe)) return false;
+
+      // ROAA filter
+      if (!applyRangeFilter(bank.roaa, filters.roaa)) return false;
+
+      // RoTA filter
+      if (!applyRangeFilter(bank.rota, filters.rota)) return false;
+
+      // ROTCE filter
+      if (!applyRangeFilter(bank.rotce, filters.rotce)) return false;
+
+      // ========================================================================
+      // CAPITAL & LEVERAGE
+      // ========================================================================
+
+      // Equity/Assets filter
+      if (!applyRangeFilter(bank.equityToAssets, filters.equityToAssets)) return false;
+
+      // TCE/TA filter
+      if (!applyRangeFilter(bank.tceToTa, filters.tceToTa)) return false;
+
+      // Deposits/Assets filter
+      if (!applyRangeFilter(bank.depositsToAssets, filters.depositsToAssets)) return false;
+
+      // ========================================================================
+      // EFFICIENCY
+      // ========================================================================
+
+      // Efficiency Ratio filter
+      if (!applyRangeFilter(bank.efficiencyRatio, filters.efficiencyRatio)) return false;
+
+      // ========================================================================
+      // BOOK VALUE
+      // ========================================================================
+
+      // BVPS filter
+      if (!applyRangeFilter(bank.bvps, filters.bvps)) return false;
+
+      // TBVPS filter
+      if (!applyRangeFilter(bank.tbvps, filters.tbvps)) return false;
+
+      // ========================================================================
+      // DIVIDENDS
+      // ========================================================================
+
+      // TTM Dividend filter
+      if (!applyRangeFilter(bank.ttmDividendPerShare, filters.ttmDividend)) return false;
+
+      // Dividend Payout Ratio filter
+      if (!applyRangeFilter(bank.dividendPayoutRatio, filters.dividendPayoutRatio)) return false;
+
+      // ========================================================================
+      // VALUE INVESTING
+      // ========================================================================
+
+      // Graham Margin of Safety filter
+      if (filters.grahamMoS !== '' && filters.grahamMoS !== undefined) {
+        if (bank.grahamMoSPct === null || bank.grahamMoSPct === undefined || bank.grahamMoSPct < filters.grahamMoS) {
+          return false;
+        }
+      }
+
+      // ========================================================================
+      // INCOME STATEMENT (values in millions for filter input)
+      // ========================================================================
+
+      // TTM Net Income filter (input in millions)
+      if (!applyRangeFilter(bank.ttmNetIncome, filters.ttmNetIncome, 1e6)) return false;
+
+      // TTM Net Interest Income filter (input in millions)
+      if (!applyRangeFilter(bank.ttmNetInterestIncome, filters.ttmNetInterestIncome, 1e6)) return false;
+
+      // ========================================================================
+      // PER-SHARE METRICS
+      // ========================================================================
+
+      // TTM EPS filter
+      if (!applyRangeFilter(bank.ttmEps, filters.ttmEps)) return false;
+
+      // Shares Outstanding filter (input in millions)
+      if (!applyRangeFilter(bank.sharesOutstanding, filters.sharesOutstanding, 1e6)) return false;
 
       return true;
     });
@@ -276,46 +268,47 @@ function Screener({ banks, loading }) {
    * Check if any filters are active
    */
   const hasActiveFilters = useMemo(() => {
+    const checkRange = (filter) => {
+      return filter?.min !== '' && filter?.min !== undefined ||
+             filter?.max !== '' && filter?.max !== undefined;
+    };
+
     return (
-      // Classification filters
+      // Quick Filters
       (filters.securityType && filters.securityType !== 'all') ||
-      // Performance filters
-      filters.roe.min !== '' ||
-      filters.roe.max !== '' ||
-      filters.roaa.min !== '' ||
-      filters.roaa.max !== '' ||
-      filters.rota.min !== '' ||
-      filters.rota.max !== '' ||
-      filters.rotce.min !== '' ||
-      filters.rotce.max !== '' ||
-      // Valuation filters
-      filters.pni.min !== '' ||
-      filters.pni.max !== '' ||
-      filters.ptbvps.min !== '' ||
-      filters.ptbvps.max !== '' ||
-      filters.bvps.min !== '' ||
-      filters.bvps.max !== '' ||
-      filters.tbvps.min !== '' ||
-      filters.tbvps.max !== '' ||
-      filters.marketCap.min !== '' ||
-      filters.marketCap.max !== '' ||
-      filters.grahamMoS !== '' ||
-      // Dividend filters
-      (filters.ttmDividend?.min !== '' && filters.ttmDividend?.min !== undefined) ||
-      (filters.ttmDividend?.max !== '' && filters.ttmDividend?.max !== undefined) ||
-      (filters.dividendPayoutRatio?.min !== '' && filters.dividendPayoutRatio?.min !== undefined) ||
-      (filters.dividendPayoutRatio?.max !== '' && filters.dividendPayoutRatio?.max !== undefined) ||
-      // Bank-specific ratio filters
-      (filters.efficiencyRatio?.min !== '' && filters.efficiencyRatio?.min !== undefined) ||
-      (filters.efficiencyRatio?.max !== '' && filters.efficiencyRatio?.max !== undefined) ||
-      (filters.depositsToAssets?.min !== '' && filters.depositsToAssets?.min !== undefined) ||
-      (filters.depositsToAssets?.max !== '' && filters.depositsToAssets?.max !== undefined) ||
-      (filters.equityToAssets?.min !== '' && filters.equityToAssets?.min !== undefined) ||
-      (filters.equityToAssets?.max !== '' && filters.equityToAssets?.max !== undefined) ||
-      (filters.tceToTa?.min !== '' && filters.tceToTa?.min !== undefined) ||
-      (filters.tceToTa?.max !== '' && filters.tceToTa?.max !== undefined) ||
-      // Listing filter
-      filters.exchanges.length > 0
+      filters.exchanges.length > 0 ||
+      // Size & Scale
+      checkRange(filters.marketCap) ||
+      checkRange(filters.totalAssets) ||
+      checkRange(filters.totalDeposits) ||
+      // Valuation
+      checkRange(filters.pni) ||
+      checkRange(filters.ptbvps) ||
+      // Profitability
+      checkRange(filters.roe) ||
+      checkRange(filters.roaa) ||
+      checkRange(filters.rota) ||
+      checkRange(filters.rotce) ||
+      // Capital & Leverage
+      checkRange(filters.equityToAssets) ||
+      checkRange(filters.tceToTa) ||
+      checkRange(filters.depositsToAssets) ||
+      // Efficiency
+      checkRange(filters.efficiencyRatio) ||
+      // Book Value
+      checkRange(filters.bvps) ||
+      checkRange(filters.tbvps) ||
+      // Dividends
+      checkRange(filters.ttmDividend) ||
+      checkRange(filters.dividendPayoutRatio) ||
+      // Value Investing
+      (filters.grahamMoS !== '' && filters.grahamMoS !== undefined) ||
+      // Income Statement
+      checkRange(filters.ttmNetIncome) ||
+      checkRange(filters.ttmNetInterestIncome) ||
+      // Per-Share
+      checkRange(filters.ttmEps) ||
+      checkRange(filters.sharesOutstanding)
     );
   }, [filters]);
 

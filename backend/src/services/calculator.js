@@ -367,37 +367,82 @@ class MetricsCalculator {
   }
 
   /**
+   * Calculate Net Interest Margin (NIM)
+   * NIM = Net Interest Income / Average Earning Assets × 100
+   * Typical range: 2.5-4.0%
+   * @param {number} netInterestIncome
+   * @param {number} averageEarningAssets - Loans + Securities + Interest-bearing deposits
+   * @returns {number}
+   */
+  calculateNetInterestMargin(netInterestIncome, averageEarningAssets) {
+    if (!netInterestIncome || !averageEarningAssets || averageEarningAssets <= 0) return null;
+    return (netInterestIncome / averageEarningAssets) * 100;
+  }
+
+  /**
    * Calculate all metrics for a bank
    * @param {Object} edgarMetrics - Metrics extracted from SEC EDGAR
    * @param {number} currentPrice - Current stock price
    * @returns {Object} All calculated metrics
    */
   calculateAllMetrics(edgarMetrics, currentPrice) {
-    // Extract values from EDGAR metrics
+    // ========================================================================
+    // BALANCE SHEET - ASSETS (Point-in-Time)
+    // ========================================================================
     const totalAssets = edgarMetrics.totalAssets?.value || null;
+    const cashAndDueFromBanks = edgarMetrics.cashAndDueFromBanks?.value || null;
+    const interestBearingDepositsInBanks = edgarMetrics.interestBearingDepositsInBanks?.value || null;
+    const afsSecurities = edgarMetrics.afsSecurities?.value || null;
+    const htmSecurities = edgarMetrics.htmSecurities?.value || null;
+    const loans = edgarMetrics.loans?.value || null;
+    const allowanceForCreditLosses = edgarMetrics.allowanceForCreditLosses?.value || null;
+    const premisesAndEquipment = edgarMetrics.premisesAndEquipment?.value || null;
+
+    // ========================================================================
+    // BALANCE SHEET - LIABILITIES & EQUITY (Point-in-Time)
+    // ========================================================================
+    const totalLiabilities = edgarMetrics.totalLiabilities?.value || null;
+    const deposits = edgarMetrics.deposits?.value || null;
+    const shortTermBorrowings = edgarMetrics.shortTermBorrowings?.value || null;
+    const longTermDebt = edgarMetrics.longTermDebt?.value || null;
     const totalEquity = edgarMetrics.totalEquity?.value || null;
-    const netIncome = edgarMetrics.netIncome?.value || null;
-    const sharesOutstanding = edgarMetrics.sharesOutstanding?.value || null;
-    const eps = edgarMetrics.eps?.value || null;
     const goodwill = edgarMetrics.goodwill?.value || 0;
     const intangibleAssets = edgarMetrics.intangibleAssets?.value || 0;
     const preferredStock = edgarMetrics.preferredStock?.value || 0;
-    const priorTotalAssets = edgarMetrics.priorTotalAssets?.value || totalAssets;
 
-    // Bank-specific metrics
-    const loans = edgarMetrics.loans?.value || null;
-    const deposits = edgarMetrics.deposits?.value || null;
-    const allowanceForCreditLosses = edgarMetrics.allowanceForCreditLosses?.value || null;
-    const cashAndEquivalents = edgarMetrics.cashAndEquivalents?.value || 0;
-    const afsSecurities = edgarMetrics.afsSecurities?.value || 0;
-    const htmSecurities = edgarMetrics.htmSecurities?.value || 0;
+    // ========================================================================
+    // INCOME STATEMENT (Annual/TTM values)
+    // ========================================================================
+    const interestIncome = edgarMetrics.interestIncome?.value || null;
+    const interestExpense = edgarMetrics.interestExpense?.value || null;
     const netInterestIncome = edgarMetrics.netInterestIncome?.value || null;
     const noninterestIncome = edgarMetrics.noninterestIncome?.value || null;
     const noninterestExpense = edgarMetrics.noninterestExpense?.value || null;
     const provisionForCreditLosses = edgarMetrics.provisionForCreditLosses?.value || null;
+    const preTaxIncome = edgarMetrics.preTaxIncome?.value || null;
+    const netIncome = edgarMetrics.netIncome?.value || null;
+
+    // ========================================================================
+    // CASH FLOW (Annual values)
+    // ========================================================================
+    const operatingCashFlow = edgarMetrics.operatingCashFlow?.value || null;
+
+    // ========================================================================
+    // CAPITAL / PER-SHARE
+    // ========================================================================
+    const sharesOutstanding = edgarMetrics.sharesOutstanding?.value || null;
+    const eps = edgarMetrics.eps?.value || null;
+    const dividendsPerShare = edgarMetrics.dividendsPerShare?.value || null;
+
+    // ========================================================================
+    // PRIOR PERIOD DATA (for averages)
+    // ========================================================================
+    const priorTotalAssets = edgarMetrics.priorTotalAssets?.value || totalAssets;
     const priorLoans = edgarMetrics.priorLoans?.value || loans;
 
-    // Calculate derived values
+    // ========================================================================
+    // CALCULATED DERIVED VALUES
+    // ========================================================================
     const tangibleBookValue = totalEquity ? this.calculateTangibleBookValue(totalEquity, goodwill, intangibleAssets) : null;
     const tangibleAssets = this.calculateTangibleAssets(totalAssets, goodwill, intangibleAssets);
     const tangibleCommonEquity = this.calculateTangibleCommonEquity(totalEquity, preferredStock, goodwill, intangibleAssets);
@@ -407,7 +452,12 @@ class MetricsCalculator {
     const bookValuePerShare = totalEquity && sharesOutstanding ? totalEquity / sharesOutstanding : null;
     const tangibleBookValuePerShare = tangibleBookValue && sharesOutstanding ? tangibleBookValue / sharesOutstanding : null;
 
-    // Calculate all ratios and metrics
+    // Calculate earning assets for NIM
+    const earningAssets = (loans || 0) + (afsSecurities || 0) + (htmSecurities || 0) + (interestBearingDepositsInBanks || 0);
+
+    // ========================================================================
+    // CALCULATED RATIOS
+    // ========================================================================
     const pni = this.calculatePNI(marketCap, netIncome);
     const ptbvps = this.calculatePTBVPS(currentPrice, tangibleBookValue, sharesOutstanding);
     const mktCapSE = this.calculateMktCapSE(marketCap, totalEquity);
@@ -420,16 +470,17 @@ class MetricsCalculator {
     const grahamMoS = this.calculateGrahamMoS(grahamNumber, currentPrice);
     const grahamMoSPct = this.calculateGrahamMoSPct(grahamNumber, currentPrice);
 
-    // Calculate bank-specific ratios
+    // Bank-specific ratios
     const efficiencyRatio = this.calculateEfficiencyRatio(noninterestExpense, netInterestIncome, noninterestIncome);
     const aclToLoans = this.calculateAclToLoans(allowanceForCreditLosses, loans);
     const provisionToAvgLoans = this.calculateProvisionToAvgLoans(provisionForCreditLosses, averageLoans);
     const loansToAssets = this.calculateLoansToAssets(loans, totalAssets);
     const depositsToAssets = this.calculateDepositsToAssets(deposits, totalAssets);
     const loansToDeposits = this.calculateLoansToDeposits(loans, deposits);
-    const cashSecuritiesToAssets = this.calculateCashSecuritiesToAssets(cashAndEquivalents, afsSecurities, htmSecurities, totalAssets);
+    const cashSecuritiesToAssets = this.calculateCashSecuritiesToAssets(cashAndDueFromBanks, afsSecurities, htmSecurities, totalAssets);
     const equityToAssets = this.calculateEquityToAssets(totalEquity, totalAssets);
     const tceToTa = this.calculateTceToTa(tangibleCommonEquity, tangibleAssets);
+    const netInterestMargin = this.calculateNetInterestMargin(netInterestIncome, earningAssets);
 
     // Get the most recent data date from EDGAR metrics
     const dataDate = edgarMetrics.netIncome?.date ||
@@ -442,19 +493,61 @@ class MetricsCalculator {
       price: currentPrice,
       market_cap: marketCap,
 
-      // SEC filing derived metrics
+      // ====================================================================
+      // BALANCE SHEET - ASSETS (Point-in-Time)
+      // ====================================================================
       total_assets: totalAssets,
+      cash_and_due_from_banks: cashAndDueFromBanks,
+      interest_bearing_deposits_in_banks: interestBearingDepositsInBanks,
+      afs_securities: afsSecurities,
+      htm_securities: htmSecurities,
+      loans: loans,
+      allowance_for_credit_losses: allowanceForCreditLosses,
+      premises_and_equipment: premisesAndEquipment,
+
+      // ====================================================================
+      // BALANCE SHEET - LIABILITIES & EQUITY (Point-in-Time)
+      // ====================================================================
+      total_liabilities: totalLiabilities,
+      deposits: deposits,
+      short_term_borrowings: shortTermBorrowings,
+      long_term_debt: longTermDebt,
       total_equity: totalEquity,
+      goodwill: goodwill,
+      intangible_assets: intangibleAssets,
       tangible_book_value: tangibleBookValue,
       tangible_assets: tangibleAssets,
       tangible_common_equity: tangibleCommonEquity,
+
+      // ====================================================================
+      // INCOME STATEMENT (Annual/TTM values)
+      // ====================================================================
+      interest_income: interestIncome,
+      interest_expense: interestExpense,
+      net_interest_income: netInterestIncome,
+      noninterest_income: noninterestIncome,
+      noninterest_expense: noninterestExpense,
+      provision_for_credit_losses: provisionForCreditLosses,
+      pre_tax_income: preTaxIncome,
       net_income: netIncome,
+
+      // ====================================================================
+      // CASH FLOW (Annual values)
+      // ====================================================================
+      operating_cash_flow: operatingCashFlow,
+
+      // ====================================================================
+      // CAPITAL / PER-SHARE
+      // ====================================================================
       shares_outstanding: sharesOutstanding,
       eps: eps,
+      dividends_per_share: dividendsPerShare,
       book_value_per_share: bookValuePerShare,
       tangible_book_value_per_share: tangibleBookValuePerShare,
 
-      // Calculated ratios
+      // ====================================================================
+      // CALCULATED RATIOS
+      // ====================================================================
       pni: pni,
       ptbvps: ptbvps,
       mkt_cap_se: mktCapSE,
@@ -479,6 +572,7 @@ class MetricsCalculator {
       cash_securities_to_assets: cashSecuritiesToAssets,
       equity_to_assets: equityToAssets,
       tce_to_ta: tceToTa,
+      net_interest_margin: netInterestMargin,
 
       // Metadata
       data_date: dataDate

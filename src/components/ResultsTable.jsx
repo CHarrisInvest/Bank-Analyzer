@@ -4,22 +4,30 @@ import { formatNumber } from '../utils/csv.js';
 /**
  * Table column configuration
  *
- * Columns include:
- * - Basic info: Ticker, Bank Name, Exchange, Type
- * - Price metrics: Price, Market Cap
+ * Organized by category:
+ * - Basic Info: Ticker, Bank Name, Exchange, Type
+ * - Market Data: Price, Market Cap
+ * - Balance Sheet (Assets): Total Assets, Cash, Securities, Loans, ALLL
+ * - Balance Sheet (Liabilities & Equity): Liabilities, Deposits, Borrowings, Equity
+ * - Income Statement (TTM): Interest Income/Expense, NII, Noninterest Inc/Exp, Net Income
+ * - Per-Share: BVPS, TBVPS, EPS, DPS
  * - Valuation: P/NI, P/TBVPS
- * - Book Value: BVPS, TBVPS
- * - Performance: RoE, ROAA, RoTA, ROTCE
+ * - Performance: RoE, ROAA, RoTA, ROTCE, NIM
+ * - Bank Ratios: Efficiency, Dep/Assets, Eq/Assets, TCE/TA, Loans/Deposits
+ * - Graham: Graham #, Graham MoS
  * - Dividends: TTM Div, Payout %
- * - Graham: Graham #, Graham MoS, MoS %
  */
 const COLUMNS = [
+  // ===========================================================================
+  // BASIC INFO
+  // ===========================================================================
   {
     key: 'ticker',
     label: 'Ticker',
     sortable: true,
     align: 'left',
     format: (value) => value || '-',
+    group: 'info',
   },
   {
     key: 'bankName',
@@ -28,6 +36,7 @@ const COLUMNS = [
     align: 'left',
     format: (value) => value || '-',
     className: 'col-bank-name',
+    group: 'info',
   },
   {
     key: 'exchange',
@@ -35,10 +44,11 @@ const COLUMNS = [
     sortable: true,
     align: 'center',
     format: (value) => value || '-',
+    group: 'info',
   },
   {
     key: 'securityType',
-    label: 'Share Class',
+    label: 'Type',
     sortable: true,
     align: 'center',
     format: (value) => {
@@ -46,34 +56,95 @@ const COLUMNS = [
       if (value === 'exchange-traded') return 'Non-Common';
       return value || '-';
     },
+    group: 'info',
   },
+
+  // ===========================================================================
+  // MARKET DATA
+  // ===========================================================================
   {
     key: 'price',
     label: 'Price',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+    group: 'market',
   },
   {
     key: 'marketCap',
-    label: 'Market Cap',
+    label: 'Mkt Cap',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'market',
   },
+
+  // ===========================================================================
+  // BALANCE SHEET - ASSETS (Point-in-Time)
+  // ===========================================================================
   {
-    key: 'pni',
-    label: 'P/NI',
+    key: 'totalAssets',
+    label: 'Assets',
     sortable: true,
     align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2 }),
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'bs-assets',
   },
   {
-    key: 'ptbvps',
-    label: 'P/TBVPS',
+    key: 'totalDeposits',
+    label: 'Deposits',
     sortable: true,
     align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2 }),
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'bs-liab',
+  },
+  {
+    key: 'totalEquity',
+    label: 'Equity',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'bs-liab',
+  },
+
+  // ===========================================================================
+  // INCOME STATEMENT (TTM)
+  // ===========================================================================
+  {
+    key: 'ttmNetInterestIncome',
+    label: 'NII (TTM)',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+  },
+  {
+    key: 'ttmNoninterestIncome',
+    label: 'Non-Int Inc',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+  },
+  {
+    key: 'ttmNetIncome',
+    label: 'Net Inc (TTM)',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+  },
+
+  // ===========================================================================
+  // PER-SHARE DATA
+  // ===========================================================================
+  {
+    key: 'sharesOutstanding',
+    label: 'Shares',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, abbreviate: true }),
+    group: 'per-share',
   },
   {
     key: 'bvps',
@@ -81,6 +152,7 @@ const COLUMNS = [
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+    group: 'per-share',
   },
   {
     key: 'tbvps',
@@ -88,13 +160,47 @@ const COLUMNS = [
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+    group: 'per-share',
   },
+  {
+    key: 'ttmEps',
+    label: 'EPS (TTM)',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+    group: 'per-share',
+  },
+
+  // ===========================================================================
+  // VALUATION
+  // ===========================================================================
+  {
+    key: 'pni',
+    label: 'P/E',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2 }),
+    group: 'valuation',
+  },
+  {
+    key: 'ptbvps',
+    label: 'P/TBV',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2 }),
+    group: 'valuation',
+  },
+
+  // ===========================================================================
+  // PERFORMANCE RATIOS
+  // ===========================================================================
   {
     key: 'roe',
     label: 'RoE',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
+    group: 'performance',
   },
   {
     key: 'roaa',
@@ -102,6 +208,7 @@ const COLUMNS = [
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
+    group: 'performance',
   },
   {
     key: 'rota',
@@ -109,6 +216,7 @@ const COLUMNS = [
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
+    group: 'performance',
   },
   {
     key: 'rotce',
@@ -116,49 +224,19 @@ const COLUMNS = [
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
+    group: 'performance',
   },
-  {
-    key: 'ttmDividendPerShare',
-    label: 'TTM Div',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
-  },
-  {
-    key: 'dividendPayoutRatio',
-    label: 'Payout %',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
-  },
-  {
-    key: 'grahamNum',
-    label: 'Graham #',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
-  },
-  {
-    key: 'grahamMoS',
-    label: 'Graham MoS',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
-  },
-  {
-    key: 'grahamMoSPct',
-    label: 'MoS %',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
-  },
-  // Bank-specific ratios
+
+  // ===========================================================================
+  // BANK-SPECIFIC RATIOS
+  // ===========================================================================
   {
     key: 'efficiencyRatio',
     label: 'Efficiency',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
+    group: 'bank-ratios',
   },
   {
     key: 'depositsToAssets',
@@ -166,6 +244,7 @@ const COLUMNS = [
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
+    group: 'bank-ratios',
   },
   {
     key: 'equityToAssets',
@@ -173,6 +252,7 @@ const COLUMNS = [
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
+    group: 'bank-ratios',
   },
   {
     key: 'tceToTa',
@@ -180,6 +260,47 @@ const COLUMNS = [
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
+    group: 'bank-ratios',
+  },
+
+  // ===========================================================================
+  // DIVIDENDS
+  // ===========================================================================
+  {
+    key: 'ttmDividendPerShare',
+    label: 'Div/Sh',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+    group: 'dividends',
+  },
+  {
+    key: 'dividendPayoutRatio',
+    label: 'Payout',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
+    group: 'dividends',
+  },
+
+  // ===========================================================================
+  // GRAHAM VALUE INVESTING
+  // ===========================================================================
+  {
+    key: 'grahamNum',
+    label: 'Graham #',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+    group: 'graham',
+  },
+  {
+    key: 'grahamMoSPct',
+    label: 'MoS %',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
+    group: 'graham',
   },
 ];
 

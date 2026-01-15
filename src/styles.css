@@ -419,23 +419,84 @@ body {
   padding: var(--spacing-4);
 }
 
+/* Collapsible filter sections */
 .filters-section {
-  margin-bottom: var(--spacing-5);
+  margin-bottom: var(--spacing-2);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 .filters-section:last-child {
   margin-bottom: 0;
 }
 
+.filters-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--spacing-3);
+  background-color: var(--color-gray-50);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.filters-section-header:hover {
+  background-color: var(--color-gray-100);
+}
+
 .filters-section-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-700);
+  text-transform: none;
+  letter-spacing: normal;
+  margin: 0;
+  padding: 0;
+  border: none;
+  flex: 1;
+  text-align: left;
+}
+
+.filters-section-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--spacing-1);
+  margin-right: var(--spacing-2);
+  background-color: var(--color-accent);
+  color: var(--color-white);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-gray-500);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--spacing-3);
-  padding-bottom: var(--spacing-2);
-  border-bottom: 1px solid var(--color-gray-200);
+  border-radius: 10px;
+}
+
+.filters-section-chevron {
+  color: var(--color-gray-400);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.filters-section-chevron.open {
+  transform: rotate(180deg);
+}
+
+.filters-section-content {
+  padding: var(--spacing-3);
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.filters-section.collapsed .filters-section-header {
+  background-color: var(--color-white);
+}
+
+.filters-section.open .filters-section-header {
+  background-color: var(--color-gray-50);
 }
 
 .filter-group {
