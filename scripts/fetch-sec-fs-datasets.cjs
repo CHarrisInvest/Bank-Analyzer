@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /**
- * SEC Financial Statement Data Sets Fetcher
+ * SEC Financial Statement Data Sets Processor
  *
- * Downloads and processes the official SEC Financial Statement Data Sets
- * from: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets
+ * Processes the official SEC Financial Statement Data Sets from local ZIP files.
+ * ZIP files are downloaded from GitHub Release assets (not directly from SEC).
+ * See: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets
  *
  * These datasets contain ONLY data from primary financial statements (Balance Sheet,
  * Income Statement, Cash Flow Statement) as rendered by the SEC - ensuring maximum
@@ -28,8 +29,6 @@
  * - public/data/sec-raw-data.json: Raw SEC values for audit trail
  */
 
-const https = require('https');
-const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
@@ -37,17 +36,11 @@ const readline = require('readline');
 
 // Parse command line arguments
 const args = process.argv.slice(2);
-const LOCAL_ONLY = args.includes('--local-only');
 const HELP = args.includes('--help') || args.includes('-h');
+// Note: --local-only flag is accepted for backwards compatibility but is now the only mode
 
 // Configuration
 const CONFIG = {
-  edgarUserAgent: process.env.EDGAR_USER_AGENT || 'Bank-Analyzer github-actions@example.com',
-
-  // SEC Financial Statement Data Sets URL pattern
-  // https://www.sec.gov/files/dera/data/financial-statement-data-sets/2024q4.zip
-  fsDataSetsBaseUrl: 'https://www.sec.gov/files/dera/data/financial-statement-data-sets',
-
   // How many quarters of data to fetch (for TTM calculation we need at least 4)
   quartersToFetch: 5,
 
@@ -152,183 +145,6 @@ const TEMP_DIR = path.join(__dirname, '..', '.sec-data-cache');
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'data');
 
 /**
- * Make HTTPS request with proper headers
- */
-function httpsGet(url, options = {}) {
-  return new Promise((resolve, reject) => {
-    const urlObj = new URL(url);
-    const reqOptions = {
-      hostname: urlObj.hostname,
-      path: urlObj.pathname + urlObj.search,
-      headers: {
-        'User-Agent': CONFIG.edgarUserAgent,
-        'Accept-Encoding': 'gzip, deflate',
-        ...options.headers
-      }
-    };
-
-    const req = https.get(reqOptions, (res) => {
-      if (res.statusCode === 301 || res.statusCode === 302) {
-        // Follow redirect
-        httpsGet(res.headers.location, options).then(resolve).catch(reject);
-        return;
-      }
-
-      if (res.statusCode !== 200) {
-        reject(new Error(`HTTP ${res.statusCode}: ${res.statusMessage}`));
-        return;
-      }
-
-      const chunks = [];
-      res.on('data', chunk => chunks.push(chunk));
-      res.on('end', () => resolve(Buffer.concat(chunks)));
-      res.on('error', reject);
-    });
-
-    req.on('error', reject);
-    req.setTimeout(60000, () => {
-      req.destroy();
-      reject(new Error('Request timeout'));
-    });
-  });
-}
-
-/**
- * Download a file to disk
- */
-async function downloadFile(url, destPath) {
-  console.log(`  Downloading: ${url}`);
-  const data = await httpsGet(url);
-  fs.writeFileSync(destPath, data);
-  console.log(`  Saved: ${destPath} (${data.length} bytes)`);
-  return destPath;
-}
-
-/**
- * Fetch the SEC listing page and parse available quarterly datasets
- * This is more robust than assuming URL patterns, as SEC may change URLs
- * and we can know exactly which quarters are available.
- */
-async function fetchAvailableQuartersFromSecPage() {
-  const listingUrl = 'https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets';
-  console.log(`\nFetching SEC listing page to discover available quarters...`);
-  console.log(`  URL: ${listingUrl}`);
-
-  try {
-    const html = await httpsGet(listingUrl);
-    const htmlStr = html.toString();
-
-    // Parse HTML for links to quarterly ZIP files
-    // Matches patterns like: href="/files/dera/data/financial-statement-data-sets/2025q3.zip"
-    // or absolute URLs like: href="https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q3.zip"
-    const zipLinkPattern = /href="([^"]*\/(\d{4})q([1-4])\.zip)"/gi;
-    const matches = [...htmlStr.matchAll(zipLinkPattern)];
-
-    if (matches.length === 0) {
-      console.warn('  No quarterly ZIP links found on SEC page. Falling back to URL pattern.');
-      return null;
-    }
-
-    const quarters = matches.map(match => {
-      const href = match[1];
-      const year = parseInt(match[2]);
-      const quarter = parseInt(match[3]);
-      // Convert relative URLs to absolute
-      const url = href.startsWith('http') ? href : `https://www.sec.gov${href}`;
-
-      return {
-        url,
-        year,
-        quarter,
-        period: `${year}Q${quarter}`
-      };
-    });
-
-    // Sort by year and quarter descending (most recent first)
-    quarters.sort((a, b) => {
-      if (b.year !== a.year) return b.year - a.year;
-      return b.quarter - a.quarter;
-    });
-
-    // Remove duplicates (same period)
-    const seen = new Set();
-    const unique = quarters.filter(q => {
-      if (seen.has(q.period)) return false;
-      seen.add(q.period);
-      return true;
-    });
-
-    console.log(`  Found ${unique.length} quarterly datasets on SEC page`);
-    console.log(`  Most recent: ${unique[0]?.period || 'none'}`);
-    console.log(`  Oldest: ${unique[unique.length - 1]?.period || 'none'}`);
-
-    return unique;
-  } catch (error) {
-    console.error(`  Failed to fetch SEC listing page: ${error.message}`);
-    console.log('  Falling back to URL pattern approach.');
-    return null;
-  }
-}
-
-/**
- * Generate quarterly dataset URLs using assumed pattern (fallback)
- */
-function generateQuarterlyUrls(numQuarters) {
-  const urls = [];
-  const now = new Date();
-  let year = now.getFullYear();
-  let quarter = Math.ceil((now.getMonth() + 1) / 3);
-
-  // Go back one quarter since current quarter may not be available yet
-  quarter--;
-  if (quarter === 0) {
-    quarter = 4;
-    year--;
-  }
-
-  for (let i = 0; i < numQuarters; i++) {
-    urls.push({
-      url: `${CONFIG.fsDataSetsBaseUrl}/${year}q${quarter}.zip`,
-      year,
-      quarter,
-      period: `${year}Q${quarter}`
-    });
-
-    quarter--;
-    if (quarter === 0) {
-      quarter = 4;
-      year--;
-    }
-  }
-
-  return urls;
-}
-
-/**
- * Get list of available quarterly datasets
- * First tries to scrape SEC listing page for accurate URLs,
- * falls back to URL pattern if that fails.
- */
-async function getQuarterlyDatasetUrls(numQuarters) {
-  // Try to get actual available quarters from SEC page
-  const availableQuarters = await fetchAvailableQuartersFromSecPage();
-
-  if (availableQuarters && availableQuarters.length > 0) {
-    // Use the most recent quarters from the listing page
-    const selected = availableQuarters.slice(0, numQuarters);
-    console.log(`\nUsing ${selected.length} quarters from SEC listing page:`);
-    selected.forEach(q => console.log(`  - ${q.period}: ${q.url}`));
-    return selected;
-  }
-
-  // Fallback to generated URLs
-  console.log('\nUsing fallback URL pattern (SEC listing page unavailable)');
-  const generated = generateQuarterlyUrls(numQuarters);
-  generated.forEach(q => console.log(`  - ${q.period}: ${q.url}`));
-  return generated;
-}
-
-/**
  * Extract ZIP file using system unzip command
  */
 function extractZip(zipPath, destDir) {
@@ -417,42 +233,20 @@ function loadBankList() {
 }
 
 /**
- * Process a quarterly dataset
+ * Process a quarterly dataset from local ZIP file
  */
 async function processQuarterlyDataset(datasetInfo, bankCiks) {
-  const { url, period, zipPath: providedZipPath } = datasetInfo;
+  const { period, zipPath } = datasetInfo;
 
-  // Use provided zipPath (local-only mode) or construct from URL
-  let zipPath;
-  if (providedZipPath) {
-    zipPath = providedZipPath;
-  } else if (url) {
-    const zipFileName = path.basename(url);
-    zipPath = path.join(TEMP_DIR, zipFileName);
-  } else {
-    console.error(`  No URL or zipPath for ${period}`);
+  if (!zipPath || !fs.existsSync(zipPath)) {
+    console.error(`  ZIP file not found: ${zipPath}`);
     return null;
   }
 
   const extractDir = path.join(TEMP_DIR, period);
 
   console.log(`\nProcessing ${period}...`);
-
-  // Download if not already cached (skip in local-only mode)
-  if (!fs.existsSync(zipPath)) {
-    if (LOCAL_ONLY) {
-      console.error(`  ZIP file not found: ${zipPath}`);
-      return null;
-    }
-    try {
-      await downloadFile(url, zipPath);
-    } catch (error) {
-      console.error(`  Failed to download ${url}: ${error.message}`);
-      return null;
-    }
-  } else {
-    console.log(`  Using cached: ${zipPath}`);
-  }
+  console.log(`  Using: ${zipPath}`);
 
   // Extract
   if (!fs.existsSync(extractDir) || !fs.existsSync(path.join(extractDir, 'num.txt'))) {
@@ -1036,40 +830,37 @@ function applyDataQualityValidation(metrics) {
  */
 function showHelp() {
   console.log(`
-SEC Financial Statement Data Sets Fetcher
+SEC Financial Statement Data Sets Processor
+
+Processes SEC Financial Statement Data Sets from local ZIP files.
+ZIP files should be downloaded from GitHub Release assets (not directly from SEC).
 
 USAGE:
   node scripts/fetch-sec-fs-datasets.cjs [OPTIONS]
 
 OPTIONS:
-  --local-only    Process only cached ZIP files (no downloads)
   --help, -h      Show this help message
+  --local-only    (Deprecated) Accepted for backwards compatibility but now the only mode
 
-LOCAL-ONLY MODE:
-  When --local-only is used, the script processes ZIP files already in:
-    .sec-data-cache/
+DATA SOURCE:
+  This script processes ZIP files from .sec-data-cache/ directory.
+  The GitHub Actions workflow downloads these files from the 'sec-data' release.
 
-  To use this mode:
-  1. Download ZIP files manually from SEC:
-     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q4.zip
-     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q3.zip
-     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q2.zip
-     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q1.zip
-     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2024q4.zip
+  To update data:
+  1. Download ZIP files from SEC (manually, outside this script):
+     https://www.sec.gov/files/dera/data/financial-statement-data-sets/
 
-  2. Place them in .sec-data-cache/ with exact names:
-     .sec-data-cache/2025q4.zip
-     .sec-data-cache/2025q3.zip
-     .sec-data-cache/2025q2.zip
-     .sec-data-cache/2025q1.zip
-     .sec-data-cache/2024q4.zip
+  2. Upload to GitHub Release with tag 'sec-data'
 
-  3. Run: node scripts/fetch-sec-fs-datasets.cjs --local-only
+  3. Run the "Update SEC Data (Manual)" workflow, which will:
+     - Download ZIPs from GitHub Release to .sec-data-cache/
+     - Run this script to process them
+     - Commit and deploy the updated data
 
-  4. Commit the output files:
-     git add public/data/banks.json public/data/sec-raw-data.json
-     git commit -m "Update bank data from SEC FS Data Sets"
-     git push
+  For local development:
+  1. Place ZIP files in .sec-data-cache/ with names like 2025q4.zip
+  2. Run: node scripts/fetch-sec-fs-datasets.cjs
+  3. Output: public/data/banks.json, public/data/sec-raw-data.json
 `);
 }
 
@@ -1117,16 +908,11 @@ async function main() {
   }
 
   console.log('═'.repeat(80));
-  console.log('SEC FINANCIAL STATEMENT DATA SETS FETCHER');
+  console.log('SEC FINANCIAL STATEMENT DATA SETS PROCESSOR');
   console.log('═'.repeat(80));
   console.log('');
-
-  if (LOCAL_ONLY) {
-    console.log('MODE: Local-only (processing cached ZIP files only)');
-  } else {
-    console.log('Data Source: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets');
-  }
-  console.log('This uses ONLY primary financial statement data as rendered by the SEC.');
+  console.log('Processing ZIP files from GitHub Release assets');
+  console.log('Data: SEC Financial Statement Data Sets (primary financial statements only)');
   console.log('');
   console.log(`Started: ${new Date().toISOString()}`);
   console.log('');
@@ -1150,24 +936,21 @@ async function main() {
   });
   console.log(`  ${bankCiks.size} unique CIKs`);
 
-  // Get quarterly dataset URLs
-  let datasetUrls;
-  if (LOCAL_ONLY) {
-    // Find cached ZIP files
-    const cached = findCachedQuarters();
-    if (cached.length === 0) {
-      console.error('\nNo cached ZIP files found in .sec-data-cache/');
-      console.error('Download ZIP files from SEC and place them there.');
-      console.error('Run with --help for instructions.');
-      process.exit(1);
-    }
-    console.log(`\nFound ${cached.length} cached ZIP files:`);
-    cached.forEach(q => console.log(`  - ${q.period}: ${q.zipPath}`));
-    datasetUrls = cached.slice(0, CONFIG.quartersToFetch);
-  } else {
-    // Scrape SEC page for available quarters
-    datasetUrls = await getQuarterlyDatasetUrls(CONFIG.quartersToFetch);
+  // Find cached ZIP files from GitHub Release
+  const cached = findCachedQuarters();
+  if (cached.length === 0) {
+    console.error('\nNo ZIP files found in .sec-data-cache/');
+    console.error('');
+    console.error('ZIP files should be downloaded from the GitHub Release assets.');
+    console.error('Run the workflow or manually download from:');
+    console.error('https://github.com/YOUR_REPO/releases/tag/sec-data');
+    console.error('');
+    console.error('Run with --help for more information.');
+    process.exit(1);
   }
+  console.log(`\nFound ${cached.length} ZIP files:`);
+  cached.forEach(q => console.log(`  - ${q.period}: ${q.zipPath}`));
+  const datasetUrls = cached.slice(0, CONFIG.quartersToFetch);
 
   // Process each quarter
   const quarterlyResults = [];
