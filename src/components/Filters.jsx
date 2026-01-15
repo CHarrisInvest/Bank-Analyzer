@@ -262,6 +262,112 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
           />
         </FilterSection>
 
+        {/* BALANCE SHEET - ASSETS */}
+        <FilterSection
+          title="Balance Sheet - Assets"
+          defaultOpen={false}
+          badge={countActiveFilters(['cashAndDueFromBanks', 'interestBearingDepositsInBanks', 'afsSecurities', 'htmSecurities', 'loans', 'allowanceForCreditLosses']) || null}
+        >
+          <RangeFilter
+            label="Cash & Due From Banks"
+            minValue={filters.cashAndDueFromBanks?.min ?? ''}
+            maxValue={filters.cashAndDueFromBanks?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('cashAndDueFromBanks')}
+            unit="$M"
+          />
+          <RangeFilter
+            label="IB Deposits in Banks"
+            minValue={filters.interestBearingDepositsInBanks?.min ?? ''}
+            maxValue={filters.interestBearingDepositsInBanks?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('interestBearingDepositsInBanks')}
+            unit="$M"
+          />
+          <RangeFilter
+            label="AFS Securities"
+            minValue={filters.afsSecurities?.min ?? ''}
+            maxValue={filters.afsSecurities?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('afsSecurities')}
+            unit="$M"
+          />
+          <RangeFilter
+            label="HTM Securities"
+            minValue={filters.htmSecurities?.min ?? ''}
+            maxValue={filters.htmSecurities?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('htmSecurities')}
+            unit="$M"
+          />
+          <RangeFilter
+            label="Loans & Leases"
+            minValue={filters.loans?.min ?? ''}
+            maxValue={filters.loans?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('loans')}
+            unit="$M"
+          />
+          <RangeFilter
+            label="Allowance for Credit Losses"
+            minValue={filters.allowanceForCreditLosses?.min ?? ''}
+            maxValue={filters.allowanceForCreditLosses?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('allowanceForCreditLosses')}
+            unit="$M"
+          />
+        </FilterSection>
+
+        {/* BALANCE SHEET - LIABILITIES */}
+        <FilterSection
+          title="Balance Sheet - Liabilities"
+          defaultOpen={false}
+          badge={countActiveFilters(['totalLiabilities', 'shortTermBorrowings', 'longTermDebt', 'totalEquity']) || null}
+        >
+          <RangeFilter
+            label="Total Liabilities"
+            minValue={filters.totalLiabilities?.min ?? ''}
+            maxValue={filters.totalLiabilities?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('totalLiabilities')}
+            unit="$M"
+          />
+          <RangeFilter
+            label="Short-Term Borrowings"
+            minValue={filters.shortTermBorrowings?.min ?? ''}
+            maxValue={filters.shortTermBorrowings?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('shortTermBorrowings')}
+            unit="$M"
+          />
+          <RangeFilter
+            label="Long-Term Debt"
+            minValue={filters.longTermDebt?.min ?? ''}
+            maxValue={filters.longTermDebt?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('longTermDebt')}
+            unit="$M"
+          />
+          <RangeFilter
+            label="Total Equity"
+            minValue={filters.totalEquity?.min ?? ''}
+            maxValue={filters.totalEquity?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('totalEquity')}
+            unit="$M"
+          />
+        </FilterSection>
+
         {/* VALUATION */}
         <FilterSection
           title="Valuation"

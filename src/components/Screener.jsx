@@ -9,6 +9,8 @@ import { getUniqueExchanges } from '../data/sheets.js';
  * Filter categories organized by:
  * - Quick Filters: exchanges
  * - Size & Scale: marketCap, totalAssets, totalDeposits
+ * - Balance Sheet - Assets: cashAndDueFromBanks, afsSecurities, htmSecurities, loans, allowanceForCreditLosses
+ * - Balance Sheet - Liabilities: totalLiabilities, shortTermBorrowings, longTermDebt, totalEquity
  * - Valuation: pni, ptbvps
  * - Profitability: roe, roaa, rota, rotce
  * - Capital & Leverage: equityToAssets, tceToTa, depositsToAssets
@@ -27,6 +29,20 @@ const DEFAULT_FILTERS = {
   marketCap: { min: '', max: '' },
   totalAssets: { min: '', max: '' },
   totalDeposits: { min: '', max: '' },
+
+  // Balance Sheet - Assets
+  cashAndDueFromBanks: { min: '', max: '' },
+  interestBearingDepositsInBanks: { min: '', max: '' },
+  afsSecurities: { min: '', max: '' },
+  htmSecurities: { min: '', max: '' },
+  loans: { min: '', max: '' },
+  allowanceForCreditLosses: { min: '', max: '' },
+
+  // Balance Sheet - Liabilities
+  totalLiabilities: { min: '', max: '' },
+  shortTermBorrowings: { min: '', max: '' },
+  longTermDebt: { min: '', max: '' },
+  totalEquity: { min: '', max: '' },
 
   // Valuation
   pni: { min: '', max: '' },
@@ -130,6 +146,44 @@ function Screener({ banks, loading }) {
 
       // Total Deposits filter (input in millions)
       if (!applyRangeFilter(bank.totalDeposits, filters.totalDeposits, 1e6)) return false;
+
+      // ========================================================================
+      // BALANCE SHEET - ASSETS (values in millions for filter input)
+      // ========================================================================
+
+      // Cash & Due From Banks filter
+      if (!applyRangeFilter(bank.cashAndDueFromBanks, filters.cashAndDueFromBanks, 1e6)) return false;
+
+      // Interest Bearing Deposits in Banks filter
+      if (!applyRangeFilter(bank.interestBearingDepositsInBanks, filters.interestBearingDepositsInBanks, 1e6)) return false;
+
+      // AFS Securities filter
+      if (!applyRangeFilter(bank.afsSecurities, filters.afsSecurities, 1e6)) return false;
+
+      // HTM Securities filter
+      if (!applyRangeFilter(bank.htmSecurities, filters.htmSecurities, 1e6)) return false;
+
+      // Loans filter
+      if (!applyRangeFilter(bank.loans, filters.loans, 1e6)) return false;
+
+      // Allowance for Credit Losses filter
+      if (!applyRangeFilter(bank.allowanceForCreditLosses, filters.allowanceForCreditLosses, 1e6)) return false;
+
+      // ========================================================================
+      // BALANCE SHEET - LIABILITIES (values in millions for filter input)
+      // ========================================================================
+
+      // Total Liabilities filter
+      if (!applyRangeFilter(bank.totalLiabilities, filters.totalLiabilities, 1e6)) return false;
+
+      // Short-Term Borrowings filter
+      if (!applyRangeFilter(bank.shortTermBorrowings, filters.shortTermBorrowings, 1e6)) return false;
+
+      // Long-Term Debt filter
+      if (!applyRangeFilter(bank.longTermDebt, filters.longTermDebt, 1e6)) return false;
+
+      // Total Equity filter
+      if (!applyRangeFilter(bank.totalEquity, filters.totalEquity, 1e6)) return false;
 
       // ========================================================================
       // VALUATION
@@ -269,6 +323,18 @@ function Screener({ banks, loading }) {
       checkRange(filters.marketCap) ||
       checkRange(filters.totalAssets) ||
       checkRange(filters.totalDeposits) ||
+      // Balance Sheet - Assets
+      checkRange(filters.cashAndDueFromBanks) ||
+      checkRange(filters.interestBearingDepositsInBanks) ||
+      checkRange(filters.afsSecurities) ||
+      checkRange(filters.htmSecurities) ||
+      checkRange(filters.loans) ||
+      checkRange(filters.allowanceForCreditLosses) ||
+      // Balance Sheet - Liabilities
+      checkRange(filters.totalLiabilities) ||
+      checkRange(filters.shortTermBorrowings) ||
+      checkRange(filters.longTermDebt) ||
+      checkRange(filters.totalEquity) ||
       // Valuation
       checkRange(filters.pni) ||
       checkRange(filters.ptbvps) ||
