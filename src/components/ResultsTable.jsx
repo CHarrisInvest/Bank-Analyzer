@@ -52,20 +52,6 @@ const COLUMNS = [
     format: (value) => value || '-',
     group: 'info',
   },
-  {
-    key: 'securityType',
-    label: 'Type',
-    xbrl: null,
-    sortable: true,
-    align: 'center',
-    format: (value) => {
-      if (value === 'common') return 'Common';
-      if (value === 'exchange-traded') return 'Non-Common';
-      return value || '-';
-    },
-    group: 'info',
-  },
-
   // ===========================================================================
   // MARKET DATA
   // ===========================================================================

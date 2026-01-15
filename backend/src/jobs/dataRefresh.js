@@ -77,40 +77,96 @@ async function refreshBankData(ticker) {
     // Step 6: Store metrics in database
     await db.query(
       `INSERT INTO bank_metrics (
-        bank_id, price, market_cap, total_assets, total_equity,
-        tangible_book_value, net_income, shares_outstanding, eps,
-        book_value_per_share, tangible_book_value_per_share,
-        pni, ptbvps, mkt_cap_se, ni_tbv, roe, rota,
+        bank_id, price, market_cap,
+        -- Balance Sheet - Assets
+        total_assets, cash_and_due_from_banks, interest_bearing_deposits_in_banks,
+        afs_securities, htm_securities, loans, allowance_for_credit_losses, premises_and_equipment,
+        -- Balance Sheet - Liabilities & Equity
+        total_liabilities, deposits, short_term_borrowings, long_term_debt,
+        total_equity, goodwill, intangible_assets, tangible_book_value, tangible_assets, tangible_common_equity,
+        -- Income Statement
+        interest_income, interest_expense, net_interest_income,
+        noninterest_income, noninterest_expense, provision_for_credit_losses, pre_tax_income, net_income,
+        -- Cash Flow
+        operating_cash_flow,
+        -- Per-Share
+        shares_outstanding, eps, dividends_per_share, book_value_per_share, tangible_book_value_per_share,
+        -- Valuation Ratios
+        pni, ptbvps, mkt_cap_se, ni_tbv,
+        -- Performance Ratios
+        roe, rota, roaa, rotce,
+        -- Graham Metrics
         graham_number, graham_mos, graham_mos_pct,
+        -- Bank-Specific Ratios
         efficiency_ratio, acl_to_loans, provision_to_avg_loans,
         loans_to_assets, deposits_to_assets, loans_to_deposits,
-        cash_securities_to_assets, equity_to_assets, tce_to_ta,
+        cash_securities_to_assets, equity_to_assets, tce_to_ta, net_interest_margin,
+        -- Metadata
         data_date
       ) VALUES (
-        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20,
-        $21, $22, $23, $24, $25, $26, $27, $28, $29, $30
+        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10,
+        $11, $12, $13, $14, $15, $16, $17, $18, $19, $20,
+        $21, $22, $23, $24, $25, $26, $27, $28, $29, $30,
+        $31, $32, $33, $34, $35, $36, $37, $38, $39, $40,
+        $41, $42, $43, $44, $45, $46, $47, $48, $49, $50,
+        $51, $52, $53, $54, $55, $56, $57
       )
       ON CONFLICT (bank_id, data_date)
       DO UPDATE SET
         price = EXCLUDED.price,
         market_cap = EXCLUDED.market_cap,
+        -- Balance Sheet - Assets
         total_assets = EXCLUDED.total_assets,
+        cash_and_due_from_banks = EXCLUDED.cash_and_due_from_banks,
+        interest_bearing_deposits_in_banks = EXCLUDED.interest_bearing_deposits_in_banks,
+        afs_securities = EXCLUDED.afs_securities,
+        htm_securities = EXCLUDED.htm_securities,
+        loans = EXCLUDED.loans,
+        allowance_for_credit_losses = EXCLUDED.allowance_for_credit_losses,
+        premises_and_equipment = EXCLUDED.premises_and_equipment,
+        -- Balance Sheet - Liabilities & Equity
+        total_liabilities = EXCLUDED.total_liabilities,
+        deposits = EXCLUDED.deposits,
+        short_term_borrowings = EXCLUDED.short_term_borrowings,
+        long_term_debt = EXCLUDED.long_term_debt,
         total_equity = EXCLUDED.total_equity,
+        goodwill = EXCLUDED.goodwill,
+        intangible_assets = EXCLUDED.intangible_assets,
         tangible_book_value = EXCLUDED.tangible_book_value,
+        tangible_assets = EXCLUDED.tangible_assets,
+        tangible_common_equity = EXCLUDED.tangible_common_equity,
+        -- Income Statement
+        interest_income = EXCLUDED.interest_income,
+        interest_expense = EXCLUDED.interest_expense,
+        net_interest_income = EXCLUDED.net_interest_income,
+        noninterest_income = EXCLUDED.noninterest_income,
+        noninterest_expense = EXCLUDED.noninterest_expense,
+        provision_for_credit_losses = EXCLUDED.provision_for_credit_losses,
+        pre_tax_income = EXCLUDED.pre_tax_income,
         net_income = EXCLUDED.net_income,
+        -- Cash Flow
+        operating_cash_flow = EXCLUDED.operating_cash_flow,
+        -- Per-Share
         shares_outstanding = EXCLUDED.shares_outstanding,
         eps = EXCLUDED.eps,
+        dividends_per_share = EXCLUDED.dividends_per_share,
         book_value_per_share = EXCLUDED.book_value_per_share,
         tangible_book_value_per_share = EXCLUDED.tangible_book_value_per_share,
+        -- Valuation Ratios
         pni = EXCLUDED.pni,
         ptbvps = EXCLUDED.ptbvps,
         mkt_cap_se = EXCLUDED.mkt_cap_se,
         ni_tbv = EXCLUDED.ni_tbv,
+        -- Performance Ratios
         roe = EXCLUDED.roe,
         rota = EXCLUDED.rota,
+        roaa = EXCLUDED.roaa,
+        rotce = EXCLUDED.rotce,
+        -- Graham Metrics
         graham_number = EXCLUDED.graham_number,
         graham_mos = EXCLUDED.graham_mos,
         graham_mos_pct = EXCLUDED.graham_mos_pct,
+        -- Bank-Specific Ratios
         efficiency_ratio = EXCLUDED.efficiency_ratio,
         acl_to_loans = EXCLUDED.acl_to_loans,
         provision_to_avg_loans = EXCLUDED.provision_to_avg_loans,
@@ -120,28 +176,64 @@ async function refreshBankData(ticker) {
         cash_securities_to_assets = EXCLUDED.cash_securities_to_assets,
         equity_to_assets = EXCLUDED.equity_to_assets,
         tce_to_ta = EXCLUDED.tce_to_ta,
+        net_interest_margin = EXCLUDED.net_interest_margin,
         updated_at = CURRENT_TIMESTAMP`,
       [
         bankId,
         metrics.price,
         metrics.market_cap,
+        // Balance Sheet - Assets
         metrics.total_assets,
+        metrics.cash_and_due_from_banks,
+        metrics.interest_bearing_deposits_in_banks,
+        metrics.afs_securities,
+        metrics.htm_securities,
+        metrics.loans,
+        metrics.allowance_for_credit_losses,
+        metrics.premises_and_equipment,
+        // Balance Sheet - Liabilities & Equity
+        metrics.total_liabilities,
+        metrics.deposits,
+        metrics.short_term_borrowings,
+        metrics.long_term_debt,
         metrics.total_equity,
+        metrics.goodwill,
+        metrics.intangible_assets,
         metrics.tangible_book_value,
+        metrics.tangible_assets,
+        metrics.tangible_common_equity,
+        // Income Statement
+        metrics.interest_income,
+        metrics.interest_expense,
+        metrics.net_interest_income,
+        metrics.noninterest_income,
+        metrics.noninterest_expense,
+        metrics.provision_for_credit_losses,
+        metrics.pre_tax_income,
         metrics.net_income,
+        // Cash Flow
+        metrics.operating_cash_flow,
+        // Per-Share
         metrics.shares_outstanding,
         metrics.eps,
+        metrics.dividends_per_share,
         metrics.book_value_per_share,
         metrics.tangible_book_value_per_share,
+        // Valuation Ratios
         metrics.pni,
         metrics.ptbvps,
         metrics.mkt_cap_se,
         metrics.ni_tbv,
+        // Performance Ratios
         metrics.roe,
         metrics.rota,
+        metrics.roaa,
+        metrics.rotce,
+        // Graham Metrics
         metrics.graham_number,
         metrics.graham_mos,
         metrics.graham_mos_pct,
+        // Bank-Specific Ratios
         metrics.efficiency_ratio,
         metrics.acl_to_loans,
         metrics.provision_to_avg_loans,
@@ -151,6 +243,8 @@ async function refreshBankData(ticker) {
         metrics.cash_securities_to_assets,
         metrics.equity_to_assets,
         metrics.tce_to_ta,
+        metrics.net_interest_margin,
+        // Metadata
         metrics.data_date
       ]
     );

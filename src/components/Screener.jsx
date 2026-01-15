@@ -7,7 +7,7 @@ import { getUniqueExchanges } from '../data/sheets.js';
  * Default filter state
  *
  * Filter categories organized by:
- * - Quick Filters: securityType, exchanges
+ * - Quick Filters: exchanges
  * - Size & Scale: marketCap, totalAssets, totalDeposits
  * - Valuation: pni, ptbvps
  * - Profitability: roe, roaa, rota, rotce
@@ -21,7 +21,6 @@ import { getUniqueExchanges } from '../data/sheets.js';
  */
 const DEFAULT_FILTERS = {
   // Quick Filters
-  securityType: 'all', // 'all', 'common', 'exchange-traded'
   exchanges: [],
 
   // Size & Scale
@@ -113,16 +112,6 @@ function Screener({ banks, loading }) {
       // ========================================================================
       // QUICK FILTERS
       // ========================================================================
-
-      // Security Type filter
-      if (filters.securityType && filters.securityType !== 'all') {
-        if (filters.securityType === 'common' && bank.securityType !== 'common') {
-          return false;
-        }
-        if (filters.securityType === 'exchange-traded' && bank.securityType !== 'exchange-traded') {
-          return false;
-        }
-      }
 
       // Exchange filter
       if (filters.exchanges.length > 0 && !filters.exchanges.includes(bank.exchange)) {
@@ -275,7 +264,6 @@ function Screener({ banks, loading }) {
 
     return (
       // Quick Filters
-      (filters.securityType && filters.securityType !== 'all') ||
       filters.exchanges.length > 0 ||
       // Size & Scale
       checkRange(filters.marketCap) ||
