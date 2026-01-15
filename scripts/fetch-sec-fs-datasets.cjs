@@ -417,59 +417,89 @@ function getLatestPointInTime(conceptData) {
 }
 
 /**
- * Get TTM value by summing quarters or using annual
+ * Get TTM (Trailing Twelve Months) value by summing quarters or using annual fallback.
+ *
+ * CRITICAL ACCOUNTING LOGIC:
+ * =========================
+ * Quarterly vs annual is determined by the XBRL context period length (qtrs field),
+ * NOT by the filing type (10-K vs 10-Q).
+ *
+ * The SEC's `qtrs` field represents the number of quarters in the reporting period:
+ * - qtrs=1: Quarterly data (~80-100 day period)
+ * - qtrs=4: Annual data (~350-380 day period)
+ * - qtrs=0: Point-in-time (balance sheet items)
+ *
+ * A 10-K filing can contain BOTH annual (qtrs=4) AND quarterly (qtrs=1) data.
+ * Q4 data specifically often appears in 10-K filings with qtrs=1.
+ * Similarly, companies may include comparative quarterly data in 10-K filings.
+ *
+ * TTM CALCULATION RULES:
+ * ---------------------
+ * Rule A (Quarterly-first): If 4+ quarterly periods exist, sum the most recent 4.
+ *         This applies even if some quarters come from 10-K filings.
+ *         NEVER mix annual and quarterly values.
+ *
+ * Rule B (Annual fallback): Only use annual value if:
+ *         - Fewer than 4 quarterly periods exist, AND
+ *         - The annual period is the most recent reported period
+ *         Do NOT mix annual + quarterly values.
  */
 function getTTMValue(conceptData) {
   if (!conceptData || conceptData.length === 0) return null;
 
-  // Sort by date descending
+  // Filter for valid SEC filings only (10-K, 10-Q) and sort by date descending
   const sorted = [...conceptData]
     .filter(d => d.form === '10-K' || d.form === '10-Q')
     .sort((a, b) => b.ddate.localeCompare(a.ddate));
 
   if (sorted.length === 0) return null;
 
-  const mostRecent = sorted[0];
+  // Separate quarterly (qtrs=1) from annual (qtrs=4) based on period length ONLY
+  // Do NOT filter by filing type - 10-K filings can contain quarterly data (e.g., Q4)
+  const quarterlyValues = sorted.filter(d => d.qtrs === 1);
+  const annualValues = sorted.filter(d => d.qtrs === 4);
 
-  // If most recent is annual (10-K with qtrs=4), use it directly
-  if (mostRecent.form === '10-K' && mostRecent.qtrs === 4) {
-    return {
-      value: mostRecent.value,
-      date: mostRecent.ddate,
-      method: 'annual',
-      form: '10-K',
-      details: [mostRecent]
-    };
-  }
-
-  // Try to sum 4 quarters
-  const quarterlyValues = sorted
-    .filter(d => d.form === '10-Q' && d.qtrs === 1)
-    .slice(0, 4);
-
+  // Rule A: Quarterly-first rule
+  // If we have 4 or more quarterly periods, ALWAYS sum the most recent 4
+  // This includes Q4 data reported inside a 10-K filing
   if (quarterlyValues.length >= 4) {
-    const ttmValue = quarterlyValues.reduce((sum, q) => sum + q.value, 0);
+    const topQuarters = quarterlyValues.slice(0, 4);
+    const ttmValue = topQuarters.reduce((sum, q) => sum + q.value, 0);
     return {
       value: ttmValue,
-      date: quarterlyValues[0].ddate,
+      date: topQuarters[0].ddate,
       method: 'sum-4Q',
-      form: '10-Q',
-      details: quarterlyValues
+      // Track forms used - may be mixed (10-K and 10-Q) when Q4 comes from 10-K
+      form: [...new Set(topQuarters.map(q => q.form))].join('+'),
+      details: topQuarters
     };
   }
 
-  // Fallback to most recent annual
-  const annualValues = sorted.filter(d => d.form === '10-K' && d.qtrs === 4);
+  // Rule B: Annual fallback rule
+  // Use annual value ONLY if:
+  // 1. Fewer than 4 quarterly periods exist
+  // 2. We have annual data available
+  // 3. The annual period is the most recent reported period
+  // NEVER mix annual and quarterly values
   if (annualValues.length > 0) {
-    return {
-      value: annualValues[0].value,
-      date: annualValues[0].ddate,
-      method: 'annual-fallback',
-      form: '10-K',
-      details: [annualValues[0]]
-    };
+    const mostRecentAnnual = annualValues[0];
+    const mostRecentQuarter = quarterlyValues.length > 0 ? quarterlyValues[0] : null;
+
+    // Use annual only if no quarterly data OR annual is more recent
+    if (!mostRecentQuarter || mostRecentAnnual.ddate >= mostRecentQuarter.ddate) {
+      return {
+        value: mostRecentAnnual.value,
+        date: mostRecentAnnual.ddate,
+        method: quarterlyValues.length === 0 ? 'annual' : 'annual-fallback',
+        form: mostRecentAnnual.form,
+        details: [mostRecentAnnual]
+      };
+    }
   }
 
+  // Cannot compute valid TTM:
+  // - Fewer than 4 quarters available
+  // - No annual data, or annual data is older than available quarters
   return null;
 }
 
@@ -1084,8 +1114,17 @@ async function main() {
   console.log('═'.repeat(80));
 }
 
-// Run
-main().catch(error => {
-  console.error('Fatal error:', error);
-  process.exit(1);
-});
+// Run (only if executed directly, not when imported for testing)
+if (require.main === module) {
+  main().catch(error => {
+    console.error('Fatal error:', error);
+    process.exit(1);
+  });
+}
+
+// Export for testing
+module.exports = {
+  getTTMValue,
+  getLatestPointInTime,
+  getSharesOutstanding
+};
