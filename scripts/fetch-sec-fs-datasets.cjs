@@ -11,9 +11,17 @@
  *
  * Data Files in ZIP:
  * - sub.txt: Submission metadata (CIK, company name, filing info)
- * - num.txt: Numeric data (tag, value, date, quarters)
+ * - num.txt: Numeric data (tag, value, date, quarters, coreg, segments)
  * - tag.txt: Tag definitions
  * - pre.txt: Presentation data
+ *
+ * IMPORTANT: The num.txt file contains multiple values for the same concept:
+ * - Consolidated entity data (coreg=NULL, segments=NULL) - THIS IS WHAT WE WANT
+ * - Co-registrant/subsidiary data (coreg=non-NULL)
+ * - Segment breakdown data (segments=non-NULL)
+ *
+ * We filter for coreg=NULL AND segments=NULL to get consolidated totals only.
+ * See: https://www.sec.gov/files/financial-statement-data-sets.pdf
  *
  * Output:
  * - public/data/banks.json: Calculated metrics (existing format)
@@ -301,11 +309,28 @@ async function processQuarterlyDataset(datasetInfo, bankCiks) {
   console.log(`    Found ${numData.length} numeric values`);
 
   // Filter for bank data and relevant concepts
+  // CRITICAL: Filter for consolidated entity only (coreg=NULL, segments=NULL)
+  // - coreg: "if specified, indicates a specific co-registrant, the parent company,
+  //          or other entity (e.g., guarantor). NULL indicates the consolidated entity."
+  // - segments: dimensional/segment breakdown data (added Dec 2024)
+  // See: https://www.sec.gov/files/financial-statement-data-sets.pdf
   const conceptSet = new Set(CONFIG.conceptsToExtract);
-  const bankNumData = numData.filter(num => {
+
+  // First, filter for bank submissions and relevant concepts
+  const bankConceptData = numData.filter(num => {
     return bankAdshs.has(num.adsh) && conceptSet.has(num.tag);
   });
-  console.log(`    Matched ${bankNumData.length} bank concept values`);
+  console.log(`    Matched ${bankConceptData.length} bank concept values (before consolidation filter)`);
+
+  // Then filter for consolidated entity only (coreg and segments must be empty)
+  const bankNumData = bankConceptData.filter(num => {
+    const isConsolidated = !num.coreg || num.coreg.trim() === '';
+    const isNotSegment = !num.segments || num.segments.trim() === '';
+    return isConsolidated && isNotSegment;
+  });
+
+  const filteredOut = bankConceptData.length - bankNumData.length;
+  console.log(`    Filtered to ${bankNumData.length} consolidated values (removed ${filteredOut} subsidiary/segment entries)`);
 
   // Build submission lookup
   const subLookup = {};
@@ -841,14 +866,46 @@ async function main() {
   console.log(`Banks processed: ${results.length}`);
   console.log(`Data quality issues: ${results.filter(r => r.hasDataQualityIssues).length} banks`);
 
-  // Show example - Ally
+  // Show validation examples for major banks
+  const majorBanks = ['ALLY', 'JPM', 'BAC', 'WFC', 'C', 'USB'];
+  const foundMajorBanks = results.filter(r => majorBanks.includes(r.ticker));
+
+  if (foundMajorBanks.length > 0) {
+    console.log('\nMAJOR BANK VALIDATION (consolidated data check):');
+    console.log('─'.repeat(80));
+    console.log(`${'Ticker'.padEnd(8)} ${'Total Assets'.padStart(18)} ${'Total Equity'.padStart(16)} ${'Deposits'.padStart(16)} ${'Data Date'.padStart(12)}`);
+    console.log('─'.repeat(80));
+
+    foundMajorBanks.forEach(bank => {
+      const assets = bank.totalAssets ? `$${(bank.totalAssets / 1e9).toFixed(1)}B` : 'N/A';
+      const equity = bank.totalEquity ? `$${(bank.totalEquity / 1e9).toFixed(1)}B` : 'N/A';
+      const deposits = bank.totalDeposits ? `$${(bank.totalDeposits / 1e9).toFixed(1)}B` : 'N/A';
+      const dataDate = bank.dataDate || 'N/A';
+      const flag = bank.hasDataQualityIssues ? ' ⚠' : ' ✓';
+
+      console.log(`${bank.ticker.padEnd(8)} ${assets.padStart(18)} ${equity.padStart(16)} ${deposits.padStart(16)} ${dataDate.padStart(12)}${flag}`);
+    });
+
+    console.log('─'.repeat(80));
+    console.log('Expected ranges: Assets($100B-$4T), Equity($10B-$350B), Deposits($80B-$2.5T)');
+  }
+
+  // Show example - Ally (detailed)
   const ally = results.find(r => r.ticker === 'ALLY');
   if (ally) {
-    console.log('\nALLY FINANCIAL (example):');
+    console.log('\nALLY FINANCIAL (detailed):');
+    console.log(`  Total Assets:      $${ally.totalAssets ? (ally.totalAssets / 1e9).toFixed(3) + 'B' : 'N/A'}`);
+    console.log(`  Total Equity:      $${ally.totalEquity ? (ally.totalEquity / 1e9).toFixed(3) + 'B' : 'N/A'}`);
+    console.log(`  Total Deposits:    $${ally.totalDeposits ? (ally.totalDeposits / 1e9).toFixed(3) + 'B' : 'N/A'}`);
     console.log(`  Shares Outstanding: ${ally.sharesOutstanding?.toLocaleString() || 'N/A'}`);
-    console.log(`  Total Equity: $${(ally.totalEquity / 1e9).toFixed(3)}B`);
-    console.log(`  BVPS: $${ally.bvps?.toFixed(2) || 'N/A'}`);
-    console.log(`  Data Date: ${ally.dataDate}`);
+    console.log(`  BVPS:              $${ally.bvps?.toFixed(2) || 'N/A'}`);
+    console.log(`  ROE:               ${ally.roe?.toFixed(2) || 'N/A'}%`);
+    console.log(`  Deposits/Assets:   ${ally.depositsToAssets?.toFixed(1) || 'N/A'}%`);
+    console.log(`  Equity/Assets:     ${ally.equityToAssets?.toFixed(1) || 'N/A'}%`);
+    console.log(`  Data Date:         ${ally.dataDate}`);
+    if (ally.hasDataQualityIssues) {
+      console.log(`  Data Quality Issues: ${ally.dataQualityIssues.join(', ')}`);
+    }
   }
 
   console.log(`\nCompleted: ${new Date().toISOString()}`);
