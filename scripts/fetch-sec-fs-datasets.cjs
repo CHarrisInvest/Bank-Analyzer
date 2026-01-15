@@ -34,6 +34,11 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+// Parse command line arguments
+const args = process.argv.slice(2);
+const LOCAL_ONLY = args.includes('--local-only');
+const HELP = args.includes('--help') || args.includes('-h');
+
 // Configuration
 const CONFIG = {
   edgarUserAgent: process.env.EDGAR_USER_AGENT || 'Bank-Analyzer github-actions@example.com',
@@ -351,15 +356,30 @@ function loadBankList() {
  * Process a quarterly dataset
  */
 async function processQuarterlyDataset(datasetInfo, bankCiks) {
-  const { url, period } = datasetInfo;
-  const zipFileName = path.basename(url);
-  const zipPath = path.join(TEMP_DIR, zipFileName);
+  const { url, period, zipPath: providedZipPath } = datasetInfo;
+
+  // Use provided zipPath (local-only mode) or construct from URL
+  let zipPath;
+  if (providedZipPath) {
+    zipPath = providedZipPath;
+  } else if (url) {
+    const zipFileName = path.basename(url);
+    zipPath = path.join(TEMP_DIR, zipFileName);
+  } else {
+    console.error(`  No URL or zipPath for ${period}`);
+    return null;
+  }
+
   const extractDir = path.join(TEMP_DIR, period);
 
   console.log(`\nProcessing ${period}...`);
 
-  // Download if not already cached
+  // Download if not already cached (skip in local-only mode)
   if (!fs.existsSync(zipPath)) {
+    if (LOCAL_ONLY) {
+      console.error(`  ZIP file not found: ${zipPath}`);
+      return null;
+    }
     try {
       await downloadFile(url, zipPath);
     } catch (error) {
@@ -827,14 +847,100 @@ function applyDataQualityValidation(metrics) {
 }
 
 /**
+ * Show help message
+ */
+function showHelp() {
+  console.log(`
+SEC Financial Statement Data Sets Fetcher
+
+USAGE:
+  node scripts/fetch-sec-fs-datasets.cjs [OPTIONS]
+
+OPTIONS:
+  --local-only    Process only cached ZIP files (no downloads)
+  --help, -h      Show this help message
+
+LOCAL-ONLY MODE:
+  When --local-only is used, the script processes ZIP files already in:
+    .sec-data-cache/
+
+  To use this mode:
+  1. Download ZIP files manually from SEC:
+     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q4.zip
+     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q3.zip
+     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q2.zip
+     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q1.zip
+     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2024q4.zip
+
+  2. Place them in .sec-data-cache/ with exact names:
+     .sec-data-cache/2025q4.zip
+     .sec-data-cache/2025q3.zip
+     .sec-data-cache/2025q2.zip
+     .sec-data-cache/2025q1.zip
+     .sec-data-cache/2024q4.zip
+
+  3. Run: node scripts/fetch-sec-fs-datasets.cjs --local-only
+
+  4. Commit the output files:
+     git add public/data/banks.json public/data/sec-raw-data.json
+     git commit -m "Update bank data from SEC FS Data Sets"
+     git push
+`);
+}
+
+/**
+ * Find cached ZIP files for local-only mode
+ */
+function findCachedQuarters() {
+  if (!fs.existsSync(TEMP_DIR)) {
+    return [];
+  }
+
+  const files = fs.readdirSync(TEMP_DIR);
+  const zipPattern = /^(\d{4})q([1-4])\.zip$/i;
+
+  const quarters = files
+    .filter(f => zipPattern.test(f))
+    .map(f => {
+      const match = f.match(zipPattern);
+      const year = parseInt(match[1]);
+      const quarter = parseInt(match[2]);
+      return {
+        url: null,  // No URL needed for local files
+        year,
+        quarter,
+        period: `${year}Q${quarter}`,
+        zipPath: path.join(TEMP_DIR, f)
+      };
+    })
+    .sort((a, b) => {
+      if (b.year !== a.year) return b.year - a.year;
+      return b.quarter - a.quarter;
+    });
+
+  return quarters;
+}
+
+/**
  * Main function
  */
 async function main() {
+  // Handle --help
+  if (HELP) {
+    showHelp();
+    process.exit(0);
+  }
+
   console.log('═'.repeat(80));
   console.log('SEC FINANCIAL STATEMENT DATA SETS FETCHER');
   console.log('═'.repeat(80));
   console.log('');
-  console.log('Data Source: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets');
+
+  if (LOCAL_ONLY) {
+    console.log('MODE: Local-only (processing cached ZIP files only)');
+  } else {
+    console.log('Data Source: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets');
+  }
   console.log('This uses ONLY primary financial statement data as rendered by the SEC.');
   console.log('');
   console.log(`Started: ${new Date().toISOString()}`);
@@ -859,8 +965,24 @@ async function main() {
   });
   console.log(`  ${bankCiks.size} unique CIKs`);
 
-  // Get quarterly dataset URLs (scrapes SEC page for available quarters)
-  const datasetUrls = await getQuarterlyDatasetUrls(CONFIG.quartersToFetch);
+  // Get quarterly dataset URLs
+  let datasetUrls;
+  if (LOCAL_ONLY) {
+    // Find cached ZIP files
+    const cached = findCachedQuarters();
+    if (cached.length === 0) {
+      console.error('\nNo cached ZIP files found in .sec-data-cache/');
+      console.error('Download ZIP files from SEC and place them there.');
+      console.error('Run with --help for instructions.');
+      process.exit(1);
+    }
+    console.log(`\nFound ${cached.length} cached ZIP files:`);
+    cached.forEach(q => console.log(`  - ${q.period}: ${q.zipPath}`));
+    datasetUrls = cached.slice(0, CONFIG.quartersToFetch);
+  } else {
+    // Scrape SEC page for available quarters
+    datasetUrls = await getQuarterlyDatasetUrls(CONFIG.quartersToFetch);
+  }
 
   // Process each quarter
   const quarterlyResults = [];
