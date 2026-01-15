@@ -1,0 +1,57 @@
+name: Update SEC Data (Manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      quarters:
+        description: 'Quarters to download (space-separated, e.g., "2025q4 2025q3 2025q2")'
+        required: false
+        default: '2025q4 2025q3 2025q2 2025q1 2024q4'
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Download SEC quarterly data
+        run: |
+          mkdir -p .sec-data-cache
+
+          for q in ${{ github.event.inputs.quarters }}; do
+            echo "Downloading $q.zip..."
+            curl -sf -A "Bank-Analyzer/1.0 (GitHub Actions; +https://github.com/${{ github.repository }})" \
+              -o ".sec-data-cache/$q.zip" \
+              "https://www.sec.gov/files/dera/data/financial-statement-data-sets/$q.zip" \
+              && echo "  ✓ $q.zip downloaded" \
+              || echo "  ✗ $q.zip failed (may not be available yet)"
+          done
+
+          echo ""
+          echo "Downloaded files:"
+          ls -la .sec-data-cache/
+
+      - name: Process SEC data
+        run: node scripts/fetch-sec-fs-datasets.cjs --local-only
+
+      - name: Commit and push results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add public/data/banks.json public/data/sec-raw-data.json
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update bank data from SEC FS Data Sets - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+            echo "✓ Changes committed and pushed"
+          fi
