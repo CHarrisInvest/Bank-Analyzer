@@ -24,23 +24,69 @@ CREATE TABLE bank_metrics (
     price DECIMAL(12, 2),
     market_cap BIGINT, -- In dollars
 
-    -- SEC filing derived metrics
+    -- ========================================================================
+    -- BALANCE SHEET - ASSETS (Point-in-Time)
+    -- ========================================================================
     total_assets BIGINT,
-    total_equity BIGINT,
+    cash_and_due_from_banks BIGINT, -- us-gaap:CashAndDueFromBanks
+    interest_bearing_deposits_in_banks BIGINT, -- us-gaap:InterestBearingDepositsInBanks
+    afs_securities BIGINT, -- us-gaap:AvailableForSaleSecuritiesDebt
+    htm_securities BIGINT, -- us-gaap:HeldToMaturitySecurities
+    loans BIGINT, -- us-gaap:LoansAndLeasesReceivableNetReportedAmount
+    allowance_for_credit_losses BIGINT, -- us-gaap:AllowanceForLoanAndLeaseLosses
+    premises_and_equipment BIGINT, -- us-gaap:PremisesAndEquipmentNet
+
+    -- ========================================================================
+    -- BALANCE SHEET - LIABILITIES & EQUITY (Point-in-Time)
+    -- ========================================================================
+    total_liabilities BIGINT, -- us-gaap:Liabilities
+    deposits BIGINT, -- us-gaap:Deposits
+    short_term_borrowings BIGINT, -- us-gaap:ShortTermBorrowings
+    long_term_debt BIGINT, -- us-gaap:LongTermDebt
+    total_equity BIGINT, -- us-gaap:StockholdersEquity
+    goodwill BIGINT, -- us-gaap:Goodwill
+    intangible_assets BIGINT, -- us-gaap:IntangibleAssetsNetExcludingGoodwill
     tangible_book_value BIGINT,
-    net_income BIGINT,
-    shares_outstanding BIGINT,
-    eps DECIMAL(12, 4), -- Earnings per share
+    tangible_assets BIGINT,
+    tangible_common_equity BIGINT,
+
+    -- ========================================================================
+    -- INCOME STATEMENT (Annual/TTM values)
+    -- ========================================================================
+    interest_income BIGINT, -- us-gaap:InterestIncome
+    interest_expense BIGINT, -- us-gaap:InterestExpense
+    net_interest_income BIGINT, -- us-gaap:NetInterestIncome
+    noninterest_income BIGINT, -- us-gaap:NoninterestIncome
+    noninterest_expense BIGINT, -- us-gaap:NoninterestExpense
+    provision_for_credit_losses BIGINT, -- us-gaap:ProvisionForLoanAndLeaseLosses
+    pre_tax_income BIGINT, -- us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxes
+    net_income BIGINT, -- us-gaap:NetIncomeLoss
+
+    -- ========================================================================
+    -- CASH FLOW (Annual values)
+    -- ========================================================================
+    operating_cash_flow BIGINT, -- us-gaap:NetCashProvidedByUsedInOperatingActivities
+
+    -- ========================================================================
+    -- CAPITAL / PER-SHARE
+    -- ========================================================================
+    shares_outstanding BIGINT, -- dei:EntityCommonStockSharesOutstanding
+    eps DECIMAL(12, 4), -- us-gaap:EarningsPerShareBasic
+    dividends_per_share DECIMAL(12, 4), -- us-gaap:CommonStockDividendsPerShareDeclared
     book_value_per_share DECIMAL(12, 4),
     tangible_book_value_per_share DECIMAL(12, 4),
 
-    -- Calculated ratios
+    -- ========================================================================
+    -- CALCULATED RATIOS
+    -- ========================================================================
     pni DECIMAL(12, 4), -- Price to Net Income (P/E ratio)
     ptbvps DECIMAL(12, 4), -- Price to Tangible Book Value per Share
     mkt_cap_se DECIMAL(12, 4), -- Market Cap to Shareholder Equity
     ni_tbv DECIMAL(12, 4), -- Net Income to Tangible Book Value
     roe DECIMAL(12, 4), -- Return on Equity (%)
-    rota DECIMAL(12, 4), -- Return on Total Assets (%)
+    roaa DECIMAL(12, 4), -- Return on Average Assets (%)
+    rota DECIMAL(12, 4), -- Return on Tangible Assets (%)
+    rotce DECIMAL(12, 4), -- Return on Tangible Common Equity (%)
 
     -- Graham value investing metrics
     graham_number DECIMAL(12, 4),
@@ -57,6 +103,7 @@ CREATE TABLE bank_metrics (
     cash_securities_to_assets DECIMAL(12, 4), -- (Cash + AFS + HTM) / Total Assets
     equity_to_assets DECIMAL(12, 4), -- Stockholders' Equity / Total Assets
     tce_to_ta DECIMAL(12, 4), -- Tangible Common Equity / Tangible Assets
+    net_interest_margin DECIMAL(12, 4), -- Net Interest Income / Earning Assets
 
     -- Metadata
     data_date DATE NOT NULL, -- Date of the financial data
@@ -81,12 +128,54 @@ SELECT
     b.exchange,
     m.price,
     m.market_cap,
+    -- Balance Sheet - Assets
+    m.total_assets,
+    m.cash_and_due_from_banks,
+    m.interest_bearing_deposits_in_banks,
+    m.afs_securities,
+    m.htm_securities,
+    m.loans,
+    m.allowance_for_credit_losses,
+    m.premises_and_equipment,
+    -- Balance Sheet - Liabilities & Equity
+    m.total_liabilities,
+    m.deposits,
+    m.short_term_borrowings,
+    m.long_term_debt,
+    m.total_equity,
+    m.goodwill,
+    m.intangible_assets,
+    m.tangible_book_value,
+    m.tangible_assets,
+    m.tangible_common_equity,
+    -- Income Statement
+    m.interest_income,
+    m.interest_expense,
+    m.net_interest_income,
+    m.noninterest_income,
+    m.noninterest_expense,
+    m.provision_for_credit_losses,
+    m.pre_tax_income,
+    m.net_income,
+    -- Cash Flow
+    m.operating_cash_flow,
+    -- Capital / Per-Share
+    m.shares_outstanding,
+    m.eps,
+    m.dividends_per_share,
+    m.book_value_per_share,
+    m.tangible_book_value_per_share,
+    -- Valuation Ratios
     m.pni,
     m.ptbvps,
     m.mkt_cap_se,
     m.ni_tbv,
+    -- Performance Ratios
     m.roe,
+    m.roaa,
     m.rota,
+    m.rotce,
+    -- Graham Metrics
     m.graham_number,
     m.graham_mos,
     m.graham_mos_pct,
@@ -100,6 +189,8 @@ SELECT
     m.cash_securities_to_assets,
     m.equity_to_assets,
     m.tce_to_ta,
+    m.net_interest_margin,
+    -- Metadata
     m.data_date,
     m.updated_at
 FROM banks b

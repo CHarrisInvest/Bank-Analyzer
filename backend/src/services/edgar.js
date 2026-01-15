@@ -161,25 +161,41 @@ class EdgarClient {
   extractBankingMetrics(companyFacts) {
     const metrics = {};
 
-    // Balance Sheet Items
-    metrics.totalAssets = this.getLatestConceptValue(companyFacts, 'Assets');
-    metrics.totalEquity = this.getLatestConceptValue(companyFacts, 'StockholdersEquity');
-    metrics.commonStock = this.getLatestConceptValue(companyFacts, 'CommonStockSharesOutstanding');
+    // ============================================================================
+    // BALANCE SHEET - ASSETS
+    // ============================================================================
 
-    // Alternative concepts for stockholders equity
-    if (!metrics.totalEquity) {
-      metrics.totalEquity = this.getLatestConceptValue(companyFacts, 'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest');
+    // Total Assets (us-gaap:Assets)
+    metrics.totalAssets = this.getLatestConceptValue(companyFacts, 'Assets');
+
+    // Cash and Due from Banks (us-gaap:CashAndDueFromBanks)
+    metrics.cashAndDueFromBanks = this.getLatestConceptValue(companyFacts, 'CashAndDueFromBanks');
+    if (!metrics.cashAndDueFromBanks) {
+      metrics.cashAndDueFromBanks = this.getLatestConceptValue(companyFacts, 'CashAndCashEquivalentsAtCarryingValue');
     }
 
-    // Intangible assets (for calculating tangible book value)
-    metrics.goodwill = this.getLatestConceptValue(companyFacts, 'Goodwill');
-    metrics.intangibleAssets = this.getLatestConceptValue(companyFacts, 'IntangibleAssetsNetExcludingGoodwill');
+    // Interest-Bearing Deposits in Banks (us-gaap:InterestBearingDepositsInBanks)
+    metrics.interestBearingDepositsInBanks = this.getLatestConceptValue(companyFacts, 'InterestBearingDepositsInBanks');
+    if (!metrics.interestBearingDepositsInBanks) {
+      metrics.interestBearingDepositsInBanks = this.getLatestConceptValue(companyFacts, 'InterestBearingDepositsInBanksAndOtherFinancialInstitutions');
+    }
 
-    // ============================================================================
-    // BANK-SPECIFIC BALANCE SHEET ITEMS
-    // ============================================================================
+    // Available-for-Sale Securities (us-gaap:AvailableForSaleSecuritiesDebt)
+    metrics.afsSecurities = this.getLatestConceptValue(companyFacts, 'AvailableForSaleSecuritiesDebtSecurities');
+    if (!metrics.afsSecurities) {
+      metrics.afsSecurities = this.getLatestConceptValue(companyFacts, 'AvailableForSaleSecurities');
+    }
+    if (!metrics.afsSecurities) {
+      metrics.afsSecurities = this.getLatestConceptValue(companyFacts, 'AvailableForSaleSecuritiesDebt');
+    }
 
-    // Loans and Leases
+    // Held-to-Maturity Securities (us-gaap:HeldToMaturitySecurities)
+    metrics.htmSecurities = this.getLatestConceptValue(companyFacts, 'HeldToMaturitySecurities');
+    if (!metrics.htmSecurities) {
+      metrics.htmSecurities = this.getLatestConceptValue(companyFacts, 'HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss');
+    }
+
+    // Loans and Leases (us-gaap:LoansAndLeasesReceivableNetReportedAmount)
     metrics.loans = this.getLatestConceptValue(companyFacts, 'LoansAndLeasesReceivableNetReportedAmount');
     if (!metrics.loans) {
       metrics.loans = this.getLatestConceptValue(companyFacts, 'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss');
@@ -188,66 +204,119 @@ class EdgarClient {
       metrics.loans = this.getLatestConceptValue(companyFacts, 'NotesReceivableNet');
     }
 
-    // Deposits
+    // Allowance for Loan and Lease Losses (us-gaap:AllowanceForLoanAndLeaseLosses)
+    metrics.allowanceForCreditLosses = this.getLatestConceptValue(companyFacts, 'AllowanceForLoanAndLeaseLosses');
+    if (!metrics.allowanceForCreditLosses) {
+      metrics.allowanceForCreditLosses = this.getLatestConceptValue(companyFacts, 'FinancingReceivableAllowanceForCreditLosses');
+    }
+    if (!metrics.allowanceForCreditLosses) {
+      metrics.allowanceForCreditLosses = this.getLatestConceptValue(companyFacts, 'LoansAndLeasesReceivableAllowance');
+    }
+
+    // Premises and Equipment Net (us-gaap:PremisesAndEquipmentNet)
+    metrics.premisesAndEquipment = this.getLatestConceptValue(companyFacts, 'PremisesAndEquipmentNet');
+    if (!metrics.premisesAndEquipment) {
+      metrics.premisesAndEquipment = this.getLatestConceptValue(companyFacts, 'PropertyPlantAndEquipmentNet');
+    }
+
+    // Legacy cash field for compatibility
+    metrics.cashAndEquivalents = metrics.cashAndDueFromBanks;
+
+    // ============================================================================
+    // BALANCE SHEET - LIABILITIES & EQUITY
+    // ============================================================================
+
+    // Total Liabilities (us-gaap:Liabilities)
+    metrics.totalLiabilities = this.getLatestConceptValue(companyFacts, 'Liabilities');
+
+    // Deposits (us-gaap:Deposits)
     metrics.deposits = this.getLatestConceptValue(companyFacts, 'Deposits');
     if (!metrics.deposits) {
       metrics.deposits = this.getLatestConceptValue(companyFacts, 'DepositsDomestic');
     }
 
-    // Allowance for Credit Losses
-    metrics.allowanceForCreditLosses = this.getLatestConceptValue(companyFacts, 'FinancingReceivableAllowanceForCreditLosses');
-    if (!metrics.allowanceForCreditLosses) {
-      metrics.allowanceForCreditLosses = this.getLatestConceptValue(companyFacts, 'LoansAndLeasesReceivableAllowance');
+    // Short-Term Borrowings (us-gaap:ShortTermBorrowings)
+    metrics.shortTermBorrowings = this.getLatestConceptValue(companyFacts, 'ShortTermBorrowings');
+    if (!metrics.shortTermBorrowings) {
+      metrics.shortTermBorrowings = this.getLatestConceptValue(companyFacts, 'SecuritiesSoldUnderAgreementsToRepurchase');
     }
 
-    // Cash and Securities
-    metrics.cashAndEquivalents = this.getLatestConceptValue(companyFacts, 'CashAndCashEquivalentsAtCarryingValue');
-    if (!metrics.cashAndEquivalents) {
-      metrics.cashAndEquivalents = this.getLatestConceptValue(companyFacts, 'CashAndDueFromBanks');
+    // Long-Term Debt (us-gaap:LongTermDebt)
+    metrics.longTermDebt = this.getLatestConceptValue(companyFacts, 'LongTermDebt');
+    if (!metrics.longTermDebt) {
+      metrics.longTermDebt = this.getLatestConceptValue(companyFacts, 'LongTermDebtNoncurrent');
+    }
+    if (!metrics.longTermDebt) {
+      metrics.longTermDebt = this.getLatestConceptValue(companyFacts, 'SubordinatedDebt');
     }
 
-    metrics.afsSecurities = this.getLatestConceptValue(companyFacts, 'AvailableForSaleSecuritiesDebtSecurities');
-    if (!metrics.afsSecurities) {
-      metrics.afsSecurities = this.getLatestConceptValue(companyFacts, 'AvailableForSaleSecurities');
+    // Stockholders' Equity (us-gaap:StockholdersEquity)
+    metrics.totalEquity = this.getLatestConceptValue(companyFacts, 'StockholdersEquity');
+    if (!metrics.totalEquity) {
+      metrics.totalEquity = this.getLatestConceptValue(companyFacts, 'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest');
     }
 
-    metrics.htmSecurities = this.getLatestConceptValue(companyFacts, 'HeldToMaturitySecurities');
-    if (!metrics.htmSecurities) {
-      metrics.htmSecurities = this.getLatestConceptValue(companyFacts, 'HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss');
-    }
+    // Intangible assets (for calculating tangible book value)
+    metrics.goodwill = this.getLatestConceptValue(companyFacts, 'Goodwill');
+    metrics.intangibleAssets = this.getLatestConceptValue(companyFacts, 'IntangibleAssetsNetExcludingGoodwill');
+
+    // Preferred Stock
+    metrics.preferredStock = this.getLatestConceptValue(companyFacts, 'PreferredStockValue');
 
     // ============================================================================
-    // BANK-SPECIFIC INCOME STATEMENT ITEMS
+    // INCOME STATEMENT
     // ============================================================================
 
-    // Net Interest Income
+    // Interest Income (us-gaap:InterestIncome)
+    metrics.interestIncome = this.getLatestConceptValue(companyFacts, 'InterestAndDividendIncomeOperating');
+    if (!metrics.interestIncome) {
+      metrics.interestIncome = this.getLatestConceptValue(companyFacts, 'InterestIncome');
+    }
+    if (!metrics.interestIncome) {
+      metrics.interestIncome = this.getLatestConceptValue(companyFacts, 'InterestIncomeOperating');
+    }
+
+    // Interest Expense (us-gaap:InterestExpense)
+    metrics.interestExpense = this.getLatestConceptValue(companyFacts, 'InterestExpense');
+    if (!metrics.interestExpense) {
+      metrics.interestExpense = this.getLatestConceptValue(companyFacts, 'InterestExpenseDeposits');
+    }
+
+    // Net Interest Income (us-gaap:NetInterestIncome)
     metrics.netInterestIncome = this.getLatestConceptValue(companyFacts, 'InterestIncomeExpenseNet');
     if (!metrics.netInterestIncome) {
       metrics.netInterestIncome = this.getLatestConceptValue(companyFacts, 'NetInterestIncome');
     }
 
-    // Noninterest Income
+    // Noninterest Income (us-gaap:NoninterestIncome)
     metrics.noninterestIncome = this.getLatestConceptValue(companyFacts, 'NoninterestIncome');
 
-    // Noninterest Expense
+    // Noninterest Expense (us-gaap:NoninterestExpense)
     metrics.noninterestExpense = this.getLatestConceptValue(companyFacts, 'NoninterestExpense');
     if (!metrics.noninterestExpense) {
       metrics.noninterestExpense = this.getLatestConceptValue(companyFacts, 'OtherCostAndExpenseOperating');
     }
 
-    // Provision for Credit Losses
-    metrics.provisionForCreditLosses = this.getLatestConceptValue(companyFacts, 'ProvisionForLoanLeaseAndOtherLosses');
+    // Provision for Loan and Lease Losses (us-gaap:ProvisionForLoanAndLeaseLosses)
+    metrics.provisionForCreditLosses = this.getLatestConceptValue(companyFacts, 'ProvisionForLoanAndLeaseLosses');
     if (!metrics.provisionForCreditLosses) {
-      metrics.provisionForCreditLosses = this.getLatestConceptValue(companyFacts, 'ProvisionForLoanAndLeaseLosses');
+      metrics.provisionForCreditLosses = this.getLatestConceptValue(companyFacts, 'ProvisionForLoanLeaseAndOtherLosses');
     }
     if (!metrics.provisionForCreditLosses) {
       metrics.provisionForCreditLosses = this.getLatestConceptValue(companyFacts, 'ProvisionForCreditLosses');
     }
 
-    // Income Statement Items
-    metrics.netIncome = this.getLatestConceptValue(companyFacts, 'NetIncomeLoss');
+    // Pre-Tax Income (us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxes)
+    metrics.preTaxIncome = this.getLatestConceptValue(companyFacts, 'IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments');
+    if (!metrics.preTaxIncome) {
+      metrics.preTaxIncome = this.getLatestConceptValue(companyFacts, 'IncomeLossFromContinuingOperationsBeforeIncomeTaxes');
+    }
+    if (!metrics.preTaxIncome) {
+      metrics.preTaxIncome = this.getLatestConceptValue(companyFacts, 'IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest');
+    }
 
-    // Alternative concepts for net income
+    // Net Income (us-gaap:NetIncomeLoss)
+    metrics.netIncome = this.getLatestConceptValue(companyFacts, 'NetIncomeLoss');
     if (!metrics.netIncome) {
       metrics.netIncome = this.getLatestConceptValue(companyFacts, 'ProfitLoss');
     }
@@ -255,17 +324,43 @@ class EdgarClient {
       metrics.netIncome = this.getLatestConceptValue(companyFacts, 'NetIncomeLossAvailableToCommonStockholdersBasic');
     }
 
-    // Earnings Per Share
+    // ============================================================================
+    // CASH FLOW
+    // ============================================================================
+
+    // Net Cash from Operating Activities (us-gaap:NetCashProvidedByUsedInOperatingActivities)
+    metrics.operatingCashFlow = this.getLatestConceptValue(companyFacts, 'NetCashProvidedByUsedInOperatingActivities');
+    if (!metrics.operatingCashFlow) {
+      metrics.operatingCashFlow = this.getLatestConceptValue(companyFacts, 'CashFlowsFromUsedInOperatingActivities');
+    }
+
+    // ============================================================================
+    // CAPITAL / PER-SHARE
+    // ============================================================================
+
+    // Shares Outstanding (dei:EntityCommonStockSharesOutstanding)
+    metrics.sharesOutstanding = this.getLatestConceptValue(companyFacts, 'CommonStockSharesOutstanding');
+    if (!metrics.sharesOutstanding) {
+      metrics.sharesOutstanding = this.getLatestConceptValue(companyFacts, 'EntityCommonStockSharesOutstanding', 'dei');
+    }
+    if (!metrics.sharesOutstanding) {
+      metrics.sharesOutstanding = this.getLatestConceptValue(companyFacts, 'WeightedAverageNumberOfSharesOutstandingBasic');
+    }
+
+    // Earnings Per Share (us-gaap:EarningsPerShareBasic)
     metrics.eps = this.getLatestConceptValue(companyFacts, 'EarningsPerShareBasic');
     if (!metrics.eps) {
       metrics.eps = this.getLatestConceptValue(companyFacts, 'EarningsPerShareDiluted');
     }
 
-    // Shares outstanding
-    metrics.sharesOutstanding = this.getLatestConceptValue(companyFacts, 'CommonStockSharesOutstanding');
-    if (!metrics.sharesOutstanding) {
-      metrics.sharesOutstanding = this.getLatestConceptValue(companyFacts, 'WeightedAverageNumberOfSharesOutstandingBasic');
+    // Dividends Per Share (us-gaap:CommonStockDividendsPerShareDeclared)
+    metrics.dividendsPerShare = this.getLatestConceptValue(companyFacts, 'CommonStockDividendsPerShareDeclared');
+    if (!metrics.dividendsPerShare) {
+      metrics.dividendsPerShare = this.getLatestConceptValue(companyFacts, 'CommonStockDividendsPerShareCashPaid');
     }
+
+    // Legacy field for compatibility
+    metrics.commonStock = metrics.sharesOutstanding;
 
     return metrics;
   }
