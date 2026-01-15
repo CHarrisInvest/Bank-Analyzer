@@ -9,7 +9,7 @@ import { getUniqueExchanges } from '../data/sheets.js';
  * Filter categories organized by:
  * - Quick Filters: exchanges
  * - Size & Scale: marketCap, totalAssets, totalDeposits
- * - Balance Sheet - Assets: cashAndDueFromBanks, afsSecurities, htmSecurities, loans, allowanceForCreditLosses
+ * - Balance Sheet - Assets: cashAndCashEquivalents, afsSecurities, htmSecurities, loans, allowanceForCreditLosses
  * - Balance Sheet - Liabilities: totalLiabilities, shortTermBorrowings, longTermDebt, totalEquity
  * - Valuation: pni, ptbvps
  * - Profitability: roe, roaa, rota, rotce
@@ -31,8 +31,7 @@ const DEFAULT_FILTERS = {
   totalDeposits: { min: '', max: '' },
 
   // Balance Sheet - Assets
-  cashAndDueFromBanks: { min: '', max: '' },
-  interestBearingDepositsInBanks: { min: '', max: '' },
+  cashAndCashEquivalents: { min: '', max: '' },
   afsSecurities: { min: '', max: '' },
   htmSecurities: { min: '', max: '' },
   loans: { min: '', max: '' },
@@ -151,11 +150,8 @@ function Screener({ banks, loading }) {
       // BALANCE SHEET - ASSETS (values in millions for filter input)
       // ========================================================================
 
-      // Cash & Due From Banks filter
-      if (!applyRangeFilter(bank.cashAndDueFromBanks, filters.cashAndDueFromBanks, 1e6)) return false;
-
-      // Interest Bearing Deposits in Banks filter
-      if (!applyRangeFilter(bank.interestBearingDepositsInBanks, filters.interestBearingDepositsInBanks, 1e6)) return false;
+      // Cash & Cash Equivalents filter
+      if (!applyRangeFilter(bank.cashAndCashEquivalents, filters.cashAndCashEquivalents, 1e6)) return false;
 
       // AFS Securities filter
       if (!applyRangeFilter(bank.afsSecurities, filters.afsSecurities, 1e6)) return false;
@@ -324,8 +320,7 @@ function Screener({ banks, loading }) {
       checkRange(filters.totalAssets) ||
       checkRange(filters.totalDeposits) ||
       // Balance Sheet - Assets
-      checkRange(filters.cashAndDueFromBanks) ||
-      checkRange(filters.interestBearingDepositsInBanks) ||
+      checkRange(filters.cashAndCashEquivalents) ||
       checkRange(filters.afsSecurities) ||
       checkRange(filters.htmSecurities) ||
       checkRange(filters.loans) ||

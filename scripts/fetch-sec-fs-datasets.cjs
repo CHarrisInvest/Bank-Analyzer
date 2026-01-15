@@ -53,8 +53,6 @@ const CONFIG = {
     'Assets',
     'CashAndCashEquivalentsAtCarryingValue',
     'CashAndDueFromBanks',
-    'InterestBearingDepositsInBanks',
-    'InterestBearingDepositsInBanksAndOtherFinancialInstitutions',
     // Securities
     'AvailableForSaleSecuritiesDebtSecurities',
     'AvailableForSaleSecurities',
@@ -503,10 +501,9 @@ function calculateBankMetrics(bankData) {
   // BALANCE SHEET - ASSETS (point-in-time)
   // ==========================================================================
   const assets = getLatestPointInTime(concepts['Assets']);
-  const cashAndDueFromBanks = getLatestPointInTime(concepts['CashAndDueFromBanks']) ||
-                              getLatestPointInTime(concepts['CashAndCashEquivalentsAtCarryingValue']);
-  const interestBearingDepositsInBanks = getLatestPointInTime(concepts['InterestBearingDepositsInBanks']) ||
-                                          getLatestPointInTime(concepts['InterestBearingDepositsInBanksAndOtherFinancialInstitutions']);
+  // Cash & Cash Equivalents - prefer standard GAAP concept, fallback to bank-specific
+  const cashAndCashEquivalents = getLatestPointInTime(concepts['CashAndCashEquivalentsAtCarryingValue']) ||
+                                  getLatestPointInTime(concepts['CashAndDueFromBanks']);
   const afsSecurities = getLatestPointInTime(concepts['AvailableForSaleSecuritiesDebtSecurities']) ||
                         getLatestPointInTime(concepts['AvailableForSaleSecurities']) ||
                         getLatestPointInTime(concepts['AvailableForSaleSecuritiesDebt']);
@@ -583,8 +580,7 @@ function calculateBankMetrics(bankData) {
 
   // Balance Sheet - Assets
   const totalAssets = assets?.value;
-  const cashAndDueFromBanksValue = cashAndDueFromBanks?.value;
-  const interestBearingDepositsInBanksValue = interestBearingDepositsInBanks?.value;
+  const cashAndCashEquivalentsValue = cashAndCashEquivalents?.value;
   const afsSecuritiesValue = afsSecurities?.value;
   const htmSecuritiesValue = htmSecurities?.value;
   const loansValue = loans?.value;
@@ -648,7 +644,7 @@ function calculateBankMetrics(bankData) {
   const aclToLoans = allowanceForCreditLossesValue && loansValue ? (allowanceForCreditLossesValue / loansValue) * 100 : null;
 
   // Net Interest Margin (NIM) = NII / Average Earning Assets
-  const earningAssets = (loansValue || 0) + (afsSecuritiesValue || 0) + (htmSecuritiesValue || 0) + (interestBearingDepositsInBanksValue || 0);
+  const earningAssets = (loansValue || 0) + (afsSecuritiesValue || 0) + (htmSecuritiesValue || 0) + (cashAndCashEquivalentsValue || 0);
   const netInterestMargin = ttmNii && earningAssets > 0 ? (ttmNii / earningAssets) * 100 : null;
 
   // Graham metrics
@@ -665,8 +661,7 @@ function calculateBankMetrics(bankData) {
   const rawData = {
     balanceSheet: {
       Assets: assets,
-      CashAndDueFromBanks: cashAndDueFromBanks,
-      InterestBearingDepositsInBanks: interestBearingDepositsInBanks,
+      CashAndCashEquivalents: cashAndCashEquivalents,
       AvailableForSaleSecurities: afsSecurities,
       HeldToMaturitySecurities: htmSecurities,
       LoansAndLeasesReceivable: loans,
@@ -714,8 +709,7 @@ function calculateBankMetrics(bankData) {
 
       // Balance Sheet - Assets
       totalAssets,
-      cashAndDueFromBanks: cashAndDueFromBanksValue,
-      interestBearingDepositsInBanks: interestBearingDepositsInBanksValue,
+      cashAndCashEquivalents: cashAndCashEquivalentsValue,
       afsSecurities: afsSecuritiesValue,
       htmSecurities: htmSecuritiesValue,
       loans: loansValue,
