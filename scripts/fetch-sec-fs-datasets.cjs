@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /**
- * SEC Financial Statement Data Sets Fetcher
+ * SEC Financial Statement Data Sets Processor
  *
- * Downloads and processes the official SEC Financial Statement Data Sets
- * from: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets
+ * Processes the official SEC Financial Statement Data Sets from local ZIP files.
+ * ZIP files are downloaded from GitHub Release assets (not directly from SEC).
+ * See: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets
  *
  * These datasets contain ONLY data from primary financial statements (Balance Sheet,
  * Income Statement, Cash Flow Statement) as rendered by the SEC - ensuring maximum
@@ -28,8 +29,6 @@
  * - public/data/sec-raw-data.json: Raw SEC values for audit trail
  */
 
-const https = require('https');
-const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
@@ -37,17 +36,11 @@ const readline = require('readline');
 
 // Parse command line arguments
 const args = process.argv.slice(2);
-const LOCAL_ONLY = args.includes('--local-only');
 const HELP = args.includes('--help') || args.includes('-h');
+// Note: --local-only flag is accepted for backwards compatibility but is now the only mode
 
 // Configuration
 const CONFIG = {
-  edgarUserAgent: process.env.EDGAR_USER_AGENT || 'Bank-Analyzer github-actions@example.com',
-
-  // SEC Financial Statement Data Sets URL pattern
-  // https://www.sec.gov/files/dera/data/financial-statement-data-sets/2024q4.zip
-  fsDataSetsBaseUrl: 'https://www.sec.gov/files/dera/data/financial-statement-data-sets',
-
   // How many quarters of data to fetch (for TTM calculation we need at least 4)
   quartersToFetch: 5,
 
@@ -56,14 +49,30 @@ const CONFIG = {
 
   // XBRL concepts to extract (Primary Financial Statement concepts only)
   conceptsToExtract: [
-    // Balance Sheet
+    // Balance Sheet - Assets
     'Assets',
-    'Liabilities',
-    'StockholdersEquity',
-    'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest',
-    'LiabilitiesAndStockholdersEquity',
     'CashAndCashEquivalentsAtCarryingValue',
     'CashAndDueFromBanks',
+    'InterestBearingDepositsInBanks',
+    'InterestBearingDepositsInBanksAndOtherFinancialInstitutions',
+    // Securities
+    'AvailableForSaleSecuritiesDebtSecurities',
+    'AvailableForSaleSecurities',
+    'AvailableForSaleSecuritiesDebt',
+    'HeldToMaturitySecurities',
+    'HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss',
+    // Loans
+    'LoansAndLeasesReceivableNetReportedAmount',
+    'LoansAndLeasesReceivableNetOfDeferredIncome',
+    'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss',
+    'NotesReceivableNet',
+    // Allowance for Credit Losses
+    'AllowanceForLoanAndLeaseLosses',
+    'FinancingReceivableAllowanceForCreditLosses',
+    'AllowanceForCreditLossesOnFinancingReceivables',
+    // Fixed Assets
+    'PremisesAndEquipmentNet',
+    'PropertyPlantAndEquipmentNet',
     // Goodwill - multiple tag variants used by different companies
     'Goodwill',
     'GoodwillAndIntangibleAssetsNet',
@@ -73,13 +82,35 @@ const CONFIG = {
     'FiniteLivedIntangibleAssetsNet',
     'IndefiniteLivedIntangibleAssetsExcludingGoodwill',
     'OtherIntangibleAssetsNet',
+
+    // Balance Sheet - Liabilities & Equity
+    'Liabilities',
+    'Deposits',
+    'DepositsDomestic',
+    'ShortTermBorrowings',
+    'LongTermDebt',
+    'LongTermDebtNoncurrent',
+    'StockholdersEquity',
+    'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest',
+    'LiabilitiesAndStockholdersEquity',
     'PreferredStockValue',
     'PreferredStockValueOutstanding',
     'CommonStockSharesOutstanding',
-    'Deposits',
-    'DepositsDomestic',
 
     // Income Statement
+    'InterestIncome',
+    'InterestAndDividendIncomeOperating',
+    'InterestExpense',
+    'InterestIncomeExpenseNet',
+    'NetInterestIncome',
+    'NoninterestIncome',
+    'NoninterestExpense',
+    'OperatingExpenses',
+    'ProvisionForLoanLeaseAndOtherLosses',
+    'ProvisionForLoanAndLeaseLosses',
+    'ProvisionForCreditLosses',
+    'IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest',
+    'IncomeLossFromContinuingOperationsBeforeIncomeTaxes',
     'NetIncomeLoss',
     'ProfitLoss',
     'NetIncomeLossAvailableToCommonStockholdersBasic',
@@ -87,15 +118,6 @@ const CONFIG = {
     'EarningsPerShareDiluted',
     'Revenues',
     'RevenueFromContractWithCustomerExcludingAssessedTax',
-    'InterestIncomeExpenseNet',
-    'NetInterestIncome',
-    'InterestAndDividendIncomeOperating',
-    'NoninterestIncome',
-    'NoninterestExpense',
-    'OperatingExpenses',
-    'ProvisionForLoanLeaseAndOtherLosses',
-    'ProvisionForLoanAndLeaseLosses',
-    'ProvisionForCreditLosses',
 
     // Cash Flow
     'NetCashProvidedByUsedInOperatingActivities',
@@ -121,183 +143,6 @@ const CONFIG = {
 // Temp directory for downloaded files
 const TEMP_DIR = path.join(__dirname, '..', '.sec-data-cache');
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'data');
-
-/**
- * Make HTTPS request with proper headers
- */
-function httpsGet(url, options = {}) {
-  return new Promise((resolve, reject) => {
-    const urlObj = new URL(url);
-    const reqOptions = {
-      hostname: urlObj.hostname,
-      path: urlObj.pathname + urlObj.search,
-      headers: {
-        'User-Agent': CONFIG.edgarUserAgent,
-        'Accept-Encoding': 'gzip, deflate',
-        ...options.headers
-      }
-    };
-
-    const req = https.get(reqOptions, (res) => {
-      if (res.statusCode === 301 || res.statusCode === 302) {
-        // Follow redirect
-        httpsGet(res.headers.location, options).then(resolve).catch(reject);
-        return;
-      }
-
-      if (res.statusCode !== 200) {
-        reject(new Error(`HTTP ${res.statusCode}: ${res.statusMessage}`));
-        return;
-      }
-
-      const chunks = [];
-      res.on('data', chunk => chunks.push(chunk));
-      res.on('end', () => resolve(Buffer.concat(chunks)));
-      res.on('error', reject);
-    });
-
-    req.on('error', reject);
-    req.setTimeout(60000, () => {
-      req.destroy();
-      reject(new Error('Request timeout'));
-    });
-  });
-}
-
-/**
- * Download a file to disk
- */
-async function downloadFile(url, destPath) {
-  console.log(`  Downloading: ${url}`);
-  const data = await httpsGet(url);
-  fs.writeFileSync(destPath, data);
-  console.log(`  Saved: ${destPath} (${data.length} bytes)`);
-  return destPath;
-}
-
-/**
- * Fetch the SEC listing page and parse available quarterly datasets
- * This is more robust than assuming URL patterns, as SEC may change URLs
- * and we can know exactly which quarters are available.
- */
-async function fetchAvailableQuartersFromSecPage() {
-  const listingUrl = 'https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets';
-  console.log(`\nFetching SEC listing page to discover available quarters...`);
-  console.log(`  URL: ${listingUrl}`);
-
-  try {
-    const html = await httpsGet(listingUrl);
-    const htmlStr = html.toString();
-
-    // Parse HTML for links to quarterly ZIP files
-    // Matches patterns like: href="/files/dera/data/financial-statement-data-sets/2025q3.zip"
-    // or absolute URLs like: href="https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q3.zip"
-    const zipLinkPattern = /href="([^"]*\/(\d{4})q([1-4])\.zip)"/gi;
-    const matches = [...htmlStr.matchAll(zipLinkPattern)];
-
-    if (matches.length === 0) {
-      console.warn('  No quarterly ZIP links found on SEC page. Falling back to URL pattern.');
-      return null;
-    }
-
-    const quarters = matches.map(match => {
-      const href = match[1];
-      const year = parseInt(match[2]);
-      const quarter = parseInt(match[3]);
-      // Convert relative URLs to absolute
-      const url = href.startsWith('http') ? href : `https://www.sec.gov${href}`;
-
-      return {
-        url,
-        year,
-        quarter,
-        period: `${year}Q${quarter}`
-      };
-    });
-
-    // Sort by year and quarter descending (most recent first)
-    quarters.sort((a, b) => {
-      if (b.year !== a.year) return b.year - a.year;
-      return b.quarter - a.quarter;
-    });
-
-    // Remove duplicates (same period)
-    const seen = new Set();
-    const unique = quarters.filter(q => {
-      if (seen.has(q.period)) return false;
-      seen.add(q.period);
-      return true;
-    });
-
-    console.log(`  Found ${unique.length} quarterly datasets on SEC page`);
-    console.log(`  Most recent: ${unique[0]?.period || 'none'}`);
-    console.log(`  Oldest: ${unique[unique.length - 1]?.period || 'none'}`);
-
-    return unique;
-  } catch (error) {
-    console.error(`  Failed to fetch SEC listing page: ${error.message}`);
-    console.log('  Falling back to URL pattern approach.');
-    return null;
-  }
-}
-
-/**
- * Generate quarterly dataset URLs using assumed pattern (fallback)
- */
-function generateQuarterlyUrls(numQuarters) {
-  const urls = [];
-  const now = new Date();
-  let year = now.getFullYear();
-  let quarter = Math.ceil((now.getMonth() + 1) / 3);
-
-  // Go back one quarter since current quarter may not be available yet
-  quarter--;
-  if (quarter === 0) {
-    quarter = 4;
-    year--;
-  }
-
-  for (let i = 0; i < numQuarters; i++) {
-    urls.push({
-      url: `${CONFIG.fsDataSetsBaseUrl}/${year}q${quarter}.zip`,
-      year,
-      quarter,
-      period: `${year}Q${quarter}`
-    });
-
-    quarter--;
-    if (quarter === 0) {
-      quarter = 4;
-      year--;
-    }
-  }
-
-  return urls;
-}
-
-/**
- * Get list of available quarterly datasets
- * First tries to scrape SEC listing page for accurate URLs,
- * falls back to URL pattern if that fails.
- */
-async function getQuarterlyDatasetUrls(numQuarters) {
-  // Try to get actual available quarters from SEC page
-  const availableQuarters = await fetchAvailableQuartersFromSecPage();
-
-  if (availableQuarters && availableQuarters.length > 0) {
-    // Use the most recent quarters from the listing page
-    const selected = availableQuarters.slice(0, numQuarters);
-    console.log(`\nUsing ${selected.length} quarters from SEC listing page:`);
-    selected.forEach(q => console.log(`  - ${q.period}: ${q.url}`));
-    return selected;
-  }
-
-  // Fallback to generated URLs
-  console.log('\nUsing fallback URL pattern (SEC listing page unavailable)');
-  const generated = generateQuarterlyUrls(numQuarters);
-  generated.forEach(q => console.log(`  - ${q.period}: ${q.url}`));
-  return generated;
-}
 
 /**
  * Extract ZIP file using system unzip command
@@ -388,42 +233,20 @@ function loadBankList() {
 }
 
 /**
- * Process a quarterly dataset
+ * Process a quarterly dataset from local ZIP file
  */
 async function processQuarterlyDataset(datasetInfo, bankCiks) {
-  const { url, period, zipPath: providedZipPath } = datasetInfo;
+  const { period, zipPath } = datasetInfo;
 
-  // Use provided zipPath (local-only mode) or construct from URL
-  let zipPath;
-  if (providedZipPath) {
-    zipPath = providedZipPath;
-  } else if (url) {
-    const zipFileName = path.basename(url);
-    zipPath = path.join(TEMP_DIR, zipFileName);
-  } else {
-    console.error(`  No URL or zipPath for ${period}`);
+  if (!zipPath || !fs.existsSync(zipPath)) {
+    console.error(`  ZIP file not found: ${zipPath}`);
     return null;
   }
 
   const extractDir = path.join(TEMP_DIR, period);
 
   console.log(`\nProcessing ${period}...`);
-
-  // Download if not already cached (skip in local-only mode)
-  if (!fs.existsSync(zipPath)) {
-    if (LOCAL_ONLY) {
-      console.error(`  ZIP file not found: ${zipPath}`);
-      return null;
-    }
-    try {
-      await downloadFile(url, zipPath);
-    } catch (error) {
-      console.error(`  Failed to download ${url}: ${error.message}`);
-      return null;
-    }
-  } else {
-    console.log(`  Using cached: ${zipPath}`);
-  }
+  console.log(`  Using: ${zipPath}`);
 
   // Extract
   if (!fs.existsSync(extractDir) || !fs.existsSync(path.join(extractDir, 'num.txt'))) {
@@ -676,12 +499,28 @@ function getSharesOutstanding(conceptData) {
 function calculateBankMetrics(bankData) {
   const concepts = bankData.concepts;
 
-  // Balance Sheet (point-in-time)
+  // ==========================================================================
+  // BALANCE SHEET - ASSETS (point-in-time)
+  // ==========================================================================
   const assets = getLatestPointInTime(concepts['Assets']);
-  const equity = getLatestPointInTime(concepts['StockholdersEquity']) ||
-                 getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
-  const deposits = getLatestPointInTime(concepts['Deposits']) ||
-                   getLatestPointInTime(concepts['DepositsDomestic']);
+  const cashAndDueFromBanks = getLatestPointInTime(concepts['CashAndDueFromBanks']) ||
+                              getLatestPointInTime(concepts['CashAndCashEquivalentsAtCarryingValue']);
+  const interestBearingDepositsInBanks = getLatestPointInTime(concepts['InterestBearingDepositsInBanks']) ||
+                                          getLatestPointInTime(concepts['InterestBearingDepositsInBanksAndOtherFinancialInstitutions']);
+  const afsSecurities = getLatestPointInTime(concepts['AvailableForSaleSecuritiesDebtSecurities']) ||
+                        getLatestPointInTime(concepts['AvailableForSaleSecurities']) ||
+                        getLatestPointInTime(concepts['AvailableForSaleSecuritiesDebt']);
+  const htmSecurities = getLatestPointInTime(concepts['HeldToMaturitySecurities']) ||
+                        getLatestPointInTime(concepts['HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss']);
+  const loans = getLatestPointInTime(concepts['LoansAndLeasesReceivableNetReportedAmount']) ||
+                getLatestPointInTime(concepts['LoansAndLeasesReceivableNetOfDeferredIncome']) ||
+                getLatestPointInTime(concepts['FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss']) ||
+                getLatestPointInTime(concepts['NotesReceivableNet']);
+  const allowanceForCreditLosses = getLatestPointInTime(concepts['AllowanceForLoanAndLeaseLosses']) ||
+                                    getLatestPointInTime(concepts['FinancingReceivableAllowanceForCreditLosses']) ||
+                                    getLatestPointInTime(concepts['AllowanceForCreditLossesOnFinancingReceivables']);
+  const premisesAndEquipment = getLatestPointInTime(concepts['PremisesAndEquipmentNet']) ||
+                               getLatestPointInTime(concepts['PropertyPlantAndEquipmentNet']);
   // Goodwill - try multiple tag variants
   const goodwill = getLatestPointInTime(concepts['Goodwill']) ||
                    getLatestPointInTime(concepts['GoodwillAndIntangibleAssetsNet']);
@@ -691,42 +530,98 @@ function calculateBankMetrics(bankData) {
                       getLatestPointInTime(concepts['FiniteLivedIntangibleAssetsNet']) ||
                       getLatestPointInTime(concepts['IndefiniteLivedIntangibleAssetsExcludingGoodwill']) ||
                       getLatestPointInTime(concepts['OtherIntangibleAssetsNet']);
+
+  // ==========================================================================
+  // BALANCE SHEET - LIABILITIES & EQUITY (point-in-time)
+  // ==========================================================================
+  const liabilities = getLatestPointInTime(concepts['Liabilities']);
+  const deposits = getLatestPointInTime(concepts['Deposits']) ||
+                   getLatestPointInTime(concepts['DepositsDomestic']);
+  const shortTermBorrowings = getLatestPointInTime(concepts['ShortTermBorrowings']);
+  const longTermDebt = getLatestPointInTime(concepts['LongTermDebt']) ||
+                       getLatestPointInTime(concepts['LongTermDebtNoncurrent']);
+  const equity = getLatestPointInTime(concepts['StockholdersEquity']) ||
+                 getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
   const preferredStock = getLatestPointInTime(concepts['PreferredStockValue']) ||
                          getLatestPointInTime(concepts['PreferredStockValueOutstanding']);
   const sharesData = getSharesOutstanding(concepts['CommonStockSharesOutstanding']);
 
-  // Income Statement (TTM)
-  const netIncome = getTTMValue(concepts['NetIncomeLoss']) ||
-                    getTTMValue(concepts['ProfitLoss']) ||
-                    getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
-  const eps = getTTMValue(concepts['EarningsPerShareBasic']) ||
-              getTTMValue(concepts['EarningsPerShareDiluted']);
+  // ==========================================================================
+  // INCOME STATEMENT (TTM)
+  // ==========================================================================
+  const interestIncome = getTTMValue(concepts['InterestIncome']) ||
+                         getTTMValue(concepts['InterestAndDividendIncomeOperating']);
+  const interestExpense = getTTMValue(concepts['InterestExpense']);
   const netInterestIncome = getTTMValue(concepts['InterestIncomeExpenseNet']) ||
                             getTTMValue(concepts['NetInterestIncome']);
   const noninterestIncome = getTTMValue(concepts['NoninterestIncome']);
   const noninterestExpense = getTTMValue(concepts['NoninterestExpense']) ||
                              getTTMValue(concepts['OperatingExpenses']);
+  const provisionForCreditLosses = getTTMValue(concepts['ProvisionForLoanLeaseAndOtherLosses']) ||
+                                    getTTMValue(concepts['ProvisionForLoanAndLeaseLosses']) ||
+                                    getTTMValue(concepts['ProvisionForCreditLosses']);
+  const preTaxIncome = getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest']) ||
+                       getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxes']);
+  const netIncome = getTTMValue(concepts['NetIncomeLoss']) ||
+                    getTTMValue(concepts['ProfitLoss']) ||
+                    getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
+  const eps = getTTMValue(concepts['EarningsPerShareBasic']) ||
+              getTTMValue(concepts['EarningsPerShareDiluted']);
+
+  // ==========================================================================
+  // CASH FLOW (TTM)
+  // ==========================================================================
+  const operatingCashFlow = getTTMValue(concepts['NetCashProvidedByUsedInOperatingActivities']);
 
   // Dividends
   const dps = getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
 
-  // Extract values
+  // ==========================================================================
+  // EXTRACT VALUES
+  // ==========================================================================
+
+  // Balance Sheet - Assets
   const totalAssets = assets?.value;
-  const totalEquity = equity?.value;
-  const totalDeposits = deposits?.value;
+  const cashAndDueFromBanksValue = cashAndDueFromBanks?.value;
+  const interestBearingDepositsInBanksValue = interestBearingDepositsInBanks?.value;
+  const afsSecuritiesValue = afsSecurities?.value;
+  const htmSecuritiesValue = htmSecurities?.value;
+  const loansValue = loans?.value;
+  const allowanceForCreditLossesValue = allowanceForCreditLosses?.value;
+  const premisesAndEquipmentValue = premisesAndEquipment?.value;
   const goodwillValue = goodwill?.value || 0;
   const intangiblesValue = intangibles?.value || 0;
+
+  // Balance Sheet - Liabilities & Equity
+  const totalLiabilities = liabilities?.value;
+  const totalDeposits = deposits?.value;
+  const shortTermBorrowingsValue = shortTermBorrowings?.value;
+  const longTermDebtValue = longTermDebt?.value;
+  const totalEquity = equity?.value;
   const preferredValue = preferredStock?.value || 0;
   const sharesOutstanding = sharesData?.value;
-  const ttmNetIncome = netIncome?.value;
-  const ttmEps = eps?.value;
+
+  // Income Statement (TTM)
+  const ttmInterestIncome = interestIncome?.value;
+  const ttmInterestExpense = interestExpense?.value;
   const ttmNii = netInterestIncome?.value;
   const ttmNonintIncome = noninterestIncome?.value;
   const ttmNonintExpense = noninterestExpense?.value;
+  const ttmProvision = provisionForCreditLosses?.value;
+  const ttmPreTaxIncome = preTaxIncome?.value;
+  const ttmNetIncome = netIncome?.value;
+  const ttmEps = eps?.value;
+
+  // Cash Flow (TTM)
+  const ttmOperatingCashFlow = operatingCashFlow?.value;
+
+  // Dividends
   const ttmDps = dps?.value;
 
-  // Derived values
+  // ==========================================================================
+  // DERIVED VALUES
+  // ==========================================================================
   const tangibleBookValue = totalEquity ? totalEquity - goodwillValue - intangiblesValue : null;
   const tangibleCommonEquity = totalEquity ? totalEquity - preferredValue - goodwillValue - intangiblesValue : null;
   const tangibleAssets = totalAssets ? totalAssets - goodwillValue - intangiblesValue : null;
@@ -748,6 +643,13 @@ function calculateBankMetrics(bankData) {
   const depositsToAssets = totalDeposits && totalAssets ? (totalDeposits / totalAssets) * 100 : null;
   const equityToAssets = totalEquity && totalAssets ? (totalEquity / totalAssets) * 100 : null;
   const tceToTa = tangibleCommonEquity && tangibleAssets ? (tangibleCommonEquity / tangibleAssets) * 100 : null;
+  const loansToAssets = loansValue && totalAssets ? (loansValue / totalAssets) * 100 : null;
+  const loansToDeposits = loansValue && totalDeposits ? (loansValue / totalDeposits) * 100 : null;
+  const aclToLoans = allowanceForCreditLossesValue && loansValue ? (allowanceForCreditLossesValue / loansValue) * 100 : null;
+
+  // Net Interest Margin (NIM) = NII / Average Earning Assets
+  const earningAssets = (loansValue || 0) + (afsSecuritiesValue || 0) + (htmSecuritiesValue || 0) + (interestBearingDepositsInBanksValue || 0);
+  const netInterestMargin = ttmNii && earningAssets > 0 ? (ttmNii / earningAssets) * 100 : null;
 
   // Graham metrics
   const grahamNum = ttmEps && bvps && ttmEps > 0 && bvps > 0 ? Math.sqrt(22.5 * ttmEps * bvps) : null;
@@ -763,19 +665,36 @@ function calculateBankMetrics(bankData) {
   const rawData = {
     balanceSheet: {
       Assets: assets,
-      StockholdersEquity: equity,
-      Deposits: deposits,
+      CashAndDueFromBanks: cashAndDueFromBanks,
+      InterestBearingDepositsInBanks: interestBearingDepositsInBanks,
+      AvailableForSaleSecurities: afsSecurities,
+      HeldToMaturitySecurities: htmSecurities,
+      LoansAndLeasesReceivable: loans,
+      AllowanceForLoanAndLeaseLosses: allowanceForCreditLosses,
+      PremisesAndEquipmentNet: premisesAndEquipment,
       Goodwill: goodwill,
       IntangibleAssetsNetExcludingGoodwill: intangibles,
+      Liabilities: liabilities,
+      Deposits: deposits,
+      ShortTermBorrowings: shortTermBorrowings,
+      LongTermDebt: longTermDebt,
+      StockholdersEquity: equity,
       PreferredStockValue: preferredStock,
       CommonStockSharesOutstanding: sharesData
     },
     incomeStatement: {
-      NetIncomeLoss: netIncome,
-      EarningsPerShareBasic: eps,
-      InterestIncomeExpenseNet: netInterestIncome,
+      InterestIncome: interestIncome,
+      InterestExpense: interestExpense,
+      NetInterestIncome: netInterestIncome,
       NoninterestIncome: noninterestIncome,
-      NoninterestExpense: noninterestExpense
+      NoninterestExpense: noninterestExpense,
+      ProvisionForCreditLosses: provisionForCreditLosses,
+      PreTaxIncome: preTaxIncome,
+      NetIncomeLoss: netIncome,
+      EarningsPerShareBasic: eps
+    },
+    cashFlow: {
+      NetCashProvidedByUsedInOperatingActivities: operatingCashFlow
     },
     dividends: {
       CommonStockDividendsPerShareDeclared: dps
@@ -793,24 +712,43 @@ function calculateBankMetrics(bankData) {
       sicDescription: bankData.sicDescription,
       otcTier: bankData.otcTier,
 
-      // Raw balance sheet values
+      // Balance Sheet - Assets
       totalAssets,
-      totalEquity,
-      totalDeposits,
+      cashAndDueFromBanks: cashAndDueFromBanksValue,
+      interestBearingDepositsInBanks: interestBearingDepositsInBanksValue,
+      afsSecurities: afsSecuritiesValue,
+      htmSecurities: htmSecuritiesValue,
+      loans: loansValue,
+      allowanceForCreditLosses: allowanceForCreditLossesValue,
+      premisesAndEquipment: premisesAndEquipmentValue,
       goodwill: goodwillValue,
       intangibles: intangiblesValue,
+      tangibleAssets,
+
+      // Balance Sheet - Liabilities & Equity
+      totalLiabilities,
+      totalDeposits,
+      shortTermBorrowings: shortTermBorrowingsValue,
+      longTermDebt: longTermDebtValue,
+      totalEquity,
       preferredStock: preferredValue,
       sharesOutstanding,
       tangibleBookValue,
       tangibleCommonEquity,
-      tangibleAssets,
 
-      // Raw income statement values (TTM)
-      ttmNetIncome,
-      ttmEps,
+      // Income Statement (TTM)
+      ttmInterestIncome,
+      ttmInterestExpense,
       ttmNetInterestIncome: ttmNii,
       ttmNoninterestIncome: ttmNonintIncome,
       ttmNoninterestExpense: ttmNonintExpense,
+      ttmProvisionForCreditLosses: ttmProvision,
+      ttmPreTaxIncome,
+      ttmNetIncome,
+      ttmEps,
+
+      // Cash Flow (TTM)
+      ttmOperatingCashFlow,
 
       // Per-share metrics
       bvps: bvps ? parseFloat(bvps.toFixed(4)) : null,
@@ -828,6 +766,10 @@ function calculateBankMetrics(bankData) {
       depositsToAssets: depositsToAssets ? parseFloat(depositsToAssets.toFixed(2)) : null,
       equityToAssets: equityToAssets ? parseFloat(equityToAssets.toFixed(2)) : null,
       tceToTa: tceToTa ? parseFloat(tceToTa.toFixed(2)) : null,
+      loansToAssets: loansToAssets ? parseFloat(loansToAssets.toFixed(2)) : null,
+      loansToDeposits: loansToDeposits ? parseFloat(loansToDeposits.toFixed(2)) : null,
+      aclToLoans: aclToLoans ? parseFloat(aclToLoans.toFixed(2)) : null,
+      netInterestMargin: netInterestMargin ? parseFloat(netInterestMargin.toFixed(2)) : null,
 
       // Graham metrics
       grahamNum: grahamNum ? parseFloat(grahamNum.toFixed(4)) : null,
@@ -888,40 +830,37 @@ function applyDataQualityValidation(metrics) {
  */
 function showHelp() {
   console.log(`
-SEC Financial Statement Data Sets Fetcher
+SEC Financial Statement Data Sets Processor
+
+Processes SEC Financial Statement Data Sets from local ZIP files.
+ZIP files should be downloaded from GitHub Release assets (not directly from SEC).
 
 USAGE:
   node scripts/fetch-sec-fs-datasets.cjs [OPTIONS]
 
 OPTIONS:
-  --local-only    Process only cached ZIP files (no downloads)
   --help, -h      Show this help message
+  --local-only    (Deprecated) Accepted for backwards compatibility but now the only mode
 
-LOCAL-ONLY MODE:
-  When --local-only is used, the script processes ZIP files already in:
-    .sec-data-cache/
+DATA SOURCE:
+  This script processes ZIP files from .sec-data-cache/ directory.
+  The GitHub Actions workflow downloads these files from the 'sec-data' release.
 
-  To use this mode:
-  1. Download ZIP files manually from SEC:
-     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q4.zip
-     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q3.zip
-     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q2.zip
-     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q1.zip
-     https://www.sec.gov/files/dera/data/financial-statement-data-sets/2024q4.zip
+  To update data:
+  1. Download ZIP files from SEC (manually, outside this script):
+     https://www.sec.gov/files/dera/data/financial-statement-data-sets/
 
-  2. Place them in .sec-data-cache/ with exact names:
-     .sec-data-cache/2025q4.zip
-     .sec-data-cache/2025q3.zip
-     .sec-data-cache/2025q2.zip
-     .sec-data-cache/2025q1.zip
-     .sec-data-cache/2024q4.zip
+  2. Upload to GitHub Release with tag 'sec-data'
 
-  3. Run: node scripts/fetch-sec-fs-datasets.cjs --local-only
+  3. Run the "Update SEC Data (Manual)" workflow, which will:
+     - Download ZIPs from GitHub Release to .sec-data-cache/
+     - Run this script to process them
+     - Commit and deploy the updated data
 
-  4. Commit the output files:
-     git add public/data/banks.json public/data/sec-raw-data.json
-     git commit -m "Update bank data from SEC FS Data Sets"
-     git push
+  For local development:
+  1. Place ZIP files in .sec-data-cache/ with names like 2025q4.zip
+  2. Run: node scripts/fetch-sec-fs-datasets.cjs
+  3. Output: public/data/banks.json, public/data/sec-raw-data.json
 `);
 }
 
@@ -969,16 +908,11 @@ async function main() {
   }
 
   console.log('═'.repeat(80));
-  console.log('SEC FINANCIAL STATEMENT DATA SETS FETCHER');
+  console.log('SEC FINANCIAL STATEMENT DATA SETS PROCESSOR');
   console.log('═'.repeat(80));
   console.log('');
-
-  if (LOCAL_ONLY) {
-    console.log('MODE: Local-only (processing cached ZIP files only)');
-  } else {
-    console.log('Data Source: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets');
-  }
-  console.log('This uses ONLY primary financial statement data as rendered by the SEC.');
+  console.log('Processing ZIP files from GitHub Release assets');
+  console.log('Data: SEC Financial Statement Data Sets (primary financial statements only)');
   console.log('');
   console.log(`Started: ${new Date().toISOString()}`);
   console.log('');
@@ -1002,24 +936,21 @@ async function main() {
   });
   console.log(`  ${bankCiks.size} unique CIKs`);
 
-  // Get quarterly dataset URLs
-  let datasetUrls;
-  if (LOCAL_ONLY) {
-    // Find cached ZIP files
-    const cached = findCachedQuarters();
-    if (cached.length === 0) {
-      console.error('\nNo cached ZIP files found in .sec-data-cache/');
-      console.error('Download ZIP files from SEC and place them there.');
-      console.error('Run with --help for instructions.');
-      process.exit(1);
-    }
-    console.log(`\nFound ${cached.length} cached ZIP files:`);
-    cached.forEach(q => console.log(`  - ${q.period}: ${q.zipPath}`));
-    datasetUrls = cached.slice(0, CONFIG.quartersToFetch);
-  } else {
-    // Scrape SEC page for available quarters
-    datasetUrls = await getQuarterlyDatasetUrls(CONFIG.quartersToFetch);
+  // Find cached ZIP files from GitHub Release
+  const cached = findCachedQuarters();
+  if (cached.length === 0) {
+    console.error('\nNo ZIP files found in .sec-data-cache/');
+    console.error('');
+    console.error('ZIP files should be downloaded from the GitHub Release assets.');
+    console.error('Run the workflow or manually download from:');
+    console.error('https://github.com/YOUR_REPO/releases/tag/sec-data');
+    console.error('');
+    console.error('Run with --help for more information.');
+    process.exit(1);
   }
+  console.log(`\nFound ${cached.length} ZIP files:`);
+  cached.forEach(q => console.log(`  - ${q.period}: ${q.zipPath}`));
+  const datasetUrls = cached.slice(0, CONFIG.quartersToFetch);
 
   // Process each quarter
   const quarterlyResults = [];
