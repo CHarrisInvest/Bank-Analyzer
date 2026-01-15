@@ -163,9 +163,75 @@ async function downloadFile(url, destPath) {
 }
 
 /**
- * Get list of available quarterly datasets
+ * Fetch the SEC listing page and parse available quarterly datasets
+ * This is more robust than assuming URL patterns, as SEC may change URLs
+ * and we can know exactly which quarters are available.
  */
-function getQuarterlyDatasetUrls(numQuarters) {
+async function fetchAvailableQuartersFromSecPage() {
+  const listingUrl = 'https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets';
+  console.log(`\nFetching SEC listing page to discover available quarters...`);
+  console.log(`  URL: ${listingUrl}`);
+
+  try {
+    const html = await httpsGet(listingUrl);
+    const htmlStr = html.toString();
+
+    // Parse HTML for links to quarterly ZIP files
+    // Matches patterns like: href="/files/dera/data/financial-statement-data-sets/2025q3.zip"
+    // or absolute URLs like: href="https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q3.zip"
+    const zipLinkPattern = /href="([^"]*\/(\d{4})q([1-4])\.zip)"/gi;
+    const matches = [...htmlStr.matchAll(zipLinkPattern)];
+
+    if (matches.length === 0) {
+      console.warn('  No quarterly ZIP links found on SEC page. Falling back to URL pattern.');
+      return null;
+    }
+
+    const quarters = matches.map(match => {
+      const href = match[1];
+      const year = parseInt(match[2]);
+      const quarter = parseInt(match[3]);
+      // Convert relative URLs to absolute
+      const url = href.startsWith('http') ? href : `https://www.sec.gov${href}`;
+
+      return {
+        url,
+        year,
+        quarter,
+        period: `${year}Q${quarter}`
+      };
+    });
+
+    // Sort by year and quarter descending (most recent first)
+    quarters.sort((a, b) => {
+      if (b.year !== a.year) return b.year - a.year;
+      return b.quarter - a.quarter;
+    });
+
+    // Remove duplicates (same period)
+    const seen = new Set();
+    const unique = quarters.filter(q => {
+      if (seen.has(q.period)) return false;
+      seen.add(q.period);
+      return true;
+    });
+
+    console.log(`  Found ${unique.length} quarterly datasets on SEC page`);
+    console.log(`  Most recent: ${unique[0]?.period || 'none'}`);
+    console.log(`  Oldest: ${unique[unique.length - 1]?.period || 'none'}`);
+
+    return unique;
+  } catch (error) {
+    console.error(`  Failed to fetch SEC listing page: ${error.message}`);
+    console.log('  Falling back to URL pattern approach.');
+    return null;
+  }
+}
+
+/**
+ * Generate quarterly dataset URLs using assumed pattern (fallback)
+ */
+function generateQuarterlyUrls(numQuarters) {
   const urls = [];
   const now = new Date();
   let year = now.getFullYear();
@@ -194,6 +260,30 @@ function getQuarterlyDatasetUrls(numQuarters) {
   }
 
   return urls;
+}
+
+/**
+ * Get list of available quarterly datasets
+ * First tries to scrape SEC listing page for accurate URLs,
+ * falls back to URL pattern if that fails.
+ */
+async function getQuarterlyDatasetUrls(numQuarters) {
+  // Try to get actual available quarters from SEC page
+  const availableQuarters = await fetchAvailableQuartersFromSecPage();
+
+  if (availableQuarters && availableQuarters.length > 0) {
+    // Use the most recent quarters from the listing page
+    const selected = availableQuarters.slice(0, numQuarters);
+    console.log(`\nUsing ${selected.length} quarters from SEC listing page:`);
+    selected.forEach(q => console.log(`  - ${q.period}: ${q.url}`));
+    return selected;
+  }
+
+  // Fallback to generated URLs
+  console.log('\nUsing fallback URL pattern (SEC listing page unavailable)');
+  const generated = generateQuarterlyUrls(numQuarters);
+  generated.forEach(q => console.log(`  - ${q.period}: ${q.url}`));
+  return generated;
 }
 
 /**
@@ -769,10 +859,8 @@ async function main() {
   });
   console.log(`  ${bankCiks.size} unique CIKs`);
 
-  // Get quarterly dataset URLs
-  const datasetUrls = getQuarterlyDatasetUrls(CONFIG.quartersToFetch);
-  console.log(`\nWill fetch ${datasetUrls.length} quarters:`);
-  datasetUrls.forEach(d => console.log(`  - ${d.period}`));
+  // Get quarterly dataset URLs (scrapes SEC page for available quarters)
+  const datasetUrls = await getQuarterlyDatasetUrls(CONFIG.quartersToFetch);
 
   // Process each quarter
   const quarterlyResults = [];
