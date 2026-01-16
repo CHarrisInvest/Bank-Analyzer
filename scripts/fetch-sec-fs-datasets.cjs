@@ -69,7 +69,8 @@ const CONFIG = {
     'LiabilitiesAndStockholdersEquity',
     'PreferredStockValue',
     'PreferredStockValueOutstanding',
-    'CommonStockSharesOutstanding',
+    'EntityCommonStockSharesOutstanding',  // dei namespace - required on cover page (primary)
+    'CommonStockSharesOutstanding',         // us-gaap namespace - balance sheet (fallback)
 
     // Income Statement
     'InterestIncome',
@@ -608,7 +609,8 @@ function calculateBankMetrics(bankData) {
                  getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
   const preferredStock = getLatestPointInTime(concepts['PreferredStockValue']) ||
                          getLatestPointInTime(concepts['PreferredStockValueOutstanding']);
-  const sharesData = getSharesOutstanding(concepts['CommonStockSharesOutstanding']);
+  const sharesData = getSharesOutstanding(concepts['EntityCommonStockSharesOutstanding']) ||
+                     getSharesOutstanding(concepts['CommonStockSharesOutstanding']);
 
   // ==========================================================================
   // AVERAGES FOR RETURN RATIOS (FFIEC/Investor Standard)
