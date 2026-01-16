@@ -8,16 +8,16 @@ import { formatNumber } from '../utils/csv.js';
  * Balance sheet items are point-in-time values; income statement items are TTM.
  *
  * Categories:
- * - Basic Info: Ticker, Bank Name, Exchange, Type
+ * - Basic Info: Ticker, Bank Name, Exchange
  * - Market Data: Price, Market Cap
- * - Balance Sheet (Assets): Assets, Cash, Deposits in Banks, AFS Securities, HTM Securities, Loans, ALLL, PP&E
- * - Balance Sheet (Liabilities & Equity): Liabilities, Deposits, ST Borrowings, LT Debt, Equity, Goodwill, Intangibles
+ * - Balance Sheet (Assets): Assets, Cash, Loans
+ * - Balance Sheet (Liabilities & Equity): Liabilities, Deposits, Equity
  * - Income Statement (TTM): Interest Income, Interest Expense, NII, Noninterest Inc/Exp, Provision, Pre-Tax Inc, Net Income
  * - Cash Flow: Operating Cash Flow
- * - Per-Share: Shares, BVPS, TBVPS, EPS, DPS
- * - Valuation: P/E, P/TBV
- * - Performance: RoE, ROAA, RoTA, ROTCE
- * - Bank Ratios: Efficiency, Dep/Assets, Eq/Assets, TCE/TA
+ * - Per-Share: Shares, BVPS, EPS, DPS
+ * - Valuation: P/E
+ * - Performance: RoE, ROAA
+ * - Bank Ratios: Efficiency, Dep/Assets, Eq/Assets
  * - Graham: Graham #, MoS %
  */
 const COLUMNS = [
@@ -96,45 +96,9 @@ const COLUMNS = [
     group: 'bs-assets',
   },
   {
-    key: 'afsSecurities',
-    label: 'AFS Sec',
-    xbrl: 'us-gaap:AvailableForSaleSecuritiesDebt',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-assets',
-  },
-  {
-    key: 'htmSecurities',
-    label: 'HTM Sec',
-    xbrl: 'us-gaap:HeldToMaturitySecurities',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-assets',
-  },
-  {
     key: 'loans',
     label: 'Loans',
     xbrl: 'us-gaap:LoansAndLeasesReceivableNetReportedAmount',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-assets',
-  },
-  {
-    key: 'allowanceForCreditLosses',
-    label: 'ALLL',
-    xbrl: 'us-gaap:AllowanceForLoanAndLeaseLosses',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-assets',
-  },
-  {
-    key: 'premisesAndEquipment',
-    label: 'PP&E',
-    xbrl: 'us-gaap:PremisesAndEquipmentNet',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -163,45 +127,9 @@ const COLUMNS = [
     group: 'bs-liab',
   },
   {
-    key: 'shortTermBorrowings',
-    label: 'ST Borrow',
-    xbrl: 'us-gaap:ShortTermBorrowings',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-liab',
-  },
-  {
-    key: 'longTermDebt',
-    label: 'LT Debt',
-    xbrl: 'us-gaap:LongTermDebt',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-liab',
-  },
-  {
     key: 'totalEquity',
     label: 'Equity',
     xbrl: 'us-gaap:StockholdersEquity',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-liab',
-  },
-  {
-    key: 'goodwill',
-    label: 'Goodwill',
-    xbrl: 'us-gaap:Goodwill',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-liab',
-  },
-  {
-    key: 'intangibles',
-    label: 'Intang',
-    xbrl: 'us-gaap:IntangibleAssetsNetExcludingGoodwill',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -319,15 +247,6 @@ const COLUMNS = [
     group: 'per-share',
   },
   {
-    key: 'tbvps',
-    label: 'TBVPS',
-    xbrl: 'Calculated: (Equity - Goodwill - Intangibles) ÷ Shares',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
-    group: 'per-share',
-  },
-  {
     key: 'ttmEps',
     label: 'EPS',
     xbrl: 'us-gaap:EarningsPerShareBasic',
@@ -358,15 +277,6 @@ const COLUMNS = [
     format: (value) => formatNumber(value, { decimals: 2 }),
     group: 'valuation',
   },
-  {
-    key: 'ptbvps',
-    label: 'P/TBV',
-    xbrl: 'Calculated: Price ÷ TBVPS',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2 }),
-    group: 'valuation',
-  },
 
   // ===========================================================================
   // PERFORMANCE RATIOS
@@ -387,24 +297,6 @@ const COLUMNS = [
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
-    group: 'performance',
-  },
-  {
-    key: 'rota',
-    label: 'RoTA',
-    xbrl: 'Calculated: Net Income ÷ Tangible Assets',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
-    group: 'performance',
-  },
-  {
-    key: 'rotce',
-    label: 'ROTCE',
-    xbrl: 'Calculated: Net Income ÷ TCE',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'performance',
   },
 
@@ -433,15 +325,6 @@ const COLUMNS = [
     key: 'equityToAssets',
     label: 'Eq/Assets',
     xbrl: 'Calculated: Equity ÷ Assets',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
-    group: 'bank-ratios',
-  },
-  {
-    key: 'tceToTa',
-    label: 'TCE/TA',
-    xbrl: 'Calculated: TCE ÷ Tangible Assets',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
@@ -587,17 +470,7 @@ function ResultsTable({ banks, loading }) {
       else if (value < 0) classes.push('value-negative');
     }
 
-    if (column.key === 'rotce' && typeof value === 'number') {
-      if (value >= 12) classes.push('value-positive');
-      else if (value < 0) classes.push('value-negative');
-    }
-
     if (column.key === 'roaa' && typeof value === 'number') {
-      if (value >= 1) classes.push('value-positive');
-      else if (value < 0) classes.push('value-negative');
-    }
-
-    if (column.key === 'rota' && typeof value === 'number') {
       if (value >= 1) classes.push('value-positive');
       else if (value < 0) classes.push('value-negative');
     }
@@ -618,12 +491,6 @@ function ResultsTable({ banks, loading }) {
     if (column.key === 'equityToAssets' && typeof value === 'number') {
       if (value >= 10) classes.push('value-positive');
       else if (value < 7) classes.push('value-negative');
-    }
-
-    // TCE/TA: higher means stronger capital (> 8% is strong)
-    if (column.key === 'tceToTa' && typeof value === 'number') {
-      if (value >= 8) classes.push('value-positive');
-      else if (value < 5) classes.push('value-negative');
     }
 
     return classes.join(' ');

@@ -9,13 +9,13 @@ import { getUniqueExchanges } from '../data/sheets.js';
  * Filter categories organized by:
  * - Quick Filters: exchanges
  * - Size & Scale: marketCap, totalAssets, totalDeposits
- * - Balance Sheet - Assets: cashAndCashEquivalents, afsSecurities, htmSecurities, loans, allowanceForCreditLosses
- * - Balance Sheet - Liabilities: totalLiabilities, shortTermBorrowings, longTermDebt, totalEquity
- * - Valuation: pni, ptbvps
- * - Profitability: roe, roaa, rota, rotce
- * - Capital & Leverage: equityToAssets, tceToTa, depositsToAssets
+ * - Balance Sheet - Assets: cashAndCashEquivalents, loans
+ * - Balance Sheet - Liabilities: totalLiabilities, totalEquity
+ * - Valuation: pni
+ * - Profitability: roe, roaa
+ * - Capital & Leverage: equityToAssets, depositsToAssets
  * - Efficiency: efficiencyRatio
- * - Book Value: bvps, tbvps
+ * - Book Value: bvps
  * - Dividends: ttmDividend, dividendPayoutRatio
  * - Value Investing: grahamMoS
  * - Income Statement: ttmNetIncome, ttmNetInterestIncome
@@ -32,30 +32,21 @@ const DEFAULT_FILTERS = {
 
   // Balance Sheet - Assets
   cashAndCashEquivalents: { min: '', max: '' },
-  afsSecurities: { min: '', max: '' },
-  htmSecurities: { min: '', max: '' },
   loans: { min: '', max: '' },
-  allowanceForCreditLosses: { min: '', max: '' },
 
   // Balance Sheet - Liabilities
   totalLiabilities: { min: '', max: '' },
-  shortTermBorrowings: { min: '', max: '' },
-  longTermDebt: { min: '', max: '' },
   totalEquity: { min: '', max: '' },
 
   // Valuation
   pni: { min: '', max: '' },
-  ptbvps: { min: '', max: '' },
 
   // Profitability
   roe: { min: '', max: '' },
   roaa: { min: '', max: '' },
-  rota: { min: '', max: '' },
-  rotce: { min: '', max: '' },
 
   // Capital & Leverage
   equityToAssets: { min: '', max: '' },
-  tceToTa: { min: '', max: '' },
   depositsToAssets: { min: '', max: '' },
 
   // Efficiency
@@ -63,7 +54,6 @@ const DEFAULT_FILTERS = {
 
   // Book Value
   bvps: { min: '', max: '' },
-  tbvps: { min: '', max: '' },
 
   // Dividends
   ttmDividend: { min: '', max: '' },
@@ -153,17 +143,8 @@ function Screener({ banks, loading }) {
       // Cash & Cash Equivalents filter
       if (!applyRangeFilter(bank.cashAndCashEquivalents, filters.cashAndCashEquivalents, 1e6)) return false;
 
-      // AFS Securities filter
-      if (!applyRangeFilter(bank.afsSecurities, filters.afsSecurities, 1e6)) return false;
-
-      // HTM Securities filter
-      if (!applyRangeFilter(bank.htmSecurities, filters.htmSecurities, 1e6)) return false;
-
       // Loans filter
       if (!applyRangeFilter(bank.loans, filters.loans, 1e6)) return false;
-
-      // Allowance for Credit Losses filter
-      if (!applyRangeFilter(bank.allowanceForCreditLosses, filters.allowanceForCreditLosses, 1e6)) return false;
 
       // ========================================================================
       // BALANCE SHEET - LIABILITIES (values in millions for filter input)
@@ -171,12 +152,6 @@ function Screener({ banks, loading }) {
 
       // Total Liabilities filter
       if (!applyRangeFilter(bank.totalLiabilities, filters.totalLiabilities, 1e6)) return false;
-
-      // Short-Term Borrowings filter
-      if (!applyRangeFilter(bank.shortTermBorrowings, filters.shortTermBorrowings, 1e6)) return false;
-
-      // Long-Term Debt filter
-      if (!applyRangeFilter(bank.longTermDebt, filters.longTermDebt, 1e6)) return false;
 
       // Total Equity filter
       if (!applyRangeFilter(bank.totalEquity, filters.totalEquity, 1e6)) return false;
@@ -188,9 +163,6 @@ function Screener({ banks, loading }) {
       // P/NI (P/E) filter
       if (!applyRangeFilter(bank.pni, filters.pni)) return false;
 
-      // P/TBVPS filter
-      if (!applyRangeFilter(bank.ptbvps, filters.ptbvps)) return false;
-
       // ========================================================================
       // PROFITABILITY
       // ========================================================================
@@ -201,21 +173,12 @@ function Screener({ banks, loading }) {
       // ROAA filter
       if (!applyRangeFilter(bank.roaa, filters.roaa)) return false;
 
-      // RoTA filter
-      if (!applyRangeFilter(bank.rota, filters.rota)) return false;
-
-      // ROTCE filter
-      if (!applyRangeFilter(bank.rotce, filters.rotce)) return false;
-
       // ========================================================================
       // CAPITAL & LEVERAGE
       // ========================================================================
 
       // Equity/Assets filter
       if (!applyRangeFilter(bank.equityToAssets, filters.equityToAssets)) return false;
-
-      // TCE/TA filter
-      if (!applyRangeFilter(bank.tceToTa, filters.tceToTa)) return false;
 
       // Deposits/Assets filter
       if (!applyRangeFilter(bank.depositsToAssets, filters.depositsToAssets)) return false;
@@ -233,9 +196,6 @@ function Screener({ banks, loading }) {
 
       // BVPS filter
       if (!applyRangeFilter(bank.bvps, filters.bvps)) return false;
-
-      // TBVPS filter
-      if (!applyRangeFilter(bank.tbvps, filters.tbvps)) return false;
 
       // ========================================================================
       // DIVIDENDS
@@ -321,32 +281,22 @@ function Screener({ banks, loading }) {
       checkRange(filters.totalDeposits) ||
       // Balance Sheet - Assets
       checkRange(filters.cashAndCashEquivalents) ||
-      checkRange(filters.afsSecurities) ||
-      checkRange(filters.htmSecurities) ||
       checkRange(filters.loans) ||
-      checkRange(filters.allowanceForCreditLosses) ||
       // Balance Sheet - Liabilities
       checkRange(filters.totalLiabilities) ||
-      checkRange(filters.shortTermBorrowings) ||
-      checkRange(filters.longTermDebt) ||
       checkRange(filters.totalEquity) ||
       // Valuation
       checkRange(filters.pni) ||
-      checkRange(filters.ptbvps) ||
       // Profitability
       checkRange(filters.roe) ||
       checkRange(filters.roaa) ||
-      checkRange(filters.rota) ||
-      checkRange(filters.rotce) ||
       // Capital & Leverage
       checkRange(filters.equityToAssets) ||
-      checkRange(filters.tceToTa) ||
       checkRange(filters.depositsToAssets) ||
       // Efficiency
       checkRange(filters.efficiencyRatio) ||
       // Book Value
       checkRange(filters.bvps) ||
-      checkRange(filters.tbvps) ||
       // Dividends
       checkRange(filters.ttmDividend) ||
       checkRange(filters.dividendPayoutRatio) ||

@@ -266,7 +266,7 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
         <FilterSection
           title="Balance Sheet - Assets"
           defaultOpen={false}
-          badge={countActiveFilters(['cashAndCashEquivalents', 'afsSecurities', 'htmSecurities', 'loans', 'allowanceForCreditLosses']) || null}
+          badge={countActiveFilters(['cashAndCashEquivalents', 'loans']) || null}
         >
           <RangeFilter
             label="Cash & Cash Equivalents"
@@ -278,24 +278,6 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             unit="$M"
           />
           <RangeFilter
-            label="AFS Securities"
-            minValue={filters.afsSecurities?.min ?? ''}
-            maxValue={filters.afsSecurities?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('afsSecurities')}
-            unit="$M"
-          />
-          <RangeFilter
-            label="HTM Securities"
-            minValue={filters.htmSecurities?.min ?? ''}
-            maxValue={filters.htmSecurities?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('htmSecurities')}
-            unit="$M"
-          />
-          <RangeFilter
             label="Loans & Leases"
             minValue={filters.loans?.min ?? ''}
             maxValue={filters.loans?.max ?? ''}
@@ -304,22 +286,13 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             onChange={handleRangeChange('loans')}
             unit="$M"
           />
-          <RangeFilter
-            label="Allowance for Credit Losses"
-            minValue={filters.allowanceForCreditLosses?.min ?? ''}
-            maxValue={filters.allowanceForCreditLosses?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('allowanceForCreditLosses')}
-            unit="$M"
-          />
         </FilterSection>
 
         {/* BALANCE SHEET - LIABILITIES */}
         <FilterSection
           title="Balance Sheet - Liabilities"
           defaultOpen={false}
-          badge={countActiveFilters(['totalLiabilities', 'shortTermBorrowings', 'longTermDebt', 'totalEquity']) || null}
+          badge={countActiveFilters(['totalLiabilities', 'totalEquity']) || null}
         >
           <RangeFilter
             label="Total Liabilities"
@@ -328,24 +301,6 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             minPlaceholder="Min"
             maxPlaceholder="Max"
             onChange={handleRangeChange('totalLiabilities')}
-            unit="$M"
-          />
-          <RangeFilter
-            label="Short-Term Borrowings"
-            minValue={filters.shortTermBorrowings?.min ?? ''}
-            maxValue={filters.shortTermBorrowings?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('shortTermBorrowings')}
-            unit="$M"
-          />
-          <RangeFilter
-            label="Long-Term Debt"
-            minValue={filters.longTermDebt?.min ?? ''}
-            maxValue={filters.longTermDebt?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('longTermDebt')}
             unit="$M"
           />
           <RangeFilter
@@ -363,7 +318,7 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
         <FilterSection
           title="Valuation"
           defaultOpen={true}
-          badge={countActiveFilters(['pni', 'ptbvps']) || null}
+          badge={countActiveFilters(['pni']) || null}
         >
           <RangeFilter
             label="P/E Ratio"
@@ -373,21 +328,13 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             maxPlaceholder="Max"
             onChange={handleRangeChange('pni')}
           />
-          <RangeFilter
-            label="Price/TBV"
-            minValue={filters.ptbvps?.min ?? ''}
-            maxValue={filters.ptbvps?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('ptbvps')}
-          />
         </FilterSection>
 
         {/* PROFITABILITY */}
         <FilterSection
           title="Profitability"
           defaultOpen={true}
-          badge={countActiveFilters(['roe', 'roaa', 'rota', 'rotce']) || null}
+          badge={countActiveFilters(['roe', 'roaa']) || null}
         >
           <RangeFilter
             label="Return on Equity (RoE)"
@@ -407,31 +354,13 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             onChange={handleRangeChange('roaa')}
             unit="%"
           />
-          <RangeFilter
-            label="Return on Tang Assets (RoTA)"
-            minValue={filters.rota?.min ?? ''}
-            maxValue={filters.rota?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('rota')}
-            unit="%"
-          />
-          <RangeFilter
-            label="Return on TCE (ROTCE)"
-            minValue={filters.rotce?.min ?? ''}
-            maxValue={filters.rotce?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('rotce')}
-            unit="%"
-          />
         </FilterSection>
 
         {/* CAPITAL & LEVERAGE */}
         <FilterSection
           title="Capital & Leverage"
           defaultOpen={false}
-          badge={countActiveFilters(['equityToAssets', 'tceToTa', 'depositsToAssets']) || null}
+          badge={countActiveFilters(['equityToAssets', 'depositsToAssets']) || null}
         >
           <RangeFilter
             label="Equity/Assets"
@@ -440,15 +369,6 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             minPlaceholder="Min"
             maxPlaceholder="Max"
             onChange={handleRangeChange('equityToAssets')}
-            unit="%"
-          />
-          <RangeFilter
-            label="TCE/Tangible Assets"
-            minValue={filters.tceToTa?.min ?? ''}
-            maxValue={filters.tceToTa?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('tceToTa')}
             unit="%"
           />
           <RangeFilter
@@ -486,7 +406,7 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
         <FilterSection
           title="Book Value"
           defaultOpen={false}
-          badge={countActiveFilters(['bvps', 'tbvps']) || null}
+          badge={countActiveFilters(['bvps']) || null}
         >
           <RangeFilter
             label="Book Value Per Share"
@@ -495,15 +415,6 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             minPlaceholder="Min"
             maxPlaceholder="Max"
             onChange={handleRangeChange('bvps')}
-            unit="$"
-          />
-          <RangeFilter
-            label="Tangible BV Per Share"
-            minValue={filters.tbvps?.min ?? ''}
-            maxValue={filters.tbvps?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('tbvps')}
             unit="$"
           />
         </FilterSection>
