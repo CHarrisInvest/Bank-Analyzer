@@ -315,7 +315,7 @@ async function downloadBulkCompanyFacts() {
     fs.mkdirSync(extractDir, { recursive: true });
   }
 
-  execSync(`unzip -o "${zipPath}" -d "${extractDir}"`, { stdio: 'pipe' });
+  execSync(`unzip -o "${zipPath}" -d "${extractDir}"`, { stdio: 'inherit' });
   console.log('  Extraction complete.');
 
   return extractDir;
