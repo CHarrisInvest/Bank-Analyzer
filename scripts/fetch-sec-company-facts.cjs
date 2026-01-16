@@ -16,7 +16,6 @@
  * Output:
  * - public/data/banks.json: Calculated metrics (same format as before)
  * - public/data/sec-raw-data.json: Summary raw data for audit trail
- * - public/data/company-facts/: Full Company Facts JSON per bank (Option C)
  *
  * Environment Variables:
  * - SEC_USER_AGENT: Required. Contact info for SEC API (e.g., "Company Name admin@example.com")
@@ -178,7 +177,6 @@ const CONFIG = {
 // Directories
 const TEMP_DIR = path.join(__dirname, '..', '.sec-data-cache');
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'data');
-const COMPANY_FACTS_DIR = path.join(OUTPUT_DIR, 'company-facts');
 
 /**
  * Get User-Agent header for SEC API requests
@@ -861,7 +859,6 @@ EXAMPLES:
 OUTPUT:
   public/data/banks.json           Calculated metrics
   public/data/sec-raw-data.json    Summary raw data for audit
-  public/data/company-facts/       Full Company Facts JSON per bank
 
 DATA SOURCE:
   https://data.sec.gov/api/xbrl/companyfacts/
@@ -897,9 +894,6 @@ async function main() {
   }
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
-  if (!fs.existsSync(COMPANY_FACTS_DIR)) {
-    fs.mkdirSync(COMPANY_FACTS_DIR, { recursive: true });
   }
 
   // Load bank list
@@ -960,10 +954,6 @@ async function main() {
         continue;
       }
 
-      // Save full Company Facts JSON (Option C)
-      const companyFactsPath = path.join(COMPANY_FACTS_DIR, `${bankInfo.ticker || cik}.json`);
-      fs.writeFileSync(companyFactsPath, JSON.stringify(companyFacts, null, 2));
-
       // Transform to our format
       const bankData = transformCompanyFacts(companyFacts, bankInfo);
 
@@ -981,8 +971,7 @@ async function main() {
       rawDataStore[cik] = {
         ticker: bankInfo.ticker,
         companyName: bankData.companyName,
-        rawData,
-        companyFactsFile: `${bankInfo.ticker || cik}.json`
+        rawData
       };
 
       processed++;
@@ -1019,6 +1008,13 @@ async function main() {
     banks: rawDataStore
   }, null, 2));
   console.log(`Saved raw data: ${rawDataOutputPath}`);
+
+  // Clean up temp directory to free disk space
+  if (fs.existsSync(TEMP_DIR)) {
+    console.log('\nCleaning up temp directory...');
+    fs.rmSync(TEMP_DIR, { recursive: true, force: true });
+    console.log('  Cleanup complete.');
+  }
 
   // Summary
   console.log('\n' + '═'.repeat(80));
