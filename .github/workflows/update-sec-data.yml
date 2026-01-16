@@ -69,13 +69,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Add all data files
+          # Add data files
           git add public/data/banks.json public/data/sec-raw-data.json
-
-          # Add company-facts directory if it exists and has files
-          if [ -d "public/data/company-facts" ] && [ "$(ls -A public/data/company-facts)" ]; then
-            git add public/data/company-facts/
-          fi
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
