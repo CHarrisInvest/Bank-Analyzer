@@ -1,12 +1,16 @@
 name: Update SEC Data
 
 on:
+  schedule:
+    # Run daily at 3am UTC (after SEC data typically updates)
+    - cron: '0 3 * * *'
   workflow_dispatch:
     inputs:
-      quarters:
-        description: 'Quarters to process (space-separated)'
+      use_bulk:
+        description: 'Use bulk companyfacts.zip download (recommended for full refresh)'
         required: false
-        default: '2025q4 2025q3 2025q2 2025q1 2024q4'
+        default: 'true'
+        type: boolean
 
 permissions:
   contents: write
@@ -32,48 +36,32 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Download SEC data from GitHub Release
+      - name: Fetch SEC Company Facts data
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: |
-          mkdir -p .sec-data-cache
-          SUCCESS=0
-          FAILED=0
-
-          for q in ${{ github.event.inputs.quarters }}; do
-            echo "Downloading $q.zip from GitHub Release..."
-
-            if curl -f -L \
-              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              -o ".sec-data-cache/$q.zip" \
-              "https://github.com/${{ github.repository }}/releases/download/sec-data/$q.zip" 2>/dev/null; then
-              echo "  ✓ $q.zip downloaded"
-              SUCCESS=$((SUCCESS + 1))
-            else
-              echo "  ✗ $q.zip not found in release (upload it first)"
-              FAILED=$((FAILED + 1))
-            fi
-          done
-
-          echo ""
-          echo "Downloaded files:"
-          ls -la .sec-data-cache/ || true
-          echo ""
-          echo "Summary: $SUCCESS succeeded, $FAILED failed"
-
-          if [ $SUCCESS -eq 0 ]; then
+          if [ -z "$SEC_USER_AGENT" ]; then
+            echo "ERROR: SEC_USER_AGENT secret is not set."
             echo ""
-            echo "ERROR: No files found in the 'sec-data' release."
-            echo ""
+            echo "The SEC requires identification for API access."
             echo "To fix this:"
-            echo "1. Download ZIP files from: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets"
-            echo "2. Go to: https://github.com/${{ github.repository }}/releases/new"
-            echo "3. Create a release with tag 'sec-data'"
-            echo "4. Drag & drop your ZIP files into the release"
-            echo "5. Run this workflow again"
+            echo "1. Go to: https://github.com/${{ github.repository }}/settings/secrets/actions"
+            echo "2. Create a secret named 'SEC_USER_AGENT'"
+            echo "3. Set the value to your contact info, e.g.: 'Company Name admin@example.com'"
+            echo ""
+            echo "See: https://www.sec.gov/os/accessing-edgar-data"
             exit 1
           fi
 
-      - name: Process SEC data
-        run: node scripts/fetch-sec-fs-datasets.cjs --local-only
+          BULK_FLAG=""
+          if [ "${{ github.event.inputs.use_bulk }}" = "true" ] || [ -z "${{ github.event.inputs.use_bulk }}" ]; then
+            BULK_FLAG="--bulk"
+            echo "Using bulk download mode (companyfacts.zip)"
+          else
+            echo "Using per-company API mode"
+          fi
+
+          node scripts/fetch-sec-company-facts.cjs $BULK_FLAG
 
       - name: Commit updated data
         id: commit
@@ -81,13 +69,19 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+          # Add all data files
           git add public/data/banks.json public/data/sec-raw-data.json
+
+          # Add company-facts directory if it exists and has files
+          if [ -d "public/data/company-facts" ] && [ "$(ls -A public/data/company-facts)" ]; then
+            git add public/data/company-facts/
+          fi
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
             echo "changed=false" >> $GITHUB_OUTPUT
           else
-            git commit -m "Update bank data from SEC FS Data Sets - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git commit -m "Update bank data from SEC Company Facts API - $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
             echo "✓ Changes committed and pushed"
             echo "changed=true" >> $GITHUB_OUTPUT

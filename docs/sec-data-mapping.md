@@ -1,39 +1,29 @@
-# SEC Financial Statement Data Set - Concept Mapping
+# SEC Company Facts API - Concept Mapping
 
 This document maps SEC EDGAR XBRL concepts to the calculated metrics used in Bank Analyzer.
 
-## Data Sources
+## Data Source
 
-Bank Analyzer supports **two data sources** from SEC EDGAR:
+Bank Analyzer uses the **SEC EDGAR Company Facts API** to fetch financial data.
 
-### 1. SEC Financial Statement Data Sets (Recommended)
-
-**URL:** https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets
-
-**Script:** `scripts/fetch-sec-fs-datasets.cjs`
-
-This is the **recommended** data source because:
-- Contains ONLY data from **primary financial statements** (as rendered by SEC)
-- Higher accuracy and consistency
-- Curated by SEC for research use
-- Bulk download reduces API calls
-
-**Files in quarterly ZIP:**
-| File | Description |
-|------|-------------|
-| `sub.txt` | Submission metadata (CIK, company name, filing info) |
-| `num.txt` | Numeric values (tag, value, date, quarters) |
-| `tag.txt` | XBRL tag definitions |
-| `pre.txt` | Presentation linkbase |
-
-### 2. Company Facts API (Legacy)
+### SEC Company Facts API
 
 **URL:** `https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json`
 
-**Script:** `scripts/fetch-sec-data.cjs`
+**Bulk Download:** `https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip`
 
-This API contains ALL XBRL data including notes and supplementary schedules,
-which can lead to data quality issues.
+**Script:** `scripts/fetch-sec-company-facts.cjs`
+
+**Advantages:**
+- Includes **DEI namespace** (EntityCommonStockSharesOutstanding on cover page)
+- Complete historical data per company
+- Real-time updates available
+- No quarterly ZIP file management
+
+**Required Environment Variable:**
+```bash
+export SEC_USER_AGENT="Your Company Name admin@example.com"
+```
 
 ---
 
@@ -42,12 +32,20 @@ which can lead to data quality issues.
 | File | Description |
 |------|-------------|
 | `public/data/banks.json` | Calculated metrics for all banks |
-| `public/data/sec-raw-data.json` | Raw SEC values for audit trail (new) |
+| `public/data/sec-raw-data.json` | Summary raw data for audit trail |
+| `public/data/company-facts/` | Full Company Facts JSON per bank |
 | `public/data/bank-list.json` | Bank CIK/ticker mapping |
 
 ---
 
 ## XBRL Concepts Extracted
+
+### DEI Namespace (Document & Entity Information)
+
+| XBRL Concept | Unit | Used For |
+|--------------|------|----------|
+| `EntityCommonStockSharesOutstanding` | shares | Primary shares source (cover page) |
+| `EntityPublicFloat` | USD | Public float |
 
 ### Balance Sheet (Point-in-Time)
 
@@ -59,7 +57,7 @@ which can lead to data quality issues.
 | `Deposits` | USD | Deposits/Assets ratio |
 | `DepositsDomestic` | USD | Fallback for Deposits |
 | `Liabilities` | USD | Total Liabilities |
-| `CommonStockSharesOutstanding` | shares | Per-share calculations |
+| `CommonStockSharesOutstanding` | shares | Fallback for shares (balance sheet) |
 | `CashAndCashEquivalentsAtCarryingValue` | USD | Cash position |
 | `CashAndDueFromBanks` | USD | Fallback for Cash |
 | `LoansAndLeasesReceivableNetReportedAmount` | USD | Loans |
@@ -90,52 +88,121 @@ which can lead to data quality issues.
 
 ---
 
-## SEC Financial Statement Data Sets Structure
+## Company Facts API Structure
 
-### num.txt (Numeric Data)
+The API returns data structured by namespace and concept:
 
-| Column | Description |
-|--------|-------------|
-| `adsh` | Accession number (unique filing ID) |
-| `tag` | XBRL concept name |
-| `version` | Taxonomy version |
-| `ddate` | Data date (YYYYMMDD) |
-| `qtrs` | Number of quarters (0=point-in-time, 1=quarterly, 4=annual) |
-| `uom` | Unit of measure (USD, shares, etc.) |
-| `value` | Numeric value |
+```json
+{
+  "cik": 18255,
+  "entityName": "JPMORGAN CHASE & CO",
+  "facts": {
+    "dei": {
+      "EntityCommonStockSharesOutstanding": {
+        "label": "Entity Common Stock, Shares Outstanding",
+        "units": {
+          "shares": [
+            {
+              "end": "2024-09-30",
+              "val": 2850000000,
+              "accn": "0000019617-24-000123",
+              "fy": 2024,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2024-11-01"
+            }
+          ]
+        }
+      }
+    },
+    "us-gaap": {
+      "Assets": {
+        "label": "Assets",
+        "units": {
+          "USD": [
+            {
+              "end": "2024-09-30",
+              "val": 4200000000000,
+              "start": null,
+              "accn": "...",
+              "fy": 2024,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2024-11-01"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
 
-### sub.txt (Submission Data)
+### Key Fields
 
-| Column | Description |
-|--------|-------------|
-| `adsh` | Accession number |
-| `cik` | Company CIK |
-| `name` | Company name |
-| `sic` | SIC code |
+| Field | Description |
+|-------|-------------|
+| `val` | Numeric value |
+| `end` | Period end date (YYYY-MM-DD) |
+| `start` | Period start date (null for point-in-time) |
 | `form` | Filing type (10-K, 10-Q) |
-| `period` | Period end date |
 | `fy` | Fiscal year |
 | `fp` | Fiscal period (Q1, Q2, Q3, FY) |
 | `filed` | Filing date |
+| `accn` | Accession number |
+
+---
+
+## Period Length Inference
+
+The Company Facts API doesn't have an explicit `qtrs` field. We infer it:
+
+| Concept Type | `start` Field | Inferred Period |
+|--------------|---------------|-----------------|
+| Balance sheet | null | Point-in-time (qtrs=0) |
+| Income/cash flow | present | Duration-based |
+
+**Duration Classification:**
+- ≤100 days → Quarterly (qtrs=1)
+- 101-200 days → Semi-annual (qtrs=2)
+- 201-300 days → 9 months (qtrs=3)
+- >300 days → Annual (qtrs=4)
 
 ---
 
 ## TTM Calculation Logic
 
-### For Income Statement Items
+### Rule A: Quarterly-First
+If 4+ quarterly periods exist, sum the most recent 4 quarters.
 
-1. **If most recent filing is 10-K (annual):** Use value directly (qtrs=4)
-2. **If most recent filing is 10-Q:** Sum last 4 quarters (qtrs=1)
+### Rule B: Annual Fallback
+Only use annual value if fewer than 4 quarterly periods exist AND the annual period is more recent.
 
+**NEVER mix annual and quarterly values.**
+
+```javascript
+// Rule A
+if (quarterlyValues.length >= 4) {
+  return sum(quarterlyValues.slice(0, 4));
+}
+
+// Rule B
+if (annualValues.length > 0 && annualValues[0].date >= quarterlyValues[0]?.date) {
+  return annualValues[0].value;
+}
 ```
-TTM = Q1 + Q2 + Q3 + Q4
 
-Where quarterly values have qtrs=1 in num.txt
+---
+
+## FFIEC 5-Point Averaging
+
+Return ratios (ROE, ROAA) use 5-point average balance sheet values per FFIEC UBPR methodology:
+
+```javascript
+// Use up to 5 periods for averaging
+const periodsToUse = pointInTime.slice(0, 5);
+const average = sum(periodsToUse.map(p => p.value)) / periodsToUse.length;
 ```
-
-### For Balance Sheet Items
-
-Use most recent point-in-time value (qtrs=0) from 10-K or 10-Q.
 
 ---
 
@@ -153,8 +220,6 @@ Use most recent point-in-time value (qtrs=0) from 10-K or 10-Q.
 |--------|---------|
 | ROE % | `NetIncome(TTM) / AvgEquity × 100` |
 | ROAA % | `NetIncome(TTM) / AvgAssets × 100` |
-
-**Note:** Return ratios use 5-point average balance sheet values per FFIEC UBPR methodology.
 
 ### Bank-Specific Ratios
 
@@ -174,86 +239,6 @@ Use most recent point-in-time value (qtrs=0) from 10-K or 10-Q.
 
 ---
 
-## Audit Trail: sec-raw-data.json
-
-The new `sec-raw-data.json` file stores raw SEC values for verification:
-
-```json
-{
-  "metadata": {
-    "source": "SEC Financial Statement Data Sets",
-    "url": "https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets",
-    "quartersProcessed": ["2025Q3", "2025Q2", "2025Q1", "2024Q4"],
-    "generatedAt": "2026-01-14T21:00:00.000Z"
-  },
-  "banks": {
-    "0000040729": {
-      "ticker": "ALLY",
-      "companyName": "Ally Financial Inc.",
-      "rawData": {
-        "balanceSheet": {
-          "Assets": {
-            "value": 188779000000,
-            "ddate": "20250930",
-            "qtrs": 0,
-            "form": "10-Q",
-            "fp": "Q3"
-          },
-          "CommonStockSharesOutstanding": {
-            "value": 303300000,
-            "ddate": "20250930",
-            "qtrs": 0,
-            "form": "10-Q"
-          }
-        },
-        "incomeStatement": {
-          "NetIncomeLoss": {
-            "value": -316000000,
-            "date": "20250930",
-            "method": "sum-4Q",
-            "details": [...]
-          }
-        }
-      },
-      "submissions": [
-        {"adsh": "0000040729-24-000123", "form": "10-Q", "period": "20250930"}
-      ]
-    }
-  }
-}
-```
-
----
-
-## Running the Scripts
-
-### Fetch from SEC Financial Statement Data Sets (Recommended)
-
-```bash
-node scripts/fetch-sec-fs-datasets.cjs
-```
-
-This will:
-1. Download quarterly ZIP files from SEC
-2. Parse sub.txt and num.txt
-3. Filter for bank CIKs
-4. Calculate metrics
-5. Save to `banks.json` and `sec-raw-data.json`
-
-### Fetch from Company Facts API (Legacy)
-
-```bash
-node scripts/fetch-sec-data.cjs
-```
-
-### Inspect Raw Data for a Bank
-
-```bash
-node scripts/inspect-bank-data.cjs ALLY
-```
-
----
-
 ## Data Quality Validation
 
 Metrics are validated against outlier thresholds:
@@ -270,11 +255,41 @@ Values outside these ranges are flagged and nulled out.
 
 ---
 
-## GitHub Actions Workflows
+## Running the Script
+
+### Fetch Using Per-Company API
+
+```bash
+export SEC_USER_AGENT="Your Company Name admin@example.com"
+node scripts/fetch-sec-company-facts.cjs
+```
+
+### Fetch Using Bulk Download (Recommended)
+
+```bash
+export SEC_USER_AGENT="Your Company Name admin@example.com"
+node scripts/fetch-sec-company-facts.cjs --bulk
+```
+
+This will:
+1. Download companyfacts.zip (~2GB)
+2. Extract and process bank company facts
+3. Store full JSON per bank in `public/data/company-facts/`
+4. Calculate metrics
+5. Save to `banks.json` and `sec-raw-data.json`
+
+---
+
+## GitHub Actions Workflow
 
 | Workflow | Schedule | Script |
 |----------|----------|--------|
-| `fetch-fs-datasets.yml` | Weekly (Sat 3AM UTC) | `fetch-sec-fs-datasets.cjs` |
-| `fetch-data.yml` | Daily (2AM UTC) | `fetch-sec-data.cjs` |
+| `update-sec-data.yml` | Daily (3AM UTC) | `fetch-sec-company-facts.cjs --bulk` |
 
-The FS Data Sets workflow is recommended for production use.
+**Required Secret:** `SEC_USER_AGENT` - Your contact info for SEC API access.
+
+---
+
+## Reversion Plan
+
+If issues arise with the Company Facts API, see `docs/reversion-plan-sec-fs-datasets.md` for instructions to revert to the SEC Financial Statement Data Sets approach.
