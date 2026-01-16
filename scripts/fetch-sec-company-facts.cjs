@@ -596,15 +596,18 @@ function getTTMValue(conceptData) {
 }
 
 /**
- * Get shares outstanding (from DEI or us-gaap namespace)
+ * Get shares outstanding (from us-gaap or DEI namespace)
+ *
+ * Prefer US-GAAP (balance sheet) as it's quarter-end and matches other metrics.
+ * DEI (cover page) shows shares as of a date ~1 month after quarter-end.
  */
 function getSharesOutstanding(concepts) {
-  // Try DEI namespace first (cover page - higher coverage)
-  const deiShares = getLatestPointInTime(concepts['EntityCommonStockSharesOutstanding']);
-  if (deiShares) return deiShares;
+  // Try us-gaap namespace first (balance sheet - quarter-end, matches other metrics)
+  const gaapShares = getLatestPointInTime(concepts['CommonStockSharesOutstanding']);
+  if (gaapShares) return gaapShares;
 
-  // Fallback to us-gaap namespace (balance sheet)
-  return getLatestPointInTime(concepts['CommonStockSharesOutstanding']);
+  // Fallback to DEI namespace (cover page - better coverage but post-quarter date)
+  return getLatestPointInTime(concepts['EntityCommonStockSharesOutstanding']);
 }
 
 /**
