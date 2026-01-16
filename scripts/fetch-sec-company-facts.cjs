@@ -679,15 +679,29 @@ function calculateBankMetrics(bankData) {
   const preferredValue = preferredStock?.value || 0;
   const sharesOutstanding = sharesData?.value;
 
+  // Helper to check if TTM data is stale (more than 2 years older than reference date)
+  const dataDate = assets?.ddate || equity?.ddate || netIncome?.date;
+  const isTTMStale = (ttmData) => {
+    if (!ttmData?.date || !dataDate) return false;
+    const ttmYear = parseInt(ttmData.date.slice(0, 4));
+    const refYear = parseInt(dataDate.slice(0, 4));
+    return (refYear - ttmYear) > 2;
+  };
+
   const ttmInterestIncome = interestIncome?.value;
   const ttmInterestExpense = interestExpense?.value;
   const ttmNii = netInterestIncome?.value;
   const ttmNonintIncome = noninterestIncome?.value;
   const ttmNonintExpense = noninterestExpense?.value;
-  const ttmProvision = provisionForCreditLosses?.value;
+  // Reject stale provision data (e.g., Ally has 2012-2013 data when balance sheet is 2025)
+  const ttmProvision = isTTMStale(provisionForCreditLosses) ? null : provisionForCreditLosses?.value;
   const ttmPreTaxIncome = preTaxIncome?.value;
   const ttmNetIncome = netIncome?.value;
-  const ttmNetIncomeToCommon = netIncomeToCommon?.value;
+  // Validate NI to Common: should not exceed Net Income (indicates quarter mismatch)
+  const rawNIToCommon = netIncomeToCommon?.value;
+  const ttmNetIncomeToCommon = (rawNIToCommon !== null && ttmNetIncome !== null && rawNIToCommon > ttmNetIncome)
+    ? null
+    : rawNIToCommon;
   const ttmEps = eps?.value;
   const ttmOperatingCashFlow = operatingCashFlow?.value;
   const ttmDps = dps?.value;
@@ -714,7 +728,6 @@ function calculateBankMetrics(bankData) {
   const grahamNum = ttmEps && bvps && ttmEps > 0 && bvps > 0 ? Math.sqrt(22.5 * ttmEps * bvps) : null;
   const dividendPayoutRatio = ttmDps && ttmEps && ttmEps > 0 ? (ttmDps / ttmEps) * 100 : null;
 
-  const dataDate = assets?.ddate || equity?.ddate || netIncome?.date;
   const formattedDate = dataDate ? `${dataDate.slice(0,4)}-${dataDate.slice(4,6)}-${dataDate.slice(6,8)}` : null;
 
   // Build raw data for audit trail
