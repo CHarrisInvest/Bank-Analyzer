@@ -48,46 +48,22 @@ const CONFIG = {
   bankSicCodes: ['6021', '6022', '6029', '6020'],
 
   // XBRL concepts to extract (Primary Financial Statement concepts only)
+  // Note: We only extract concepts with high coverage (>80% of banks reporting)
   conceptsToExtract: [
     // Balance Sheet - Assets
     'Assets',
     'CashAndCashEquivalentsAtCarryingValue',
     'CashAndDueFromBanks',
-    // Securities
-    'AvailableForSaleSecuritiesDebtSecurities',
-    'AvailableForSaleSecurities',
-    'AvailableForSaleSecuritiesDebt',
-    'HeldToMaturitySecurities',
-    'HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss',
     // Loans
     'LoansAndLeasesReceivableNetReportedAmount',
     'LoansAndLeasesReceivableNetOfDeferredIncome',
     'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss',
     'NotesReceivableNet',
-    // Allowance for Credit Losses
-    'AllowanceForLoanAndLeaseLosses',
-    'FinancingReceivableAllowanceForCreditLosses',
-    'AllowanceForCreditLossesOnFinancingReceivables',
-    // Fixed Assets
-    'PremisesAndEquipmentNet',
-    'PropertyPlantAndEquipmentNet',
-    // Goodwill - multiple tag variants used by different companies
-    'Goodwill',
-    'GoodwillAndIntangibleAssetsNet',
-    // Intangibles - multiple tag variants used by different companies
-    'IntangibleAssetsNetExcludingGoodwill',
-    'IntangibleAssetsNetIncludingGoodwill',
-    'FiniteLivedIntangibleAssetsNet',
-    'IndefiniteLivedIntangibleAssetsExcludingGoodwill',
-    'OtherIntangibleAssetsNet',
 
     // Balance Sheet - Liabilities & Equity
     'Liabilities',
     'Deposits',
     'DepositsDomestic',
-    'ShortTermBorrowings',
-    'LongTermDebt',
-    'LongTermDebtNoncurrent',
     'StockholdersEquity',
     'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest',
     'LiabilitiesAndStockholdersEquity',
@@ -132,7 +108,6 @@ const CONFIG = {
     efficiencyRatio: { min: 20, max: 150, unit: '%' },
     depositsToAssets: { min: 10, max: 100, unit: '%' },
     equityToAssets: { min: 1, max: 50, unit: '%' },
-    tceToTa: { min: 0, max: 40, unit: '%' },
     roe: { min: -100, max: 100, unit: '%' },
     roaa: { min: -10, max: 10, unit: '%' },
   },
@@ -618,29 +593,10 @@ function calculateBankMetrics(bankData) {
   // Cash & Cash Equivalents - prefer standard GAAP concept, fallback to bank-specific
   const cashAndCashEquivalents = getLatestPointInTime(concepts['CashAndCashEquivalentsAtCarryingValue']) ||
                                   getLatestPointInTime(concepts['CashAndDueFromBanks']);
-  const afsSecurities = getLatestPointInTime(concepts['AvailableForSaleSecuritiesDebtSecurities']) ||
-                        getLatestPointInTime(concepts['AvailableForSaleSecurities']) ||
-                        getLatestPointInTime(concepts['AvailableForSaleSecuritiesDebt']);
-  const htmSecurities = getLatestPointInTime(concepts['HeldToMaturitySecurities']) ||
-                        getLatestPointInTime(concepts['HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss']);
   const loans = getLatestPointInTime(concepts['LoansAndLeasesReceivableNetReportedAmount']) ||
                 getLatestPointInTime(concepts['LoansAndLeasesReceivableNetOfDeferredIncome']) ||
                 getLatestPointInTime(concepts['FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss']) ||
                 getLatestPointInTime(concepts['NotesReceivableNet']);
-  const allowanceForCreditLosses = getLatestPointInTime(concepts['AllowanceForLoanAndLeaseLosses']) ||
-                                    getLatestPointInTime(concepts['FinancingReceivableAllowanceForCreditLosses']) ||
-                                    getLatestPointInTime(concepts['AllowanceForCreditLossesOnFinancingReceivables']);
-  const premisesAndEquipment = getLatestPointInTime(concepts['PremisesAndEquipmentNet']) ||
-                               getLatestPointInTime(concepts['PropertyPlantAndEquipmentNet']);
-  // Goodwill - try multiple tag variants
-  const goodwill = getLatestPointInTime(concepts['Goodwill']) ||
-                   getLatestPointInTime(concepts['GoodwillAndIntangibleAssetsNet']);
-  // Intangibles - try multiple tag variants
-  const intangibles = getLatestPointInTime(concepts['IntangibleAssetsNetExcludingGoodwill']) ||
-                      getLatestPointInTime(concepts['IntangibleAssetsNetIncludingGoodwill']) ||
-                      getLatestPointInTime(concepts['FiniteLivedIntangibleAssetsNet']) ||
-                      getLatestPointInTime(concepts['IndefiniteLivedIntangibleAssetsExcludingGoodwill']) ||
-                      getLatestPointInTime(concepts['OtherIntangibleAssetsNet']);
 
   // ==========================================================================
   // BALANCE SHEET - LIABILITIES & EQUITY (point-in-time)
@@ -648,9 +604,6 @@ function calculateBankMetrics(bankData) {
   const liabilities = getLatestPointInTime(concepts['Liabilities']);
   const deposits = getLatestPointInTime(concepts['Deposits']) ||
                    getLatestPointInTime(concepts['DepositsDomestic']);
-  const shortTermBorrowings = getLatestPointInTime(concepts['ShortTermBorrowings']);
-  const longTermDebt = getLatestPointInTime(concepts['LongTermDebt']) ||
-                       getLatestPointInTime(concepts['LongTermDebtNoncurrent']);
   const equity = getLatestPointInTime(concepts['StockholdersEquity']) ||
                  getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
   const preferredStock = getLatestPointInTime(concepts['PreferredStockValue']) ||
@@ -660,7 +613,7 @@ function calculateBankMetrics(bankData) {
   // ==========================================================================
   // AVERAGES FOR RETURN RATIOS (FFIEC/Investor Standard)
   // ==========================================================================
-  // Return ratios (ROE, ROAA, ROTCE) and NIM should use AVERAGE values
+  // Return ratios (ROE, ROAA) should use AVERAGE values
   // rather than point-in-time ending values per FFIEC UBPR methodology.
 
   // Average Assets (for ROAA)
@@ -669,32 +622,6 @@ function calculateBankMetrics(bankData) {
   // Average Equity (for ROE)
   const avgEquity = getAveragePointInTime(concepts['StockholdersEquity']) ||
                     getAveragePointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
-
-  // Average components for earning assets (for NIM)
-  const avgLoans = getAveragePointInTime(concepts['LoansAndLeasesReceivableNetReportedAmount']) ||
-                   getAveragePointInTime(concepts['LoansAndLeasesReceivableNetOfDeferredIncome']) ||
-                   getAveragePointInTime(concepts['FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss']) ||
-                   getAveragePointInTime(concepts['NotesReceivableNet']);
-  const avgAfsSecurities = getAveragePointInTime(concepts['AvailableForSaleSecuritiesDebtSecurities']) ||
-                           getAveragePointInTime(concepts['AvailableForSaleSecurities']) ||
-                           getAveragePointInTime(concepts['AvailableForSaleSecuritiesDebt']);
-  const avgHtmSecurities = getAveragePointInTime(concepts['HeldToMaturitySecurities']) ||
-                           getAveragePointInTime(concepts['HeldToMaturitySecuritiesAmortizedCostAfterAllowanceForCreditLoss']);
-  const avgCash = getAveragePointInTime(concepts['CashAndCashEquivalentsAtCarryingValue']) ||
-                  getAveragePointInTime(concepts['CashAndDueFromBanks']);
-
-  // Average Goodwill and Intangibles (for tangible calculations)
-  const avgGoodwill = getAveragePointInTime(concepts['Goodwill']) ||
-                      getAveragePointInTime(concepts['GoodwillAndIntangibleAssetsNet']);
-  const avgIntangibles = getAveragePointInTime(concepts['IntangibleAssetsNetExcludingGoodwill']) ||
-                         getAveragePointInTime(concepts['IntangibleAssetsNetIncludingGoodwill']) ||
-                         getAveragePointInTime(concepts['FiniteLivedIntangibleAssetsNet']) ||
-                         getAveragePointInTime(concepts['IndefiniteLivedIntangibleAssetsExcludingGoodwill']) ||
-                         getAveragePointInTime(concepts['OtherIntangibleAssetsNet']);
-
-  // Average Preferred Stock (for TCE)
-  const avgPreferred = getAveragePointInTime(concepts['PreferredStockValue']) ||
-                       getAveragePointInTime(concepts['PreferredStockValueOutstanding']);
 
   // ==========================================================================
   // INCOME STATEMENT (TTM)
@@ -734,19 +661,11 @@ function calculateBankMetrics(bankData) {
   // Balance Sheet - Assets
   const totalAssets = assets?.value;
   const cashAndCashEquivalentsValue = cashAndCashEquivalents?.value;
-  const afsSecuritiesValue = afsSecurities?.value;
-  const htmSecuritiesValue = htmSecurities?.value;
   const loansValue = loans?.value;
-  const allowanceForCreditLossesValue = allowanceForCreditLosses?.value;
-  const premisesAndEquipmentValue = premisesAndEquipment?.value;
-  const goodwillValue = goodwill?.value || 0;
-  const intangiblesValue = intangibles?.value || 0;
 
   // Balance Sheet - Liabilities & Equity
   const totalLiabilities = liabilities?.value;
   const totalDeposits = deposits?.value;
-  const shortTermBorrowingsValue = shortTermBorrowings?.value;
-  const longTermDebtValue = longTermDebt?.value;
   const totalEquity = equity?.value;
   const preferredValue = preferredStock?.value || 0;
   const sharesOutstanding = sharesData?.value;
@@ -771,13 +690,8 @@ function calculateBankMetrics(bankData) {
   // ==========================================================================
   // DERIVED VALUES (Point-in-Time)
   // ==========================================================================
-  const tangibleBookValue = totalEquity ? totalEquity - goodwillValue - intangiblesValue : null;
-  const tangibleCommonEquity = totalEquity ? totalEquity - preferredValue - goodwillValue - intangiblesValue : null;
-  const tangibleAssets = totalAssets ? totalAssets - goodwillValue - intangiblesValue : null;
-
   // Per-share metrics (use ending values per convention)
   const bvps = totalEquity && sharesOutstanding ? totalEquity / sharesOutstanding : null;
-  const tbvps = tangibleCommonEquity && sharesOutstanding ? tangibleCommonEquity / sharesOutstanding : null;
 
   // ==========================================================================
   // DERIVED VALUES (Averages for Return Ratios)
@@ -785,18 +699,9 @@ function calculateBankMetrics(bankData) {
   // Extract average values (use ending if average unavailable)
   const avgAssetsValue = avgAssets?.average || totalAssets;
   const avgEquityValue = avgEquity?.average || totalEquity;
-  const avgGoodwillValue = avgGoodwill?.average || goodwillValue;
-  const avgIntangiblesValue = avgIntangibles?.average || intangiblesValue;
-  const avgPreferredValue = avgPreferred?.average || preferredValue;
 
-  // Calculate average tangible values
-  const avgTangibleAssets = avgAssetsValue ? avgAssetsValue - avgGoodwillValue - avgIntangiblesValue : null;
-  const avgTangibleCommonEquity = avgEquityValue
-    ? avgEquityValue - avgPreferredValue - avgGoodwillValue - avgIntangiblesValue
-    : null;
-  const avgTangibleBookValue = avgEquityValue
-    ? avgEquityValue - avgGoodwillValue - avgIntangiblesValue
-    : null;
+  // Track averaging method used for return ratios
+  const returnRatioAvgMethod = avgAssets?.method || avgEquity?.method || 'single-period';
 
   // ==========================================================================
   // PROFITABILITY RATIOS (Using Average Values per FFIEC/Investor Standard)
@@ -807,20 +712,8 @@ function calculateBankMetrics(bankData) {
   // ROE = TTM Net Income / Average Total Equity
   const roe = ttmNetIncome && avgEquityValue ? (ttmNetIncome / avgEquityValue) * 100 : null;
 
-  // ROTA = TTM Net Income / Average Tangible Assets
-  const rota = ttmNetIncome && avgTangibleAssets ? (ttmNetIncome / avgTangibleAssets) * 100 : null;
-
   // ROAA = TTM Net Income / Average Total Assets
   const roaa = ttmNetIncome && avgAssetsValue ? (ttmNetIncome / avgAssetsValue) * 100 : null;
-
-  // ROTCE = TTM Net Income / Average Tangible Common Equity
-  const rotce = ttmNetIncome && avgTangibleCommonEquity ? (ttmNetIncome / avgTangibleCommonEquity) * 100 : null;
-
-  // NI/TBV ratio (for internal use)
-  const niTbv = ttmNetIncome && avgTangibleBookValue ? ttmNetIncome / avgTangibleBookValue : null;
-
-  // Track averaging method used for return ratios
-  const returnRatioAvgMethod = avgAssets?.method || avgEquity?.method || 'single-period';
 
   // ==========================================================================
   // BANK-SPECIFIC RATIOS
@@ -831,28 +724,8 @@ function calculateBankMetrics(bankData) {
   // Capital ratios (point-in-time is correct for these)
   const depositsToAssets = totalDeposits && totalAssets ? (totalDeposits / totalAssets) * 100 : null;
   const equityToAssets = totalEquity && totalAssets ? (totalEquity / totalAssets) * 100 : null;
-  const tceToTa = tangibleCommonEquity && tangibleAssets ? (tangibleCommonEquity / tangibleAssets) * 100 : null;
   const loansToAssets = loansValue && totalAssets ? (loansValue / totalAssets) * 100 : null;
   const loansToDeposits = loansValue && totalDeposits ? (loansValue / totalDeposits) * 100 : null;
-  const aclToLoans = allowanceForCreditLossesValue && loansValue ? (allowanceForCreditLossesValue / loansValue) * 100 : null;
-
-  // ==========================================================================
-  // NET INTEREST MARGIN (NIM) - Using Average Earning Assets
-  // ==========================================================================
-  // NIM = TTM Net Interest Income / Average Earning Assets
-  // Per FFIEC methodology, this should use average earning assets over the TTM period
-
-  // Ending earning assets (for display/reference)
-  const earningAssets = (loansValue || 0) + (afsSecuritiesValue || 0) + (htmSecuritiesValue || 0) + (cashAndCashEquivalentsValue || 0);
-
-  // Average earning assets (for NIM calculation)
-  const avgEarningAssets = (avgLoans?.average || loansValue || 0) +
-                           (avgAfsSecurities?.average || afsSecuritiesValue || 0) +
-                           (avgHtmSecurities?.average || htmSecuritiesValue || 0) +
-                           (avgCash?.average || cashAndCashEquivalentsValue || 0);
-
-  // NIM using average earning assets
-  const netInterestMargin = ttmNii && avgEarningAssets > 0 ? (ttmNii / avgEarningAssets) * 100 : null;
 
   // Graham metrics
   const grahamNum = ttmEps && bvps && ttmEps > 0 && bvps > 0 ? Math.sqrt(22.5 * ttmEps * bvps) : null;
@@ -869,17 +742,9 @@ function calculateBankMetrics(bankData) {
     balanceSheet: {
       Assets: assets,
       CashAndCashEquivalents: cashAndCashEquivalents,
-      AvailableForSaleSecurities: afsSecurities,
-      HeldToMaturitySecurities: htmSecurities,
       LoansAndLeasesReceivable: loans,
-      AllowanceForLoanAndLeaseLosses: allowanceForCreditLosses,
-      PremisesAndEquipmentNet: premisesAndEquipment,
-      Goodwill: goodwill,
-      IntangibleAssetsNetExcludingGoodwill: intangibles,
       Liabilities: liabilities,
       Deposits: deposits,
-      ShortTermBorrowings: shortTermBorrowings,
-      LongTermDebt: longTermDebt,
       StockholdersEquity: equity,
       PreferredStockValue: preferredStock,
       CommonStockSharesOutstanding: sharesData
@@ -904,14 +769,7 @@ function calculateBankMetrics(bankData) {
     // Averaging data for return ratio calculations (FFIEC/investor standard)
     averages: {
       Assets: avgAssets,
-      Equity: avgEquity,
-      Loans: avgLoans,
-      AvailableForSaleSecurities: avgAfsSecurities,
-      HeldToMaturitySecurities: avgHtmSecurities,
-      CashAndCashEquivalents: avgCash,
-      Goodwill: avgGoodwill,
-      Intangibles: avgIntangibles,
-      PreferredStock: avgPreferred
+      Equity: avgEquity
     }
   };
 
@@ -929,25 +787,14 @@ function calculateBankMetrics(bankData) {
       // Balance Sheet - Assets
       totalAssets,
       cashAndCashEquivalents: cashAndCashEquivalentsValue,
-      afsSecurities: afsSecuritiesValue,
-      htmSecurities: htmSecuritiesValue,
       loans: loansValue,
-      allowanceForCreditLosses: allowanceForCreditLossesValue,
-      premisesAndEquipment: premisesAndEquipmentValue,
-      goodwill: goodwillValue,
-      intangibles: intangiblesValue,
-      tangibleAssets,
 
       // Balance Sheet - Liabilities & Equity
       totalLiabilities,
       totalDeposits,
-      shortTermBorrowings: shortTermBorrowingsValue,
-      longTermDebt: longTermDebtValue,
       totalEquity,
       preferredStock: preferredValue,
       sharesOutstanding,
-      tangibleBookValue,
-      tangibleCommonEquity,
 
       // Income Statement (TTM)
       ttmInterestIncome,
@@ -965,24 +812,17 @@ function calculateBankMetrics(bankData) {
 
       // Per-share metrics
       bvps: bvps ? parseFloat(bvps.toFixed(4)) : null,
-      tbvps: tbvps ? parseFloat(tbvps.toFixed(4)) : null,
 
       // Profitability ratios
       roe: roe ? parseFloat(roe.toFixed(4)) : null,
-      rota: rota ? parseFloat(rota.toFixed(4)) : null,
       roaa: roaa ? parseFloat(roaa.toFixed(4)) : null,
-      rotce: rotce ? parseFloat(rotce.toFixed(4)) : null,
-      niTBV: niTbv ? parseFloat(niTbv.toFixed(4)) : null,
 
       // Bank ratios
       efficiencyRatio: efficiencyRatio ? parseFloat(efficiencyRatio.toFixed(2)) : null,
       depositsToAssets: depositsToAssets ? parseFloat(depositsToAssets.toFixed(2)) : null,
       equityToAssets: equityToAssets ? parseFloat(equityToAssets.toFixed(2)) : null,
-      tceToTa: tceToTa ? parseFloat(tceToTa.toFixed(2)) : null,
       loansToAssets: loansToAssets ? parseFloat(loansToAssets.toFixed(2)) : null,
       loansToDeposits: loansToDeposits ? parseFloat(loansToDeposits.toFixed(2)) : null,
-      aclToLoans: aclToLoans ? parseFloat(aclToLoans.toFixed(2)) : null,
-      netInterestMargin: netInterestMargin ? parseFloat(netInterestMargin.toFixed(2)) : null,
 
       // Graham metrics
       grahamNum: grahamNum ? parseFloat(grahamNum.toFixed(4)) : null,
@@ -995,7 +835,6 @@ function calculateBankMetrics(bankData) {
       // Average values used in return ratio calculations (for transparency)
       avgAssets: avgAssetsValue ? parseFloat(avgAssetsValue.toFixed(0)) : null,
       avgEquity: avgEquityValue ? parseFloat(avgEquityValue.toFixed(0)) : null,
-      avgEarningAssets: avgEarningAssets ? parseFloat(avgEarningAssets.toFixed(0)) : null,
 
       // Metadata
       dataDate: formattedDate,
@@ -1008,8 +847,6 @@ function calculateBankMetrics(bankData) {
       price: null,
       marketCap: null,
       pni: null,
-      ptbvps: null,
-      mktCapSE: null,
       grahamMoS: null,
       grahamMoSPct: null,
 
