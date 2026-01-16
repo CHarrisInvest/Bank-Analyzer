@@ -58,13 +58,11 @@ which can lead to data quality issues.
 | `StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest` | USD | Fallback for Equity |
 | `Deposits` | USD | Deposits/Assets ratio |
 | `DepositsDomestic` | USD | Fallback for Deposits |
-| `Goodwill` | USD | Tangible Book Value |
-| `IntangibleAssetsNetExcludingGoodwill` | USD | Tangible Book Value |
-| `PreferredStockValue` | USD | Tangible Common Equity |
-| `PreferredStockValueOutstanding` | USD | Fallback for Preferred |
+| `Liabilities` | USD | Total Liabilities |
 | `CommonStockSharesOutstanding` | shares | Per-share calculations |
 | `CashAndCashEquivalentsAtCarryingValue` | USD | Cash position |
 | `CashAndDueFromBanks` | USD | Fallback for Cash |
+| `LoansAndLeasesReceivableNetReportedAmount` | USD | Loans |
 
 ### Income Statement (TTM)
 
@@ -147,20 +145,16 @@ Use most recent point-in-time value (qtrs=0) from 10-K or 10-Q.
 
 | Metric | Formula |
 |--------|---------|
-| Tangible Book Value | `Equity - Goodwill - Intangibles` |
-| Tangible Common Equity | `Equity - Preferred - Goodwill - Intangibles` |
-| Tangible Assets | `Assets - Goodwill - Intangibles` |
 | Book Value Per Share | `Equity / Shares` |
-| TBVPS | `TCE / Shares` |
 
 ### Profitability Ratios
 
 | Metric | Formula |
 |--------|---------|
-| ROE % | `NetIncome(TTM) / Equity × 100` |
-| ROAA % | `NetIncome(TTM) / Assets × 100` |
-| ROTA % | `NetIncome(TTM) / TangibleAssets × 100` |
-| ROTCE % | `NetIncome(TTM) / TCE × 100` |
+| ROE % | `NetIncome(TTM) / AvgEquity × 100` |
+| ROAA % | `NetIncome(TTM) / AvgAssets × 100` |
+
+**Note:** Return ratios use 5-point average balance sheet values per FFIEC UBPR methodology.
 
 ### Bank-Specific Ratios
 
@@ -169,7 +163,6 @@ Use most recent point-in-time value (qtrs=0) from 10-K or 10-Q.
 | Efficiency Ratio % | `NIE / (NII + NonintIncome) × 100` | 50-70% |
 | Deposits/Assets % | `Deposits / Assets × 100` | 70-85% |
 | Equity/Assets % | `Equity / Assets × 100` | 8-12% |
-| TCE/TA % | `TCE / TangibleAssets × 100` | 6-10% |
 
 ### Graham Value Metrics
 
@@ -270,7 +263,6 @@ Metrics are validated against outlier thresholds:
 | Efficiency Ratio | 20% | 150% |
 | Deposits/Assets | 10% | 100% |
 | Equity/Assets | 1% | 50% |
-| TCE/TA | 0% | 40% |
 | ROE | -100% | 100% |
 | ROAA | -10% | 10% |
 
