@@ -211,6 +211,15 @@ const COLUMNS = [
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
     group: 'income',
   },
+  {
+    key: 'ttmNetIncomeToCommon',
+    label: 'NI to Common',
+    xbrl: 'us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+  },
 
   // ===========================================================================
   // CASH FLOW (TTM)
@@ -231,7 +240,7 @@ const COLUMNS = [
   {
     key: 'sharesOutstanding',
     label: 'Shares',
-    xbrl: 'dei:EntityCommonStockSharesOutstanding',
+    xbrl: 'us-gaap:CommonStockSharesOutstanding',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, abbreviate: true }),

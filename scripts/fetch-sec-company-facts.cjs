@@ -113,6 +113,7 @@ const CONFIG = {
       'ProvisionForLoanLeaseAndOtherLosses',
       'ProvisionForLoanAndLeaseLosses',
       'ProvisionForCreditLosses',
+      'CreditLossExpense',
       'IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest',
       'IncomeLossFromContinuingOperationsBeforeIncomeTaxes',
       'NetIncomeLoss',
@@ -651,12 +652,13 @@ function calculateBankMetrics(bankData) {
                              getTTMValue(concepts['OperatingExpenses']);
   const provisionForCreditLosses = getTTMValue(concepts['ProvisionForLoanLeaseAndOtherLosses']) ||
                                     getTTMValue(concepts['ProvisionForLoanAndLeaseLosses']) ||
-                                    getTTMValue(concepts['ProvisionForCreditLosses']);
+                                    getTTMValue(concepts['ProvisionForCreditLosses']) ||
+                                    getTTMValue(concepts['CreditLossExpense']);
   const preTaxIncome = getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest']) ||
                        getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxes']);
   const netIncome = getTTMValue(concepts['NetIncomeLoss']) ||
-                    getTTMValue(concepts['ProfitLoss']) ||
-                    getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
+                    getTTMValue(concepts['ProfitLoss']);
+  const netIncomeToCommon = getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
   const eps = getTTMValue(concepts['EarningsPerShareBasic']) ||
               getTTMValue(concepts['EarningsPerShareDiluted']);
 
@@ -685,6 +687,7 @@ function calculateBankMetrics(bankData) {
   const ttmProvision = provisionForCreditLosses?.value;
   const ttmPreTaxIncome = preTaxIncome?.value;
   const ttmNetIncome = netIncome?.value;
+  const ttmNetIncomeToCommon = netIncomeToCommon?.value;
   const ttmEps = eps?.value;
   const ttmOperatingCashFlow = operatingCashFlow?.value;
   const ttmDps = dps?.value;
@@ -735,6 +738,7 @@ function calculateBankMetrics(bankData) {
       ProvisionForCreditLosses: provisionForCreditLosses,
       PreTaxIncome: preTaxIncome,
       NetIncomeLoss: netIncome,
+      NetIncomeLossAvailableToCommonStockholdersBasic: netIncomeToCommon,
       EarningsPerShareBasic: eps
     },
     cashFlow: {
@@ -774,6 +778,7 @@ function calculateBankMetrics(bankData) {
       ttmProvisionForCreditLosses: ttmProvision,
       ttmPreTaxIncome,
       ttmNetIncome,
+      ttmNetIncomeToCommon,
       ttmEps,
       ttmOperatingCashFlow,
       bvps: bvps ? parseFloat(bvps.toFixed(4)) : null,
