@@ -597,6 +597,129 @@ function getTTMValue(conceptData) {
 }
 
 /**
+ * Calculate the expected 4 quarter-end dates for TTM, given a reference date.
+ * Returns array of YYYYMMDD strings for Q0, Q-1, Q-2, Q-3 (most recent first).
+ */
+function getExpectedQuarterEnds(refDate) {
+  if (!refDate) return null;
+
+  const year = parseInt(refDate.slice(0, 4));
+  const month = parseInt(refDate.slice(4, 6));
+
+  // Determine which fiscal quarter-end this date corresponds to
+  // Standard quarter-ends: 03-31, 06-30, 09-30, 12-31
+  const quarterEnds = [
+    { month: 3, day: 31 },
+    { month: 6, day: 30 },
+    { month: 9, day: 30 },
+    { month: 12, day: 31 }
+  ];
+
+  // Find the quarter-end that this date falls into (or closest to)
+  let refQuarterIdx = quarterEnds.findIndex(q => month <= q.month);
+  if (refQuarterIdx === -1) refQuarterIdx = 0; // December -> next year's Q1
+
+  const quarters = [];
+  let currentYear = year;
+  let currentQIdx = refQuarterIdx;
+
+  for (let i = 0; i < 4; i++) {
+    const q = quarterEnds[currentQIdx];
+    const dateStr = `${currentYear}${String(q.month).padStart(2, '0')}${String(q.day).padStart(2, '0')}`;
+    quarters.push(dateStr);
+
+    // Move to previous quarter
+    currentQIdx--;
+    if (currentQIdx < 0) {
+      currentQIdx = 3;
+      currentYear--;
+    }
+  }
+
+  return quarters;
+}
+
+/**
+ * Get TTM value anchored to a specific reference date.
+ * Only uses the 4 quarters immediately preceding (and including) the reference quarter.
+ * Returns null if data doesn't align with expected quarters.
+ */
+function getTTMValueForPeriod(conceptData, refDate) {
+  if (!conceptData || conceptData.length === 0 || !refDate) return null;
+
+  const expectedQuarters = getExpectedQuarterEnds(refDate);
+  if (!expectedQuarters) return null;
+
+  const sorted = [...conceptData]
+    .filter(d => d.form === '10-K' || d.form === '10-Q')
+    .sort((a, b) => b.ddate.localeCompare(a.ddate));
+
+  if (sorted.length === 0) return null;
+
+  // Separate quarterly (qtrs=1) from annual (qtrs=4)
+  const quarterlyValues = sorted.filter(d => d.qtrs === 1);
+  const annualValues = sorted.filter(d => d.qtrs === 4);
+
+  // Try to find data for each expected quarter
+  const matchedQuarters = [];
+  for (const expectedDate of expectedQuarters) {
+    // Allow some flexibility: match if within same month (handles day variations)
+    const expectedYM = expectedDate.slice(0, 6);
+    const match = quarterlyValues.find(q => q.ddate.slice(0, 6) === expectedYM);
+    if (match) {
+      matchedQuarters.push(match);
+    }
+  }
+
+  // If we have all 4 quarters, use them
+  if (matchedQuarters.length === 4) {
+    const ttmValue = matchedQuarters.reduce((sum, q) => sum + q.value, 0);
+    return {
+      value: ttmValue,
+      date: matchedQuarters[0].ddate,
+      method: 'sum-4Q',
+      form: [...new Set(matchedQuarters.map(q => q.form))].join('+'),
+      details: matchedQuarters
+    };
+  }
+
+  // Fallback: check if there's an annual value that covers this period
+  if (annualValues.length > 0) {
+    // Find annual value for the fiscal year ending at or near refDate
+    const refYear = parseInt(refDate.slice(0, 4));
+    const refMonth = parseInt(refDate.slice(4, 6));
+
+    // If refDate is in Q4 (Oct-Dec), look for FY ending that year
+    // Otherwise, look for FY ending previous year
+    const targetFY = refMonth >= 10 ? refYear : refYear - (refMonth <= 3 ? 1 : 0);
+
+    const annualMatch = annualValues.find(a => {
+      const aYear = parseInt(a.ddate.slice(0, 4));
+      return aYear === targetFY || aYear === targetFY - 1;
+    });
+
+    if (annualMatch) {
+      // Check if annual data is reasonably current (within 15 months of refDate)
+      const annualYear = parseInt(annualMatch.ddate.slice(0, 4));
+      const annualMonth = parseInt(annualMatch.ddate.slice(4, 6));
+      const monthsDiff = (refYear - annualYear) * 12 + (refMonth - annualMonth);
+
+      if (monthsDiff <= 15) {
+        return {
+          value: annualMatch.value,
+          date: annualMatch.ddate,
+          method: matchedQuarters.length === 0 ? 'annual' : 'annual-fallback',
+          form: annualMatch.form,
+          details: [annualMatch]
+        };
+      }
+    }
+  }
+
+  return null;
+}
+
+/**
  * Get shares outstanding (from us-gaap or DEI namespace)
  *
  * Prefer US-GAAP (balance sheet) as it's quarter-end and matches other metrics.
@@ -641,33 +764,37 @@ function calculateBankMetrics(bankData) {
   const avgEquity = getAveragePointInTime(concepts['StockholdersEquity']) ||
                     getAveragePointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
 
-  // Income Statement (TTM)
-  const interestIncome = getTTMValue(concepts['InterestIncome']) ||
-                         getTTMValue(concepts['InterestAndDividendIncomeOperating']);
-  const interestExpense = getTTMValue(concepts['InterestExpense']);
-  const netInterestIncome = getTTMValue(concepts['InterestIncomeExpenseNet']) ||
-                            getTTMValue(concepts['NetInterestIncome']);
-  const noninterestIncome = getTTMValue(concepts['NoninterestIncome']);
-  const noninterestExpense = getTTMValue(concepts['NoninterestExpense']) ||
-                             getTTMValue(concepts['OperatingExpenses']);
-  const provisionForCreditLosses = getTTMValue(concepts['ProvisionForLoanLeaseAndOtherLosses']) ||
-                                    getTTMValue(concepts['ProvisionForLoanAndLeaseLosses']) ||
-                                    getTTMValue(concepts['ProvisionForCreditLosses']) ||
-                                    getTTMValue(concepts['CreditLossExpense']);
-  const preTaxIncome = getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest']) ||
-                       getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxes']);
-  const netIncome = getTTMValue(concepts['NetIncomeLoss']) ||
-                    getTTMValue(concepts['ProfitLoss']);
-  const netIncomeToCommon = getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
-  const eps = getTTMValue(concepts['EarningsPerShareBasic']) ||
-              getTTMValue(concepts['EarningsPerShareDiluted']);
+  // Determine reference date from balance sheet for TTM calculations
+  // All TTM data must be anchored to this date
+  const refDate = assets?.ddate || equity?.ddate;
 
-  // Cash Flow (TTM)
-  const operatingCashFlow = getTTMValue(concepts['NetCashProvidedByUsedInOperatingActivities']);
+  // Income Statement (TTM) - anchored to balance sheet date
+  const interestIncome = getTTMValueForPeriod(concepts['InterestIncome'], refDate) ||
+                         getTTMValueForPeriod(concepts['InterestAndDividendIncomeOperating'], refDate);
+  const interestExpense = getTTMValueForPeriod(concepts['InterestExpense'], refDate);
+  const netInterestIncome = getTTMValueForPeriod(concepts['InterestIncomeExpenseNet'], refDate) ||
+                            getTTMValueForPeriod(concepts['NetInterestIncome'], refDate);
+  const noninterestIncome = getTTMValueForPeriod(concepts['NoninterestIncome'], refDate);
+  const noninterestExpense = getTTMValueForPeriod(concepts['NoninterestExpense'], refDate) ||
+                             getTTMValueForPeriod(concepts['OperatingExpenses'], refDate);
+  const provisionForCreditLosses = getTTMValueForPeriod(concepts['ProvisionForLoanLeaseAndOtherLosses'], refDate) ||
+                                    getTTMValueForPeriod(concepts['ProvisionForLoanAndLeaseLosses'], refDate) ||
+                                    getTTMValueForPeriod(concepts['ProvisionForCreditLosses'], refDate) ||
+                                    getTTMValueForPeriod(concepts['CreditLossExpense'], refDate);
+  const preTaxIncome = getTTMValueForPeriod(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest'], refDate) ||
+                       getTTMValueForPeriod(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxes'], refDate);
+  const netIncome = getTTMValueForPeriod(concepts['NetIncomeLoss'], refDate) ||
+                    getTTMValueForPeriod(concepts['ProfitLoss'], refDate);
+  const netIncomeToCommon = getTTMValueForPeriod(concepts['NetIncomeLossAvailableToCommonStockholdersBasic'], refDate);
+  const eps = getTTMValueForPeriod(concepts['EarningsPerShareBasic'], refDate) ||
+              getTTMValueForPeriod(concepts['EarningsPerShareDiluted'], refDate);
 
-  // Dividends
-  const dps = getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
-              getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
+  // Cash Flow (TTM) - anchored to balance sheet date
+  const operatingCashFlow = getTTMValueForPeriod(concepts['NetCashProvidedByUsedInOperatingActivities'], refDate);
+
+  // Dividends - anchored to balance sheet date
+  const dps = getTTMValueForPeriod(concepts['CommonStockDividendsPerShareDeclared'], refDate) ||
+              getTTMValueForPeriod(concepts['CommonStockDividendsPerShareCashPaid'], refDate);
 
   // Extract values
   const totalAssets = assets?.value;
@@ -679,39 +806,24 @@ function calculateBankMetrics(bankData) {
   const preferredValue = preferredStock?.value || 0;
   const sharesOutstanding = sharesData?.value;
 
-  // Helper to check if TTM data is stale (more than 5 quarters from balance sheet date)
-  const dataDate = assets?.ddate || equity?.ddate || netIncome?.date;
-  const isTTMStale = (ttmData) => {
-    if (!ttmData?.date || !dataDate) return false;
-    // Calculate months difference
-    const ttmYear = parseInt(ttmData.date.slice(0, 4));
-    const ttmMonth = parseInt(ttmData.date.slice(4, 6));
-    const refYear = parseInt(dataDate.slice(0, 4));
-    const refMonth = parseInt(dataDate.slice(4, 6));
-    const monthsDiff = (refYear - ttmYear) * 12 + (refMonth - ttmMonth);
-    // 5 quarters = 15 months
-    return monthsDiff > 15;
-  };
-
-  // Helper to get TTM value only if not stale
-  const getTTMIfFresh = (ttmData) => isTTMStale(ttmData) ? null : ttmData?.value;
-
-  const ttmInterestIncome = getTTMIfFresh(interestIncome);
-  const ttmInterestExpense = getTTMIfFresh(interestExpense);
-  const ttmNii = getTTMIfFresh(netInterestIncome);
-  const ttmNonintIncome = getTTMIfFresh(noninterestIncome);
-  const ttmNonintExpense = getTTMIfFresh(noninterestExpense);
-  const ttmProvision = getTTMIfFresh(provisionForCreditLosses);
-  const ttmPreTaxIncome = getTTMIfFresh(preTaxIncome);
-  const ttmNetIncome = getTTMIfFresh(netIncome);
-  // Validate NI to Common: should not exceed Net Income (indicates quarter mismatch)
-  const rawNIToCommon = getTTMIfFresh(netIncomeToCommon);
+  // Extract TTM values (already validated for correct period by getTTMValueForPeriod)
+  const dataDate = refDate;
+  const ttmInterestIncome = interestIncome?.value;
+  const ttmInterestExpense = interestExpense?.value;
+  const ttmNii = netInterestIncome?.value;
+  const ttmNonintIncome = noninterestIncome?.value;
+  const ttmNonintExpense = noninterestExpense?.value;
+  const ttmProvision = provisionForCreditLosses?.value;
+  const ttmPreTaxIncome = preTaxIncome?.value;
+  const ttmNetIncome = netIncome?.value;
+  // Additional validation: NI to Common should not exceed Net Income
+  const rawNIToCommon = netIncomeToCommon?.value;
   const ttmNetIncomeToCommon = (rawNIToCommon !== null && ttmNetIncome !== null && rawNIToCommon > ttmNetIncome)
     ? null
     : rawNIToCommon;
-  const ttmEps = getTTMIfFresh(eps);
-  const ttmOperatingCashFlow = getTTMIfFresh(operatingCashFlow);
-  const ttmDps = getTTMIfFresh(dps);
+  const ttmEps = eps?.value;
+  const ttmOperatingCashFlow = operatingCashFlow?.value;
+  const ttmDps = dps?.value;
 
   // Derived values
   const bvps = totalEquity && sharesOutstanding ? totalEquity / sharesOutstanding : null;
@@ -1087,6 +1199,8 @@ if (require.main === module) {
 
 module.exports = {
   getTTMValue,
+  getTTMValueForPeriod,
+  getExpectedQuarterEnds,
   getLatestPointInTime,
   getAveragePointInTime,
   getSharesOutstanding,
