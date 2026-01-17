@@ -282,7 +282,23 @@ async function downloadFile(url, destPath) {
 }
 
 /**
+ * Check if a ticker is a preferred stock ticker
+ * Preferred stock tickers typically have patterns like:
+ * - XXX-PA, XXX-PB, etc. (hyphen + P + optional letter)
+ * - XXXPRA, XXXPRB, etc. (PR + letter suffix)
+ */
+function isPreferredTicker(ticker) {
+  if (!ticker) return false;
+  // Pattern: ends with -P followed by optional letter (e.g., BAC-PB, WFC-PA, C-PN, TFIN-P)
+  if (/-P[A-Z]?$/i.test(ticker)) return true;
+  // Pattern: ends with PR + letter (e.g., XXXPRA)
+  if (/PR[A-Z]$/i.test(ticker)) return true;
+  return false;
+}
+
+/**
  * Load bank list to get CIKs
+ * Filters out preferred stock tickers and deduplicates by CIK
  */
 function loadBankList() {
   const bankListPath = path.join(OUTPUT_DIR, 'bank-list.json');
@@ -294,7 +310,42 @@ function loadBankList() {
   }
 
   const data = JSON.parse(fs.readFileSync(bankListPath, 'utf8'));
-  return data.banks || [];
+  const allBanks = data.banks || [];
+
+  // Filter out preferred stock tickers and deduplicate by CIK
+  const bankByCik = new Map();
+  let preferredFiltered = 0;
+  let duplicatesFiltered = 0;
+
+  for (const bank of allBanks) {
+    const ticker = bank.ticker || '';
+    const cik = bank.cik;
+
+    // Skip preferred stock tickers
+    if (isPreferredTicker(ticker)) {
+      preferredFiltered++;
+      continue;
+    }
+
+    // Deduplicate by CIK - keep the first (typically shorter/common) ticker
+    if (bankByCik.has(cik)) {
+      const existing = bankByCik.get(cik);
+      // Prefer shorter ticker (common stock is usually shorter than class shares)
+      if (ticker.length < existing.ticker.length) {
+        bankByCik.set(cik, bank);
+      }
+      duplicatesFiltered++;
+    } else {
+      bankByCik.set(cik, bank);
+    }
+  }
+
+  const result = Array.from(bankByCik.values());
+  console.log(`  Filtered ${preferredFiltered} preferred stock tickers`);
+  console.log(`  Filtered ${duplicatesFiltered} duplicate CIK entries`);
+  console.log(`  Remaining: ${result.length} common stock tickers`);
+
+  return result;
 }
 
 /**
