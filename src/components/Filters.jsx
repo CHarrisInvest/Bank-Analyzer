@@ -617,83 +617,132 @@ function Filters({
   return (
     <div className={`filters ${layout === 'top' ? 'filters-top-layout' : ''} ${!isExpanded && layout === 'top' ? 'filters-collapsed' : ''}`}>
       {/* Header bar - always visible */}
-      <div className="filters-header">
-        <div className="filters-header-left">
-          {/* Filters title is now the toggle button in top layout */}
-          {layout === 'top' ? (
-            <button
-              type="button"
-              className={`filters-title-toggle ${isExpanded ? 'expanded' : ''}`}
-              onClick={() => setIsExpanded(!isExpanded)}
-              aria-expanded={isExpanded}
-            >
-              <span className="filters-title-text">Filters</span>
-              {totalActiveFilters > 0 && (
-                <span className="filters-active-count">{totalActiveFilters}</span>
-              )}
-              <svg
-                className={`filters-title-chevron ${isExpanded ? 'open' : ''}`}
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
+      <div className={`filters-header ${layout === 'side' ? 'filters-header-stacked' : ''}`}>
+        {layout === 'side' ? (
+          /* Sidebar layout: stacked rows for better UX */
+          <>
+            <div className="filters-header-row">
+              <div className="filters-header-title-group">
+                <h2 className="filters-title">Filters</h2>
+                {totalActiveFilters > 0 && (
+                  <span className="filters-active-count">{totalActiveFilters}</span>
+                )}
+              </div>
+              <button
+                className="filters-reset-btn"
+                onClick={onReset}
+                type="button"
+                disabled={totalActiveFilters === 0}
               >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-          ) : (
-            <>
-              <h2 className="filters-title">Filters</h2>
-              {totalActiveFilters > 0 && (
-                <span className="filters-active-count">{totalActiveFilters}</span>
-              )}
-            </>
-          )}
-          <button
-            className="filters-reset-btn"
-            onClick={onReset}
-            type="button"
-            disabled={totalActiveFilters === 0}
-          >
-            Reset
-          </button>
-          <SearchFilter
-            value={filters.searchQuery || ''}
-            onChange={handleSearchChange}
-          />
-          <span className="filters-bank-count">
-            {filteredCount} of {totalCount}
-          </span>
-        </div>
-        <div className="filters-header-right">
-          {/* Layout toggle as segmented control */}
-          <div className="filters-layout-toggle">
-            <button
-              type="button"
-              className={`layout-option ${layout === 'side' ? 'active' : ''}`}
-              onClick={() => layout !== 'side' && onToggleLayout()}
-              title="Side layout"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <line x1="9" y1="3" x2="9" y2="21" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              className={`layout-option ${layout === 'top' ? 'active' : ''}`}
-              onClick={() => layout !== 'top' && onToggleLayout()}
-              title="Top layout"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <line x1="3" y1="9" x2="21" y2="9" />
-              </svg>
-            </button>
-          </div>
-        </div>
+                Reset
+              </button>
+            </div>
+            <div className="filters-header-row">
+              <SearchFilter
+                value={filters.searchQuery || ''}
+                onChange={handleSearchChange}
+              />
+            </div>
+            <div className="filters-header-row">
+              <span className="filters-bank-count">
+                {filteredCount} of {totalCount} banks
+              </span>
+              <div className="filters-layout-toggle">
+                <button
+                  type="button"
+                  className={`layout-option ${layout === 'side' ? 'active' : ''}`}
+                  onClick={() => layout !== 'side' && onToggleLayout()}
+                  title="Side layout"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <line x1="9" y1="3" x2="9" y2="21" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  className={`layout-option ${layout === 'top' ? 'active' : ''}`}
+                  onClick={() => layout !== 'top' && onToggleLayout()}
+                  title="Top layout"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <line x1="3" y1="9" x2="21" y2="9" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </>
+        ) : (
+          /* Top layout: horizontal arrangement */
+          <>
+            <div className="filters-header-left">
+              <button
+                type="button"
+                className={`filters-title-toggle ${isExpanded ? 'expanded' : ''}`}
+                onClick={() => setIsExpanded(!isExpanded)}
+                aria-expanded={isExpanded}
+              >
+                <span className="filters-title-text">Filters</span>
+                {totalActiveFilters > 0 && (
+                  <span className="filters-active-count">{totalActiveFilters}</span>
+                )}
+                <svg
+                  className={`filters-title-chevron ${isExpanded ? 'open' : ''}`}
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <button
+                className="filters-reset-btn"
+                onClick={onReset}
+                type="button"
+                disabled={totalActiveFilters === 0}
+              >
+                Reset
+              </button>
+              <SearchFilter
+                value={filters.searchQuery || ''}
+                onChange={handleSearchChange}
+              />
+              <span className="filters-bank-count">
+                {filteredCount} of {totalCount}
+              </span>
+            </div>
+            <div className="filters-header-right">
+              <div className="filters-layout-toggle">
+                <button
+                  type="button"
+                  className={`layout-option ${layout === 'side' ? 'active' : ''}`}
+                  onClick={() => layout !== 'side' && onToggleLayout()}
+                  title="Side layout"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <line x1="9" y1="3" x2="9" y2="21" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  className={`layout-option ${layout === 'top' ? 'active' : ''}`}
+                  onClick={() => layout !== 'top' && onToggleLayout()}
+                  title="Top layout"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <line x1="3" y1="9" x2="21" y2="9" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Collapsible filter content */}
