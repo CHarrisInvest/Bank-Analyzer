@@ -130,9 +130,11 @@ const CONFIG = {
       'Revenues',
       'RevenueFromContractWithCustomerExcludingAssessedTax',
 
-      // Dividends
+      // Dividends (per-share and total)
       'CommonStockDividendsPerShareDeclared',
       'CommonStockDividendsPerShareCashPaid',
+      'PaymentsOfDividendsCommonStock',         // Cash flow: total dividends paid
+      'PaymentsOfDividends',                    // Cash flow: total dividends (all classes)
     ],
   },
 
@@ -945,8 +947,27 @@ function calculateBankMetrics(bankData) {
               getTTMValueForPeriod(concepts['EarningsPerShareDiluted'], refDate);
 
   // Dividends - anchored to balance sheet date
-  const dps = getTTMValueForPeriod(concepts['CommonStockDividendsPerShareDeclared'], refDate) ||
-              getTTMValueForPeriod(concepts['CommonStockDividendsPerShareCashPaid'], refDate);
+  // Try direct per-share values first, then calculate from total payments
+  let dps = getTTMValueForPeriod(concepts['CommonStockDividendsPerShareDeclared'], refDate) ||
+            getTTMValueForPeriod(concepts['CommonStockDividendsPerShareCashPaid'], refDate);
+
+  // If no direct DPS, try to calculate from total dividends paid
+  if (!dps && sharesData?.value) {
+    const totalDividendsPaid = getTTMValueForPeriod(concepts['PaymentsOfDividendsCommonStock'], refDate) ||
+                               getTTMValueForPeriod(concepts['PaymentsOfDividends'], refDate);
+    if (totalDividendsPaid?.value && totalDividendsPaid.value > 0) {
+      // Calculate DPS = Total Dividends Paid / Shares Outstanding
+      const calculatedDps = totalDividendsPaid.value / sharesData.value;
+      dps = {
+        value: calculatedDps,
+        date: totalDividendsPaid.date,
+        method: 'calculated-from-total',
+        form: totalDividendsPaid.form,
+        details: totalDividendsPaid.details,
+        isAnnualFallback: totalDividendsPaid.isAnnualFallback
+      };
+    }
+  }
 
   // Extract values
   const totalAssets = assets?.value;
@@ -1058,7 +1079,9 @@ function calculateBankMetrics(bankData) {
       EarningsPerShareBasic: eps
     },
     dividends: {
-      CommonStockDividendsPerShareDeclared: dps
+      CommonStockDividendsPerShareDeclared: dps,
+      PaymentsOfDividendsCommonStock: getTTMValueForPeriod(concepts['PaymentsOfDividendsCommonStock'], refDate),
+      PaymentsOfDividends: getTTMValueForPeriod(concepts['PaymentsOfDividends'], refDate)
     },
     averages: {
       Assets: avgAssets,
