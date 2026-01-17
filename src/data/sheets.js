@@ -26,15 +26,15 @@ function validateBankData(banks) {
     };
   }
 
-  // Check if at least some banks have numeric data
+  // Check if at least some banks have core SEC data (totalAssets is always present)
   const banksWithData = banks.filter(bank =>
-    bank.price !== null || bank.marketCap !== null || bank.roe !== null
+    bank.totalAssets !== null || bank.totalEquity !== null
   );
 
   if (banksWithData.length === 0) {
     return {
       isValid: false,
-      reason: 'No banks have valid numeric data',
+      reason: 'No banks have valid SEC data',
     };
   }
 
