@@ -6,7 +6,7 @@ import { getUniqueExchanges } from '../data/sheets.js';
 /**
  * Clean up bank name for display
  * - Remove state abbreviations in slashes (e.g., "/PA/", "/DE/", "/MN")
- * - Convert to title case if all caps
+ * - Convert all letters to uppercase for consistency
  */
 function cleanBankName(name) {
   if (!name) return name;
@@ -15,29 +15,13 @@ function cleanBankName(name) {
   // /PA/, /DE/, /VA/, etc. (with closing slash)
   // /MN, /TX, /VT, etc. (without closing slash at end)
   let cleaned = name
-    .replace(/\s*\/[A-Z]{2}\/$/, '')      // " /PA/" at end
-    .replace(/\s*\/[A-Z]{2}$/, '')        // " /MN" at end (no closing slash)
-    .replace(/\s+\/[A-Z]{2}\/\s*/g, ' ')  // " /PA/ " in middle
+    .replace(/\s*\/[A-Za-z]{2}\/$/, '')      // " /PA/" at end
+    .replace(/\s*\/[A-Za-z]{2}$/, '')        // " /MN" at end (no closing slash)
+    .replace(/\s+\/[A-Za-z]{2}\/\s*/g, ' ')  // " /PA/ " in middle
     .trim();
 
-  // Convert to title case if the name is all caps (more than 3 chars to avoid tickers)
-  if (cleaned.length > 3 && cleaned === cleaned.toUpperCase()) {
-    cleaned = cleaned
-      .toLowerCase()
-      .replace(/\b\w/g, (char) => char.toUpperCase())
-      // Fix common abbreviations that should stay uppercase
-      .replace(/\bInc\b/g, 'Inc.')
-      .replace(/\bCorp\b/g, 'Corp.')
-      .replace(/\bBanc\b/g, 'Banc')
-      .replace(/\bN\.a\.\b/gi, 'N.A.')
-      .replace(/\bFsb\b/g, 'FSB')
-      .replace(/\bSsb\b/g, 'SSB')
-      .replace(/\bNa\b/g, 'NA')
-      .replace(/\bLlc\b/g, 'LLC')
-      .replace(/\bLp\b/g, 'LP')
-      // Fix common bank acronyms (2-4 letter words that should be uppercase)
-      .replace(/\b(Cnb|Fnb|Pnc|Usb|Umb|Tcf|Bbva|Bmo|Td|Wsfs|Ccb|Fcb)\b/gi, (m) => m.toUpperCase());
-  }
+  // Convert all letters to uppercase for consistency
+  cleaned = cleaned.toUpperCase();
 
   return cleaned;
 }
