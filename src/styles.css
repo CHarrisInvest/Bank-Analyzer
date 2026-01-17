@@ -664,6 +664,23 @@ body {
   background-color: var(--color-gray-50);
 }
 
+.filter-search-recent-toggle {
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 10px;
+  color: var(--color-accent);
+  background-color: var(--color-gray-50);
+  border: none;
+  border-top: 1px solid var(--color-gray-100);
+  text-align: center;
+  cursor: pointer;
+}
+
+.filter-search-recent-toggle:hover {
+  background-color: var(--color-gray-100);
+}
+
 /* Filters body - collapsible content */
 .filters-body {
   background-color: var(--color-gray-50);
@@ -1676,10 +1693,11 @@ body {
   white-space: nowrap;
 }
 
-/* Search highlight styling */
+/* Search highlight styling - subtle but identifiable */
 .search-highlight {
-  background-color: #fef08a;
+  background-color: rgba(59, 130, 246, 0.15);
   color: inherit;
+  font-weight: 600;
   padding: 0 1px;
   border-radius: 2px;
 }

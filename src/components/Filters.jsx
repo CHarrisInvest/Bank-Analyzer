@@ -202,14 +202,16 @@ function ExchangeFilter({ exchanges, selectedExchanges, onChange }) {
  * Search input for ticker/name filtering (compact version for header)
  * Features:
  * - Keyboard shortcut: "/" to focus (when not in an input)
- * - Recent searches stored in localStorage
+ * - Recent searches stored in localStorage (expandable)
  */
 const RECENT_SEARCHES_KEY = 'bankAnalyzer_recentSearches';
-const MAX_RECENT_SEARCHES = 5;
+const MAX_RECENT_SEARCHES = 15;
+const DEFAULT_VISIBLE_RECENT = 5;
 
 function SearchFilter({ value, onChange }) {
   const inputRef = useRef(null);
   const [showRecent, setShowRecent] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [recentSearches, setRecentSearches] = useState(() => {
     try {
       const saved = localStorage.getItem(RECENT_SEARCHES_KEY);
@@ -231,6 +233,7 @@ function SearchFilter({ value, onChange }) {
       if (e.key === 'Escape' && document.activeElement === inputRef.current) {
         inputRef.current?.blur();
         setShowRecent(false);
+        setIsExpanded(false);
       }
     };
 
@@ -243,6 +246,7 @@ function SearchFilter({ value, onChange }) {
     // Delay to allow clicking on recent items
     setTimeout(() => {
       setShowRecent(false);
+      setIsExpanded(false);
       if (value && value.trim()) {
         const trimmed = value.trim();
         setRecentSearches((prev) => {
@@ -264,6 +268,7 @@ function SearchFilter({ value, onChange }) {
   const handleRecentClick = useCallback((search) => {
     onChange(search);
     setShowRecent(false);
+    setIsExpanded(false);
     inputRef.current?.blur();
   }, [onChange]);
 
@@ -272,7 +277,18 @@ function SearchFilter({ value, onChange }) {
     setRecentSearches([]);
     localStorage.removeItem(RECENT_SEARCHES_KEY);
     setShowRecent(false);
+    setIsExpanded(false);
   }, []);
+
+  const toggleExpanded = useCallback((e) => {
+    e.stopPropagation();
+    setIsExpanded((prev) => !prev);
+  }, []);
+
+  const visibleSearches = isExpanded
+    ? recentSearches
+    : recentSearches.slice(0, DEFAULT_VISIBLE_RECENT);
+  const hasMore = recentSearches.length > DEFAULT_VISIBLE_RECENT;
 
   return (
     <div className="filter-search">
@@ -319,7 +335,7 @@ function SearchFilter({ value, onChange }) {
             <span>Recent</span>
             <button type="button" onClick={clearRecentSearches}>Clear</button>
           </div>
-          {recentSearches.map((search, i) => (
+          {visibleSearches.map((search, i) => (
             <button
               key={i}
               type="button"
@@ -329,6 +345,15 @@ function SearchFilter({ value, onChange }) {
               {search}
             </button>
           ))}
+          {hasMore && (
+            <button
+              type="button"
+              className="filter-search-recent-toggle"
+              onMouseDown={toggleExpanded}
+            >
+              {isExpanded ? 'Show less' : `Show ${recentSearches.length - DEFAULT_VISIBLE_RECENT} more`}
+            </button>
+          )}
         </div>
       )}
     </div>
