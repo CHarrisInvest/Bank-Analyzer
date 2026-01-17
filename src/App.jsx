@@ -125,7 +125,7 @@ function App() {
               Try Again
             </button>
             <p className="error-help">
-              Please ensure the Google Sheets document is published and accessible.
+              Please check the browser console for more details or try again later.
             </p>
           </div>
         ) : (
