@@ -642,6 +642,7 @@ function getExpectedQuarterEnds(refDate) {
 /**
  * Get TTM value anchored to a specific reference date.
  * Only uses the 4 quarters immediately preceding (and including) the reference quarter.
+ * If Q4 is missing, derives it from annual data minus Q1-Q3.
  * Returns null if data doesn't align with expected quarters.
  */
 function getTTMValueForPeriod(conceptData, refDate) {
@@ -662,30 +663,109 @@ function getTTMValueForPeriod(conceptData, refDate) {
 
   // Try to find data for each expected quarter
   const matchedQuarters = [];
-  for (const expectedDate of expectedQuarters) {
-    // Allow some flexibility: match if within same month (handles day variations)
+  let missingQ4Index = -1;
+
+  for (let i = 0; i < expectedQuarters.length; i++) {
+    const expectedDate = expectedQuarters[i];
     const expectedYM = expectedDate.slice(0, 6);
+    const expectedMonth = parseInt(expectedDate.slice(4, 6));
     const match = quarterlyValues.find(q => q.ddate.slice(0, 6) === expectedYM);
+
     if (match) {
-      matchedQuarters.push(match);
+      matchedQuarters.push({ index: i, data: match, derived: false });
+    } else if (expectedMonth === 12) {
+      // Track missing Q4 (December quarter)
+      missingQ4Index = i;
     }
   }
 
-  // If we have all 4 quarters, use them
+  // If we have all 4 quarters directly, use them
   if (matchedQuarters.length === 4) {
-    const ttmValue = matchedQuarters.reduce((sum, q) => sum + q.value, 0);
+    matchedQuarters.sort((a, b) => a.index - b.index);
+    const details = matchedQuarters.map(m => m.data);
+    const ttmValue = details.reduce((sum, q) => sum + q.value, 0);
     return {
       value: ttmValue,
-      date: matchedQuarters[0].ddate,
+      date: details[0].ddate,
       method: 'sum-4Q',
-      form: [...new Set(matchedQuarters.map(q => q.form))].join('+'),
-      details: matchedQuarters
+      form: [...new Set(details.map(q => q.form))].join('+'),
+      details
     };
+  }
+
+  // If we have 3 quarters and missing Q4, try to derive Q4 from annual data
+  if (matchedQuarters.length === 3 && missingQ4Index >= 0) {
+    const expectedQ4Date = expectedQuarters[missingQ4Index];
+    const q4Year = parseInt(expectedQ4Date.slice(0, 4));
+
+    // Find annual data for the fiscal year ending at Q4
+    const annualMatch = annualValues.find(a => {
+      const aYear = parseInt(a.ddate.slice(0, 4));
+      const aMonth = parseInt(a.ddate.slice(4, 6));
+      return aYear === q4Year && aMonth === 12;
+    });
+
+    if (annualMatch) {
+      // Find Q1, Q2, Q3 of the same fiscal year to derive Q4
+      // Q1 = Mar of q4Year+1, Q2 = Jun of q4Year+1, Q3 = Sep of q4Year+1
+      // Actually for FY ending Dec 2024: Q1=Mar 2024, Q2=Jun 2024, Q3=Sep 2024
+      const q1Match = quarterlyValues.find(q => {
+        const m = parseInt(q.ddate.slice(4, 6));
+        const y = parseInt(q.ddate.slice(0, 4));
+        return m === 3 && y === q4Year;
+      });
+      const q2Match = quarterlyValues.find(q => {
+        const m = parseInt(q.ddate.slice(4, 6));
+        const y = parseInt(q.ddate.slice(0, 4));
+        return m === 6 && y === q4Year;
+      });
+      const q3Match = quarterlyValues.find(q => {
+        const m = parseInt(q.ddate.slice(4, 6));
+        const y = parseInt(q.ddate.slice(0, 4));
+        return m === 9 && y === q4Year;
+      });
+
+      if (q1Match && q2Match && q3Match) {
+        // Derive Q4 = Annual - Q1 - Q2 - Q3
+        const derivedQ4Value = annualMatch.value - q1Match.value - q2Match.value - q3Match.value;
+
+        // Create a synthetic Q4 entry
+        const derivedQ4 = {
+          value: derivedQ4Value,
+          ddate: expectedQ4Date,
+          qtrs: 1,
+          form: '10-K',
+          fy: q4Year,
+          fp: 'Q4',
+          derived: true,
+          derivedFrom: {
+            annual: annualMatch.value,
+            q1: q1Match.value,
+            q2: q2Match.value,
+            q3: q3Match.value
+          }
+        };
+
+        // Add derived Q4 to matched quarters
+        matchedQuarters.push({ index: missingQ4Index, data: derivedQ4, derived: true });
+        matchedQuarters.sort((a, b) => a.index - b.index);
+
+        const details = matchedQuarters.map(m => m.data);
+        const ttmValue = details.reduce((sum, q) => sum + q.value, 0);
+
+        return {
+          value: ttmValue,
+          date: details[0].ddate,
+          method: 'sum-4Q',
+          form: [...new Set(details.map(q => q.form))].join('+'),
+          details
+        };
+      }
+    }
   }
 
   // Fallback: check if there's an annual value that covers this period
   if (annualValues.length > 0) {
-    // Find annual value for the fiscal year ending at or near refDate
     const refYear = parseInt(refDate.slice(0, 4));
     const refMonth = parseInt(refDate.slice(4, 6));
 
