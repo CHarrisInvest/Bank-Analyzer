@@ -70,7 +70,7 @@ const COLUMNS = [
     defaultVisible: true,
   },
   {
-    key: 'reportDate',
+    key: 'dataDate',
     label: 'Report Date',
     fullName: 'Most Recent Reporting Date',
     sortable: true,
