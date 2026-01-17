@@ -920,6 +920,8 @@ function calculateBankMetrics(bankData) {
   const ttmNetIncome = netIncome?.value;
   if (netIncome?.isAnnualFallback) annualFallbackFields.push('netIncome');
 
+  if (preferredDividends?.isAnnualFallback) annualFallbackFields.push('preferredDividends');
+
   // NI to Common: use direct value, or derive from Net Income minus Preferred Dividends
   let ttmNetIncomeToCommon = netIncomeToCommonDirect?.value ?? null;
   if (ttmNetIncomeToCommon === null && ttmNetIncome !== null && preferredDividends?.value != null) {
