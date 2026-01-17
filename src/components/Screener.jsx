@@ -96,7 +96,6 @@ function applyRangeFilter(value, filterConfig, multiplier = 1) {
  */
 function Screener({ banks, loading }) {
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
-  const [showFilters, setShowFilters] = useState(true);
   const [filtersLayout, setFiltersLayout] = useState(() => {
     // Load from localStorage, default to 'side'
     return localStorage.getItem('bankAnalyzer_filtersLayout') || 'side';
@@ -261,13 +260,6 @@ function Screener({ banks, loading }) {
   }, []);
 
   /**
-   * Toggle filter panel visibility (mobile)
-   */
-  const toggleFilters = useCallback(() => {
-    setShowFilters((prev) => !prev);
-  }, []);
-
-  /**
    * Toggle filters layout between side and top
    */
   const toggleFiltersLayout = useCallback(() => {
@@ -278,120 +270,24 @@ function Screener({ banks, loading }) {
     });
   }, []);
 
-  /**
-   * Check if any filters are active
-   */
-  const hasActiveFilters = useMemo(() => {
-    const checkRange = (filter) => {
-      return filter?.min !== '' && filter?.min !== undefined ||
-             filter?.max !== '' && filter?.max !== undefined;
-    };
-
-    return (
-      // Quick Filters
-      filters.exchanges.length > 0 ||
-      // Size & Scale
-      checkRange(filters.marketCap) ||
-      checkRange(filters.totalAssets) ||
-      checkRange(filters.totalDeposits) ||
-      // Balance Sheet - Assets
-      checkRange(filters.cashAndCashEquivalents) ||
-      checkRange(filters.loans) ||
-      // Balance Sheet - Liabilities
-      checkRange(filters.totalLiabilities) ||
-      checkRange(filters.totalEquity) ||
-      // Valuation
-      checkRange(filters.pni) ||
-      // Profitability
-      checkRange(filters.roe) ||
-      checkRange(filters.roaa) ||
-      // Capital & Leverage
-      checkRange(filters.equityToAssets) ||
-      checkRange(filters.depositsToAssets) ||
-      // Efficiency
-      checkRange(filters.efficiencyRatio) ||
-      // Book Value
-      checkRange(filters.bvps) ||
-      // Dividends
-      checkRange(filters.ttmDividend) ||
-      checkRange(filters.dividendPayoutRatio) ||
-      // Value Investing
-      (filters.grahamMoS !== '' && filters.grahamMoS !== undefined) ||
-      // Income Statement
-      checkRange(filters.ttmNetIncome) ||
-      checkRange(filters.ttmNetInterestIncome) ||
-      // Per-Share
-      checkRange(filters.ttmEps) ||
-      checkRange(filters.sharesOutstanding)
-    );
-  }, [filters]);
-
   return (
-    <div className="screener">
-      <div className="screener-toolbar">
-        <div className="screener-stats">
-          <span className="stat">
-            <strong>{filteredBanks.length}</strong> of <strong>{banks.length}</strong> banks
-          </span>
-          {hasActiveFilters && (
-            <span className="stat-filter-active">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
-              </svg>
-              Filters active
-            </span>
-          )}
-        </div>
-        <div className="screener-toolbar-actions">
-          <button
-            className="layout-toggle-btn"
-            onClick={toggleFiltersLayout}
-            title={filtersLayout === 'side' ? 'Move filters to top' : 'Move filters to side'}
-          >
-            {filtersLayout === 'side' ? (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <line x1="3" y1="9" x2="21" y2="9" />
-              </svg>
-            ) : (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <line x1="9" y1="3" x2="9" y2="21" />
-              </svg>
-            )}
-            <span>{filtersLayout === 'side' ? 'Top' : 'Side'}</span>
-          </button>
-          <button
-            className="filter-toggle-btn"
-            onClick={toggleFilters}
-            aria-expanded={showFilters}
-            aria-controls="filters-panel"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
-            </svg>
-            <span>{showFilters ? 'Hide Filters' : 'Show Filters'}</span>
-          </button>
-        </div>
-      </div>
+    <div className={`screener layout-${filtersLayout}`}>
+      <aside id="filters-panel" className="screener-filters">
+        <Filters
+          filters={filters}
+          exchanges={exchanges}
+          onFilterChange={handleFilterChange}
+          onReset={handleReset}
+          filteredCount={filteredBanks.length}
+          totalCount={banks.length}
+          layout={filtersLayout}
+          onToggleLayout={toggleFiltersLayout}
+        />
+      </aside>
 
-      <div className={`screener-content layout-${filtersLayout}`}>
-        <aside
-          id="filters-panel"
-          className={`screener-filters ${showFilters ? 'visible' : 'hidden'}`}
-        >
-          <Filters
-            filters={filters}
-            exchanges={exchanges}
-            onFilterChange={handleFilterChange}
-            onReset={handleReset}
-          />
-        </aside>
-
-        <section className="screener-results">
-          <ResultsTable banks={filteredBanks} loading={loading} />
-        </section>
-      </div>
+      <section className="screener-results">
+        <ResultsTable banks={filteredBanks} loading={loading} />
+      </section>
     </div>
   );
 }
