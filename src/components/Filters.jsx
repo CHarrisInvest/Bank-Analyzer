@@ -199,6 +199,49 @@ function ExchangeFilter({ exchanges, selectedExchanges, onChange }) {
 }
 
 /**
+ * Search input for ticker/name filtering
+ */
+function SearchFilter({ value, onChange }) {
+  return (
+    <div className="filter-search">
+      <div className="filter-search-input-wrapper">
+        <svg
+          className="filter-search-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <path d="M21 21l-4.35-4.35" />
+        </svg>
+        <input
+          type="text"
+          className="filter-search-input"
+          placeholder="Search ticker or name..."
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+        />
+        {value && (
+          <button
+            type="button"
+            className="filter-search-clear"
+            onClick={() => onChange('')}
+            aria-label="Clear search"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/**
  * Filter presets dropdown
  */
 function FilterPresets({ onApplyPreset, onSavePreset, currentFilters }) {
@@ -390,6 +433,16 @@ function Filters({
   };
 
   /**
+   * Handle search query change
+   */
+  const handleSearchChange = (value) => {
+    onFilterChange({
+      ...filters,
+      searchQuery: value,
+    });
+  };
+
+  /**
    * Handle exchange selection change
    */
   const handleExchangeChange = (selectedExchanges) => {
@@ -438,7 +491,8 @@ function Filters({
       'ttmEps', 'bvps', 'ttmDividend', 'dividendPayoutRatio',
       'grahamMoS', 'ttmNetIncome', 'ttmNetInterestIncome', 'sharesOutstanding'
     ];
-    return countActiveFilters(allFilterKeys) + (filters.exchanges?.length > 0 ? 1 : 0);
+    const searchActive = filters.searchQuery && filters.searchQuery.trim() !== '' ? 1 : 0;
+    return countActiveFilters(allFilterKeys) + (filters.exchanges?.length > 0 ? 1 : 0) + searchActive;
   }, [filters]);
 
   return (
@@ -511,6 +565,12 @@ function Filters({
           </button>
         </div>
       </div>
+
+      {/* Search - always visible */}
+      <SearchFilter
+        value={filters.searchQuery || ''}
+        onChange={handleSearchChange}
+      />
 
       {/* Collapsible filter content */}
       {(isExpanded || layout === 'side') && (
