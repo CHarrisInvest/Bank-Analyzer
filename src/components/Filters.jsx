@@ -483,14 +483,15 @@ function Filters({
           {layout === 'top' && (
             <button
               type="button"
-              className="filters-toggle-btn"
+              className={`filters-toggle-btn ${!isExpanded ? 'collapsed' : ''}`}
               onClick={() => setIsExpanded(!isExpanded)}
               aria-expanded={isExpanded}
             >
+              <span className="filters-toggle-text">{isExpanded ? 'Hide' : 'Show'}</span>
               <svg
                 className={`filters-toggle-icon ${isExpanded ? 'open' : ''}`}
-                width="16"
-                height="16"
+                width="14"
+                height="14"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
