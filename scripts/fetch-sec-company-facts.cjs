@@ -933,7 +933,9 @@ function calculateBankMetrics(bankData) {
   if (dps?.isAnnualFallback) annualFallbackFields.push('dividends');
 
   // Derived values
-  const bvps = totalEquity && sharesOutstanding ? totalEquity / sharesOutstanding : null;
+  // BVPS = Common Equity / Shares Outstanding (exclude preferred stock)
+  const commonEquity = totalEquity ? totalEquity - preferredValue : null;
+  const bvps = commonEquity && sharesOutstanding ? commonEquity / sharesOutstanding : null;
   const avgAssetsValue = avgAssets?.average || totalAssets;
   const avgEquityValue = avgEquity?.average || totalEquity;
   const returnRatioAvgMethod = avgAssets?.method || avgEquity?.method || 'single-period';
