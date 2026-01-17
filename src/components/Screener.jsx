@@ -4,6 +4,29 @@ import ResultsTable from './ResultsTable.jsx';
 import { getUniqueExchanges } from '../data/sheets.js';
 
 /**
+ * Clean up bank name for display
+ * - Remove state abbreviations in slashes (e.g., "/PA/", "/DE/", "/MN")
+ * - Convert all letters to uppercase for consistency
+ */
+function cleanBankName(name) {
+  if (!name) return name;
+
+  // Remove state abbreviations in various formats:
+  // /PA/, /DE/, /VA/, etc. (with closing slash)
+  // /MN, /TX, /VT, etc. (without closing slash at end)
+  let cleaned = name
+    .replace(/\s*\/[A-Za-z]{2}\/$/, '')      // " /PA/" at end
+    .replace(/\s*\/[A-Za-z]{2}$/, '')        // " /MN" at end (no closing slash)
+    .replace(/\s+\/[A-Za-z]{2}\/\s*/g, ' ')  // " /PA/ " in middle
+    .trim();
+
+  // Convert all letters to uppercase for consistency
+  cleaned = cleaned.toUpperCase();
+
+  return cleaned;
+}
+
+/**
  * Default filter state
  *
  * Filter categories organized by:
@@ -22,6 +45,9 @@ import { getUniqueExchanges } from '../data/sheets.js';
  * - Per-Share: ttmEps, sharesOutstanding
  */
 const DEFAULT_FILTERS = {
+  // Search
+  searchQuery: '',
+
   // Quick Filters
   exchanges: [],
 
@@ -113,10 +139,32 @@ function Screener({ banks, loading }) {
   }, [banks]);
 
   /**
+   * Process banks with cleaned names
+   */
+  const processedBanks = useMemo(() => {
+    return banks.map((bank) => ({
+      ...bank,
+      bankName: cleanBankName(bank.bankName),
+    }));
+  }, [banks]);
+
+  /**
    * Apply filters to bank data
    */
   const filteredBanks = useMemo(() => {
-    return banks.filter((bank) => {
+    return processedBanks.filter((bank) => {
+      // ========================================================================
+      // SEARCH FILTER (ticker or name)
+      // ========================================================================
+      if (filters.searchQuery && filters.searchQuery.trim() !== '') {
+        const query = filters.searchQuery.toLowerCase().trim();
+        const tickerMatch = bank.ticker?.toLowerCase().includes(query);
+        const nameMatch = bank.bankName?.toLowerCase().includes(query);
+        if (!tickerMatch && !nameMatch) {
+          return false;
+        }
+      }
+
       // ========================================================================
       // QUICK FILTERS
       // ========================================================================
@@ -243,7 +291,7 @@ function Screener({ banks, loading }) {
 
       return true;
     });
-  }, [banks, filters]);
+  }, [processedBanks, filters]);
 
   /**
    * Handle filter changes
@@ -279,7 +327,7 @@ function Screener({ banks, loading }) {
           onFilterChange={handleFilterChange}
           onReset={handleReset}
           filteredCount={filteredBanks.length}
-          totalCount={banks.length}
+          totalCount={processedBanks.length}
           layout={filtersLayout}
           onToggleLayout={toggleFiltersLayout}
         />
