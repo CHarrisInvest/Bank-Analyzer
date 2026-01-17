@@ -129,6 +129,16 @@ const COLUMNS = [
     group: 'valuation',
     defaultVisible: true,
   },
+  {
+    key: 'priceToBook',
+    label: 'P/B',
+    fullName: 'Price-to-Book Ratio (P/B)',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2 }),
+    group: 'valuation',
+    defaultVisible: true,
+  },
 
   // ===========================================================================
   // PER-SHARE DATA
@@ -160,6 +170,16 @@ const COLUMNS = [
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+    group: 'per-share',
+    defaultVisible: true,
+  },
+  {
+    key: 'dividendPayoutRatio',
+    label: 'Payout',
+    fullName: 'Dividend Payout Ratio',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'per-share',
     defaultVisible: true,
   },
@@ -233,7 +253,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
     group: 'graham',
-    defaultVisible: true,
+    defaultVisible: false,
   },
   {
     key: 'grahamMoSPct',
@@ -243,21 +263,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'graham',
-    defaultVisible: true,
-  },
-
-  // ===========================================================================
-  // DIVIDENDS
-  // ===========================================================================
-  {
-    key: 'dividendPayoutRatio',
-    label: 'Payout',
-    fullName: 'Dividend Payout Ratio',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
-    group: 'dividends',
-    defaultVisible: true,
+    defaultVisible: false,
   },
 
   // ===========================================================================
@@ -445,7 +451,7 @@ function SortIndicator({ direction }) {
   if (!direction) {
     return (
       <span className="sort-indicator sort-indicator-inactive">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
           <path d="M7 10l5 5 5-5z" />
         </svg>
       </span>
@@ -454,7 +460,7 @@ function SortIndicator({ direction }) {
 
   return (
     <span className={`sort-indicator sort-indicator-${direction}`}>
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
         {direction === 'asc' ? (
           <path d="M7 14l5-5 5 5z" />
         ) : (
@@ -638,7 +644,32 @@ function highlightMatch(text, query, isName = false) {
   }
 }
 
-function ResultsTable({ banks, loading, searchQuery = '' }) {
+// Map filter keys to column keys (some differ)
+const FILTER_TO_COLUMN_MAP = {
+  marketCap: 'marketCap',
+  totalAssets: 'totalAssets',
+  totalDeposits: 'totalDeposits',
+  totalEquity: 'totalEquity',
+  totalLiabilities: 'totalLiabilities',
+  cashAndCashEquivalents: 'cashAndCashEquivalents',
+  loans: 'loans',
+  pni: 'pni',
+  roe: 'roe',
+  roaa: 'roaa',
+  efficiencyRatio: 'efficiencyRatio',
+  equityToAssets: 'equityToAssets',
+  depositsToAssets: 'depositsToAssets',
+  ttmEps: 'ttmEps',
+  bvps: 'bvps',
+  ttmDividend: 'ttmDividendPerShare',
+  dividendPayoutRatio: 'dividendPayoutRatio',
+  grahamMoS: 'grahamMoSPct',
+  ttmNetIncome: 'ttmNetIncome',
+  ttmNetInterestIncome: 'ttmNetInterestIncome',
+  sharesOutstanding: 'sharesOutstanding',
+};
+
+function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
   const [sortConfig, setSortConfig] = useState({
     key: 'marketCap',
     direction: 'desc',
@@ -655,6 +686,42 @@ function ResultsTable({ banks, loading, searchQuery = '' }) {
     }
     return getDefaultVisibleColumns();
   });
+
+  // Determine which columns have active filters
+  const filteredColumns = useMemo(() => {
+    const filtered = new Set();
+    Object.entries(filters).forEach(([filterKey, filterValue]) => {
+      if (filterKey === 'searchQuery' || filterKey === 'exchanges') return;
+      const columnKey = FILTER_TO_COLUMN_MAP[filterKey];
+      if (!columnKey) return;
+
+      // Check if filter has a value
+      if (filterValue && typeof filterValue === 'object') {
+        if ((filterValue.min !== '' && filterValue.min !== undefined) ||
+            (filterValue.max !== '' && filterValue.max !== undefined)) {
+          filtered.add(columnKey);
+        }
+      }
+    });
+    return filtered;
+  }, [filters]);
+
+  // Auto-add filtered columns to visible columns
+  useEffect(() => {
+    if (filteredColumns.size > 0) {
+      setVisibleColumns((prev) => {
+        const newVisible = [...prev];
+        let changed = false;
+        filteredColumns.forEach((colKey) => {
+          if (!newVisible.includes(colKey)) {
+            newVisible.push(colKey);
+            changed = true;
+          }
+        });
+        return changed ? newVisible : prev;
+      });
+    }
+  }, [filteredColumns]);
   const [columnOrder, setColumnOrder] = useState(() => {
     // Try to load from localStorage
     const saved = localStorage.getItem('bankAnalyzer_columnOrder');
@@ -991,6 +1058,13 @@ function ResultsTable({ banks, loading, searchQuery = '' }) {
       classes.push('cell-focused');
     }
 
+    // Column highlighting: sorted column (darker) or filtered column (lighter)
+    if (sortConfig.key === column.key) {
+      classes.push('column-sorted');
+    } else if (filteredColumns.has(column.key)) {
+      classes.push('column-filtered');
+    }
+
     // Add value-based classes for specific columns
     if (column.key === 'roe' && typeof value === 'number') {
       if (value >= 10) classes.push('value-positive');
@@ -1098,6 +1172,8 @@ function ResultsTable({ banks, loading, searchQuery = '' }) {
                     column.sortable ? 'sortable' : ''
                   } ${draggedColumn === column.key ? 'column-dragging' : ''} ${
                     dragOverColumn === column.key ? 'column-drag-over' : ''
+                  } ${sortConfig.key === column.key ? 'column-sorted' : ''} ${
+                    filteredColumns.has(column.key) && sortConfig.key !== column.key ? 'column-filtered' : ''
                   }`}
                   onClick={column.sortable ? () => handleSort(column.key) : undefined}
                   role={column.sortable ? 'button' : undefined}

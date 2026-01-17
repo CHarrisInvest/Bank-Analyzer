@@ -1626,6 +1626,35 @@ body {
   opacity: 0.4;
 }
 
+/* Column highlighting for sorted/filtered columns */
+.results-table th.column-sorted,
+.results-table td.column-sorted {
+  background-color: rgba(59, 130, 246, 0.12);
+}
+
+.results-table th.column-filtered,
+.results-table td.column-filtered {
+  background-color: rgba(59, 130, 246, 0.06);
+}
+
+/* Preserve alternating row colors with column highlighting */
+.results-table tbody tr:nth-child(even) td.column-sorted {
+  background-color: rgba(59, 130, 246, 0.15);
+}
+
+.results-table tbody tr:nth-child(even) td.column-filtered {
+  background-color: rgba(59, 130, 246, 0.09);
+}
+
+/* Hover state should still work but with blend */
+.results-table tbody tr:hover td.column-sorted {
+  background-color: rgba(59, 130, 246, 0.18);
+}
+
+.results-table tbody tr:hover td.column-filtered {
+  background-color: rgba(59, 130, 246, 0.12);
+}
+
 .results-table td {
   padding: var(--spacing-2) var(--spacing-3);
   border-bottom: 1px solid var(--color-gray-100);
