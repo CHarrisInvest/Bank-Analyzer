@@ -39,6 +39,10 @@ const CONFIG = {
   // How many quarters of history to use for calculations
   quartersToFetch: 5,
 
+  // Maximum days since last reporting date to be considered an active filer
+  // Banks with dataDate older than this threshold from the refresh date are excluded
+  activeFilerThresholdDays: 150,
+
   // Financial institution SIC codes
   // 6020 - Commercial Banks
   // 6021 - National Commercial Banks
@@ -1175,11 +1179,13 @@ async function main() {
 
   // Process each bank
   console.log('\nProcessing banks...');
+  console.log(`  Active filer threshold: ${CONFIG.activeFilerThresholdDays} days`);
   const results = [];
   const rawDataStore = {};
   let processed = 0;
   let errors = 0;
   let bankIndex = 0;
+  let inactiveFilersFiltered = 0;
 
   for (const [cik, bankInfo] of bankByCik) {
     try {
@@ -1211,6 +1217,26 @@ async function main() {
       // Calculate metrics
       const { metrics, rawData } = calculateBankMetrics(bankData);
       const validatedMetrics = applyDataQualityValidation(metrics);
+
+      // Filter out inactive filers (dataDate older than threshold from refresh date)
+      if (validatedMetrics.dataDate) {
+        const dataDate = new Date(validatedMetrics.dataDate);
+        const refreshDate = new Date();
+        const daysSinceReporting = Math.floor((refreshDate - dataDate) / (1000 * 60 * 60 * 24));
+
+        if (daysSinceReporting > CONFIG.activeFilerThresholdDays) {
+          // Skip inactive filers
+          inactiveFilersFiltered++;
+          processed++;
+          continue;
+        }
+      } else {
+        // Skip banks without a dataDate (also considered inactive)
+        inactiveFilersFiltered++;
+        processed++;
+        continue;
+      }
+
       validatedMetrics.id = `bank-${bankIndex++}`;
 
       results.push(validatedMetrics);
@@ -1231,7 +1257,9 @@ async function main() {
     }
   }
 
-  console.log(`  Total: ${results.length} banks with data (${errors} errors)`);
+  console.log(`  Total: ${results.length} active filers with data`);
+  console.log(`  Inactive filers filtered: ${inactiveFilersFiltered} (reporting date > ${CONFIG.activeFilerThresholdDays} days old)`);
+  console.log(`  Errors: ${errors}`);
 
   // Sort by ticker
   results.sort((a, b) => (a.ticker || '').localeCompare(b.ticker || ''));
@@ -1249,7 +1277,9 @@ async function main() {
       url: 'https://data.sec.gov/api/xbrl/companyfacts/',
       method: USE_BULK ? 'bulk-download' : 'per-company-api',
       generatedAt: new Date().toISOString(),
-      bankCount: Object.keys(rawDataStore).length
+      bankCount: Object.keys(rawDataStore).length,
+      activeFilerThresholdDays: CONFIG.activeFilerThresholdDays,
+      inactiveFilersExcluded: inactiveFilersFiltered
     },
     banks: rawDataStore
   }, null, 2));
@@ -1266,7 +1296,8 @@ async function main() {
   console.log('\n' + '═'.repeat(80));
   console.log('SUMMARY');
   console.log('═'.repeat(80));
-  console.log(`Banks processed: ${results.length}`);
+  console.log(`Active filers included: ${results.length}`);
+  console.log(`Inactive filers excluded: ${inactiveFilersFiltered} (reporting date > ${CONFIG.activeFilerThresholdDays} days old)`);
   console.log(`Data quality issues: ${results.filter(r => r.hasDataQualityIssues).length} banks`);
   console.log(`Shares outstanding coverage: ${results.filter(r => r.sharesOutstanding).length}/${results.length}`);
 
