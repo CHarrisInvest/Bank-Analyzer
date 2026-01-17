@@ -679,32 +679,39 @@ function calculateBankMetrics(bankData) {
   const preferredValue = preferredStock?.value || 0;
   const sharesOutstanding = sharesData?.value;
 
-  // Helper to check if TTM data is stale (more than 2 years older than reference date)
+  // Helper to check if TTM data is stale (more than 5 quarters from balance sheet date)
   const dataDate = assets?.ddate || equity?.ddate || netIncome?.date;
   const isTTMStale = (ttmData) => {
     if (!ttmData?.date || !dataDate) return false;
+    // Calculate months difference
     const ttmYear = parseInt(ttmData.date.slice(0, 4));
+    const ttmMonth = parseInt(ttmData.date.slice(4, 6));
     const refYear = parseInt(dataDate.slice(0, 4));
-    return (refYear - ttmYear) > 2;
+    const refMonth = parseInt(dataDate.slice(4, 6));
+    const monthsDiff = (refYear - ttmYear) * 12 + (refMonth - ttmMonth);
+    // 5 quarters = 15 months
+    return monthsDiff > 15;
   };
 
-  const ttmInterestIncome = interestIncome?.value;
-  const ttmInterestExpense = interestExpense?.value;
-  const ttmNii = netInterestIncome?.value;
-  const ttmNonintIncome = noninterestIncome?.value;
-  const ttmNonintExpense = noninterestExpense?.value;
-  // Reject stale provision data (e.g., Ally has 2012-2013 data when balance sheet is 2025)
-  const ttmProvision = isTTMStale(provisionForCreditLosses) ? null : provisionForCreditLosses?.value;
-  const ttmPreTaxIncome = preTaxIncome?.value;
-  const ttmNetIncome = netIncome?.value;
+  // Helper to get TTM value only if not stale
+  const getTTMIfFresh = (ttmData) => isTTMStale(ttmData) ? null : ttmData?.value;
+
+  const ttmInterestIncome = getTTMIfFresh(interestIncome);
+  const ttmInterestExpense = getTTMIfFresh(interestExpense);
+  const ttmNii = getTTMIfFresh(netInterestIncome);
+  const ttmNonintIncome = getTTMIfFresh(noninterestIncome);
+  const ttmNonintExpense = getTTMIfFresh(noninterestExpense);
+  const ttmProvision = getTTMIfFresh(provisionForCreditLosses);
+  const ttmPreTaxIncome = getTTMIfFresh(preTaxIncome);
+  const ttmNetIncome = getTTMIfFresh(netIncome);
   // Validate NI to Common: should not exceed Net Income (indicates quarter mismatch)
-  const rawNIToCommon = netIncomeToCommon?.value;
+  const rawNIToCommon = getTTMIfFresh(netIncomeToCommon);
   const ttmNetIncomeToCommon = (rawNIToCommon !== null && ttmNetIncome !== null && rawNIToCommon > ttmNetIncome)
     ? null
     : rawNIToCommon;
-  const ttmEps = eps?.value;
-  const ttmOperatingCashFlow = operatingCashFlow?.value;
-  const ttmDps = dps?.value;
+  const ttmEps = getTTMIfFresh(eps);
+  const ttmOperatingCashFlow = getTTMIfFresh(operatingCashFlow);
+  const ttmDps = getTTMIfFresh(dps);
 
   // Derived values
   const bvps = totalEquity && sharesOutstanding ? totalEquity / sharesOutstanding : null;
