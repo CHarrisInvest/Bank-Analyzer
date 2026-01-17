@@ -89,6 +89,13 @@ function FilterSection({ title, children, defaultOpen = false, badge = null }) {
 }
 
 /**
+ * Prevent scroll wheel from changing number input values
+ */
+const preventWheelChange = (e) => {
+  e.target.blur();
+};
+
+/**
  * Filter range input component for numeric filters
  */
 function RangeFilter({ label, minValue, maxValue, minPlaceholder, maxPlaceholder, onChange, unit, compact = false }) {
@@ -105,7 +112,7 @@ function RangeFilter({ label, minValue, maxValue, minPlaceholder, maxPlaceholder
           placeholder={minPlaceholder || 'Min'}
           value={minValue}
           onChange={(e) => onChange('min', e.target.value)}
-          step="any"
+          onWheel={preventWheelChange}
         />
         <span className="filter-range-separator">-</span>
         <input
@@ -114,7 +121,7 @@ function RangeFilter({ label, minValue, maxValue, minPlaceholder, maxPlaceholder
           placeholder={maxPlaceholder || 'Max'}
           value={maxValue}
           onChange={(e) => onChange('max', e.target.value)}
-          step="any"
+          onWheel={preventWheelChange}
         />
       </div>
     </div>
@@ -138,7 +145,7 @@ function MinFilter({ label, value, placeholder, onChange, unit }) {
           placeholder={placeholder || 'Min'}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          step="any"
+          onWheel={preventWheelChange}
         />
       </div>
     </div>
