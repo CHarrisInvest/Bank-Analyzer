@@ -629,6 +629,8 @@ function ResultsTable({ banks, loading }) {
   }, [visibleColumns, columnOrder]);
 
   // Calculate column groups for header
+  // Special handling: split first group if it spans more than 1 column
+  // to keep frozen first column aligned with its group header
   const columnGroupSpans = useMemo(() => {
     const spans = [];
     let currentGroup = null;
@@ -658,6 +660,19 @@ function ResultsTable({ banks, loading }) {
         span: currentSpan,
         startIndex,
       });
+    }
+
+    // Split first group if it has more than 1 column (for frozen column alignment)
+    if (spans.length > 0 && spans[0].span > 1) {
+      const firstGroup = spans[0];
+      spans.splice(
+        0,
+        1,
+        { group: firstGroup.group, span: 1, startIndex: 0, isFrozen: true },
+        { group: firstGroup.group, span: firstGroup.span - 1, startIndex: 1, isContinuation: true }
+      );
+    } else if (spans.length > 0) {
+      spans[0].isFrozen = true;
     }
 
     return spans;
@@ -992,15 +1007,15 @@ function ResultsTable({ banks, loading }) {
           <thead>
             {/* Group header row */}
             <tr className="column-group-row">
-              {columnGroupSpans.map(({ group, span }, index) => (
+              {columnGroupSpans.map(({ group, span, isFrozen, isContinuation }, index) => (
                 <th
                   key={`group-${index}`}
                   colSpan={span}
-                  className="column-group-header"
+                  className={`column-group-header${isFrozen ? ' column-group-frozen' : ''}${isContinuation ? ' column-group-continuation' : ''}`}
                   style={{ borderBottomColor: COLUMN_GROUPS[group]?.color }}
                   title={COLUMN_GROUPS[group]?.description}
                 >
-                  {COLUMN_GROUPS[group]?.label || group}
+                  {isContinuation ? '' : (COLUMN_GROUPS[group]?.label || group)}
                 </th>
               ))}
             </tr>
@@ -1074,9 +1089,6 @@ function ResultsTable({ banks, loading }) {
             <tr>
               <td colSpan={displayColumns.length} className="table-footer">
                 <div className="table-footer-content">
-                  <span className="table-row-count">
-                    Showing {sortedBanks.length} {sortedBanks.length === 1 ? 'bank' : 'banks'}
-                  </span>
                   <button
                     className="scroll-to-top-btn"
                     onClick={scrollToTop}
