@@ -758,8 +758,7 @@ function getTTMValueForPeriod(conceptData, refDate) {
           date: details[0].ddate,
           method: 'sum-4Q',
           form: [...new Set(details.map(q => q.form))].join('+'),
-          details,
-          hasQ4Derived: true  // Flag that Q4 was derived from annual
+          details
         };
       }
     }
