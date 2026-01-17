@@ -627,26 +627,15 @@ function Filters({
                 {totalActiveFilters > 0 && (
                   <span className="filters-active-count">{totalActiveFilters}</span>
                 )}
+                <button
+                  className="filters-reset-btn"
+                  onClick={onReset}
+                  type="button"
+                  disabled={totalActiveFilters === 0}
+                >
+                  Reset
+                </button>
               </div>
-              <button
-                className="filters-reset-btn"
-                onClick={onReset}
-                type="button"
-                disabled={totalActiveFilters === 0}
-              >
-                Reset
-              </button>
-            </div>
-            <div className="filters-header-row">
-              <SearchFilter
-                value={filters.searchQuery || ''}
-                onChange={handleSearchChange}
-              />
-            </div>
-            <div className="filters-header-row">
-              <span className="filters-bank-count">
-                {filteredCount} of {totalCount} banks
-              </span>
               <div className="filters-layout-toggle">
                 <button
                   type="button"
@@ -671,6 +660,17 @@ function Filters({
                   </svg>
                 </button>
               </div>
+            </div>
+            <div className="filters-header-row">
+              <SearchFilter
+                value={filters.searchQuery || ''}
+                onChange={handleSearchChange}
+              />
+            </div>
+            <div className="filters-header-row">
+              <span className="filters-bank-count">
+                {filteredCount} of {totalCount} banks
+              </span>
             </div>
           </>
         ) : (

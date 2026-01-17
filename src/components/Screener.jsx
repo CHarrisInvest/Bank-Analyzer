@@ -139,13 +139,21 @@ function Screener({ banks, loading }) {
   }, [banks]);
 
   /**
-   * Process banks with cleaned names
+   * Process banks with cleaned names and calculated fields
    */
   const processedBanks = useMemo(() => {
-    return banks.map((bank) => ({
-      ...bank,
-      bankName: cleanBankName(bank.bankName),
-    }));
+    return banks.map((bank) => {
+      // Calculate P/B (Price to Book)
+      const priceToBook = bank.price && bank.bvps && bank.bvps !== 0
+        ? bank.price / bank.bvps
+        : null;
+
+      return {
+        ...bank,
+        bankName: cleanBankName(bank.bankName),
+        priceToBook,
+      };
+    });
   }, [banks]);
 
   /**
@@ -337,7 +345,7 @@ function Screener({ banks, loading }) {
       </aside>
 
       <section className="screener-results">
-        <ResultsTable banks={filteredBanks} loading={loading} searchQuery={filters.searchQuery} />
+        <ResultsTable banks={filteredBanks} loading={loading} searchQuery={filters.searchQuery} filters={filters} />
       </section>
     </div>
   );
