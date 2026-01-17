@@ -498,10 +498,46 @@ function Filters({
       {/* Header bar - always visible */}
       <div className="filters-header">
         <div className="filters-header-left">
-          <h2 className="filters-title">Filters</h2>
-          {totalActiveFilters > 0 && (
-            <span className="filters-active-count">{totalActiveFilters}</span>
+          {/* Filters title is now the toggle button in top layout */}
+          {layout === 'top' ? (
+            <button
+              type="button"
+              className={`filters-title-toggle ${isExpanded ? 'expanded' : ''}`}
+              onClick={() => setIsExpanded(!isExpanded)}
+              aria-expanded={isExpanded}
+            >
+              <span className="filters-title-text">Filters</span>
+              {totalActiveFilters > 0 && (
+                <span className="filters-active-count">{totalActiveFilters}</span>
+              )}
+              <svg
+                className={`filters-title-chevron ${isExpanded ? 'open' : ''}`}
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          ) : (
+            <>
+              <h2 className="filters-title">Filters</h2>
+              {totalActiveFilters > 0 && (
+                <span className="filters-active-count">{totalActiveFilters}</span>
+              )}
+            </>
           )}
+          <button
+            className="filters-reset-btn"
+            onClick={onReset}
+            type="button"
+            disabled={totalActiveFilters === 0}
+          >
+            Reset
+          </button>
           <SearchFilter
             value={filters.searchQuery || ''}
             onChange={handleSearchChange}
@@ -536,35 +572,6 @@ function Filters({
               </svg>
             </button>
           </div>
-          {layout === 'top' && (
-            <button
-              type="button"
-              className={`filters-toggle-btn ${!isExpanded ? 'collapsed' : ''}`}
-              onClick={() => setIsExpanded(!isExpanded)}
-              aria-expanded={isExpanded}
-            >
-              <span className="filters-toggle-text">{isExpanded ? 'Hide' : 'Show'}</span>
-              <svg
-                className={`filters-toggle-icon ${isExpanded ? 'open' : ''}`}
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-          )}
-          <button
-            className="filters-reset-btn"
-            onClick={onReset}
-            type="button"
-            disabled={totalActiveFilters === 0}
-          >
-            Reset
-          </button>
         </div>
       </div>
 

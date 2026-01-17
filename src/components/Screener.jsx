@@ -156,10 +156,13 @@ function Screener({ banks, loading }) {
       // ========================================================================
       // SEARCH FILTER (ticker or name)
       // ========================================================================
+      // - Tickers: must start with the query
+      // - Names: any word in the name must start with the query
       if (filters.searchQuery && filters.searchQuery.trim() !== '') {
         const query = filters.searchQuery.toLowerCase().trim();
-        const tickerMatch = bank.ticker?.toLowerCase().includes(query);
-        const nameMatch = bank.bankName?.toLowerCase().includes(query);
+        const tickerMatch = bank.ticker?.toLowerCase().startsWith(query);
+        const words = bank.bankName?.toLowerCase().split(/\s+/) || [];
+        const nameMatch = words.some(word => word.startsWith(query));
         if (!tickerMatch && !nameMatch) {
           return false;
         }
