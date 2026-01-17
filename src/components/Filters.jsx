@@ -1,9 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+
+/**
+ * Preset filter configurations
+ */
+const FILTER_PRESETS = [
+  {
+    id: 'value-picks',
+    name: 'Value Picks',
+    description: 'Banks trading below Graham value with good profitability',
+    filters: {
+      grahamMoS: 20,
+      roe: { min: 8, max: '' },
+      pni: { min: '', max: 15 },
+    },
+  },
+  {
+    id: 'high-yield',
+    name: 'High Yield',
+    description: 'Banks with strong dividend yields and sustainable payouts',
+    filters: {
+      ttmDividend: { min: 1, max: '' },
+      dividendPayoutRatio: { min: '', max: 70 },
+      roe: { min: 5, max: '' },
+    },
+  },
+  {
+    id: 'large-cap-quality',
+    name: 'Large Cap Quality',
+    description: 'Large banks with strong fundamentals',
+    filters: {
+      marketCap: { min: 5000, max: '' },
+      roe: { min: 10, max: '' },
+      efficiencyRatio: { min: '', max: 65 },
+    },
+  },
+  {
+    id: 'small-cap-efficient',
+    name: 'Small Cap Efficient',
+    description: 'Smaller banks with excellent efficiency',
+    filters: {
+      marketCap: { min: '', max: 1000 },
+      efficiencyRatio: { min: '', max: 60 },
+      roaa: { min: 0.8, max: '' },
+    },
+  },
+  {
+    id: 'strong-capital',
+    name: 'Strong Capital',
+    description: 'Well-capitalized banks',
+    filters: {
+      equityToAssets: { min: 10, max: '' },
+      roe: { min: 5, max: '' },
+    },
+  },
+];
 
 /**
  * Collapsible filter section component
  */
-function FilterSection({ title, children, defaultOpen = true, badge = null }) {
+function FilterSection({ title, children, defaultOpen = false, badge = null }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
@@ -137,17 +192,152 @@ function ExchangeFilter({ exchanges, selectedExchanges, onChange }) {
 }
 
 /**
+ * Filter presets dropdown
+ */
+function FilterPresets({ onApplyPreset, onSavePreset, currentFilters }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [savedPresets, setSavedPresets] = useState(() => {
+    try {
+      const saved = localStorage.getItem('bankAnalyzer_filterPresets');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [newPresetName, setNewPresetName] = useState('');
+
+  // Save presets to localStorage when they change
+  useEffect(() => {
+    localStorage.setItem('bankAnalyzer_filterPresets', JSON.stringify(savedPresets));
+  }, [savedPresets]);
+
+  const handleSavePreset = () => {
+    if (!newPresetName.trim()) return;
+
+    const newPreset = {
+      id: `custom-${Date.now()}`,
+      name: newPresetName.trim(),
+      description: 'Custom saved preset',
+      filters: currentFilters,
+      isCustom: true,
+    };
+
+    setSavedPresets((prev) => [...prev, newPreset]);
+    setNewPresetName('');
+    setShowSaveDialog(false);
+  };
+
+  const handleDeletePreset = (presetId) => {
+    setSavedPresets((prev) => prev.filter((p) => p.id !== presetId));
+  };
+
+  const allPresets = [...FILTER_PRESETS, ...savedPresets];
+
+  return (
+    <div className="filter-presets">
+      <div className="filter-presets-header">
+        <button
+          type="button"
+          className="presets-dropdown-btn"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
+          Presets
+          <svg
+            className={`presets-chevron ${isOpen ? 'open' : ''}`}
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M7 10l5 5 5-5z" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          className="save-preset-btn"
+          onClick={() => setShowSaveDialog(true)}
+          title="Save current filters as preset"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+            <polyline points="17 21 17 13 7 13 7 21" />
+            <polyline points="7 3 7 8 15 8" />
+          </svg>
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="presets-dropdown">
+          {allPresets.map((preset) => (
+            <div key={preset.id} className="preset-item">
+              <button
+                type="button"
+                className="preset-apply-btn"
+                onClick={() => {
+                  onApplyPreset(preset.filters);
+                  setIsOpen(false);
+                }}
+              >
+                <span className="preset-name">{preset.name}</span>
+                <span className="preset-description">{preset.description}</span>
+              </button>
+              {preset.isCustom && (
+                <button
+                  type="button"
+                  className="preset-delete-btn"
+                  onClick={() => handleDeletePreset(preset.id)}
+                  title="Delete preset"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+            </div>
+          ))}
+          {allPresets.length === 0 && (
+            <div className="presets-empty">No presets available</div>
+          )}
+        </div>
+      )}
+
+      {showSaveDialog && (
+        <div className="save-preset-dialog">
+          <input
+            type="text"
+            placeholder="Preset name..."
+            value={newPresetName}
+            onChange={(e) => setNewPresetName(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') handleSavePreset();
+              if (e.key === 'Escape') setShowSaveDialog(false);
+            }}
+            autoFocus
+          />
+          <div className="save-preset-actions">
+            <button type="button" onClick={handleSavePreset}>Save</button>
+            <button type="button" onClick={() => setShowSaveDialog(false)}>Cancel</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/**
  * Filters Component
  * Provides all filtering controls for the bank screener
  *
- * Filter categories organized intuitively:
- * - Quick Filters: Security Type, Exchange
- * - Size: Market Cap, Total Assets
- * - Valuation: P/E, P/TBV
- * - Profitability: RoE, ROAA, RoTA, ROTCE
- * - Balance Sheet: Equity/Assets, TCE/TA, Deposits/Assets
- * - Income & Efficiency: Efficiency Ratio, Net Interest Margin
- * - Dividends: TTM Dividend, Payout Ratio
+ * Consolidated filter categories:
+ * - Quick Filters: Exchange
+ * - Size & Fundamentals: Market Cap, Total Assets, Total Deposits, Equity
+ * - Valuation & Performance: P/E, RoE, ROAA, Efficiency
+ * - Per-Share & Dividends: EPS, BVPS, DPS, Payout
  * - Value Investing: Graham Margin of Safety
  */
 function Filters({ filters, exchanges, onFilterChange, onReset }) {
@@ -187,6 +377,18 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
   };
 
   /**
+   * Apply a preset
+   */
+  const handleApplyPreset = (presetFilters) => {
+    // Merge preset filters with default filters
+    const newFilters = { ...filters };
+    Object.keys(presetFilters).forEach((key) => {
+      newFilters[key] = presetFilters[key];
+    });
+    onFilterChange(newFilters);
+  };
+
+  /**
    * Count active filters in a section
    */
   const countActiveFilters = (filterKeys) => {
@@ -204,21 +406,41 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
     }, 0);
   };
 
+  // Count total active filters
+  const totalActiveFilters = useMemo(() => {
+    const allFilterKeys = [
+      'exchanges', 'marketCap', 'totalAssets', 'totalDeposits', 'totalEquity',
+      'totalLiabilities', 'cashAndCashEquivalents', 'loans',
+      'pni', 'roe', 'roaa', 'efficiencyRatio', 'equityToAssets', 'depositsToAssets',
+      'ttmEps', 'bvps', 'ttmDividend', 'dividendPayoutRatio',
+      'grahamMoS', 'ttmNetIncome', 'ttmNetInterestIncome', 'sharesOutstanding'
+    ];
+    return countActiveFilters(allFilterKeys) + (filters.exchanges?.length > 0 ? 1 : 0);
+  }, [filters]);
+
   return (
     <div className="filters">
       <div className="filters-header">
         <h2>Filters</h2>
+        {totalActiveFilters > 0 && (
+          <span className="filters-active-count">{totalActiveFilters} active</span>
+        )}
         <button className="reset-btn" onClick={onReset} type="button">
-          Reset All
+          Reset
         </button>
       </div>
+
+      <FilterPresets
+        onApplyPreset={handleApplyPreset}
+        currentFilters={filters}
+      />
 
       <div className="filters-content">
         {/* QUICK FILTERS */}
         <FilterSection
-          title="Quick Filters"
-          defaultOpen={true}
-          badge={countActiveFilters(['exchanges']) || null}
+          title="Exchange"
+          defaultOpen={false}
+          badge={filters.exchanges?.length > 0 ? filters.exchanges.length : null}
         >
           <ExchangeFilter
             exchanges={exchanges}
@@ -227,11 +449,11 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
           />
         </FilterSection>
 
-        {/* SIZE & SCALE */}
+        {/* SIZE & FUNDAMENTALS - Consolidated */}
         <FilterSection
-          title="Size & Scale"
+          title="Size & Fundamentals"
           defaultOpen={false}
-          badge={countActiveFilters(['marketCap', 'totalAssets', 'totalDeposits']) || null}
+          badge={countActiveFilters(['marketCap', 'totalAssets', 'totalDeposits', 'totalEquity', 'totalLiabilities', 'cashAndCashEquivalents', 'loans']) || null}
         >
           <RangeFilter
             label="Market Cap"
@@ -260,14 +482,24 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             onChange={handleRangeChange('totalDeposits')}
             unit="$M"
           />
-        </FilterSection>
-
-        {/* BALANCE SHEET - ASSETS */}
-        <FilterSection
-          title="Balance Sheet - Assets"
-          defaultOpen={false}
-          badge={countActiveFilters(['cashAndCashEquivalents', 'loans']) || null}
-        >
+          <RangeFilter
+            label="Total Equity"
+            minValue={filters.totalEquity?.min ?? ''}
+            maxValue={filters.totalEquity?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('totalEquity')}
+            unit="$M"
+          />
+          <RangeFilter
+            label="Total Liabilities"
+            minValue={filters.totalLiabilities?.min ?? ''}
+            maxValue={filters.totalLiabilities?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('totalLiabilities')}
+            unit="$M"
+          />
           <RangeFilter
             label="Cash & Cash Equivalents"
             minValue={filters.cashAndCashEquivalents?.min ?? ''}
@@ -288,37 +520,11 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
           />
         </FilterSection>
 
-        {/* BALANCE SHEET - LIABILITIES */}
+        {/* VALUATION & PERFORMANCE - Consolidated */}
         <FilterSection
-          title="Balance Sheet - Liabilities"
+          title="Valuation & Performance"
           defaultOpen={false}
-          badge={countActiveFilters(['totalLiabilities', 'totalEquity']) || null}
-        >
-          <RangeFilter
-            label="Total Liabilities"
-            minValue={filters.totalLiabilities?.min ?? ''}
-            maxValue={filters.totalLiabilities?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('totalLiabilities')}
-            unit="$M"
-          />
-          <RangeFilter
-            label="Total Equity"
-            minValue={filters.totalEquity?.min ?? ''}
-            maxValue={filters.totalEquity?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('totalEquity')}
-            unit="$M"
-          />
-        </FilterSection>
-
-        {/* VALUATION */}
-        <FilterSection
-          title="Valuation"
-          defaultOpen={true}
-          badge={countActiveFilters(['pni']) || null}
+          badge={countActiveFilters(['pni', 'roe', 'roaa', 'efficiencyRatio', 'equityToAssets', 'depositsToAssets']) || null}
         >
           <RangeFilter
             label="P/E Ratio"
@@ -328,14 +534,6 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             maxPlaceholder="Max"
             onChange={handleRangeChange('pni')}
           />
-        </FilterSection>
-
-        {/* PROFITABILITY */}
-        <FilterSection
-          title="Profitability"
-          defaultOpen={true}
-          badge={countActiveFilters(['roe', 'roaa']) || null}
-        >
           <RangeFilter
             label="Return on Equity (RoE)"
             minValue={filters.roe?.min ?? ''}
@@ -354,14 +552,18 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             onChange={handleRangeChange('roaa')}
             unit="%"
           />
-        </FilterSection>
-
-        {/* CAPITAL & LEVERAGE */}
-        <FilterSection
-          title="Capital & Leverage"
-          defaultOpen={false}
-          badge={countActiveFilters(['equityToAssets', 'depositsToAssets']) || null}
-        >
+          <RangeFilter
+            label="Efficiency Ratio"
+            minValue={filters.efficiencyRatio?.min ?? ''}
+            maxValue={filters.efficiencyRatio?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('efficiencyRatio')}
+            unit="%"
+          />
+          <div className="filter-help">
+            Lower efficiency ratio is better (typical: 50-70%)
+          </div>
           <RangeFilter
             label="Equity/Assets"
             minValue={filters.equityToAssets?.min ?? ''}
@@ -382,32 +584,21 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
           />
         </FilterSection>
 
-        {/* EFFICIENCY & OPERATIONS */}
+        {/* PER-SHARE & DIVIDENDS - Consolidated */}
         <FilterSection
-          title="Efficiency"
+          title="Per-Share & Dividends"
           defaultOpen={false}
-          badge={countActiveFilters(['efficiencyRatio']) || null}
+          badge={countActiveFilters(['ttmEps', 'bvps', 'ttmDividend', 'dividendPayoutRatio', 'sharesOutstanding']) || null}
         >
           <RangeFilter
-            label="Efficiency Ratio"
-            minValue={filters.efficiencyRatio?.min ?? ''}
-            maxValue={filters.efficiencyRatio?.max ?? ''}
+            label="Earnings Per Share (EPS)"
+            minValue={filters.ttmEps?.min ?? ''}
+            maxValue={filters.ttmEps?.max ?? ''}
             minPlaceholder="Min"
             maxPlaceholder="Max"
-            onChange={handleRangeChange('efficiencyRatio')}
-            unit="%"
+            onChange={handleRangeChange('ttmEps')}
+            unit="$"
           />
-          <div className="filter-help">
-            Lower efficiency ratio is better (typical: 50-70%)
-          </div>
-        </FilterSection>
-
-        {/* BOOK VALUE */}
-        <FilterSection
-          title="Book Value"
-          defaultOpen={false}
-          badge={countActiveFilters(['bvps']) || null}
-        >
           <RangeFilter
             label="Book Value Per Share"
             minValue={filters.bvps?.min ?? ''}
@@ -417,16 +608,8 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             onChange={handleRangeChange('bvps')}
             unit="$"
           />
-        </FilterSection>
-
-        {/* DIVIDENDS */}
-        <FilterSection
-          title="Dividends"
-          defaultOpen={false}
-          badge={countActiveFilters(['ttmDividend', 'dividendPayoutRatio']) || null}
-        >
           <RangeFilter
-            label="TTM Dividend Per Share"
+            label="Dividend Per Share"
             minValue={filters.ttmDividend?.min ?? ''}
             maxValue={filters.ttmDividend?.max ?? ''}
             minPlaceholder="Min"
@@ -442,6 +625,15 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             maxPlaceholder="Max"
             onChange={handleRangeChange('dividendPayoutRatio')}
             unit="%"
+          />
+          <RangeFilter
+            label="Shares Outstanding"
+            minValue={filters.sharesOutstanding?.min ?? ''}
+            maxValue={filters.sharesOutstanding?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('sharesOutstanding')}
+            unit="M"
           />
         </FilterSection>
 
@@ -470,7 +662,7 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
           badge={countActiveFilters(['ttmNetIncome', 'ttmNetInterestIncome']) || null}
         >
           <RangeFilter
-            label="TTM Net Income"
+            label="Net Income (TTM)"
             minValue={filters.ttmNetIncome?.min ?? ''}
             maxValue={filters.ttmNetIncome?.max ?? ''}
             minPlaceholder="Min"
@@ -479,39 +671,13 @@ function Filters({ filters, exchanges, onFilterChange, onReset }) {
             unit="$M"
           />
           <RangeFilter
-            label="TTM Net Interest Income"
+            label="Net Interest Income (TTM)"
             minValue={filters.ttmNetInterestIncome?.min ?? ''}
             maxValue={filters.ttmNetInterestIncome?.max ?? ''}
             minPlaceholder="Min"
             maxPlaceholder="Max"
             onChange={handleRangeChange('ttmNetInterestIncome')}
             unit="$M"
-          />
-        </FilterSection>
-
-        {/* PER-SHARE METRICS */}
-        <FilterSection
-          title="Per-Share Metrics"
-          defaultOpen={false}
-          badge={countActiveFilters(['ttmEps', 'sharesOutstanding']) || null}
-        >
-          <RangeFilter
-            label="TTM Earnings Per Share"
-            minValue={filters.ttmEps?.min ?? ''}
-            maxValue={filters.ttmEps?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('ttmEps')}
-            unit="$"
-          />
-          <RangeFilter
-            label="Shares Outstanding"
-            minValue={filters.sharesOutstanding?.min ?? ''}
-            maxValue={filters.sharesOutstanding?.max ?? ''}
-            minPlaceholder="Min"
-            maxPlaceholder="Max"
-            onChange={handleRangeChange('sharesOutstanding')}
-            unit="M"
           />
         </FilterSection>
       </div>
