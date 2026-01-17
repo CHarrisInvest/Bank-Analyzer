@@ -85,20 +85,8 @@ const COLUMNS = [
       const year = date.getFullYear().toString().slice(-2);
       const label = `Q${quarter}'${year}`;
 
-      // Calculate freshness (months since report date)
-      const now = new Date();
-      const monthsAgo = (now.getFullYear() - date.getFullYear()) * 12 + (now.getMonth() - date.getMonth());
-
-      // Determine freshness class
-      let freshnessClass = 'fresh'; // green - within 3 months
-      if (monthsAgo > 6) {
-        freshnessClass = 'stale'; // red - older than 6 months
-      } else if (monthsAgo > 3) {
-        freshnessClass = 'aging'; // yellow - 3-6 months
-      }
-
       // Return as a special marker that we'll render as JSX
-      return { __dateDisplay: true, label, freshnessClass, fullDate: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) };
+      return { __dateDisplay: true, label, fullDate: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) };
     },
     group: 'info',
     defaultVisible: true,
@@ -1125,7 +1113,7 @@ function ResultsTable({ banks, loading }) {
                       title={isNull ? 'Not Directly Reported' : isDateDisplay ? formatted.fullDate : undefined}
                     >
                       {isDateDisplay ? (
-                        <span className={`date-badge date-${formatted.freshnessClass}`}>
+                        <span className="date-badge">
                           {formatted.label}
                         </span>
                       ) : (
