@@ -71,7 +71,7 @@ const COLUMNS = [
   },
   {
     key: 'dataDate',
-    label: 'Report Date',
+    label: 'Data',
     fullName: 'Most Recent Reporting Date',
     sortable: true,
     align: 'center',
@@ -79,7 +79,14 @@ const COLUMNS = [
       if (!value) return '-';
       const date = new Date(value);
       if (isNaN(date.getTime())) return value;
-      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+      // Calculate quarter and year
+      const quarter = Math.ceil((date.getMonth() + 1) / 3);
+      const year = date.getFullYear().toString().slice(-2);
+      const label = `Q${quarter}'${year}`;
+
+      // Return as a special marker that we'll render as JSX
+      return { __dateDisplay: true, label, fullDate: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) };
     },
     group: 'info',
     defaultVisible: true,
@@ -1093,14 +1100,25 @@ function ResultsTable({ banks, loading }) {
                 {displayColumns.map((column, colIndex) => {
                   const value = bank[column.key];
                   const isNull = value === null || value === undefined;
+                  const formatted = column.format(value);
+
+                  // Handle special date display
+                  const isDateDisplay = formatted && typeof formatted === 'object' && formatted.__dateDisplay;
+
                   return (
                     <td
                       key={column.key}
                       className={getCellClass(column, value, rowIndex, colIndex)}
                       onClick={() => setFocusedCell({ row: rowIndex, col: colIndex })}
-                      title={isNull ? 'Not Directly Reported' : undefined}
+                      title={isNull ? 'Not Directly Reported' : isDateDisplay ? formatted.fullDate : undefined}
                     >
-                      {column.format(value)}
+                      {isDateDisplay ? (
+                        <span className="date-badge">
+                          {formatted.label}
+                        </span>
+                      ) : (
+                        formatted
+                      )}
                     </td>
                   );
                 })}

@@ -1513,6 +1513,20 @@ body {
   color: var(--color-danger);
 }
 
+/* Date badge - compact quarter display */
+.date-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family-mono);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-700);
+}
+
 /* Table footer */
 .results-table tfoot {
   position: sticky;
