@@ -398,6 +398,16 @@ function ResultsTable({ banks, loading }) {
     key: 'marketCap',
     direction: 'desc',
   });
+  const tableContainerRef = React.useRef(null);
+
+  /**
+   * Scroll table back to top
+   */
+  const scrollToTop = () => {
+    if (tableContainerRef.current) {
+      tableContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   /**
    * Handle column header click for sorting
@@ -512,7 +522,7 @@ function ResultsTable({ banks, loading }) {
   }
 
   return (
-    <div className="results-table-container">
+    <div className="results-table-container" ref={tableContainerRef}>
       <table className="results-table">
         <thead>
           <tr>
@@ -560,6 +570,28 @@ function ResultsTable({ banks, loading }) {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan={COLUMNS.length} className="table-footer">
+              <div className="table-footer-content">
+                <span className="table-row-count">
+                  Showing {sortedBanks.length} {sortedBanks.length === 1 ? 'bank' : 'banks'}
+                </span>
+                <button
+                  className="scroll-to-top-btn"
+                  onClick={scrollToTop}
+                  title="Scroll to top"
+                  type="button"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 14l5-5 5 5z" />
+                  </svg>
+                  Top
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tfoot>
       </table>
 
       {loading && (
