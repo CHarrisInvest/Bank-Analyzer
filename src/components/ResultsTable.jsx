@@ -46,6 +46,7 @@ const COLUMNS = [
     format: (value) => value || '-',
     group: 'info',
     defaultVisible: true,
+    locked: true, // Cannot be hidden
   },
   {
     key: 'bankName',
@@ -65,6 +66,21 @@ const COLUMNS = [
     sortable: true,
     align: 'center',
     format: (value) => value || '-',
+    group: 'info',
+    defaultVisible: true,
+  },
+  {
+    key: 'reportDate',
+    label: 'Report Date',
+    fullName: 'Most Recent Reporting Date',
+    sortable: true,
+    align: 'center',
+    format: (value) => {
+      if (!value) return '-';
+      const date = new Date(value);
+      if (isNaN(date.getTime())) return value;
+      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    },
     group: 'info',
     defaultVisible: true,
   },
@@ -511,13 +527,15 @@ function ColumnVisibilityDropdown({ visibleColumns, columnOrder, onToggleColumn,
                   {COLUMN_GROUPS[groupKey]?.label || groupKey}
                 </div>
                 {cols.map((col) => (
-                  <label key={col.key} className="column-visibility-item">
+                  <label key={col.key} className={`column-visibility-item ${col.locked ? 'locked' : ''}`}>
                     <input
                       type="checkbox"
                       checked={visibleColumns.includes(col.key)}
-                      onChange={() => onToggleColumn(col.key)}
+                      onChange={() => !col.locked && onToggleColumn(col.key)}
+                      disabled={col.locked}
                     />
                     <span>{col.label}</span>
+                    {col.locked && <span className="column-locked-icon" title="This column cannot be hidden">🔒</span>}
                   </label>
                 ))}
               </div>
@@ -732,6 +750,10 @@ function ResultsTable({ banks, loading }) {
    * Toggle column visibility
    */
   const handleToggleColumn = useCallback((columnKey) => {
+    // Check if column is locked
+    const column = COLUMNS.find((col) => col.key === columnKey);
+    if (column?.locked) return;
+
     setVisibleColumns((prev) => {
       if (prev.includes(columnKey)) {
         // Don't allow hiding the last column
