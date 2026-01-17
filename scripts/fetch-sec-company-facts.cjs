@@ -119,6 +119,8 @@ const CONFIG = {
       'NetIncomeLoss',
       'ProfitLoss',
       'NetIncomeLossAvailableToCommonStockholdersBasic',
+      'PreferredStockDividendsAndOtherAdjustments',
+      'DividendsPreferredStock',
       'EarningsPerShareBasic',
       'EarningsPerShareDiluted',
       'Revenues',
@@ -866,7 +868,9 @@ function calculateBankMetrics(bankData) {
                        getTTMValueForPeriod(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxes'], refDate);
   const netIncome = getTTMValueForPeriod(concepts['NetIncomeLoss'], refDate) ||
                     getTTMValueForPeriod(concepts['ProfitLoss'], refDate);
-  const netIncomeToCommon = getTTMValueForPeriod(concepts['NetIncomeLossAvailableToCommonStockholdersBasic'], refDate);
+  const netIncomeToCommonDirect = getTTMValueForPeriod(concepts['NetIncomeLossAvailableToCommonStockholdersBasic'], refDate);
+  const preferredDividends = getTTMValueForPeriod(concepts['PreferredStockDividendsAndOtherAdjustments'], refDate) ||
+                              getTTMValueForPeriod(concepts['DividendsPreferredStock'], refDate);
   const eps = getTTMValueForPeriod(concepts['EarningsPerShareBasic'], refDate) ||
               getTTMValueForPeriod(concepts['EarningsPerShareDiluted'], refDate);
 
@@ -916,12 +920,17 @@ function calculateBankMetrics(bankData) {
   const ttmNetIncome = netIncome?.value;
   if (netIncome?.isAnnualFallback) annualFallbackFields.push('netIncome');
 
-  // Additional validation: NI to Common should not exceed Net Income
-  const rawNIToCommon = netIncomeToCommon?.value;
-  const ttmNetIncomeToCommon = (rawNIToCommon !== null && ttmNetIncome !== null && rawNIToCommon > ttmNetIncome)
-    ? null
-    : rawNIToCommon;
-  if (netIncomeToCommon?.isAnnualFallback && ttmNetIncomeToCommon !== null) annualFallbackFields.push('netIncomeToCommon');
+  // NI to Common: use direct value, or derive from Net Income minus Preferred Dividends
+  let ttmNetIncomeToCommon = netIncomeToCommonDirect?.value ?? null;
+  if (ttmNetIncomeToCommon === null && ttmNetIncome !== null && preferredDividends?.value != null) {
+    // Derive NI to Common = Net Income - Preferred Dividends
+    ttmNetIncomeToCommon = ttmNetIncome - preferredDividends.value;
+  }
+  // Validation: NI to Common should not exceed Net Income
+  if (ttmNetIncomeToCommon !== null && ttmNetIncome !== null && ttmNetIncomeToCommon > ttmNetIncome) {
+    ttmNetIncomeToCommon = null;
+  }
+  if (netIncomeToCommonDirect?.isAnnualFallback && ttmNetIncomeToCommon !== null) annualFallbackFields.push('netIncomeToCommon');
 
   const ttmEps = eps?.value;
   if (eps?.isAnnualFallback) annualFallbackFields.push('eps');
