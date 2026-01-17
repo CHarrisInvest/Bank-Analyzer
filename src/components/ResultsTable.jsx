@@ -597,7 +597,48 @@ function exportToCSV(banks, visibleColumns, columnOrder) {
  * Results Table Component
  * Displays filtered bank data with sortable columns
  */
-function ResultsTable({ banks, loading }) {
+/**
+ * Highlight matching text in a string based on search query
+ * For tickers: highlights if text starts with query
+ * For names: highlights words that start with query
+ */
+function highlightMatch(text, query, isName = false) {
+  if (!query || !text) return text;
+
+  const lowerQuery = query.toLowerCase().trim();
+  if (!lowerQuery) return text;
+
+  if (isName) {
+    // For names, highlight each word that starts with the query
+    const words = text.split(/(\s+)/); // Split but keep whitespace
+    return words.map((word, i) => {
+      if (word.toLowerCase().startsWith(lowerQuery)) {
+        const matchLen = lowerQuery.length;
+        return (
+          <span key={i}>
+            <mark className="search-highlight">{word.slice(0, matchLen)}</mark>
+            {word.slice(matchLen)}
+          </span>
+        );
+      }
+      return word;
+    });
+  } else {
+    // For tickers, highlight from start if it matches
+    if (text.toLowerCase().startsWith(lowerQuery)) {
+      const matchLen = lowerQuery.length;
+      return (
+        <>
+          <mark className="search-highlight">{text.slice(0, matchLen)}</mark>
+          {text.slice(matchLen)}
+        </>
+      );
+    }
+    return text;
+  }
+}
+
+function ResultsTable({ banks, loading, searchQuery = '' }) {
   const [sortConfig, setSortConfig] = useState({
     key: 'marketCap',
     direction: 'desc',
@@ -1105,6 +1146,18 @@ function ResultsTable({ banks, loading }) {
                   // Handle special date display
                   const isDateDisplay = formatted && typeof formatted === 'object' && formatted.__dateDisplay;
 
+                  // Apply search highlighting for ticker and bankName
+                  let displayContent;
+                  if (isDateDisplay) {
+                    displayContent = <span className="date-badge">{formatted.label}</span>;
+                  } else if (column.key === 'ticker' && searchQuery && typeof formatted === 'string') {
+                    displayContent = highlightMatch(formatted, searchQuery, false);
+                  } else if (column.key === 'bankName' && searchQuery && typeof formatted === 'string') {
+                    displayContent = highlightMatch(formatted, searchQuery, true);
+                  } else {
+                    displayContent = formatted;
+                  }
+
                   return (
                     <td
                       key={column.key}
@@ -1112,13 +1165,7 @@ function ResultsTable({ banks, loading }) {
                       onClick={() => setFocusedCell({ row: rowIndex, col: colIndex })}
                       title={isNull ? 'Not Directly Reported' : isDateDisplay ? formatted.fullDate : undefined}
                     >
-                      {isDateDisplay ? (
-                        <span className="date-badge">
-                          {formatted.label}
-                        </span>
-                      ) : (
-                        formatted
-                      )}
+                      {displayContent}
                     </td>
                   );
                 })}

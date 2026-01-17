@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 
 /**
  * Preset filter configurations
@@ -200,8 +200,96 @@ function ExchangeFilter({ exchanges, selectedExchanges, onChange }) {
 
 /**
  * Search input for ticker/name filtering (compact version for header)
+ * Features:
+ * - Keyboard shortcut: "/" to focus (when not in an input)
+ * - Recent searches stored in localStorage (expandable)
  */
+const RECENT_SEARCHES_KEY = 'bankAnalyzer_recentSearches';
+const MAX_RECENT_SEARCHES = 15;
+const DEFAULT_VISIBLE_RECENT = 5;
+
 function SearchFilter({ value, onChange }) {
+  const inputRef = useRef(null);
+  const [showRecent, setShowRecent] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [recentSearches, setRecentSearches] = useState(() => {
+    try {
+      const saved = localStorage.getItem(RECENT_SEARCHES_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  // Global keyboard shortcut: "/" to focus search
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // "/" to focus search (when not already in an input/textarea)
+      if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        e.preventDefault();
+        inputRef.current?.focus();
+      }
+      // Escape to blur and close dropdown
+      if (e.key === 'Escape' && document.activeElement === inputRef.current) {
+        inputRef.current?.blur();
+        setShowRecent(false);
+        setIsExpanded(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Save search to recent when user finishes typing (on blur with value)
+  const handleBlur = useCallback(() => {
+    // Delay to allow clicking on recent items
+    setTimeout(() => {
+      setShowRecent(false);
+      setIsExpanded(false);
+      if (value && value.trim()) {
+        const trimmed = value.trim();
+        setRecentSearches((prev) => {
+          const filtered = prev.filter((s) => s.toLowerCase() !== trimmed.toLowerCase());
+          const updated = [trimmed, ...filtered].slice(0, MAX_RECENT_SEARCHES);
+          localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(updated));
+          return updated;
+        });
+      }
+    }, 150);
+  }, [value]);
+
+  const handleFocus = useCallback(() => {
+    if (recentSearches.length > 0) {
+      setShowRecent(true);
+    }
+  }, [recentSearches.length]);
+
+  const handleRecentClick = useCallback((search) => {
+    onChange(search);
+    setShowRecent(false);
+    setIsExpanded(false);
+    inputRef.current?.blur();
+  }, [onChange]);
+
+  const clearRecentSearches = useCallback((e) => {
+    e.stopPropagation();
+    setRecentSearches([]);
+    localStorage.removeItem(RECENT_SEARCHES_KEY);
+    setShowRecent(false);
+    setIsExpanded(false);
+  }, []);
+
+  const toggleExpanded = useCallback((e) => {
+    e.stopPropagation();
+    setIsExpanded((prev) => !prev);
+  }, []);
+
+  const visibleSearches = isExpanded
+    ? recentSearches
+    : recentSearches.slice(0, DEFAULT_VISIBLE_RECENT);
+  const hasMore = recentSearches.length > DEFAULT_VISIBLE_RECENT;
+
   return (
     <div className="filter-search">
       <svg
@@ -217,12 +305,18 @@ function SearchFilter({ value, onChange }) {
         <path d="M21 21l-4.35-4.35" />
       </svg>
       <input
+        ref={inputRef}
         type="text"
         className="filter-search-input"
         placeholder="Search banks…"
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
       />
+      {!value && (
+        <span className="filter-search-shortcut" title="Press / to search">/</span>
+      )}
       {value && (
         <button
           type="button"
@@ -234,6 +328,33 @@ function SearchFilter({ value, onChange }) {
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </button>
+      )}
+      {showRecent && recentSearches.length > 0 && !value && (
+        <div className="filter-search-recent">
+          <div className="filter-search-recent-header">
+            <span>Recent</span>
+            <button type="button" onClick={clearRecentSearches}>Clear</button>
+          </div>
+          {visibleSearches.map((search, i) => (
+            <button
+              key={i}
+              type="button"
+              className="filter-search-recent-item"
+              onMouseDown={() => handleRecentClick(search)}
+            >
+              {search}
+            </button>
+          ))}
+          {hasMore && (
+            <button
+              type="button"
+              className="filter-search-recent-toggle"
+              onMouseDown={toggleExpanded}
+            >
+              {isExpanded ? 'Show less' : `Show ${recentSearches.length - DEFAULT_VISIBLE_RECENT} more`}
+            </button>
+          )}
+        </div>
       )}
     </div>
   );
@@ -498,10 +619,46 @@ function Filters({
       {/* Header bar - always visible */}
       <div className="filters-header">
         <div className="filters-header-left">
-          <h2 className="filters-title">Filters</h2>
-          {totalActiveFilters > 0 && (
-            <span className="filters-active-count">{totalActiveFilters}</span>
+          {/* Filters title is now the toggle button in top layout */}
+          {layout === 'top' ? (
+            <button
+              type="button"
+              className={`filters-title-toggle ${isExpanded ? 'expanded' : ''}`}
+              onClick={() => setIsExpanded(!isExpanded)}
+              aria-expanded={isExpanded}
+            >
+              <span className="filters-title-text">Filters</span>
+              {totalActiveFilters > 0 && (
+                <span className="filters-active-count">{totalActiveFilters}</span>
+              )}
+              <svg
+                className={`filters-title-chevron ${isExpanded ? 'open' : ''}`}
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          ) : (
+            <>
+              <h2 className="filters-title">Filters</h2>
+              {totalActiveFilters > 0 && (
+                <span className="filters-active-count">{totalActiveFilters}</span>
+              )}
+            </>
           )}
+          <button
+            className="filters-reset-btn"
+            onClick={onReset}
+            type="button"
+            disabled={totalActiveFilters === 0}
+          >
+            Reset
+          </button>
           <SearchFilter
             value={filters.searchQuery || ''}
             onChange={handleSearchChange}
@@ -536,35 +693,6 @@ function Filters({
               </svg>
             </button>
           </div>
-          {layout === 'top' && (
-            <button
-              type="button"
-              className={`filters-toggle-btn ${!isExpanded ? 'collapsed' : ''}`}
-              onClick={() => setIsExpanded(!isExpanded)}
-              aria-expanded={isExpanded}
-            >
-              <span className="filters-toggle-text">{isExpanded ? 'Hide' : 'Show'}</span>
-              <svg
-                className={`filters-toggle-icon ${isExpanded ? 'open' : ''}`}
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-          )}
-          <button
-            className="filters-reset-btn"
-            onClick={onReset}
-            type="button"
-            disabled={totalActiveFilters === 0}
-          >
-            Reset
-          </button>
         </div>
       </div>
 
