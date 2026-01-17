@@ -435,62 +435,70 @@ function Filters({
   }, [filters]);
 
   return (
-    <div className={`filters ${layout === 'top' ? 'filters-top-layout' : ''}`}>
-      {/* Summary bar - always visible */}
-      <div className="filters-summary-bar">
-        <div className="filters-summary-left">
-          <span className="filters-bank-count">
-            <strong>{filteredCount}</strong> of <strong>{totalCount}</strong> banks
-          </span>
+    <div className={`filters ${layout === 'top' ? 'filters-top-layout' : ''} ${!isExpanded && layout === 'top' ? 'filters-collapsed' : ''}`}>
+      {/* Header bar - always visible */}
+      <div className="filters-header">
+        <div className="filters-header-left">
+          <h2 className="filters-title">Filters</h2>
           {totalActiveFilters > 0 && (
-            <span className="filters-active-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
-              </svg>
-              {totalActiveFilters} active
-            </span>
+            <span className="filters-active-count">{totalActiveFilters}</span>
           )}
+          <span className="filters-bank-count">
+            {filteredCount} of {totalCount}
+          </span>
         </div>
-        <div className="filters-summary-right">
-          {layout === 'top' && (
+        <div className="filters-header-right">
+          {/* Layout toggle as segmented control */}
+          <div className="filters-layout-toggle">
             <button
               type="button"
-              className="filters-expand-btn"
-              onClick={() => setIsExpanded(!isExpanded)}
-              aria-expanded={isExpanded}
+              className={`layout-option ${layout === 'side' ? 'active' : ''}`}
+              onClick={() => layout !== 'side' && onToggleLayout()}
+              title="Side layout"
             >
-              {isExpanded ? 'Collapse' : 'Expand'}
-              <svg
-                className={`filters-expand-chevron ${isExpanded ? 'open' : ''}`}
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M7 10l5 5 5-5z" />
-              </svg>
-            </button>
-          )}
-          <button
-            type="button"
-            className="filters-layout-btn"
-            onClick={onToggleLayout}
-            title={layout === 'side' ? 'Move filters to top' : 'Move filters to side'}
-          >
-            {layout === 'side' ? (
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <line x1="3" y1="9" x2="21" y2="9" />
-              </svg>
-            ) : (
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="3" y="3" width="18" height="18" rx="2" />
                 <line x1="9" y1="3" x2="9" y2="21" />
               </svg>
-            )}
-            <span>{layout === 'side' ? 'Top' : 'Side'}</span>
-          </button>
-          <button className="filters-reset-btn" onClick={onReset} type="button" title="Reset all filters">
+            </button>
+            <button
+              type="button"
+              className={`layout-option ${layout === 'top' ? 'active' : ''}`}
+              onClick={() => layout !== 'top' && onToggleLayout()}
+              title="Top layout"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <line x1="3" y1="9" x2="21" y2="9" />
+              </svg>
+            </button>
+          </div>
+          {layout === 'top' && (
+            <button
+              type="button"
+              className="filters-toggle-btn"
+              onClick={() => setIsExpanded(!isExpanded)}
+              aria-expanded={isExpanded}
+            >
+              <svg
+                className={`filters-toggle-icon ${isExpanded ? 'open' : ''}`}
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          )}
+          <button
+            className="filters-reset-btn"
+            onClick={onReset}
+            type="button"
+            disabled={totalActiveFilters === 0}
+          >
             Reset
           </button>
         </div>
@@ -504,7 +512,7 @@ function Filters({
             currentFilters={filters}
           />
 
-          <div className="filters-content">
+          <div className="filters-sections">
         {/* QUICK FILTERS */}
         <FilterSection
           title="Exchange"
@@ -748,7 +756,7 @@ function Filters({
             onChange={handleRangeChange('ttmNetInterestIncome')}
             unit="$M"
           />
-        </FilterSection>
+            </FilterSection>
           </div>
         </div>
       )}
