@@ -699,18 +699,19 @@ function getTTMValueForPeriod(conceptData, refDate) {
     });
 
     if (annualMatch) {
-      // Check if annual data is reasonably current (within 15 months of refDate)
+      // Check if annual data is reasonably current (within 6 months of refDate)
       const annualYear = parseInt(annualMatch.ddate.slice(0, 4));
       const annualMonth = parseInt(annualMatch.ddate.slice(4, 6));
       const monthsDiff = (refYear - annualYear) * 12 + (refMonth - annualMonth);
 
-      if (monthsDiff <= 15) {
+      if (monthsDiff <= 6) {
         return {
           value: annualMatch.value,
           date: annualMatch.ddate,
           method: matchedQuarters.length === 0 ? 'annual' : 'annual-fallback',
           form: annualMatch.form,
-          details: [annualMatch]
+          details: [annualMatch],
+          isAnnualFallback: true  // Flag to alert in results table
         };
       }
     }
@@ -807,23 +808,49 @@ function calculateBankMetrics(bankData) {
   const sharesOutstanding = sharesData?.value;
 
   // Extract TTM values (already validated for correct period by getTTMValueForPeriod)
+  // Track which fields used annual fallback for alerting in results table
   const dataDate = refDate;
+  const annualFallbackFields = [];
+
   const ttmInterestIncome = interestIncome?.value;
+  if (interestIncome?.isAnnualFallback) annualFallbackFields.push('interestIncome');
+
   const ttmInterestExpense = interestExpense?.value;
+  if (interestExpense?.isAnnualFallback) annualFallbackFields.push('interestExpense');
+
   const ttmNii = netInterestIncome?.value;
+  if (netInterestIncome?.isAnnualFallback) annualFallbackFields.push('netInterestIncome');
+
   const ttmNonintIncome = noninterestIncome?.value;
+  if (noninterestIncome?.isAnnualFallback) annualFallbackFields.push('noninterestIncome');
+
   const ttmNonintExpense = noninterestExpense?.value;
+  if (noninterestExpense?.isAnnualFallback) annualFallbackFields.push('noninterestExpense');
+
   const ttmProvision = provisionForCreditLosses?.value;
+  if (provisionForCreditLosses?.isAnnualFallback) annualFallbackFields.push('provision');
+
   const ttmPreTaxIncome = preTaxIncome?.value;
+  if (preTaxIncome?.isAnnualFallback) annualFallbackFields.push('preTaxIncome');
+
   const ttmNetIncome = netIncome?.value;
+  if (netIncome?.isAnnualFallback) annualFallbackFields.push('netIncome');
+
   // Additional validation: NI to Common should not exceed Net Income
   const rawNIToCommon = netIncomeToCommon?.value;
   const ttmNetIncomeToCommon = (rawNIToCommon !== null && ttmNetIncome !== null && rawNIToCommon > ttmNetIncome)
     ? null
     : rawNIToCommon;
+  if (netIncomeToCommon?.isAnnualFallback && ttmNetIncomeToCommon !== null) annualFallbackFields.push('netIncomeToCommon');
+
   const ttmEps = eps?.value;
+  if (eps?.isAnnualFallback) annualFallbackFields.push('eps');
+
   const ttmOperatingCashFlow = operatingCashFlow?.value;
+  if (operatingCashFlow?.isAnnualFallback) annualFallbackFields.push('operatingCashFlow');
+
   const ttmDps = dps?.value;
+  if (dps?.isAnnualFallback) annualFallbackFields.push('dividends');
 
   // Derived values
   const bvps = totalEquity && sharesOutstanding ? totalEquity / sharesOutstanding : null;
@@ -932,6 +959,7 @@ function calculateBankMetrics(bankData) {
       returnRatioAvgMethod,
       isStale: formattedDate ? new Date(formattedDate) < new Date('2024-01-01') : true,
       isAnnualized: false,
+      annualFallbackFields: annualFallbackFields.length > 0 ? annualFallbackFields : null,
       price: null,
       marketCap: null,
       pni: null,
