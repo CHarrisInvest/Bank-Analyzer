@@ -337,7 +337,7 @@ function Screener({ banks, loading }) {
       </aside>
 
       <section className="screener-results">
-        <ResultsTable banks={filteredBanks} loading={loading} />
+        <ResultsTable banks={filteredBanks} loading={loading} searchQuery={filters.searchQuery} />
       </section>
     </div>
   );

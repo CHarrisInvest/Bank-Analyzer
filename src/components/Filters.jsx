@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 
 /**
  * Preset filter configurations
@@ -200,8 +200,80 @@ function ExchangeFilter({ exchanges, selectedExchanges, onChange }) {
 
 /**
  * Search input for ticker/name filtering (compact version for header)
+ * Features:
+ * - Keyboard shortcut: "/" to focus (when not in an input)
+ * - Recent searches stored in localStorage
  */
+const RECENT_SEARCHES_KEY = 'bankAnalyzer_recentSearches';
+const MAX_RECENT_SEARCHES = 5;
+
 function SearchFilter({ value, onChange }) {
+  const inputRef = useRef(null);
+  const [showRecent, setShowRecent] = useState(false);
+  const [recentSearches, setRecentSearches] = useState(() => {
+    try {
+      const saved = localStorage.getItem(RECENT_SEARCHES_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  // Global keyboard shortcut: "/" to focus search
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // "/" to focus search (when not already in an input/textarea)
+      if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        e.preventDefault();
+        inputRef.current?.focus();
+      }
+      // Escape to blur and close dropdown
+      if (e.key === 'Escape' && document.activeElement === inputRef.current) {
+        inputRef.current?.blur();
+        setShowRecent(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Save search to recent when user finishes typing (on blur with value)
+  const handleBlur = useCallback(() => {
+    // Delay to allow clicking on recent items
+    setTimeout(() => {
+      setShowRecent(false);
+      if (value && value.trim()) {
+        const trimmed = value.trim();
+        setRecentSearches((prev) => {
+          const filtered = prev.filter((s) => s.toLowerCase() !== trimmed.toLowerCase());
+          const updated = [trimmed, ...filtered].slice(0, MAX_RECENT_SEARCHES);
+          localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(updated));
+          return updated;
+        });
+      }
+    }, 150);
+  }, [value]);
+
+  const handleFocus = useCallback(() => {
+    if (recentSearches.length > 0) {
+      setShowRecent(true);
+    }
+  }, [recentSearches.length]);
+
+  const handleRecentClick = useCallback((search) => {
+    onChange(search);
+    setShowRecent(false);
+    inputRef.current?.blur();
+  }, [onChange]);
+
+  const clearRecentSearches = useCallback((e) => {
+    e.stopPropagation();
+    setRecentSearches([]);
+    localStorage.removeItem(RECENT_SEARCHES_KEY);
+    setShowRecent(false);
+  }, []);
+
   return (
     <div className="filter-search">
       <svg
@@ -217,12 +289,18 @@ function SearchFilter({ value, onChange }) {
         <path d="M21 21l-4.35-4.35" />
       </svg>
       <input
+        ref={inputRef}
         type="text"
         className="filter-search-input"
         placeholder="Search banks…"
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
       />
+      {!value && (
+        <span className="filter-search-shortcut" title="Press / to search">/</span>
+      )}
       {value && (
         <button
           type="button"
@@ -234,6 +312,24 @@ function SearchFilter({ value, onChange }) {
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </button>
+      )}
+      {showRecent && recentSearches.length > 0 && !value && (
+        <div className="filter-search-recent">
+          <div className="filter-search-recent-header">
+            <span>Recent</span>
+            <button type="button" onClick={clearRecentSearches}>Clear</button>
+          </div>
+          {recentSearches.map((search, i) => (
+            <button
+              key={i}
+              type="button"
+              className="filter-search-recent-item"
+              onMouseDown={() => handleRecentClick(search)}
+            >
+              {search}
+            </button>
+          ))}
+        </div>
       )}
     </div>
   );
