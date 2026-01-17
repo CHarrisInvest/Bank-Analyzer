@@ -126,11 +126,6 @@ const CONFIG = {
       'Revenues',
       'RevenueFromContractWithCustomerExcludingAssessedTax',
 
-      // Cash Flow
-      'NetCashProvidedByUsedInOperatingActivities',
-      'PaymentsOfDividendsCommonStock',
-      'PaymentsOfDividends',
-
       // Dividends
       'CommonStockDividendsPerShareDeclared',
       'CommonStockDividendsPerShareCashPaid',
@@ -874,9 +869,6 @@ function calculateBankMetrics(bankData) {
   const eps = getTTMValueForPeriod(concepts['EarningsPerShareBasic'], refDate) ||
               getTTMValueForPeriod(concepts['EarningsPerShareDiluted'], refDate);
 
-  // Cash Flow (TTM) - anchored to balance sheet date
-  const operatingCashFlow = getTTMValueForPeriod(concepts['NetCashProvidedByUsedInOperatingActivities'], refDate);
-
   // Dividends - anchored to balance sheet date
   const dps = getTTMValueForPeriod(concepts['CommonStockDividendsPerShareDeclared'], refDate) ||
               getTTMValueForPeriod(concepts['CommonStockDividendsPerShareCashPaid'], refDate);
@@ -937,9 +929,6 @@ function calculateBankMetrics(bankData) {
   const ttmEps = eps?.value;
   if (eps?.isAnnualFallback) annualFallbackFields.push('eps');
 
-  const ttmOperatingCashFlow = operatingCashFlow?.value;
-  if (operatingCashFlow?.isAnnualFallback) annualFallbackFields.push('operatingCashFlow');
-
   const ttmDps = dps?.value;
   if (dps?.isAnnualFallback) annualFallbackFields.push('dividends');
 
@@ -993,9 +982,6 @@ function calculateBankMetrics(bankData) {
       NetIncomeLossAvailableToCommonStockholdersBasic: netIncomeToCommonDirect,
       EarningsPerShareBasic: eps
     },
-    cashFlow: {
-      NetCashProvidedByUsedInOperatingActivities: operatingCashFlow
-    },
     dividends: {
       CommonStockDividendsPerShareDeclared: dps
     },
@@ -1032,7 +1018,6 @@ function calculateBankMetrics(bankData) {
       ttmNetIncome,
       ttmNetIncomeToCommon,
       ttmEps,
-      ttmOperatingCashFlow,
       bvps: bvps ? parseFloat(bvps.toFixed(4)) : null,
       roe: roe ? parseFloat(roe.toFixed(4)) : null,
       roaa: roaa ? parseFloat(roaa.toFixed(4)) : null,

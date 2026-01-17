@@ -13,7 +13,6 @@ import { formatNumber } from '../utils/csv.js';
  * - Balance Sheet (Assets): Assets, Cash, Loans
  * - Balance Sheet (Liabilities & Equity): Liabilities, Deposits, Equity
  * - Income Statement (TTM): Interest Income, Interest Expense, NII, Noninterest Inc/Exp, Provision, Pre-Tax Inc, Net Income
- * - Cash Flow: Operating Cash Flow
  * - Per-Share: Shares, BVPS, EPS, DPS
  * - Valuation: P/E
  * - Performance: RoE, ROAA
@@ -219,19 +218,6 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
     group: 'income',
-  },
-
-  // ===========================================================================
-  // CASH FLOW (TTM)
-  // ===========================================================================
-  {
-    key: 'ttmOperatingCashFlow',
-    label: 'Op CF',
-    xbrl: 'us-gaap:NetCashProvidedByUsedInOperatingActivities',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'cashflow',
   },
 
   // ===========================================================================
