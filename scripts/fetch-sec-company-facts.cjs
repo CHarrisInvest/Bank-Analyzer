@@ -130,7 +130,7 @@ const CONFIG = {
       'Revenues',
       'RevenueFromContractWithCustomerExcludingAssessedTax',
 
-      // Dividends
+      // Dividends (per-share only - avoids including preferred dividends)
       'CommonStockDividendsPerShareDeclared',
       'CommonStockDividendsPerShareCashPaid',
     ],
@@ -945,6 +945,7 @@ function calculateBankMetrics(bankData) {
               getTTMValueForPeriod(concepts['EarningsPerShareDiluted'], refDate);
 
   // Dividends - anchored to balance sheet date
+  // Only use direct common stock per-share values to avoid including preferred dividends
   const dps = getTTMValueForPeriod(concepts['CommonStockDividendsPerShareDeclared'], refDate) ||
               getTTMValueForPeriod(concepts['CommonStockDividendsPerShareCashPaid'], refDate);
 
