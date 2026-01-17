@@ -285,20 +285,38 @@ async function downloadFile(url, destPath) {
  * Check if a ticker is a preferred stock ticker
  * Preferred stock tickers typically have patterns like:
  * - XXX-PA, XXX-PB, etc. (hyphen + P + optional letter)
- * - XXXPRA, XXXPRB, etc. (PR + letter suffix)
+ *
+ * Note: We only match hyphenated patterns (-P suffix) as they're reliable.
+ * Non-hyphenated patterns (like XXXP) have too many false positives with
+ * legitimate common stock tickers (e.g., BPRN for Princeton Bancorp).
  */
 function isPreferredTicker(ticker) {
   if (!ticker) return false;
   // Pattern: ends with -P followed by optional letter (e.g., BAC-PB, WFC-PA, C-PN, TFIN-P)
   if (/-P[A-Z]?$/i.test(ticker)) return true;
-  // Pattern: ends with PR + letter (e.g., XXXPRA)
-  if (/PR[A-Z]$/i.test(ticker)) return true;
   return false;
 }
 
 /**
+ * Select the best ticker for display from a list of tickers for the same CIK
+ * Prefers: common stock (non-preferred) > shorter ticker
+ */
+function selectBestTicker(tickers) {
+  if (!tickers || tickers.length === 0) return null;
+  if (tickers.length === 1) return tickers[0];
+
+  // Separate common and preferred tickers
+  const common = tickers.filter((t) => !isPreferredTicker(t));
+  const candidates = common.length > 0 ? common : tickers;
+
+  // Return shortest ticker (common stock is usually shorter)
+  return candidates.sort((a, b) => a.length - b.length)[0];
+}
+
+/**
  * Load bank list to get CIKs
- * Filters out preferred stock tickers and deduplicates by CIK
+ * Groups entries by CIK and selects the best ticker to display
+ * (Financial data is valid for all securities under the same CIK)
  */
 function loadBankList() {
   const bankListPath = path.join(OUTPUT_DIR, 'bank-list.json');
@@ -312,38 +330,40 @@ function loadBankList() {
   const data = JSON.parse(fs.readFileSync(bankListPath, 'utf8'));
   const allBanks = data.banks || [];
 
-  // Filter out preferred stock tickers and deduplicate by CIK
-  const bankByCik = new Map();
-  let preferredFiltered = 0;
-  let duplicatesFiltered = 0;
-
+  // Group all entries by CIK
+  const entriesByCik = new Map();
   for (const bank of allBanks) {
-    const ticker = bank.ticker || '';
     const cik = bank.cik;
-
-    // Skip preferred stock tickers
-    if (isPreferredTicker(ticker)) {
-      preferredFiltered++;
-      continue;
+    if (!entriesByCik.has(cik)) {
+      entriesByCik.set(cik, []);
     }
-
-    // Deduplicate by CIK - keep the first (typically shorter/common) ticker
-    if (bankByCik.has(cik)) {
-      const existing = bankByCik.get(cik);
-      // Prefer shorter ticker (common stock is usually shorter than class shares)
-      if (ticker.length < existing.ticker.length) {
-        bankByCik.set(cik, bank);
-      }
-      duplicatesFiltered++;
-    } else {
-      bankByCik.set(cik, bank);
-    }
+    entriesByCik.get(cik).push(bank);
   }
 
-  const result = Array.from(bankByCik.values());
-  console.log(`  Filtered ${preferredFiltered} preferred stock tickers`);
-  console.log(`  Filtered ${duplicatesFiltered} duplicate CIK entries`);
-  console.log(`  Remaining: ${result.length} common stock tickers`);
+  // For each CIK, select the best ticker to display
+  const result = [];
+  let preferredSkipped = 0;
+  let duplicatesCombined = 0;
+
+  for (const [cik, entries] of entriesByCik) {
+    const tickers = entries.map((e) => e.ticker).filter(Boolean);
+    const bestTicker = selectBestTicker(tickers);
+
+    // Use the entry with the best ticker, or first entry if no ticker
+    const bestEntry = entries.find((e) => e.ticker === bestTicker) || entries[0];
+
+    // Track stats
+    const preferredCount = entries.filter((e) => isPreferredTicker(e.ticker)).length;
+    preferredSkipped += preferredCount;
+    if (entries.length > 1) duplicatesCombined += entries.length - 1;
+
+    result.push(bestEntry);
+  }
+
+  console.log(`  Total entries in bank-list: ${allBanks.length}`);
+  console.log(`  Unique CIKs: ${result.length}`);
+  console.log(`  Preferred tickers (using common instead): ${preferredSkipped}`);
+  console.log(`  Duplicate entries combined: ${duplicatesCombined}`);
 
   return result;
 }
