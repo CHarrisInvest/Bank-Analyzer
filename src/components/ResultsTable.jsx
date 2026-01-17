@@ -1,27 +1,41 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { formatNumber } from '../utils/csv.js';
 
 /**
- * Table column configuration
+ * Column group definitions for visual grouping headers
+ */
+const COLUMN_GROUPS = {
+  info: { label: 'Info', color: '#1a365d' },
+  market: { label: 'Market', color: '#2b6cb0' },
+  valuation: { label: 'Valuation', color: '#2c5282' },
+  'per-share': { label: 'Per Share', color: '#2a4365' },
+  performance: { label: 'Performance', color: '#276749' },
+  'bank-ratios': { label: 'Bank Ratios', color: '#285e61' },
+  graham: { label: 'Graham Value', color: '#744210' },
+  'balance-sheet': { label: 'Balance Sheet', color: '#553c9a' },
+  income: { label: 'Income Statement', color: '#702459' },
+  dividends: { label: 'Dividends', color: '#9c4221' },
+};
+
+/**
+ * Table column configuration - Logically ordered for intuitive use
  *
- * All columns correspond to XBRL tags extracted from SEC EDGAR filings.
- * Balance sheet items are point-in-time values; income statement items are TTM.
- *
- * Categories:
- * - Basic Info: Ticker, Bank Name, Exchange
- * - Market Data: Price, Market Cap
- * - Balance Sheet (Assets): Assets, Cash, Loans
- * - Balance Sheet (Liabilities & Equity): Liabilities, Deposits, Equity
- * - Income Statement (TTM): Interest Income, Interest Expense, NII, Noninterest Inc/Exp, Provision, Pre-Tax Inc, Net Income
- * - Per-Share: Shares, BVPS, EPS, DPS
- * - Valuation: P/E
- * - Performance: RoE, ROAA
- * - Bank Ratios: Efficiency, Dep/Assets, Eq/Assets
- * - Graham: Graham #, MoS %
+ * Order:
+ * 1. Identity (Ticker, Name, Exchange)
+ * 2. Market Data (Price, Mkt Cap)
+ * 3. Valuation (P/E)
+ * 4. Per-Share Data (BVPS, EPS, DPS)
+ * 5. Performance (RoE, ROAA)
+ * 6. Bank Ratios (Efficiency, Eq/Assets, Dep/Assets)
+ * 7. Graham Value (Graham #, MoS %)
+ * 8. Dividends (Payout)
+ * 9. Balance Sheet (Assets, Deposits, Equity, Liabilities, Cash, Loans)
+ * 10. Income Statement (NII, NonInt Inc, NonInt Exp, Net Inc, then hidden: Int Inc, Int Exp, Pre-Tax, NI to Common)
+ * 11. Other (Shares)
  */
 const COLUMNS = [
   // ===========================================================================
-  // BASIC INFO
+  // IDENTITY
   // ===========================================================================
   {
     key: 'ticker',
@@ -31,6 +45,7 @@ const COLUMNS = [
     align: 'left',
     format: (value) => value || '-',
     group: 'info',
+    defaultVisible: true,
   },
   {
     key: 'bankName',
@@ -41,6 +56,7 @@ const COLUMNS = [
     format: (value) => value || '-',
     className: 'col-bank-name',
     group: 'info',
+    defaultVisible: true,
   },
   {
     key: 'exchange',
@@ -50,7 +66,9 @@ const COLUMNS = [
     align: 'center',
     format: (value) => value || '-',
     group: 'info',
+    defaultVisible: true,
   },
+
   // ===========================================================================
   // MARKET DATA
   // ===========================================================================
@@ -62,6 +80,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
     group: 'market',
+    defaultVisible: true,
   },
   {
     key: 'marketCap',
@@ -71,193 +90,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
     group: 'market',
-  },
-
-  // ===========================================================================
-  // BALANCE SHEET - ASSETS (Point-in-Time)
-  // ===========================================================================
-  {
-    key: 'totalAssets',
-    label: 'Assets',
-    xbrl: 'us-gaap:Assets',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-assets',
-  },
-  {
-    key: 'cashAndCashEquivalents',
-    label: 'Cash & Equiv',
-    xbrl: 'us-gaap:CashAndCashEquivalentsAtCarryingValue',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-assets',
-  },
-  {
-    key: 'loans',
-    label: 'Loans',
-    xbrl: 'us-gaap:LoansAndLeasesReceivableNetReportedAmount',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-assets',
-  },
-
-  // ===========================================================================
-  // BALANCE SHEET - LIABILITIES & EQUITY (Point-in-Time)
-  // ===========================================================================
-  {
-    key: 'totalLiabilities',
-    label: 'Liabilities',
-    xbrl: 'us-gaap:Liabilities',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-liab',
-  },
-  {
-    key: 'totalDeposits',
-    label: 'Deposits',
-    xbrl: 'us-gaap:Deposits',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-liab',
-  },
-  {
-    key: 'totalEquity',
-    label: 'Equity',
-    xbrl: 'us-gaap:StockholdersEquity',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'bs-liab',
-  },
-
-  // ===========================================================================
-  // INCOME STATEMENT (TTM)
-  // ===========================================================================
-  {
-    key: 'ttmInterestIncome',
-    label: 'Int Inc',
-    xbrl: 'us-gaap:InterestIncome',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'income',
-  },
-  {
-    key: 'ttmInterestExpense',
-    label: 'Int Exp',
-    xbrl: 'us-gaap:InterestExpense',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'income',
-  },
-  {
-    key: 'ttmNetInterestIncome',
-    label: 'NII',
-    xbrl: 'us-gaap:NetInterestIncome',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'income',
-  },
-  {
-    key: 'ttmNoninterestIncome',
-    label: 'NonInt Inc',
-    xbrl: 'us-gaap:NoninterestIncome',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'income',
-  },
-  {
-    key: 'ttmNoninterestExpense',
-    label: 'NonInt Exp',
-    xbrl: 'us-gaap:NoninterestExpense',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'income',
-  },
-  {
-    key: 'ttmProvisionForCreditLosses',
-    label: 'Provision',
-    xbrl: 'us-gaap:ProvisionForLoanAndLeaseLosses',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'income',
-  },
-  {
-    key: 'ttmPreTaxIncome',
-    label: 'Pre-Tax',
-    xbrl: 'us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxes',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'income',
-  },
-  {
-    key: 'ttmNetIncome',
-    label: 'Net Inc',
-    xbrl: 'us-gaap:NetIncomeLoss',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'income',
-  },
-  {
-    key: 'ttmNetIncomeToCommon',
-    label: 'NI to Common',
-    xbrl: 'us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
-    group: 'income',
-  },
-
-  // ===========================================================================
-  // PER-SHARE DATA
-  // ===========================================================================
-  {
-    key: 'sharesOutstanding',
-    label: 'Shares',
-    xbrl: 'us-gaap:CommonStockSharesOutstanding',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, abbreviate: true }),
-    group: 'per-share',
-  },
-  {
-    key: 'bvps',
-    label: 'BVPS',
-    xbrl: 'Calculated: Equity ÷ Shares',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
-    group: 'per-share',
-  },
-  {
-    key: 'ttmEps',
-    label: 'EPS',
-    xbrl: 'us-gaap:EarningsPerShareBasic',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
-    group: 'per-share',
-  },
-  {
-    key: 'ttmDividendPerShare',
-    label: 'DPS',
-    xbrl: 'us-gaap:CommonStockDividendsPerShareDeclared',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
-    group: 'per-share',
+    defaultVisible: true,
   },
 
   // ===========================================================================
@@ -271,6 +104,41 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2 }),
     group: 'valuation',
+    defaultVisible: true,
+  },
+
+  // ===========================================================================
+  // PER-SHARE DATA
+  // ===========================================================================
+  {
+    key: 'bvps',
+    label: 'BVPS',
+    xbrl: 'Calculated: Equity ÷ Shares',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+    group: 'per-share',
+    defaultVisible: true,
+  },
+  {
+    key: 'ttmEps',
+    label: 'EPS',
+    xbrl: 'us-gaap:EarningsPerShareBasic',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+    group: 'per-share',
+    defaultVisible: true,
+  },
+  {
+    key: 'ttmDividendPerShare',
+    label: 'DPS',
+    xbrl: 'us-gaap:CommonStockDividendsPerShareDeclared',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
+    group: 'per-share',
+    defaultVisible: true,
   },
 
   // ===========================================================================
@@ -284,6 +152,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'performance',
+    defaultVisible: true,
   },
   {
     key: 'roaa',
@@ -293,6 +162,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
     group: 'performance',
+    defaultVisible: true,
   },
 
   // ===========================================================================
@@ -306,15 +176,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'bank-ratios',
-  },
-  {
-    key: 'depositsToAssets',
-    label: 'Dep/Assets',
-    xbrl: 'Calculated: Deposits ÷ Assets',
-    sortable: true,
-    align: 'right',
-    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
-    group: 'bank-ratios',
+    defaultVisible: true,
   },
   {
     key: 'equityToAssets',
@@ -324,19 +186,17 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'bank-ratios',
+    defaultVisible: true,
   },
-
-  // ===========================================================================
-  // DIVIDENDS
-  // ===========================================================================
   {
-    key: 'dividendPayoutRatio',
-    label: 'Payout',
-    xbrl: 'Calculated: DPS ÷ EPS',
+    key: 'depositsToAssets',
+    label: 'Dep/Assets',
+    xbrl: 'Calculated: Deposits ÷ Assets',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
-    group: 'dividends',
+    group: 'bank-ratios',
+    defaultVisible: true,
   },
 
   // ===========================================================================
@@ -350,6 +210,7 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
     group: 'graham',
+    defaultVisible: true,
   },
   {
     key: 'grahamMoSPct',
@@ -359,8 +220,193 @@ const COLUMNS = [
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
     group: 'graham',
+    defaultVisible: true,
+  },
+
+  // ===========================================================================
+  // DIVIDENDS
+  // ===========================================================================
+  {
+    key: 'dividendPayoutRatio',
+    label: 'Payout',
+    xbrl: 'Calculated: DPS ÷ EPS',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
+    group: 'dividends',
+    defaultVisible: true,
+  },
+
+  // ===========================================================================
+  // BALANCE SHEET (Summary)
+  // ===========================================================================
+  {
+    key: 'totalAssets',
+    label: 'Assets',
+    xbrl: 'us-gaap:Assets',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'balance-sheet',
+    defaultVisible: true,
+  },
+  {
+    key: 'totalDeposits',
+    label: 'Deposits',
+    xbrl: 'us-gaap:Deposits',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'balance-sheet',
+    defaultVisible: true,
+  },
+  {
+    key: 'totalEquity',
+    label: 'Equity',
+    xbrl: 'us-gaap:StockholdersEquity',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'balance-sheet',
+    defaultVisible: true,
+  },
+  {
+    key: 'totalLiabilities',
+    label: 'Liabilities',
+    xbrl: 'us-gaap:Liabilities',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'balance-sheet',
+    defaultVisible: false,
+  },
+  {
+    key: 'cashAndCashEquivalents',
+    label: 'Cash',
+    xbrl: 'us-gaap:CashAndCashEquivalentsAtCarryingValue',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'balance-sheet',
+    defaultVisible: false,
+  },
+  {
+    key: 'loans',
+    label: 'Loans',
+    xbrl: 'us-gaap:LoansAndLeasesReceivableNetReportedAmount',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'balance-sheet',
+    defaultVisible: false,
+  },
+
+  // ===========================================================================
+  // INCOME STATEMENT (TTM)
+  // ===========================================================================
+  {
+    key: 'ttmNetInterestIncome',
+    label: 'NII',
+    xbrl: 'us-gaap:NetInterestIncome',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+    defaultVisible: true,
+  },
+  {
+    key: 'ttmNoninterestIncome',
+    label: 'NonInt Inc',
+    xbrl: 'us-gaap:NoninterestIncome',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+    defaultVisible: false,
+  },
+  {
+    key: 'ttmNoninterestExpense',
+    label: 'NonInt Exp',
+    xbrl: 'us-gaap:NoninterestExpense',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+    defaultVisible: false,
+  },
+  {
+    key: 'ttmNetIncome',
+    label: 'Net Inc',
+    xbrl: 'us-gaap:NetIncomeLoss',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+    defaultVisible: true,
+  },
+  // Hidden by default columns
+  {
+    key: 'ttmInterestIncome',
+    label: 'Int Inc',
+    xbrl: 'us-gaap:InterestIncome',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+    defaultVisible: false,
+  },
+  {
+    key: 'ttmInterestExpense',
+    label: 'Int Exp',
+    xbrl: 'us-gaap:InterestExpense',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+    defaultVisible: false,
+  },
+  {
+    key: 'ttmPreTaxIncome',
+    label: 'Pre-Tax',
+    xbrl: 'us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxes',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+    defaultVisible: false,
+  },
+  {
+    key: 'ttmNetIncomeToCommon',
+    label: 'NI to Common',
+    xbrl: 'us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
+    group: 'income',
+    defaultVisible: false,
+  },
+
+  // ===========================================================================
+  // OTHER METRICS
+  // ===========================================================================
+  {
+    key: 'sharesOutstanding',
+    label: 'Shares',
+    xbrl: 'us-gaap:CommonStockSharesOutstanding',
+    sortable: true,
+    align: 'right',
+    format: (value) => formatNumber(value, { decimals: 1, abbreviate: true }),
+    group: 'market',
+    defaultVisible: false,
   },
 ];
+
+/**
+ * Get default visible columns
+ */
+const getDefaultVisibleColumns = () => {
+  return COLUMNS.filter((col) => col.defaultVisible).map((col) => col.key);
+};
 
 /**
  * Sort indicator component
@@ -390,6 +436,118 @@ function SortIndicator({ direction }) {
 }
 
 /**
+ * Column visibility toggle dropdown
+ */
+function ColumnVisibilityDropdown({ visibleColumns, onToggleColumn, onShowAll, onShowDefault }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Group columns by their group
+  const columnsByGroup = useMemo(() => {
+    const groups = {};
+    COLUMNS.forEach((col) => {
+      if (!groups[col.group]) {
+        groups[col.group] = [];
+      }
+      groups[col.group].push(col);
+    });
+    return groups;
+  }, []);
+
+  return (
+    <div className="column-visibility-dropdown" ref={dropdownRef}>
+      <button
+        type="button"
+        className="column-visibility-btn"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M12 5v14M5 12h14" />
+        </svg>
+        Columns
+        <span className="column-count">({visibleColumns.length}/{COLUMNS.length})</span>
+      </button>
+      {isOpen && (
+        <div className="column-visibility-menu">
+          <div className="column-visibility-actions">
+            <button type="button" onClick={onShowAll}>Show All</button>
+            <button type="button" onClick={onShowDefault}>Default</button>
+          </div>
+          <div className="column-visibility-list">
+            {Object.entries(columnsByGroup).map(([groupKey, cols]) => (
+              <div key={groupKey} className="column-visibility-group">
+                <div className="column-visibility-group-header">
+                  {COLUMN_GROUPS[groupKey]?.label || groupKey}
+                </div>
+                {cols.map((col) => (
+                  <label key={col.key} className="column-visibility-item">
+                    <input
+                      type="checkbox"
+                      checked={visibleColumns.includes(col.key)}
+                      onChange={() => onToggleColumn(col.key)}
+                    />
+                    <span>{col.label}</span>
+                  </label>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Export data to CSV
+ */
+function exportToCSV(banks, visibleColumns) {
+  const columns = COLUMNS.filter((col) => visibleColumns.includes(col.key));
+
+  // Header row
+  const headers = columns.map((col) => col.label).join(',');
+
+  // Data rows
+  const rows = banks.map((bank) => {
+    return columns
+      .map((col) => {
+        const value = bank[col.key];
+        if (value === null || value === undefined) return '';
+        if (typeof value === 'string') {
+          // Escape quotes and wrap in quotes if contains comma
+          const escaped = value.replace(/"/g, '""');
+          return escaped.includes(',') ? `"${escaped}"` : escaped;
+        }
+        return value;
+      })
+      .join(',');
+  });
+
+  const csv = [headers, ...rows].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `bank-screener-${new Date().toISOString().split('T')[0]}.csv`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
+/**
  * Results Table Component
  * Displays filtered bank data with sortable columns
  */
@@ -398,7 +556,66 @@ function ResultsTable({ banks, loading }) {
     key: 'marketCap',
     direction: 'desc',
   });
-  const tableContainerRef = React.useRef(null);
+  const [visibleColumns, setVisibleColumns] = useState(() => {
+    // Try to load from localStorage
+    const saved = localStorage.getItem('bankAnalyzer_visibleColumns');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch {
+        return getDefaultVisibleColumns();
+      }
+    }
+    return getDefaultVisibleColumns();
+  });
+  const [focusedCell, setFocusedCell] = useState({ row: 0, col: 0 });
+  const tableContainerRef = useRef(null);
+  const tableRef = useRef(null);
+
+  // Save visible columns to localStorage
+  useEffect(() => {
+    localStorage.setItem('bankAnalyzer_visibleColumns', JSON.stringify(visibleColumns));
+  }, [visibleColumns]);
+
+  // Get currently visible columns
+  const displayColumns = useMemo(() => {
+    return COLUMNS.filter((col) => visibleColumns.includes(col.key));
+  }, [visibleColumns]);
+
+  // Calculate column groups for header
+  const columnGroupSpans = useMemo(() => {
+    const spans = [];
+    let currentGroup = null;
+    let currentSpan = 0;
+    let startIndex = 0;
+
+    displayColumns.forEach((col, index) => {
+      if (col.group !== currentGroup) {
+        if (currentGroup !== null) {
+          spans.push({
+            group: currentGroup,
+            span: currentSpan,
+            startIndex,
+          });
+        }
+        currentGroup = col.group;
+        currentSpan = 1;
+        startIndex = index;
+      } else {
+        currentSpan++;
+      }
+    });
+
+    if (currentGroup !== null) {
+      spans.push({
+        group: currentGroup,
+        span: currentSpan,
+        startIndex,
+      });
+    }
+
+    return spans;
+  }, [displayColumns]);
 
   /**
    * Scroll table back to top
@@ -415,14 +632,12 @@ function ResultsTable({ banks, loading }) {
   const handleSort = (columnKey) => {
     setSortConfig((prevConfig) => {
       if (prevConfig.key === columnKey) {
-        // Toggle direction or reset
         if (prevConfig.direction === 'asc') {
           return { key: columnKey, direction: 'desc' };
         } else if (prevConfig.direction === 'desc') {
           return { key: null, direction: null };
         }
       }
-      // New column, start with ascending
       return { key: columnKey, direction: 'asc' };
     });
   };
@@ -439,26 +654,120 @@ function ResultsTable({ banks, loading }) {
       const aValue = a[sortConfig.key];
       const bValue = b[sortConfig.key];
 
-      // Handle null/undefined values
       if (aValue === null || aValue === undefined) return 1;
       if (bValue === null || bValue === undefined) return -1;
 
-      // String comparison
       if (typeof aValue === 'string' && typeof bValue === 'string') {
         const comparison = aValue.localeCompare(bValue);
         return sortConfig.direction === 'asc' ? comparison : -comparison;
       }
 
-      // Numeric comparison
       const comparison = aValue - bValue;
       return sortConfig.direction === 'asc' ? comparison : -comparison;
     });
   }, [banks, sortConfig]);
 
   /**
+   * Toggle column visibility
+   */
+  const handleToggleColumn = useCallback((columnKey) => {
+    setVisibleColumns((prev) => {
+      if (prev.includes(columnKey)) {
+        // Don't allow hiding the last column
+        if (prev.length <= 1) return prev;
+        return prev.filter((k) => k !== columnKey);
+      }
+      return [...prev, columnKey];
+    });
+  }, []);
+
+  /**
+   * Show all columns
+   */
+  const handleShowAllColumns = useCallback(() => {
+    setVisibleColumns(COLUMNS.map((col) => col.key));
+  }, []);
+
+  /**
+   * Reset to default columns
+   */
+  const handleShowDefaultColumns = useCallback(() => {
+    setVisibleColumns(getDefaultVisibleColumns());
+  }, []);
+
+  /**
+   * Handle keyboard navigation
+   */
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (!tableRef.current) return;
+
+      const maxRow = sortedBanks.length - 1;
+      const maxCol = displayColumns.length - 1;
+
+      let newRow = focusedCell.row;
+      let newCol = focusedCell.col;
+
+      switch (e.key) {
+        case 'ArrowUp':
+          e.preventDefault();
+          newRow = Math.max(0, focusedCell.row - 1);
+          break;
+        case 'ArrowDown':
+          e.preventDefault();
+          newRow = Math.min(maxRow, focusedCell.row + 1);
+          break;
+        case 'ArrowLeft':
+          e.preventDefault();
+          newCol = Math.max(0, focusedCell.col - 1);
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          newCol = Math.min(maxCol, focusedCell.col + 1);
+          break;
+        case 'Home':
+          e.preventDefault();
+          if (e.ctrlKey) {
+            newRow = 0;
+          }
+          newCol = 0;
+          break;
+        case 'End':
+          e.preventDefault();
+          if (e.ctrlKey) {
+            newRow = maxRow;
+          }
+          newCol = maxCol;
+          break;
+        case 'PageUp':
+          e.preventDefault();
+          newRow = Math.max(0, focusedCell.row - 10);
+          break;
+        case 'PageDown':
+          e.preventDefault();
+          newRow = Math.min(maxRow, focusedCell.row + 10);
+          break;
+        default:
+          return;
+      }
+
+      setFocusedCell({ row: newRow, col: newCol });
+
+      // Scroll the cell into view
+      const cell = tableRef.current.querySelector(
+        `tbody tr:nth-child(${newRow + 1}) td:nth-child(${newCol + 1})`
+      );
+      if (cell) {
+        cell.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      }
+    },
+    [focusedCell, sortedBanks.length, displayColumns.length]
+  );
+
+  /**
    * Get CSS class for cell value (for conditional styling)
    */
-  const getCellClass = (column, value) => {
+  const getCellClass = (column, value, rowIndex, colIndex) => {
     const classes = [`col-${column.key}`];
 
     if (column.align) {
@@ -467,6 +776,11 @@ function ResultsTable({ banks, loading }) {
 
     if (column.className) {
       classes.push(column.className);
+    }
+
+    // Focused cell
+    if (rowIndex === focusedCell.row && colIndex === focusedCell.col) {
+      classes.push('cell-focused');
     }
 
     // Add value-based classes for specific columns
@@ -485,14 +799,11 @@ function ResultsTable({ banks, loading }) {
       else if (value < 0) classes.push('value-negative');
     }
 
-    // Bank-specific ratio conditional styling
-    // Efficiency Ratio: lower is better (< 60% good, > 70% concerning)
     if (column.key === 'efficiencyRatio' && typeof value === 'number') {
       if (value <= 55) classes.push('value-positive');
       else if (value >= 70) classes.push('value-negative');
     }
 
-    // Equity/Assets: higher means less leverage (> 10% is strong)
     if (column.key === 'equityToAssets' && typeof value === 'number') {
       if (value >= 10) classes.push('value-positive');
       else if (value < 7) classes.push('value-negative');
@@ -522,83 +833,134 @@ function ResultsTable({ banks, loading }) {
   }
 
   return (
-    <div className="results-table-container" ref={tableContainerRef}>
-      <table className="results-table">
-        <thead>
-          <tr>
-            {COLUMNS.map((column) => (
-              <th
-                key={column.key}
-                className={`th-${column.key} align-${column.align} ${
-                  column.sortable ? 'sortable' : ''
-                }`}
-                onClick={column.sortable ? () => handleSort(column.key) : undefined}
-                role={column.sortable ? 'button' : undefined}
-                tabIndex={column.sortable ? 0 : undefined}
-                title={column.xbrl || column.label}
-                onKeyDown={
-                  column.sortable
-                    ? (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault();
-                          handleSort(column.key);
-                        }
-                      }
-                    : undefined
-                }
-              >
-                <span className="th-content">
-                  <span className="th-label">{column.label}</span>
-                  {column.sortable && (
-                    <SortIndicator
-                      direction={sortConfig.key === column.key ? sortConfig.direction : null}
-                    />
-                  )}
-                </span>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {sortedBanks.map((bank) => (
-            <tr key={bank.id}>
-              {COLUMNS.map((column) => (
-                <td key={column.key} className={getCellClass(column, bank[column.key])}>
-                  {column.format(bank[column.key])}
-                </td>
+    <div className="results-table-wrapper">
+      <div className="results-table-toolbar">
+        <ColumnVisibilityDropdown
+          visibleColumns={visibleColumns}
+          onToggleColumn={handleToggleColumn}
+          onShowAll={handleShowAllColumns}
+          onShowDefault={handleShowDefaultColumns}
+        />
+        <button
+          type="button"
+          className="export-btn"
+          onClick={() => exportToCSV(sortedBanks, visibleColumns)}
+          title="Export to CSV"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Export CSV
+        </button>
+      </div>
+      <div
+        className="results-table-container"
+        ref={tableContainerRef}
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+        role="grid"
+        aria-label="Bank results table"
+      >
+        <table className="results-table" ref={tableRef}>
+          <thead>
+            {/* Group header row */}
+            <tr className="column-group-row">
+              {columnGroupSpans.map(({ group, span }, index) => (
+                <th
+                  key={`group-${index}`}
+                  colSpan={span}
+                  className="column-group-header"
+                  style={{ borderBottomColor: COLUMN_GROUPS[group]?.color }}
+                >
+                  {COLUMN_GROUPS[group]?.label || group}
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan={COLUMNS.length} className="table-footer">
-              <div className="table-footer-content">
-                <span className="table-row-count">
-                  Showing {sortedBanks.length} {sortedBanks.length === 1 ? 'bank' : 'banks'}
-                </span>
-                <button
-                  className="scroll-to-top-btn"
-                  onClick={scrollToTop}
-                  title="Scroll to top"
-                  type="button"
+            {/* Column header row */}
+            <tr>
+              {displayColumns.map((column) => (
+                <th
+                  key={column.key}
+                  className={`th-${column.key} align-${column.align} ${
+                    column.sortable ? 'sortable' : ''
+                  }`}
+                  onClick={column.sortable ? () => handleSort(column.key) : undefined}
+                  role={column.sortable ? 'button' : undefined}
+                  tabIndex={column.sortable ? 0 : undefined}
+                  title={column.xbrl || column.label}
+                  onKeyDown={
+                    column.sortable
+                      ? (e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleSort(column.key);
+                          }
+                        }
+                      : undefined
+                  }
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M7 14l5-5 5 5z" />
-                  </svg>
-                  Top
-                </button>
-              </div>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
+                  <span className="th-content">
+                    <span className="th-label">{column.label}</span>
+                    {column.sortable && (
+                      <SortIndicator
+                        direction={sortConfig.key === column.key ? sortConfig.direction : null}
+                      />
+                    )}
+                  </span>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sortedBanks.map((bank, rowIndex) => (
+              <tr
+                key={bank.id}
+                onClick={() => setFocusedCell({ row: rowIndex, col: focusedCell.col })}
+              >
+                {displayColumns.map((column, colIndex) => (
+                  <td
+                    key={column.key}
+                    className={getCellClass(column, bank[column.key], rowIndex, colIndex)}
+                    onClick={() => setFocusedCell({ row: rowIndex, col: colIndex })}
+                  >
+                    {column.format(bank[column.key])}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan={displayColumns.length} className="table-footer">
+                <div className="table-footer-content">
+                  <span className="table-row-count">
+                    Showing {sortedBanks.length} {sortedBanks.length === 1 ? 'bank' : 'banks'}
+                  </span>
+                  <button
+                    className="scroll-to-top-btn"
+                    onClick={scrollToTop}
+                    title="Scroll to top"
+                    type="button"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M7 14l5-5 5 5z" />
+                    </svg>
+                    Top
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
 
-      {loading && (
-        <div className="table-loading-overlay">
-          <div className="loading-spinner-small" />
-        </div>
-      )}
+        {loading && (
+          <div className="table-loading-overlay">
+            <div className="loading-spinner-small" />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
