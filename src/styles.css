@@ -704,8 +704,11 @@ body {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  overflow-x: auto;
+  overflow: auto;
   position: relative;
+  /* Constrain height to enable sticky header within scroll container */
+  max-height: calc(100vh - 200px);
+  min-height: 400px;
 }
 
 .results-table {
@@ -719,6 +722,13 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  /* Add shadow for visual separation when scrolling */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure header cells have solid background for sticky to work properly */
+.results-table thead th {
+  background-color: var(--color-gray-50);
 }
 
 .results-table th {
@@ -773,12 +783,44 @@ body {
   color: var(--color-gray-800);
 }
 
+/* Alternating row colors for better readability */
+.results-table tbody tr:nth-child(even) {
+  background-color: var(--color-gray-25, #fafafa);
+}
+
 .results-table tbody tr:hover {
-  background-color: var(--color-gray-50);
+  background-color: var(--color-gray-100);
 }
 
 .results-table tbody tr:last-child td {
   border-bottom: none;
+}
+
+/* Frozen first column (Ticker) */
+.results-table th:first-child,
+.results-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  background-color: inherit;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.results-table thead th:first-child {
+  z-index: 15; /* Above both sticky header and sticky column */
+  background-color: var(--color-gray-50);
+}
+
+.results-table tbody tr:nth-child(even) td:first-child {
+  background-color: var(--color-gray-25, #fafafa);
+}
+
+.results-table tbody tr:nth-child(odd) td:first-child {
+  background-color: var(--color-white);
+}
+
+.results-table tbody tr:hover td:first-child {
+  background-color: var(--color-gray-100);
 }
 
 /* Column alignment */
@@ -837,6 +879,56 @@ body {
 
 .value-negative {
   color: var(--color-danger);
+}
+
+/* Table footer */
+.results-table tfoot {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.table-footer {
+  background-color: var(--color-gray-50);
+  border-top: 2px solid var(--color-gray-200);
+  padding: var(--spacing-3) var(--spacing-4);
+}
+
+.table-footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+}
+
+.table-row-count {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+}
+
+.scroll-to-top-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-2);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  color: var(--color-gray-600);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.scroll-to-top-btn:hover {
+  background-color: var(--color-gray-100);
+  border-color: var(--color-gray-400);
+  color: var(--color-gray-800);
+}
+
+.scroll-to-top-btn:active {
+  background-color: var(--color-gray-200);
 }
 
 /* Table loading overlay */
