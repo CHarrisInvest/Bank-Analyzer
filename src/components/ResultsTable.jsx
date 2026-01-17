@@ -5,16 +5,16 @@ import { formatNumber } from '../utils/csv.js';
  * Column group definitions for visual grouping headers
  */
 const COLUMN_GROUPS = {
-  info: { label: 'Info', color: '#1a365d' },
-  market: { label: 'Market', color: '#2b6cb0' },
-  valuation: { label: 'Valuation', color: '#2c5282' },
-  'per-share': { label: 'Per Share', color: '#2a4365' },
-  performance: { label: 'Performance', color: '#276749' },
-  'bank-ratios': { label: 'Bank Ratios', color: '#285e61' },
-  graham: { label: 'Graham Value', color: '#744210' },
-  'balance-sheet': { label: 'Balance Sheet', color: '#553c9a' },
-  income: { label: 'Income Statement', color: '#702459' },
-  dividends: { label: 'Dividends', color: '#9c4221' },
+  info: { label: 'Info', color: '#1a365d', description: 'Bank Identification Information' },
+  market: { label: 'Market', color: '#2b6cb0', description: 'Market Data & Trading Information' },
+  valuation: { label: 'Valuation', color: '#2c5282', description: 'Valuation Metrics' },
+  'per-share': { label: 'Per Share', color: '#2a4365', description: 'Per-Share Financial Data' },
+  performance: { label: 'Performance', color: '#276749', description: 'Profitability & Performance Ratios' },
+  'bank-ratios': { label: 'Bank Ratios', color: '#285e61', description: 'Bank-Specific Financial Ratios' },
+  graham: { label: 'Graham Value', color: '#744210', description: 'Benjamin Graham Value Investing Metrics' },
+  'balance-sheet': { label: 'Balance Sheet', color: '#553c9a', description: 'Balance Sheet Items (Point-in-Time)' },
+  income: { label: 'Income Statement', color: '#702459', description: 'Income Statement Items (Trailing Twelve Months)' },
+  dividends: { label: 'Dividends', color: '#9c4221', description: 'Dividend Information' },
 };
 
 /**
@@ -40,7 +40,7 @@ const COLUMNS = [
   {
     key: 'ticker',
     label: 'Ticker',
-    xbrl: null,
+    fullName: 'Stock Ticker Symbol',
     sortable: true,
     align: 'left',
     format: (value) => value || '-',
@@ -50,7 +50,7 @@ const COLUMNS = [
   {
     key: 'bankName',
     label: 'Bank Name',
-    xbrl: null,
+    fullName: 'Bank Name',
     sortable: true,
     align: 'left',
     format: (value) => value || '-',
@@ -61,7 +61,7 @@ const COLUMNS = [
   {
     key: 'exchange',
     label: 'Exchange',
-    xbrl: null,
+    fullName: 'Stock Exchange',
     sortable: true,
     align: 'center',
     format: (value) => value || '-',
@@ -75,7 +75,7 @@ const COLUMNS = [
   {
     key: 'price',
     label: 'Price',
-    xbrl: null,
+    fullName: 'Current Stock Price',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
@@ -85,7 +85,7 @@ const COLUMNS = [
   {
     key: 'marketCap',
     label: 'Mkt Cap',
-    xbrl: 'Calculated: Price × Shares',
+    fullName: 'Market Capitalization (Mkt Cap)',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -99,7 +99,7 @@ const COLUMNS = [
   {
     key: 'pni',
     label: 'P/E',
-    xbrl: 'Calculated: Mkt Cap ÷ Net Income',
+    fullName: 'Price-to-Earnings Ratio (P/E)',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2 }),
@@ -113,7 +113,7 @@ const COLUMNS = [
   {
     key: 'bvps',
     label: 'BVPS',
-    xbrl: 'Calculated: Equity ÷ Shares',
+    fullName: 'Book Value Per Share (BVPS)',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
@@ -123,7 +123,7 @@ const COLUMNS = [
   {
     key: 'ttmEps',
     label: 'EPS',
-    xbrl: 'us-gaap:EarningsPerShareBasic',
+    fullName: 'Earnings Per Share (EPS) - TTM',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
@@ -133,7 +133,7 @@ const COLUMNS = [
   {
     key: 'ttmDividendPerShare',
     label: 'DPS',
-    xbrl: 'us-gaap:CommonStockDividendsPerShareDeclared',
+    fullName: 'Dividends Per Share (DPS) - TTM',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
@@ -147,7 +147,7 @@ const COLUMNS = [
   {
     key: 'roe',
     label: 'RoE',
-    xbrl: 'Calculated: Net Income ÷ Equity',
+    fullName: 'Return on Equity (RoE)',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
@@ -157,7 +157,7 @@ const COLUMNS = [
   {
     key: 'roaa',
     label: 'ROAA',
-    xbrl: 'Calculated: Net Income ÷ Avg Assets',
+    fullName: 'Return on Average Assets (ROAA)',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, suffix: '%' }),
@@ -171,7 +171,7 @@ const COLUMNS = [
   {
     key: 'efficiencyRatio',
     label: 'Efficiency',
-    xbrl: 'Calculated: NonInt Exp ÷ (NII + NonInt Inc)',
+    fullName: 'Efficiency Ratio - Lower is Better',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
@@ -181,7 +181,7 @@ const COLUMNS = [
   {
     key: 'equityToAssets',
     label: 'Eq/Assets',
-    xbrl: 'Calculated: Equity ÷ Assets',
+    fullName: 'Equity to Assets Ratio (Eq/Assets)',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
@@ -191,7 +191,7 @@ const COLUMNS = [
   {
     key: 'depositsToAssets',
     label: 'Dep/Assets',
-    xbrl: 'Calculated: Deposits ÷ Assets',
+    fullName: 'Deposits to Assets Ratio (Dep/Assets)',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
@@ -205,7 +205,7 @@ const COLUMNS = [
   {
     key: 'grahamNum',
     label: 'Graham #',
-    xbrl: 'Calculated: √(22.5 × EPS × BVPS)',
+    fullName: 'Graham Number (Graham #) - Intrinsic Value Estimate',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 2, prefix: '$' }),
@@ -215,7 +215,7 @@ const COLUMNS = [
   {
     key: 'grahamMoSPct',
     label: 'MoS %',
-    xbrl: 'Calculated: (Graham# - Price) ÷ Price',
+    fullName: 'Margin of Safety Percentage (MoS %)',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
@@ -229,7 +229,7 @@ const COLUMNS = [
   {
     key: 'dividendPayoutRatio',
     label: 'Payout',
-    xbrl: 'Calculated: DPS ÷ EPS',
+    fullName: 'Dividend Payout Ratio',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, suffix: '%' }),
@@ -243,7 +243,7 @@ const COLUMNS = [
   {
     key: 'totalAssets',
     label: 'Assets',
-    xbrl: 'us-gaap:Assets',
+    fullName: 'Total Assets',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -253,7 +253,7 @@ const COLUMNS = [
   {
     key: 'totalDeposits',
     label: 'Deposits',
-    xbrl: 'us-gaap:Deposits',
+    fullName: 'Total Deposits',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -263,7 +263,7 @@ const COLUMNS = [
   {
     key: 'totalEquity',
     label: 'Equity',
-    xbrl: 'us-gaap:StockholdersEquity',
+    fullName: "Total Stockholders' Equity",
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -273,7 +273,7 @@ const COLUMNS = [
   {
     key: 'totalLiabilities',
     label: 'Liabilities',
-    xbrl: 'us-gaap:Liabilities',
+    fullName: 'Total Liabilities',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -283,7 +283,7 @@ const COLUMNS = [
   {
     key: 'cashAndCashEquivalents',
     label: 'Cash',
-    xbrl: 'us-gaap:CashAndCashEquivalentsAtCarryingValue',
+    fullName: 'Cash and Cash Equivalents',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -293,7 +293,7 @@ const COLUMNS = [
   {
     key: 'loans',
     label: 'Loans',
-    xbrl: 'us-gaap:LoansAndLeasesReceivableNetReportedAmount',
+    fullName: 'Loans and Leases Receivable, Net',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -307,7 +307,7 @@ const COLUMNS = [
   {
     key: 'ttmNetInterestIncome',
     label: 'NII',
-    xbrl: 'us-gaap:NetInterestIncome',
+    fullName: 'Net Interest Income (NII) - TTM',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -317,7 +317,7 @@ const COLUMNS = [
   {
     key: 'ttmNoninterestIncome',
     label: 'NonInt Inc',
-    xbrl: 'us-gaap:NoninterestIncome',
+    fullName: 'Noninterest Income (NonInt Inc) - TTM',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -327,7 +327,7 @@ const COLUMNS = [
   {
     key: 'ttmNoninterestExpense',
     label: 'NonInt Exp',
-    xbrl: 'us-gaap:NoninterestExpense',
+    fullName: 'Noninterest Expense (NonInt Exp) - TTM',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -337,7 +337,7 @@ const COLUMNS = [
   {
     key: 'ttmNetIncome',
     label: 'Net Inc',
-    xbrl: 'us-gaap:NetIncomeLoss',
+    fullName: 'Net Income (Net Inc) - TTM',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -348,7 +348,7 @@ const COLUMNS = [
   {
     key: 'ttmInterestIncome',
     label: 'Int Inc',
-    xbrl: 'us-gaap:InterestIncome',
+    fullName: 'Interest Income (Int Inc) - TTM',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -358,7 +358,7 @@ const COLUMNS = [
   {
     key: 'ttmInterestExpense',
     label: 'Int Exp',
-    xbrl: 'us-gaap:InterestExpense',
+    fullName: 'Interest Expense (Int Exp) - TTM',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -368,7 +368,7 @@ const COLUMNS = [
   {
     key: 'ttmPreTaxIncome',
     label: 'Pre-Tax',
-    xbrl: 'us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxes',
+    fullName: 'Pre-Tax Income - TTM',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -378,7 +378,7 @@ const COLUMNS = [
   {
     key: 'ttmNetIncomeToCommon',
     label: 'NI to Common',
-    xbrl: 'us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic',
+    fullName: 'Net Income Available to Common Stockholders (NI to Common) - TTM',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, prefix: '$', abbreviate: true }),
@@ -392,7 +392,7 @@ const COLUMNS = [
   {
     key: 'sharesOutstanding',
     label: 'Shares',
-    xbrl: 'us-gaap:CommonStockSharesOutstanding',
+    fullName: 'Common Shares Outstanding',
     sortable: true,
     align: 'right',
     format: (value) => formatNumber(value, { decimals: 1, abbreviate: true }),
@@ -998,6 +998,7 @@ function ResultsTable({ banks, loading }) {
                   colSpan={span}
                   className="column-group-header"
                   style={{ borderBottomColor: COLUMN_GROUPS[group]?.color }}
+                  title={COLUMN_GROUPS[group]?.description}
                 >
                   {COLUMN_GROUPS[group]?.label || group}
                 </th>
@@ -1016,7 +1017,7 @@ function ResultsTable({ banks, loading }) {
                   onClick={column.sortable ? () => handleSort(column.key) : undefined}
                   role={column.sortable ? 'button' : undefined}
                   tabIndex={column.sortable ? 0 : undefined}
-                  title={column.xbrl || column.label}
+                  title={column.fullName}
                   draggable
                   onDragStart={(e) => handleDragStart(e, column.key)}
                   onDragOver={(e) => handleDragOver(e, column.key)}
@@ -1052,15 +1053,20 @@ function ResultsTable({ banks, loading }) {
                 key={bank.id}
                 onClick={() => setFocusedCell({ row: rowIndex, col: focusedCell.col })}
               >
-                {displayColumns.map((column, colIndex) => (
-                  <td
-                    key={column.key}
-                    className={getCellClass(column, bank[column.key], rowIndex, colIndex)}
-                    onClick={() => setFocusedCell({ row: rowIndex, col: colIndex })}
-                  >
-                    {column.format(bank[column.key])}
-                  </td>
-                ))}
+                {displayColumns.map((column, colIndex) => {
+                  const value = bank[column.key];
+                  const isNull = value === null || value === undefined;
+                  return (
+                    <td
+                      key={column.key}
+                      className={getCellClass(column, value, rowIndex, colIndex)}
+                      onClick={() => setFocusedCell({ row: rowIndex, col: colIndex })}
+                      title={isNull ? 'Not Directly Reported' : undefined}
+                    >
+                      {column.format(value)}
+                    </td>
+                  );
+                })}
               </tr>
             ))}
           </tbody>
