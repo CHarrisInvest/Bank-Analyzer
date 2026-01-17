@@ -354,11 +354,75 @@ body {
   background-color: var(--color-gray-200);
 }
 
+.screener-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.layout-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.layout-toggle-btn:hover {
+  background-color: var(--color-gray-200);
+  border-color: var(--color-gray-400);
+}
+
 .screener-content {
   display: grid;
   grid-template-columns: var(--sidebar-width) 1fr;
   gap: var(--spacing-4);
   align-items: start;
+}
+
+/* Top layout for filters */
+.screener-content.layout-top {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+.screener-content.layout-top .screener-filters {
+  position: relative;
+  top: auto;
+  max-height: none;
+}
+
+.screener-content.layout-top .screener-filters .filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.screener-content.layout-top .filters-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2);
+}
+
+.screener-content.layout-top .filter-section {
+  flex: 0 0 auto;
+  min-width: 180px;
+  max-width: 250px;
+  margin: 0;
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+}
+
+.screener-content.layout-top .filter-section-content {
+  padding: var(--spacing-2);
 }
 
 .screener-filters {
@@ -893,11 +957,6 @@ body {
   line-height: 1.4;
 }
 
-/* Dividend column styling */
-.col-ttmDividendPerShare,
-.col-dividendPayoutRatio {
-  font-family: var(--font-family-mono);
-}
 
 /* --------------------------------------------------------------------------
    Results Table
@@ -1111,6 +1170,19 @@ body {
   white-space: nowrap;
 }
 
+/* Frozen first group header cell (matches frozen first column) */
+.column-group-frozen {
+  position: sticky;
+  left: 0;
+  z-index: 16;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Continuation of split group (no label, just maintains border color) */
+.column-group-continuation {
+  border-left: none;
+}
+
 .results-table th {
   padding: var(--spacing-2) var(--spacing-3);
   font-weight: var(--font-weight-semibold);
@@ -1185,6 +1257,8 @@ body {
   padding: var(--spacing-2) var(--spacing-3);
   border-bottom: 1px solid var(--color-gray-100);
   color: var(--color-gray-800);
+  font-family: var(--font-family-sans);
+  font-variant-numeric: tabular-nums;
 }
 
 /* Alternating row colors for better readability */
@@ -1283,14 +1357,6 @@ body {
   font-weight: var(--font-weight-medium);
 }
 
-.col-price,
-.col-marketCap,
-.col-pni,
-.col-ptbv,
-.col-roe,
-.col-grahamMoS {
-  font-family: var(--font-family-mono);
-}
 
 /* Value-based styling */
 .value-positive {

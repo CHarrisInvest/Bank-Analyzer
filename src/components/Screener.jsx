@@ -97,6 +97,10 @@ function applyRangeFilter(value, filterConfig, multiplier = 1) {
 function Screener({ banks, loading }) {
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const [showFilters, setShowFilters] = useState(true);
+  const [filtersLayout, setFiltersLayout] = useState(() => {
+    // Load from localStorage, default to 'side'
+    return localStorage.getItem('bankAnalyzer_filtersLayout') || 'side';
+  });
 
   /**
    * Get unique exchanges from the data
@@ -264,6 +268,17 @@ function Screener({ banks, loading }) {
   }, []);
 
   /**
+   * Toggle filters layout between side and top
+   */
+  const toggleFiltersLayout = useCallback(() => {
+    setFiltersLayout((prev) => {
+      const newLayout = prev === 'side' ? 'top' : 'side';
+      localStorage.setItem('bankAnalyzer_filtersLayout', newLayout);
+      return newLayout;
+    });
+  }, []);
+
+  /**
    * Check if any filters are active
    */
   const hasActiveFilters = useMemo(() => {
@@ -327,20 +342,40 @@ function Screener({ banks, loading }) {
             </span>
           )}
         </div>
-        <button
-          className="filter-toggle-btn"
-          onClick={toggleFilters}
-          aria-expanded={showFilters}
-          aria-controls="filters-panel"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
-          </svg>
-          <span>{showFilters ? 'Hide Filters' : 'Show Filters'}</span>
-        </button>
+        <div className="screener-toolbar-actions">
+          <button
+            className="layout-toggle-btn"
+            onClick={toggleFiltersLayout}
+            title={filtersLayout === 'side' ? 'Move filters to top' : 'Move filters to side'}
+          >
+            {filtersLayout === 'side' ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <line x1="3" y1="9" x2="21" y2="9" />
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <line x1="9" y1="3" x2="9" y2="21" />
+              </svg>
+            )}
+            <span>{filtersLayout === 'side' ? 'Top' : 'Side'}</span>
+          </button>
+          <button
+            className="filter-toggle-btn"
+            onClick={toggleFilters}
+            aria-expanded={showFilters}
+            aria-controls="filters-panel"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
+            </svg>
+            <span>{showFilters ? 'Hide Filters' : 'Show Filters'}</span>
+          </button>
+        </div>
       </div>
 
-      <div className="screener-content">
+      <div className={`screener-content layout-${filtersLayout}`}>
         <aside
           id="filters-panel"
           className={`screener-filters ${showFilters ? 'visible' : 'hidden'}`}
