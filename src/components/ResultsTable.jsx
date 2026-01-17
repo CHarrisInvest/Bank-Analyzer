@@ -409,6 +409,13 @@ const getDefaultVisibleColumns = () => {
 };
 
 /**
+ * Get default column order (all columns in their original order)
+ */
+const getDefaultColumnOrder = () => {
+  return COLUMNS.map((col) => col.key);
+};
+
+/**
  * Sort indicator component
  */
 function SortIndicator({ direction }) {
@@ -438,7 +445,7 @@ function SortIndicator({ direction }) {
 /**
  * Column visibility toggle dropdown
  */
-function ColumnVisibilityDropdown({ visibleColumns, onToggleColumn, onShowAll, onShowDefault }) {
+function ColumnVisibilityDropdown({ visibleColumns, columnOrder, onToggleColumn, onShowAll, onShowDefault, onResetOrder }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -465,6 +472,12 @@ function ColumnVisibilityDropdown({ visibleColumns, onToggleColumn, onShowAll, o
     return groups;
   }, []);
 
+  // Check if column order has been customized
+  const isOrderCustomized = useMemo(() => {
+    const defaultOrder = getDefaultColumnOrder();
+    return columnOrder.some((key, index) => key !== defaultOrder[index]);
+  }, [columnOrder]);
+
   return (
     <div className="column-visibility-dropdown" ref={dropdownRef}>
       <button
@@ -484,6 +497,12 @@ function ColumnVisibilityDropdown({ visibleColumns, onToggleColumn, onShowAll, o
           <div className="column-visibility-actions">
             <button type="button" onClick={onShowAll}>Show All</button>
             <button type="button" onClick={onShowDefault}>Default</button>
+            {isOrderCustomized && (
+              <button type="button" onClick={onResetOrder} title="Reset column order">Reset Order</button>
+            )}
+          </div>
+          <div className="column-visibility-hint">
+            Drag column headers to reorder
           </div>
           <div className="column-visibility-list">
             {Object.entries(columnsByGroup).map(([groupKey, cols]) => (
@@ -513,8 +532,10 @@ function ColumnVisibilityDropdown({ visibleColumns, onToggleColumn, onShowAll, o
 /**
  * Export data to CSV
  */
-function exportToCSV(banks, visibleColumns) {
-  const columns = COLUMNS.filter((col) => visibleColumns.includes(col.key));
+function exportToCSV(banks, visibleColumns, columnOrder) {
+  // Get columns in the correct order
+  const orderedKeys = columnOrder.filter((key) => visibleColumns.includes(key));
+  const columns = orderedKeys.map((key) => COLUMNS.find((col) => col.key === key)).filter(Boolean);
 
   // Header row
   const headers = columns.map((col) => col.label).join(',');
@@ -568,7 +589,26 @@ function ResultsTable({ banks, loading }) {
     }
     return getDefaultVisibleColumns();
   });
+  const [columnOrder, setColumnOrder] = useState(() => {
+    // Try to load from localStorage
+    const saved = localStorage.getItem('bankAnalyzer_columnOrder');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        // Ensure all columns are present (in case new columns were added)
+        const allKeys = COLUMNS.map((col) => col.key);
+        const validKeys = parsed.filter((key) => allKeys.includes(key));
+        const missingKeys = allKeys.filter((key) => !validKeys.includes(key));
+        return [...validKeys, ...missingKeys];
+      } catch {
+        return getDefaultColumnOrder();
+      }
+    }
+    return getDefaultColumnOrder();
+  });
   const [focusedCell, setFocusedCell] = useState({ row: 0, col: 0 });
+  const [draggedColumn, setDraggedColumn] = useState(null);
+  const [dragOverColumn, setDragOverColumn] = useState(null);
   const tableContainerRef = useRef(null);
   const tableRef = useRef(null);
 
@@ -577,10 +617,16 @@ function ResultsTable({ banks, loading }) {
     localStorage.setItem('bankAnalyzer_visibleColumns', JSON.stringify(visibleColumns));
   }, [visibleColumns]);
 
-  // Get currently visible columns
+  // Save column order to localStorage
+  useEffect(() => {
+    localStorage.setItem('bankAnalyzer_columnOrder', JSON.stringify(columnOrder));
+  }, [columnOrder]);
+
+  // Get currently visible columns in the correct order
   const displayColumns = useMemo(() => {
-    return COLUMNS.filter((col) => visibleColumns.includes(col.key));
-  }, [visibleColumns]);
+    const orderedKeys = columnOrder.filter((key) => visibleColumns.includes(key));
+    return orderedKeys.map((key) => COLUMNS.find((col) => col.key === key)).filter(Boolean);
+  }, [visibleColumns, columnOrder]);
 
   // Calculate column groups for header
   const columnGroupSpans = useMemo(() => {
@@ -693,6 +739,83 @@ function ResultsTable({ banks, loading }) {
    */
   const handleShowDefaultColumns = useCallback(() => {
     setVisibleColumns(getDefaultVisibleColumns());
+  }, []);
+
+  /**
+   * Reset column order to default
+   */
+  const handleResetColumnOrder = useCallback(() => {
+    setColumnOrder(getDefaultColumnOrder());
+  }, []);
+
+  /**
+   * Handle column drag start
+   */
+  const handleDragStart = useCallback((e, columnKey) => {
+    setDraggedColumn(columnKey);
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', columnKey);
+    // Add a slight delay to allow the drag image to be created
+    setTimeout(() => {
+      e.target.classList.add('dragging');
+    }, 0);
+  }, []);
+
+  /**
+   * Handle column drag over
+   */
+  const handleDragOver = useCallback((e, columnKey) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    if (columnKey !== draggedColumn) {
+      setDragOverColumn(columnKey);
+    }
+  }, [draggedColumn]);
+
+  /**
+   * Handle column drag leave
+   */
+  const handleDragLeave = useCallback(() => {
+    setDragOverColumn(null);
+  }, []);
+
+  /**
+   * Handle column drop
+   */
+  const handleDrop = useCallback((e, targetColumnKey) => {
+    e.preventDefault();
+
+    if (!draggedColumn || draggedColumn === targetColumnKey) {
+      setDraggedColumn(null);
+      setDragOverColumn(null);
+      return;
+    }
+
+    setColumnOrder((prevOrder) => {
+      const newOrder = [...prevOrder];
+      const draggedIndex = newOrder.indexOf(draggedColumn);
+      const targetIndex = newOrder.indexOf(targetColumnKey);
+
+      if (draggedIndex === -1 || targetIndex === -1) return prevOrder;
+
+      // Remove the dragged item and insert it at the target position
+      newOrder.splice(draggedIndex, 1);
+      newOrder.splice(targetIndex, 0, draggedColumn);
+
+      return newOrder;
+    });
+
+    setDraggedColumn(null);
+    setDragOverColumn(null);
+  }, [draggedColumn]);
+
+  /**
+   * Handle drag end
+   */
+  const handleDragEnd = useCallback((e) => {
+    e.target.classList.remove('dragging');
+    setDraggedColumn(null);
+    setDragOverColumn(null);
   }, []);
 
   /**
@@ -837,14 +960,16 @@ function ResultsTable({ banks, loading }) {
       <div className="results-table-toolbar">
         <ColumnVisibilityDropdown
           visibleColumns={visibleColumns}
+          columnOrder={columnOrder}
           onToggleColumn={handleToggleColumn}
           onShowAll={handleShowAllColumns}
           onShowDefault={handleShowDefaultColumns}
+          onResetOrder={handleResetColumnOrder}
         />
         <button
           type="button"
           className="export-btn"
-          onClick={() => exportToCSV(sortedBanks, visibleColumns)}
+          onClick={() => exportToCSV(sortedBanks, visibleColumns, columnOrder)}
           title="Export to CSV"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -885,11 +1010,19 @@ function ResultsTable({ banks, loading }) {
                   key={column.key}
                   className={`th-${column.key} align-${column.align} ${
                     column.sortable ? 'sortable' : ''
+                  } ${draggedColumn === column.key ? 'column-dragging' : ''} ${
+                    dragOverColumn === column.key ? 'column-drag-over' : ''
                   }`}
                   onClick={column.sortable ? () => handleSort(column.key) : undefined}
                   role={column.sortable ? 'button' : undefined}
                   tabIndex={column.sortable ? 0 : undefined}
                   title={column.xbrl || column.label}
+                  draggable
+                  onDragStart={(e) => handleDragStart(e, column.key)}
+                  onDragOver={(e) => handleDragOver(e, column.key)}
+                  onDragLeave={handleDragLeave}
+                  onDrop={(e) => handleDrop(e, column.key)}
+                  onDragEnd={handleDragEnd}
                   onKeyDown={
                     column.sortable
                       ? (e) => {
