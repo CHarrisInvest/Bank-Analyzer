@@ -988,7 +988,7 @@ function calculateBankMetrics(bankData) {
       ProvisionForCreditLosses: provisionForCreditLosses,
       PreTaxIncome: preTaxIncome,
       NetIncomeLoss: netIncome,
-      NetIncomeLossAvailableToCommonStockholdersBasic: netIncomeToCommon,
+      NetIncomeLossAvailableToCommonStockholdersBasic: netIncomeToCommonDirect,
       EarningsPerShareBasic: eps
     },
     cashFlow: {
