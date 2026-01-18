@@ -1,12 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { VALUATION_METHODS } from '../data/content/valuations.js';
+import NavigationLink from '../components/NavigationLink.jsx';
 
 /**
  * Valuation Index Page
  * Overview of valuation methodologies for banks
  */
 function ValuationIndex() {
+  const location = useLocation();
+  const incomingState = location.state || {};
+
+  // Restore scroll position when returning via back button
+  useEffect(() => {
+    if (incomingState.restoreScroll && incomingState.scrollY) {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: incomingState.scrollY, behavior: 'instant' });
+      });
+    }
+  }, [incomingState.restoreScroll, incomingState.scrollY]);
+
   return (
     <div className="page valuation-index-page">
       <div className="page-header">
@@ -34,16 +47,18 @@ function ValuationIndex() {
           <h2>Valuation Approaches</h2>
           <div className="methods-grid">
             {VALUATION_METHODS.map(method => (
-              <Link
+              <NavigationLink
                 key={method.slug}
                 to={'/valuation/' + method.slug}
+                state={{ from: 'valuation' }}
                 className="method-card"
+                pageTitle={method.name}
               >
                 <h3>{method.name}</h3>
                 <p className="method-type">{method.type}</p>
                 <p className="method-summary">{method.shortDescription}</p>
                 <span className="method-link">Learn more →</span>
-              </Link>
+              </NavigationLink>
             ))}
           </div>
         </section>

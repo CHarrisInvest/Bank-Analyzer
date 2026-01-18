@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useSearchTracking } from '../analytics/useAnalytics.js';
+import NavigationLink from '../components/NavigationLink.jsx';
 
 /**
  * Bank Search Page
@@ -24,6 +25,16 @@ function Search({ banks = [], loading = false }) {
       setFilterExchange(incomingState.filterExchange);
     }
   }, [incomingState.searchQuery, incomingState.filterExchange]);
+
+  // Restore scroll position when returning via back button
+  useEffect(() => {
+    if (incomingState.restoreScroll && incomingState.scrollY) {
+      // Wait for DOM to update before scrolling
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: incomingState.scrollY, behavior: 'instant' });
+      });
+    }
+  }, [incomingState.restoreScroll, incomingState.scrollY]);
 
   // Get unique exchanges for filter dropdown
   const exchanges = useMemo(() => {
@@ -157,11 +168,12 @@ function Search({ banks = [], loading = false }) {
               </div>
               <div className="results-list">
                 {results.map(bank => (
-                  <Link
+                  <NavigationLink
                     key={bank.cik || bank.ticker}
                     to={'/bank/' + bank.ticker}
                     state={{ from: 'search', searchQuery: query, filterExchange: filterExchange }}
                     className="bank-result-card"
+                    pageTitle={bank.ticker}
                   >
                     <div className="bank-result-header">
                       <span className="bank-ticker">{bank.ticker}</span>
@@ -186,7 +198,7 @@ function Search({ banks = [], loading = false }) {
                         </span>
                       </div>
                     </div>
-                  </Link>
+                  </NavigationLink>
                 ))}
               </div>
             </>

@@ -4,7 +4,7 @@ import { sendPageView } from '../analytics/gtag.js';
 
 /**
  * Back Button Component
- * Navigates back to the originating page while preserving state (filters, search query)
+ * Navigates back to the originating page while preserving state (filters, search query, scroll position)
  * Counts as a new page view for analytics purposes
  */
 function BackButton() {
@@ -14,6 +14,8 @@ function BackButton() {
 
   // Determine the back destination based on where user came from
   const getBackInfo = () => {
+    const scrollY = state.scrollY || 0;
+
     if (state.from === 'search') {
       return {
         path: '/search',
@@ -21,6 +23,8 @@ function BackButton() {
         state: {
           searchQuery: state.searchQuery || '',
           filterExchange: state.filterExchange || '',
+          restoreScroll: true,
+          scrollY: scrollY,
         },
       };
     }
@@ -30,10 +34,82 @@ function BackButton() {
         label: 'Back to Screener',
         state: {
           filters: state.filters || null,
+          restoreScroll: true,
+          scrollY: scrollY,
         },
       };
     }
-    // Default: go to screener without state
+    if (state.from === 'metrics') {
+      return {
+        path: '/metrics',
+        label: 'Back to Metrics',
+        state: {
+          restoreScroll: true,
+          scrollY: scrollY,
+        },
+      };
+    }
+    if (state.from === 'metrics-detail') {
+      return {
+        path: state.returnPath || '/metrics',
+        label: 'Back',
+        state: {
+          restoreScroll: true,
+          scrollY: scrollY,
+        },
+      };
+    }
+    if (state.from === 'valuation') {
+      return {
+        path: '/valuation',
+        label: 'Back to Valuation',
+        state: {
+          restoreScroll: true,
+          scrollY: scrollY,
+        },
+      };
+    }
+    if (state.from === 'valuation-detail') {
+      return {
+        path: state.returnPath || '/valuation',
+        label: 'Back',
+        state: {
+          restoreScroll: true,
+          scrollY: scrollY,
+        },
+      };
+    }
+    if (state.from === 'home') {
+      return {
+        path: '/',
+        label: 'Back to Home',
+        state: {
+          restoreScroll: true,
+          scrollY: scrollY,
+        },
+      };
+    }
+    if (state.from === 'screener-guide') {
+      return {
+        path: '/screener/guide',
+        label: 'Back to Guide',
+        state: {
+          restoreScroll: true,
+          scrollY: scrollY,
+        },
+      };
+    }
+    if (state.from === 'bank-detail') {
+      return {
+        path: state.returnPath || '/screener',
+        label: 'Back',
+        state: {
+          restoreScroll: true,
+          scrollY: scrollY,
+        },
+      };
+    }
+    // Default: go to screener without scroll restore
     return {
       path: '/screener',
       label: 'Back to Screener',
@@ -45,7 +121,7 @@ function BackButton() {
     const backInfo = getBackInfo();
 
     // Track as a new page view (for ad impressions)
-    sendPageView(backInfo.path, backInfo.label.replace('Back to ', ''));
+    sendPageView(backInfo.path, backInfo.label.replace('Back to ', '').replace('Back', 'Previous Page'));
 
     // Navigate with state preserved
     navigate(backInfo.path, {

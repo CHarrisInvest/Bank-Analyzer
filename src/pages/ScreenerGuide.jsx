@@ -1,11 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import NavigationLink from '../components/NavigationLink.jsx';
 
 /**
  * Screener Guide Page
  * Educational content explaining how to use the bank screener effectively
  */
 function ScreenerGuide() {
+  const location = useLocation();
+  const incomingState = location.state || {};
+
+  // Restore scroll position when returning via back button
+  useEffect(() => {
+    if (incomingState.restoreScroll && incomingState.scrollY) {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: incomingState.scrollY, behavior: 'instant' });
+      });
+    }
+  }, [incomingState.restoreScroll, incomingState.scrollY]);
+
   return (
     <div className="page guide-page">
       <div className="page-header">
@@ -66,7 +79,13 @@ function ScreenerGuide() {
               excessive leverage.
             </p>
             <p><strong>Typical range for banks:</strong> 8% to 15%</p>
-            <Link to="/metrics/roe">Learn more about ROE →</Link>
+            <NavigationLink
+              to="/metrics/roe"
+              state={{ from: 'screener-guide' }}
+              pageTitle="ROE"
+            >
+              Learn more about ROE →
+            </NavigationLink>
           </div>
 
           <div className="metric-explanation">
@@ -77,7 +96,13 @@ function ScreenerGuide() {
               (Net Interest Income + Non-Interest Income). Lower is better.
             </p>
             <p><strong>Typical range for banks:</strong> 50% to 70%</p>
-            <Link to="/metrics/efficiency-ratio">Learn more about Efficiency Ratio →</Link>
+            <NavigationLink
+              to="/metrics/efficiency-ratio"
+              state={{ from: 'screener-guide' }}
+              pageTitle="Efficiency Ratio"
+            >
+              Learn more about Efficiency Ratio →
+            </NavigationLink>
           </div>
 
           <div className="metric-explanation">
@@ -88,7 +113,13 @@ function ScreenerGuide() {
               above 2.0x are typically considered expensive.
             </p>
             <p><strong>Typical range for banks:</strong> 0.8x to 2.0x</p>
-            <Link to="/metrics/price-to-book">Learn more about Price to Book →</Link>
+            <NavigationLink
+              to="/metrics/price-to-book"
+              state={{ from: 'screener-guide' }}
+              pageTitle="Price to Book"
+            >
+              Learn more about Price to Book →
+            </NavigationLink>
           </div>
 
           <div className="metric-explanation">
@@ -98,7 +129,13 @@ function ScreenerGuide() {
               maximum fair price for a stock based on earnings and book value. The formula
               is: √(22.5 × EPS × Book Value Per Share).
             </p>
-            <Link to="/valuation/graham-number">Learn more about Graham Number →</Link>
+            <NavigationLink
+              to="/valuation/graham-number"
+              state={{ from: 'screener-guide' }}
+              pageTitle="Graham Number"
+            >
+              Learn more about Graham Number →
+            </NavigationLink>
           </div>
         </section>
 

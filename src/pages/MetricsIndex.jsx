@@ -1,12 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { METRICS } from '../data/content/metrics.js';
+import NavigationLink from '../components/NavigationLink.jsx';
 
 /**
  * Metrics Index Page
  * Overview of all financial metrics with links to detailed explanations
  */
 function MetricsIndex() {
+  const location = useLocation();
+  const incomingState = location.state || {};
+
+  // Restore scroll position when returning via back button
+  useEffect(() => {
+    if (incomingState.restoreScroll && incomingState.scrollY) {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: incomingState.scrollY, behavior: 'instant' });
+      });
+    }
+  }, [incomingState.restoreScroll, incomingState.scrollY]);
+
   // Group metrics by category
   const categories = {
     profitability: {
@@ -55,16 +68,18 @@ function MetricsIndex() {
 
             <div className="metrics-grid">
               {category.metrics.map(metric => (
-                <Link
+                <NavigationLink
                   key={metric.slug}
                   to={'/metrics/' + metric.slug}
+                  state={{ from: 'metrics' }}
                   className="metric-card"
+                  pageTitle={metric.name}
                 >
                   <h3>{metric.name}</h3>
                   <p className="metric-formula">{metric.formula}</p>
                   <p className="metric-summary">{metric.shortDescription}</p>
                   <span className="metric-link">Learn more →</span>
-                </Link>
+                </NavigationLink>
               ))}
             </div>
           </section>

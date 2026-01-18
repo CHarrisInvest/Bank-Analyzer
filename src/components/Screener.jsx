@@ -150,6 +150,16 @@ function Screener({ banks, loading }) {
     }
   }, [incomingState.filters]);
 
+  // Restore scroll position when returning via back button
+  useEffect(() => {
+    if (incomingState.restoreScroll && incomingState.scrollY) {
+      // Wait for DOM to update before scrolling
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: incomingState.scrollY, behavior: 'instant' });
+      });
+    }
+  }, [incomingState.restoreScroll, incomingState.scrollY]);
+
   /**
    * Get unique exchanges from the data
    */
