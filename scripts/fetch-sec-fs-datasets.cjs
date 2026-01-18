@@ -166,6 +166,10 @@ function loadBankList() {
 /**
  * Process presentation data (pre.txt) to get statement structure
  * This is the KEY to "as reported on the face" presentation
+ *
+ * IMPORTANT: Each filing can have multiple "reports" (e.g., main balance sheet,
+ * parenthetical disclosures, schedules). We need to select only the PRIMARY
+ * consolidated financial statement report for each statement type.
  */
 async function processPresentation(extractDir, bankAdshs) {
   const prePath = path.join(extractDir, 'pre.txt');
@@ -184,35 +188,102 @@ async function processPresentation(extractDir, bankAdshs) {
 
   console.log(`    Found ${preData.length} presentation entries for banks`);
 
-  // Organize by adsh -> stmt -> ordered items
-  const presentations = new Map();
+  // First pass: Group by adsh -> stmt -> report -> items
+  const rawPresentations = new Map();
 
   for (const row of preData) {
-    const { adsh, stmt, tag, version, line, plabel, negating, inpth } = row;
+    const { adsh, stmt, report, tag, version, line, plabel, negating, inpth } = row;
 
     // Only process Balance Sheet (BS) and Income Statement (IS)
     if (!['BS', 'IS'].includes(stmt)) continue;
 
-    if (!presentations.has(adsh)) {
-      presentations.set(adsh, { BS: [], IS: [] });
+    // CRITICAL: inpth=1 means "in parenthetical" - these are parenthetical disclosures
+    // like "Common stock, par value per share" that should NOT be in the main statement
+    // Per SEC docs: "Indicates whether the value was presented parenthetically
+    // instead of in columns within the financial statements"
+    const isParenthetical = inpth === '1' || inpth === 1;
+    if (isParenthetical) {
+      continue; // Skip parenthetical items - they're not main statement line items
     }
 
-    const stmtData = presentations.get(adsh);
+    if (!rawPresentations.has(adsh)) {
+      rawPresentations.set(adsh, { BS: new Map(), IS: new Map() });
+    }
 
-    stmtData[stmt].push({
+    const stmtData = rawPresentations.get(adsh);
+    const reportNum = parseInt(report) || 1;
+
+    if (!stmtData[stmt].has(reportNum)) {
+      stmtData[stmt].set(reportNum, []);
+    }
+
+    stmtData[stmt].get(reportNum).push({
       tag,
-      version,
+      version, // Needed for joining to NUM (per SEC docs: PRE references NUM via adsh,tag,version)
+      report: reportNum,
       line: parseInt(line) || 0,
       label: plabel || tag,  // plabel is company's preferred label
       negating: negating === '1',
-      indent: parseInt(inpth) || 0,
+      indent: 0, // Note: pre.txt doesn't have indent info; hierarchy inferred from structure
     });
   }
 
-  // Sort each statement by line number (presentation order)
-  for (const [adsh, stmts] of presentations) {
-    stmts.BS.sort((a, b) => a.line - b.line);
-    stmts.IS.sort((a, b) => a.line - b.line);
+  // Second pass: Select the primary report for each statement type
+  // The primary report is typically the one with:
+  // 1. The most line items (main consolidated statement, not a schedule)
+  // 2. Contains key totals like "Assets" or "NetIncomeLoss"
+  const presentations = new Map();
+
+  for (const [adsh, stmts] of rawPresentations) {
+    presentations.set(adsh, { BS: [], IS: [] });
+    const result = presentations.get(adsh);
+
+    for (const stmtType of ['BS', 'IS']) {
+      const reportMap = stmts[stmtType];
+      if (reportMap.size === 0) continue;
+
+      // Find the best report for this statement type
+      let bestReport = null;
+      let bestScore = -1;
+
+      for (const [reportNum, items] of reportMap) {
+        // Score based on:
+        // 1. Number of items (more items = main statement, not a schedule)
+        // 2. Presence of key line items
+        let score = items.length;
+
+        // Bonus for having key totals
+        const tags = new Set(items.map(i => i.tag));
+        if (stmtType === 'BS') {
+          if (tags.has('Assets')) score += 100;
+          if (tags.has('Liabilities')) score += 50;
+          if (tags.has('StockholdersEquity')) score += 50;
+          if (tags.has('LiabilitiesAndStockholdersEquity')) score += 50;
+          if (tags.has('CashAndCashEquivalentsAtCarryingValue')) score += 25;
+          if (tags.has('CashAndDueFromBanks')) score += 25;
+        } else if (stmtType === 'IS') {
+          if (tags.has('NetIncomeLoss')) score += 100;
+          if (tags.has('InterestIncome')) score += 50;
+          if (tags.has('InterestExpense')) score += 50;
+          if (tags.has('NoninterestIncome')) score += 25;
+          if (tags.has('NoninterestExpense')) score += 25;
+        }
+
+        // Prefer lower report numbers (typically report 1 or 2 is the main statement)
+        score -= reportNum * 2;
+
+        if (score > bestScore) {
+          bestScore = score;
+          bestReport = items;
+        }
+      }
+
+      if (bestReport) {
+        // Sort by line number within the selected report
+        result[stmtType] = bestReport.sort((a, b) => a.line - b.line);
+        verboseLog(`    ${adsh} ${stmtType}: Selected report with ${bestReport.length} items (score: ${bestScore})`);
+      }
+    }
   }
 
   return presentations;
@@ -247,11 +318,15 @@ async function processQuarterlyDataset(datasetInfo, bankCiks) {
   const subData = await parseTsvFile(path.join(extractDir, 'sub.txt'));
   console.log(`    Found ${subData.length} submissions`);
 
+  // Filter to bank submissions, excluding amended filings (prevrpt=1)
+  // Per SEC docs: "prevrpt=TRUE indicates the submission was subsequently amended"
   const bankSubmissions = subData.filter(sub => {
     const cik = sub.cik?.padStart(10, '0');
-    return bankCiks.has(cik);
+    const isBank = bankCiks.has(cik);
+    const isAmended = sub.prevrpt === '1' || sub.prevrpt === 1;
+    return isBank && !isAmended;
   });
-  console.log(`    Matched ${bankSubmissions.length} bank submissions`);
+  console.log(`    Matched ${bankSubmissions.length} bank submissions (excluding amended)`);
 
   const bankAdshs = new Set(bankSubmissions.map(s => s.adsh));
 
@@ -362,6 +437,7 @@ function aggregateBankData(quarterlyResults, bankList) {
         period: item.period,
         uom: item.uom,
         adsh: item.adsh,
+        version: item.version, // Needed for PRE-to-NUM joining per SEC docs
       });
     });
 
@@ -589,9 +665,18 @@ function buildHistoricalStatements(bankData) {
         }
 
         // Find value for this filing
-        const match = conceptData.find(d =>
-          d.adsh === filing.adsh && d.qtrs === targetQtrs
+        // Per SEC docs: PRE references NUM via adsh + tag + version
+        // First try exact match with version, then fall back to adsh-only match
+        const version = canonicalItem.version;
+        let match = conceptData.find(d =>
+          d.adsh === filing.adsh && d.qtrs === targetQtrs && d.version === version
         );
+        // Fallback: if no version match, try without version (some older data may not align perfectly)
+        if (!match && version) {
+          match = conceptData.find(d =>
+            d.adsh === filing.adsh && d.qtrs === targetQtrs
+          );
+        }
 
         // Use filing-specific label if available, otherwise canonical
         const label = filingPres?.label || canonicalItem.label;
