@@ -534,16 +534,31 @@ function getLatestPointInTime(conceptData) {
 }
 
 /**
- * Get the average of point-in-time values (FFIEC 5-point average)
+ * Get the average of point-in-time values (FFIEC 5-point average methodology)
+ *
+ * FFIEC Average Methodology:
+ * - Uses 5 quarter-end balances: current + 4 prior quarter-ends
+ * - This spans approximately 12 months, aligning with TTM income calculations
+ * - Provides a more stable denominator for return ratios (ROE, ROAA)
+ *
+ * @param {Array} conceptData - Array of concept values with ddate, qtrs, form, value
+ * @param {string} asOfDate - Optional reference date (YYYYMMDD) to align average with TTM period
+ * @returns {Object} Average calculation result with metadata
  */
-function getAveragePointInTime(conceptData) {
+function getAveragePointInTime(conceptData, asOfDate = null) {
   if (!conceptData || conceptData.length === 0) return null;
 
-  const pointInTime = conceptData
+  let pointInTime = conceptData
     .filter(d => d.qtrs === 0 && (d.form === '10-K' || d.form === '10-Q'))
     .sort((a, b) => b.ddate.localeCompare(a.ddate));
 
   if (pointInTime.length === 0) return null;
+
+  // If asOfDate provided, only include periods up to that date for alignment with TTM
+  if (asOfDate) {
+    pointInTime = pointInTime.filter(d => d.ddate <= asOfDate);
+    if (pointInTime.length === 0) return null;
+  }
 
   const ending = pointInTime[0];
 
@@ -557,6 +572,7 @@ function getAveragePointInTime(conceptData) {
     };
   }
 
+  // FFIEC 5-point average: current quarter-end + 4 prior quarter-ends
   const periodsToUse = pointInTime.slice(0, 5);
   const sum = periodsToUse.reduce((acc, d) => acc + d.value, 0);
   const average = sum / periodsToUse.length;
@@ -565,13 +581,22 @@ function getAveragePointInTime(conceptData) {
     average,
     ending: ending.value,
     endingDate: ending.ddate,
+    startingDate: periodsToUse[periodsToUse.length - 1].ddate,
     method: periodsToUse.length >= 5 ? '5-point-avg' : `${periodsToUse.length}-point-avg`,
     periodCount: periodsToUse.length,
   };
 }
 
 /**
- * Get TTM (Trailing Twelve Months) value
+ * Get TTM (Trailing Twelve Months) value with Q4 derivation support
+ *
+ * Rules (in priority order):
+ * 1. Sum-4Q: If 4+ quarterly values (qtrs=1) available, sum the 4 most recent
+ * 2. Q4-Derived: If we have annual (qtrs=4) + Q1+Q2+Q3 for same fiscal year,
+ *    derive Q4 = annual - Q1 - Q2 - Q3, then sum all 4 quarters
+ * 3. Annual-Fallback: Use the most recent annual value (qtrs=4)
+ *
+ * This aligns screener metrics with the Q4 derivation logic used in detail pages.
  */
 function getTTMValue(conceptData) {
   if (!conceptData || conceptData.length === 0) return null;
@@ -585,7 +610,7 @@ function getTTMValue(conceptData) {
   const quarterlyValues = sorted.filter(d => d.qtrs === 1);
   const annualValues = sorted.filter(d => d.qtrs === 4);
 
-  // Rule A: Quarterly-first - sum 4 quarters if available
+  // Rule 1: Sum-4Q - If 4+ quarterly values available, sum the top 4
   if (quarterlyValues.length >= 4) {
     const topQuarters = quarterlyValues.slice(0, 4);
     const ttmValue = topQuarters.reduce((sum, q) => sum + q.value, 0);
@@ -597,11 +622,57 @@ function getTTMValue(conceptData) {
     };
   }
 
-  // Rule B: Annual fallback
+  // Rule 2: Q4-Derived - Try to derive Q4 from annual - Q1 - Q2 - Q3
+  // This is critical when we have Q1-Q3 10-Qs and a 10-K but no separate Q4 filing
+  if (annualValues.length > 0 && quarterlyValues.length >= 1) {
+    // Group quarterly values by fiscal year
+    const quartersByFY = new Map();
+    for (const q of quarterlyValues) {
+      if (!q.fy) continue;
+      if (!quartersByFY.has(q.fy)) {
+        quartersByFY.set(q.fy, { Q1: null, Q2: null, Q3: null });
+      }
+      const fp = q.fp; // Q1, Q2, Q3
+      if (fp && ['Q1', 'Q2', 'Q3'].includes(fp)) {
+        quartersByFY.get(q.fy)[fp] = q;
+      }
+    }
+
+    // Find an annual value where we can derive Q4
+    for (const annual of annualValues) {
+      const fy = annual.fy;
+      const fyQuarters = quartersByFY.get(fy);
+
+      if (fyQuarters && fyQuarters.Q1 && fyQuarters.Q2 && fyQuarters.Q3) {
+        // We have annual + Q1 + Q2 + Q3 for this fiscal year - derive Q4
+        const q1Value = fyQuarters.Q1.value;
+        const q2Value = fyQuarters.Q2.value;
+        const q3Value = fyQuarters.Q3.value;
+        const annualValue = annual.value;
+
+        const derivedQ4 = annualValue - q1Value - q2Value - q3Value;
+
+        // Sum all 4 quarters (3 reported + 1 derived)
+        const ttmValue = q1Value + q2Value + q3Value + derivedQ4;
+
+        return {
+          value: ttmValue,
+          date: annual.ddate, // Use annual date as the TTM end date
+          method: 'sum-4Q-derived',
+          form: '10-Q+10-Q+10-Q+10-K(derived)',
+          derivedQ4: derivedQ4,
+          fiscalYear: fy,
+        };
+      }
+    }
+  }
+
+  // Rule 3: Annual-Fallback - Use the most recent annual value
   if (annualValues.length > 0) {
     const mostRecentAnnual = annualValues[0];
     const mostRecentQuarter = quarterlyValues.length > 0 ? quarterlyValues[0] : null;
 
+    // Only use annual if it's as recent as or more recent than quarterly data
     if (!mostRecentQuarter || mostRecentAnnual.ddate >= mostRecentQuarter.ddate) {
       return {
         value: mostRecentAnnual.value,
@@ -1019,12 +1090,20 @@ function calculateBankMetrics(bankData) {
                  getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
   const sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']);
 
-  // Averages for Return Ratios
-  const avgAssets = getAveragePointInTime(concepts['Assets']);
-  const avgEquity = getAveragePointInTime(concepts['StockholdersEquity']) ||
-                    getAveragePointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
+  // Income Statement (TTM) - Calculate first to get TTM date for averaging alignment
+  const netIncome = getTTMValue(concepts['NetIncomeLoss']) ||
+                    getTTMValue(concepts['ProfitLoss']) ||
+                    getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
 
-  // Income Statement (TTM)
+  // Get TTM end date to align averaging period with income period
+  const ttmEndDate = netIncome?.date || null;
+
+  // Averages for Return Ratios (aligned with TTM period using FFIEC 5-point methodology)
+  const avgAssets = getAveragePointInTime(concepts['Assets'], ttmEndDate);
+  const avgEquity = getAveragePointInTime(concepts['StockholdersEquity'], ttmEndDate) ||
+                    getAveragePointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest'], ttmEndDate);
+
+  // Income Statement (TTM) - remaining items
   const interestIncome = getTTMValue(concepts['InterestIncome']) ||
                          getTTMValue(concepts['InterestAndDividendIncomeOperating']);
   const interestExpense = getTTMValue(concepts['InterestExpense']);
@@ -1038,9 +1117,7 @@ function calculateBankMetrics(bankData) {
                                     getTTMValue(concepts['ProvisionForCreditLosses']);
   const preTaxIncome = getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest']) ||
                        getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxes']);
-  const netIncome = getTTMValue(concepts['NetIncomeLoss']) ||
-                    getTTMValue(concepts['ProfitLoss']) ||
-                    getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
+  // netIncome already calculated above for TTM date alignment
   const eps = getTTMValue(concepts['EarningsPerShareBasic']) ||
               getTTMValue(concepts['EarningsPerShareDiluted']);
   const dps = getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
