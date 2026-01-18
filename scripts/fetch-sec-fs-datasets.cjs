@@ -594,9 +594,9 @@ function getAveragePointInTime(conceptData, asOfDate = null) {
  * 1. Sum-4Q: If 4+ quarterly values (qtrs=1) available, sum the 4 most recent
  * 2. Q4-Derived: If we have annual (qtrs=4) + Q1+Q2+Q3 for same fiscal year,
  *    derive Q4 = annual - Q1 - Q2 - Q3, then sum all 4 quarters
- * 3. Annual-Fallback: Use the most recent annual value (qtrs=4)
  *
- * This aligns screener metrics with the Q4 derivation logic used in detail pages.
+ * Returns null if neither condition is met (no annual fallback).
+ * This ensures TTM values are always based on quarterly granularity.
  */
 function getTTMValue(conceptData) {
   if (!conceptData || conceptData.length === 0) return null;
@@ -667,22 +667,7 @@ function getTTMValue(conceptData) {
     }
   }
 
-  // Rule 3: Annual-Fallback - Use the most recent annual value
-  if (annualValues.length > 0) {
-    const mostRecentAnnual = annualValues[0];
-    const mostRecentQuarter = quarterlyValues.length > 0 ? quarterlyValues[0] : null;
-
-    // Only use annual if it's as recent as or more recent than quarterly data
-    if (!mostRecentQuarter || mostRecentAnnual.ddate >= mostRecentQuarter.ddate) {
-      return {
-        value: mostRecentAnnual.value,
-        date: mostRecentAnnual.ddate,
-        method: quarterlyValues.length === 0 ? 'annual' : 'annual-fallback',
-        form: mostRecentAnnual.form,
-      };
-    }
-  }
-
+  // No valid TTM calculation possible without quarterly data
   return null;
 }
 
