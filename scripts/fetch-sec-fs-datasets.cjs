@@ -219,7 +219,7 @@ async function processPresentation(extractDir, bankAdshs) {
 
     stmtData[stmt].get(reportNum).push({
       tag,
-      version,
+      version, // Needed for joining to NUM (per SEC docs: PRE references NUM via adsh,tag,version)
       report: reportNum,
       line: parseInt(line) || 0,
       label: plabel || tag,  // plabel is company's preferred label
@@ -318,11 +318,15 @@ async function processQuarterlyDataset(datasetInfo, bankCiks) {
   const subData = await parseTsvFile(path.join(extractDir, 'sub.txt'));
   console.log(`    Found ${subData.length} submissions`);
 
+  // Filter to bank submissions, excluding amended filings (prevrpt=1)
+  // Per SEC docs: "prevrpt=TRUE indicates the submission was subsequently amended"
   const bankSubmissions = subData.filter(sub => {
     const cik = sub.cik?.padStart(10, '0');
-    return bankCiks.has(cik);
+    const isBank = bankCiks.has(cik);
+    const isAmended = sub.prevrpt === '1' || sub.prevrpt === 1;
+    return isBank && !isAmended;
   });
-  console.log(`    Matched ${bankSubmissions.length} bank submissions`);
+  console.log(`    Matched ${bankSubmissions.length} bank submissions (excluding amended)`);
 
   const bankAdshs = new Set(bankSubmissions.map(s => s.adsh));
 
@@ -433,6 +437,7 @@ function aggregateBankData(quarterlyResults, bankList) {
         period: item.period,
         uom: item.uom,
         adsh: item.adsh,
+        version: item.version, // Needed for PRE-to-NUM joining per SEC docs
       });
     });
 
@@ -660,9 +665,18 @@ function buildHistoricalStatements(bankData) {
         }
 
         // Find value for this filing
-        const match = conceptData.find(d =>
-          d.adsh === filing.adsh && d.qtrs === targetQtrs
+        // Per SEC docs: PRE references NUM via adsh + tag + version
+        // First try exact match with version, then fall back to adsh-only match
+        const version = canonicalItem.version;
+        let match = conceptData.find(d =>
+          d.adsh === filing.adsh && d.qtrs === targetQtrs && d.version === version
         );
+        // Fallback: if no version match, try without version (some older data may not align perfectly)
+        if (!match && version) {
+          match = conceptData.find(d =>
+            d.adsh === filing.adsh && d.qtrs === targetQtrs
+          );
+        }
 
         // Use filing-specific label if available, otherwise canonical
         const label = filingPres?.label || canonicalItem.label;
