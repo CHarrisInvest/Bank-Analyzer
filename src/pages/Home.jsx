@@ -227,7 +227,7 @@ function Home() {
         <div className="data-info">
           <div className="data-point">
             <DatabaseIcon />
-            <span className="data-value">339+</span>
+            <span className="data-value">300+</span>
             <span className="data-label">Banks Tracked</span>
           </div>
           <div className="data-point">
