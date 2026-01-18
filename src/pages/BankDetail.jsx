@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import { trackBankViewed, trackBankTabChanged } from '../analytics/events.js';
+import BackButton from '../components/BackButton.jsx';
 
 /**
  * Bank Detail Page
@@ -102,6 +103,9 @@ function BankDetail({ banks = [], rawData = null, loading = false }) {
 
   return (
     <div className="page bank-detail-page">
+      {/* Back Button */}
+      <BackButton />
+
       {/* Header */}
       <div className="bank-header">
         <div className="bank-header-main">

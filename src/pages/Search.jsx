@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSearchTracking } from '../analytics/useAnalytics.js';
 
 /**
@@ -7,9 +7,23 @@ import { useSearchTracking } from '../analytics/useAnalytics.js';
  * Quick lookup for banks by ticker, name, state, or exchange
  */
 function Search({ banks = [], loading = false }) {
-  const [query, setQuery] = useState('');
-  const [filterExchange, setFilterExchange] = useState('');
+  const location = useLocation();
+  const incomingState = location.state || {};
+
+  // Initialize state from location state (when returning via back button) or defaults
+  const [query, setQuery] = useState(incomingState.searchQuery || '');
+  const [filterExchange, setFilterExchange] = useState(incomingState.filterExchange || '');
   const trackSearch = useSearchTracking();
+
+  // Restore state when navigating back
+  useEffect(() => {
+    if (incomingState.searchQuery !== undefined) {
+      setQuery(incomingState.searchQuery);
+    }
+    if (incomingState.filterExchange !== undefined) {
+      setFilterExchange(incomingState.filterExchange);
+    }
+  }, [incomingState.searchQuery, incomingState.filterExchange]);
 
   // Get unique exchanges for filter dropdown
   const exchanges = useMemo(() => {
@@ -146,6 +160,7 @@ function Search({ banks = [], loading = false }) {
                   <Link
                     key={bank.cik || bank.ticker}
                     to={'/bank/' + bank.ticker}
+                    state={{ from: 'search', searchQuery: query, filterExchange: filterExchange }}
                     className="bank-result-card"
                   >
                     <div className="bank-result-header">

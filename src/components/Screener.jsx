@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import Filters from './Filters.jsx';
 import ResultsTable from './ResultsTable.jsx';
 import { getUniqueExchanges } from '../data/sheets.js';
@@ -122,7 +123,17 @@ function applyRangeFilter(value, filterConfig, multiplier = 1) {
  * Main screening interface combining filters and results table
  */
 function Screener({ banks, loading }) {
-  const [filters, setFilters] = useState(DEFAULT_FILTERS);
+  const location = useLocation();
+  const incomingState = location.state || {};
+
+  // Initialize filters from location state (when returning via back button) or defaults
+  const [filters, setFilters] = useState(() => {
+    if (incomingState.filters) {
+      return { ...DEFAULT_FILTERS, ...incomingState.filters };
+    }
+    return DEFAULT_FILTERS;
+  });
+
   const [filtersLayout, setFiltersLayout] = useState(() => {
     // Load from localStorage, default to 'side'
     return localStorage.getItem('bankAnalyzer_filtersLayout') || 'side';
@@ -131,6 +142,13 @@ function Screener({ banks, loading }) {
   // Refs for tracking debounce
   const searchTrackingTimeout = useRef(null);
   const previousExchanges = useRef([]);
+
+  // Restore filters when navigating back with state
+  useEffect(() => {
+    if (incomingState.filters) {
+      setFilters({ ...DEFAULT_FILTERS, ...incomingState.filters });
+    }
+  }, [incomingState.filters]);
 
   /**
    * Get unique exchanges from the data
