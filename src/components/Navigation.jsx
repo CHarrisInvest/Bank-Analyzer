@@ -201,97 +201,79 @@ function Navigation() {
 
         {/* Navigation links */}
         <div className={`nav-links ${mobileMenuOpen ? 'nav-links-open' : ''}`}>
-          {/* Search */}
-          <Link
-            to="/search"
-            className={`nav-link ${isActive('/search') ? 'nav-link-active' : ''}`}
-            onClick={() => handleNavClick('search')}
-          >
-            <SearchIcon />
-            <span>Search</span>
-          </Link>
-
-          {/* Screener */}
-          <Link
-            to="/screener"
-            className={`nav-link ${isActive('/screener') && !location.pathname.includes('/guide') ? 'nav-link-active' : ''}`}
-            onClick={() => handleNavClick('screener')}
-          >
-            <ScreenerIcon />
-            <span>Screener</span>
-          </Link>
-
-          {/* Learn Dropdown */}
-          <div
-            className={`nav-dropdown ${activeDropdown === 'learn' ? 'nav-dropdown-open' : ''}`}
-            onMouseEnter={() => handleDropdownEnter('learn')}
-            onMouseLeave={handleDropdownLeave}
-          >
-            <button
-              className={`nav-link nav-dropdown-toggle ${isActive('/screener/guide') || isActive('/metrics') || isActive('/valuation') ? 'nav-link-active' : ''}`}
-              onClick={() => setActiveDropdown(activeDropdown === 'learn' ? null : 'learn')}
-              aria-expanded={activeDropdown === 'learn'}
-              aria-haspopup="true"
-            >
-              <BookIcon />
-              <span>Learn</span>
-              <ChevronIcon />
-            </button>
-            <div className="nav-dropdown-menu">
+          {/* Research Section */}
+          <div className="nav-section">
+            <span className="nav-section-header">Research</span>
+            <div className="nav-section-items">
               <Link
-                to="/screener/guide"
-                className="nav-dropdown-item"
-                onClick={() => handleNavClick('screener-guide')}
+                to="/search"
+                className={`nav-link ${isActive('/search') ? 'nav-link-active' : ''}`}
+                onClick={() => handleNavClick('search')}
               >
-                Screener Guide
+                <SearchIcon />
+                <span>Search</span>
               </Link>
               <Link
-                to="/metrics"
-                className="nav-dropdown-item"
-                onClick={() => handleNavClick('metrics')}
+                to="/screener"
+                className={`nav-link ${isActive('/screener') && !location.pathname.includes('/guide') ? 'nav-link-active' : ''}`}
+                onClick={() => handleNavClick('screener')}
               >
-                Metrics & Ratios
-              </Link>
-              <Link
-                to="/valuation"
-                className="nav-dropdown-item"
-                onClick={() => handleNavClick('valuation')}
-              >
-                Valuation Methods
+                <ScreenerIcon />
+                <span>Screener</span>
               </Link>
             </div>
           </div>
 
-          {/* About Dropdown */}
-          <div
-            className={`nav-dropdown ${activeDropdown === 'about' ? 'nav-dropdown-open' : ''}`}
-            onMouseEnter={() => handleDropdownEnter('about')}
-            onMouseLeave={handleDropdownLeave}
-          >
-            <button
-              className={`nav-link nav-dropdown-toggle ${isActive('/privacy') || isActive('/terms') ? 'nav-link-active' : ''}`}
-              onClick={() => setActiveDropdown(activeDropdown === 'about' ? null : 'about')}
-              aria-expanded={activeDropdown === 'about'}
-              aria-haspopup="true"
-            >
-              <InfoIcon />
-              <span>About</span>
-              <ChevronIcon />
-            </button>
-            <div className="nav-dropdown-menu">
+          {/* Learn Section */}
+          <div className="nav-section">
+            <span className="nav-section-header">Learn</span>
+            <div className="nav-section-items">
+              <Link
+                to="/screener/guide"
+                className={`nav-link ${isActive('/screener/guide') ? 'nav-link-active' : ''}`}
+                onClick={() => handleNavClick('screener-guide')}
+              >
+                <BookIcon />
+                <span>Screener Guide</span>
+              </Link>
+              <Link
+                to="/metrics"
+                className={`nav-link ${isActive('/metrics') ? 'nav-link-active' : ''}`}
+                onClick={() => handleNavClick('metrics')}
+              >
+                <BookIcon />
+                <span>Metrics & Ratios</span>
+              </Link>
+              <Link
+                to="/valuation"
+                className={`nav-link ${isActive('/valuation') ? 'nav-link-active' : ''}`}
+                onClick={() => handleNavClick('valuation')}
+              >
+                <BookIcon />
+                <span>Valuation</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* About Section */}
+          <div className="nav-section">
+            <span className="nav-section-header">About</span>
+            <div className="nav-section-items">
               <Link
                 to="/privacy"
-                className="nav-dropdown-item"
+                className={`nav-link ${isActive('/privacy') ? 'nav-link-active' : ''}`}
                 onClick={() => handleNavClick('privacy')}
               >
-                Privacy Policy
+                <InfoIcon />
+                <span>Privacy Policy</span>
               </Link>
               <Link
                 to="/terms"
-                className="nav-dropdown-item"
+                className={`nav-link ${isActive('/terms') ? 'nav-link-active' : ''}`}
                 onClick={() => handleNavClick('terms')}
               >
-                Terms of Service
+                <InfoIcon />
+                <span>Terms of Service</span>
               </Link>
             </div>
           </div>
