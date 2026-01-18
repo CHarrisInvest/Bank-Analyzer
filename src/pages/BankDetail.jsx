@@ -1,27 +1,53 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import { trackBankViewed, trackBankTabChanged } from '../analytics/events.js';
+import { fetchBankRawData } from '../data/sheets.js';
 import BackButton from '../components/BackButton.jsx';
 
 /**
  * Bank Detail Page
  * Shows comprehensive information about a single bank with tabs
  */
-function BankDetail({ banks = [], rawData = null, loading = false }) {
+function BankDetail({ banks = [], loading = false }) {
   const { ticker } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const activeTab = searchParams.get('tab') || 'overview';
+
+  // State for on-demand raw data loading
+  const [bankRawData, setBankRawData] = useState(null);
+  const [rawDataLoading, setRawDataLoading] = useState(false);
 
   // Find the bank by ticker
   const bank = useMemo(() => {
     return banks.find(b => b.ticker?.toUpperCase() === ticker?.toUpperCase());
   }, [banks, ticker]);
 
-  // Find raw data for this bank
-  const bankRawData = useMemo(() => {
-    if (!rawData?.banks || !bank?.cik) return null;
-    return rawData.banks[bank.cik]?.rawData || null;
-  }, [rawData, bank]);
+  // Fetch raw data for this bank on-demand
+  useEffect(() => {
+    if (!bank?.cik) {
+      setBankRawData(null);
+      return;
+    }
+
+    const loadBankRawData = async () => {
+      setRawDataLoading(true);
+      try {
+        const result = await fetchBankRawData(bank.cik);
+        if (result.success && result.data) {
+          setBankRawData(result.data.rawData || null);
+        } else {
+          setBankRawData(null);
+        }
+      } catch (err) {
+        console.warn('Error loading bank raw data:', err);
+        setBankRawData(null);
+      } finally {
+        setRawDataLoading(false);
+      }
+    };
+
+    loadBankRawData();
+  }, [bank?.cik]);
 
   // Track page view
   useEffect(() => {
@@ -144,10 +170,10 @@ function BankDetail({ banks = [], rawData = null, loading = false }) {
           <RatiosTab bank={bank} formatCurrency={formatCurrency} formatPercent={formatPercent} formatNumber={formatNumber} />
         )}
         {activeTab === 'balance-sheet' && (
-          <BalanceSheetTab bank={bank} rawData={bankRawData} formatCurrency={formatCurrency} formatDate={formatDate} />
+          <BalanceSheetTab bank={bank} rawData={bankRawData} rawDataLoading={rawDataLoading} formatCurrency={formatCurrency} formatDate={formatDate} />
         )}
         {activeTab === 'income-statement' && (
-          <IncomeStatementTab bank={bank} rawData={bankRawData} formatCurrency={formatCurrency} formatDate={formatDate} />
+          <IncomeStatementTab bank={bank} rawData={bankRawData} rawDataLoading={rawDataLoading} formatCurrency={formatCurrency} formatDate={formatDate} />
         )}
       </div>
     </div>
@@ -343,10 +369,22 @@ function RatiosTab({ bank, formatCurrency, formatPercent, formatNumber }) {
  * Balance Sheet Tab - Full balance sheet from SEC filings with multi-period view
  * Uses "As Reported" format (from pre.txt): items[] array with exact presentation order
  */
-function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
+function BalanceSheetTab({ bank, rawData, rawDataLoading, formatCurrency, formatDate }) {
   const [viewMode, setViewMode] = useState('annual'); // 'quarterly' or 'annual'
   const [expanded, setExpanded] = useState(false); // For quarterly view: show all quarters or just 5
   const DEFAULT_QUARTERS_SHOWN = 5;
+
+  // Show loading state while fetching raw data
+  if (rawDataLoading) {
+    return (
+      <div className="tab-balance-sheet">
+        <div className="loading-state">
+          <div className="loading-spinner" />
+          <p>Loading balance sheet data...</p>
+        </div>
+      </div>
+    );
+  }
 
   // Check if historical data is available
   const historicalData = rawData?.historicalBalanceSheet;
@@ -546,10 +584,22 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
  * Income Statement Tab - Full income statement from SEC filings with multi-period view
  * Uses "As Reported" format (from pre.txt): items[] array with exact presentation order
  */
-function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
+function IncomeStatementTab({ bank, rawData, rawDataLoading, formatCurrency, formatDate }) {
   const [viewMode, setViewMode] = useState('annual'); // 'quarterly' or 'annual'
   const [expanded, setExpanded] = useState(false); // For quarterly view: show all quarters or just 5
   const DEFAULT_QUARTERS_SHOWN = 5;
+
+  // Show loading state while fetching raw data
+  if (rawDataLoading) {
+    return (
+      <div className="tab-income-statement">
+        <div className="loading-state">
+          <div className="loading-spinner" />
+          <p>Loading income statement data...</p>
+        </div>
+      </div>
+    );
+  }
 
   const historicalData = rawData?.historicalIncomeStatement;
   const dataSource = viewMode === 'quarterly'

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { fetchBankData, fetchRawSecData } from './data/sheets.js';
+import { fetchBankData } from './data/sheets.js';
 import { initializeGA4 } from './analytics/gtag.js';
 
 // Layout and Navigation
@@ -26,7 +26,6 @@ import Terms from './pages/Terms.jsx';
  */
 function App() {
   const [banks, setBanks] = useState([]);
-  const [rawData, setRawData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -36,18 +35,14 @@ function App() {
   }, []);
 
   /**
-   * Fetch bank data from static JSON files
+   * Fetch bank data from static JSON file
    */
   const loadData = useCallback(async () => {
     setLoading(true);
     setError(null);
 
     try {
-      // Fetch both banks.json and sec-raw-data.json in parallel
-      const [banksResult, rawDataResult] = await Promise.all([
-        fetchBankData(),
-        fetchRawSecData(),
-      ]);
+      const banksResult = await fetchBankData();
 
       if (banksResult.success) {
         setBanks(banksResult.data);
@@ -55,10 +50,6 @@ function App() {
       } else {
         setError(banksResult.error?.message || 'Failed to load bank data');
         setBanks([]);
-      }
-
-      if (rawDataResult.success) {
-        setRawData(rawDataResult.data);
       }
     } catch (err) {
       setError(err.message || 'An unexpected error occurred');
@@ -100,7 +91,7 @@ function App() {
           {/* Individual Bank Pages */}
           <Route
             path="bank/:ticker"
-            element={<BankDetail banks={banks} rawData={rawData} loading={loading} />}
+            element={<BankDetail banks={banks} loading={loading} />}
           />
 
           {/* Metrics */}
