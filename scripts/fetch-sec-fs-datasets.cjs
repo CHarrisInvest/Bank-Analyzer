@@ -493,13 +493,16 @@ function getTTMValue(conceptData) {
 /**
  * Build historical financial statements with presentation structure
  * This creates the "as reported on the face" data structure
+ *
+ * Uses the most recent filing's presentation order as the canonical structure,
+ * then maps values from all periods to align with that structure.
  */
 function buildHistoricalStatements(bankData) {
   const concepts = bankData.concepts;
   const submissions = bankData.submissions || [];
   const presentationByFiling = bankData.presentationByFiling || {};
 
-  // Sort submissions by date
+  // Sort submissions by date (most recent first)
   const sortedSubmissions = [...submissions].sort((a, b) => {
     const dateA = a.period || a.filed || '0';
     const dateB = b.period || b.filed || '0';
@@ -510,109 +513,134 @@ function buildHistoricalStatements(bankData) {
   const annual10Ks = sortedSubmissions.filter(s => s.form === '10-K').slice(0, 4);
   const quarterly10Qs = sortedSubmissions.filter(s => s.form === '10-Q').slice(0, 5);
 
-  // Build statements for each period type
-  const buildStatements = (filings, isAnnual) => {
-    const balanceSheets = [];
-    const incomeStatements = [];
+  /**
+   * Build canonical presentation structure from most recent filing
+   * and map values from all periods
+   */
+  const buildStatements = (filings, isAnnual, stmtType) => {
+    if (filings.length === 0) return { statements: [], canonicalItems: [] };
 
+    // Find most recent filing with presentation data
+    let canonicalFiling = null;
+    let canonicalPres = null;
     for (const filing of filings) {
       const pres = presentationByFiling[filing.adsh];
-      if (!pres) continue;
-
-      const periodKey = isAnnual ? `FY ${filing.fy}` : `${filing.fp} ${filing.fy}`;
-      const periodLabel = periodKey;
-
-      // Build Balance Sheet for this period
-      if (pres.BS && pres.BS.length > 0) {
-        const bsItems = [];
-        for (const item of pres.BS) {
-          const conceptData = concepts[item.tag];
-          if (!conceptData) continue;
-
-          // Find value for this filing period (point-in-time, qtrs=0)
-          const match = conceptData.find(d =>
-            d.adsh === filing.adsh && d.qtrs === 0
-          );
-
-          if (match) {
-            bsItems.push({
-              tag: item.tag,
-              label: item.label,
-              line: item.line,
-              indent: item.indent,
-              negating: item.negating,
-              value: item.negating ? -match.value : match.value,
-              uom: match.uom,
-            });
-          }
-        }
-
-        if (bsItems.length > 0) {
-          balanceSheets.push({
-            period: periodKey,
-            label: periodLabel,
-            form: filing.form,
-            fy: filing.fy,
-            fp: filing.fp,
-            filed: filing.filed,
-            ddate: filing.period,
-            items: bsItems,
-          });
-        }
+      if (pres && pres[stmtType] && pres[stmtType].length > 0) {
+        canonicalFiling = filing;
+        canonicalPres = pres[stmtType];
+        break;
       }
+    }
 
-      // Build Income Statement for this period
-      if (pres.IS && pres.IS.length > 0) {
-        const isItems = [];
-        for (const item of pres.IS) {
-          const conceptData = concepts[item.tag];
-          if (!conceptData) continue;
+    if (!canonicalPres) return { statements: [], canonicalItems: [] };
 
-          // Find value for this filing period
-          // For 10-K: use qtrs=4 (annual)
-          // For 10-Q: use qtrs=1 (quarterly) or qtrs=0 if per-share
-          const targetQtrs = isAnnual ? 4 : (item.tag.includes('PerShare') ? 0 : 1);
+    // Build canonical item list from most recent filing's presentation
+    // Also collect any additional items from older filings
+    const canonicalItems = [...canonicalPres].sort((a, b) => a.line - b.line);
+    const tagSet = new Set(canonicalItems.map(item => item.tag));
 
-          const match = conceptData.find(d =>
-            d.adsh === filing.adsh && (d.qtrs === targetQtrs || (targetQtrs === 1 && d.qtrs === 0))
-          );
+    // Check older filings for any items not in the canonical list
+    for (const filing of filings.slice(1)) {
+      const pres = presentationByFiling[filing.adsh];
+      if (!pres || !pres[stmtType]) continue;
 
-          if (match) {
-            isItems.push({
-              tag: item.tag,
-              label: item.label,
-              line: item.line,
-              indent: item.indent,
-              negating: item.negating,
-              value: item.negating ? -match.value : match.value,
-              uom: match.uom,
-            });
-          }
-        }
-
-        if (isItems.length > 0) {
-          incomeStatements.push({
-            period: periodKey,
-            label: periodLabel,
-            form: filing.form,
-            fy: filing.fy,
-            fp: filing.fp,
-            filed: filing.filed,
-            ddate: filing.period,
-            items: isItems,
+      for (const item of pres[stmtType]) {
+        if (!tagSet.has(item.tag)) {
+          // Add to end of canonical list (older items not in newest filing)
+          canonicalItems.push({
+            ...item,
+            line: 9999, // Put at end
+            fromOlderFiling: true,
           });
+          tagSet.add(item.tag);
         }
       }
     }
 
-    return { balanceSheets, incomeStatements };
+    // Build value map for each period
+    const statements = [];
+    for (const filing of filings) {
+      const periodKey = isAnnual ? `FY ${filing.fy}` : `${filing.fp} ${filing.fy}`;
+      const pres = presentationByFiling[filing.adsh];
+
+      // Build a map of tag -> presentation info for this filing
+      const filingPresMap = new Map();
+      if (pres && pres[stmtType]) {
+        for (const item of pres[stmtType]) {
+          filingPresMap.set(item.tag, item);
+        }
+      }
+
+      const items = [];
+      for (const canonicalItem of canonicalItems) {
+        const conceptData = concepts[canonicalItem.tag];
+        if (!conceptData) continue;
+
+        // Get this filing's presentation info (for label/indent specific to this filing)
+        const filingPres = filingPresMap.get(canonicalItem.tag);
+
+        // Determine expected qtrs value
+        let targetQtrs;
+        if (stmtType === 'BS') {
+          targetQtrs = 0; // Balance sheet is point-in-time
+        } else {
+          // Income statement: qtrs=4 for annual, qtrs=1 for quarterly
+          targetQtrs = isAnnual ? 4 : 1;
+        }
+
+        // Find value for this filing
+        const match = conceptData.find(d =>
+          d.adsh === filing.adsh && d.qtrs === targetQtrs
+        );
+
+        // Use filing-specific label if available, otherwise canonical
+        const label = filingPres?.label || canonicalItem.label;
+        const indent = filingPres?.indent ?? canonicalItem.indent;
+        const negating = filingPres?.negating ?? canonicalItem.negating;
+
+        items.push({
+          tag: canonicalItem.tag,
+          label: label,
+          line: canonicalItem.line,
+          indent: indent,
+          negating: negating,
+          value: match ? (negating ? -match.value : match.value) : null,
+          uom: match?.uom || 'USD',
+          hasValue: !!match,
+        });
+      }
+
+      statements.push({
+        period: periodKey,
+        label: periodKey,
+        form: filing.form,
+        fy: filing.fy,
+        fp: filing.fp,
+        filed: filing.filed,
+        ddate: filing.period,
+        adsh: filing.adsh,
+        items: items,
+      });
+    }
+
+    // Return canonical items for the unified structure
+    const canonicalItemsClean = canonicalItems.map(item => ({
+      tag: item.tag,
+      label: item.label,
+      line: item.line,
+      indent: item.indent,
+    }));
+
+    return { statements, canonicalItems: canonicalItemsClean };
   };
 
-  const annual = buildStatements(annual10Ks, true);
-  const quarterly = buildStatements(quarterly10Qs, false);
+  const annualBS = buildStatements(annual10Ks, true, 'BS');
+  const quarterlyBS = buildStatements(quarterly10Qs, false, 'BS');
+  const annualIS = buildStatements(annual10Ks, true, 'IS');
+  const quarterlyIS = buildStatements(quarterly10Qs, false, 'IS');
 
   // Create unified period lists
-  const annualPeriods = annual.balanceSheets.map(bs => ({
+  const annualPeriods = annualBS.statements.map(bs => ({
     key: bs.period,
     label: bs.label,
     form: bs.form,
@@ -621,7 +649,7 @@ function buildHistoricalStatements(bankData) {
     filed: bs.filed,
   }));
 
-  const quarterlyPeriods = quarterly.balanceSheets.map(bs => ({
+  const quarterlyPeriods = quarterlyBS.statements.map(bs => ({
     key: bs.period,
     label: bs.label,
     form: bs.form,
@@ -632,16 +660,24 @@ function buildHistoricalStatements(bankData) {
 
   return {
     historicalBalanceSheet: {
-      annual: annual.balanceSheets,
-      quarterly: quarterly.balanceSheets,
+      annual: annualBS.statements,
+      quarterly: quarterlyBS.statements,
+      canonicalItems: {
+        annual: annualBS.canonicalItems,
+        quarterly: quarterlyBS.canonicalItems,
+      },
       periods: {
         annual: annualPeriods,
         quarterly: quarterlyPeriods,
       },
     },
     historicalIncomeStatement: {
-      annual: annual.incomeStatements,
-      quarterly: quarterly.incomeStatements,
+      annual: annualIS.statements,
+      quarterly: quarterlyIS.statements,
+      canonicalItems: {
+        annual: annualIS.canonicalItems,
+        quarterly: quarterlyIS.canonicalItems,
+      },
       periods: {
         annual: annualPeriods,
         quarterly: quarterlyPeriods,
