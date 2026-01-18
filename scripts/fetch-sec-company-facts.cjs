@@ -1155,152 +1155,196 @@ function getHistoricalIncomeStatement(conceptData) {
 
 /**
  * Extract all historical financial data for a bank
- * Builds complete balance sheet and income statement history
+ * DYNAMIC approach: extracts ALL available concepts from SEC data
+ * This ensures we capture everything on the face of the statements
  *
  * @param {Object} concepts - All concept data for the bank
  * @returns {Object} - Historical financial data with quarterly and annual periods
  */
 function extractHistoricalFinancials(concepts) {
-  // Balance Sheet line items (all point-in-time concepts)
-  const balanceSheetItems = {
-    // Assets
-    'Assets': { label: 'Total Assets', category: 'assets', isTotal: true },
-    'CashAndCashEquivalentsAtCarryingValue': { label: 'Cash and Cash Equivalents', category: 'assets' },
-    'CashAndDueFromBanks': { label: 'Cash and Due from Banks', category: 'assets' },
-    'InterestBearingDepositsInBanks': { label: 'Interest-Bearing Deposits', category: 'assets' },
-    'FederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell': { label: 'Fed Funds Sold & Reverse Repos', category: 'assets' },
-    'TradingSecurities': { label: 'Trading Securities', category: 'assets' },
-    'AvailableForSaleSecuritiesDebtSecurities': { label: 'Available-for-Sale Securities', category: 'assets' },
-    'AvailableForSaleSecurities': { label: 'Available-for-Sale Securities', category: 'assets' },
-    'HeldToMaturitySecurities': { label: 'Held-to-Maturity Securities', category: 'assets' },
-    'DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss': { label: 'HTM Securities (Amortized Cost)', category: 'assets' },
-    'MarketableSecurities': { label: 'Marketable Securities', category: 'assets' },
-    'InvestmentSecurities': { label: 'Investment Securities', category: 'assets' },
-    'LoansAndLeasesReceivableNetReportedAmount': { label: 'Loans and Leases, Net', category: 'assets' },
-    'LoansAndLeasesReceivableNetOfDeferredIncome': { label: 'Loans and Leases, Net', category: 'assets' },
-    'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss': { label: 'Loans Receivable, Net', category: 'assets' },
-    'LoansAndLeasesReceivableGrossCarryingAmount': { label: 'Loans and Leases, Gross', category: 'assets' },
-    'FinancingReceivableAllowanceForCreditLosses': { label: 'Allowance for Credit Losses', category: 'assets', isContra: true },
-    'LoansReceivableHeldForSaleAmount': { label: 'Loans Held for Sale', category: 'assets' },
-    'AccruedInterestReceivable': { label: 'Accrued Interest Receivable', category: 'assets' },
-    'PropertyPlantAndEquipmentNet': { label: 'Premises and Equipment, Net', category: 'assets' },
-    'Goodwill': { label: 'Goodwill', category: 'assets' },
-    'IntangibleAssetsNetExcludingGoodwill': { label: 'Other Intangible Assets', category: 'assets' },
-    'OtherIntangibleAssetsNet': { label: 'Other Intangible Assets', category: 'assets' },
-    'MortgageServicingRightsMSRAmount': { label: 'Mortgage Servicing Rights', category: 'assets' },
-    'DeferredTaxAssetsNet': { label: 'Deferred Tax Assets', category: 'assets' },
-    'BankOwnedLifeInsurance': { label: 'Bank-Owned Life Insurance', category: 'assets' },
-    'OtherAssets': { label: 'Other Assets', category: 'assets' },
-    // Liabilities
-    'Liabilities': { label: 'Total Liabilities', category: 'liabilities', isTotal: true },
-    'Deposits': { label: 'Total Deposits', category: 'liabilities' },
-    'DepositsNoninterestBearing': { label: 'Non-Interest Bearing Deposits', category: 'liabilities' },
-    'DepositsInterestBearing': { label: 'Interest-Bearing Deposits', category: 'liabilities' },
-    'DepositsForeign': { label: 'Foreign Deposits', category: 'liabilities' },
-    'FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase': { label: 'Fed Funds Purchased & Repos', category: 'liabilities' },
-    'ShortTermBorrowings': { label: 'Short-Term Borrowings', category: 'liabilities' },
-    'LongTermDebt': { label: 'Long-Term Debt', category: 'liabilities' },
-    'LongTermDebtNoncurrent': { label: 'Long-Term Debt', category: 'liabilities' },
-    'SubordinatedDebt': { label: 'Subordinated Debt', category: 'liabilities' },
-    'TradingLiabilities': { label: 'Trading Liabilities', category: 'liabilities' },
-    'AccruedInterestPayable': { label: 'Accrued Interest Payable', category: 'liabilities' },
-    'DeferredTaxLiabilities': { label: 'Deferred Tax Liabilities', category: 'liabilities' },
-    'OtherLiabilities': { label: 'Other Liabilities', category: 'liabilities' },
-    // Equity
-    'StockholdersEquity': { label: 'Total Stockholders\' Equity', category: 'equity', isTotal: true },
-    'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest': { label: 'Total Equity', category: 'equity', isTotal: true },
-    'PreferredStockValue': { label: 'Preferred Stock', category: 'equity' },
-    'CommonStockValue': { label: 'Common Stock', category: 'equity' },
-    'AdditionalPaidInCapital': { label: 'Additional Paid-In Capital', category: 'equity' },
-    'AdditionalPaidInCapitalCommonStock': { label: 'Additional Paid-In Capital', category: 'equity' },
-    'RetainedEarningsAccumulatedDeficit': { label: 'Retained Earnings', category: 'equity' },
-    'AccumulatedOtherComprehensiveIncomeLossNetOfTax': { label: 'AOCI', category: 'equity' },
-    'TreasuryStockValue': { label: 'Treasury Stock', category: 'equity', isContra: true },
-    'TreasuryStockCommonValue': { label: 'Treasury Stock', category: 'equity', isContra: true },
-    'MinorityInterest': { label: 'Noncontrolling Interest', category: 'equity' },
-    // Shares
-    'CommonStockSharesOutstanding': { label: 'Common Shares Outstanding', category: 'shares', isShares: true },
-    'EntityCommonStockSharesOutstanding': { label: 'Common Shares Outstanding', category: 'shares', isShares: true },
+  // Maps for friendly labels (common concepts)
+  const conceptLabels = {
+    // Balance Sheet - Assets
+    'Assets': 'Total Assets',
+    'CashAndCashEquivalentsAtCarryingValue': 'Cash and Cash Equivalents',
+    'CashAndDueFromBanks': 'Cash and Due from Banks',
+    'Cash': 'Cash',
+    'RestrictedCashAndCashEquivalents': 'Restricted Cash',
+    'InterestBearingDepositsInBanks': 'Interest-Bearing Deposits in Banks',
+    'FederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell': 'Fed Funds Sold & Reverse Repos',
+    'FederalFundsSold': 'Federal Funds Sold',
+    'SecuritiesPurchasedUnderAgreementsToResell': 'Securities Purchased Under Resale Agreements',
+    'TradingSecurities': 'Trading Securities',
+    'AvailableForSaleSecuritiesDebtSecurities': 'Available-for-Sale Securities',
+    'AvailableForSaleSecurities': 'Available-for-Sale Securities',
+    'HeldToMaturitySecurities': 'Held-to-Maturity Securities',
+    'DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss': 'HTM Securities (Amortized Cost)',
+    'MarketableSecurities': 'Marketable Securities',
+    'InvestmentSecurities': 'Investment Securities',
+    'LoansAndLeasesReceivableNetReportedAmount': 'Loans and Leases, Net',
+    'LoansAndLeasesReceivableNetOfDeferredIncome': 'Loans and Leases, Net',
+    'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss': 'Loans Receivable, Net',
+    'NotesReceivableNet': 'Notes Receivable, Net',
+    'LoansAndLeasesReceivableGrossCarryingAmount': 'Loans and Leases, Gross',
+    'FinancingReceivableAllowanceForCreditLosses': 'Allowance for Credit Losses',
+    'AllowanceForLoanAndLeaseLossesRealEstate': 'Allowance for Loan Losses',
+    'LoansReceivableHeldForSaleAmount': 'Loans Held for Sale',
+    'AccruedInterestReceivable': 'Accrued Interest Receivable',
+    'PropertyPlantAndEquipmentNet': 'Premises and Equipment, Net',
+    'Goodwill': 'Goodwill',
+    'IntangibleAssetsNetExcludingGoodwill': 'Other Intangible Assets',
+    'OtherIntangibleAssetsNet': 'Other Intangible Assets',
+    'MortgageServicingRightsMSRAmount': 'Mortgage Servicing Rights',
+    'DeferredTaxAssetsNet': 'Deferred Tax Assets',
+    'OtherAssets': 'Other Assets',
+    'BankOwnedLifeInsurance': 'Bank-Owned Life Insurance',
+    // Balance Sheet - Liabilities
+    'Liabilities': 'Total Liabilities',
+    'Deposits': 'Total Deposits',
+    'DepositsDomestic': 'Domestic Deposits',
+    'DepositsNoninterestBearing': 'Non-Interest Bearing Deposits',
+    'DepositsInterestBearing': 'Interest-Bearing Deposits',
+    'DepositsForeign': 'Foreign Deposits',
+    'FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase': 'Fed Funds Purchased & Repos',
+    'FederalFundsPurchased': 'Federal Funds Purchased',
+    'SecuritiesSoldUnderAgreementsToRepurchase': 'Securities Sold Under Repo Agreements',
+    'ShortTermBorrowings': 'Short-Term Borrowings',
+    'LongTermDebt': 'Long-Term Debt',
+    'LongTermDebtNoncurrent': 'Long-Term Debt',
+    'SubordinatedDebt': 'Subordinated Debt',
+    'TradingLiabilities': 'Trading Liabilities',
+    'AccruedLiabilities': 'Accrued Liabilities',
+    'AccruedInterestPayable': 'Accrued Interest Payable',
+    'DeferredTaxLiabilities': 'Deferred Tax Liabilities',
+    'OtherLiabilities': 'Other Liabilities',
+    // Balance Sheet - Equity
+    'StockholdersEquity': 'Total Stockholders\' Equity',
+    'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest': 'Total Equity',
+    'LiabilitiesAndStockholdersEquity': 'Total Liabilities and Equity',
+    'PreferredStockValue': 'Preferred Stock',
+    'PreferredStockValueOutstanding': 'Preferred Stock',
+    'CommonStockValue': 'Common Stock',
+    'CommonStockSharesOutstanding': 'Common Shares Outstanding',
+    'CommonStockSharesIssued': 'Common Shares Issued',
+    'AdditionalPaidInCapital': 'Additional Paid-In Capital',
+    'AdditionalPaidInCapitalCommonStock': 'Additional Paid-In Capital',
+    'RetainedEarningsAccumulatedDeficit': 'Retained Earnings',
+    'AccumulatedOtherComprehensiveIncomeLossNetOfTax': 'AOCI',
+    'TreasuryStockValue': 'Treasury Stock',
+    'TreasuryStockCommonValue': 'Treasury Stock',
+    'MinorityInterest': 'Noncontrolling Interest',
+    'NoncontrollingInterestInVariableInterestEntity': 'Noncontrolling Interest in VIE',
+    'EntityCommonStockSharesOutstanding': 'Common Shares Outstanding',
+    // Income Statement
+    'InterestIncome': 'Total Interest Income',
+    'InterestAndDividendIncomeOperating': 'Interest and Dividend Income',
+    'InterestAndFeeIncomeLoansAndLeases': 'Interest and Fees on Loans',
+    'InterestIncomeSecuritiesTaxable': 'Interest on Taxable Securities',
+    'InterestIncomeSecuritiesTaxExempt': 'Interest on Tax-Exempt Securities',
+    'InterestIncomeFederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell': 'Interest on Fed Funds Sold',
+    'InterestIncomeDepositsWithFinancialInstitutions': 'Interest on Deposits with Banks',
+    'InterestExpense': 'Total Interest Expense',
+    'InterestExpenseDeposits': 'Interest on Deposits',
+    'InterestExpenseBorrowings': 'Interest on Borrowings',
+    'InterestExpenseFederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase': 'Interest on Fed Funds Purchased',
+    'InterestExpenseLongTermDebt': 'Interest on Long-Term Debt',
+    'InterestExpenseShortTermBorrowings': 'Interest on Short-Term Borrowings',
+    'InterestIncomeExpenseNet': 'Net Interest Income',
+    'NetInterestIncome': 'Net Interest Income',
+    'ProvisionForLoanLeaseAndOtherLosses': 'Provision for Credit Losses',
+    'ProvisionForLoanAndLeaseLosses': 'Provision for Loan Losses',
+    'ProvisionForCreditLosses': 'Provision for Credit Losses',
+    'CreditLossExpense': 'Credit Loss Expense',
+    'NetInterestIncomeAfterProvisionForCreditLosses': 'NII After Provision',
+    'NoninterestIncome': 'Total Non-Interest Income',
+    'FeesAndCommissions': 'Fees and Commissions',
+    'InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions': 'Investment Banking Fees',
+    'FeesAndCommissionsDepositorAccounts': 'Service Charges on Deposits',
+    'FeesAndCommissionsOther': 'Other Fees and Commissions',
+    'FeesAndCommissionsCreditCards': 'Credit Card Fees',
+    'FeesAndCommissionsMortgageBanking': 'Mortgage Banking Fees',
+    'GainLossOnSalesOfLoansNet': 'Gain/Loss on Loan Sales',
+    'GainLossOnSecuritiesNet': 'Gain/Loss on Securities',
+    'GainsLossesOnSalesOfAssets': 'Gain/Loss on Asset Sales',
+    'TradingGainsLosses': 'Trading Revenue',
+    'InsuranceCommissionsAndFees': 'Insurance Revenue',
+    'OtherNoninterestIncome': 'Other Non-Interest Income',
+    'NoninterestExpense': 'Total Non-Interest Expense',
+    'OperatingExpenses': 'Operating Expenses',
+    'LaborAndRelatedExpense': 'Salaries and Benefits',
+    'SalariesAndWages': 'Salaries and Wages',
+    'EmployeeBenefitsAndShareBasedCompensation': 'Employee Benefits',
+    'OccupancyNet': 'Occupancy Expense',
+    'EquipmentExpense': 'Equipment Expense',
+    'ProfessionalFees': 'Professional Fees',
+    'AdvertisingExpense': 'Advertising',
+    'CommunicationsAndInformationTechnology': 'Technology Expense',
+    'DepreciationAndAmortization': 'Depreciation & Amortization',
+    'AmortizationOfIntangibleAssets': 'Intangible Amortization',
+    'FederalDepositInsuranceCorporationPremiumExpense': 'FDIC Insurance',
+    'OtherNoninterestExpense': 'Other Non-Interest Expense',
+    'IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest': 'Income Before Taxes',
+    'IncomeLossFromContinuingOperationsBeforeIncomeTaxes': 'Income Before Taxes',
+    'IncomeTaxExpenseBenefit': 'Income Tax Expense',
+    'NetIncomeLoss': 'Net Income',
+    'ProfitLoss': 'Net Income',
+    'NetIncomeLossAttributableToNoncontrollingInterest': 'NI - Noncontrolling Interest',
+    'NetIncomeLossAvailableToCommonStockholdersBasic': 'NI Available to Common',
+    'EarningsPerShareBasic': 'Basic EPS',
+    'EarningsPerShareDiluted': 'Diluted EPS',
+    'CommonStockDividendsPerShareDeclared': 'Dividends Per Share',
+    'CommonStockDividendsPerShareCashPaid': 'Dividends Per Share (Cash)',
+    'ComprehensiveIncomeNetOfTax': 'Comprehensive Income',
+    'OtherComprehensiveIncomeLossNetOfTax': 'Other Comprehensive Income',
+    'Revenues': 'Total Revenues',
+    'RevenueFromContractWithCustomerExcludingAssessedTax': 'Revenue from Contracts',
   };
 
-  // Income Statement line items
-  const incomeStatementItems = {
-    // Interest Income
-    'InterestIncome': { label: 'Total Interest Income', category: 'interest', isTotal: true },
-    'InterestAndDividendIncomeOperating': { label: 'Interest and Dividend Income', category: 'interest' },
-    'InterestAndFeeIncomeLoansAndLeases': { label: 'Interest and Fees on Loans', category: 'interest' },
-    'InterestIncomeSecuritiesTaxable': { label: 'Interest on Taxable Securities', category: 'interest' },
-    'InterestIncomeSecuritiesTaxExempt': { label: 'Interest on Tax-Exempt Securities', category: 'interest' },
-    'InterestIncomeFederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell': { label: 'Interest on Fed Funds Sold', category: 'interest' },
-    'InterestIncomeDepositsWithFinancialInstitutions': { label: 'Interest on Deposits', category: 'interest' },
-    // Interest Expense
-    'InterestExpense': { label: 'Total Interest Expense', category: 'interest', isTotal: true },
-    'InterestExpenseDeposits': { label: 'Interest on Deposits', category: 'interest' },
-    'InterestExpenseBorrowings': { label: 'Interest on Borrowings', category: 'interest' },
-    'InterestExpenseLongTermDebt': { label: 'Interest on Long-Term Debt', category: 'interest' },
-    'InterestExpenseShortTermBorrowings': { label: 'Interest on Short-Term Borrowings', category: 'interest' },
-    // Net Interest Income
-    'InterestIncomeExpenseNet': { label: 'Net Interest Income', category: 'interest', isTotal: true },
-    'NetInterestIncome': { label: 'Net Interest Income', category: 'interest', isTotal: true },
-    // Provision
-    'ProvisionForLoanLeaseAndOtherLosses': { label: 'Provision for Credit Losses', category: 'provision' },
-    'ProvisionForLoanAndLeaseLosses': { label: 'Provision for Loan Losses', category: 'provision' },
-    'ProvisionForCreditLosses': { label: 'Provision for Credit Losses', category: 'provision' },
-    'CreditLossExpense': { label: 'Credit Loss Expense', category: 'provision' },
-    'NetInterestIncomeAfterProvisionForCreditLosses': { label: 'NII After Provision', category: 'provision', isTotal: true },
-    // Non-Interest Income
-    'NoninterestIncome': { label: 'Total Non-Interest Income', category: 'noninterest-income', isTotal: true },
-    'FeesAndCommissions': { label: 'Fees and Commissions', category: 'noninterest-income' },
-    'InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions': { label: 'Investment Banking Fees', category: 'noninterest-income' },
-    'FeesAndCommissionsDepositorAccounts': { label: 'Service Charges on Deposits', category: 'noninterest-income' },
-    'FeesAndCommissionsCreditCards': { label: 'Credit Card Fees', category: 'noninterest-income' },
-    'FeesAndCommissionsMortgageBanking': { label: 'Mortgage Banking Fees', category: 'noninterest-income' },
-    'GainLossOnSalesOfLoansNet': { label: 'Gain/Loss on Loan Sales', category: 'noninterest-income' },
-    'GainLossOnSecuritiesNet': { label: 'Gain/Loss on Securities', category: 'noninterest-income' },
-    'TradingGainsLosses': { label: 'Trading Revenue', category: 'noninterest-income' },
-    'InsuranceCommissionsAndFees': { label: 'Insurance Revenue', category: 'noninterest-income' },
-    'OtherNoninterestIncome': { label: 'Other Non-Interest Income', category: 'noninterest-income' },
-    // Non-Interest Expense
-    'NoninterestExpense': { label: 'Total Non-Interest Expense', category: 'noninterest-expense', isTotal: true },
-    'OperatingExpenses': { label: 'Operating Expenses', category: 'noninterest-expense', isTotal: true },
-    'LaborAndRelatedExpense': { label: 'Salaries and Benefits', category: 'noninterest-expense' },
-    'SalariesAndWages': { label: 'Salaries and Wages', category: 'noninterest-expense' },
-    'EmployeeBenefitsAndShareBasedCompensation': { label: 'Employee Benefits', category: 'noninterest-expense' },
-    'OccupancyNet': { label: 'Occupancy Expense', category: 'noninterest-expense' },
-    'EquipmentExpense': { label: 'Equipment Expense', category: 'noninterest-expense' },
-    'ProfessionalFees': { label: 'Professional Fees', category: 'noninterest-expense' },
-    'AdvertisingExpense': { label: 'Advertising', category: 'noninterest-expense' },
-    'CommunicationsAndInformationTechnology': { label: 'Technology Expense', category: 'noninterest-expense' },
-    'DepreciationAndAmortization': { label: 'Depreciation & Amortization', category: 'noninterest-expense' },
-    'AmortizationOfIntangibleAssets': { label: 'Intangible Amortization', category: 'noninterest-expense' },
-    'FederalDepositInsuranceCorporationPremiumExpense': { label: 'FDIC Insurance', category: 'noninterest-expense' },
-    'OtherNoninterestExpense': { label: 'Other Non-Interest Expense', category: 'noninterest-expense' },
-    // Pre-Tax Income
-    'IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest': { label: 'Income Before Taxes', category: 'income' },
-    'IncomeLossFromContinuingOperationsBeforeIncomeTaxes': { label: 'Income Before Taxes', category: 'income' },
-    'IncomeTaxExpenseBenefit': { label: 'Income Tax Expense', category: 'income' },
-    // Net Income
-    'NetIncomeLoss': { label: 'Net Income', category: 'income', isTotal: true },
-    'ProfitLoss': { label: 'Net Income', category: 'income', isTotal: true },
-    'NetIncomeLossAttributableToNoncontrollingInterest': { label: 'NI - Noncontrolling Interest', category: 'income' },
-    'NetIncomeLossAvailableToCommonStockholdersBasic': { label: 'NI Available to Common', category: 'income', isTotal: true },
-    // Per Share
-    'EarningsPerShareBasic': { label: 'Basic EPS', category: 'per-share', isPerShare: true },
-    'EarningsPerShareDiluted': { label: 'Diluted EPS', category: 'per-share', isPerShare: true },
-    'CommonStockDividendsPerShareDeclared': { label: 'Dividends Per Share', category: 'per-share', isPerShare: true },
+  // Helper to get friendly label for a concept
+  const getLabel = (concept) => {
+    if (conceptLabels[concept]) return conceptLabels[concept];
+    // Convert camelCase to readable format
+    return concept.replace(/([A-Z])/g, ' $1').trim();
   };
 
-  // Extract historical data for balance sheet
+  // Categorize a concept based on its typical period type
+  const categorizeDataType = (conceptData) => {
+    if (!conceptData || conceptData.length === 0) return null;
+
+    // Check what period types exist
+    const hasPointInTime = conceptData.some(d => d.qtrs === 0);
+    const hasQuarterly = conceptData.some(d => d.qtrs === 1);
+    const hasAnnual = conceptData.some(d => d.qtrs === 4);
+
+    // Balance sheet items are point-in-time (qtrs=0)
+    if (hasPointInTime && !hasQuarterly && !hasAnnual) return 'balance-sheet';
+    // Income statement items have duration (qtrs=1 or qtrs=4)
+    if (hasQuarterly || hasAnnual) return 'income-statement';
+    // If it has point-in-time AND duration, it could be either
+    if (hasPointInTime) return 'balance-sheet';
+    return null;
+  };
+
+  // Extract data for all concepts dynamically
   const balanceSheet = { quarterly: {}, annual: {}, periods: { quarterly: [], annual: [] } };
+  const incomeStatement = { quarterly: {}, annual: {}, periods: { quarterly: [], annual: [] } };
 
-  for (const [concept, meta] of Object.entries(balanceSheetItems)) {
-    const conceptData = concepts[concept];
-    if (conceptData && conceptData.length > 0) {
+  for (const [concept, conceptData] of Object.entries(concepts)) {
+    if (!conceptData || !Array.isArray(conceptData) || conceptData.length === 0) continue;
+
+    const dataType = categorizeDataType(conceptData);
+    if (!dataType) continue;
+
+    const label = getLabel(concept);
+
+    if (dataType === 'balance-sheet') {
+      // Balance sheet: extract point-in-time values
       const history = getHistoricalBalanceSheet(conceptData);
 
       if (history.quarterly.length > 0) {
         balanceSheet.quarterly[concept] = {
-          ...meta,
+          label,
+          concept,
           periods: history.quarterly
         };
         // Track unique periods
@@ -1320,7 +1364,8 @@ function extractHistoricalFinancials(concepts) {
 
       if (history.annual.length > 0) {
         balanceSheet.annual[concept] = {
-          ...meta,
+          label,
+          concept,
           periods: history.annual
         };
         // Track unique periods
@@ -1337,28 +1382,14 @@ function extractHistoricalFinancials(concepts) {
           }
         });
       }
-    }
-  }
-
-  // Sort periods by date descending
-  balanceSheet.periods.quarterly.sort((a, b) => (b.period || '').localeCompare(a.period || ''));
-  balanceSheet.periods.annual.sort((a, b) => b.fy - a.fy);
-
-  // Take only most recent 5 quarters and 4 years
-  balanceSheet.periods.quarterly = balanceSheet.periods.quarterly.slice(0, 5);
-  balanceSheet.periods.annual = balanceSheet.periods.annual.slice(0, 4);
-
-  // Extract historical data for income statement
-  const incomeStatement = { quarterly: {}, annual: {}, periods: { quarterly: [], annual: [] } };
-
-  for (const [concept, meta] of Object.entries(incomeStatementItems)) {
-    const conceptData = concepts[concept];
-    if (conceptData && conceptData.length > 0) {
+    } else if (dataType === 'income-statement') {
+      // Income statement: extract duration values
       const history = getHistoricalIncomeStatement(conceptData);
 
       if (history.quarterly.length > 0) {
         incomeStatement.quarterly[concept] = {
-          ...meta,
+          label,
+          concept,
           periods: history.quarterly
         };
         // Track unique periods
@@ -1378,7 +1409,8 @@ function extractHistoricalFinancials(concepts) {
 
       if (history.annual.length > 0) {
         incomeStatement.annual[concept] = {
-          ...meta,
+          label,
+          concept,
           periods: history.annual
         };
         // Track unique periods
@@ -1399,10 +1431,14 @@ function extractHistoricalFinancials(concepts) {
   }
 
   // Sort periods by date descending
+  balanceSheet.periods.quarterly.sort((a, b) => (b.period || '').localeCompare(a.period || ''));
+  balanceSheet.periods.annual.sort((a, b) => b.fy - a.fy);
   incomeStatement.periods.quarterly.sort((a, b) => (b.period || '').localeCompare(a.period || ''));
   incomeStatement.periods.annual.sort((a, b) => b.fy - a.fy);
 
   // Take only most recent 5 quarters and 4 years
+  balanceSheet.periods.quarterly = balanceSheet.periods.quarterly.slice(0, 5);
+  balanceSheet.periods.annual = balanceSheet.periods.annual.slice(0, 4);
   incomeStatement.periods.quarterly = incomeStatement.periods.quarterly.slice(0, 5);
   incomeStatement.periods.annual = incomeStatement.periods.annual.slice(0, 4);
 
