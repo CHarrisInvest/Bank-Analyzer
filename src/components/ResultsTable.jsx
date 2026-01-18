@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { formatNumber } from '../utils/csv.js';
 
 /**
@@ -1226,8 +1227,21 @@ function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
                   let displayContent;
                   if (isDateDisplay) {
                     displayContent = <span className="date-badge">{formatted.label}</span>;
-                  } else if (column.key === 'ticker' && searchQuery && typeof formatted === 'string') {
-                    displayContent = highlightMatch(formatted, searchQuery, false);
+                  } else if (column.key === 'ticker' && typeof formatted === 'string') {
+                    // Ticker is always a clickable link to the bank detail page
+                    const tickerContent = searchQuery
+                      ? highlightMatch(formatted, searchQuery, false)
+                      : formatted;
+                    displayContent = (
+                      <Link
+                        to={`/bank/${bank.ticker}`}
+                        state={{ from: 'screener', filters: filters }}
+                        className="ticker-link"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {tickerContent}
+                      </Link>
+                    );
                   } else if (column.key === 'bankName' && searchQuery && typeof formatted === 'string') {
                     displayContent = highlightMatch(formatted, searchQuery, true);
                   } else {

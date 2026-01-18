@@ -3,8 +3,56 @@ import { Link, useLocation } from 'react-router-dom';
 import { trackNavigation } from '../analytics/events.js';
 
 /**
+ * Bank Icon SVG Component
+ */
+function BankIcon() {
+  return (
+    <svg
+      className="nav-icon"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 21h18" />
+      <path d="M3 10h18" />
+      <path d="M12 3l9 7H3l9-7z" />
+      <path d="M5 10v11" />
+      <path d="M19 10v11" />
+      <path d="M9 10v11" />
+      <path d="M15 10v11" />
+    </svg>
+  );
+}
+
+/**
+ * Chevron Down Icon
+ */
+function ChevronIcon() {
+  return (
+    <svg
+      className="dropdown-chevron"
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 5l3 3 3-3" />
+    </svg>
+  );
+}
+
+/**
  * Main Navigation Component
- * Responsive navigation with dropdown menus for Learn and About sections
+ * Clean, responsive navigation with dropdown menus
  */
 function Navigation() {
   const location = useLocation();
@@ -53,22 +101,18 @@ function Navigation() {
     return location.pathname.startsWith(path);
   };
 
-  const mobileMenuClass = mobileMenuOpen ? 'nav-links nav-links-open' : 'nav-links';
-  const learnDropdownClass = activeDropdown === 'learn' ? 'nav-dropdown nav-dropdown-open' : 'nav-dropdown';
-  const aboutDropdownClass = activeDropdown === 'about' ? 'nav-dropdown nav-dropdown-open' : 'nav-dropdown';
-
   return (
     <nav className="main-nav" role="navigation" aria-label="Main navigation">
       <div className="nav-container">
         {/* Logo/Brand */}
         <Link to="/" className="nav-brand" onClick={() => handleNavClick('home')}>
-          <span className="nav-logo">🏦</span>
+          <BankIcon />
           <span className="nav-title">Bank Analyzer</span>
         </Link>
 
         {/* Mobile menu toggle */}
         <button
-          className="nav-mobile-toggle"
+          className={`nav-mobile-toggle ${mobileMenuOpen ? 'nav-mobile-toggle-active' : ''}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-expanded={mobileMenuOpen}
           aria-label="Toggle navigation menu"
@@ -79,11 +123,11 @@ function Navigation() {
         </button>
 
         {/* Navigation links */}
-        <div className={mobileMenuClass}>
+        <div className={`nav-links ${mobileMenuOpen ? 'nav-links-open' : ''}`}>
           {/* Search */}
           <Link
             to="/search"
-            className={isActive('/search') ? 'nav-link nav-link-active' : 'nav-link'}
+            className={`nav-link ${isActive('/search') ? 'nav-link-active' : ''}`}
             onClick={() => handleNavClick('search')}
           >
             Search
@@ -92,7 +136,7 @@ function Navigation() {
           {/* Screener */}
           <Link
             to="/screener"
-            className={isActive('/screener') && !location.pathname.includes('/guide') ? 'nav-link nav-link-active' : 'nav-link'}
+            className={`nav-link ${isActive('/screener') && !location.pathname.includes('/guide') ? 'nav-link-active' : ''}`}
             onClick={() => handleNavClick('screener')}
           >
             Screener
@@ -100,20 +144,18 @@ function Navigation() {
 
           {/* Learn Dropdown */}
           <div
-            className={learnDropdownClass}
+            className={`nav-dropdown ${activeDropdown === 'learn' ? 'nav-dropdown-open' : ''}`}
             onMouseEnter={() => handleDropdownEnter('learn')}
             onMouseLeave={handleDropdownLeave}
           >
             <button
-              className={isActive('/screener/guide') || isActive('/metrics') || isActive('/valuation') ? 'nav-link nav-dropdown-toggle nav-link-active' : 'nav-link nav-dropdown-toggle'}
+              className={`nav-link nav-dropdown-toggle ${isActive('/screener/guide') || isActive('/metrics') || isActive('/valuation') ? 'nav-link-active' : ''}`}
               onClick={() => setActiveDropdown(activeDropdown === 'learn' ? null : 'learn')}
               aria-expanded={activeDropdown === 'learn'}
               aria-haspopup="true"
             >
               Learn
-              <svg className="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-              </svg>
+              <ChevronIcon />
             </button>
             <div className="nav-dropdown-menu">
               <Link
@@ -121,44 +163,39 @@ function Navigation() {
                 className="nav-dropdown-item"
                 onClick={() => handleNavClick('screener-guide')}
               >
-                <span className="dropdown-item-title">Screener Guide</span>
-                <span className="dropdown-item-desc">How to use the bank screener</span>
+                Screener Guide
               </Link>
               <Link
                 to="/metrics"
                 className="nav-dropdown-item"
                 onClick={() => handleNavClick('metrics')}
               >
-                <span className="dropdown-item-title">Metrics & Ratios</span>
-                <span className="dropdown-item-desc">Financial metrics explained</span>
+                Metrics & Ratios
               </Link>
               <Link
                 to="/valuation"
                 className="nav-dropdown-item"
                 onClick={() => handleNavClick('valuation')}
               >
-                <span className="dropdown-item-title">Valuation Methods</span>
-                <span className="dropdown-item-desc">Bank valuation approaches</span>
+                Valuation Methods
               </Link>
             </div>
           </div>
 
           {/* About Dropdown */}
           <div
-            className={aboutDropdownClass}
+            className={`nav-dropdown ${activeDropdown === 'about' ? 'nav-dropdown-open' : ''}`}
             onMouseEnter={() => handleDropdownEnter('about')}
             onMouseLeave={handleDropdownLeave}
           >
             <button
-              className={isActive('/privacy') || isActive('/terms') ? 'nav-link nav-dropdown-toggle nav-link-active' : 'nav-link nav-dropdown-toggle'}
+              className={`nav-link nav-dropdown-toggle ${isActive('/privacy') || isActive('/terms') ? 'nav-link-active' : ''}`}
               onClick={() => setActiveDropdown(activeDropdown === 'about' ? null : 'about')}
               aria-expanded={activeDropdown === 'about'}
               aria-haspopup="true"
             >
               About
-              <svg className="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-              </svg>
+              <ChevronIcon />
             </button>
             <div className="nav-dropdown-menu">
               <Link
@@ -166,16 +203,14 @@ function Navigation() {
                 className="nav-dropdown-item"
                 onClick={() => handleNavClick('privacy')}
               >
-                <span className="dropdown-item-title">Privacy Policy</span>
-                <span className="dropdown-item-desc">How we handle your data</span>
+                Privacy Policy
               </Link>
               <Link
                 to="/terms"
                 className="nav-dropdown-item"
                 onClick={() => handleNavClick('terms')}
               >
-                <span className="dropdown-item-title">Terms of Service</span>
-                <span className="dropdown-item-desc">Usage terms and conditions</span>
+                Terms of Service
               </Link>
             </div>
           </div>
