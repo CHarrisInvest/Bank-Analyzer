@@ -40,8 +40,16 @@ const VERBOSE = args.includes('--verbose') || args.includes('-v');
 
 // Configuration
 const CONFIG = {
-  // How many quarters of data to fetch (for TTM calculation we need at least 4)
-  quartersToFetch: 5,
+  // Process all available quarters (Q1 2023 onward for full history)
+  // Set to 0 to process all available ZIPs
+  quartersToFetch: 0,
+
+  // Minimum fiscal year for annual data (10-K filings)
+  minFiscalYear: 2022,
+
+  // Minimum quarter for quarterly data
+  minQuarterYear: 2023,
+  minQuarter: 1,
 
   // Financial institution SIC codes
   financialInstitutionSicCodes: [
@@ -71,6 +79,31 @@ const CONFIG = {
 // Directories
 const TEMP_DIR = path.join(__dirname, '..', '.sec-data-cache');
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'data');
+
+/**
+ * Check if ticker is a preferred stock ticker (not common)
+ * Preferred tickers typically have -P, -PA, -PB suffix patterns
+ */
+function isPreferredTicker(ticker) {
+  if (!ticker) return false;
+  // Only match hyphenated preferred patterns (-P suffix) to avoid false positives
+  if (/-P[A-Z]?$/i.test(ticker)) return true;
+  return false;
+}
+
+/**
+ * Select the best (common stock) ticker from available options
+ * Prefers non-preferred tickers, then selects shortest
+ */
+function selectBestTicker(tickers) {
+  if (!tickers || tickers.length === 0) return null;
+  if (tickers.length === 1) return tickers[0];
+
+  const common = tickers.filter((t) => !isPreferredTicker(t));
+  const candidates = common.length > 0 ? common : tickers;
+
+  return candidates.sort((a, b) => a.length - b.length)[0];
+}
 
 /**
  * Log message if verbose mode is enabled
@@ -394,13 +427,29 @@ async function processQuarterlyDataset(datasetInfo, bankCiks) {
 function aggregateBankData(quarterlyResults, bankList) {
   const bankDataMap = new Map();
 
-  // Initialize bank data structures
+  // First, build a map of CIK -> all available tickers for best ticker selection
+  const tickersByCik = new Map();
   bankList.forEach(bank => {
     const cik = bank.cik?.padStart(10, '0');
-    if (cik) {
+    if (cik && bank.ticker) {
+      if (!tickersByCik.has(cik)) {
+        tickersByCik.set(cik, []);
+      }
+      tickersByCik.get(cik).push(bank.ticker);
+    }
+  });
+
+  // Initialize bank data structures with best ticker selection
+  bankList.forEach(bank => {
+    const cik = bank.cik?.padStart(10, '0');
+    if (cik && !bankDataMap.has(cik)) {
+      // Select best ticker (prefer common stock over preferred)
+      const availableTickers = tickersByCik.get(cik) || [bank.ticker];
+      const bestTicker = selectBestTicker(availableTickers);
+
       bankDataMap.set(cik, {
         cik,
-        ticker: bank.ticker,
+        ticker: bestTicker,
         companyName: bank.companyName,
         exchange: bank.exchange,
         sic: bank.sic,
@@ -572,6 +621,12 @@ function getTTMValue(conceptData) {
  *
  * Uses the most recent filing's presentation order as the canonical structure,
  * then maps values from all periods to align with that structure.
+ *
+ * Quarterly data includes:
+ * - Q1-Q3: From 10-Q filings (B/S: point-in-time, I/S: qtrs=1)
+ * - Q4: From 10-K filings (B/S: year-end point-in-time, I/S: derived = annual - Q1 - Q2 - Q3)
+ *
+ * Annual data: From 10-K filings (B/S: point-in-time, I/S: qtrs=4)
  */
 function buildHistoricalStatements(bankData) {
   const concepts = bankData.concepts;
@@ -585,33 +640,47 @@ function buildHistoricalStatements(bankData) {
     return dateB.localeCompare(dateA);
   });
 
-  // Separate 10-K and 10-Q submissions
-  const annual10Ks = sortedSubmissions.filter(s => s.form === '10-K').slice(0, 4);
-  const quarterly10Qs = sortedSubmissions.filter(s => s.form === '10-Q').slice(0, 5);
+  // Separate 10-K and 10-Q submissions, filter by minimum year
+  const annual10Ks = sortedSubmissions
+    .filter(s => s.form === '10-K' && parseInt(s.fy) >= CONFIG.minFiscalYear)
+    .sort((a, b) => parseInt(b.fy) - parseInt(a.fy));
+
+  const quarterly10Qs = sortedSubmissions
+    .filter(s => {
+      if (s.form !== '10-Q') return false;
+      const fy = parseInt(s.fy);
+      if (fy < CONFIG.minQuarterYear) return false;
+      if (fy === CONFIG.minQuarterYear) {
+        const fpNum = parseInt(s.fp?.replace('Q', '')) || 0;
+        return fpNum >= CONFIG.minQuarter;
+      }
+      return true;
+    })
+    .sort((a, b) => {
+      const fyDiff = parseInt(b.fy) - parseInt(a.fy);
+      if (fyDiff !== 0) return fyDiff;
+      const fpA = parseInt(a.fp?.replace('Q', '')) || 0;
+      const fpB = parseInt(b.fp?.replace('Q', '')) || 0;
+      return fpB - fpA;
+    });
 
   /**
    * Build canonical presentation structure from most recent filing
-   * and map values from all periods
    */
-  const buildStatements = (filings, isAnnual, stmtType) => {
-    if (filings.length === 0) return { statements: [], canonicalItems: [] };
-
+  const buildCanonicalItems = (filings, stmtType) => {
     // Find most recent filing with presentation data
-    let canonicalFiling = null;
     let canonicalPres = null;
     for (const filing of filings) {
       const pres = presentationByFiling[filing.adsh];
       if (pres && pres[stmtType] && pres[stmtType].length > 0) {
-        canonicalFiling = filing;
         canonicalPres = pres[stmtType];
         break;
       }
     }
 
-    if (!canonicalPres) return { statements: [], canonicalItems: [] };
+    if (!canonicalPres) return [];
 
     // Build canonical item list from most recent filing's presentation
-    // Also collect any additional items from older filings
     const canonicalItems = [...canonicalPres].sort((a, b) => a.line - b.line);
     const tagSet = new Set(canonicalItems.map(item => item.tag));
 
@@ -622,10 +691,9 @@ function buildHistoricalStatements(bankData) {
 
       for (const item of pres[stmtType]) {
         if (!tagSet.has(item.tag)) {
-          // Add to end of canonical list (older items not in newest filing)
           canonicalItems.push({
             ...item,
-            line: 9999, // Put at end
+            line: 9999,
             fromOlderFiling: true,
           });
           tagSet.add(item.tag);
@@ -633,13 +701,166 @@ function buildHistoricalStatements(bankData) {
       }
     }
 
-    // Build value map for each period
+    return canonicalItems;
+  };
+
+  /**
+   * Get value for a specific tag from a filing
+   */
+  const getValueForFiling = (tag, version, filing, targetQtrs, negating) => {
+    const conceptData = concepts[tag];
+    if (!conceptData) return null;
+
+    // Per SEC docs: PRE references NUM via adsh + tag + version
+    let match = conceptData.find(d =>
+      d.adsh === filing.adsh && d.qtrs === targetQtrs && d.version === version
+    );
+    // Fallback: try without version
+    if (!match && version) {
+      match = conceptData.find(d =>
+        d.adsh === filing.adsh && d.qtrs === targetQtrs
+      );
+    }
+
+    if (!match) return null;
+    return negating ? -match.value : match.value;
+  };
+
+  /**
+   * Build annual statements (from 10-K filings)
+   */
+  const buildAnnualStatements = (stmtType) => {
+    const allFilings = [...annual10Ks];
+    const canonicalItems = buildCanonicalItems(allFilings, stmtType);
+    if (canonicalItems.length === 0) return { statements: [], canonicalItems: [] };
+
     const statements = [];
-    for (const filing of filings) {
-      const periodKey = isAnnual ? `FY ${filing.fy}` : `${filing.fp} ${filing.fy}`;
+    for (const filing of annual10Ks) {
+      const periodKey = `FY ${filing.fy}`;
       const pres = presentationByFiling[filing.adsh];
 
-      // Build a map of tag -> presentation info for this filing
+      const filingPresMap = new Map();
+      if (pres && pres[stmtType]) {
+        for (const item of pres[stmtType]) {
+          filingPresMap.set(item.tag, item);
+        }
+      }
+
+      const targetQtrs = stmtType === 'BS' ? 0 : 4;
+      const items = [];
+
+      for (const canonicalItem of canonicalItems) {
+        const filingPres = filingPresMap.get(canonicalItem.tag);
+        const label = filingPres?.label || canonicalItem.label;
+        const indent = filingPres?.indent ?? canonicalItem.indent ?? 0;
+        const negating = filingPres?.negating ?? canonicalItem.negating ?? false;
+
+        const value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, targetQtrs, negating);
+
+        items.push({
+          tag: canonicalItem.tag,
+          label: label,
+          line: canonicalItem.line,
+          indent: indent,
+          negating: negating,
+          value: value,
+          uom: 'USD',
+          hasValue: value !== null,
+        });
+      }
+
+      statements.push({
+        period: periodKey,
+        label: periodKey,
+        form: filing.form,
+        fy: filing.fy,
+        fp: 'FY',
+        filed: filing.filed,
+        ddate: filing.period,
+        adsh: filing.adsh,
+        items: items,
+      });
+    }
+
+    const canonicalItemsClean = canonicalItems.map(item => ({
+      tag: item.tag,
+      label: item.label,
+      line: item.line,
+      indent: item.indent ?? 0,
+    }));
+
+    return { statements, canonicalItems: canonicalItemsClean };
+  };
+
+  /**
+   * Build quarterly statements (Q1-Q3 from 10-Q, Q4 from 10-K with I/S derivation)
+   */
+  const buildQuarterlyStatements = (stmtType) => {
+    // Use both 10-Q and 10-K filings for canonical items
+    const allFilings = [...quarterly10Qs, ...annual10Ks];
+    const canonicalItems = buildCanonicalItems(allFilings, stmtType);
+    if (canonicalItems.length === 0) return { statements: [], canonicalItems: [] };
+
+    // Build a map of fiscal year -> Q1, Q2, Q3 10-Q filings
+    const quartersByYear = new Map();
+    for (const q of quarterly10Qs) {
+      const fy = q.fy;
+      if (!quartersByYear.has(fy)) {
+        quartersByYear.set(fy, { Q1: null, Q2: null, Q3: null });
+      }
+      const fp = q.fp; // Q1, Q2, Q3
+      if (fp && quartersByYear.get(fy)[fp] === null) {
+        quartersByYear.get(fy)[fp] = q;
+      }
+    }
+
+    // Build list of all quarters to display (Q1 2023 onwards)
+    const allQuarters = [];
+
+    // Add Q1-Q3 from 10-Qs
+    for (const q of quarterly10Qs) {
+      allQuarters.push({
+        fy: q.fy,
+        fp: q.fp,
+        filing: q,
+        form: '10-Q',
+        isDerived: false,
+      });
+    }
+
+    // Add Q4 from 10-Ks (for years where we have the 10-K)
+    for (const k of annual10Ks) {
+      const fy = k.fy;
+      // Only add Q4 if fiscal year >= minQuarterYear
+      if (parseInt(fy) >= CONFIG.minQuarterYear) {
+        allQuarters.push({
+          fy: fy,
+          fp: 'Q4',
+          filing: k,
+          form: '10-K',
+          isDerived: stmtType === 'IS', // I/S Q4 is derived, B/S is direct
+          // For I/S derivation, we need Q1-Q3 values
+          priorQuarters: quartersByYear.get(fy) || { Q1: null, Q2: null, Q3: null },
+        });
+      }
+    }
+
+    // Sort quarters: most recent first (by year desc, then quarter desc)
+    allQuarters.sort((a, b) => {
+      const fyDiff = parseInt(b.fy) - parseInt(a.fy);
+      if (fyDiff !== 0) return fyDiff;
+      const qA = parseInt(a.fp.replace('Q', ''));
+      const qB = parseInt(b.fp.replace('Q', ''));
+      return qB - qA;
+    });
+
+    const statements = [];
+    for (const quarter of allQuarters) {
+      const { fy, fp, filing, form, isDerived, priorQuarters } = quarter;
+      const periodKey = `${fp} ${fy}`;
+      const periodLabel = isDerived ? `${fp} ${fy} (derived)` : periodKey;
+
+      const pres = presentationByFiling[filing.adsh];
       const filingPresMap = new Map();
       if (pres && pres[stmtType]) {
         for (const item of pres[stmtType]) {
@@ -649,39 +870,40 @@ function buildHistoricalStatements(bankData) {
 
       const items = [];
       for (const canonicalItem of canonicalItems) {
-        const conceptData = concepts[canonicalItem.tag];
-        if (!conceptData) continue;
-
-        // Get this filing's presentation info (for label/indent specific to this filing)
         const filingPres = filingPresMap.get(canonicalItem.tag);
-
-        // Determine expected qtrs value
-        let targetQtrs;
-        if (stmtType === 'BS') {
-          targetQtrs = 0; // Balance sheet is point-in-time
-        } else {
-          // Income statement: qtrs=4 for annual, qtrs=1 for quarterly
-          targetQtrs = isAnnual ? 4 : 1;
-        }
-
-        // Find value for this filing
-        // Per SEC docs: PRE references NUM via adsh + tag + version
-        // First try exact match with version, then fall back to adsh-only match
-        const version = canonicalItem.version;
-        let match = conceptData.find(d =>
-          d.adsh === filing.adsh && d.qtrs === targetQtrs && d.version === version
-        );
-        // Fallback: if no version match, try without version (some older data may not align perfectly)
-        if (!match && version) {
-          match = conceptData.find(d =>
-            d.adsh === filing.adsh && d.qtrs === targetQtrs
-          );
-        }
-
-        // Use filing-specific label if available, otherwise canonical
         const label = filingPres?.label || canonicalItem.label;
-        const indent = filingPres?.indent ?? canonicalItem.indent;
-        const negating = filingPres?.negating ?? canonicalItem.negating;
+        const indent = filingPres?.indent ?? canonicalItem.indent ?? 0;
+        const negating = filingPres?.negating ?? canonicalItem.negating ?? false;
+
+        let value = null;
+        let derivedUnavailable = false;
+
+        if (stmtType === 'BS') {
+          // Balance sheet: always point-in-time (qtrs=0)
+          value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 0, negating);
+        } else if (fp === 'Q4' && isDerived) {
+          // Income statement Q4: derive from annual - Q1 - Q2 - Q3
+          const annualValue = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
+
+          if (annualValue !== null && priorQuarters) {
+            const q1Value = priorQuarters.Q1 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating) : null;
+            const q2Value = priorQuarters.Q2 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating) : null;
+            const q3Value = priorQuarters.Q3 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating) : null;
+
+            // Only derive if we have all three prior quarters
+            if (q1Value !== null && q2Value !== null && q3Value !== null) {
+              value = annualValue - q1Value - q2Value - q3Value;
+            } else {
+              // Cannot derive - missing prior quarter data
+              derivedUnavailable = true;
+            }
+          } else {
+            derivedUnavailable = true;
+          }
+        } else {
+          // Income statement Q1-Q3: quarterly value (qtrs=1)
+          value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
+        }
 
         items.push({
           tag: canonicalItem.tag,
@@ -689,40 +911,42 @@ function buildHistoricalStatements(bankData) {
           line: canonicalItem.line,
           indent: indent,
           negating: negating,
-          value: match ? (negating ? -match.value : match.value) : null,
-          uom: match?.uom || 'USD',
-          hasValue: !!match,
+          value: value,
+          uom: 'USD',
+          hasValue: value !== null,
+          isDerived: fp === 'Q4' && stmtType === 'IS',
+          derivedUnavailable: derivedUnavailable,
         });
       }
 
       statements.push({
         period: periodKey,
-        label: periodKey,
-        form: filing.form,
-        fy: filing.fy,
-        fp: filing.fp,
+        label: periodLabel,
+        form: form,
+        fy: fy,
+        fp: fp,
         filed: filing.filed,
         ddate: filing.period,
         adsh: filing.adsh,
+        isDerived: isDerived,
         items: items,
       });
     }
 
-    // Return canonical items for the unified structure
     const canonicalItemsClean = canonicalItems.map(item => ({
       tag: item.tag,
       label: item.label,
       line: item.line,
-      indent: item.indent,
+      indent: item.indent ?? 0,
     }));
 
     return { statements, canonicalItems: canonicalItemsClean };
   };
 
-  const annualBS = buildStatements(annual10Ks, true, 'BS');
-  const quarterlyBS = buildStatements(quarterly10Qs, false, 'BS');
-  const annualIS = buildStatements(annual10Ks, true, 'IS');
-  const quarterlyIS = buildStatements(quarterly10Qs, false, 'IS');
+  const annualBS = buildAnnualStatements('BS');
+  const quarterlyBS = buildQuarterlyStatements('BS');
+  const annualIS = buildAnnualStatements('IS');
+  const quarterlyIS = buildQuarterlyStatements('IS');
 
   // Create unified period lists
   const annualPeriods = annualBS.statements.map(bs => ({
@@ -741,6 +965,7 @@ function buildHistoricalStatements(bankData) {
     fy: bs.fy,
     fp: bs.fp,
     filed: bs.filed,
+    isDerived: bs.isDerived,
   }));
 
   return {
@@ -1043,7 +1268,10 @@ async function main() {
   console.log(`\nFound ${cached.length} ZIP files in cache`);
   cached.forEach(q => console.log(`  - ${q.period}: ${path.basename(q.zipPath)}`));
 
-  const datasetUrls = cached.slice(0, CONFIG.quartersToFetch);
+  // Process all quarters if quartersToFetch is 0 or undefined
+  const datasetUrls = CONFIG.quartersToFetch > 0
+    ? cached.slice(0, CONFIG.quartersToFetch)
+    : cached;
 
   // Process each quarter
   const quarterlyResults = [];
