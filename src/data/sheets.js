@@ -8,6 +8,8 @@ const DATA_CONFIG = {
   // Path to the static JSON file (updated daily by GitHub Actions)
   // Use relative path that works with GitHub Pages base URL
   dataFile: import.meta.env.BASE_URL + 'data/banks.json',
+  // Path to raw SEC data for detailed bank pages
+  rawDataFile: import.meta.env.BASE_URL + 'data/sec-raw-data.json',
   // Cache-busting parameter
   cacheBuster: true,
 };
@@ -205,5 +207,84 @@ export function getFieldStats(banks, field) {
     avg: values.reduce((a, b) => a + b, 0) / values.length,
     median: median,
     count: values.length,
+  };
+}
+
+/**
+ * Fetch raw SEC data for detailed bank pages
+ * This is a larger file (~7MB) containing balance sheet and income statement details
+ * @param {Object} options - Fetch options
+ * @returns {Promise<Object>} Raw SEC data
+ */
+export async function fetchRawSecData(options = {}) {
+  const { maxRetries = 2 } = options;
+
+  let lastError = null;
+  let attemptCount = 0;
+
+  while (attemptCount <= maxRetries) {
+    try {
+      // Build URL with optional cache-busting
+      let url = DATA_CONFIG.rawDataFile;
+      if (DATA_CONFIG.cacheBuster) {
+        url += `?t=${Date.now()}`;
+      }
+
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Cache-Control': 'no-cache',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch raw SEC data: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json();
+
+      // Basic validation
+      if (!data || !data.banks) {
+        throw new Error('Invalid raw SEC data format');
+      }
+
+      console.log(`Successfully fetched raw SEC data with ${Object.keys(data.banks).length} banks`);
+
+      return {
+        success: true,
+        data: data,
+        metadata: {
+          bankCount: Object.keys(data.banks).length,
+          fetchedAt: new Date().toISOString(),
+          sourceUrl: DATA_CONFIG.rawDataFile,
+          generatedAt: data.metadata?.generatedAt || null,
+        },
+      };
+    } catch (error) {
+      lastError = error;
+
+      if (attemptCount < maxRetries) {
+        console.warn(`Attempt ${attemptCount + 1} failed for raw SEC data: ${error.message}. Retrying...`);
+        attemptCount++;
+        // Exponential backoff: 2s, 4s
+        const retryDelay = 2000 * Math.pow(2, attemptCount - 1);
+        await sleep(retryDelay);
+      } else {
+        break;
+      }
+    }
+  }
+
+  // Non-critical error - return failure but don't crash the app
+  console.warn('Could not fetch raw SEC data:', lastError?.message);
+
+  return {
+    success: false,
+    data: null,
+    error: {
+      message: lastError?.message || 'Unknown error',
+      type: lastError?.name || 'Error',
+    },
   };
 }

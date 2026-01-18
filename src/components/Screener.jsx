@@ -1,7 +1,8 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import Filters from './Filters.jsx';
 import ResultsTable from './ResultsTable.jsx';
 import { getUniqueExchanges } from '../data/sheets.js';
+import { trackFiltersReset, trackSearchPerformed, trackExchangeFiltered } from '../analytics/events.js';
 
 /**
  * Clean up bank name for display
@@ -126,6 +127,10 @@ function Screener({ banks, loading }) {
     // Load from localStorage, default to 'side'
     return localStorage.getItem('bankAnalyzer_filtersLayout') || 'side';
   });
+
+  // Refs for tracking debounce
+  const searchTrackingTimeout = useRef(null);
+  const previousExchanges = useRef([]);
 
   /**
    * Get unique exchanges from the data
@@ -305,17 +310,47 @@ function Screener({ banks, loading }) {
   }, [processedBanks, filters]);
 
   /**
-   * Handle filter changes
+   * Handle filter changes with analytics tracking
    */
   const handleFilterChange = useCallback((newFilters) => {
-    setFilters(newFilters);
+    setFilters(prevFilters => {
+      // Track exchange filter changes
+      if (JSON.stringify(newFilters.exchanges) !== JSON.stringify(prevFilters.exchanges)) {
+        if (newFilters.exchanges.length > 0) {
+          trackExchangeFiltered(newFilters.exchanges);
+        }
+      }
+      return newFilters;
+    });
   }, []);
+
+  /**
+   * Track search queries with debounce
+   */
+  useEffect(() => {
+    if (searchTrackingTimeout.current) {
+      clearTimeout(searchTrackingTimeout.current);
+    }
+
+    if (filters.searchQuery && filters.searchQuery.trim().length > 0) {
+      searchTrackingTimeout.current = setTimeout(() => {
+        trackSearchPerformed(filters.searchQuery.length, filteredBanks.length);
+      }, 1000); // Debounce for 1 second
+    }
+
+    return () => {
+      if (searchTrackingTimeout.current) {
+        clearTimeout(searchTrackingTimeout.current);
+      }
+    };
+  }, [filters.searchQuery, filteredBanks.length]);
 
   /**
    * Reset all filters to defaults
    */
   const handleReset = useCallback(() => {
     setFilters(DEFAULT_FILTERS);
+    trackFiltersReset();
   }, []);
 
   /**
