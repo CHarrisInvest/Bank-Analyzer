@@ -1,7 +1,12 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSearchTracking } from '../analytics/useAnalytics.js';
 import NavigationLink from '../components/NavigationLink.jsx';
+
+// Recent search history configuration
+const RECENT_BANK_SEARCHES_KEY = 'bankAnalyzer_recentBankSearches';
+const MAX_RECENT_SEARCHES = 15;
+const DEFAULT_VISIBLE_RECENT = 7;
 
 /**
  * Bank Search Page
@@ -10,11 +15,24 @@ import NavigationLink from '../components/NavigationLink.jsx';
 function Search({ banks = [], loading = false }) {
   const location = useLocation();
   const incomingState = location.state || {};
+  const inputRef = useRef(null);
 
   // Initialize state from location state (when returning via back button) or defaults
   const [query, setQuery] = useState(incomingState.searchQuery || '');
   const [filterExchange, setFilterExchange] = useState(incomingState.filterExchange || '');
   const trackSearch = useSearchTracking();
+
+  // Recent searches state
+  const [showRecent, setShowRecent] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [recentSearches, setRecentSearches] = useState(() => {
+    try {
+      const saved = localStorage.getItem(RECENT_BANK_SEARCHES_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
 
   // Restore state when navigating back
   useEffect(() => {
@@ -86,6 +104,73 @@ function Search({ banks = [], loading = false }) {
     }
   }, [query, results.length, trackSearch]);
 
+  // Global keyboard shortcut: "/" to focus search, Escape to blur
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        e.preventDefault();
+        inputRef.current?.focus();
+      }
+      if (e.key === 'Escape' && document.activeElement === inputRef.current) {
+        inputRef.current?.blur();
+        setShowRecent(false);
+        setIsExpanded(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Save search to recent when user finishes typing (on blur with value)
+  const handleBlur = useCallback(() => {
+    setTimeout(() => {
+      setShowRecent(false);
+      setIsExpanded(false);
+      if (query && query.trim()) {
+        const trimmed = query.trim();
+        setRecentSearches((prev) => {
+          const filtered = prev.filter((s) => s.toLowerCase() !== trimmed.toLowerCase());
+          const updated = [trimmed, ...filtered].slice(0, MAX_RECENT_SEARCHES);
+          localStorage.setItem(RECENT_BANK_SEARCHES_KEY, JSON.stringify(updated));
+          return updated;
+        });
+      }
+    }, 150);
+  }, [query]);
+
+  const handleFocus = useCallback(() => {
+    if (recentSearches.length > 0) {
+      setShowRecent(true);
+    }
+  }, [recentSearches.length]);
+
+  const handleRecentClick = useCallback((search) => {
+    setQuery(search);
+    setShowRecent(false);
+    setIsExpanded(false);
+    inputRef.current?.blur();
+  }, []);
+
+  const clearRecentSearches = useCallback((e) => {
+    e.stopPropagation();
+    setRecentSearches([]);
+    localStorage.removeItem(RECENT_BANK_SEARCHES_KEY);
+    setShowRecent(false);
+    setIsExpanded(false);
+  }, []);
+
+  const toggleExpanded = useCallback((e) => {
+    e.stopPropagation();
+    setIsExpanded((prev) => !prev);
+  }, []);
+
+  // Compute visible recent searches
+  const visibleSearches = isExpanded
+    ? recentSearches
+    : recentSearches.slice(0, DEFAULT_VISIBLE_RECENT);
+  const hasMore = recentSearches.length > DEFAULT_VISIBLE_RECENT;
+
   const formatNumber = (num) => {
     if (num === null || num === undefined) return '-';
     if (num >= 1e9) return (num / 1e9).toFixed(1) + 'B';
@@ -107,13 +192,19 @@ function Search({ banks = [], loading = false }) {
             <path d="M21 21l-4.35-4.35"/>
           </svg>
           <input
+            ref={inputRef}
             type="text"
             className="search-input"
             placeholder="Search by ticker, name, or CIK..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             autoFocus
           />
+          {!query && (
+            <span className="search-shortcut" title="Press / to search">/</span>
+          )}
           {query && (
             <button
               className="search-clear"
@@ -122,6 +213,37 @@ function Search({ banks = [], loading = false }) {
             >
               ×
             </button>
+          )}
+          {showRecent && recentSearches.length > 0 && !query && (
+            <div className="search-recent-dropdown">
+              <div className="search-recent-header">
+                <span>Recent Searches</span>
+                <button type="button" onClick={clearRecentSearches}>Clear</button>
+              </div>
+              {visibleSearches.map((search, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className="search-recent-item"
+                  onMouseDown={() => handleRecentClick(search)}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  {search}
+                </button>
+              ))}
+              {hasMore && (
+                <button
+                  type="button"
+                  className="search-recent-toggle"
+                  onMouseDown={toggleExpanded}
+                >
+                  {isExpanded ? 'Show less' : `Show ${recentSearches.length - DEFAULT_VISIBLE_RECENT} more`}
+                </button>
+              )}
+            </div>
           )}
         </div>
 
