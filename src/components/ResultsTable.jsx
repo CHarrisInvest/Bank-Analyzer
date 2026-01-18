@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { formatNumber } from '../utils/csv.js';
+import { sendPageView } from '../analytics/gtag.js';
 
 /**
  * Column group definitions for visual grouping headers
@@ -671,6 +672,7 @@ const FILTER_TO_COLUMN_MAP = {
 };
 
 function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
+  const navigate = useNavigate();
   const [sortConfig, setSortConfig] = useState({
     key: 'marketCap',
     direction: 'desc',
@@ -1232,15 +1234,26 @@ function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
                     const tickerContent = searchQuery
                       ? highlightMatch(formatted, searchQuery, false)
                       : formatted;
+
+                    const handleTickerClick = (e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      // Capture scroll position and navigate
+                      const scrollY = window.scrollY;
+                      sendPageView(`/bank/${bank.ticker}`, bank.ticker);
+                      navigate(`/bank/${bank.ticker}`, {
+                        state: { from: 'screener', filters: filters, scrollY },
+                      });
+                    };
+
                     displayContent = (
-                      <Link
-                        to={`/bank/${bank.ticker}`}
-                        state={{ from: 'screener', filters: filters }}
+                      <a
+                        href={`/bank/${bank.ticker}`}
                         className="ticker-link"
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={handleTickerClick}
                       >
                         {tickerContent}
-                      </Link>
+                      </a>
                     );
                   } else if (column.key === 'bankName' && searchQuery && typeof formatted === 'string') {
                     displayContent = highlightMatch(formatted, searchQuery, true);

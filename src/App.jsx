@@ -3,8 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { fetchBankData, fetchRawSecData } from './data/sheets.js';
 import { initializeGA4 } from './analytics/gtag.js';
 
-// Layout
+// Layout and Navigation
 import Layout from './components/Layout.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 // Pages
 import Home from './pages/Home.jsx';
@@ -77,6 +78,7 @@ function App() {
 
   return (
     <BrowserRouter basename={basename}>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* Home */}

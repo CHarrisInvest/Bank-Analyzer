@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { VALUATION_METHODS } from '../data/content/valuations.js';
 import { trackValuationMethodViewed } from '../analytics/events.js';
+import BackButton from '../components/BackButton.jsx';
+import NavigationLink from '../components/NavigationLink.jsx';
 
 /**
  * Valuation Method Detail Page
@@ -32,6 +34,8 @@ function ValuationDetail() {
 
   return (
     <div className="page valuation-detail-page">
+      <BackButton />
+
       <nav className="breadcrumb">
         <Link to="/valuation">Valuation Methods</Link>
         <span className="separator">/</span>
@@ -115,13 +119,15 @@ function ValuationDetail() {
                 const relatedMethod = VALUATION_METHODS.find(m => m.slug === related);
                 if (!relatedMethod) return null;
                 return (
-                  <Link
+                  <NavigationLink
                     key={related}
                     to={'/valuation/' + related}
+                    state={{ from: 'valuation-detail', returnPath: '/valuation/' + slug }}
                     className="related-method-link"
+                    pageTitle={relatedMethod.name}
                   >
                     {relatedMethod.name}
-                  </Link>
+                  </NavigationLink>
                 );
               })}
             </div>
@@ -130,12 +136,22 @@ function ValuationDetail() {
       </article>
 
       <div className="page-navigation">
-        <Link to="/valuation" className="btn btn-secondary">
+        <NavigationLink
+          to="/valuation"
+          state={{ from: 'valuation-detail' }}
+          className="btn btn-secondary"
+          pageTitle="All Methods"
+        >
           ← All Methods
-        </Link>
-        <Link to="/screener" className="btn btn-primary">
+        </NavigationLink>
+        <NavigationLink
+          to="/screener"
+          state={{ from: 'valuation-detail' }}
+          className="btn btn-primary"
+          pageTitle="Screener"
+        >
           Use in Screener →
-        </Link>
+        </NavigationLink>
       </div>
     </div>
   );

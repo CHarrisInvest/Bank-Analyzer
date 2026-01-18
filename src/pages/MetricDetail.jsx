@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { METRICS } from '../data/content/metrics.js';
 import { trackMetricViewed } from '../analytics/events.js';
+import BackButton from '../components/BackButton.jsx';
+import NavigationLink from '../components/NavigationLink.jsx';
 
 /**
  * Metric Detail Page
@@ -32,6 +34,8 @@ function MetricDetail() {
 
   return (
     <div className="page metric-detail-page">
+      <BackButton />
+
       <nav className="breadcrumb">
         <Link to="/metrics">Metrics & Ratios</Link>
         <span className="separator">/</span>
@@ -103,13 +107,15 @@ function MetricDetail() {
                 const relatedMetric = METRICS.find(m => m.slug === related);
                 if (!relatedMetric) return null;
                 return (
-                  <Link
+                  <NavigationLink
                     key={related}
                     to={'/metrics/' + related}
+                    state={{ from: 'metrics-detail', returnPath: '/metrics/' + slug }}
                     className="related-metric-link"
+                    pageTitle={relatedMetric.name}
                   >
                     {relatedMetric.name}
-                  </Link>
+                  </NavigationLink>
                 );
               })}
             </div>
@@ -125,12 +131,22 @@ function MetricDetail() {
       </article>
 
       <div className="page-navigation">
-        <Link to="/metrics" className="btn btn-secondary">
+        <NavigationLink
+          to="/metrics"
+          state={{ from: 'metrics-detail' }}
+          className="btn btn-secondary"
+          pageTitle="All Metrics"
+        >
           ← All Metrics
-        </Link>
-        <Link to="/screener" className="btn btn-primary">
+        </NavigationLink>
+        <NavigationLink
+          to="/screener"
+          state={{ from: 'metrics-detail' }}
+          className="btn btn-primary"
+          pageTitle="Screener"
+        >
           Use in Screener →
-        </Link>
+        </NavigationLink>
       </div>
     </div>
   );
