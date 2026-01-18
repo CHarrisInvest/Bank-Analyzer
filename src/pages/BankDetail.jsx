@@ -371,22 +371,34 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
         : (viewMode === 'quarterly' ? historicalData.periods.quarterly : historicalData.periods.annual))
     : [];
 
-  // For "as reported" format: build unified item list from first period's structure
-  const buildAsReportedItems = () => {
-    if (!isAsReportedFormat || dataSource.length === 0) return [];
-    // Use the first period's items as the template (all periods should have same structure)
-    return dataSource[0].items.map(item => ({
-      tag: item.tag,
-      label: item.label,
-      line: item.line,
-      indent: item.indent,
-    }));
+  // For "as reported" format: get canonical items (unified structure based on most recent filing)
+  const getCanonicalItems = () => {
+    if (!isAsReportedFormat) return [];
+    // Use canonicalItems if available (new format with aligned presentation)
+    const canonical = viewMode === 'quarterly'
+      ? historicalData?.canonicalItems?.quarterly
+      : historicalData?.canonicalItems?.annual;
+    if (canonical && canonical.length > 0) {
+      return canonical;
+    }
+    // Fallback to first period's items for backward compatibility
+    if (dataSource.length > 0 && dataSource[0]?.items) {
+      return dataSource[0].items.map(item => ({
+        tag: item.tag, label: item.label, line: item.line, indent: item.indent,
+      }));
+    }
+    return [];
   };
 
-  // For "as reported" format: get value for a specific period
-  const getAsReportedValue = (tag, periodKey) => {
+  // For "as reported" format: get value for a specific period (index-aligned for performance)
+  const getAsReportedValue = (tag, periodKey, itemIndex) => {
     const periodData = dataSource.find(d => d.period === periodKey);
-    if (!periodData) return null;
+    if (!periodData || !periodData.items) return null;
+    // Use index-aligned access (items are now aligned to canonical order)
+    if (itemIndex !== undefined && periodData.items[itemIndex]?.tag === tag) {
+      return periodData.items[itemIndex]?.value ?? null;
+    }
+    // Fallback to tag search
     const item = periodData.items.find(i => i.tag === tag);
     return item?.value ?? null;
   };
@@ -489,7 +501,7 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
 
   // Render "As Reported" format - preserves exact presentation order from SEC filings
   if (isAsReportedFormat) {
-    const items = buildAsReportedItems();
+    const items = getCanonicalItems();
     const totalLineItems = items.length;
 
     return (
@@ -514,7 +526,7 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
         </div>
         <p className="statement-note">
           {viewMode === 'quarterly' ? 'Most recent quarters from 10-Q filings' : 'Most recent years from 10-K filings'}
-          {' • '}{totalLineItems} line items • Exact presentation order from SEC filing
+          {' • '}{totalLineItems} line items • Presentation order from most recent SEC filing
         </p>
 
         <div className="financial-table-wrapper">
@@ -543,7 +555,7 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
                       {item.label}
                     </td>
                     {periods.map(p => {
-                      const value = getAsReportedValue(item.tag, p.key);
+                      const value = getAsReportedValue(item.tag, p.key, idx);
                       return (
                         <td key={p.key} className="value-col">
                           {isShares
@@ -664,16 +676,26 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
         : (viewMode === 'quarterly' ? historicalData.periods.quarterly : historicalData.periods.annual))
     : [];
 
-  const buildAsReportedItems = () => {
-    if (!isAsReportedFormat || dataSource.length === 0) return [];
-    return dataSource[0].items.map(item => ({
-      tag: item.tag, label: item.label, line: item.line, indent: item.indent,
-    }));
+  const getCanonicalItems = () => {
+    if (!isAsReportedFormat) return [];
+    const canonical = viewMode === 'quarterly'
+      ? historicalData?.canonicalItems?.quarterly
+      : historicalData?.canonicalItems?.annual;
+    if (canonical && canonical.length > 0) return canonical;
+    if (dataSource.length > 0 && dataSource[0]?.items) {
+      return dataSource[0].items.map(item => ({
+        tag: item.tag, label: item.label, line: item.line, indent: item.indent,
+      }));
+    }
+    return [];
   };
 
-  const getAsReportedValue = (tag, periodKey) => {
+  const getAsReportedValue = (tag, periodKey, itemIndex) => {
     const periodData = dataSource.find(d => d.period === periodKey);
-    if (!periodData) return null;
+    if (!periodData || !periodData.items) return null;
+    if (itemIndex !== undefined && periodData.items[itemIndex]?.tag === tag) {
+      return periodData.items[itemIndex]?.value ?? null;
+    }
     const item = periodData.items.find(i => i.tag === tag);
     return item?.value ?? null;
   };
@@ -762,7 +784,7 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
 
   // Render "As Reported" format
   if (isAsReportedFormat) {
-    const items = buildAsReportedItems();
+    const items = getCanonicalItems();
     return (
       <div className="tab-income-statement">
         <div className="statement-header">
@@ -775,7 +797,7 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
         </div>
         <p className="statement-note">
           {viewMode === 'quarterly' ? 'Most recent quarters from 10-Q filings' : 'Most recent years from 10-K filings'}
-          {' • '}{items.length} line items • Exact presentation order from SEC filing
+          {' • '}{items.length} line items • Presentation order from most recent SEC filing
         </p>
         <div className="financial-table-wrapper">
           <table className="financial-table multi-period as-reported">
@@ -788,7 +810,7 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
                   <tr key={`${item.tag}-${idx}`} className={isTotal ? 'total-row' : ''}>
                     <td className="label-col">{item.indent > 0 && <span style={{ paddingLeft: `${item.indent * 12}px` }} />}{item.label}</td>
                     {periods.map(p => {
-                      const value = getAsReportedValue(item.tag, p.key);
+                      const value = getAsReportedValue(item.tag, p.key, idx);
                       return <td key={p.key} className="value-col">{isPerShare ? (value !== null ? '$' + value.toFixed(2) : '-') : formatCurrency(value)}</td>;
                     })}
                   </tr>
