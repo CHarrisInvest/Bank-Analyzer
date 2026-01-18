@@ -197,6 +197,15 @@ async function processPresentation(extractDir, bankAdshs) {
     // Only process Balance Sheet (BS) and Income Statement (IS)
     if (!['BS', 'IS'].includes(stmt)) continue;
 
+    // CRITICAL: inpth=1 means "in parenthetical" - these are parenthetical disclosures
+    // like "Common stock, par value per share" that should NOT be in the main statement
+    // Per SEC docs: "Indicates whether the value was presented parenthetically
+    // instead of in columns within the financial statements"
+    const isParenthetical = inpth === '1' || inpth === 1;
+    if (isParenthetical) {
+      continue; // Skip parenthetical items - they're not main statement line items
+    }
+
     if (!rawPresentations.has(adsh)) {
       rawPresentations.set(adsh, { BS: new Map(), IS: new Map() });
     }
@@ -215,7 +224,7 @@ async function processPresentation(extractDir, bankAdshs) {
       line: parseInt(line) || 0,
       label: plabel || tag,  // plabel is company's preferred label
       negating: negating === '1',
-      indent: parseInt(inpth) || 0,
+      indent: 0, // Note: pre.txt doesn't have indent info; hierarchy inferred from structure
     });
   }
 
