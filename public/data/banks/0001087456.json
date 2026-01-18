@@ -96,48 +96,18 @@
       }
     },
     "incomeStatement": {
-      "InterestIncome": {
-        "value": 38942000,
-        "date": "20221231",
-        "method": "annual",
-        "form": "10-K"
-      },
-      "InterestExpense": {
-        "value": 3258000,
-        "date": "20221231",
-        "method": "annual",
-        "form": "10-K"
-      },
+      "InterestIncome": null,
+      "InterestExpense": null,
       "NetInterestIncome": {
         "value": 35684000,
         "date": "20221231",
         "method": "sum-4Q",
         "form": "10-K"
       },
-      "NoninterestIncome": {
-        "value": 9954000,
-        "date": "20221231",
-        "method": "annual",
-        "form": "10-K"
-      },
-      "NoninterestExpense": {
-        "value": 34114000,
-        "date": "20221231",
-        "method": "annual",
-        "form": "10-K"
-      },
-      "ProvisionForCreditLosses": {
-        "value": -1000000,
-        "date": "20221231",
-        "method": "annual",
-        "form": "10-K"
-      },
-      "PreTaxIncome": {
-        "value": 12524000,
-        "date": "20221231",
-        "method": "annual",
-        "form": "10-K"
-      },
+      "NoninterestIncome": null,
+      "NoninterestExpense": null,
+      "ProvisionForCreditLosses": null,
+      "PreTaxIncome": null,
       "NetIncomeLoss": {
         "value": 11310000,
         "date": "20221231",
@@ -152,18 +122,14 @@
       }
     },
     "dividends": {
-      "CommonStockDividendsPerShareDeclared": {
-        "value": 0.84,
-        "date": "20221231",
-        "method": "annual",
-        "form": "10-K"
-      }
+      "CommonStockDividendsPerShareDeclared": null
     },
     "averages": {
       "Assets": {
         "average": 1081924500,
         "ending": 1087293000,
         "endingDate": "20221231",
+        "startingDate": "20211231",
         "method": "2-point-avg",
         "periodCount": 2
       },
@@ -171,6 +137,7 @@
         "average": 102041500,
         "ending": 82691000,
         "endingDate": "20221231",
+        "startingDate": "20191231",
         "method": "4-point-avg",
         "periodCount": 4
       }

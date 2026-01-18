@@ -129,8 +129,10 @@
       "ProvisionForCreditLosses": {
         "value": 1200000,
         "date": "20221231",
-        "method": "annual-fallback",
-        "form": "10-K"
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 561000,
+        "fiscalYear": "2023"
       },
       "PreTaxIncome": {
         "value": 2659000,
@@ -159,6 +161,7 @@
         "average": 458060600,
         "ending": 456437000,
         "endingDate": "20250930",
+        "startingDate": "20241231",
         "method": "5-point-avg",
         "periodCount": 5
       },
@@ -166,6 +169,7 @@
         "average": 50583200,
         "ending": 51354000,
         "endingDate": "20250930",
+        "startingDate": "20250331",
         "method": "5-point-avg",
         "periodCount": 5
       }
