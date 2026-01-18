@@ -341,9 +341,7 @@ function RatiosTab({ bank, formatCurrency, formatPercent, formatNumber }) {
 
 /**
  * Balance Sheet Tab - Full balance sheet from SEC filings with multi-period view
- * Supports two data formats:
- * 1. "As Reported" format (from pre.txt): items[] array with exact presentation order
- * 2. Legacy format: concept-keyed object with nested periods
+ * Uses "As Reported" format (from pre.txt): items[] array with exact presentation order
  */
 function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
   const [viewMode, setViewMode] = useState('annual'); // 'quarterly' or 'annual'
@@ -352,25 +350,16 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
 
   // Check if historical data is available
   const historicalData = rawData?.historicalBalanceSheet;
-
-  // Detect format type: "as reported" format has items[] array per period
   const dataSource = viewMode === 'quarterly'
     ? historicalData?.quarterly
     : historicalData?.annual;
 
   const isAsReportedFormat = Array.isArray(dataSource) && dataSource.length > 0 && dataSource[0]?.items;
-
-  const hasHistoricalData = historicalData && (
-    isAsReportedFormat
-      ? dataSource.length > 0
-      : (historicalData.periods?.[viewMode === 'quarterly' ? 'quarterly' : 'annual']?.length > 0)
-  );
+  const hasHistoricalData = isAsReportedFormat && dataSource.length > 0;
 
   // Get all periods
   const allPeriods = hasHistoricalData
-    ? (isAsReportedFormat
-        ? dataSource.map(d => ({ key: d.period, label: d.label || d.period, form: d.form, isDerived: d.isDerived }))
-        : (viewMode === 'quarterly' ? historicalData.periods.quarterly : historicalData.periods.annual))
+    ? dataSource.map(d => ({ key: d.period, label: d.label || d.period, form: d.form, isDerived: d.isDerived }))
     : [];
 
   // For quarterly view: limit to 5 periods unless expanded
@@ -416,57 +405,6 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
     // Fallback to tag search
     const item = periodData.items.find(i => i.tag === tag);
     return item?.value ?? null;
-  };
-
-  // For legacy format: get value for a concept in a specific period
-  const getLegacyValue = (concept, periodKey) => {
-    const conceptData = dataSource?.[concept];
-    if (conceptData?.periods) {
-      const periodData = conceptData.periods.find(p =>
-        viewMode === 'quarterly'
-          ? `${p.fp} ${p.fy}` === periodKey
-          : `FY ${p.fy}` === periodKey
-      );
-      return periodData?.value ?? null;
-    }
-    return null;
-  };
-
-  // For legacy format: organize concepts by category
-  const organizeLegacyByCategory = () => {
-    const categories = {
-      assets: { label: 'ASSETS', items: [] },
-      liabilities: { label: 'LIABILITIES', items: [] },
-      equity: { label: 'SHAREHOLDERS\' EQUITY', items: [] },
-      other: { label: 'OTHER', items: [] }
-    };
-
-    const assetKeywords = ['Asset', 'Cash', 'Loan', 'Receivable', 'Securities', 'Investment', 'Property', 'Goodwill', 'Intangible', 'Deferred Tax Asset', 'Insurance'];
-    const liabilityKeywords = ['Liabilit', 'Deposit', 'Borrowing', 'Debt', 'Payable', 'Accrued', 'Trading Liabilit', 'Deferred Tax Liabilit'];
-    const equityKeywords = ['Equity', 'Stock', 'Capital', 'Retained', 'Treasury', 'Comprehensive', 'Minority', 'Noncontrolling'];
-
-    for (const [concept, data] of Object.entries(dataSource || {})) {
-      const label = data.label || concept;
-      const isTotal = label.toLowerCase().includes('total') || concept === 'Assets' || concept === 'Liabilities' || concept.includes('StockholdersEquity');
-      const isShares = concept.toLowerCase().includes('shares');
-
-      let category = 'other';
-      if (assetKeywords.some(kw => concept.includes(kw) || label.includes(kw))) category = 'assets';
-      else if (liabilityKeywords.some(kw => concept.includes(kw) || label.includes(kw))) category = 'liabilities';
-      else if (equityKeywords.some(kw => concept.includes(kw) || label.includes(kw))) category = 'equity';
-
-      categories[category].items.push({ concept, label, isTotal, isShares });
-    }
-
-    for (const cat of Object.values(categories)) {
-      cat.items.sort((a, b) => {
-        if (a.isTotal && !b.isTotal) return 1;
-        if (!a.isTotal && b.isTotal) return -1;
-        return a.label.localeCompare(b.label);
-      });
-    }
-
-    return categories;
   };
 
   // Fallback if no historical data
@@ -600,94 +538,13 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
     );
   }
 
-  // Render legacy format - organized by category
-  const categories = organizeLegacyByCategory();
-
-  return (
-    <div className="tab-balance-sheet">
-      <div className="statement-header">
-        <h3>Consolidated Balance Sheet</h3>
-        <div className="period-toggle">
-          <button
-            className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'}
-            onClick={() => handleViewModeChange('quarterly')}
-          >
-            Quarterly
-          </button>
-          <button
-            className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'}
-            onClick={() => handleViewModeChange('annual')}
-          >
-            Annual
-          </button>
-        </div>
-      </div>
-      <p className="statement-note">
-        {viewMode === 'quarterly'
-          ? `Showing ${periods.length} of ${allPeriods.length} quarters`
-          : 'Annual results from FY 2022 onward'}
-        {' • '}{Object.keys(dataSource || {}).length} line items
-      </p>
-
-      <div className="financial-table-wrapper">
-        <table className="financial-table multi-period">
-          <thead>
-            <tr>
-              <th className="label-col">Item</th>
-              {periods.map(p => (
-                <th key={p.key} className="value-col">{p.label || p.key}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {['assets', 'liabilities', 'equity', 'other'].map(catKey => {
-              const cat = categories[catKey];
-              if (!cat || cat.items.length === 0) return null;
-              return (
-                <React.Fragment key={catKey}>
-                  <tr className="header-row">
-                    <td colSpan={periods.length + 1}><strong>{cat.label}</strong></td>
-                  </tr>
-                  {cat.items.map((item, idx) => (
-                    <tr key={`${catKey}-${idx}`} className={item.isTotal ? 'total-row' : ''}>
-                      <td className="label-col">{item.label}</td>
-                      {periods.map(p => {
-                        const value = getLegacyValue(item.concept, p.key);
-                        return (
-                          <td key={p.key} className="value-col">
-                            {item.isShares
-                              ? (value !== null ? value.toLocaleString() : '-')
-                              : formatCurrency(value)
-                            }
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  ))}
-                  <tr className="spacer-row"><td colSpan={periods.length + 1}></td></tr>
-                </React.Fragment>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-
-      {hasMoreQuarters && (
-        <div className="expand-quarters">
-          <button className="expand-btn" onClick={() => setExpanded(!expanded)}>
-            {expanded ? 'Show fewer quarters' : `Show all ${allPeriods.length} quarters`}
-          </button>
-        </div>
-      )}
-    </div>
-  );
+  // No data available in expected format
+  return null;
 }
 
 /**
  * Income Statement Tab - Full income statement from SEC filings with multi-period view
- * Supports two data formats:
- * 1. "As Reported" format (from pre.txt): items[] array with exact presentation order
- * 2. Legacy format: concept-keyed object with nested periods
+ * Uses "As Reported" format (from pre.txt): items[] array with exact presentation order
  */
 function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
   const [viewMode, setViewMode] = useState('annual'); // 'quarterly' or 'annual'
@@ -700,18 +557,11 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
     : historicalData?.annual;
 
   const isAsReportedFormat = Array.isArray(dataSource) && dataSource.length > 0 && dataSource[0]?.items;
-
-  const hasHistoricalData = historicalData && (
-    isAsReportedFormat
-      ? dataSource.length > 0
-      : (historicalData.periods?.[viewMode === 'quarterly' ? 'quarterly' : 'annual']?.length > 0)
-  );
+  const hasHistoricalData = isAsReportedFormat && dataSource.length > 0;
 
   // Get all periods
   const allPeriods = hasHistoricalData
-    ? (isAsReportedFormat
-        ? dataSource.map(d => ({ key: d.period, label: d.label || d.period, form: d.form, isDerived: d.isDerived }))
-        : (viewMode === 'quarterly' ? historicalData.periods.quarterly : historicalData.periods.annual))
+    ? dataSource.map(d => ({ key: d.period, label: d.label || d.period, form: d.form, isDerived: d.isDerived }))
     : [];
 
   // For quarterly view: limit to 5 periods unless expanded
@@ -754,58 +604,6 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
       value: item?.value ?? null,
       derivedUnavailable: item?.derivedUnavailable || false,
     };
-  };
-
-  const getLegacyValue = (concept, periodKey) => {
-    const conceptData = dataSource?.[concept];
-    if (conceptData?.periods) {
-      const periodData = conceptData.periods.find(p =>
-        viewMode === 'quarterly' ? `${p.fp} ${p.fy}` === periodKey : `FY ${p.fy}` === periodKey
-      );
-      return periodData?.value ?? null;
-    }
-    return null;
-  };
-
-  const organizeLegacyByCategory = () => {
-    const categories = {
-      interestIncome: { label: 'INTEREST INCOME', items: [] },
-      interestExpense: { label: 'INTEREST EXPENSE', items: [] },
-      netInterest: { label: 'NET INTEREST INCOME', items: [] },
-      provision: { label: 'PROVISION FOR CREDIT LOSSES', items: [] },
-      noninterestIncome: { label: 'NON-INTEREST INCOME', items: [] },
-      noninterestExpense: { label: 'NON-INTEREST EXPENSE', items: [] },
-      incomeAndTax: { label: 'INCOME & TAXES', items: [] },
-      perShare: { label: 'PER SHARE DATA', items: [] },
-      other: { label: 'OTHER', items: [] }
-    };
-
-    for (const [concept, data] of Object.entries(dataSource || {})) {
-      const label = data.label || concept;
-      const isTotal = label.toLowerCase().includes('total') || label.toLowerCase().includes('net income') || concept.includes('NetIncome');
-      const isPerShare = concept.toLowerCase().includes('pershare') || concept.toLowerCase().includes('earnings per');
-
-      let category = 'other';
-      if (concept.includes('InterestIncome') && !concept.includes('Expense') && !concept.includes('Net')) category = 'interestIncome';
-      else if (concept.includes('InterestExpense')) category = 'interestExpense';
-      else if (concept.includes('NetInterestIncome') || concept.includes('InterestIncomeExpenseNet')) category = 'netInterest';
-      else if (concept.includes('Provision') || concept.includes('CreditLoss')) category = 'provision';
-      else if (concept.includes('NoninterestIncome') || concept.includes('Fees') || concept.includes('Trading') || concept.includes('GainLoss')) category = 'noninterestIncome';
-      else if (concept.includes('NoninterestExpense') || concept.includes('Salary') || concept.includes('Labor') || concept.includes('Occupancy') || concept.includes('Operating')) category = 'noninterestExpense';
-      else if (concept.includes('Income') || concept.includes('Tax') || concept.includes('Profit') || concept.includes('Loss')) category = 'incomeAndTax';
-      else if (isPerShare || concept.includes('Dividend')) category = 'perShare';
-
-      categories[category].items.push({ concept, label, isTotal, isPerShare });
-    }
-
-    for (const cat of Object.values(categories)) {
-      cat.items.sort((a, b) => {
-        if (a.isTotal && !b.isTotal) return 1;
-        if (!a.isTotal && b.isTotal) return -1;
-        return a.label.localeCompare(b.label);
-      });
-    }
-    return categories;
   };
 
   // Fallback if no historical data
@@ -896,61 +694,8 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
     );
   }
 
-  // Render legacy format
-  const categories = organizeLegacyByCategory();
-  const categoryOrder = ['interestIncome', 'interestExpense', 'netInterest', 'provision', 'noninterestIncome', 'noninterestExpense', 'incomeAndTax', 'perShare', 'other'];
-
-  return (
-    <div className="tab-income-statement">
-      <div className="statement-header">
-        <h3>Consolidated Income Statement</h3>
-        <div className="period-toggle">
-          <button className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('quarterly')}>Quarterly</button>
-          <button className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('annual')}>Annual</button>
-        </div>
-      </div>
-      <p className="statement-note">
-        {viewMode === 'quarterly'
-          ? `Showing ${periods.length} of ${allPeriods.length} quarters`
-          : 'Annual results from FY 2022 onward'}
-        {' • '}{Object.keys(dataSource || {}).length} line items
-      </p>
-      <div className="financial-table-wrapper">
-        <table className="financial-table multi-period">
-          <thead><tr><th className="label-col">Item</th>{periods.map(p => <th key={p.key} className="value-col">{p.label || p.key}</th>)}</tr></thead>
-          <tbody>
-            {categoryOrder.map(catKey => {
-              const cat = categories[catKey];
-              if (!cat || cat.items.length === 0) return null;
-              return (
-                <React.Fragment key={catKey}>
-                  <tr className="header-row"><td colSpan={periods.length + 1}><strong>{cat.label}</strong></td></tr>
-                  {cat.items.map((item, idx) => (
-                    <tr key={`${catKey}-${idx}`} className={item.isTotal ? 'total-row' : ''}>
-                      <td className="label-col">{item.label}</td>
-                      {periods.map(p => {
-                        const value = getLegacyValue(item.concept, p.key);
-                        return <td key={p.key} className="value-col">{item.isPerShare ? (value !== null ? '$' + value.toFixed(2) : '-') : formatCurrency(value)}</td>;
-                      })}
-                    </tr>
-                  ))}
-                  <tr className="spacer-row"><td colSpan={periods.length + 1}></td></tr>
-                </React.Fragment>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-
-      {hasMoreQuarters && (
-        <div className="expand-quarters">
-          <button className="expand-btn" onClick={() => setExpanded(!expanded)}>
-            {expanded ? 'Show fewer quarters' : `Show all ${allPeriods.length} quarters`}
-          </button>
-        </div>
-      )}
-    </div>
-  );
+  // No data available in expected format
+  return null;
 }
 
 export default BankDetail;
