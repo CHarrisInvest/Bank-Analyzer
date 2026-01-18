@@ -3577,6 +3577,12 @@ body {
   margin-left: var(--spacing-2);
 }
 
+/* Derived value unavailable indicator */
+.derived-unavailable {
+  color: var(--color-gray-400);
+  cursor: help;
+}
+
 /* Multi-period Financial Table */
 .financial-table-wrapper {
   overflow-x: auto;

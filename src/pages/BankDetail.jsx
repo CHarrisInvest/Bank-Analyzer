@@ -367,7 +367,7 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
   // Get periods for display
   const periods = hasHistoricalData
     ? (isAsReportedFormat
-        ? dataSource.map(d => ({ key: d.period, label: d.label, form: d.form }))
+        ? dataSource.map(d => ({ key: d.period, label: d.label || d.period, form: d.form, isDerived: d.isDerived }))
         : (viewMode === 'quarterly' ? historicalData.periods.quarterly : historicalData.periods.annual))
     : [];
 
@@ -525,7 +525,7 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
           </div>
         </div>
         <p className="statement-note">
-          {viewMode === 'quarterly' ? 'Most recent quarters from 10-Q filings' : 'Most recent years from 10-K filings'}
+          {viewMode === 'quarterly' ? 'Quarters from Q1 2023 onward (Q4 from 10-K year-end)' : 'Annual results from 10-K filings (FY 2022 onward)'}
           {' • '}{totalLineItems} line items • Presentation order from most recent SEC filing
         </p>
 
@@ -535,7 +535,7 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
               <tr>
                 <th className="label-col">Item</th>
                 {periods.map(p => (
-                  <th key={p.key} className="value-col">{p.key}</th>
+                  <th key={p.key} className="value-col">{p.label}</th>
                 ))}
               </tr>
             </thead>
@@ -598,7 +598,7 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
         </div>
       </div>
       <p className="statement-note">
-        {viewMode === 'quarterly' ? 'Most recent 5 quarters from 10-Q filings' : 'Most recent 4 years from 10-K filings'}
+        {viewMode === 'quarterly' ? 'Quarters from Q1 2023 onward' : 'Annual results from FY 2022 onward'}
         {' • '}{Object.keys(dataSource || {}).length} line items
       </p>
 
@@ -608,7 +608,7 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
             <tr>
               <th className="label-col">Item</th>
               {periods.map(p => (
-                <th key={p.key} className="value-col">{p.key}</th>
+                <th key={p.key} className="value-col">{p.label || p.key}</th>
               ))}
             </tr>
           </thead>
@@ -672,7 +672,7 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
 
   const periods = hasHistoricalData
     ? (isAsReportedFormat
-        ? dataSource.map(d => ({ key: d.period, label: d.label, form: d.form }))
+        ? dataSource.map(d => ({ key: d.period, label: d.label || d.period, form: d.form, isDerived: d.isDerived }))
         : (viewMode === 'quarterly' ? historicalData.periods.quarterly : historicalData.periods.annual))
     : [];
 
@@ -692,12 +692,17 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
 
   const getAsReportedValue = (tag, periodKey, itemIndex) => {
     const periodData = dataSource.find(d => d.period === periodKey);
-    if (!periodData || !periodData.items) return null;
+    if (!periodData || !periodData.items) return { value: null, derivedUnavailable: false };
+    let item;
     if (itemIndex !== undefined && periodData.items[itemIndex]?.tag === tag) {
-      return periodData.items[itemIndex]?.value ?? null;
+      item = periodData.items[itemIndex];
+    } else {
+      item = periodData.items.find(i => i.tag === tag);
     }
-    const item = periodData.items.find(i => i.tag === tag);
-    return item?.value ?? null;
+    return {
+      value: item?.value ?? null,
+      derivedUnavailable: item?.derivedUnavailable || false,
+    };
   };
 
   const getLegacyValue = (concept, periodKey) => {
@@ -796,12 +801,12 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
           </div>
         </div>
         <p className="statement-note">
-          {viewMode === 'quarterly' ? 'Most recent quarters from 10-Q filings' : 'Most recent years from 10-K filings'}
+          {viewMode === 'quarterly' ? 'Quarters from Q1 2023 onward (Q4 derived from annual minus Q1-Q3)' : 'Annual results from 10-K filings (FY 2022 onward)'}
           {' • '}{items.length} line items • Presentation order from most recent SEC filing
         </p>
         <div className="financial-table-wrapper">
           <table className="financial-table multi-period as-reported">
-            <thead><tr><th className="label-col">Item</th>{periods.map(p => <th key={p.key} className="value-col">{p.key}</th>)}</tr></thead>
+            <thead><tr><th className="label-col">Item</th>{periods.map(p => <th key={p.key} className="value-col">{p.label}</th>)}</tr></thead>
             <tbody>
               {items.map((item, idx) => {
                 const isTotal = item.label.toLowerCase().includes('total') || item.label.toLowerCase().includes('net income') || item.tag.includes('NetIncome');
@@ -810,7 +815,14 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
                   <tr key={`${item.tag}-${idx}`} className={isTotal ? 'total-row' : ''}>
                     <td className="label-col">{item.indent > 0 && <span style={{ paddingLeft: `${item.indent * 12}px` }} />}{item.label}</td>
                     {periods.map(p => {
-                      const value = getAsReportedValue(item.tag, p.key, idx);
+                      const { value, derivedUnavailable } = getAsReportedValue(item.tag, p.key, idx);
+                      if (derivedUnavailable) {
+                        return (
+                          <td key={p.key} className="value-col" title="Derived value not available - missing prior quarter data">
+                            <span className="derived-unavailable">-</span>
+                          </td>
+                        );
+                      }
                       return <td key={p.key} className="value-col">{isPerShare ? (value !== null ? '$' + value.toFixed(2) : '-') : formatCurrency(value)}</td>;
                     })}
                   </tr>
@@ -836,10 +848,10 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
           <button className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => setViewMode('annual')}>Annual</button>
         </div>
       </div>
-      <p className="statement-note">{viewMode === 'quarterly' ? 'Most recent 5 quarters from 10-Q filings' : 'Most recent 4 years from 10-K filings'}{' • '}{Object.keys(dataSource || {}).length} line items</p>
+      <p className="statement-note">{viewMode === 'quarterly' ? 'Quarters from Q1 2023 onward' : 'Annual results from FY 2022 onward'}{' • '}{Object.keys(dataSource || {}).length} line items</p>
       <div className="financial-table-wrapper">
         <table className="financial-table multi-period">
-          <thead><tr><th className="label-col">Item</th>{periods.map(p => <th key={p.key} className="value-col">{p.key}</th>)}</tr></thead>
+          <thead><tr><th className="label-col">Item</th>{periods.map(p => <th key={p.key} className="value-col">{p.label || p.key}</th>)}</tr></thead>
           <tbody>
             {categoryOrder.map(catKey => {
               const cat = categories[catKey];
