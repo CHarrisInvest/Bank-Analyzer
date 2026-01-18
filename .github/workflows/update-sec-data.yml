@@ -79,9 +79,11 @@ jobs:
 
       - name: Process SEC FS Data Sets
         if: steps.source.outputs.data_source == 'fs-datasets' || steps.source.outputs.data_source == 'both'
+        env:
+          NODE_OPTIONS: '--max-old-space-size=8192'
         run: |
           echo "Processing SEC Financial Statement Data Sets..."
-          node scripts/fetch-sec-fs-datasets.cjs --verbose
+          node --expose-gc scripts/fetch-sec-fs-datasets.cjs --verbose
 
       # ============================================
       # SEC Company Facts API Processing
