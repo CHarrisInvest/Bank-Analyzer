@@ -3520,16 +3520,41 @@ body {
   margin-bottom: var(--spacing-4);
 }
 
-/* Period Toggle */
+/* Statement Header - Flex layout with left/right sections */
 .statement-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: var(--spacing-4);
+  gap: var(--spacing-3);
   margin-bottom: var(--spacing-4);
 }
 
+.statement-header-left {
+  flex: 1;
+  min-width: 200px;
+}
+
+.statement-header-left h3 {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-800);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.statement-header-left .statement-note {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  margin: 0;
+}
+
+.statement-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  flex-shrink: 0;
+}
+
+/* Period Toggle */
 .period-toggle {
   display: flex;
   background: var(--color-gray-100);
@@ -3559,51 +3584,27 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-.statement-note {
-  font-size: var(--font-size-xs);
-  color: var(--color-gray-500);
-  margin-bottom: var(--spacing-4);
-}
-
-/* As Reported Badge */
-.as-reported-badge {
-  display: inline-block;
-  padding: 2px 8px;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-success, #059669);
-  background: var(--color-success-light, #d1fae5);
-  border-radius: var(--radius-full, 9999px);
-  margin-left: var(--spacing-2);
-}
-
 /* Derived value unavailable indicator */
 .derived-unavailable {
   color: var(--color-gray-400);
   cursor: help;
 }
 
-/* Expand quarters button */
-.expand-quarters {
-  text-align: center;
-  margin-top: var(--spacing-4);
-  padding-top: var(--spacing-3);
-  border-top: 1px solid var(--color-gray-200);
-}
-
+/* Expand button - now in header */
 .expand-btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-2) var(--spacing-4);
-  font-size: var(--font-size-sm);
+  gap: var(--spacing-1);
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   color: var(--color-accent);
-  background: transparent;
-  border: 1px solid var(--color-accent);
+  background: var(--color-accent-light, rgba(59, 130, 246, 0.1));
+  border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .expand-btn:hover {
@@ -3611,48 +3612,113 @@ body {
   color: var(--color-white);
 }
 
+/* Mobile responsive header */
+@media (max-width: 640px) {
+  .statement-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .statement-header-right {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .toggle-btn {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--font-size-xs);
+  }
+}
+
 /* Multi-period Financial Table */
 .financial-table-wrapper {
   overflow-x: auto;
   margin: 0 calc(-1 * var(--spacing-4));
   padding: 0 var(--spacing-4);
+  /* Smooth scrolling for touch devices */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 .financial-table.multi-period {
-  min-width: 600px;
+  min-width: 500px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Sticky first column for horizontal scrolling */
+.financial-table.multi-period .sticky-col {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--color-white);
+  /* Shadow to indicate scroll */
+  box-shadow: 2px 0 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.financial-table.multi-period thead th.sticky-col {
+  background: var(--color-gray-50);
+  z-index: 3;
 }
 
 .financial-table.multi-period .label-col {
-  min-width: 200px;
-  max-width: 250px;
-  position: sticky;
-  left: 0;
-  background: var(--color-white);
-  z-index: 1;
-}
-
-.financial-table.multi-period thead th.label-col {
-  background: var(--color-gray-50);
-}
-
-.financial-table.multi-period .header-row td {
-  position: sticky;
-  left: 0;
-  z-index: 1;
+  min-width: 180px;
+  max-width: 220px;
 }
 
 .financial-table.multi-period .value-col {
-  min-width: 100px;
+  min-width: 90px;
   white-space: nowrap;
+  text-align: right;
 }
 
 .financial-table.multi-period thead .value-col {
   font-size: var(--font-size-xs);
   text-align: center;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-600);
 }
 
-.financial-table.multi-period tbody .value-col {
-  text-align: right;
+/* Zebra striping for better readability */
+.financial-table.multi-period tbody tr:nth-child(even) {
+  background-color: var(--color-gray-50);
+}
+
+.financial-table.multi-period tbody tr:nth-child(even) .sticky-col {
+  background-color: var(--color-gray-50);
+}
+
+/* Total rows styling */
+.financial-table.multi-period tbody tr.total-row {
+  background-color: var(--color-gray-100);
+  font-weight: var(--font-weight-semibold);
+}
+
+.financial-table.multi-period tbody tr.total-row .sticky-col {
+  background-color: var(--color-gray-100);
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .financial-table.multi-period .label-col {
+    min-width: 140px;
+    max-width: 160px;
+    font-size: var(--font-size-xs);
+  }
+
+  .financial-table.multi-period .value-col {
+    min-width: 75px;
+    font-size: var(--font-size-xs);
+  }
+
+  .financial-table.multi-period thead .value-col {
+    font-size: 10px;
+  }
+
+  .financial-table-wrapper {
+    margin: 0 calc(-1 * var(--spacing-3));
+    padding: 0 var(--spacing-3);
+  }
 }
 
 /* --------------------------------------------------------------------------
