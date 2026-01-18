@@ -1281,6 +1281,23 @@ async function main() {
       if (result) {
         quarterlyResults.push(result);
       }
+
+      // Memory management: Clear extracted files after processing
+      const extractDir = path.join(TEMP_DIR, datasetInfo.period);
+      if (fs.existsSync(extractDir)) {
+        try {
+          fs.rmSync(extractDir, { recursive: true });
+          verboseLog(`  Cleaned up extracted files for ${datasetInfo.period}`);
+        } catch (cleanupErr) {
+          verboseLog(`  Warning: Could not clean up ${extractDir}: ${cleanupErr.message}`);
+        }
+      }
+
+      // Hint to garbage collector (not guaranteed, but can help)
+      if (global.gc) {
+        global.gc();
+        verboseLog(`  Triggered garbage collection`);
+      }
     } catch (error) {
       console.error(`  Error processing ${datasetInfo.period}: ${error.message}`);
     }
