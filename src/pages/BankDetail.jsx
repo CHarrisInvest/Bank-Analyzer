@@ -347,6 +347,8 @@ function RatiosTab({ bank, formatCurrency, formatPercent, formatNumber }) {
  */
 function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
   const [viewMode, setViewMode] = useState('annual'); // 'quarterly' or 'annual'
+  const [expanded, setExpanded] = useState(false); // For quarterly view: show all quarters or just 5
+  const DEFAULT_QUARTERS_SHOWN = 5;
 
   // Check if historical data is available
   const historicalData = rawData?.historicalBalanceSheet;
@@ -364,12 +366,25 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
       : (historicalData.periods?.[viewMode === 'quarterly' ? 'quarterly' : 'annual']?.length > 0)
   );
 
-  // Get periods for display
-  const periods = hasHistoricalData
+  // Get all periods
+  const allPeriods = hasHistoricalData
     ? (isAsReportedFormat
         ? dataSource.map(d => ({ key: d.period, label: d.label || d.period, form: d.form, isDerived: d.isDerived }))
         : (viewMode === 'quarterly' ? historicalData.periods.quarterly : historicalData.periods.annual))
     : [];
+
+  // For quarterly view: limit to 5 periods unless expanded
+  const periods = (viewMode === 'quarterly' && !expanded && allPeriods.length > DEFAULT_QUARTERS_SHOWN)
+    ? allPeriods.slice(0, DEFAULT_QUARTERS_SHOWN)
+    : allPeriods;
+
+  const hasMoreQuarters = viewMode === 'quarterly' && allPeriods.length > DEFAULT_QUARTERS_SHOWN;
+
+  // Reset expanded state when switching views
+  const handleViewModeChange = (mode) => {
+    setViewMode(mode);
+    setExpanded(false);
+  };
 
   // For "as reported" format: get canonical items (unified structure based on most recent filing)
   const getCanonicalItems = () => {
@@ -463,13 +478,13 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
           <div className="period-toggle">
             <button
               className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'}
-              onClick={() => setViewMode('quarterly')}
+              onClick={() => handleViewModeChange('quarterly')}
             >
               Quarterly
             </button>
             <button
               className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'}
-              onClick={() => setViewMode('annual')}
+              onClick={() => handleViewModeChange('annual')}
             >
               Annual
             </button>
@@ -512,20 +527,22 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
           <div className="period-toggle">
             <button
               className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'}
-              onClick={() => setViewMode('quarterly')}
+              onClick={() => handleViewModeChange('quarterly')}
             >
               Quarterly
             </button>
             <button
               className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'}
-              onClick={() => setViewMode('annual')}
+              onClick={() => handleViewModeChange('annual')}
             >
               Annual
             </button>
           </div>
         </div>
         <p className="statement-note">
-          {viewMode === 'quarterly' ? 'Quarters from Q1 2023 onward (Q4 from 10-K year-end)' : 'Annual results from 10-K filings (FY 2022 onward)'}
+          {viewMode === 'quarterly'
+            ? `Showing ${periods.length} of ${allPeriods.length} quarters (Q4 from 10-K year-end)`
+            : 'Annual results from 10-K filings (FY 2022 onward)'}
           {' • '}{totalLineItems} line items • Presentation order from most recent SEC filing
         </p>
 
@@ -571,6 +588,14 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
             </tbody>
           </table>
         </div>
+
+        {hasMoreQuarters && (
+          <div className="expand-quarters">
+            <button className="expand-btn" onClick={() => setExpanded(!expanded)}>
+              {expanded ? 'Show fewer quarters' : `Show all ${allPeriods.length} quarters`}
+            </button>
+          </div>
+        )}
       </div>
     );
   }
@@ -585,20 +610,22 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
         <div className="period-toggle">
           <button
             className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'}
-            onClick={() => setViewMode('quarterly')}
+            onClick={() => handleViewModeChange('quarterly')}
           >
             Quarterly
           </button>
           <button
             className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'}
-            onClick={() => setViewMode('annual')}
+            onClick={() => handleViewModeChange('annual')}
           >
             Annual
           </button>
         </div>
       </div>
       <p className="statement-note">
-        {viewMode === 'quarterly' ? 'Quarters from Q1 2023 onward' : 'Annual results from FY 2022 onward'}
+        {viewMode === 'quarterly'
+          ? `Showing ${periods.length} of ${allPeriods.length} quarters`
+          : 'Annual results from FY 2022 onward'}
         {' • '}{Object.keys(dataSource || {}).length} line items
       </p>
 
@@ -644,6 +671,14 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
           </tbody>
         </table>
       </div>
+
+      {hasMoreQuarters && (
+        <div className="expand-quarters">
+          <button className="expand-btn" onClick={() => setExpanded(!expanded)}>
+            {expanded ? 'Show fewer quarters' : `Show all ${allPeriods.length} quarters`}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -656,6 +691,8 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
  */
 function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
   const [viewMode, setViewMode] = useState('annual'); // 'quarterly' or 'annual'
+  const [expanded, setExpanded] = useState(false); // For quarterly view: show all quarters or just 5
+  const DEFAULT_QUARTERS_SHOWN = 5;
 
   const historicalData = rawData?.historicalIncomeStatement;
   const dataSource = viewMode === 'quarterly'
@@ -670,11 +707,25 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
       : (historicalData.periods?.[viewMode === 'quarterly' ? 'quarterly' : 'annual']?.length > 0)
   );
 
-  const periods = hasHistoricalData
+  // Get all periods
+  const allPeriods = hasHistoricalData
     ? (isAsReportedFormat
         ? dataSource.map(d => ({ key: d.period, label: d.label || d.period, form: d.form, isDerived: d.isDerived }))
         : (viewMode === 'quarterly' ? historicalData.periods.quarterly : historicalData.periods.annual))
     : [];
+
+  // For quarterly view: limit to 5 periods unless expanded
+  const periods = (viewMode === 'quarterly' && !expanded && allPeriods.length > DEFAULT_QUARTERS_SHOWN)
+    ? allPeriods.slice(0, DEFAULT_QUARTERS_SHOWN)
+    : allPeriods;
+
+  const hasMoreQuarters = viewMode === 'quarterly' && allPeriods.length > DEFAULT_QUARTERS_SHOWN;
+
+  // Reset expanded state when switching views
+  const handleViewModeChange = (mode) => {
+    setViewMode(mode);
+    setExpanded(false);
+  };
 
   const getCanonicalItems = () => {
     if (!isAsReportedFormat) return [];
@@ -764,8 +815,8 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
         <div className="statement-header">
           <h3>Income Statement</h3>
           <div className="period-toggle">
-            <button className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => setViewMode('quarterly')}>Quarterly</button>
-            <button className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => setViewMode('annual')}>Annual</button>
+            <button className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('quarterly')}>Quarterly</button>
+            <button className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('annual')}>Annual</button>
           </div>
         </div>
         <div className="no-data">
@@ -796,12 +847,14 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
           <h3>Consolidated Income Statement</h3>
           <span className="as-reported-badge">As Reported</span>
           <div className="period-toggle">
-            <button className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => setViewMode('quarterly')}>Quarterly</button>
-            <button className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => setViewMode('annual')}>Annual</button>
+            <button className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('quarterly')}>Quarterly</button>
+            <button className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('annual')}>Annual</button>
           </div>
         </div>
         <p className="statement-note">
-          {viewMode === 'quarterly' ? 'Quarters from Q1 2023 onward (Q4 derived from annual minus Q1-Q3)' : 'Annual results from 10-K filings (FY 2022 onward)'}
+          {viewMode === 'quarterly'
+            ? `Showing ${periods.length} of ${allPeriods.length} quarters (Q4 derived from annual minus Q1-Q3)`
+            : 'Annual results from 10-K filings (FY 2022 onward)'}
           {' • '}{items.length} line items • Presentation order from most recent SEC filing
         </p>
         <div className="financial-table-wrapper">
@@ -831,6 +884,14 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
             </tbody>
           </table>
         </div>
+
+        {hasMoreQuarters && (
+          <div className="expand-quarters">
+            <button className="expand-btn" onClick={() => setExpanded(!expanded)}>
+              {expanded ? 'Show fewer quarters' : `Show all ${allPeriods.length} quarters`}
+            </button>
+          </div>
+        )}
       </div>
     );
   }
@@ -844,11 +905,16 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
       <div className="statement-header">
         <h3>Consolidated Income Statement</h3>
         <div className="period-toggle">
-          <button className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => setViewMode('quarterly')}>Quarterly</button>
-          <button className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => setViewMode('annual')}>Annual</button>
+          <button className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('quarterly')}>Quarterly</button>
+          <button className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('annual')}>Annual</button>
         </div>
       </div>
-      <p className="statement-note">{viewMode === 'quarterly' ? 'Quarters from Q1 2023 onward' : 'Annual results from FY 2022 onward'}{' • '}{Object.keys(dataSource || {}).length} line items</p>
+      <p className="statement-note">
+        {viewMode === 'quarterly'
+          ? `Showing ${periods.length} of ${allPeriods.length} quarters`
+          : 'Annual results from FY 2022 onward'}
+        {' • '}{Object.keys(dataSource || {}).length} line items
+      </p>
       <div className="financial-table-wrapper">
         <table className="financial-table multi-period">
           <thead><tr><th className="label-col">Item</th>{periods.map(p => <th key={p.key} className="value-col">{p.label || p.key}</th>)}</tr></thead>
@@ -875,6 +941,14 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
           </tbody>
         </table>
       </div>
+
+      {hasMoreQuarters && (
+        <div className="expand-quarters">
+          <button className="expand-btn" onClick={() => setExpanded(!expanded)}>
+            {expanded ? 'Show fewer quarters' : `Show all ${allPeriods.length} quarters`}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

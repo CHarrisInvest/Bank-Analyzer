@@ -3583,6 +3583,34 @@ body {
   cursor: help;
 }
 
+/* Expand quarters button */
+.expand-quarters {
+  text-align: center;
+  margin-top: var(--spacing-4);
+  padding-top: var(--spacing-3);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.expand-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
 /* Multi-period Financial Table */
 .financial-table-wrapper {
   overflow-x: auto;
