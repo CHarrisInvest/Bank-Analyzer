@@ -6,8 +6,17 @@ on:
     - cron: '0 3 * * *'
   workflow_dispatch:
     inputs:
+      data_source:
+        description: 'Data source to use'
+        required: false
+        default: 'company-facts'
+        type: choice
+        options:
+          - company-facts
+          - fs-datasets
+          - both
       use_bulk:
-        description: 'Use bulk companyfacts.zip download (recommended for full refresh)'
+        description: 'Use bulk companyfacts.zip download (for company-facts source)'
         required: false
         default: 'true'
         type: boolean
@@ -36,7 +45,49 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Determine data source
+        id: source
+        run: |
+          SOURCE="${{ github.event.inputs.data_source }}"
+          # Default to company-facts for scheduled runs
+          if [ -z "$SOURCE" ]; then
+            SOURCE="company-facts"
+          fi
+          echo "data_source=$SOURCE" >> $GITHUB_OUTPUT
+          echo "Using data source: $SOURCE"
+
+      # ============================================
+      # SEC Financial Statement Data Sets Processing
+      # ============================================
+      - name: Download SEC FS Data Sets from release
+        if: steps.source.outputs.data_source == 'fs-datasets' || steps.source.outputs.data_source == 'both'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Downloading SEC Financial Statement Data Sets from release..."
+          mkdir -p .sec-data-cache
+
+          # Download all ZIP files from sec-data release
+          gh release download sec-data --pattern "*.zip" --dir .sec-data-cache 2>/dev/null || {
+            echo "Warning: Could not download from sec-data release"
+            echo "Please ensure the release exists with quarterly ZIP files (e.g., 2025q3.zip)"
+            exit 1
+          }
+
+          echo "Downloaded files:"
+          ls -la .sec-data-cache/
+
+      - name: Process SEC FS Data Sets
+        if: steps.source.outputs.data_source == 'fs-datasets' || steps.source.outputs.data_source == 'both'
+        run: |
+          echo "Processing SEC Financial Statement Data Sets..."
+          node scripts/fetch-sec-fs-datasets.cjs --verbose
+
+      # ============================================
+      # SEC Company Facts API Processing
+      # ============================================
       - name: Fetch SEC Company Facts data
+        if: steps.source.outputs.data_source == 'company-facts' || steps.source.outputs.data_source == 'both'
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: |
@@ -63,6 +114,9 @@ jobs:
 
           node scripts/fetch-sec-company-facts.cjs $BULK_FLAG
 
+      # ============================================
+      # Commit and Deploy
+      # ============================================
       - name: Commit updated data
         id: commit
         run: |
@@ -76,7 +130,15 @@ jobs:
             echo "No changes to commit"
             echo "changed=false" >> $GITHUB_OUTPUT
           else
-            git commit -m "Update bank data from SEC Company Facts API - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            SOURCE="${{ steps.source.outputs.data_source }}"
+            if [ "$SOURCE" = "fs-datasets" ]; then
+              MSG="Update bank data from SEC FS Data Sets (as reported)"
+            elif [ "$SOURCE" = "both" ]; then
+              MSG="Update bank data from SEC Company Facts + FS Data Sets"
+            else
+              MSG="Update bank data from SEC Company Facts API"
+            fi
+            git commit -m "$MSG - $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
             echo "✓ Changes committed and pushed"
             echo "changed=true" >> $GITHUB_OUTPUT
