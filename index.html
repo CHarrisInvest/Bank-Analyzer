@@ -6,7 +6,25 @@
     <meta name="description" content="Professional bank equity screener for institutional investors - Screen and analyze publicly traded banks using comprehensive financial metrics" />
     <meta name="theme-color" content="#1a365d" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>" />
-    <title>Bank Equity Screener</title>
+    <title>Bank Analyzer - Bank Equity Screener</title>
+
+    <!-- Google Analytics 4 - Loaded asynchronously -->
+    <!-- Measurement ID is injected at build time via environment variable -->
+    <script id="ga4-loader">
+      (function() {
+        // Only load GA4 if measurement ID is configured
+        // The actual ID is set in the React app via import.meta.env
+        // This script tag is a placeholder for the async gtag.js loader
+        // The real initialization happens in src/analytics/gtag.js
+
+        // Preconnect to Google Analytics for performance
+        var link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = 'https://www.googletagmanager.com';
+        document.head.appendChild(link);
+      })();
+    </script>
+
     <script>
       // Immediate diagnostic - runs before any modules load
       window.onerror = function(msg, url, line) {
