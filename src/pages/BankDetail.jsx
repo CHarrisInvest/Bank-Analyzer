@@ -341,6 +341,7 @@ function RatiosTab({ bank, formatCurrency, formatPercent, formatNumber }) {
 
 /**
  * Balance Sheet Tab - Full balance sheet from SEC filings with multi-period view
+ * Dynamically renders ALL available balance sheet concepts from SEC data
  */
 function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
   const [viewMode, setViewMode] = useState('annual'); // 'quarterly' or 'annual'
@@ -361,77 +362,62 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
     ? (viewMode === 'quarterly' ? historicalData.quarterly : historicalData.annual)
     : {};
 
-  // Define line items in presentation order with their XBRL concept keys
-  const lineItems = [
-    { label: 'ASSETS', isHeader: true },
-    { label: 'Cash and Cash Equivalents', keys: ['CashAndCashEquivalentsAtCarryingValue', 'CashAndDueFromBanks', 'Cash'] },
-    { label: 'Interest-Bearing Deposits', keys: ['InterestBearingDepositsInBanks'] },
-    { label: 'Fed Funds Sold & Reverse Repos', keys: ['FederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell', 'FederalFundsSold'] },
-    { label: 'Trading Securities', keys: ['TradingSecurities'] },
-    { label: 'Available-for-Sale Securities', keys: ['AvailableForSaleSecuritiesDebtSecurities', 'AvailableForSaleSecurities'] },
-    { label: 'Held-to-Maturity Securities', keys: ['HeldToMaturitySecurities', 'DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss'] },
-    { label: 'Investment Securities', keys: ['MarketableSecurities', 'InvestmentSecurities'] },
-    { label: 'Loans and Leases, Net', keys: ['LoansAndLeasesReceivableNetReportedAmount', 'LoansAndLeasesReceivableNetOfDeferredIncome', 'FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss'] },
-    { label: 'Allowance for Credit Losses', keys: ['FinancingReceivableAllowanceForCreditLosses'], isContra: true },
-    { label: 'Loans Held for Sale', keys: ['LoansReceivableHeldForSaleAmount'] },
-    { label: 'Premises and Equipment, Net', keys: ['PropertyPlantAndEquipmentNet'] },
-    { label: 'Goodwill', keys: ['Goodwill'] },
-    { label: 'Other Intangible Assets', keys: ['IntangibleAssetsNetExcludingGoodwill', 'OtherIntangibleAssetsNet'] },
-    { label: 'Bank-Owned Life Insurance', keys: ['BankOwnedLifeInsurance'] },
-    { label: 'Other Assets', keys: ['OtherAssets'] },
-    { label: 'Total Assets', keys: ['Assets'], isTotal: true },
-    { label: '', isSpacer: true },
-    { label: 'LIABILITIES', isHeader: true },
-    { label: 'Non-Interest Bearing Deposits', keys: ['DepositsNoninterestBearing'] },
-    { label: 'Interest-Bearing Deposits', keys: ['DepositsInterestBearing'] },
-    { label: 'Total Deposits', keys: ['Deposits', 'DepositsDomestic'] },
-    { label: 'Fed Funds Purchased & Repos', keys: ['FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase'] },
-    { label: 'Short-Term Borrowings', keys: ['ShortTermBorrowings'] },
-    { label: 'Long-Term Debt', keys: ['LongTermDebt', 'LongTermDebtNoncurrent'] },
-    { label: 'Subordinated Debt', keys: ['SubordinatedDebt'] },
-    { label: 'Trading Liabilities', keys: ['TradingLiabilities'] },
-    { label: 'Other Liabilities', keys: ['OtherLiabilities'] },
-    { label: 'Total Liabilities', keys: ['Liabilities'], isTotal: true },
-    { label: '', isSpacer: true },
-    { label: 'SHAREHOLDERS\' EQUITY', isHeader: true },
-    { label: 'Preferred Stock', keys: ['PreferredStockValue', 'PreferredStockValueOutstanding'] },
-    { label: 'Common Stock', keys: ['CommonStockValue'] },
-    { label: 'Additional Paid-In Capital', keys: ['AdditionalPaidInCapital', 'AdditionalPaidInCapitalCommonStock'] },
-    { label: 'Retained Earnings', keys: ['RetainedEarningsAccumulatedDeficit'] },
-    { label: 'AOCI', keys: ['AccumulatedOtherComprehensiveIncomeLossNetOfTax'] },
-    { label: 'Treasury Stock', keys: ['TreasuryStockValue', 'TreasuryStockCommonValue'], isContra: true },
-    { label: 'Total Stockholders\' Equity', keys: ['StockholdersEquity', 'StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest'], isTotal: true },
-    { label: '', isSpacer: true },
-    { label: 'Common Shares Outstanding', keys: ['CommonStockSharesOutstanding', 'EntityCommonStockSharesOutstanding'], isShares: true },
-  ];
-
-  // Helper to get value for a line item in a specific period
-  const getValueForPeriod = (keys, periodKey) => {
-    for (const key of keys) {
-      const conceptData = dataSource[key];
-      if (conceptData?.periods) {
-        const periodData = conceptData.periods.find(p =>
-          viewMode === 'quarterly'
-            ? `${p.fp} ${p.fy}` === periodKey
-            : `FY ${p.fy}` === periodKey
-        );
-        if (periodData?.value !== undefined) {
-          return periodData.value;
-        }
+  // Helper to get value for a concept in a specific period
+  const getValueForPeriod = (concept, periodKey) => {
+    const conceptData = dataSource[concept];
+    if (conceptData?.periods) {
+      const periodData = conceptData.periods.find(p =>
+        viewMode === 'quarterly'
+          ? `${p.fp} ${p.fy}` === periodKey
+          : `FY ${p.fy}` === periodKey
+      );
+      if (periodData?.value !== undefined) {
+        return periodData.value;
       }
     }
     return null;
   };
 
-  // Check if a line item has any data across periods
-  const hasData = (keys) => {
-    return periods.some(p => getValueForPeriod(keys, p.key) !== null);
+  // Organize concepts by category for presentation
+  const organizeByCategory = () => {
+    const categories = {
+      assets: { label: 'ASSETS', items: [] },
+      liabilities: { label: 'LIABILITIES', items: [] },
+      equity: { label: 'SHAREHOLDERS\' EQUITY', items: [] },
+      other: { label: 'OTHER', items: [] }
+    };
+
+    // Categorization keywords
+    const assetKeywords = ['Asset', 'Cash', 'Loan', 'Receivable', 'Securities', 'Investment', 'Property', 'Goodwill', 'Intangible', 'Deferred Tax Asset', 'Insurance'];
+    const liabilityKeywords = ['Liabilit', 'Deposit', 'Borrowing', 'Debt', 'Payable', 'Accrued', 'Trading Liabilit', 'Deferred Tax Liabilit'];
+    const equityKeywords = ['Equity', 'Stock', 'Capital', 'Retained', 'Treasury', 'Comprehensive', 'Minority', 'Noncontrolling'];
+
+    for (const [concept, data] of Object.entries(dataSource)) {
+      const label = data.label || concept;
+      const isTotal = label.toLowerCase().includes('total') || concept === 'Assets' || concept === 'Liabilities' || concept.includes('StockholdersEquity');
+      const isShares = concept.toLowerCase().includes('shares');
+
+      let category = 'other';
+      if (assetKeywords.some(kw => concept.includes(kw) || label.includes(kw))) category = 'assets';
+      else if (liabilityKeywords.some(kw => concept.includes(kw) || label.includes(kw))) category = 'liabilities';
+      else if (equityKeywords.some(kw => concept.includes(kw) || label.includes(kw))) category = 'equity';
+
+      categories[category].items.push({ concept, label, isTotal, isShares });
+    }
+
+    // Sort items within each category: regular items first, then totals
+    for (const cat of Object.values(categories)) {
+      cat.items.sort((a, b) => {
+        if (a.isTotal && !b.isTotal) return 1;
+        if (!a.isTotal && b.isTotal) return -1;
+        return a.label.localeCompare(b.label);
+      });
+    }
+
+    return categories;
   };
 
-  // Filter line items to only show those with data (keep headers and spacers)
-  const visibleLineItems = lineItems.filter(item =>
-    item.isHeader || item.isSpacer || hasData(item.keys)
-  );
+  const categories = hasHistoricalData ? organizeByCategory() : {};
 
   // Fallback if no historical data
   if (!hasHistoricalData) {
@@ -499,6 +485,7 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
       </div>
       <p className="statement-note">
         {viewMode === 'quarterly' ? 'Most recent 5 quarters from 10-Q filings' : 'Most recent 4 years from 10-K filings'}
+        {' • '}{Object.keys(dataSource).length} line items
       </p>
 
       <div className="financial-table-wrapper">
@@ -512,34 +499,32 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
             </tr>
           </thead>
           <tbody>
-            {visibleLineItems.map((item, idx) => {
-              if (item.isSpacer) {
-                return <tr key={idx} className="spacer-row"><td colSpan={periods.length + 1}></td></tr>;
-              }
-              if (item.isHeader) {
-                return (
-                  <tr key={idx} className="header-row">
-                    <td colSpan={periods.length + 1}><strong>{item.label}</strong></td>
-                  </tr>
-                );
-              }
+            {['assets', 'liabilities', 'equity', 'other'].map(catKey => {
+              const cat = categories[catKey];
+              if (!cat || cat.items.length === 0) return null;
               return (
-                <tr key={idx} className={item.isTotal ? 'total-row' : ''}>
-                  <td className="label-col">{item.label}</td>
-                  {periods.map(p => {
-                    const value = getValueForPeriod(item.keys, p.key);
-                    return (
-                      <td key={p.key} className="value-col">
-                        {item.isShares
-                          ? (value !== null ? value.toLocaleString() : '-')
-                          : (item.isContra && value !== null
-                              ? `(${formatCurrency(Math.abs(value))})`
-                              : formatCurrency(value))
-                        }
-                      </td>
-                    );
-                  })}
-                </tr>
+                <React.Fragment key={catKey}>
+                  <tr className="header-row">
+                    <td colSpan={periods.length + 1}><strong>{cat.label}</strong></td>
+                  </tr>
+                  {cat.items.map((item, idx) => (
+                    <tr key={`${catKey}-${idx}`} className={item.isTotal ? 'total-row' : ''}>
+                      <td className="label-col">{item.label}</td>
+                      {periods.map(p => {
+                        const value = getValueForPeriod(item.concept, p.key);
+                        return (
+                          <td key={p.key} className="value-col">
+                            {item.isShares
+                              ? (value !== null ? value.toLocaleString() : '-')
+                              : formatCurrency(value)
+                            }
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                  <tr className="spacer-row"><td colSpan={periods.length + 1}></td></tr>
+                </React.Fragment>
               );
             })}
           </tbody>
@@ -551,6 +536,7 @@ function BalanceSheetTab({ bank, rawData, formatCurrency, formatDate }) {
 
 /**
  * Income Statement Tab - Full income statement from SEC filings with multi-period view
+ * Dynamically renders ALL available income statement concepts from SEC data
  */
 function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
   const [viewMode, setViewMode] = useState('annual'); // 'quarterly' or 'annual'
@@ -571,90 +557,81 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
     ? (viewMode === 'quarterly' ? historicalData.quarterly : historicalData.annual)
     : {};
 
-  // Define line items in presentation order with their XBRL concept keys
-  const lineItems = [
-    { label: 'INTEREST INCOME', isHeader: true },
-    { label: 'Interest and Fees on Loans', keys: ['InterestAndFeeIncomeLoansAndLeases'] },
-    { label: 'Interest on Taxable Securities', keys: ['InterestIncomeSecuritiesTaxable'] },
-    { label: 'Interest on Tax-Exempt Securities', keys: ['InterestIncomeSecuritiesTaxExempt'] },
-    { label: 'Interest on Fed Funds Sold', keys: ['InterestIncomeFederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell'] },
-    { label: 'Interest on Deposits', keys: ['InterestIncomeDepositsWithFinancialInstitutions'] },
-    { label: 'Total Interest Income', keys: ['InterestIncome', 'InterestAndDividendIncomeOperating'], isTotal: true },
-    { label: '', isSpacer: true },
-    { label: 'INTEREST EXPENSE', isHeader: true },
-    { label: 'Interest on Deposits', keys: ['InterestExpenseDeposits'] },
-    { label: 'Interest on Borrowings', keys: ['InterestExpenseBorrowings'] },
-    { label: 'Interest on Long-Term Debt', keys: ['InterestExpenseLongTermDebt'] },
-    { label: 'Interest on Short-Term Borrowings', keys: ['InterestExpenseShortTermBorrowings'] },
-    { label: 'Total Interest Expense', keys: ['InterestExpense'], isTotal: true },
-    { label: '', isSpacer: true },
-    { label: 'Net Interest Income', keys: ['InterestIncomeExpenseNet', 'NetInterestIncome'], isTotal: true },
-    { label: 'Provision for Credit Losses', keys: ['ProvisionForLoanLeaseAndOtherLosses', 'ProvisionForLoanAndLeaseLosses', 'ProvisionForCreditLosses', 'CreditLossExpense'] },
-    { label: 'NII After Provision', keys: ['NetInterestIncomeAfterProvisionForCreditLosses'], isTotal: true },
-    { label: '', isSpacer: true },
-    { label: 'NON-INTEREST INCOME', isHeader: true },
-    { label: 'Service Charges on Deposits', keys: ['FeesAndCommissionsDepositorAccounts'] },
-    { label: 'Credit Card Fees', keys: ['FeesAndCommissionsCreditCards'] },
-    { label: 'Mortgage Banking Fees', keys: ['FeesAndCommissionsMortgageBanking'] },
-    { label: 'Investment Banking Fees', keys: ['InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions'] },
-    { label: 'Trading Revenue', keys: ['TradingGainsLosses'] },
-    { label: 'Gain/Loss on Loan Sales', keys: ['GainLossOnSalesOfLoansNet'] },
-    { label: 'Gain/Loss on Securities', keys: ['GainLossOnSecuritiesNet'] },
-    { label: 'Insurance Revenue', keys: ['InsuranceCommissionsAndFees'] },
-    { label: 'Other Non-Interest Income', keys: ['OtherNoninterestIncome'] },
-    { label: 'Total Non-Interest Income', keys: ['NoninterestIncome'], isTotal: true },
-    { label: '', isSpacer: true },
-    { label: 'NON-INTEREST EXPENSE', isHeader: true },
-    { label: 'Salaries and Benefits', keys: ['LaborAndRelatedExpense', 'SalariesAndWages'] },
-    { label: 'Employee Benefits', keys: ['EmployeeBenefitsAndShareBasedCompensation'] },
-    { label: 'Occupancy Expense', keys: ['OccupancyNet'] },
-    { label: 'Equipment Expense', keys: ['EquipmentExpense'] },
-    { label: 'Technology Expense', keys: ['CommunicationsAndInformationTechnology'] },
-    { label: 'Professional Fees', keys: ['ProfessionalFees'] },
-    { label: 'FDIC Insurance', keys: ['FederalDepositInsuranceCorporationPremiumExpense'] },
-    { label: 'Depreciation & Amortization', keys: ['DepreciationAndAmortization'] },
-    { label: 'Other Non-Interest Expense', keys: ['OtherNoninterestExpense'] },
-    { label: 'Total Non-Interest Expense', keys: ['NoninterestExpense', 'OperatingExpenses'], isTotal: true },
-    { label: '', isSpacer: true },
-    { label: 'Income Before Taxes', keys: ['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest', 'IncomeLossFromContinuingOperationsBeforeIncomeTaxes'], isTotal: true },
-    { label: 'Income Tax Expense', keys: ['IncomeTaxExpenseBenefit'] },
-    { label: 'Net Income', keys: ['NetIncomeLoss', 'ProfitLoss'], isTotal: true },
-    { label: 'NI - Noncontrolling Interest', keys: ['NetIncomeLossAttributableToNoncontrollingInterest'] },
-    { label: 'NI Available to Common', keys: ['NetIncomeLossAvailableToCommonStockholdersBasic'], isTotal: true },
-    { label: '', isSpacer: true },
-    { label: 'PER SHARE DATA', isHeader: true },
-    { label: 'Basic EPS', keys: ['EarningsPerShareBasic'], isPerShare: true },
-    { label: 'Diluted EPS', keys: ['EarningsPerShareDiluted'], isPerShare: true },
-    { label: 'Dividends Per Share', keys: ['CommonStockDividendsPerShareDeclared'], isPerShare: true },
-  ];
-
-  // Helper to get value for a line item in a specific period
-  const getValueForPeriod = (keys, periodKey) => {
-    for (const key of keys) {
-      const conceptData = dataSource[key];
-      if (conceptData?.periods) {
-        const periodData = conceptData.periods.find(p =>
-          viewMode === 'quarterly'
-            ? `${p.fp} ${p.fy}` === periodKey
-            : `FY ${p.fy}` === periodKey
-        );
-        if (periodData?.value !== undefined) {
-          return periodData.value;
-        }
+  // Helper to get value for a concept in a specific period
+  const getValueForPeriod = (concept, periodKey) => {
+    const conceptData = dataSource[concept];
+    if (conceptData?.periods) {
+      const periodData = conceptData.periods.find(p =>
+        viewMode === 'quarterly'
+          ? `${p.fp} ${p.fy}` === periodKey
+          : `FY ${p.fy}` === periodKey
+      );
+      if (periodData?.value !== undefined) {
+        return periodData.value;
       }
     }
     return null;
   };
 
-  // Check if a line item has any data across periods
-  const hasData = (keys) => {
-    return periods.some(p => getValueForPeriod(keys, p.key) !== null);
+  // Organize concepts by category for presentation
+  const organizeByCategory = () => {
+    const categories = {
+      interestIncome: { label: 'INTEREST INCOME', items: [] },
+      interestExpense: { label: 'INTEREST EXPENSE', items: [] },
+      netInterest: { label: 'NET INTEREST INCOME', items: [] },
+      provision: { label: 'PROVISION FOR CREDIT LOSSES', items: [] },
+      noninterestIncome: { label: 'NON-INTEREST INCOME', items: [] },
+      noninterestExpense: { label: 'NON-INTEREST EXPENSE', items: [] },
+      incomeAndTax: { label: 'INCOME & TAXES', items: [] },
+      perShare: { label: 'PER SHARE DATA', items: [] },
+      other: { label: 'OTHER', items: [] }
+    };
+
+    for (const [concept, data] of Object.entries(dataSource)) {
+      const label = data.label || concept;
+      const isTotal = label.toLowerCase().includes('total') || label.toLowerCase().includes('net income') || concept.includes('NetIncome');
+      const isPerShare = concept.toLowerCase().includes('pershare') || concept.toLowerCase().includes('earnings per');
+
+      let category = 'other';
+
+      // Categorize based on concept name
+      if (concept.includes('InterestIncome') && !concept.includes('Expense') && !concept.includes('Net')) {
+        category = 'interestIncome';
+      } else if (concept.includes('InterestExpense')) {
+        category = 'interestExpense';
+      } else if (concept.includes('NetInterestIncome') || concept.includes('InterestIncomeExpenseNet')) {
+        category = 'netInterest';
+      } else if (concept.includes('Provision') || concept.includes('CreditLoss')) {
+        category = 'provision';
+      } else if (concept.includes('NoninterestIncome') || concept.includes('Fees') || concept.includes('Trading') ||
+                 concept.includes('GainLoss') || concept.includes('Insurance')) {
+        category = 'noninterestIncome';
+      } else if (concept.includes('NoninterestExpense') || concept.includes('Salary') || concept.includes('Labor') ||
+                 concept.includes('Occupancy') || concept.includes('Equipment') || concept.includes('Professional') ||
+                 concept.includes('Depreciation') || concept.includes('FDIC') || concept.includes('Operating')) {
+        category = 'noninterestExpense';
+      } else if (concept.includes('Income') || concept.includes('Tax') || concept.includes('Profit') || concept.includes('Loss')) {
+        category = 'incomeAndTax';
+      } else if (isPerShare || concept.includes('Dividend')) {
+        category = 'perShare';
+      }
+
+      categories[category].items.push({ concept, label, isTotal, isPerShare });
+    }
+
+    // Sort items within each category: regular items first, then totals
+    for (const cat of Object.values(categories)) {
+      cat.items.sort((a, b) => {
+        if (a.isTotal && !b.isTotal) return 1;
+        if (!a.isTotal && b.isTotal) return -1;
+        return a.label.localeCompare(b.label);
+      });
+    }
+
+    return categories;
   };
 
-  // Filter line items to only show those with data (keep headers and spacers)
-  const visibleLineItems = lineItems.filter(item =>
-    item.isHeader || item.isSpacer || hasData(item.keys)
-  );
+  const categories = hasHistoricalData ? organizeByCategory() : {};
 
   // Fallback if no historical data
   if (!hasHistoricalData) {
@@ -702,6 +679,8 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
     );
   }
 
+  const categoryOrder = ['interestIncome', 'interestExpense', 'netInterest', 'provision', 'noninterestIncome', 'noninterestExpense', 'incomeAndTax', 'perShare', 'other'];
+
   return (
     <div className="tab-income-statement">
       <div className="statement-header">
@@ -723,6 +702,7 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
       </div>
       <p className="statement-note">
         {viewMode === 'quarterly' ? 'Most recent 5 quarters from 10-Q filings' : 'Most recent 4 years from 10-K filings'}
+        {' • '}{Object.keys(dataSource).length} line items
       </p>
 
       <div className="financial-table-wrapper">
@@ -736,32 +716,32 @@ function IncomeStatementTab({ bank, rawData, formatCurrency, formatDate }) {
             </tr>
           </thead>
           <tbody>
-            {visibleLineItems.map((item, idx) => {
-              if (item.isSpacer) {
-                return <tr key={idx} className="spacer-row"><td colSpan={periods.length + 1}></td></tr>;
-              }
-              if (item.isHeader) {
-                return (
-                  <tr key={idx} className="header-row">
-                    <td colSpan={periods.length + 1}><strong>{item.label}</strong></td>
-                  </tr>
-                );
-              }
+            {categoryOrder.map(catKey => {
+              const cat = categories[catKey];
+              if (!cat || cat.items.length === 0) return null;
               return (
-                <tr key={idx} className={item.isTotal ? 'total-row' : ''}>
-                  <td className="label-col">{item.label}</td>
-                  {periods.map(p => {
-                    const value = getValueForPeriod(item.keys, p.key);
-                    return (
-                      <td key={p.key} className="value-col">
-                        {item.isPerShare
-                          ? (value !== null ? '$' + value.toFixed(2) : '-')
-                          : formatCurrency(value)
-                        }
-                      </td>
-                    );
-                  })}
-                </tr>
+                <React.Fragment key={catKey}>
+                  <tr className="header-row">
+                    <td colSpan={periods.length + 1}><strong>{cat.label}</strong></td>
+                  </tr>
+                  {cat.items.map((item, idx) => (
+                    <tr key={`${catKey}-${idx}`} className={item.isTotal ? 'total-row' : ''}>
+                      <td className="label-col">{item.label}</td>
+                      {periods.map(p => {
+                        const value = getValueForPeriod(item.concept, p.key);
+                        return (
+                          <td key={p.key} className="value-col">
+                            {item.isPerShare
+                              ? (value !== null ? '$' + value.toFixed(2) : '-')
+                              : formatCurrency(value)
+                            }
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                  <tr className="spacer-row"><td colSpan={periods.length + 1}></td></tr>
+                </React.Fragment>
               );
             })}
           </tbody>
