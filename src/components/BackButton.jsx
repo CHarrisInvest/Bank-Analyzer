@@ -89,6 +89,16 @@ function BackButton() {
         },
       };
     }
+    if (state.from === 'screener-guide') {
+      return {
+        path: '/screener/guide',
+        label: 'Back to Guide',
+        state: {
+          restoreScroll: true,
+          scrollY: scrollY,
+        },
+      };
+    }
     if (state.from === 'bank-detail') {
       return {
         path: state.returnPath || '/screener',
