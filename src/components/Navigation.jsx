@@ -3,8 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { trackNavigation } from '../analytics/events.js';
 
 /**
- * Bank Icon SVG Component
+ * SVG Icon Components - Outlined/Stroked Style
  */
+
 function BankIcon() {
   return (
     <svg
@@ -29,15 +30,91 @@ function BankIcon() {
   );
 }
 
-/**
- * Chevron Down Icon
- */
+function SearchIcon() {
+  return (
+    <svg
+      className="nav-link-icon"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="11" cy="11" r="8" />
+      <path d="M21 21l-4.35-4.35" />
+    </svg>
+  );
+}
+
+function ScreenerIcon() {
+  return (
+    <svg
+      className="nav-link-icon"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 3v18h18" />
+      <path d="M18 17V9" />
+      <path d="M13 17V5" />
+      <path d="M8 17v-3" />
+    </svg>
+  );
+}
+
+function BookIcon() {
+  return (
+    <svg
+      className="nav-link-icon"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+    </svg>
+  );
+}
+
+function InfoIcon() {
+  return (
+    <svg
+      className="nav-link-icon"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 16v-4" />
+      <path d="M12 8h.01" />
+    </svg>
+  );
+}
+
 function ChevronIcon() {
   return (
     <svg
       className="dropdown-chevron"
-      width="12"
-      height="12"
+      width="14"
+      height="14"
       viewBox="0 0 12 12"
       fill="none"
       stroke="currentColor"
@@ -130,7 +207,8 @@ function Navigation() {
             className={`nav-link ${isActive('/search') ? 'nav-link-active' : ''}`}
             onClick={() => handleNavClick('search')}
           >
-            Search
+            <SearchIcon />
+            <span>Search</span>
           </Link>
 
           {/* Screener */}
@@ -139,7 +217,8 @@ function Navigation() {
             className={`nav-link ${isActive('/screener') && !location.pathname.includes('/guide') ? 'nav-link-active' : ''}`}
             onClick={() => handleNavClick('screener')}
           >
-            Screener
+            <ScreenerIcon />
+            <span>Screener</span>
           </Link>
 
           {/* Learn Dropdown */}
@@ -154,7 +233,8 @@ function Navigation() {
               aria-expanded={activeDropdown === 'learn'}
               aria-haspopup="true"
             >
-              Learn
+              <BookIcon />
+              <span>Learn</span>
               <ChevronIcon />
             </button>
             <div className="nav-dropdown-menu">
@@ -194,7 +274,8 @@ function Navigation() {
               aria-expanded={activeDropdown === 'about'}
               aria-haspopup="true"
             >
-              About
+              <InfoIcon />
+              <span>About</span>
               <ChevronIcon />
             </button>
             <div className="nav-dropdown-menu">
