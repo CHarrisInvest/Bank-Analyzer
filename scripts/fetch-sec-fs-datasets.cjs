@@ -1353,26 +1353,50 @@ async function main() {
   fs.writeFileSync(banksOutputPath, JSON.stringify(results, null, 2));
   console.log(`\nSaved metrics: ${banksOutputPath}`);
 
-  // Save sec-raw-data.json
-  const rawDataOutputPath = path.join(OUTPUT_DIR, 'sec-raw-data.json');
-  fs.writeFileSync(rawDataOutputPath, JSON.stringify({
+  // Save individual bank raw data files (to avoid GitHub's 100MB file limit)
+  const banksDataDir = path.join(OUTPUT_DIR, 'banks');
+  if (!fs.existsSync(banksDataDir)) {
+    fs.mkdirSync(banksDataDir, { recursive: true });
+  }
+
+  // Track which banks have data files
+  const bankDataIndex = {};
+  let savedBankCount = 0;
+
+  for (const [cik, bankRawData] of Object.entries(rawDataStore)) {
+    const bankFilePath = path.join(banksDataDir, `${cik}.json`);
+    fs.writeFileSync(bankFilePath, JSON.stringify(bankRawData, null, 2));
+    savedBankCount++;
+
+    bankDataIndex[cik] = {
+      ticker: bankRawData.ticker,
+      companyName: bankRawData.companyName,
+      hasHistoricalBS: !!(bankRawData.rawData?.historicalBalanceSheet?.annual?.length > 0 ||
+                          bankRawData.rawData?.historicalBalanceSheet?.quarterly?.length > 0),
+      hasHistoricalIS: !!(bankRawData.rawData?.historicalIncomeStatement?.annual?.length > 0 ||
+                          bankRawData.rawData?.historicalIncomeStatement?.quarterly?.length > 0),
+    };
+  }
+
+  console.log(`Saved ${savedBankCount} individual bank data files to: ${banksDataDir}/`);
+
+  // Save lightweight index file (metadata only, no raw data)
+  const indexOutputPath = path.join(OUTPUT_DIR, 'sec-data-index.json');
+  fs.writeFileSync(indexOutputPath, JSON.stringify({
     metadata: {
       source: 'SEC Financial Statement Data Sets',
       url: 'https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets',
       quartersProcessed: quarterlyResults.map(q => q.period),
       generatedAt: new Date().toISOString(),
-      bankCount: Object.keys(rawDataStore).length,
-      features: ['As Reported on Face presentation via pre.txt']
+      bankCount: Object.keys(bankDataIndex).length,
+      features: ['As Reported on Face presentation via pre.txt', 'Per-bank data files']
     },
-    banks: rawDataStore
+    banks: bankDataIndex
   }, null, 2));
-  console.log(`Saved raw data: ${rawDataOutputPath}`);
+  console.log(`Saved data index: ${indexOutputPath}`);
 
   // Summary stats
-  const withHistoricalBS = Object.values(rawDataStore).filter(b =>
-    b.rawData?.historicalBalanceSheet?.annual?.length > 0 ||
-    b.rawData?.historicalBalanceSheet?.quarterly?.length > 0
-  ).length;
+  const withHistoricalBS = Object.values(bankDataIndex).filter(b => b.hasHistoricalBS).length;
 
   console.log(`\nSummary:`);
   console.log(`  Banks with historical Balance Sheet: ${withHistoricalBS}`);

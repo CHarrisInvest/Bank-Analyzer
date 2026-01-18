@@ -8,8 +8,8 @@ const DATA_CONFIG = {
   // Path to the static JSON file (updated daily by GitHub Actions)
   // Use relative path that works with GitHub Pages base URL
   dataFile: import.meta.env.BASE_URL + 'data/banks.json',
-  // Path to raw SEC data for detailed bank pages
-  rawDataFile: import.meta.env.BASE_URL + 'data/sec-raw-data.json',
+  // Path to individual bank data files (loaded on-demand)
+  bankDataDir: import.meta.env.BASE_URL + 'data/banks/',
   // Cache-busting parameter
   cacheBuster: true,
 };
@@ -211,13 +211,25 @@ export function getFieldStats(banks, field) {
 }
 
 /**
- * Fetch raw SEC data for detailed bank pages
- * This is a larger file (~7MB) containing balance sheet and income statement details
+ * Fetch raw SEC data for a specific bank by CIK
+ * Individual bank files are loaded on-demand to avoid large file size issues
+ * @param {string} cik - The bank's CIK (Central Index Key)
  * @param {Object} options - Fetch options
- * @returns {Promise<Object>} Raw SEC data
+ * @returns {Promise<Object>} Raw SEC data for the specific bank
  */
-export async function fetchRawSecData(options = {}) {
+export async function fetchBankRawData(cik, options = {}) {
   const { maxRetries = 2 } = options;
+
+  if (!cik) {
+    return {
+      success: false,
+      data: null,
+      error: { message: 'No CIK provided', type: 'ValidationError' },
+    };
+  }
+
+  // Ensure CIK is zero-padded to 10 digits
+  const paddedCik = cik.toString().padStart(10, '0');
 
   let lastError = null;
   let attemptCount = 0;
@@ -225,7 +237,7 @@ export async function fetchRawSecData(options = {}) {
   while (attemptCount <= maxRetries) {
     try {
       // Build URL with optional cache-busting
-      let url = DATA_CONFIG.rawDataFile;
+      let url = `${DATA_CONFIG.bankDataDir}${paddedCik}.json`;
       if (DATA_CONFIG.cacheBuster) {
         url += `?t=${Date.now()}`;
       }
@@ -239,36 +251,35 @@ export async function fetchRawSecData(options = {}) {
       });
 
       if (!response.ok) {
-        throw new Error(`Failed to fetch raw SEC data: ${response.status} ${response.statusText}`);
+        if (response.status === 404) {
+          // Bank data file doesn't exist - this is expected for some banks
+          return {
+            success: false,
+            data: null,
+            error: { message: 'Bank data not available', type: 'NotFound' },
+          };
+        }
+        throw new Error(`Failed to fetch bank data: ${response.status} ${response.statusText}`);
       }
 
       const data = await response.json();
-
-      // Basic validation
-      if (!data || !data.banks) {
-        throw new Error('Invalid raw SEC data format');
-      }
-
-      console.log(`Successfully fetched raw SEC data with ${Object.keys(data.banks).length} banks`);
 
       return {
         success: true,
         data: data,
         metadata: {
-          bankCount: Object.keys(data.banks).length,
+          cik: paddedCik,
           fetchedAt: new Date().toISOString(),
-          sourceUrl: DATA_CONFIG.rawDataFile,
-          generatedAt: data.metadata?.generatedAt || null,
         },
       };
     } catch (error) {
       lastError = error;
 
       if (attemptCount < maxRetries) {
-        console.warn(`Attempt ${attemptCount + 1} failed for raw SEC data: ${error.message}. Retrying...`);
+        console.warn(`Attempt ${attemptCount + 1} failed for bank ${paddedCik}: ${error.message}. Retrying...`);
         attemptCount++;
-        // Exponential backoff: 2s, 4s
-        const retryDelay = 2000 * Math.pow(2, attemptCount - 1);
+        // Exponential backoff: 1s, 2s
+        const retryDelay = 1000 * Math.pow(2, attemptCount - 1);
         await sleep(retryDelay);
       } else {
         break;
@@ -277,7 +288,7 @@ export async function fetchRawSecData(options = {}) {
   }
 
   // Non-critical error - return failure but don't crash the app
-  console.warn('Could not fetch raw SEC data:', lastError?.message);
+  console.warn(`Could not fetch data for bank ${paddedCik}:`, lastError?.message);
 
   return {
     success: false,

@@ -125,8 +125,16 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Add data files
-          git add public/data/banks.json public/data/sec-raw-data.json
+          # Add data files (individual bank files in banks/ directory, plus index)
+          git add public/data/banks.json public/data/sec-data-index.json
+          # Add individual bank data files
+          if [ -d "public/data/banks" ]; then
+            git add public/data/banks/
+          fi
+          # Remove old monolithic file if it exists
+          if [ -f "public/data/sec-raw-data.json" ]; then
+            git rm --cached public/data/sec-raw-data.json 2>/dev/null || true
+          fi
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
