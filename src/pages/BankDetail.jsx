@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import { trackBankViewed, trackBankTabChanged } from '../analytics/events.js';
 import { fetchBankRawData } from '../data/sheets.js';
 import BackButton from '../components/BackButton.jsx';
+import FinancialStatementTable from '../components/FinancialStatementTable.jsx';
 
 /**
  * Bank Detail Page
@@ -370,8 +371,8 @@ function RatiosTab({ bank, formatCurrency, formatPercent, formatNumber }) {
  * Uses "As Reported" format (from pre.txt): items[] array with exact presentation order
  */
 function BalanceSheetTab({ bank, rawData, rawDataLoading, formatCurrency, formatDate }) {
-  const [viewMode, setViewMode] = useState('annual'); // 'quarterly' or 'annual'
-  const [expanded, setExpanded] = useState(false); // For quarterly view: show all quarters or just 5
+  const [viewMode, setViewMode] = useState('quarterly');
+  const [expanded, setExpanded] = useState(false);
   const DEFAULT_QUARTERS_SHOWN = 5;
 
   // Show loading state while fetching raw data
@@ -386,7 +387,6 @@ function BalanceSheetTab({ bank, rawData, rawDataLoading, formatCurrency, format
     );
   }
 
-  // Check if historical data is available
   const historicalData = rawData?.historicalBalanceSheet;
   const dataSource = viewMode === 'quarterly'
     ? historicalData?.quarterly
@@ -407,43 +407,36 @@ function BalanceSheetTab({ bank, rawData, rawDataLoading, formatCurrency, format
 
   const hasMoreQuarters = viewMode === 'quarterly' && allPeriods.length > DEFAULT_QUARTERS_SHOWN;
 
-  // Reset expanded state when switching views
   const handleViewModeChange = (mode) => {
     setViewMode(mode);
     setExpanded(false);
   };
 
-  // For "as reported" format: get canonical items (unified structure based on most recent filing)
-  const getCanonicalItems = () => {
+  // Get canonical items for the current view mode
+  const items = useMemo(() => {
     if (!isAsReportedFormat) return [];
-    // Use canonicalItems if available (new format with aligned presentation)
     const canonical = viewMode === 'quarterly'
       ? historicalData?.canonicalItems?.quarterly
       : historicalData?.canonicalItems?.annual;
-    if (canonical && canonical.length > 0) {
-      return canonical;
-    }
-    // Fallback to first period's items for backward compatibility
+    if (canonical && canonical.length > 0) return canonical;
     if (dataSource.length > 0 && dataSource[0]?.items) {
       return dataSource[0].items.map(item => ({
         tag: item.tag, label: item.label, line: item.line, indent: item.indent,
       }));
     }
     return [];
-  };
+  }, [isAsReportedFormat, viewMode, historicalData, dataSource]);
 
-  // For "as reported" format: get value for a specific period (index-aligned for performance)
-  const getAsReportedValue = (tag, periodKey, itemIndex) => {
+  // Get value for a specific item and period
+  const getValue = useCallback((tag, periodKey, itemIndex) => {
     const periodData = dataSource.find(d => d.period === periodKey);
     if (!periodData || !periodData.items) return null;
-    // Use index-aligned access (items are now aligned to canonical order)
     if (itemIndex !== undefined && periodData.items[itemIndex]?.tag === tag) {
       return periodData.items[itemIndex]?.value ?? null;
     }
-    // Fallback to tag search
     const item = periodData.items.find(i => i.tag === tag);
     return item?.value ?? null;
-  };
+  }, [dataSource]);
 
   // Fallback if no historical data
   if (!hasHistoricalData) {
@@ -452,30 +445,15 @@ function BalanceSheetTab({ bank, rawData, rawDataLoading, formatCurrency, format
         <div className="statement-header">
           <h3>Balance Sheet</h3>
           <div className="period-toggle">
-            <button
-              className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'}
-              onClick={() => handleViewModeChange('quarterly')}
-            >
-              Quarterly
-            </button>
-            <button
-              className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'}
-              onClick={() => handleViewModeChange('annual')}
-            >
-              Annual
-            </button>
+            <button className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('quarterly')}>Quarterly</button>
+            <button className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('annual')}>Annual</button>
           </div>
         </div>
         <div className="no-data">
           <p>Historical balance sheet data not available for this bank.</p>
           <p>Summary data from the latest filing:</p>
           <table className="financial-table">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Value</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Item</th><th>Value</th></tr></thead>
             <tbody>
               <tr><td>Total Assets</td><td>{formatCurrency(bank.totalAssets)}</td></tr>
               <tr><td>Cash & Cash Equivalents</td><td>{formatCurrency(bank.cashAndCashEquivalents)}</td></tr>
@@ -490,94 +468,28 @@ function BalanceSheetTab({ bank, rawData, rawDataLoading, formatCurrency, format
     );
   }
 
-  // Render "As Reported" format - preserves exact presentation order from SEC filings
-  if (isAsReportedFormat) {
-    const items = getCanonicalItems();
-    const totalLineItems = items.length;
-
-    return (
-      <div className="tab-balance-sheet">
-        <div className="statement-header">
-          <h3>Consolidated Balance Sheet</h3>
-          <span className="as-reported-badge">As Reported</span>
-          <div className="period-toggle">
-            <button
-              className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'}
-              onClick={() => handleViewModeChange('quarterly')}
-            >
-              Quarterly
-            </button>
-            <button
-              className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'}
-              onClick={() => handleViewModeChange('annual')}
-            >
-              Annual
-            </button>
-          </div>
-        </div>
-        <p className="statement-note">
-          {viewMode === 'quarterly'
-            ? `Showing ${periods.length} of ${allPeriods.length} quarters (Q4 from 10-K year-end)`
-            : 'Annual results from 10-K filings (FY 2022 onward)'}
-          {' • '}{totalLineItems} line items • Presentation order from most recent SEC filing
-        </p>
-
-        <div className="financial-table-wrapper">
-          <table className="financial-table multi-period as-reported">
-            <thead>
-              <tr>
-                <th className="label-col">Item</th>
-                {periods.map(p => (
-                  <th key={p.key} className="value-col">{p.label}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {items.map((item, idx) => {
-                const isTotal = item.label.toLowerCase().includes('total') ||
-                               item.tag === 'Assets' || item.tag === 'Liabilities' ||
-                               item.tag.includes('StockholdersEquity') ||
-                               item.tag === 'LiabilitiesAndStockholdersEquity';
-                const isShares = item.tag.toLowerCase().includes('shares');
-                const indentClass = item.indent > 0 ? `indent-${Math.min(item.indent, 3)}` : '';
-
-                return (
-                  <tr key={`${item.tag}-${idx}`} className={`${isTotal ? 'total-row' : ''} ${indentClass}`}>
-                    <td className="label-col">
-                      {item.indent > 0 && <span className="indent-marker" style={{ paddingLeft: `${item.indent * 12}px` }} />}
-                      {item.label}
-                    </td>
-                    {periods.map(p => {
-                      const value = getAsReportedValue(item.tag, p.key, idx);
-                      return (
-                        <td key={p.key} className="value-col">
-                          {isShares
-                            ? (value !== null ? value.toLocaleString() : '-')
-                            : formatCurrency(value)
-                          }
-                        </td>
-                      );
-                    })}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-
-        {hasMoreQuarters && (
-          <div className="expand-quarters">
-            <button className="expand-btn" onClick={() => setExpanded(!expanded)}>
-              {expanded ? 'Show fewer quarters' : `Show all ${allPeriods.length} quarters`}
-            </button>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  // No data available in expected format
-  return null;
+  // Render with enhanced FinancialStatementTable component
+  return (
+    <div className="tab-balance-sheet">
+      <FinancialStatementTable
+        title="Consolidated Balance Sheet"
+        items={items}
+        periods={periods}
+        allPeriods={allPeriods}
+        getValue={getValue}
+        formatValue={formatCurrency}
+        viewMode={viewMode}
+        onViewModeChange={handleViewModeChange}
+        expanded={expanded}
+        onExpandToggle={() => setExpanded(!expanded)}
+        hasMoreQuarters={hasMoreQuarters}
+        defaultQuartersShown={DEFAULT_QUARTERS_SHOWN}
+        showDerivedNote={false}
+        isIncomeStatement={false}
+        bankId={bank?.cik || bank?.ticker || 'unknown'}
+      />
+    </div>
+  );
 }
 
 /**
@@ -585,8 +497,8 @@ function BalanceSheetTab({ bank, rawData, rawDataLoading, formatCurrency, format
  * Uses "As Reported" format (from pre.txt): items[] array with exact presentation order
  */
 function IncomeStatementTab({ bank, rawData, rawDataLoading, formatCurrency, formatDate }) {
-  const [viewMode, setViewMode] = useState('annual'); // 'quarterly' or 'annual'
-  const [expanded, setExpanded] = useState(false); // For quarterly view: show all quarters or just 5
+  const [viewMode, setViewMode] = useState('quarterly');
+  const [expanded, setExpanded] = useState(false);
   const DEFAULT_QUARTERS_SHOWN = 5;
 
   // Show loading state while fetching raw data
@@ -621,13 +533,13 @@ function IncomeStatementTab({ bank, rawData, rawDataLoading, formatCurrency, for
 
   const hasMoreQuarters = viewMode === 'quarterly' && allPeriods.length > DEFAULT_QUARTERS_SHOWN;
 
-  // Reset expanded state when switching views
   const handleViewModeChange = (mode) => {
     setViewMode(mode);
     setExpanded(false);
   };
 
-  const getCanonicalItems = () => {
+  // Get canonical items for the current view mode
+  const items = useMemo(() => {
     if (!isAsReportedFormat) return [];
     const canonical = viewMode === 'quarterly'
       ? historicalData?.canonicalItems?.quarterly
@@ -639,9 +551,10 @@ function IncomeStatementTab({ bank, rawData, rawDataLoading, formatCurrency, for
       }));
     }
     return [];
-  };
+  }, [isAsReportedFormat, viewMode, historicalData, dataSource]);
 
-  const getAsReportedValue = (tag, periodKey, itemIndex) => {
+  // Get value for a specific item and period (returns object with derivedUnavailable flag)
+  const getValue = useCallback((tag, periodKey, itemIndex) => {
     const periodData = dataSource.find(d => d.period === periodKey);
     if (!periodData || !periodData.items) return { value: null, derivedUnavailable: false };
     let item;
@@ -654,7 +567,7 @@ function IncomeStatementTab({ bank, rawData, rawDataLoading, formatCurrency, for
       value: item?.value ?? null,
       derivedUnavailable: item?.derivedUnavailable || false,
     };
-  };
+  }, [dataSource]);
 
   // Fallback if no historical data
   if (!hasHistoricalData) {
@@ -686,66 +599,28 @@ function IncomeStatementTab({ bank, rawData, rawDataLoading, formatCurrency, for
     );
   }
 
-  // Render "As Reported" format
-  if (isAsReportedFormat) {
-    const items = getCanonicalItems();
-    return (
-      <div className="tab-income-statement">
-        <div className="statement-header">
-          <h3>Consolidated Income Statement</h3>
-          <span className="as-reported-badge">As Reported</span>
-          <div className="period-toggle">
-            <button className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('quarterly')}>Quarterly</button>
-            <button className={viewMode === 'annual' ? 'toggle-btn active' : 'toggle-btn'} onClick={() => handleViewModeChange('annual')}>Annual</button>
-          </div>
-        </div>
-        <p className="statement-note">
-          {viewMode === 'quarterly'
-            ? `Showing ${periods.length} of ${allPeriods.length} quarters (Q4 derived from annual minus Q1-Q3)`
-            : 'Annual results from 10-K filings (FY 2022 onward)'}
-          {' • '}{items.length} line items • Presentation order from most recent SEC filing
-        </p>
-        <div className="financial-table-wrapper">
-          <table className="financial-table multi-period as-reported">
-            <thead><tr><th className="label-col">Item</th>{periods.map(p => <th key={p.key} className="value-col">{p.label}</th>)}</tr></thead>
-            <tbody>
-              {items.map((item, idx) => {
-                const isTotal = item.label.toLowerCase().includes('total') || item.label.toLowerCase().includes('net income') || item.tag.includes('NetIncome');
-                const isPerShare = item.tag.toLowerCase().includes('pershare') || item.tag.includes('Earnings');
-                return (
-                  <tr key={`${item.tag}-${idx}`} className={isTotal ? 'total-row' : ''}>
-                    <td className="label-col">{item.indent > 0 && <span style={{ paddingLeft: `${item.indent * 12}px` }} />}{item.label}</td>
-                    {periods.map(p => {
-                      const { value, derivedUnavailable } = getAsReportedValue(item.tag, p.key, idx);
-                      if (derivedUnavailable) {
-                        return (
-                          <td key={p.key} className="value-col" title="Derived value not available - missing prior quarter data">
-                            <span className="derived-unavailable">-</span>
-                          </td>
-                        );
-                      }
-                      return <td key={p.key} className="value-col">{isPerShare ? (value !== null ? '$' + value.toFixed(2) : '-') : formatCurrency(value)}</td>;
-                    })}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-
-        {hasMoreQuarters && (
-          <div className="expand-quarters">
-            <button className="expand-btn" onClick={() => setExpanded(!expanded)}>
-              {expanded ? 'Show fewer quarters' : `Show all ${allPeriods.length} quarters`}
-            </button>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  // No data available in expected format
-  return null;
+  // Render with enhanced FinancialStatementTable component
+  return (
+    <div className="tab-income-statement">
+      <FinancialStatementTable
+        title="Consolidated Income Statement"
+        items={items}
+        periods={periods}
+        allPeriods={allPeriods}
+        getValue={getValue}
+        formatValue={formatCurrency}
+        viewMode={viewMode}
+        onViewModeChange={handleViewModeChange}
+        expanded={expanded}
+        onExpandToggle={() => setExpanded(!expanded)}
+        hasMoreQuarters={hasMoreQuarters}
+        defaultQuartersShown={DEFAULT_QUARTERS_SHOWN}
+        showDerivedNote={true}
+        isIncomeStatement={true}
+        bankId={bank?.cik || bank?.ticker || 'unknown'}
+      />
+    </div>
+  );
 }
 
 export default BankDetail;

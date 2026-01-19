@@ -3520,16 +3520,41 @@ body {
   margin-bottom: var(--spacing-4);
 }
 
-/* Period Toggle */
+/* Statement Header - Flex layout with left/right sections */
 .statement-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: var(--spacing-4);
+  gap: var(--spacing-3);
   margin-bottom: var(--spacing-4);
 }
 
+.statement-header-left {
+  flex: 1;
+  min-width: 200px;
+}
+
+.statement-header-left h3 {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-800);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.statement-header-left .statement-note {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  margin: 0;
+}
+
+.statement-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  flex-shrink: 0;
+}
+
+/* Period Toggle */
 .period-toggle {
   display: flex;
   background: var(--color-gray-100);
@@ -3559,51 +3584,27 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-.statement-note {
-  font-size: var(--font-size-xs);
-  color: var(--color-gray-500);
-  margin-bottom: var(--spacing-4);
-}
-
-/* As Reported Badge */
-.as-reported-badge {
-  display: inline-block;
-  padding: 2px 8px;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-success, #059669);
-  background: var(--color-success-light, #d1fae5);
-  border-radius: var(--radius-full, 9999px);
-  margin-left: var(--spacing-2);
-}
-
 /* Derived value unavailable indicator */
 .derived-unavailable {
   color: var(--color-gray-400);
   cursor: help;
 }
 
-/* Expand quarters button */
-.expand-quarters {
-  text-align: center;
-  margin-top: var(--spacing-4);
-  padding-top: var(--spacing-3);
-  border-top: 1px solid var(--color-gray-200);
-}
-
+/* Expand button - now in header */
 .expand-btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-2) var(--spacing-4);
-  font-size: var(--font-size-sm);
+  gap: var(--spacing-1);
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   color: var(--color-accent);
-  background: transparent;
-  border: 1px solid var(--color-accent);
+  background: var(--color-accent-light, rgba(59, 130, 246, 0.1));
+  border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .expand-btn:hover {
@@ -3611,48 +3612,708 @@ body {
   color: var(--color-white);
 }
 
+/* Mobile responsive header */
+@media (max-width: 640px) {
+  .statement-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .statement-header-right {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .toggle-btn {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--font-size-xs);
+  }
+}
+
 /* Multi-period Financial Table */
 .financial-table-wrapper {
   overflow-x: auto;
   margin: 0 calc(-1 * var(--spacing-4));
   padding: 0 var(--spacing-4);
+  /* Smooth scrolling for touch devices */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 .financial-table.multi-period {
-  min-width: 600px;
+  min-width: 500px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Sticky first column for horizontal scrolling */
+.financial-table.multi-period .sticky-col {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--color-white);
+  /* Shadow to indicate scroll */
+  box-shadow: 2px 0 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.financial-table.multi-period thead th.sticky-col {
+  background: var(--color-gray-50);
+  z-index: 3;
 }
 
 .financial-table.multi-period .label-col {
-  min-width: 200px;
-  max-width: 250px;
-  position: sticky;
-  left: 0;
-  background: var(--color-white);
-  z-index: 1;
-}
-
-.financial-table.multi-period thead th.label-col {
-  background: var(--color-gray-50);
-}
-
-.financial-table.multi-period .header-row td {
-  position: sticky;
-  left: 0;
-  z-index: 1;
+  min-width: 180px;
+  max-width: 220px;
 }
 
 .financial-table.multi-period .value-col {
-  min-width: 100px;
+  min-width: 90px;
   white-space: nowrap;
+  text-align: right;
 }
 
 .financial-table.multi-period thead .value-col {
   font-size: var(--font-size-xs);
   text-align: center;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-600);
 }
 
-.financial-table.multi-period tbody .value-col {
-  text-align: right;
+/* Zebra striping for better readability */
+.financial-table.multi-period tbody tr:nth-child(even) {
+  background-color: var(--color-gray-50);
+}
+
+.financial-table.multi-period tbody tr:nth-child(even) .sticky-col {
+  background-color: var(--color-gray-50);
+}
+
+/* Total rows styling */
+.financial-table.multi-period tbody tr.total-row {
+  background-color: var(--color-gray-100);
+  font-weight: var(--font-weight-semibold);
+}
+
+.financial-table.multi-period tbody tr.total-row .sticky-col {
+  background-color: var(--color-gray-100);
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .financial-table.multi-period .label-col {
+    min-width: 140px;
+    max-width: 160px;
+    font-size: var(--font-size-xs);
+  }
+
+  .financial-table.multi-period .value-col {
+    min-width: 75px;
+    font-size: var(--font-size-xs);
+  }
+
+  .financial-table.multi-period thead .value-col {
+    font-size: 10px;
+  }
+
+  .financial-table-wrapper {
+    margin: 0 calc(-1 * var(--spacing-3));
+    padding: 0 var(--spacing-3);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Financial Statement Table - Enhanced Features
+   Row highlighting, search, export, sparklines, comparison, pinning
+   -------------------------------------------------------------------------- */
+
+/* Row highlighting on hover */
+.financial-table.multi-period tbody tr:hover {
+  background-color: rgba(66, 153, 225, 0.08);
+}
+
+.financial-table.multi-period tbody tr:hover .sticky-col {
+  background-color: rgba(66, 153, 225, 0.12);
+}
+
+.financial-table.multi-period tbody tr.total-row:hover {
+  background-color: rgba(66, 153, 225, 0.15);
+}
+
+.financial-table.multi-period tbody tr.total-row:hover .sticky-col {
+  background-color: rgba(66, 153, 225, 0.18);
+}
+
+/* Statement toolbar */
+.statement-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-3) 0;
+  margin-bottom: var(--spacing-3);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+/* Search box */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 200px;
+  padding: var(--spacing-2) var(--spacing-3);
+  padding-right: var(--spacing-8);
+  font-size: var(--font-size-sm);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+}
+
+.search-input::placeholder {
+  color: var(--color-gray-400);
+}
+
+.search-clear {
+  position: absolute;
+  right: var(--spacing-2);
+  background: none;
+  border: none;
+  color: var(--color-gray-400);
+  cursor: pointer;
+  font-size: var(--font-size-lg);
+  line-height: 1;
+  padding: var(--spacing-1);
+}
+
+.search-clear:hover {
+  color: var(--color-gray-600);
+}
+
+/* Toolbar toggles */
+.toolbar-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  cursor: pointer;
+  user-select: none;
+}
+
+.toolbar-toggle input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: var(--color-accent);
+}
+
+.toolbar-toggle span {
+  white-space: nowrap;
+}
+
+/* Export button */
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-600);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.export-btn:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: rgba(66, 153, 225, 0.05);
+}
+
+/* Sparkline component */
+.sparkline {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: var(--spacing-2);
+  flex-shrink: 0;
+}
+
+.label-col .item-label {
+  display: inline;
+}
+
+.label-col {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+/* Indent marker for hierarchical items */
+.indent-marker {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Column pinning */
+.pinned-col {
+  background-color: rgba(254, 243, 199, 0.5) !important;
+  border-left: 2px solid var(--color-warning);
+}
+
+.financial-table.multi-period thead .pinned-col {
+  background-color: rgba(254, 243, 199, 0.7) !important;
+}
+
+.col-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.pin-btn {
+  background: none;
+  border: none;
+  font-size: 10px;
+  cursor: pointer;
+  opacity: 0.3;
+  padding: 0;
+  line-height: 1;
+  transition: opacity var(--transition-fast);
+}
+
+.pin-btn:hover,
+.pin-btn.pinned {
+  opacity: 1;
+}
+
+.pin-btn.pinned {
+  filter: saturate(1.5);
+}
+
+/* Pinned indicator bar */
+.pinned-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) var(--spacing-3);
+  margin-top: var(--spacing-3);
+  background: rgba(254, 243, 199, 0.5);
+  border: 1px solid var(--color-warning);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+}
+
+.clear-pins {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.clear-pins:hover {
+  color: var(--color-primary);
+}
+
+/* Comparison mode - % change display */
+.change-header {
+  font-size: 9px;
+  font-weight: var(--font-weight-normal);
+  color: var(--color-gray-500);
+  margin-top: var(--spacing-1);
+}
+
+.change-row {
+  font-size: var(--font-size-xs);
+  margin-top: 2px;
+}
+
+.change-value {
+  font-weight: var(--font-weight-medium);
+}
+
+.change-positive {
+  color: var(--color-success);
+}
+
+.change-negative {
+  color: var(--color-danger);
+}
+
+.change-na {
+  color: var(--color-gray-400);
+}
+
+/* Collapsible sections */
+.section-header-row {
+  cursor: default;
+}
+
+.section-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 var(--spacing-2) 0 0;
+  font-size: var(--font-size-base);
+  color: var(--color-gray-500);
+  line-height: 1;
+  font-weight: var(--font-weight-bold);
+  width: 18px;
+  display: inline-flex;
+  justify-content: center;
+  transition: color var(--transition-fast);
+}
+
+.section-toggle:hover {
+  color: var(--color-accent);
+}
+
+.toggle-icon {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+/* Derived unavailable indicator */
+.derived-unavailable {
+  color: var(--color-gray-400);
+  font-style: italic;
+}
+
+/* Mobile responsive toolbar */
+@media (max-width: 640px) {
+  .statement-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-2);
+  }
+
+  .toolbar-left,
+  .toolbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .toolbar-toggle span {
+    font-size: var(--font-size-xs);
+  }
+
+  .export-btn {
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--font-size-xs);
+  }
+
+  .sparkline {
+    display: none;
+  }
+
+  .pin-btn {
+    display: none;
+  }
+
+  .keyboard-hint {
+    display: none;
+  }
+}
+
+/* Keyboard navigation - focused cell */
+.financial-table.multi-period td.focused,
+.financial-table.multi-period th.focused {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+  background-color: rgba(66, 153, 225, 0.1);
+}
+
+.financial-table.multi-period td.focused.sticky-col {
+  background-color: rgba(66, 153, 225, 0.15);
+}
+
+/* Conditional formatting - negative values */
+.value-col.value-negative {
+  color: var(--color-danger);
+}
+
+.value-col.value-negative::before {
+  content: '';
+}
+
+/* Cell content wrapper */
+.cell-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-1);
+}
+
+/* Annotation styles */
+.annotation-indicator {
+  font-size: 10px;
+  cursor: help;
+  flex-shrink: 0;
+}
+
+.has-annotation {
+  position: relative;
+}
+
+.has-annotation::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+.annotation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.annotation-popup {
+  position: fixed;
+  z-index: 101;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-3);
+  min-width: 250px;
+  max-width: 350px;
+}
+
+.annotation-popup textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: var(--spacing-2);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  resize: vertical;
+}
+
+.annotation-popup textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+}
+
+.annotation-actions {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-2);
+  justify-content: flex-end;
+}
+
+.annotation-save,
+.annotation-clear {
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.annotation-save {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+}
+
+.annotation-save:hover {
+  background: var(--color-primary);
+}
+
+.annotation-clear {
+  background: var(--color-white);
+  color: var(--color-gray-600);
+  border: 1px solid var(--color-gray-300);
+}
+
+.annotation-clear:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+/* Period-over-period tooltip */
+.value-tooltip {
+  position: fixed;
+  z-index: 50;
+  background: var(--color-gray-900);
+  color: var(--color-white);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  pointer-events: none;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
+}
+
+.value-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--color-gray-900);
+}
+
+.tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.tooltip-label {
+  color: var(--color-gray-400);
+}
+
+.tooltip-change {
+  font-weight: var(--font-weight-semibold);
+}
+
+.tooltip-change.positive {
+  color: var(--color-success);
+}
+
+.tooltip-change.negative {
+  color: var(--color-danger);
+}
+
+.tooltip-prev {
+  color: var(--color-gray-400);
+  font-size: 10px;
+  margin-top: var(--spacing-1);
+}
+
+/* Transpose view styles */
+.financial-table.multi-period.transposed {
+  min-width: auto;
+}
+
+.financial-table.multi-period.transposed .transposed-header {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  max-width: 40px;
+  height: 120px;
+  padding: var(--spacing-2);
+  vertical-align: bottom;
+}
+
+.transposed-item-label {
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.period-label-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+}
+
+.financial-table.multi-period tbody tr.pinned-row {
+  background-color: rgba(254, 243, 199, 0.5);
+}
+
+.financial-table.multi-period tbody tr.pinned-row .sticky-col {
+  background-color: rgba(254, 243, 199, 0.6);
+}
+
+/* Frozen column styles (pinned columns stay visible on scroll) */
+.frozen-col {
+  position: sticky;
+  z-index: 2;
+}
+
+.financial-table.multi-period thead .frozen-col {
+  z-index: 4;
+}
+
+/* Keyboard shortcuts hint */
+.keyboard-hint {
+  display: flex;
+  gap: var(--spacing-4);
+  padding: var(--spacing-2) 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  border-bottom: 1px solid var(--color-gray-200);
+  margin-bottom: var(--spacing-2);
+}
+
+.keyboard-hint span {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.keyboard-hint span::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: var(--color-gray-400);
+  border-radius: 50%;
+}
+
+/* Mobile: hide keyboard hints */
+@media (max-width: 640px) {
+  .keyboard-hint {
+    display: none;
+  }
+
+  .annotation-popup {
+    left: var(--spacing-4) !important;
+    right: var(--spacing-4);
+    max-width: none;
+  }
+
+  .value-tooltip {
+    display: none;
+  }
+
+  .financial-table.multi-period.transposed .transposed-header {
+    height: 80px;
+    max-width: 30px;
+  }
 }
 
 /* --------------------------------------------------------------------------
