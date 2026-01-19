@@ -499,14 +499,16 @@ export default function FinancialStatementTable({
 
   // Show tooltip on cell hover
   const handleCellMouseEnter = useCallback((e, item, periodIdx, value) => {
-    if (periodIdx >= displayPeriods.length - 1) return; // No next period to compare
+    if (!item || periodIdx >= displayPeriods.length - 1) return; // No next period to compare
 
     const nextPeriod = displayPeriods[periodIdx + 1];
+    if (!nextPeriod) return;
+
     const nextRawVal = getValue(item.tag, nextPeriod.key, item.idx);
-    const nextValue = typeof nextRawVal === 'object' ? nextRawVal.value : nextRawVal;
+    const nextValue = (nextRawVal !== null && typeof nextRawVal === 'object') ? nextRawVal.value : nextRawVal;
 
     const rect = e.currentTarget.getBoundingClientRect();
-    const isExpense = item.label.toLowerCase().includes('expense') || item.tag.toLowerCase().includes('expense');
+    const isExpense = item.label?.toLowerCase().includes('expense') || item.tag?.toLowerCase().includes('expense');
 
     setTooltip({
       value,
@@ -539,25 +541,30 @@ export default function FinancialStatementTable({
 
   // Render a single data cell
   const renderCell = (item, period, periodIdx, rowIdx, isTotal = false) => {
+    if (!item || !period) return null;
+
     const rawVal = getValue(item.tag, period.key, item.idx);
-    const value = typeof rawVal === 'object' ? rawVal.value : rawVal;
-    const derivedUnavailable = typeof rawVal === 'object' ? rawVal.derivedUnavailable : false;
+    // Note: typeof null === 'object' in JS, so check for null explicitly
+    const value = (rawVal !== null && typeof rawVal === 'object') ? rawVal.value : rawVal;
+    const derivedUnavailable = (rawVal !== null && typeof rawVal === 'object') ? rawVal.derivedUnavailable : false;
     const isPinned = pinnedPeriods.has(period.key);
     const annotationKey = `${item.tag}-${period.key}`;
     const hasAnnotation = !!annotations[annotationKey];
 
-    const isPerShare = item.tag.toLowerCase().includes('pershare') || item.tag.includes('Earnings');
-    const isShares = item.tag.toLowerCase().includes('shares');
-    const isExpense = item.label.toLowerCase().includes('expense') || item.tag.toLowerCase().includes('expense');
+    const isPerShare = item.tag?.toLowerCase().includes('pershare') || item.tag?.includes('Earnings');
+    const isShares = item.tag?.toLowerCase().includes('shares');
+    const isExpense = item.label?.toLowerCase().includes('expense') || item.tag?.toLowerCase().includes('expense');
 
     // Calculate comparison (YoY/QoQ change)
     let changeEl = null;
     if (showComparison && periodIdx < displayPeriods.length - 1) {
       const nextPeriod = displayPeriods[periodIdx + 1];
-      const nextRawVal = getValue(item.tag, nextPeriod.key, item.idx);
-      const nextValue = typeof nextRawVal === 'object' ? nextRawVal.value : nextRawVal;
-      const change = calcChange(value, nextValue);
-      changeEl = formatChange(change, isExpense);
+      if (nextPeriod) {
+        const nextRawVal = getValue(item.tag, nextPeriod.key, item.idx);
+        const nextValue = (nextRawVal !== null && typeof nextRawVal === 'object') ? nextRawVal.value : nextRawVal;
+        const change = calcChange(value, nextValue);
+        changeEl = formatChange(change, isExpense);
+      }
     }
 
     const isFocused = focusedCell.row === rowIdx && focusedCell.col === periodIdx + 1;
@@ -687,10 +694,11 @@ export default function FinancialStatementTable({
                     </div>
                   </td>
                   {filteredItems.map((item, itemIdx) => {
+                    if (!item) return null;
                     const rawVal = getValue(item.tag, period.key, item.idx);
-                    const value = typeof rawVal === 'object' ? rawVal.value : rawVal;
-                    const isPerShare = item.tag.toLowerCase().includes('pershare') || item.tag.includes('Earnings');
-                    const isShares = item.tag.toLowerCase().includes('shares');
+                    const value = (rawVal !== null && typeof rawVal === 'object') ? rawVal.value : rawVal;
+                    const isPerShare = item.tag?.toLowerCase().includes('pershare') || item.tag?.includes('Earnings');
+                    const isShares = item.tag?.toLowerCase().includes('shares');
                     const valueClass = getValueClass(value, item);
 
                     let displayValue;
@@ -820,11 +828,6 @@ export default function FinancialStatementTable({
           </p>
         </div>
         <div className="statement-header-right">
-          {hasMoreQuarters && (
-            <button className="expand-btn" onClick={onExpandToggle}>
-              {expanded ? 'Show less' : `+${allPeriods.length - defaultQuartersShown} more`}
-            </button>
-          )}
           <div className="period-toggle">
             <button
               className={viewMode === 'quarterly' ? 'toggle-btn active' : 'toggle-btn'}
@@ -839,6 +842,11 @@ export default function FinancialStatementTable({
               Annual
             </button>
           </div>
+          {hasMoreQuarters && (
+            <button className="expand-btn" onClick={onExpandToggle}>
+              {expanded ? 'Show less' : `Show all ${allPeriods.length}`}
+            </button>
+          )}
         </div>
       </div>
 

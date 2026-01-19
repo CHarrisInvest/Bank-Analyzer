@@ -145,7 +145,6 @@ function BankDetail({ banks = [], loading = false }) {
         <div className="bank-header-meta">
           <span>CIK: {bank.cik}</span>
           <span>SIC: {bank.sic} - {bank.sicDescription}</span>
-          <span>Data as of: {formatDate(bank.dataDate)}</span>
         </div>
       </div>
 

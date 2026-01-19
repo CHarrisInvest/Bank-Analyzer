@@ -3057,6 +3057,29 @@ body {
   pointer-events: none;
 }
 
+/* Hide shortcut indicator on mobile to prevent overlap */
+@media (max-width: 640px) {
+  .search-shortcut {
+    display: none;
+  }
+
+  .search-input-wrapper {
+    min-width: 100%;
+  }
+
+  .search-icon {
+    left: var(--spacing-3);
+    width: 18px;
+    height: 18px;
+  }
+
+  .search-input {
+    padding-left: 44px;
+    padding-right: var(--spacing-10);
+    font-size: var(--font-size-sm);
+  }
+}
+
 .search-recent-dropdown {
   position: absolute;
   top: 100%;
@@ -3595,12 +3618,12 @@ body {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-1);
-  padding: var(--spacing-2) var(--spacing-3);
+  padding: var(--spacing-1) var(--spacing-2);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
-  color: var(--color-accent);
-  background: var(--color-accent-light, rgba(59, 130, 246, 0.1));
-  border: none;
+  color: var(--color-gray-600);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-300);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -3608,8 +3631,9 @@ body {
 }
 
 .expand-btn:hover {
-  background: var(--color-accent);
-  color: var(--color-white);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-white);
 }
 
 /* Mobile responsive header */
@@ -4227,9 +4251,8 @@ body {
 }
 
 .financial-table.multi-period.transposed .transposed-header {
-  writing-mode: vertical-lr;
+  writing-mode: vertical-rl;
   text-orientation: mixed;
-  transform: rotate(180deg);
   max-width: 40px;
   height: 120px;
   padding: var(--spacing-2);
