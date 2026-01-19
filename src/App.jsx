@@ -1,11 +1,30 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { fetchBankData } from './data/sheets.js';
 import { initializeGA4 } from './analytics/gtag.js';
 
 // Layout and Navigation
 import Layout from './components/Layout.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
+
+/**
+ * SPA Redirect Handler for GitHub Pages
+ * Checks for stored redirect path from 404.html and navigates there
+ */
+function SpaRedirectHandler() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const redirectPath = sessionStorage.getItem('spa-redirect-path');
+    if (redirectPath && location.pathname === '/') {
+      sessionStorage.removeItem('spa-redirect-path');
+      navigate(redirectPath, { replace: true });
+    }
+  }, [navigate, location.pathname]);
+
+  return null;
+}
 
 // Pages
 import Home from './pages/Home.jsx';
@@ -69,6 +88,7 @@ function App() {
 
   return (
     <BrowserRouter basename={basename}>
+      <SpaRedirectHandler />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bank Analyzer</title>
+    <script>
+      // Single Page App GitHub Pages redirect
+      // This script stores the current path and redirects to the base URL
+      // The main app will then read this and navigate to the correct route
+      var pathSegmentsToKeep = 1; // Keep /Bank-Analyzer as base
+      var l = window.location;
+      var path = l.pathname.split('/').slice(pathSegmentsToKeep + 1).join('/');
+      var search = l.search ? '&' + l.search.slice(1) : '';
+      var hash = l.hash;
+
+      // Store the path for the main app to read
+      sessionStorage.setItem('spa-redirect-path', '/' + path + search + hash);
+
+      // Redirect to base URL
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, pathSegmentsToKeep + 1).join('/') + '/'
+      );
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>

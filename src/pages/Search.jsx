@@ -74,12 +74,16 @@ function Search({ banks = [], loading = false }) {
     }
 
     // Filter by search query
+    // - Tickers: must start with the query
+    // - Names: any word in the name must start with the query
+    // - CIK: must start with the query
     if (query.trim()) {
       const q = query.toLowerCase().trim();
       filtered = filtered.filter(bank => {
         const tickerMatch = bank.ticker?.toLowerCase().startsWith(q);
-        const nameMatch = bank.bankName?.toLowerCase().includes(q);
-        const cikMatch = bank.cik?.includes(q);
+        const words = bank.bankName?.toLowerCase().split(/\s+/) || [];
+        const nameMatch = words.some(word => word.startsWith(q));
+        const cikMatch = bank.cik?.startsWith(q);
         return tickerMatch || nameMatch || cikMatch;
       });
     }
