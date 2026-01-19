@@ -4035,6 +4035,285 @@ body {
   .pin-btn {
     display: none;
   }
+
+  .keyboard-hint {
+    display: none;
+  }
+}
+
+/* Keyboard navigation - focused cell */
+.financial-table.multi-period td.focused,
+.financial-table.multi-period th.focused {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+  background-color: rgba(66, 153, 225, 0.1);
+}
+
+.financial-table.multi-period td.focused.sticky-col {
+  background-color: rgba(66, 153, 225, 0.15);
+}
+
+/* Conditional formatting - negative values */
+.value-col.value-negative {
+  color: var(--color-danger);
+}
+
+.value-col.value-negative::before {
+  content: '';
+}
+
+/* Cell content wrapper */
+.cell-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-1);
+}
+
+/* Annotation styles */
+.annotation-indicator {
+  font-size: 10px;
+  cursor: help;
+  flex-shrink: 0;
+}
+
+.has-annotation {
+  position: relative;
+}
+
+.has-annotation::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+.annotation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.annotation-popup {
+  position: fixed;
+  z-index: 101;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-3);
+  min-width: 250px;
+  max-width: 350px;
+}
+
+.annotation-popup textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: var(--spacing-2);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  resize: vertical;
+}
+
+.annotation-popup textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+}
+
+.annotation-actions {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-2);
+  justify-content: flex-end;
+}
+
+.annotation-save,
+.annotation-clear {
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.annotation-save {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+}
+
+.annotation-save:hover {
+  background: var(--color-primary);
+}
+
+.annotation-clear {
+  background: var(--color-white);
+  color: var(--color-gray-600);
+  border: 1px solid var(--color-gray-300);
+}
+
+.annotation-clear:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+/* Period-over-period tooltip */
+.value-tooltip {
+  position: fixed;
+  z-index: 50;
+  background: var(--color-gray-900);
+  color: var(--color-white);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  pointer-events: none;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
+}
+
+.value-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--color-gray-900);
+}
+
+.tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.tooltip-label {
+  color: var(--color-gray-400);
+}
+
+.tooltip-change {
+  font-weight: var(--font-weight-semibold);
+}
+
+.tooltip-change.positive {
+  color: var(--color-success);
+}
+
+.tooltip-change.negative {
+  color: var(--color-danger);
+}
+
+.tooltip-prev {
+  color: var(--color-gray-400);
+  font-size: 10px;
+  margin-top: var(--spacing-1);
+}
+
+/* Transpose view styles */
+.financial-table.multi-period.transposed {
+  min-width: auto;
+}
+
+.financial-table.multi-period.transposed .transposed-header {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  max-width: 40px;
+  height: 120px;
+  padding: var(--spacing-2);
+  vertical-align: bottom;
+}
+
+.transposed-item-label {
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.period-label-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+}
+
+.financial-table.multi-period tbody tr.pinned-row {
+  background-color: rgba(254, 243, 199, 0.5);
+}
+
+.financial-table.multi-period tbody tr.pinned-row .sticky-col {
+  background-color: rgba(254, 243, 199, 0.6);
+}
+
+/* Frozen column styles (pinned columns stay visible on scroll) */
+.frozen-col {
+  position: sticky;
+  z-index: 2;
+}
+
+.financial-table.multi-period thead .frozen-col {
+  z-index: 4;
+}
+
+/* Keyboard shortcuts hint */
+.keyboard-hint {
+  display: flex;
+  gap: var(--spacing-4);
+  padding: var(--spacing-2) 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  border-bottom: 1px solid var(--color-gray-200);
+  margin-bottom: var(--spacing-2);
+}
+
+.keyboard-hint span {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.keyboard-hint span::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: var(--color-gray-400);
+  border-radius: 50%;
+}
+
+/* Mobile: hide keyboard hints */
+@media (max-width: 640px) {
+  .keyboard-hint {
+    display: none;
+  }
+
+  .annotation-popup {
+    left: var(--spacing-4) !important;
+    right: var(--spacing-4);
+    max-width: none;
+  }
+
+  .value-tooltip {
+    display: none;
+  }
+
+  .financial-table.multi-period.transposed .transposed-header {
+    height: 80px;
+    max-width: 30px;
+  }
 }
 
 /* --------------------------------------------------------------------------

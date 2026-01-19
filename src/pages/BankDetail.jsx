@@ -486,6 +486,7 @@ function BalanceSheetTab({ bank, rawData, rawDataLoading, formatCurrency, format
         defaultQuartersShown={DEFAULT_QUARTERS_SHOWN}
         showDerivedNote={false}
         isIncomeStatement={false}
+        bankId={bank?.cik || bank?.ticker || 'unknown'}
       />
     </div>
   );
@@ -616,6 +617,7 @@ function IncomeStatementTab({ bank, rawData, rawDataLoading, formatCurrency, for
         defaultQuartersShown={DEFAULT_QUARTERS_SHOWN}
         showDerivedNote={true}
         isIncomeStatement={true}
+        bankId={bank?.cik || bank?.ticker || 'unknown'}
       />
     </div>
   );
