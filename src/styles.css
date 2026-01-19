@@ -3004,15 +3004,16 @@ body {
 
 .search-icon {
   position: absolute;
-  left: var(--spacing-4);
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--color-gray-400);
+  pointer-events: none;
 }
 
 .search-input {
   width: 100%;
-  padding: var(--spacing-4) var(--spacing-4) var(--spacing-4) var(--spacing-10);
+  padding: var(--spacing-4) var(--spacing-4) var(--spacing-4) 48px;
   font-size: var(--font-size-base);
   border: 1px solid var(--color-gray-300);
   border-radius: var(--radius-lg);
@@ -3057,7 +3058,7 @@ body {
   pointer-events: none;
 }
 
-/* Mobile search styles - prevent icon overlap */
+/* Mobile search styles */
 @media (max-width: 640px) {
   .search-shortcut {
     display: none;
@@ -3074,8 +3075,8 @@ body {
   }
 
   .search-input {
-    padding-left: 46px;
-    padding-right: var(--spacing-10);
+    padding-left: 44px;
+    padding-right: 40px;
     font-size: var(--font-size-sm);
   }
 }
