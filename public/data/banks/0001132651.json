@@ -260,6 +260,16 @@
               "hasValue": true
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale",
               "line": 13,
@@ -528,16 +538,6 @@
               "value": 2133180000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -620,6 +620,16 @@
               "value": 1226011000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
@@ -890,16 +900,6 @@
               "value": 2134926000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -982,6 +982,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1226011000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
@@ -1252,16 +1262,6 @@
               "value": 2134926000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1226011000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1279,12 +1279,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "CommonStockParOrStatedValuePerShare",
+              "label": "Common stock, par value (in dollars per share)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 2,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 19525000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockSharesAuthorized",
+              "label": "Common stock, authorized (in shares)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -1339,6 +1363,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
               "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
               "line": 11,
@@ -1359,6 +1395,30 @@
               "value": 1303917000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1685,66 +1745,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockParOrStatedValuePerShare",
-              "label": "Common stock, par value (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockSharesAuthorized",
-              "label": "Common stock, authorized (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1760,12 +1760,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "CommonStockParOrStatedValuePerShare",
+              "label": "Common stock, par value (in dollars per share)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 2,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 19525000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockSharesAuthorized",
+              "label": "Common stock, authorized (in shares)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -1820,6 +1844,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
               "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
               "line": 11,
@@ -1840,6 +1876,30 @@
               "value": 1303917000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2166,66 +2226,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockParOrStatedValuePerShare",
-              "label": "Common stock, par value (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockSharesAuthorized",
-              "label": "Common stock, authorized (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2241,12 +2241,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "CommonStockParOrStatedValuePerShare",
+              "label": "Common stock, par value (in dollars per share)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 2,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 19525000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockSharesAuthorized",
+              "label": "Common stock, authorized (in shares)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2301,6 +2325,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 648513000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
               "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
               "line": 11,
@@ -2314,6 +2350,30 @@
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1306230000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
               "label": "Loans receivable, net",
               "line": 12,
               "indent": 0,
@@ -2647,66 +2707,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 648513000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1306230000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockParOrStatedValuePerShare",
-              "label": "Common stock, par value (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockSharesAuthorized",
-              "label": "Common stock, authorized (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2722,12 +2722,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "CommonStockParOrStatedValuePerShare",
+              "label": "Common stock, par value (in dollars per share)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 2,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 24105000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockSharesAuthorized",
+              "label": "Common stock, authorized (in shares)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2782,6 +2806,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 736389000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
               "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
               "line": 11,
@@ -2795,6 +2831,30 @@
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1277812000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
               "label": "Loans receivable, net",
               "line": 12,
               "indent": 0,
@@ -3128,66 +3188,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 736389000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1277812000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockParOrStatedValuePerShare",
-              "label": "Common stock, par value (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockSharesAuthorized",
-              "label": "Common stock, authorized (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3203,12 +3203,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "CommonStockParOrStatedValuePerShare",
+              "label": "Common stock, par value (in dollars per share)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 2,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 22660000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockSharesAuthorized",
+              "label": "Common stock, authorized (in shares)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3263,6 +3287,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 736389000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
               "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
               "line": 11,
@@ -3276,6 +3312,30 @@
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1277812000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
               "label": "Loans receivable, net",
               "line": 12,
               "indent": 0,
@@ -3609,66 +3669,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 736389000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1277812000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockParOrStatedValuePerShare",
-              "label": "Common stock, par value (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockSharesAuthorized",
-              "label": "Common stock, authorized (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3684,12 +3684,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "CommonStockParOrStatedValuePerShare",
+              "label": "Common stock, par value (in dollars per share)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 2,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 25494000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockSharesAuthorized",
+              "label": "Common stock, authorized (in shares)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3744,6 +3768,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 690843000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
               "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
               "line": 11,
@@ -3757,6 +3793,30 @@
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1277812000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
               "label": "Loans receivable, net",
               "line": 12,
               "indent": 0,
@@ -4090,66 +4150,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 690843000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1277812000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockParOrStatedValuePerShare",
-              "label": "Common stock, par value (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockSharesAuthorized",
-              "label": "Common stock, authorized (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4165,12 +4165,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "CommonStockParOrStatedValuePerShare",
+              "label": "Common stock, par value (in dollars per share)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 2,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 18362000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockSharesAuthorized",
+              "label": "Common stock, authorized (in shares)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4225,6 +4249,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 736389000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
               "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
               "line": 11,
@@ -4238,6 +4274,30 @@
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1272580000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
               "label": "Loans receivable, net",
               "line": 12,
               "indent": 0,
@@ -4571,66 +4631,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 736389000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1272580000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockParOrStatedValuePerShare",
-              "label": "Common stock, par value (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockSharesAuthorized",
-              "label": "Common stock, authorized (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4646,12 +4646,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "CommonStockParOrStatedValuePerShare",
+              "label": "Common stock, par value (in dollars per share)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 2,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 24105000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockSharesAuthorized",
+              "label": "Common stock, authorized (in shares)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4706,6 +4730,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 736389000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
               "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
               "line": 11,
@@ -4719,6 +4755,30 @@
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1226011000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
               "label": "Loans receivable, net",
               "line": 12,
               "indent": 0,
@@ -5052,66 +5112,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 736389000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1226011000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockParOrStatedValuePerShare",
-              "label": "Common stock, par value (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockSharesAuthorized",
-              "label": "Common stock, authorized (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5127,12 +5127,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "CommonStockParOrStatedValuePerShare",
+              "label": "Common stock, par value (in dollars per share)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 2,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 21992000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockSharesAuthorized",
+              "label": "Common stock, authorized (in shares)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5187,6 +5211,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 736944000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
               "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
               "line": 11,
@@ -5207,6 +5243,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1226011000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5533,66 +5593,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 736944000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockParOrStatedValuePerShare",
-              "label": "Common stock, par value (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockSharesAuthorized",
-              "label": "Common stock, authorized (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1226011000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5608,12 +5608,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "CommonStockParOrStatedValuePerShare",
+              "label": "Common stock, par value (in dollars per share)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 2,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 22045000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockSharesAuthorized",
+              "label": "Common stock, authorized (in shares)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5668,6 +5692,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 758520000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
               "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
               "line": 11,
@@ -5688,6 +5724,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1226011000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6014,66 +6074,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 758520000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockParOrStatedValuePerShare",
-              "label": "Common stock, par value (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockSharesAuthorized",
-              "label": "Common stock, authorized (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1226011000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6089,12 +6089,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "CommonStockParOrStatedValuePerShare",
+              "label": "Common stock, par value (in dollars per share)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 2,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 20819000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockSharesAuthorized",
+              "label": "Common stock, authorized (in shares)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6149,6 +6173,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 786438000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
               "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
               "line": 11,
@@ -6169,6 +6205,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1224045000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6495,66 +6555,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 786438000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockParOrStatedValuePerShare",
-              "label": "Common stock, par value (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockSharesAuthorized",
-              "label": "Common stock, authorized (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1224045000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -6599,6 +6599,12 @@
           },
           {
             "tag": "NotesReceivableNet",
+            "label": "Loans receivable, net",
+            "line": 12,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Loans receivable, net",
             "line": 12,
             "indent": 0
@@ -6764,18 +6770,24 @@
             "label": "Total liabilities and stockholders' equity",
             "line": 41,
             "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Loans receivable, net",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
           {
+            "tag": "CommonStockParOrStatedValuePerShare",
+            "label": "Common stock, par value (in dollars per share)",
+            "line": 5,
+            "indent": 0
+          },
+          {
             "tag": "CashAndDueFromBanks",
             "label": "Cash and due from banks",
+            "line": 6,
+            "indent": 0
+          },
+          {
+            "tag": "CommonStockSharesAuthorized",
+            "label": "Common stock, authorized (in shares)",
             "line": 6,
             "indent": 0
           },
@@ -6804,6 +6816,12 @@
             "indent": 0
           },
           {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "Securities available-for-sale",
+            "line": 10,
+            "indent": 0
+          },
+          {
             "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
             "label": "Federal Home Loan Bank (FHLB) and Federal Reserve Bank (FRB) stock, at cost",
             "line": 11,
@@ -6811,6 +6829,18 @@
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+            "label": "Loans receivable, net",
+            "line": 12,
+            "indent": 0
+          },
+          {
+            "tag": "NotesReceivableNet",
+            "label": "Loans receivable, net",
+            "line": 12,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Loans receivable, net",
             "line": 12,
             "indent": 0
@@ -6975,36 +7005,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and stockholders' equity",
             "line": 41,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "Securities available-for-sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableNet",
-            "label": "Loans receivable, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommonStockParOrStatedValuePerShare",
-            "label": "Common stock, par value (in dollars per share)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommonStockSharesAuthorized",
-            "label": "Common stock, authorized (in shares)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Loans receivable, net",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -7232,6 +7232,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 21,
@@ -7250,6 +7260,16 @@
               "value": 789000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (credit) for loan losses",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -7450,26 +7470,6 @@
               "value": 1.14,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7564,6 +7564,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 8309000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 21,
@@ -7582,6 +7592,16 @@
               "value": 789000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (credit) for loan losses",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -7782,26 +7802,6 @@
               "value": 1.2,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 8309000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7896,6 +7896,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 4485000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 21,
@@ -7914,6 +7924,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (credit) for loan losses",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": -874000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -8114,26 +8134,6 @@
               "value": 2.62,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4485000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -874000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -8259,6 +8259,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Credit loss expense",
               "line": 21,
@@ -8279,6 +8291,18 @@
               "value": 10706000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8521,30 +8545,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -8668,6 +8668,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Credit loss expense",
               "line": 21,
@@ -8688,6 +8700,18 @@
               "value": 13358000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8930,30 +8954,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9077,6 +9077,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Credit loss expense",
               "line": 21,
@@ -9097,6 +9109,18 @@
               "value": 10737000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9339,30 +9363,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9486,6 +9486,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Credit loss expense",
               "line": 21,
@@ -9508,6 +9520,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
@@ -9748,30 +9772,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -9895,6 +9895,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Credit loss expense (benefit)",
               "line": 21,
@@ -9915,6 +9927,18 @@
               "value": 10963000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10157,30 +10181,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10304,6 +10304,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Credit loss expense",
               "line": 21,
@@ -10324,6 +10336,18 @@
               "value": 11269000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10566,30 +10590,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10713,6 +10713,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 9205000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Credit loss expense",
               "line": 21,
@@ -10733,6 +10745,18 @@
               "value": 11394000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10975,30 +10999,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9205000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11122,6 +11122,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": -1926000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Credit loss expense (benefit)",
               "line": 21,
@@ -11144,6 +11156,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
@@ -11384,30 +11408,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1926000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11531,6 +11531,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 8073000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Credit loss expense",
               "line": 21,
@@ -11549,6 +11561,18 @@
               "indent": 0,
               "negating": false,
               "value": 10963000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": -520000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11793,30 +11817,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 8073000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -520000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11940,6 +11940,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 1242000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Credit loss expense",
               "line": 21,
@@ -11958,6 +11970,18 @@
               "indent": 0,
               "negating": false,
               "value": 11269000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": -59000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12202,30 +12226,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1242000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -59000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12349,6 +12349,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 920000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Credit loss expense",
               "line": 21,
@@ -12367,6 +12379,18 @@
               "indent": 0,
               "negating": false,
               "value": 11394000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": -127000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12611,30 +12635,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 920000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -127000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -12690,6 +12690,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 20,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 21,
@@ -12698,6 +12704,12 @@
           {
             "tag": "ProvisionForLoanLeaseAndOtherLosses",
             "label": "Credit loss expense",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Provision (credit) for loan losses",
             "line": 22,
             "indent": 0
           },
@@ -12820,18 +12832,6 @@
             "label": "Basic and diluted earnings per share (in dollars per share)",
             "line": 44,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision (credit) for loan losses",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -12890,6 +12890,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 20,
+            "indent": 0
+          },
+          {
             "tag": "ProvisionForLoanLeaseAndOtherLosses",
             "label": "Credit loss expense",
             "line": 21,
@@ -12898,6 +12904,12 @@
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
             "label": "Net interest income after credit loss expense",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Credit loss expense (benefit)",
             "line": 22,
             "indent": 0
           },
@@ -13019,18 +13031,6 @@
             "tag": "CommonStockDividendsPerShareDeclared",
             "label": "Cash dividends declared, per share (in dollars per share)",
             "line": 44,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Credit loss expense (benefit)",
-            "line": 9999,
             "indent": 0
           }
         ]

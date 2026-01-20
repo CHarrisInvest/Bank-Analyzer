@@ -268,6 +268,16 @@
               "hasValue": true
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -278,6 +288,16 @@
               "hasValue": true
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -286,6 +306,16 @@
               "value": 20484662000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "PropertyPlantAndEquipmentNet",
@@ -308,6 +338,16 @@
               "hasValue": true
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
@@ -316,6 +356,26 @@
               "value": 52520259000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestBearingDepositLiabilities",
@@ -486,66 +546,6 @@
               "value": 52520259000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -650,6 +650,16 @@
               "hasValue": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 18824251000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -660,6 +670,16 @@
               "hasValue": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -245996000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -668,6 +688,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 18578255000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "PropertyPlantAndEquipmentNet",
@@ -690,6 +720,16 @@
               "hasValue": true
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
@@ -698,6 +738,26 @@
               "value": 52892376000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestBearingDepositLiabilities",
@@ -868,66 +928,6 @@
               "value": 50845038000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18824251000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -245996000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18578255000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -1032,6 +1032,16 @@
               "hasValue": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 16336397000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -1042,6 +1052,16 @@
               "hasValue": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -227621000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -1050,6 +1070,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 16087731000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "PropertyPlantAndEquipmentNet",
@@ -1072,12 +1102,42 @@
               "hasValue": true
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 654952000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
               "indent": 0,
               "negating": false,
               "value": 52892376000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 386000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 190188000,
               "uom": "USD",
               "hasValue": true
             },
@@ -1250,66 +1310,6 @@
               "value": 50878490000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 16336397000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -227621000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 16087731000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 654952000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 386000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 190188000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1435,6 +1435,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -1447,6 +1459,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -1455,6 +1479,18 @@
               "value": 20484662000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1483,6 +1519,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
@@ -1491,6 +1539,30 @@
               "value": 52520259000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1697,78 +1769,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1892,6 +1892,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -1904,6 +1916,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -1912,6 +1936,18 @@
               "value": 20484662000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1940,6 +1976,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
@@ -1948,6 +1996,30 @@
               "value": 52520259000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2154,78 +2226,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2349,6 +2349,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -2361,6 +2373,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -2369,6 +2393,18 @@
               "value": 20484662000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2397,6 +2433,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
@@ -2405,6 +2453,30 @@
               "value": 52004742000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2611,78 +2683,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2806,6 +2806,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -2818,6 +2830,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -2826,6 +2850,18 @@
               "value": 20484662000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2854,6 +2890,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
@@ -2862,6 +2910,30 @@
               "value": 52520259000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3068,78 +3140,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3263,6 +3263,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 20054863000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -3275,6 +3287,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -245996000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -3283,6 +3307,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 18578255000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3311,6 +3347,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
@@ -3319,6 +3367,30 @@
               "value": 51008093000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3525,78 +3597,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 20054863000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -245996000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18578255000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3720,6 +3720,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 18824251000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -3732,6 +3744,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -245996000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -3740,6 +3764,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 18578255000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3768,6 +3804,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
@@ -3776,6 +3824,30 @@
               "value": 50845038000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3982,78 +4054,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18824251000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -245996000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18578255000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4177,6 +4177,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 19388206000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -4189,6 +4201,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -245996000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -4197,6 +4221,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 19137909000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4225,6 +4261,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
@@ -4233,6 +4281,30 @@
               "value": 49505424000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4439,78 +4511,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19388206000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -245996000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19137909000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4634,6 +4634,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 18824251000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -4646,6 +4658,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -245996000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -4654,6 +4678,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 18578255000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4682,6 +4718,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
@@ -4690,6 +4738,30 @@
               "value": 52892376000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4896,78 +4968,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18824251000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -245996000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18578255000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5091,6 +5091,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 17154969000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -5103,6 +5115,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -242235000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -5111,6 +5135,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 18157024000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5139,6 +5175,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
@@ -5147,6 +5195,30 @@
               "value": 52892376000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5353,78 +5425,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 17154969000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -242235000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18157024000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5548,6 +5548,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 17746311000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -5560,6 +5572,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -233619000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -5568,6 +5592,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 17512692000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5596,12 +5632,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 654952000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
               "indent": 0,
               "negating": false,
               "value": 48597200000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 208000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 190575000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5810,78 +5882,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 17746311000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -233619000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 17512692000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 654952000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 208000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 190575000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6005,6 +6005,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans, net of unearned discounts",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 17486020000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses on loans",
               "line": 11,
@@ -6017,6 +6029,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for credit losses on loans",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -231514000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 12,
@@ -6025,6 +6049,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 16927348000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6053,12 +6089,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "Goodwill",
+              "label": "Goodwill",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 654952000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Assets",
               "label": "Total assets",
               "line": 15,
               "indent": 0,
               "negating": false,
               "value": 52892376000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 386000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Cash surrender value of life insurance policies",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 190601000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6267,78 +6339,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans, net of unearned discounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 17486020000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -231514000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 16927348000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Goodwill",
-              "label": "Goodwill",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 654952000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 386000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsurance",
-              "label": "Cash surrender value of life insurance policies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 190601000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -6400,13 +6400,31 @@
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+            "label": "Loans, net of unearned discounts",
+            "line": 10,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
             "label": "Less: Allowance for credit losses on loans",
             "line": 11,
             "indent": 0
           },
           {
+            "tag": "FinancingReceivableAllowanceForCreditLosses",
+            "label": "Less: Allowance for credit losses on loans",
+            "line": 11,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+            "label": "Net loans",
+            "line": 12,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Net loans",
             "line": 12,
             "indent": 0
@@ -6424,9 +6442,27 @@
             "indent": 0
           },
           {
+            "tag": "Goodwill",
+            "label": "Goodwill",
+            "line": 14,
+            "indent": 0
+          },
+          {
             "tag": "Assets",
             "label": "Total assets",
             "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "FiniteLivedIntangibleAssetsNet",
+            "label": "Other intangible assets, net",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "BankOwnedLifeInsurance",
+            "label": "Cash surrender value of life insurance policies",
+            "line": 16,
             "indent": 0
           },
           {
@@ -6530,42 +6566,6 @@
             "label": "Total liabilities and shareholders equity",
             "line": 34,
             "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-            "label": "Loans, net of unearned discounts",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableAllowanceForCreditLosses",
-            "label": "Less: Allowance for credit losses on loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Net loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "Goodwill",
-            "label": "Goodwill",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FiniteLivedIntangibleAssetsNet",
-            "label": "Other intangible assets, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BankOwnedLifeInsurance",
-            "label": "Cash surrender value of life insurance policies",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -6624,13 +6624,31 @@
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+            "label": "Loans, net of unearned discounts",
+            "line": 10,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
             "label": "Less: Allowance for credit losses on loans",
             "line": 11,
             "indent": 0
           },
           {
+            "tag": "FinancingReceivableAllowanceForCreditLosses",
+            "label": "Less: Allowance for credit losses on loans",
+            "line": 11,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+            "label": "Net loans",
+            "line": 12,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Net loans",
             "line": 12,
             "indent": 0
@@ -6648,9 +6666,27 @@
             "indent": 0
           },
           {
+            "tag": "Goodwill",
+            "label": "Goodwill",
+            "line": 14,
+            "indent": 0
+          },
+          {
             "tag": "Assets",
             "label": "Total assets",
             "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "FiniteLivedIntangibleAssetsNet",
+            "label": "Other intangible assets, net",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "BankOwnedLifeInsurance",
+            "label": "Cash surrender value of life insurance policies",
+            "line": 16,
             "indent": 0
           },
           {
@@ -6753,42 +6789,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and shareholders equity",
             "line": 34,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-            "label": "Loans, net of unearned discounts",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableAllowanceForCreditLosses",
-            "label": "Less: Allowance for credit losses on loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Net loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "Goodwill",
-            "label": "Goodwill",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FiniteLivedIntangibleAssetsNet",
-            "label": "Other intangible assets, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BankOwnedLifeInsurance",
-            "label": "Cash surrender value of life insurance policies",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -7066,6 +7066,26 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 21,
@@ -7246,6 +7266,16 @@
               "hasValue": true
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income taxes",
               "line": 41,
@@ -7306,6 +7336,16 @@
               "hasValue": true
             },
             {
+              "tag": "PreferredStockAccretionOfRedemptionDiscount",
+              "label": "Redemption of preferred stock",
+              "line": 47,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Diluted (in dollars per share)",
               "line": 48,
@@ -7314,46 +7354,6 @@
               "value": 8.81,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "PreferredStockAccretionOfRedemptionDiscount",
-              "label": "Redemption of preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7490,6 +7490,26 @@
             {
               "tag": "InterestExpenseOperating",
               "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 23902000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
               "line": 20,
               "indent": 0,
               "negating": false,
@@ -7678,6 +7698,16 @@
               "hasValue": true
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income taxes",
               "line": 41,
@@ -7738,6 +7768,16 @@
               "hasValue": true
             },
             {
+              "tag": "PreferredStockAccretionOfRedemptionDiscount",
+              "label": "Redemption of preferred stock",
+              "line": 47,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Diluted (in dollars per share)",
               "line": 48,
@@ -7746,46 +7786,6 @@
               "value": 9.1,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 23902000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "PreferredStockAccretionOfRedemptionDiscount",
-              "label": "Redemption of preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7928,6 +7928,26 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 23902000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 318000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -8110,6 +8130,16 @@
               "hasValue": true
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": 697000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income taxes",
               "line": 41,
@@ -8170,52 +8200,22 @@
               "hasValue": true
             },
             {
+              "tag": "PreferredStockAccretionOfRedemptionDiscount",
+              "label": "Redemption of preferred stock",
+              "line": 47,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Diluted (in dollars per share)",
               "line": 48,
               "indent": 0,
               "negating": false,
               "value": 6.76,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 23902000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 318000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 697000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "PreferredStockAccretionOfRedemptionDiscount",
-              "label": "Redemption of preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -8427,6 +8427,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Trustandinvestmentmanagementfees",
               "label": "Trust and investment management fees",
               "line": 21,
@@ -8595,6 +8619,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expense",
               "line": 36,
@@ -8691,45 +8727,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOperating",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "PreferredStockAccretionOfRedemptionDiscount",
               "label": "Redemption of preferred stock",
-              "line": 9999,
+              "line": 47,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -8944,6 +8944,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Trustandinvestmentmanagementfees",
               "label": "Trust and investment management fees",
               "line": 21,
@@ -9112,6 +9136,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expense",
               "line": 36,
@@ -9208,45 +9244,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOperating",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "PreferredStockAccretionOfRedemptionDiscount",
               "label": "Redemption of preferred stock",
-              "line": 9999,
+              "line": 47,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9461,6 +9461,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Trustandinvestmentmanagementfees",
               "label": "Trust and investment management fees",
               "line": 21,
@@ -9629,6 +9653,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expense",
               "line": 36,
@@ -9725,45 +9761,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOperating",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "PreferredStockAccretionOfRedemptionDiscount",
               "label": "Redemption of preferred stock",
-              "line": 9999,
+              "line": 47,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9978,6 +9978,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "Trustandinvestmentmanagementfees",
               "label": "Trust and investment management fees",
               "line": 21,
@@ -10146,6 +10170,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expense",
               "line": 36,
@@ -10242,45 +10278,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpenseOperating",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
               "tag": "PreferredStockAccretionOfRedemptionDiscount",
               "label": "Redemption of preferred stock",
-              "line": 9999,
+              "line": 47,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10495,6 +10495,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Trustandinvestmentmanagementfees",
               "label": "Trust and investment management fees",
               "line": 21,
@@ -10663,6 +10687,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expense",
               "line": 36,
@@ -10759,45 +10795,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOperating",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "PreferredStockAccretionOfRedemptionDiscount",
               "label": "Redemption of preferred stock",
-              "line": 9999,
+              "line": 47,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11012,6 +11012,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Trustandinvestmentmanagementfees",
               "label": "Trust and investment management fees",
               "line": 21,
@@ -11180,6 +11204,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expense",
               "line": 36,
@@ -11276,45 +11312,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOperating",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "PreferredStockAccretionOfRedemptionDiscount",
               "label": "Redemption of preferred stock",
-              "line": 9999,
+              "line": 47,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11529,6 +11529,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Trustandinvestmentmanagementfees",
               "label": "Trust and investment management fees",
               "line": 21,
@@ -11697,6 +11721,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expense",
               "line": 36,
@@ -11793,45 +11829,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOperating",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "PreferredStockAccretionOfRedemptionDiscount",
               "label": "Redemption of preferred stock",
-              "line": 9999,
+              "line": 47,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12046,6 +12046,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "Trustandinvestmentmanagementfees",
               "label": "Trust and investment management fees",
               "line": 21,
@@ -12214,6 +12238,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expense",
               "line": 36,
@@ -12310,45 +12346,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpenseOperating",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
               "tag": "PreferredStockAccretionOfRedemptionDiscount",
               "label": "Redemption of preferred stock",
-              "line": 9999,
+              "line": 47,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12563,6 +12563,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Trustandinvestmentmanagementfees",
               "label": "Trust and investment management fees",
               "line": 21,
@@ -12731,6 +12755,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expense",
               "line": 36,
@@ -12827,45 +12863,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOperating",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "PreferredStockAccretionOfRedemptionDiscount",
               "label": "Redemption of preferred stock",
-              "line": 9999,
+              "line": 47,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -13080,6 +13080,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Trustandinvestmentmanagementfees",
               "label": "Trust and investment management fees",
               "line": 21,
@@ -13248,6 +13272,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 82000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expense",
               "line": 36,
@@ -13344,45 +13380,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 82000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOperating",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "PreferredStockAccretionOfRedemptionDiscount",
               "label": "Redemption of preferred stock",
-              "line": 9999,
+              "line": 47,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -13597,6 +13597,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+              "label": "Federal Home Loan Bank advances",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Trustandinvestmentmanagementfees",
               "label": "Trust and investment management fees",
               "line": 21,
@@ -13765,6 +13789,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfIntangibleAssets",
+              "label": "Intangible amortization",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 96000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expense",
               "line": 36,
@@ -13861,45 +13897,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "AmortizationOfIntangibleAssets",
-              "label": "Intangible amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 96000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOperating",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "PreferredStockAccretionOfRedemptionDiscount",
               "label": "Redemption of preferred stock",
-              "line": 9999,
+              "line": 47,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -13988,6 +13988,18 @@
           {
             "tag": "InterestExpenseOperating",
             "label": "Total interest expense",
+            "line": 20,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 20,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+            "label": "Federal Home Loan Bank advances",
             "line": 20,
             "indent": 0
           },
@@ -14100,6 +14112,12 @@
             "indent": 0
           },
           {
+            "tag": "AmortizationOfIntangibleAssets",
+            "label": "Intangible amortization",
+            "line": 40,
+            "indent": 0
+          },
+          {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
             "label": "Income before income taxes",
             "line": 41,
@@ -14136,33 +14154,15 @@
             "indent": 0
           },
           {
+            "tag": "PreferredStockAccretionOfRedemptionDiscount",
+            "label": "Redemption of preferred stock",
+            "line": 47,
+            "indent": 0
+          },
+          {
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted (in dollars per share)",
             "line": 48,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-            "label": "Federal Home Loan Bank advances",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AmortizationOfIntangibleAssets",
-            "label": "Intangible amortization",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "PreferredStockAccretionOfRedemptionDiscount",
-            "label": "Redemption of preferred stock",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -14264,6 +14264,18 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpenseOperating",
+            "label": "Total interest expense",
+            "line": 20,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
+            "label": "Federal Home Loan Bank advances",
+            "line": 20,
+            "indent": 0
+          },
+          {
             "tag": "Trustandinvestmentmanagementfees",
             "label": "Trust and investment management fees",
             "line": 21,
@@ -14348,6 +14360,12 @@
             "indent": 0
           },
           {
+            "tag": "AmortizationOfIntangibleAssets",
+            "label": "Intangible amortization",
+            "line": 35,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestExpense",
             "label": "Total non-interest expense",
             "line": 36,
@@ -14396,27 +14414,9 @@
             "indent": 0
           },
           {
-            "tag": "AmortizationOfIntangibleAssets",
-            "label": "Intangible amortization",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseOperating",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesShortTerm",
-            "label": "Federal Home Loan Bank advances",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "PreferredStockAccretionOfRedemptionDiscount",
             "label": "Redemption of preferred stock",
-            "line": 9999,
+            "line": 47,
             "indent": 0
           }
         ]

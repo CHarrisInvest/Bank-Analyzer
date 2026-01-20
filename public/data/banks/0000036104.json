@@ -190,6 +190,16 @@
           "adsh": "0000036104-25-000016",
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $77,874 and $41,812, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
@@ -198,6 +208,16 @@
               "value": 56502000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($858 and $557 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -220,6 +240,16 @@
               "hasValue": true
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $2,251 and $2,011 of mortgage loans carried at fair value, respectively)",
               "line": 19,
@@ -230,6 +260,26 @@
               "hasValue": true
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Total loans",
               "line": 21,
@@ -238,6 +288,16 @@
               "value": 379832000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
@@ -328,6 +388,16 @@
               "value": 422323000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "Deposits",
@@ -478,76 +548,6 @@
               "value": 678318000000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $77,874 and $41,812, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($858 and $557 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -562,6 +562,16 @@
           "adsh": "0000036104-24-000018",
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $77,874 and $41,812, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
@@ -570,6 +580,16 @@
               "value": 61192000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($858 and $557 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -592,6 +612,16 @@
               "hasValue": true
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $2,011 and $1,849 of mortgage loans carried at fair value, respectively)",
               "line": 19,
@@ -602,6 +632,26 @@
               "hasValue": true
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Total loans",
               "line": 21,
@@ -610,6 +660,16 @@
               "value": 388213000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
@@ -700,6 +760,16 @@
               "value": 387233000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "Deposits",
@@ -850,76 +920,6 @@
               "value": 674805000000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $77,874 and $41,812, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($858 and $557 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -934,12 +934,32 @@
           "adsh": "0001193125-23-050691",
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $77,874 and $41,812, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 41858000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
               "indent": 0,
               "negating": false,
               "value": 28905000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($858 and $557 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 72910000000,
               "uom": "USD",
               "hasValue": true
             },
@@ -964,12 +984,42 @@
               "hasValue": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 388213000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $1,849 and $6,623 of mortgage loans carried at fair value, respectively)",
               "line": 19,
               "indent": 0,
               "negating": false,
               "value": 7775000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": -6936000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 381277000000,
               "uom": "USD",
               "hasValue": true
             },
@@ -982,6 +1032,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 3305000000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
@@ -1070,6 +1130,16 @@
               "indent": 0,
               "negating": false,
               "value": 321182000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 39829000000,
               "uom": "USD",
               "hasValue": true
             },
@@ -1222,76 +1292,6 @@
               "value": 674805000000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $77,874 and $41,812, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 41858000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($858 and $557 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 72910000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 388213000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -6936000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 381277000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3305000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 39829000000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1309,6 +1309,18 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
@@ -1317,6 +1329,18 @@
               "value": 56502000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1345,6 +1369,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $2,288 and $2,251 of mortgage loans carried at fair value, respectively)",
               "line": 19,
@@ -1357,6 +1393,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Total loans",
               "line": 21,
@@ -1365,6 +1425,18 @@
               "value": 379832000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1473,6 +1545,18 @@
               "value": 434151000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1655,90 +1739,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1754,6 +1754,18 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
@@ -1762,6 +1774,18 @@
               "value": 56502000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1790,6 +1814,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $2,285 and $2,251 of mortgage loans carried at fair value, respectively)",
               "line": 19,
@@ -1802,6 +1838,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Total loans",
               "line": 21,
@@ -1810,6 +1870,18 @@
               "value": 379832000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1918,6 +1990,18 @@
               "value": 434151000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2100,90 +2184,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2199,6 +2199,18 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
@@ -2207,6 +2219,18 @@
               "value": 50013000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2235,6 +2259,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $1,704 and $2,251 of mortgage loans carried at fair value, respectively)",
               "line": 19,
@@ -2247,6 +2283,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Total loans",
               "line": 21,
@@ -2255,6 +2315,18 @@
               "value": 381819000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2363,6 +2435,18 @@
               "value": 428439000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2545,90 +2629,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2644,6 +2644,18 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
@@ -2652,6 +2664,18 @@
               "value": 56502000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2680,6 +2704,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $2,251 and $2,011 of mortgage loans carried at fair value, respectively)",
               "line": 19,
@@ -2692,6 +2728,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Total loans",
               "line": 21,
@@ -2700,6 +2760,18 @@
               "value": 379832000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2808,6 +2880,18 @@
               "value": 422323000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2990,90 +3074,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3089,6 +3089,18 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
@@ -3097,6 +3109,18 @@
               "value": 73562000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3125,6 +3149,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $2,887 and $2,011 of mortgage loans carried at fair value, respectively)",
               "line": 19,
@@ -3137,6 +3173,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Total loans",
               "line": 21,
@@ -3145,6 +3205,18 @@
               "value": 374164000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3253,6 +3325,18 @@
               "value": 422323000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3435,90 +3519,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3534,6 +3534,18 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
@@ -3542,6 +3554,18 @@
               "value": 61192000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3570,6 +3594,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $2,550 and $2,011 of mortgage loans carried at fair value, respectively)",
               "line": 19,
@@ -3582,6 +3618,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Total loans",
               "line": 21,
@@ -3590,6 +3650,18 @@
               "value": 373835000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3698,6 +3770,18 @@
               "value": 437029000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3880,90 +3964,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3979,6 +3979,18 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
@@ -3987,6 +3999,18 @@
               "value": 76985000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4015,6 +4039,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $1,885 and $2,011 of mortgage loans carried at fair value, respectively)",
               "line": 19,
@@ -4027,6 +4063,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Total loans",
               "line": 21,
@@ -4035,6 +4095,18 @@
               "value": 374588000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4143,6 +4215,18 @@
               "value": 422323000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4325,90 +4409,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4424,6 +4424,18 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
@@ -4432,6 +4444,18 @@
               "value": 61192000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4460,6 +4484,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $2,011 and $1,849 of mortgage loans carried at fair value, respectively)",
               "line": 19,
@@ -4472,6 +4508,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Total loans",
               "line": 21,
@@ -4480,6 +4540,18 @@
               "value": 388213000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4588,6 +4660,18 @@
               "value": 387233000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4770,90 +4854,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4869,12 +4869,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 88740000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
               "indent": 0,
               "negating": false,
               "value": 53542000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 72910000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4905,12 +4929,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 388213000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $2,263 and $1,849 of mortgage loans carried at fair value, respectively)",
               "line": 19,
               "indent": 0,
               "negating": false,
               "value": 2200000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": -6936000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 381277000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4925,6 +4985,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 3616000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5031,6 +5103,18 @@
               "indent": 0,
               "negating": false,
               "value": 387233000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 39829000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5215,90 +5299,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 88740000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 72910000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 388213000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -6936000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 381277000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3616000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 39829000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5314,12 +5314,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $76,285 and $77,874, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 86938000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
               "indent": 0,
               "negating": false,
               "value": 70642000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($327 and $858 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 72910000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5350,12 +5374,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 379428000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $2,280 and $1,849 of mortgage loans carried at fair value, respectively)",
               "line": 19,
               "indent": 0,
               "negating": false,
               "value": 2200000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": -6936000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 372264000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5370,6 +5430,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 3695000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5476,6 +5548,18 @@
               "indent": 0,
               "negating": false,
               "value": 416604000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 39829000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5660,90 +5744,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $76,285 and $77,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 86938000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($327 and $858 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 72910000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 379428000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -6936000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 372264000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3695000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 39829000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5759,12 +5759,36 @@
           "isDerived": false,
           "items": [
             {
+              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+              "label": "Held-to-maturity (fair value $78,876 and $77,874, respectively)",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 88462000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CashAndDueFromBanks",
               "label": "Cash and due from banks",
               "line": 15,
               "indent": 0,
               "negating": false,
               "value": 53542000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available-for-sale ($600 and $858 pledged as collateral, respectively)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 72910000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5795,12 +5819,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Total loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 387866000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
               "label": "Loans held for sale (including $1,990 and $1,849 of mortgage loans carried at fair value, respectively)",
               "line": 19,
               "indent": 0,
               "negating": false,
               "value": 2200000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less allowance for loan losses",
+              "line": 19,
+              "indent": 0,
+              "negating": true,
+              "value": -7020000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 381277000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5815,6 +5875,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 3858000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5921,6 +5993,18 @@
               "indent": 0,
               "negating": false,
               "value": 387233000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LongTermDebt",
+              "label": "Long-term debt",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 42045000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6105,90 +6189,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "Held-to-maturity (fair value $78,876 and $77,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 88462000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available-for-sale ($600 and $858 pledged as collateral, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 72910000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Total loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 387866000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -7020000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 381277000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PropertyPlantAndEquipmentNet",
-              "label": "Premises and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3858000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LongTermDebt",
-              "label": "Long-term debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 42045000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -6196,8 +6196,20 @@
       "canonicalItems": {
         "annual": [
           {
+            "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+            "label": "Held-to-maturity (fair value $77,874 and $41,812, respectively)",
+            "line": 14,
+            "indent": 0
+          },
+          {
             "tag": "CashAndDueFromBanks",
             "label": "Cash and due from banks",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "Available-for-sale ($858 and $557 pledged as collateral, respectively)",
             "line": 15,
             "indent": 0
           },
@@ -6214,14 +6226,38 @@
             "indent": 0
           },
           {
+            "tag": "NotesReceivableGross",
+            "label": "Total loans",
+            "line": 18,
+            "indent": 0
+          },
+          {
             "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
             "label": "Loans held for sale (including $2,251 and $2,011 of mortgage loans carried at fair value, respectively)",
             "line": 19,
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableAllowance",
+            "label": "Less allowance for loan losses",
+            "line": 19,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
+            "label": "Net loans",
+            "line": 20,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
             "label": "Total loans",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "PropertyPlantAndEquipmentNet",
+            "label": "Premises and equipment",
             "line": 21,
             "indent": 0
           },
@@ -6276,6 +6312,12 @@
           {
             "tag": "InterestBearingDepositLiabilities",
             "label": "Interest-bearing (including $5,754 and $2,818 of time deposits carried at fair value, respectively)",
+            "line": 32,
+            "indent": 0
+          },
+          {
+            "tag": "LongTermDebt",
+            "label": "Long-term debt",
             "line": 32,
             "indent": 0
           },
@@ -6368,54 +6410,24 @@
             "label": "Total liabilities and equity",
             "line": 48,
             "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-            "label": "Held-to-maturity (fair value $77,874 and $41,812, respectively)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "Available-for-sale ($858 and $557 pledged as collateral, respectively)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableGross",
-            "label": "Total loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableAllowance",
-            "label": "Less allowance for loan losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Net loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "PropertyPlantAndEquipmentNet",
-            "label": "Premises and equipment",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LongTermDebt",
-            "label": "Long-term debt",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
           {
+            "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
+            "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
+            "line": 14,
+            "indent": 0
+          },
+          {
             "tag": "CashAndDueFromBanks",
             "label": "Cash and due from banks",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
             "line": 15,
             "indent": 0
           },
@@ -6432,14 +6444,38 @@
             "indent": 0
           },
           {
+            "tag": "NotesReceivableGross",
+            "label": "Total loans",
+            "line": 18,
+            "indent": 0
+          },
+          {
             "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
             "label": "Loans held for sale (including $2,288 and $2,251 of mortgage loans carried at fair value, respectively)",
             "line": 19,
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableAllowance",
+            "label": "Less allowance for loan losses",
+            "line": 19,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
+            "label": "Net loans",
+            "line": 20,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
             "label": "Total loans",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "PropertyPlantAndEquipmentNet",
+            "label": "Premises and equipment",
             "line": 21,
             "indent": 0
           },
@@ -6494,6 +6530,12 @@
           {
             "tag": "InterestBearingDepositLiabilities",
             "label": "Interest-bearing (including $4,924 and $5,754 of time deposits carried at fair value, respectively)",
+            "line": 32,
+            "indent": 0
+          },
+          {
+            "tag": "LongTermDebt",
+            "label": "Long-term debt",
             "line": 32,
             "indent": 0
           },
@@ -6585,48 +6627,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and equity",
             "line": 48,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-            "label": "Held-to-maturity (fair value $70,359 and $77,874, respectively)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "Available-for-sale ($292 and $858 pledged as collateral, respectively)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableGross",
-            "label": "Total loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableAllowance",
-            "label": "Less allowance for loan losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Net loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "PropertyPlantAndEquipmentNet",
-            "label": "Premises and equipment",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LongTermDebt",
-            "label": "Long-term debt",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -6862,6 +6862,16 @@
               "value": 3217000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -7202,16 +7212,6 @@
               "value": 1561000000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7314,6 +7314,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 3217000000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -7654,16 +7664,6 @@
               "value": 1543000000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3217000000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -7766,6 +7766,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 3217000000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -8106,16 +8116,6 @@
               "value": 1490000000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3217000000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -8241,6 +8241,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -8345,6 +8357,18 @@
               "value": 397000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialProductsRevenue",
+              "label": "Commercial products revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8647,30 +8671,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialProductsRevenue",
-              "label": "Commercial products revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -8794,6 +8794,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -8898,6 +8910,18 @@
               "value": 390000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialProductsRevenue",
+              "label": "Commercial products revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9200,30 +9224,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialProductsRevenue",
-              "label": "Commercial products revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9347,6 +9347,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -9451,6 +9463,18 @@
               "value": 382000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialProductsRevenue",
+              "label": "Commercial products revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9753,30 +9777,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialProductsRevenue",
-              "label": "Commercial products revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9900,6 +9900,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -10006,6 +10018,18 @@
               "hasValue": false,
               "isDerived": true,
               "derivedUnavailable": true
+            },
+            {
+              "tag": "CommercialProductsRevenue",
+              "label": "Commercial products revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 423000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
             },
             {
               "tag": "FeesAndCommissionsMortgageBankingAndServicing",
@@ -10306,30 +10330,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialProductsRevenue",
-              "label": "Commercial products revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 423000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -10453,6 +10453,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -10557,6 +10569,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialProductsRevenue",
+              "label": "Commercial products revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 354000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10859,30 +10883,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialProductsRevenue",
-              "label": "Commercial products revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 354000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11006,6 +11006,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -11110,6 +11122,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialProductsRevenue",
+              "label": "Commercial products revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 358000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11412,30 +11436,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialProductsRevenue",
-              "label": "Commercial products revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 358000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11559,6 +11559,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 2330000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -11663,6 +11675,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialProductsRevenue",
+              "label": "Commercial products revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 388000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11965,30 +11989,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialProductsRevenue",
-              "label": "Commercial products revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 388000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2330000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12112,6 +12112,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": -404000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -12218,6 +12230,18 @@
               "hasValue": false,
               "isDerived": true,
               "derivedUnavailable": true
+            },
+            {
+              "tag": "CommercialProductsRevenue",
+              "label": "Commercial products revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 193000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
             },
             {
               "tag": "FeesAndCommissionsMortgageBankingAndServicing",
@@ -12518,30 +12542,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialProductsRevenue",
-              "label": "Commercial products revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 193000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -404000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12665,6 +12665,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 901000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -12769,6 +12781,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialProductsRevenue",
+              "label": "Commercial products revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 285000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13071,30 +13095,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialProductsRevenue",
-              "label": "Commercial products revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 285000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 901000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -13218,6 +13218,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 390000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -13322,6 +13334,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialProductsRevenue",
+              "label": "Commercial products revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 358000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13624,30 +13648,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialProductsRevenue",
-              "label": "Commercial products revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 358000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 390000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -13771,6 +13771,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 2330000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -13875,6 +13887,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialProductsRevenue",
+              "label": "Commercial products revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 266000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14177,30 +14201,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialProductsRevenue",
-              "label": "Commercial products revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 266000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2330000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -14257,6 +14257,12 @@
           },
           {
             "tag": "InterestExpenseOperating",
+            "label": "Total interest expense",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
             "label": "Total interest expense",
             "line": 11,
             "indent": 0
@@ -14464,12 +14470,6 @@
             "label": "Average diluted common shares outstanding (in shares)",
             "line": 47,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -14528,6 +14528,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 11,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 12,
@@ -14578,6 +14584,12 @@
           {
             "tag": "CapitalMarketsRevenue",
             "label": "Capital markets revenue",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "CommercialProductsRevenue",
+            "label": "Commercial products revenue",
             "line": 21,
             "indent": 0
           },
@@ -14729,18 +14741,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Average diluted common shares outstanding (in shares)",
             "line": 47,
-            "indent": 0
-          },
-          {
-            "tag": "CommercialProductsRevenue",
-            "label": "Commercial products revenue",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
             "indent": 0
           }
         ]

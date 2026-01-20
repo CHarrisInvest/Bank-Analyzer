@@ -228,6 +228,16 @@
               "hasValue": true
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $19,531 at December 31, 2024 and $23,400 at December 31, 2023)",
               "line": 7,
@@ -246,6 +256,16 @@
               "value": 292416000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $23,400 at December 31, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "DirectFinancingLeaseNetInvestmentInLease",
@@ -276,6 +296,16 @@
               "value": 11526000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $3,096 at December 31, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "BankOwnedLifeInsurance",
@@ -326,6 +356,26 @@
               "value": 2688000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "DerivativeAssets",
@@ -448,6 +498,16 @@
               "hasValue": true
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Retained earnings",
               "line": 32,
@@ -488,6 +548,16 @@
               "hasValue": true
             },
             {
+              "tag": "MembersEquity",
+              "label": "Total shareholders' equity",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total shareholders' equity",
               "line": 36,
@@ -506,76 +576,6 @@
               "value": 452044000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $23,400 at December 31, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $3,096 at December 31, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "MembersEquity",
-              "label": "Total shareholders' equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -640,6 +640,16 @@
               "hasValue": true
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 107153000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
               "line": 7,
@@ -656,6 +666,16 @@
               "indent": 0,
               "negating": false,
               "value": 279896000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $23,400 at December 31, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 27827000,
               "uom": "USD",
               "hasValue": true
             },
@@ -686,6 +706,16 @@
               "indent": 0,
               "negating": false,
               "value": 6299000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $3,096 at December 31, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 251274000,
               "uom": "USD",
               "hasValue": true
             },
@@ -738,6 +768,26 @@
               "value": 2304000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 162000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "DerivativeAssets",
@@ -860,6 +910,16 @@
               "hasValue": true
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Retained earnings",
               "line": 32,
@@ -900,6 +960,16 @@
               "hasValue": true
             },
             {
+              "tag": "MembersEquity",
+              "label": "Total shareholders' equity",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total shareholders' equity",
               "line": 36,
@@ -918,76 +988,6 @@
               "value": 452044000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 107153000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $23,400 at December 31, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 27827000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $3,096 at December 31, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 251274000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 162000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "MembersEquity",
-              "label": "Total shareholders' equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -1052,6 +1052,16 @@
               "hasValue": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 56800000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $19,531 at December 31, 2024 and $23,400 at December 31, 2023)",
               "line": 7,
@@ -1070,6 +1080,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $24,615 at December 31, 2022 and $33,673 at December 31, 2021)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 27827000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "DirectFinancingLeaseNetInvestmentInLease",
@@ -1098,6 +1118,16 @@
               "indent": 0,
               "negating": false,
               "value": 6299000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for loan and lease losses of $1,755 at December 31, 2022 and $1,592 at December 31, 2021",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 251274000,
               "uom": "USD",
               "hasValue": true
             },
@@ -1148,6 +1178,26 @@
               "indent": 0,
               "negating": false,
               "value": 651000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 209000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 7000,
               "uom": "USD",
               "hasValue": true
             },
@@ -1272,6 +1322,16 @@
               "hasValue": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 31099000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Retained earnings",
               "line": 32,
@@ -1312,6 +1372,16 @@
               "hasValue": false
             },
             {
+              "tag": "MembersEquity",
+              "label": "Total shareholders' equity",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 60132000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total shareholders' equity",
               "line": 36,
@@ -1328,76 +1398,6 @@
               "indent": 0,
               "negating": false,
               "value": 417346000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 56800000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $24,615 at December 31, 2022 and $33,673 at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 27827000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for loan and lease losses of $1,755 at December 31, 2022 and $1,592 at December 31, 2021",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 251274000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 209000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 31099000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "MembersEquity",
-              "label": "Total shareholders' equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 60132000,
               "uom": "USD",
               "hasValue": true
             }
@@ -1477,6 +1477,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $17,359 at September 30, 2025 and $19,531 at December 31, 2024)",
               "line": 7,
@@ -1497,6 +1509,30 @@
               "value": 292416000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleFairValueDisclosure",
+              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1533,6 +1569,18 @@
               "value": 11526000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1597,6 +1645,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DerivativeAssets",
               "label": "Financial derivative",
               "line": 17,
@@ -1617,6 +1677,18 @@
               "value": 1668000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1693,6 +1765,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DerivativeLiabilities",
+              "label": "Financial derivative",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Liabilities",
               "label": "Total liabilities",
               "line": 27,
@@ -1765,6 +1849,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
               "line": 34,
@@ -1813,105 +1909,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "DerivativeLiabilities",
-              "label": "Financial derivative",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleFairValueDisclosure",
-              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "MembersEquity",
               "label": "Total shareholders' equity",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -1994,6 +1994,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $18,313 at June 30, 2025 and $19,531 at December 31, 2024)",
               "line": 7,
@@ -2014,6 +2026,30 @@
               "value": 292416000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleFairValueDisclosure",
+              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2050,6 +2086,18 @@
               "value": 11511000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2114,6 +2162,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DerivativeAssets",
               "label": "Financial derivative",
               "line": 17,
@@ -2134,6 +2194,18 @@
               "value": 1668000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2210,6 +2282,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DerivativeLiabilities",
+              "label": "Financial derivative",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Liabilities",
               "label": "Total liabilities",
               "line": 27,
@@ -2282,6 +2366,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
               "line": 34,
@@ -2330,105 +2426,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "DerivativeLiabilities",
-              "label": "Financial derivative",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleFairValueDisclosure",
-              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "MembersEquity",
               "label": "Total shareholders' equity",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -2511,6 +2511,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $18,992 at March 31, 2025 and $19,531 at December 31, 2024)",
               "line": 7,
@@ -2531,6 +2543,30 @@
               "value": 292416000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleFairValueDisclosure",
+              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2567,6 +2603,18 @@
               "value": 11526000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2631,6 +2679,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DerivativeAssets",
               "label": "Financial derivative",
               "line": 17,
@@ -2651,6 +2711,18 @@
               "value": 1611000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2727,6 +2799,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DerivativeLiabilities",
+              "label": "Financial derivative",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Liabilities",
               "label": "Total liabilities",
               "line": 27,
@@ -2799,6 +2883,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
               "line": 34,
@@ -2847,105 +2943,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "DerivativeLiabilities",
-              "label": "Financial derivative",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleFairValueDisclosure",
-              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "MembersEquity",
               "label": "Total shareholders' equity",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -3028,6 +3028,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $19,531 at December 31, 2024 and $23,400 at December 31, 2023)",
               "line": 7,
@@ -3048,6 +3060,30 @@
               "value": 292416000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleFairValueDisclosure",
+              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3084,6 +3120,18 @@
               "value": 11526000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3148,6 +3196,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DerivativeAssets",
               "label": "Financial derivative",
               "line": 17,
@@ -3168,6 +3228,18 @@
               "value": 949000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3244,6 +3316,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DerivativeLiabilities",
+              "label": "Financial derivative",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Liabilities",
               "label": "Total liabilities",
               "line": 27,
@@ -3316,6 +3400,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
               "line": 34,
@@ -3364,105 +3460,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "DerivativeLiabilities",
-              "label": "Financial derivative",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleFairValueDisclosure",
-              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "MembersEquity",
               "label": "Total shareholders' equity",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -3545,6 +3545,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $20,974 at September 30, 2024 and $23,400 at December 31, 2023)",
               "line": 7,
@@ -3565,6 +3577,30 @@
               "value": 279896000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleFairValueDisclosure",
+              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3601,6 +3637,18 @@
               "value": 11627000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3665,6 +3713,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DerivativeAssets",
               "label": "Financial derivative",
               "line": 17,
@@ -3685,6 +3745,18 @@
               "value": 1466000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3755,6 +3827,18 @@
               "indent": 0,
               "negating": false,
               "value": 4218000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DerivativeLiabilities",
+              "label": "Financial derivative",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 139000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3833,6 +3917,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
               "line": 34,
@@ -3881,105 +3977,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "DerivativeLiabilities",
-              "label": "Financial derivative",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 139000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleFairValueDisclosure",
-              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "MembersEquity",
               "label": "Total shareholders' equity",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -4062,6 +4062,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $21,253 at June 30, 2024 and $23,400 at December 31, 2023)",
               "line": 7,
@@ -4082,6 +4094,30 @@
               "value": 279896000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleFairValueDisclosure",
+              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4118,6 +4154,18 @@
               "value": 11732000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4182,6 +4230,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DerivativeAssets",
               "label": "Financial derivative",
               "line": 17,
@@ -4202,6 +4262,18 @@
               "value": 949000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4278,6 +4350,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DerivativeLiabilities",
+              "label": "Financial derivative",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Liabilities",
               "label": "Total liabilities",
               "line": 27,
@@ -4350,6 +4434,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
               "line": 34,
@@ -4398,105 +4494,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "DerivativeLiabilities",
-              "label": "Financial derivative",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleFairValueDisclosure",
-              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "MembersEquity",
               "label": "Total shareholders' equity",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -4579,6 +4579,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $22,031 at March 31, 2024 and $23,400 at December 31, 2023)",
               "line": 7,
@@ -4599,6 +4611,30 @@
               "value": 251965000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleFairValueDisclosure",
+              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 14724000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4635,6 +4671,18 @@
               "value": 11646000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4699,6 +4747,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DerivativeAssets",
               "label": "Financial derivative",
               "line": 17,
@@ -4719,6 +4779,18 @@
               "value": 1007000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4795,6 +4867,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DerivativeLiabilities",
+              "label": "Financial derivative",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Liabilities",
               "label": "Total liabilities",
               "line": 27,
@@ -4867,6 +4951,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
               "line": 34,
@@ -4915,105 +5011,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "DerivativeLiabilities",
-              "label": "Financial derivative",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleFairValueDisclosure",
-              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 14724000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "MembersEquity",
               "label": "Total shareholders' equity",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -5096,6 +5096,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 107153000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
               "line": 7,
@@ -5114,6 +5126,30 @@
               "indent": 0,
               "negating": false,
               "value": 279896000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleFairValueDisclosure",
+              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $23,400 at December 31, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 27827000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5150,6 +5186,18 @@
               "indent": 0,
               "negating": false,
               "value": 6299000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $3,096 at December 31, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 251274000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5216,6 +5264,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 162000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DerivativeAssets",
               "label": "Financial derivative",
               "line": 17,
@@ -5236,6 +5296,18 @@
               "value": 949000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5312,6 +5384,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DerivativeLiabilities",
+              "label": "Financial derivative",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Liabilities",
               "label": "Total liabilities",
               "line": 27,
@@ -5384,6 +5468,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
               "line": 34,
@@ -5432,105 +5528,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "DerivativeLiabilities",
-              "label": "Financial derivative",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleFairValueDisclosure",
-              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 107153000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $23,400 at December 31, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 27827000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $3,096 at December 31, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 251274000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 162000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "MembersEquity",
               "label": "Total shareholders' equity",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -5613,6 +5613,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 107153000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
               "line": 7,
@@ -5631,6 +5643,30 @@
               "indent": 0,
               "negating": false,
               "value": 268914000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleFairValueDisclosure",
+              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 27827000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5667,6 +5703,18 @@
               "indent": 0,
               "negating": false,
               "value": 10442000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 251274000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5733,6 +5781,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 162000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DerivativeAssets",
               "label": "Financial derivative",
               "line": 17,
@@ -5753,6 +5813,18 @@
               "value": 789000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5829,6 +5901,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DerivativeLiabilities",
+              "label": "Financial derivative",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Liabilities",
               "label": "Total liabilities",
               "line": 27,
@@ -5901,6 +5985,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
               "line": 34,
@@ -5949,105 +6045,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "DerivativeLiabilities",
-              "label": "Financial derivative",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleFairValueDisclosure",
-              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 107153000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 27827000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 251274000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 162000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "MembersEquity",
               "label": "Total shareholders' equity",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -6130,6 +6130,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 107153000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $24,919 at June 30, 2023 and $24,615 at December 31, 2022)",
               "line": 7,
@@ -6148,6 +6160,30 @@
               "indent": 0,
               "negating": false,
               "value": 268726000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleFairValueDisclosure",
+              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $24,919 at June 30, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 27827000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6184,6 +6220,18 @@
               "indent": 0,
               "negating": false,
               "value": 6299000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $2,969 at June 30, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 251274000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6250,6 +6298,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DerivativeAssets",
               "label": "Financial derivative",
               "line": 17,
@@ -6270,6 +6330,18 @@
               "value": 789000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6346,6 +6418,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DerivativeLiabilities",
+              "label": "Financial derivative",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Liabilities",
               "label": "Total liabilities",
               "line": 27,
@@ -6418,6 +6502,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
               "line": 34,
@@ -6466,105 +6562,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "DerivativeLiabilities",
-              "label": "Financial derivative",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleFairValueDisclosure",
-              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 107153000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $24,919 at June 30, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 27827000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $2,969 at June 30, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 251274000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "MembersEquity",
               "label": "Total shareholders' equity",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -6647,6 +6647,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available for sale",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 107153000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair values of $26,082 at March 31, 2023 and $24,615 at December 31, 2022)",
               "line": 7,
@@ -6665,6 +6677,30 @@
               "indent": 0,
               "negating": false,
               "value": 259826000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleFairValueDisclosure",
+              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Securities held to maturity (fair values of $26,082 at March 31, 2023 and $24,615 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 27827000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6701,6 +6737,18 @@
               "indent": 0,
               "negating": false,
               "value": 7259000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+              "label": "Loans receivable, net of allowance for credit losses of $2,859 at March 31, 2023 and $1,755 at December 31, 2022",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 251274000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6767,6 +6815,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed assets",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DerivativeAssets",
               "label": "Financial derivative",
               "line": 17,
@@ -6785,6 +6845,18 @@
               "indent": 0,
               "negating": false,
               "value": 845000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAsset",
+              "label": "Mortgage servicing rights, net",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 7000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6863,6 +6935,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DerivativeLiabilities",
+              "label": "Financial derivative",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Liabilities",
               "label": "Total liabilities",
               "line": 27,
@@ -6935,6 +7019,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MembersCapital",
+              "label": "Additional paid in capital",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 31218000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
               "line": 34,
@@ -6983,105 +7079,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "DerivativeLiabilities",
-              "label": "Financial derivative",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleFairValueDisclosure",
-              "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 107153000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Securities held to maturity (fair values of $26,082 at March 31, 2023 and $24,615 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 27827000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-              "label": "Loans receivable, net of allowance for credit losses of $2,859 at March 31, 2023 and $1,755 at December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 251274000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAsset",
-              "label": "Mortgage servicing rights, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MembersCapital",
-              "label": "Additional paid in capital",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 31218000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "MembersEquity",
               "label": "Total shareholders' equity",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 58076000,
@@ -7126,6 +7126,12 @@
             "indent": 0
           },
           {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "Securities available for sale",
+            "line": 6,
+            "indent": 0
+          },
+          {
             "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
             "label": "Securities held to maturity (fair values of $19,531 at December 31, 2024 and $23,400 at December 31, 2023)",
             "line": 7,
@@ -7134,6 +7140,12 @@
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLossExcludingDirectFinancingLeases",
             "label": "Loans receivable, net of allowance for credit losses of $3,222 at December 31, 2024 and $3,096 at December 31, 2023",
+            "line": 8,
+            "indent": 0
+          },
+          {
+            "tag": "HeldToMaturitySecurities",
+            "label": "Securities held to maturity (fair values of $23,400 at December 31, 2023 and $24,615 at December 31, 2022)",
             "line": 8,
             "indent": 0
           },
@@ -7152,6 +7164,12 @@
           {
             "tag": "PropertyPlantAndEquipmentNet",
             "label": "Premises and equipment, net",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+            "label": "Loans receivable, net of allowance for credit losses of $3,096 at December 31, 2023 and $1,755 at December 31, 2022",
             "line": 11,
             "indent": 0
           },
@@ -7182,6 +7200,18 @@
           {
             "tag": "DeferredIncomeTaxAssetsNet",
             "label": "Deferred income taxes",
+            "line": 16,
+            "indent": 0
+          },
+          {
+            "tag": "ForeclosedAssets",
+            "label": "Foreclosed assets",
+            "line": 16,
+            "indent": 0
+          },
+          {
+            "tag": "ServicingAsset",
+            "label": "Mortgage servicing rights, net",
             "line": 16,
             "indent": 0
           },
@@ -7258,6 +7288,12 @@
             "indent": 0
           },
           {
+            "tag": "MembersCapital",
+            "label": "Additional paid in capital",
+            "line": 31,
+            "indent": 0
+          },
+          {
             "tag": "RetainedEarningsAccumulatedDeficit",
             "label": "Retained earnings",
             "line": 32,
@@ -7282,6 +7318,12 @@
             "indent": 0
           },
           {
+            "tag": "MembersEquity",
+            "label": "Total shareholders' equity",
+            "line": 35,
+            "indent": 0
+          },
+          {
             "tag": "StockholdersEquity",
             "label": "Total shareholders' equity",
             "line": 36,
@@ -7291,48 +7333,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and shareholders' equity",
             "line": 37,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "Securities available for sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "HeldToMaturitySecurities",
-            "label": "Securities held to maturity (fair values of $23,400 at December 31, 2023 and $24,615 at December 31, 2022)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-            "label": "Loans receivable, net of allowance for credit losses of $3,096 at December 31, 2023 and $1,755 at December 31, 2022",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ForeclosedAssets",
-            "label": "Foreclosed assets",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ServicingAsset",
-            "label": "Mortgage servicing rights, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "MembersCapital",
-            "label": "Additional paid in capital",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "MembersEquity",
-            "label": "Total shareholders' equity",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -7368,6 +7368,12 @@
             "indent": 0
           },
           {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "Securities available for sale",
+            "line": 6,
+            "indent": 0
+          },
+          {
             "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
             "label": "Securities held to maturity (fair values of $17,359 at September 30, 2025 and $19,531 at December 31, 2024)",
             "line": 7,
@@ -7376,6 +7382,18 @@
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLossExcludingDirectFinancingLeases",
             "label": "Loans receivable, net of allowance for credit losses of $3,247 at September 30, 2025 and $3,222 at December 31, 2024",
+            "line": 8,
+            "indent": 0
+          },
+          {
+            "tag": "LoansHeldForSaleFairValueDisclosure",
+            "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
+            "line": 8,
+            "indent": 0
+          },
+          {
+            "tag": "HeldToMaturitySecurities",
+            "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
             "line": 8,
             "indent": 0
           },
@@ -7394,6 +7412,12 @@
           {
             "tag": "PropertyPlantAndEquipmentNet",
             "label": "Premises and equipment, net",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
+            "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
             "line": 11,
             "indent": 0
           },
@@ -7428,6 +7452,12 @@
             "indent": 0
           },
           {
+            "tag": "ForeclosedAssets",
+            "label": "Foreclosed assets",
+            "line": 16,
+            "indent": 0
+          },
+          {
             "tag": "DerivativeAssets",
             "label": "Financial derivative",
             "line": 17,
@@ -7436,6 +7466,12 @@
           {
             "tag": "OtherAssets",
             "label": "Other assets",
+            "line": 18,
+            "indent": 0
+          },
+          {
+            "tag": "ServicingAsset",
+            "label": "Mortgage servicing rights, net",
             "line": 18,
             "indent": 0
           },
@@ -7476,6 +7512,12 @@
             "indent": 0
           },
           {
+            "tag": "DerivativeLiabilities",
+            "label": "Financial derivative",
+            "line": 26,
+            "indent": 0
+          },
+          {
             "tag": "Liabilities",
             "label": "Total liabilities",
             "line": 27,
@@ -7512,6 +7554,12 @@
             "indent": 0
           },
           {
+            "tag": "MembersCapital",
+            "label": "Additional paid in capital",
+            "line": 33,
+            "indent": 0
+          },
+          {
             "tag": "UnearnedESOPShares",
             "label": "Unearned Employee Stock Ownership Program (ESOP) shares, at cost",
             "line": 34,
@@ -7536,57 +7584,9 @@
             "indent": 0
           },
           {
-            "tag": "DerivativeLiabilities",
-            "label": "Financial derivative",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansHeldForSaleFairValueDisclosure",
-            "label": "Loans held for sale, at fair value (amortized cost $17,000 at March 31, 2024)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "Securities available for sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "HeldToMaturitySecurities",
-            "label": "Securities held to maturity (fair values of $23,187 at September 30, 2023 and $24,615 at December 31, 2022)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmountExcludingDirectFinancingLeases",
-            "label": "Loans receivable, net of allowance for credit losses of $2,934 at September 30, 2023 and $1,755 at December 31, 2022",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ForeclosedAssets",
-            "label": "Foreclosed assets",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ServicingAsset",
-            "label": "Mortgage servicing rights, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "MembersCapital",
-            "label": "Additional paid in capital",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "MembersEquity",
             "label": "Total shareholders' equity",
-            "line": 9999,
+            "line": 37,
             "indent": 0
           }
         ]
@@ -7884,6 +7884,16 @@
               "hasValue": true
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Provision for Credit Losses",
               "line": 19,
@@ -7892,6 +7902,16 @@
               "value": 356000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -7962,6 +7982,16 @@
               "value": -287000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "BankOwnedLifeInsuranceIncome",
@@ -8142,36 +8172,6 @@
               "value": 2986015,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -8336,12 +8336,32 @@
               "hasValue": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 208000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Provision for Credit Losses",
               "line": 19,
               "indent": 0,
               "negating": false,
               "value": 208000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 27000,
               "uom": "USD",
               "hasValue": true
             },
@@ -8408,6 +8428,16 @@
             {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Net loss on sale of premises and equipment",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": -1000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -8594,36 +8624,6 @@
               "value": 3028214,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 208000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 27000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -8788,8 +8788,28 @@
               "hasValue": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Loan and Lease Losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 208000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Provision for Credit Losses",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
               "line": 19,
               "indent": 0,
               "negating": false,
@@ -8860,6 +8880,16 @@
             {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Net loss on sale of premises and equipment",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 6000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -9046,36 +9076,6 @@
               "value": 3028214,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Loan and Lease Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 208000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -9237,6 +9237,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 16,
@@ -9269,6 +9281,30 @@
               "value": -36000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9345,6 +9381,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FairValueAdjustmentOfLoansHeldForSale",
+              "label": "Net change in fair value on loans held for sale",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Net (loss) gain on sale of other real estate owned",
               "line": 26,
@@ -9365,6 +9413,18 @@
               "value": 547000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9607,66 +9667,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FairValueAdjustmentOfLoansHeldForSale",
-              "label": "Net change in fair value on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9826,6 +9826,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 16,
@@ -9858,6 +9870,30 @@
               "value": -5000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9934,6 +9970,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FairValueAdjustmentOfLoansHeldForSale",
+              "label": "Net change in fair value on loans held for sale",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Net loss on sale of other real estate owned",
               "line": 26,
@@ -9948,6 +9996,18 @@
             {
               "tag": "FairValueAdjustmentToOtherRealEstateOwned",
               "label": "Fair value adjustments to other real estate owned",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -10196,66 +10256,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FairValueAdjustmentOfLoansHeldForSale",
-              "label": "Net change in fair value on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10415,6 +10415,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 2306000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 16,
@@ -10447,6 +10459,30 @@
               "value": -26000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10523,6 +10559,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FairValueAdjustmentOfLoansHeldForSale",
+              "label": "Net change in fair value on loans held for sale",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": -2276000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Net (loss) gain on sale of other real estate owned",
               "line": 26,
@@ -10537,6 +10585,18 @@
             {
               "tag": "FairValueAdjustmentToOtherRealEstateOwned",
               "label": "Fair value adjustments to other real estate owned",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -10785,66 +10845,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2306000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FairValueAdjustmentOfLoansHeldForSale",
-              "label": "Net change in fair value on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -2276000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11004,6 +11004,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 472000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 16,
@@ -11030,6 +11042,30 @@
             {
               "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
               "label": "Provision (Credit) for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
               "line": 18,
               "indent": 0,
               "negating": false,
@@ -11112,6 +11148,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "FairValueAdjustmentOfLoansHeldForSale",
+              "label": "Net change in fair value on loans held for sale",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Net (loss) gain on sale of other real estate owned",
               "line": 26,
@@ -11126,6 +11174,18 @@
             {
               "tag": "FairValueAdjustmentToOtherRealEstateOwned",
               "label": "Fair value adjustments to other real estate owned",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -11374,66 +11434,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 472000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FairValueAdjustmentOfLoansHeldForSale",
-              "label": "Net change in fair value on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11593,6 +11593,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 2489000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 16,
@@ -11625,6 +11637,30 @@
               "value": -36000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11701,6 +11737,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FairValueAdjustmentOfLoansHeldForSale",
+              "label": "Net change in fair value on loans held for sale",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Net gain (loss) on sale of other real estate owned",
               "line": 26,
@@ -11715,6 +11763,18 @@
             {
               "tag": "FairValueAdjustmentToOtherRealEstateOwned",
               "label": "Fair value adjustments to other real estate owned",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -11963,66 +12023,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2489000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FairValueAdjustmentOfLoansHeldForSale",
-              "label": "Net change in fair value on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12182,6 +12182,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 2498000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 16,
@@ -12214,6 +12226,30 @@
               "value": -19000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12290,6 +12326,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FairValueAdjustmentOfLoansHeldForSale",
+              "label": "Net change in fair value on loans held for sale",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Net loss on sale of other real estate owned",
               "line": 26,
@@ -12304,6 +12352,18 @@
             {
               "tag": "FairValueAdjustmentToOtherRealEstateOwned",
               "label": "Fair value adjustments to other real estate owned",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -12552,66 +12612,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2498000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FairValueAdjustmentOfLoansHeldForSale",
-              "label": "Net change in fair value on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12771,6 +12771,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 2455000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 16,
@@ -12797,6 +12809,30 @@
             {
               "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
               "label": "Provision (Credit) for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": -26000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
               "line": 18,
               "indent": 0,
               "negating": false,
@@ -12879,6 +12915,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FairValueAdjustmentOfLoansHeldForSale",
+              "label": "Net change in fair value on loans held for sale",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": -2276000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Net gain on sale of other real estate owned",
               "line": 26,
@@ -12893,6 +12941,18 @@
             {
               "tag": "FairValueAdjustmentToOtherRealEstateOwned",
               "label": "Fair value adjustments to other real estate owned",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -13141,66 +13201,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2455000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FairValueAdjustmentOfLoansHeldForSale",
-              "label": "Net change in fair value on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -2276000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -26000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -13360,6 +13360,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 4883000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 16,
@@ -13394,6 +13406,30 @@
               "hasValue": false,
               "isDerived": true,
               "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": -1000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 83000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
             },
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
@@ -13468,6 +13504,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "FairValueAdjustmentOfLoansHeldForSale",
+              "label": "Net change in fair value on loans held for sale",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Net gain on sale of foreclosed assets",
               "line": 26,
@@ -13482,6 +13530,18 @@
             {
               "tag": "FairValueAdjustmentToOtherRealEstateOwned",
               "label": "Fair value adjustments to other real estate owned",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -13730,66 +13790,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4883000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FairValueAdjustmentOfLoansHeldForSale",
-              "label": "Net change in fair value on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 83000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -13949,6 +13949,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 2132000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 16,
@@ -13981,6 +13993,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 39000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 48000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14057,6 +14093,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FairValueAdjustmentOfLoansHeldForSale",
+              "label": "Net change in fair value on loans held for sale",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Net gain on sale of foreclosed assets",
               "line": 26,
@@ -14071,6 +14119,18 @@
             {
               "tag": "FairValueAdjustmentToOtherRealEstateOwned",
               "label": "Fair value adjustments to other real estate owned",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -14319,66 +14379,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2132000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FairValueAdjustmentOfLoansHeldForSale",
-              "label": "Net change in fair value on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 39000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 48000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -14538,6 +14538,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 441000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 16,
@@ -14570,6 +14582,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": -19000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 37000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14646,6 +14682,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FairValueAdjustmentOfLoansHeldForSale",
+              "label": "Net change in fair value on loans held for sale",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Net (loss) gain on sale of other real estate owned",
               "line": 26,
@@ -14660,6 +14708,18 @@
             {
               "tag": "FairValueAdjustmentToOtherRealEstateOwned",
               "label": "Fair value adjustments to other real estate owned",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -14908,66 +14968,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 441000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FairValueAdjustmentOfLoansHeldForSale",
-              "label": "Net change in fair value on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -19000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 37000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -15127,6 +15127,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 458000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 16,
@@ -15159,6 +15171,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherLosses",
+              "label": "Provision for Credit Losses- off-balance sheet credit exposures",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 8000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for Credit Losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 40000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15235,6 +15271,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FairValueAdjustmentOfLoansHeldForSale",
+              "label": "Net change in fair value on loans held for sale",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Net (loss) gain on sale of other real estate owned",
               "line": 26,
@@ -15249,6 +15297,18 @@
             {
               "tag": "FairValueAdjustmentToOtherRealEstateOwned",
               "label": "Fair value adjustments to other real estate owned",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfAssets",
+              "label": "Net (loss) gain on sale of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -15497,66 +15557,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 458000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FairValueAdjustmentOfLoansHeldForSale",
-              "label": "Net change in fair value on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherLosses",
-              "label": "Provision for Credit Losses- off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 8000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for Credit Losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 40000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfAssets",
-              "label": "Net (loss) gain on sale of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -15654,8 +15654,20 @@
             "indent": 0
           },
           {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Provision for Credit Losses - loans",
+            "line": 18,
+            "indent": 0
+          },
+          {
             "tag": "ProvisionForLoanLeaseAndOtherLosses",
             "label": "Provision for Credit Losses",
+            "line": 19,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForOtherLosses",
+            "label": "Provision for Credit Losses - off-balance sheet credit exposures",
             "line": 19,
             "indent": 0
           },
@@ -15698,6 +15710,12 @@
           {
             "tag": "GainLossOnSaleOfPropertyPlantEquipment",
             "label": "Net loss on sale of premises and equipment",
+            "line": 27,
+            "indent": 0
+          },
+          {
+            "tag": "GainsLossesOnSalesOfAssets",
+            "label": "Net (loss) gain on sale of fixed assets",
             "line": 27,
             "indent": 0
           },
@@ -15808,24 +15826,6 @@
             "label": "Weighted-average shares outstanding - diluted (in shares)",
             "line": 46,
             "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision for Credit Losses - loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForOtherLosses",
-            "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainsLossesOnSalesOfAssets",
-            "label": "Net (loss) gain on sale of fixed assets",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -15902,6 +15902,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 15,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net Interest Income",
             "line": 16,
@@ -15916,6 +15922,18 @@
           {
             "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
             "label": "Provision (Credit) for Credit Losses - off-balance sheet credit exposures",
+            "line": 18,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForOtherLosses",
+            "label": "Provision for Credit Losses - off-balance sheet credit exposures",
+            "line": 18,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Provision for Credit Losses - loans",
             "line": 18,
             "indent": 0
           },
@@ -15956,6 +15974,12 @@
             "indent": 0
           },
           {
+            "tag": "FairValueAdjustmentOfLoansHeldForSale",
+            "label": "Net change in fair value on loans held for sale",
+            "line": 25,
+            "indent": 0
+          },
+          {
             "tag": "GainsLossesOnSalesOfOtherRealEstate",
             "label": "Net (loss) gain on sale of other real estate owned",
             "line": 26,
@@ -15964,6 +15988,12 @@
           {
             "tag": "FairValueAdjustmentToOtherRealEstateOwned",
             "label": "Fair value adjustments to other real estate owned",
+            "line": 27,
+            "indent": 0
+          },
+          {
+            "tag": "GainsLossesOnSalesOfAssets",
+            "label": "Net (loss) gain on sale of fixed assets",
             "line": 27,
             "indent": 0
           },
@@ -16085,36 +16115,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Weighted-average shares outstanding - diluted (in shares)",
             "line": 48,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FairValueAdjustmentOfLoansHeldForSale",
-            "label": "Net change in fair value on loans held for sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForOtherLosses",
-            "label": "Provision for Credit Losses - off-balance sheet credit exposures",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision for Credit Losses - loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainsLossesOnSalesOfAssets",
-            "label": "Net (loss) gain on sale of fixed assets",
-            "line": 9999,
             "indent": 0
           }
         ]

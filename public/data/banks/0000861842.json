@@ -565,6 +565,16 @@
               "hasValue": true
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "TreasuryStockCommonValue",
               "label": "Treasury stock, at cost (20,752,134 shares at December 31, 2024, and 18,723,553 shares at December 31, 2023)",
               "line": 47,
@@ -593,16 +603,6 @@
               "value": 23081534000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -997,6 +997,16 @@
               "hasValue": true
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "TreasuryStockCommonValue",
               "label": "Treasury stock, at cost (18,723,553 shares at December 31, 2023, and 18,348,463 shares at December 31, 2022)",
               "line": 47,
@@ -1025,16 +1035,6 @@
               "value": 21947976000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -1429,6 +1429,16 @@
               "hasValue": true
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": -650551000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "TreasuryStockCommonValue",
               "label": "Treasury stock, at cost (20,752,134 shares at December 31, 2024, and 18,723,553 shares at December 31, 2023)",
               "line": 47,
@@ -1455,16 +1465,6 @@
               "indent": 0,
               "negating": false,
               "value": 21947976000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -650551000,
               "uom": "USD",
               "hasValue": true
             }
@@ -1520,6 +1520,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale (amortized cost of $1,535,896 at March 31, 2025, and $1,668,661 at December 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
               "label": "Loans held for investment",
               "line": 9,
@@ -1528,6 +1540,30 @@
               "value": 19375955000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1544,6 +1580,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+              "label": "Loans held for investment",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unamortized deferred loan fees, net",
               "line": 11,
@@ -1552,6 +1600,18 @@
               "value": -10541000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1576,6 +1636,18 @@
               "value": 34429000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans held for investment, net",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1940,6 +2012,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total stockholders' equity",
               "line": 47,
@@ -1960,90 +2044,6 @@
               "value": 23054681000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale (amortized cost of $1,535,896 at March 31, 2025, and $1,668,661 at December 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-              "label": "Loans held for investment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans held for investment, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2097,6 +2097,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale (amortized cost of $1,535,896 at March 31, 2025, and $1,668,661 at December 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
               "label": "Loans held for investment",
               "line": 9,
@@ -2105,6 +2117,30 @@
               "value": 19375955000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 13338000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2121,6 +2157,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+              "label": "Loans held for investment",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unamortized deferred loan fees, net",
               "line": 11,
@@ -2129,6 +2177,18 @@
               "value": -13834000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2153,6 +2213,18 @@
               "value": 34429000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans held for investment, net",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2517,6 +2589,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total stockholders' equity",
               "line": 47,
@@ -2537,90 +2621,6 @@
               "value": 23723847000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13338000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale (amortized cost of $1,535,896 at March 31, 2025, and $1,668,661 at December 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-              "label": "Loans held for investment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans held for investment, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2674,8 +2674,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale (amortized cost of $1,535,896 at March 31, 2025, and $1,668,661 at December 31, 2024)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1547128000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
               "label": "Loans held for investment",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
               "line": 9,
               "indent": 0,
               "negating": false,
@@ -2698,12 +2734,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+              "label": "Loans held for investment",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 19353003000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unamortized deferred loan fees, net",
               "line": 11,
               "indent": 0,
               "negating": false,
               "value": -10541000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -154589000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2728,6 +2788,18 @@
               "indent": 0,
               "negating": false,
               "value": 30238000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans held for investment, net",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 19167410000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3094,6 +3166,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total stockholders' equity",
               "line": 47,
@@ -3114,90 +3198,6 @@
               "value": 23205022000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale (amortized cost of $1,535,896 at March 31, 2025, and $1,668,661 at December 31, 2024)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1547128000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-              "label": "Loans held for investment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19353003000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -154589000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans held for investment, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19167410000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3251,8 +3251,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale (amortized cost of $1,668,661 in 2024 and $1,726,080 in 2023)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1547128000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
               "label": "Loans held for investment",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
               "line": 9,
               "indent": 0,
               "negating": false,
@@ -3275,12 +3311,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 19548140000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unamortized deferred loan fees, net",
               "line": 11,
               "indent": 0,
               "negating": false,
               "value": -10720000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -154562000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3305,6 +3365,18 @@
               "indent": 0,
               "negating": false,
               "value": 40406000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 19382858000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3671,6 +3743,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total equity",
               "line": 47,
@@ -3691,90 +3775,6 @@
               "value": 23081534000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale (amortized cost of $1,668,661 in 2024 and $1,726,080 in 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1547128000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19548140000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -154562000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19382858000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3828,8 +3828,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale (amortized cost of $1,602,696 at September 30, 2024, and $1,726,080 at December 31, 2023)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1508356000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
               "label": "Loans held for investment",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 5190000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
               "line": 9,
               "indent": 0,
               "negating": false,
@@ -3852,12 +3888,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+              "label": "Loans held for investment",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 19548140000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unamortized deferred loan fees, net",
               "line": 11,
               "indent": 0,
               "negating": false,
               "value": -10505000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -154562000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3882,6 +3942,18 @@
               "indent": 0,
               "negating": false,
               "value": 35741000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans held for investment, net",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 19199355000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4248,6 +4320,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total stockholders' equity",
               "line": 47,
@@ -4268,90 +4352,6 @@
               "value": 23274443000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5190000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale (amortized cost of $1,602,696 at September 30, 2024, and $1,726,080 at December 31, 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1508356000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-              "label": "Loans held for investment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19548140000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -154562000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans held for investment, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19199355000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4405,8 +4405,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale (amortized cost of $1,780,251 at June 30, 2024, and $1,726,080 at December 31, 2023)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1604570000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
               "label": "Loans held for investment",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
               "line": 9,
               "indent": 0,
               "negating": false,
@@ -4429,12 +4465,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+              "label": "Loans held for investment",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 19357524000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unamortized deferred loan fees, net",
               "line": 11,
               "indent": 0,
               "negating": false,
               "value": -10785000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -144884000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4459,6 +4519,18 @@
               "indent": 0,
               "negating": false,
               "value": 31488000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans held for investment, net",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 19193335000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4825,6 +4897,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total stockholders' equity",
               "line": 47,
@@ -4845,90 +4929,6 @@
               "value": 23081534000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale (amortized cost of $1,780,251 at June 30, 2024, and $1,726,080 at December 31, 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1604570000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-              "label": "Loans held for investment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19357524000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -144884000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans held for investment, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19193335000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4982,6 +4982,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale (amortized cost of $1,783,915 at March 31, 2024 and $1,726,080 at December 31, 2023)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1653167000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
               "label": "Loans held for investment",
               "line": 9,
@@ -4990,6 +5002,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 23171000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5006,12 +5042,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+              "label": "Loans held for investment",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 19548140000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unamortized deferred loan fees, net",
               "line": 11,
               "indent": 0,
               "negating": false,
               "value": -10720000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -154589000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5036,6 +5096,18 @@
               "indent": 0,
               "negating": false,
               "value": 40406000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans held for investment, net",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 19382858000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5402,6 +5474,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total stockholders' equity",
               "line": 47,
@@ -5422,90 +5506,6 @@
               "value": 23404803000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale (amortized cost of $1,783,915 at March 31, 2024 and $1,726,080 at December 31, 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1653167000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-              "label": "Loans held for investment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19548140000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -154589000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans held for investment, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19382858000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 23171000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -5559,8 +5559,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale (amortized cost of $1,726,080 in 2023 and $1,622,173 in 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1604570000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
               "label": "Loans held for investment",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
               "line": 9,
               "indent": 0,
               "negating": false,
@@ -5583,12 +5619,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 19548140000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unamortized deferred loan fees, net",
               "line": 11,
               "indent": 0,
               "negating": false,
               "value": -10720000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -146485000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5613,6 +5673,18 @@
               "indent": 0,
               "negating": false,
               "value": 22158000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 19382858000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5979,6 +6051,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total equity",
               "line": 47,
@@ -5999,90 +6083,6 @@
               "value": 21947976000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale (amortized cost of $1,726,080 in 2023 and $1,622,173 in 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1604570000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19548140000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -146485000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19382858000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -6136,8 +6136,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale (amortized cost of $1,684,951 at September 30, 2023 and $1,622,173 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1473348000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
               "label": "Loans held for investment",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
               "line": 9,
               "indent": 0,
               "negating": false,
@@ -6160,12 +6196,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 19023822000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unamortized deferred loan fees, net",
               "line": 11,
               "indent": 0,
               "negating": false,
               "value": -6641000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -136157000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6190,6 +6250,18 @@
               "indent": 0,
               "negating": false,
               "value": 22158000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 18859682000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6556,6 +6628,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total equity",
               "line": 47,
@@ -6576,90 +6660,6 @@
               "value": 22844529000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale (amortized cost of $1,684,951 at September 30, 2023 and $1,622,173 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1473348000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19023822000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -136157000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18859682000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -6713,8 +6713,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale (amortized cost of $1,629,357 at June 30, 2023 and $1,622,173 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1473348000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
               "label": "Loans held for investment",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
               "line": 9,
               "indent": 0,
               "negating": false,
@@ -6737,12 +6773,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 18254024000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unamortized deferred loan fees, net",
               "line": 11,
               "indent": 0,
               "negating": false,
               "value": -9497000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -148772000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6767,6 +6827,18 @@
               "indent": 0,
               "negating": false,
               "value": 37674000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 18788188000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -7133,6 +7205,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total equity",
               "line": 47,
@@ -7153,90 +7237,6 @@
               "value": 21947976000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale (amortized cost of $1,629,357 at June 30, 2023 and $1,622,173 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1473348000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18254024000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -148772000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18788188000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -7290,8 +7290,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities available-for-sale (amortized cost of $1,672,440 at March 31, 2023 and $1,622,173 at December 31, 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1473348000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
               "label": "Loans held for investment",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
               "line": 9,
               "indent": 0,
               "negating": false,
@@ -7314,12 +7350,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 18317339000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unamortized deferred loan fees, net",
               "line": 11,
               "indent": 0,
               "negating": false,
               "value": -5872000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Less: Allowance for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": true,
+              "value": -145786000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -7344,6 +7404,18 @@
               "indent": 0,
               "negating": false,
               "value": 22158000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 18100898000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -7710,6 +7782,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TreasuryStockValue",
+              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+              "line": 46,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "StockholdersEquity",
               "label": "Total equity",
               "line": 47,
@@ -7730,90 +7814,6 @@
               "value": 21947976000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities available-for-sale (amortized cost of $1,672,440 at March 31, 2023 and $1,622,173 at December 31, 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1473348000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18317339000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -145786000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18100898000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TreasuryStockValue",
-              "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8051,6 +8051,12 @@
             "indent": 0
           },
           {
+            "tag": "TreasuryStockValue",
+            "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+            "line": 46,
+            "indent": 0
+          },
+          {
             "tag": "TreasuryStockCommonValue",
             "label": "Treasury stock, at cost (20,752,134 shares at December 31, 2024, and 18,723,553 shares at December 31, 2023)",
             "line": 47,
@@ -8066,12 +8072,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and equity",
             "line": 49,
-            "indent": 0
-          },
-          {
-            "tag": "TreasuryStockValue",
-            "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -8095,8 +8095,26 @@
             "indent": 0
           },
           {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "Securities available-for-sale (amortized cost of $1,535,896 at March 31, 2025, and $1,668,661 at December 31, 2024)",
+            "line": 8,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossFeeAndLoanInProcess",
             "label": "Loans held for investment",
+            "line": 9,
+            "indent": 0
+          },
+          {
+            "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+            "label": "Loans held for sale",
+            "line": 9,
+            "indent": 0
+          },
+          {
+            "tag": "LoansReceivableHeldForSaleAmount",
+            "label": "Loans held for sale",
             "line": 9,
             "indent": 0
           },
@@ -8107,8 +8125,20 @@
             "indent": 0
           },
           {
+            "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
+            "label": "Loans held for investment",
+            "line": 10,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
             "label": "Unamortized deferred loan fees, net",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "FinancingReceivableAllowanceForCreditLosses",
+            "label": "Less: Allowance for loan losses",
             "line": 11,
             "indent": 0
           },
@@ -8121,6 +8151,12 @@
           {
             "tag": "EquitySecuritiesFvNi",
             "label": "Equity securities",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "NotesReceivableNet",
+            "label": "Loans held for investment, net",
             "line": 13,
             "indent": 0
           },
@@ -8305,6 +8341,12 @@
             "indent": 0
           },
           {
+            "tag": "TreasuryStockValue",
+            "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
+            "line": 46,
+            "indent": 0
+          },
+          {
             "tag": "StockholdersEquity",
             "label": "Total stockholders' equity",
             "line": 47,
@@ -8314,48 +8356,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and stockholders' equity",
             "line": 48,
-            "indent": 0
-          },
-          {
-            "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-            "label": "Loans held for sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "Securities available-for-sale (amortized cost of $1,535,896 at March 31, 2025, and $1,668,661 at December 31, 2024)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
-            "label": "Loans held for investment",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableAllowanceForCreditLosses",
-            "label": "Less: Allowance for loan losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableNet",
-            "label": "Loans held for investment, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansReceivableHeldForSaleAmount",
-            "label": "Loans held for sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "TreasuryStockValue",
-            "label": "Treasury stock, at cost (18,348,463 shares at December 31, 2022, and 15,120,998 shares at December 31, 2021)",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -8603,6 +8603,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total interest expense",
               "line": 21,
@@ -8611,6 +8621,16 @@
               "value": 660920000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -8813,6 +8833,16 @@
               "hasValue": true
             },
             {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expense",
               "line": 44,
@@ -8951,36 +8981,6 @@
               "value": 74664735,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -9095,6 +9095,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total interest expense",
               "line": 21,
@@ -9103,6 +9113,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 500476000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -9305,6 +9325,16 @@
               "hasValue": true
             },
             {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expense",
               "line": 44,
@@ -9443,36 +9473,6 @@
               "value": 72862628,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 500476000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -9587,6 +9587,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total interest expense",
               "line": 21,
@@ -9595,6 +9605,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 148464000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -9797,6 +9817,16 @@
               "hasValue": true
             },
             {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": 693000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expense",
               "line": 44,
@@ -9933,36 +9963,6 @@
               "indent": 0,
               "negating": false,
               "value": 78570638,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 148464000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 693000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -10114,6 +10114,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 21,
@@ -10122,6 +10134,18 @@
               "value": 169155000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10366,6 +10390,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+              "label": "Acquisition, integration and restructuring costs",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 44,
@@ -10506,54 +10554,6 @@
               "value": 72032456,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-              "label": "Acquisition, integration and restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10703,6 +10703,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 21,
@@ -10711,6 +10723,18 @@
               "value": 181221000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10955,6 +10979,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+              "label": "Acquisition, integration and restructuring costs",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 44,
@@ -11095,54 +11143,6 @@
               "value": 70188902,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-              "label": "Acquisition, integration and restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11292,6 +11292,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 21,
@@ -11300,6 +11312,18 @@
               "value": 176639000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11544,6 +11568,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+              "label": "Acquisition, integration and restructuring costs",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 44,
@@ -11684,54 +11732,6 @@
               "value": 72971157,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-              "label": "Acquisition, integration and restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11881,6 +11881,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 21,
@@ -11891,6 +11903,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "ProvisionForLoanLossesExpensed",
@@ -12133,6 +12157,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+              "label": "Acquisition, integration and reorganization costs",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 44,
@@ -12275,54 +12323,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-              "label": "Acquisition, integration and reorganization costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -12470,6 +12470,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 21,
@@ -12478,6 +12490,18 @@
               "value": 185640000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12722,6 +12746,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+              "label": "Acquisition, integration and restructuring costs",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 44,
@@ -12862,54 +12910,6 @@
               "value": 72032456,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-              "label": "Acquisition, integration and restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13059,6 +13059,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 21,
@@ -13067,6 +13079,18 @@
               "value": 181533000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13311,6 +13335,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+              "label": "Acquisition, integration and restructuring costs",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 44,
@@ -13451,54 +13499,6 @@
               "value": 72753746,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-              "label": "Acquisition, integration and restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13648,12 +13648,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 21,
               "indent": 0,
               "negating": false,
               "value": 168572000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 92951000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13900,6 +13924,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+              "label": "Acquisition, integration and restructuring costs",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 44,
@@ -14040,54 +14088,6 @@
               "value": 72899662,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 92951000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-              "label": "Acquisition, integration and restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -14237,12 +14237,36 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 21,
               "indent": 0,
               "negating": false,
               "value": 71391000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 340664000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -14489,6 +14513,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+              "label": "Acquisition, integration and reorganization costs",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": 4068000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 44,
@@ -14631,54 +14679,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 340664000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-              "label": "Acquisition, integration and reorganization costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4068000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -14826,12 +14826,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 21,
               "indent": 0,
               "negating": false,
               "value": 185640000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 28485000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -15078,6 +15102,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+              "label": "Acquisition, integration and restructuring costs",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": 59000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 44,
@@ -15218,54 +15266,6 @@
               "value": 72890414,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 28485000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-              "label": "Acquisition, integration and restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 59000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -15415,12 +15415,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 21,
               "indent": 0,
               "negating": false,
               "value": 181533000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 118572000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -15667,6 +15691,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+              "label": "Acquisition, integration and restructuring costs",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 44,
@@ -15807,54 +15855,6 @@
               "value": 75270140,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 118572000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-              "label": "Acquisition, integration and restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -16004,12 +16004,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+              "label": "Deferred payments from acquisition",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 21,
               "indent": 0,
               "negating": false,
               "value": 159191000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 12755000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -16256,6 +16280,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+              "label": "Acquisition, integration and restructuring costs",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtRedemptionCost",
+              "label": "Cost associated with debt redemption",
+              "line": 43,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 44,
@@ -16398,54 +16446,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 12755000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-              "label": "Acquisition, integration and restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtRedemptionCost",
-              "label": "Cost associated with debt redemption",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-              "label": "Deferred payments from acquisition",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -16513,7 +16513,19 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+            "label": "Deferred payments from acquisition",
+            "line": 20,
+            "indent": 0
+          },
+          {
             "tag": "InterestExpenseOperating",
+            "label": "Total interest expense",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
             "label": "Total interest expense",
             "line": 21,
             "indent": 0
@@ -16639,6 +16651,12 @@
             "indent": 0
           },
           {
+            "tag": "DebtRedemptionCost",
+            "label": "Cost associated with debt redemption",
+            "line": 43,
+            "indent": 0
+          },
+          {
             "tag": "OtherNoninterestExpense",
             "label": "Other operating expense",
             "line": 44,
@@ -16721,24 +16739,6 @@
             "label": "Diluted (in shares)",
             "line": 60,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtRedemptionCost",
-            "label": "Cost associated with debt redemption",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-            "label": "Deferred payments from acquisition",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -16809,8 +16809,20 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
+            "label": "Deferred payments from acquisition",
+            "line": 20,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income before provision for credit losses",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
             "line": 21,
             "indent": 0
           },
@@ -16935,6 +16947,18 @@
             "indent": 0
           },
           {
+            "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
+            "label": "Acquisition, integration and restructuring costs",
+            "line": 43,
+            "indent": 0
+          },
+          {
+            "tag": "DebtRedemptionCost",
+            "label": "Cost associated with debt redemption",
+            "line": 43,
+            "indent": 0
+          },
+          {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
             "label": "Income before income tax expense",
             "line": 44,
@@ -17004,30 +17028,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Diluted (in shares)",
             "line": 58,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BusinessCombinationAcquisitionAndIntegrationCosts",
-            "label": "Acquisition, integration and restructuring costs",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtRedemptionCost",
-            "label": "Cost associated with debt redemption",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseDeferredPaymentsFromAcquisition",
-            "label": "Deferred payments from acquisition",
-            "line": 9999,
             "indent": 0
           }
         ]

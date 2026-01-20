@@ -468,12 +468,32 @@
               "hasValue": true
             },
             {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "OtherLiabilities",
               "label": "Other liabilities",
               "line": 34,
               "indent": 0,
               "negating": false,
               "value": 74811000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true
             },
@@ -564,26 +584,6 @@
               "indent": 0,
               "negating": false,
               "value": 8284914000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -890,12 +890,32 @@
               "hasValue": true
             },
             {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "OtherLiabilities",
               "label": "Other liabilities",
               "line": 34,
               "indent": 0,
               "negating": false,
               "value": 64100000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 18995000,
               "uom": "USD",
               "hasValue": true
             },
@@ -986,26 +1006,6 @@
               "indent": 0,
               "negating": false,
               "value": 8284914000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18995000,
               "uom": "USD",
               "hasValue": true
             }
@@ -1312,12 +1312,32 @@
               "hasValue": true
             },
             {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherLiabilities",
               "label": "Other liabilities",
               "line": 34,
               "indent": 0,
               "negating": false,
               "value": 64100000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true
             },
@@ -1410,26 +1430,6 @@
               "value": 7259602000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1503,6 +1503,18 @@
               "value": 1533894000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities AFS, at estimated fair value (amortized cost of $1,433,097 and $1,332,467, respectively)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1795,6 +1807,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 19904000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OperatingLeaseLiability",
               "label": "Operating lease liabilities",
               "line": 34,
@@ -1925,42 +1961,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19904000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities AFS, at estimated fair value (amortized cost of $1,433,097 and $1,332,467, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2032,6 +2032,18 @@
               "value": 1457124000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities AFS, at estimated fair value (amortized cost of $1,433,097 and $1,332,467, respectively)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2324,6 +2336,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 54354000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OperatingLeaseLiability",
               "label": "Operating lease liabilities",
               "line": 34,
@@ -2454,42 +2490,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 54354000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities AFS, at estimated fair value (amortized cost of $1,433,097 and $1,332,467, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2561,6 +2561,18 @@
               "value": 1457939000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities AFS, at estimated fair value (amortized cost of $1,433,097 and $1,332,467, respectively)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2853,6 +2865,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OperatingLeaseLiability",
               "label": "Operating lease liabilities",
               "line": 34,
@@ -2983,42 +3019,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities AFS, at estimated fair value (amortized cost of $1,433,097 and $1,332,467, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3090,6 +3090,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities AFS, at estimated fair value (amortized cost of $1,587,416 and $1,332,467, respectively)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1296294000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3382,6 +3394,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OperatingLeaseLiability",
               "label": "Operating lease liabilities",
               "line": 34,
@@ -3512,42 +3548,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities AFS, at estimated fair value (amortized cost of $1,587,416 and $1,332,467, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1296294000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3619,6 +3619,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities AFS, at estimated fair value (amortized cost of $1,433,097 and $1,332,467, respectively)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1296294000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3911,6 +3923,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 24917000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OperatingLeaseLiability",
               "label": "Operating lease liabilities",
               "line": 34,
@@ -4041,42 +4077,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 24917000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities AFS, at estimated fair value (amortized cost of $1,433,097 and $1,332,467, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1296294000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4148,6 +4148,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities AFS, at estimated fair value (amortized cost of $1,454,266 and $1,332,467, respectively)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1405944000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4440,6 +4452,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OperatingLeaseLiability",
               "label": "Operating lease liabilities",
               "line": 34,
@@ -4570,42 +4606,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities AFS, at estimated fair value (amortized cost of $1,454,266 and $1,332,467, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1405944000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4677,6 +4677,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities AFS, at estimated fair value (amortized cost of $1,454,043 and $1,332,467, respectively)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1405221000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4969,6 +4981,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OperatingLeaseLiability",
               "label": "Operating lease liabilities",
               "line": 34,
@@ -5099,42 +5135,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities AFS, at estimated fair value (amortized cost of $1,454,043 and $1,332,467, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1405221000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5206,6 +5206,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities AFS, at estimated fair value (amortized cost of $1,332,467 and $1,387,874, respectively)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1299014000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5498,6 +5510,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 18995000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OperatingLeaseLiability",
               "label": "Operating lease liabilities",
               "line": 34,
@@ -5628,42 +5664,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18995000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities AFS, at estimated fair value (amortized cost of $1,332,467 and $1,387,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1299014000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5735,6 +5735,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities AFS, at estimated fair value (amortized cost of $1,472,520 and $1,387,874, respectively)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1335560000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6027,6 +6039,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OperatingLeaseLiability",
               "label": "Operating lease liabilities",
               "line": 34,
@@ -6157,42 +6193,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities AFS, at estimated fair value (amortized cost of $1,472,520 and $1,387,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1335560000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6264,6 +6264,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities AFS, at estimated fair value (amortized cost of $1,409,568 and $1,387,874, respectively)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1339821000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6556,6 +6568,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 174038000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OperatingLeaseLiability",
               "label": "Operating lease liabilities",
               "line": 34,
@@ -6686,42 +6722,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 174038000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities AFS, at estimated fair value (amortized cost of $1,409,568 and $1,387,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1339821000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6793,6 +6793,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Securities AFS, at estimated fair value (amortized cost of $1,499,135 and $1,387,874, respectively)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1437222000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7085,6 +7097,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+              "label": "Unsettled trades to purchase securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred tax liability, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OperatingLeaseLiability",
               "label": "Operating lease liabilities",
               "line": 34,
@@ -7213,42 +7249,6 @@
               "value": 7558636000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-              "label": "Unsettled trades to purchase securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Securities AFS, at estimated fair value (amortized cost of $1,499,135 and $1,387,874, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1437222000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred tax liability, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -7432,8 +7432,20 @@
             "indent": 0
           },
           {
+            "tag": "DeferredIncomeTaxLiabilitiesNet",
+            "label": "Deferred tax liability, net",
+            "line": 33,
+            "indent": 0
+          },
+          {
             "tag": "OtherLiabilities",
             "label": "Other liabilities",
+            "line": 34,
+            "indent": 0
+          },
+          {
+            "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+            "label": "Unsettled trades to purchase securities",
             "line": 34,
             "indent": 0
           },
@@ -7490,18 +7502,6 @@
             "label": "Total liabilities and shareholders equity",
             "line": 44,
             "indent": 0
-          },
-          {
-            "tag": "DeferredIncomeTaxLiabilitiesNet",
-            "label": "Deferred tax liability, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-            "label": "Unsettled trades to purchase securities",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -7532,6 +7532,12 @@
           {
             "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
             "label": "Securities AFS, at estimated fair value (amortized cost of $1,307,864 and $1,587,416, respectively)",
+            "line": 6,
+            "indent": 0
+          },
+          {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "Securities AFS, at estimated fair value (amortized cost of $1,433,097 and $1,332,467, respectively)",
             "line": 6,
             "indent": 0
           },
@@ -7680,6 +7686,18 @@
             "indent": 0
           },
           {
+            "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
+            "label": "Unsettled trades to purchase securities",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "DeferredIncomeTaxLiabilitiesNet",
+            "label": "Deferred tax liability, net",
+            "line": 33,
+            "indent": 0
+          },
+          {
             "tag": "OperatingLeaseLiability",
             "label": "Operating lease liabilities",
             "line": 34,
@@ -7743,24 +7761,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and shareholders equity",
             "line": 45,
-            "indent": 0
-          },
-          {
-            "tag": "UnsettledTradesToPurchaseSecuritiesLiability",
-            "label": "Unsettled trades to purchase securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "Securities AFS, at estimated fair value (amortized cost of $1,433,097 and $1,332,467, respectively)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DeferredIncomeTaxLiabilitiesNet",
-            "label": "Deferred tax liability, net",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -8038,6 +8038,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -8248,6 +8258,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 40,
@@ -8326,26 +8346,6 @@
               "value": 1.44,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -8488,6 +8488,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 40640000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -8700,6 +8710,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": 1118000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 40,
@@ -8776,26 +8796,6 @@
               "indent": 0,
               "negating": false,
               "value": 1.4,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 40640000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 1118000,
               "uom": "USD",
               "hasValue": true
             }
@@ -8940,6 +8940,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 40640000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -9152,6 +9162,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "Loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 40,
@@ -9228,26 +9248,6 @@
               "indent": 0,
               "negating": false,
               "value": 1.3,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 40640000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "Loss on redemption of subordinated notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -9423,6 +9423,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -9491,6 +9503,18 @@
               "value": 115000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesRealizedGain",
+              "label": "Net gain on sale of equity securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9687,6 +9711,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 40,
@@ -9747,6 +9783,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "Cash dividends paid per common share (in dollars per share)",
               "line": 45,
@@ -9755,54 +9803,6 @@
               "value": 0.36,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesRealizedGain",
-              "label": "Net gain on sale of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9976,6 +9976,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -10044,6 +10056,18 @@
               "value": 99000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesRealizedGain",
+              "label": "Net gain on sale of equity securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10240,6 +10264,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 40,
@@ -10300,6 +10336,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "Cash dividends paid per common share (in dollars per share)",
               "line": 45,
@@ -10308,54 +10356,6 @@
               "value": 0.36,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesRealizedGain",
-              "label": "Net gain on sale of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10529,6 +10529,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -10597,6 +10609,18 @@
               "value": -436000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesRealizedGain",
+              "label": "Net gain on sale of equity securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10793,6 +10817,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 40,
@@ -10853,45 +10889,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockDividendsPerShareCashPaid",
-              "label": "Cash dividends paid per common share (in dollars per share)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 0.36,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesRealizedGain",
-              "label": "Net gain on sale of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "ProfitLoss",
               "label": "Net income",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 21507000,
@@ -10901,14 +10901,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
+              "tag": "CommonStockDividendsPerShareCashPaid",
+              "label": "Cash dividends paid per common share (in dollars per share)",
+              "line": 45,
               "indent": 0,
-              "negating": true,
-              "value": null,
+              "negating": false,
+              "value": 0.36,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11082,6 +11082,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -11148,6 +11160,18 @@
               "indent": 0,
               "negating": false,
               "value": 683000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesRealizedGain",
+              "label": "Net gain on sale of equity securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": -2642000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -11346,6 +11370,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 40,
@@ -11406,6 +11442,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "Cash dividends paid per common share",
               "line": 45,
@@ -11416,54 +11464,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesRealizedGain",
-              "label": "Net gain on sale of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -2642000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11635,6 +11635,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -11701,6 +11713,18 @@
               "indent": 0,
               "negating": false,
               "value": 96000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesRealizedGain",
+              "label": "Net gain on sale of equity securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11899,6 +11923,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 40,
@@ -11959,6 +11995,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "Cash dividends paid per common share (in dollars per share)",
               "line": 45,
@@ -11967,54 +12015,6 @@
               "value": 0.35,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesRealizedGain",
-              "label": "Net gain on sale of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12188,6 +12188,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 32960000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -12254,6 +12266,18 @@
               "indent": 0,
               "negating": false,
               "value": 220000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesRealizedGain",
+              "label": "Net gain on sale of equity securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 2642000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12452,6 +12476,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 40,
@@ -12512,6 +12548,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "Cash dividends paid per common share (in dollars per share)",
               "line": 45,
@@ -12520,54 +12568,6 @@
               "value": 0.35,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesRealizedGain",
-              "label": "Net gain on sale of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2642000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 32960000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12741,6 +12741,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 49410000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -12807,6 +12819,18 @@
               "indent": 0,
               "negating": false,
               "value": -436000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesRealizedGain",
+              "label": "Net gain on sale of equity securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13005,6 +13029,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 40,
@@ -13065,45 +13101,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockDividendsPerShareCashPaid",
-              "label": "Cash dividends paid per common share (in dollars per share)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 0.35,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesRealizedGain",
-              "label": "Net gain on sale of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 49410000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "ProfitLoss",
               "label": "Net income",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 21511000,
@@ -13113,14 +13113,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
+              "tag": "CommonStockDividendsPerShareCashPaid",
+              "label": "Cash dividends paid per common share (in dollars per share)",
+              "line": 45,
               "indent": 0,
-              "negating": true,
-              "value": null,
+              "negating": false,
+              "value": 0.35,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13294,6 +13294,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": -8652000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -13360,6 +13372,18 @@
               "indent": 0,
               "negating": false,
               "value": 1146000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesRealizedGain",
+              "label": "Net gain on sale of equity securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": -5058000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -13558,6 +13582,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 40,
@@ -13618,6 +13654,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "Cash dividends paid per common share",
               "line": 45,
@@ -13628,54 +13676,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesRealizedGain",
-              "label": "Net gain on sale of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -5058000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -8652000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -13847,6 +13847,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 11365000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -13913,6 +13925,18 @@
               "indent": 0,
               "negating": false,
               "value": 109000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesRealizedGain",
+              "label": "Net gain on sale of equity securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14111,6 +14135,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 40,
@@ -14171,6 +14207,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "Cash dividends paid per common share (in dollars per share)",
               "line": 45,
@@ -14179,54 +14227,6 @@
               "value": 0.35,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesRealizedGain",
-              "label": "Net gain on sale of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11365000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -14400,6 +14400,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 32960000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -14466,6 +14478,18 @@
               "indent": 0,
               "negating": false,
               "value": 208000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesRealizedGain",
+              "label": "Net gain on sale of equity securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 2642000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14664,6 +14688,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 40,
@@ -14724,6 +14760,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "Cash dividends paid per common share (in dollars per share)",
               "line": 45,
@@ -14732,54 +14780,6 @@
               "value": 0.34,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesRealizedGain",
-              "label": "Net gain on sale of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2642000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 32960000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -14953,6 +14953,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 4967000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -15019,6 +15031,18 @@
               "indent": 0,
               "negating": false,
               "value": 178000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesRealizedGain",
+              "label": "Net gain on sale of equity securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 2416000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -15217,6 +15241,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainsLossesOnExtinguishmentOfDebt",
+              "label": "(Gain on purchase) loss on redemption of subordinated notes",
+              "line": 39,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income tax expense",
               "line": 40,
@@ -15277,45 +15313,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockDividendsPerShareCashPaid",
-              "label": "Cash dividends paid per common share (in dollars per share)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 0.35,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesRealizedGain",
-              "label": "Net gain on sale of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2416000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4967000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "ProfitLoss",
               "label": "Net income",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 24996000,
@@ -15325,14 +15325,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "GainsLossesOnExtinguishmentOfDebt",
-              "label": "(Gain on purchase) loss on redemption of subordinated notes",
-              "line": 9999,
+              "tag": "CommonStockDividendsPerShareCashPaid",
+              "label": "Cash dividends paid per common share (in dollars per share)",
+              "line": 45,
               "indent": 0,
-              "negating": true,
-              "value": null,
+              "negating": false,
+              "value": 0.35,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -15416,6 +15416,12 @@
           {
             "tag": "InterestExpenseOperating",
             "label": "Interest Expense, Operating, Total",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
             "line": 15,
             "indent": 0
           },
@@ -15546,6 +15552,12 @@
             "indent": 0
           },
           {
+            "tag": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "(Gain on purchase) loss on redemption of subordinated notes",
+            "line": 39,
+            "indent": 0
+          },
+          {
             "tag": "OtherNoninterestExpense",
             "label": "Other",
             "line": 40,
@@ -15591,18 +15603,6 @@
             "tag": "CommonStockDividendsPerShareCashPaid",
             "label": "Cash dividends paid per common share",
             "line": 47,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainsLossesOnExtinguishmentOfDebt",
-            "label": "(Gain on purchase) loss on redemption of subordinated notes",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -15686,6 +15686,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 15,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 16,
@@ -15718,6 +15724,12 @@
           {
             "tag": "GainLossOnSalesOfLoansNet",
             "label": "Gain (loss) on sale of loans",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "EquitySecuritiesRealizedGain",
+            "label": "Net gain on sale of equity securities",
             "line": 22,
             "indent": 0
           },
@@ -15818,6 +15830,12 @@
             "indent": 0
           },
           {
+            "tag": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "(Gain on purchase) loss on redemption of subordinated notes",
+            "line": 39,
+            "indent": 0
+          },
+          {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
             "label": "Income before income tax expense",
             "line": 40,
@@ -15848,33 +15866,15 @@
             "indent": 0
           },
           {
+            "tag": "ProfitLoss",
+            "label": "Net income",
+            "line": 44,
+            "indent": 0
+          },
+          {
             "tag": "CommonStockDividendsPerShareCashPaid",
             "label": "Cash dividends paid per common share (in dollars per share)",
             "line": 45,
-            "indent": 0
-          },
-          {
-            "tag": "EquitySecuritiesRealizedGain",
-            "label": "Net gain on sale of equity securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProfitLoss",
-            "label": "Net income",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainsLossesOnExtinguishmentOfDebt",
-            "label": "(Gain on purchase) loss on redemption of subordinated notes",
-            "line": 9999,
             "indent": 0
           }
         ]

@@ -508,6 +508,16 @@
               "hasValue": true
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
@@ -516,16 +526,6 @@
               "value": 214574000000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -870,6 +870,16 @@
               "hasValue": true
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
@@ -878,16 +888,6 @@
               "value": 214574000000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -1232,22 +1232,22 @@
               "hasValue": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 21203000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
               "indent": 0,
               "negating": false,
               "value": 211116000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 21203000000,
               "uom": "USD",
               "hasValue": true
             }
@@ -1591,6 +1591,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValueOutstanding",
+              "label": "Common stock",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock",
               "line": 32,
@@ -1599,6 +1611,18 @@
               "value": 2116000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValueOutstanding",
+              "label": "Preferred stock",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1663,6 +1687,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
@@ -1671,42 +1707,6 @@
               "value": 212927000000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2048,6 +2048,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValueOutstanding",
+              "label": "Common stock",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock",
               "line": 32,
@@ -2056,6 +2068,18 @@
               "value": 2116000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValueOutstanding",
+              "label": "Preferred stock",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2120,6 +2144,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
@@ -2128,42 +2164,6 @@
               "value": 212927000000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2505,6 +2505,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValueOutstanding",
+              "label": "Common stock",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock",
               "line": 32,
@@ -2513,6 +2525,18 @@
               "value": 2116000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValueOutstanding",
+              "label": "Preferred stock",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2577,6 +2601,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
@@ -2585,42 +2621,6 @@
               "value": 212927000000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2962,6 +2962,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValueOutstanding",
+              "label": "Common stock",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock",
               "line": 32,
@@ -2970,6 +2982,18 @@
               "value": 2116000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValueOutstanding",
+              "label": "Preferred stock",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3034,6 +3058,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
@@ -3042,42 +3078,6 @@
               "value": 214574000000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3419,6 +3419,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValueOutstanding",
+              "label": "Common stock",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock",
               "line": 32,
@@ -3427,6 +3439,18 @@
               "value": 2116000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValueOutstanding",
+              "label": "Preferred stock",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3491,6 +3515,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
@@ -3499,42 +3535,6 @@
               "value": 214574000000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3876,6 +3876,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValueOutstanding",
+              "label": "Common stock",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock",
               "line": 32,
@@ -3884,6 +3896,18 @@
               "value": 2116000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValueOutstanding",
+              "label": "Preferred stock",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3948,6 +3972,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
@@ -3956,42 +3992,6 @@
               "value": 213262000000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4333,6 +4333,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValueOutstanding",
+              "label": "Common stock",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock",
               "line": 32,
@@ -4341,6 +4353,18 @@
               "value": 2116000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValueOutstanding",
+              "label": "Preferred stock",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4405,6 +4429,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
@@ -4413,42 +4449,6 @@
               "value": 214506000000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4790,6 +4790,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValueOutstanding",
+              "label": "Common stock",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock",
               "line": 32,
@@ -4798,6 +4810,18 @@
               "value": 2116000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValueOutstanding",
+              "label": "Preferred stock",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4862,6 +4886,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
@@ -4870,42 +4906,6 @@
               "value": 214574000000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -5247,6 +5247,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValueOutstanding",
+              "label": "Common stock",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 2051000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock",
               "line": 32,
@@ -5255,6 +5267,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValueOutstanding",
+              "label": "Preferred stock",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 2116000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5319,48 +5343,24 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 16736000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
               "indent": 0,
               "negating": false,
               "value": 207452000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2051000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2116000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 16736000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5704,6 +5704,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValueOutstanding",
+              "label": "Common stock",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 2051000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock",
               "line": 32,
@@ -5712,6 +5724,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValueOutstanding",
+              "label": "Preferred stock",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 2116000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5776,48 +5800,24 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 17809000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
               "indent": 0,
               "negating": false,
               "value": 207452000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2051000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2116000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 17809000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6161,6 +6161,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValueOutstanding",
+              "label": "Common stock",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 2051000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock",
               "line": 32,
@@ -6169,6 +6181,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValueOutstanding",
+              "label": "Preferred stock",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 2116000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6233,48 +6257,24 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+              "label": "Total Equity",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 22210000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LiabilitiesAndStockholdersEquity",
               "label": "Total Liabilities and Equity",
               "line": 38,
               "indent": 0,
               "negating": false,
               "value": 208657000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2051000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Preferred stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2116000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-              "label": "Total Equity",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 22210000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6484,15 +6484,15 @@
             "indent": 0
           },
           {
-            "tag": "LiabilitiesAndStockholdersEquity",
-            "label": "Total Liabilities and Equity",
-            "line": 38,
+            "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total Equity",
+            "line": 37,
             "indent": 0
           },
           {
-            "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-            "label": "Total Equity",
-            "line": 9999,
+            "tag": "LiabilitiesAndStockholdersEquity",
+            "label": "Total Liabilities and Equity",
+            "line": 38,
             "indent": 0
           }
         ],
@@ -6660,7 +6660,19 @@
             "indent": 0
           },
           {
+            "tag": "CommonStockValueOutstanding",
+            "label": "Common stock",
+            "line": 31,
+            "indent": 0
+          },
+          {
             "tag": "PreferredStockValue",
+            "label": "Preferred stock",
+            "line": 32,
+            "indent": 0
+          },
+          {
+            "tag": "PreferredStockValueOutstanding",
             "label": "Preferred stock",
             "line": 32,
             "indent": 0
@@ -6696,27 +6708,15 @@
             "indent": 0
           },
           {
+            "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total Equity",
+            "line": 37,
+            "indent": 0
+          },
+          {
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total Liabilities and Equity",
             "line": 38,
-            "indent": 0
-          },
-          {
-            "tag": "CommonStockValueOutstanding",
-            "label": "Common stock",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "PreferredStockValueOutstanding",
-            "label": "Preferred stock",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-            "label": "Total Equity",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -6954,6 +6954,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -6994,6 +7004,16 @@
               "hasValue": true
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "CommercialPaymentsRevenue",
               "label": "Commercial payments revenue",
               "line": 17,
@@ -7024,6 +7044,16 @@
               "hasValue": true
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -7042,6 +7072,16 @@
               "value": 250000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -7072,6 +7112,16 @@
               "value": 2849000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities losses, net - non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "LaborAndRelatedExpense",
@@ -7252,56 +7302,6 @@
               "value": 694952038,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities losses, net - non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7406,6 +7406,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 3933000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -7446,6 +7456,16 @@
               "hasValue": true
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 589000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "CommercialPaymentsRevenue",
               "label": "Commercial payments revenue",
               "line": 17,
@@ -7476,6 +7496,16 @@
               "hasValue": false
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 402000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -7492,6 +7522,16 @@
               "indent": 0,
               "negating": false,
               "value": 270000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 300000000,
               "uom": "USD",
               "hasValue": true
             },
@@ -7522,6 +7562,16 @@
               "indent": 0,
               "negating": false,
               "value": 2766000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities losses, net - non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true
             },
@@ -7704,56 +7754,6 @@
               "value": 694952038,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3933000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 589000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 402000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 300000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities losses, net - non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -7858,6 +7858,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 790000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -7898,6 +7908,16 @@
               "hasValue": true
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 559000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "CommercialPaymentsRevenue",
               "label": "Commercial payments revenue",
               "line": 17,
@@ -7928,6 +7948,16 @@
               "hasValue": false
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 402000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -7944,6 +7974,16 @@
               "indent": 0,
               "negating": false,
               "value": 215000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 237000000,
               "uom": "USD",
               "hasValue": true
             },
@@ -7974,6 +8014,16 @@
               "indent": 0,
               "negating": false,
               "value": 2830000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities (losses) gains, net - non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": -2000000,
               "uom": "USD",
               "hasValue": true
             },
@@ -8156,56 +8206,6 @@
               "value": 711197805,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 790000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 559000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 402000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 237000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities (losses) gains, net - non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -2000000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -8331,6 +8331,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -8391,6 +8403,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ConsumerBankingRevenue",
               "label": "Consumer banking revenue",
               "line": 18,
@@ -8415,6 +8439,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -8435,6 +8471,18 @@
               "value": 50000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8471,6 +8519,18 @@
               "value": 711000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8689,66 +8749,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -8872,6 +8872,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -8932,6 +8944,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ConsumerBankingRevenue",
               "label": "Consumer banking revenue",
               "line": 18,
@@ -8956,6 +8980,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -8976,6 +9012,18 @@
               "value": 50000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9012,6 +9060,18 @@
               "value": 695000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9230,66 +9290,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9413,6 +9413,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -9473,6 +9485,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ConsumerBankingRevenue",
               "label": "Consumer banking revenue",
               "line": 18,
@@ -9497,6 +9521,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -9517,6 +9553,18 @@
               "value": 54000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9553,6 +9601,18 @@
               "value": 694000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9771,66 +9831,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9954,6 +9954,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -10014,6 +10026,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "ConsumerBankingRevenue",
               "label": "Consumer banking revenue",
               "line": 18,
@@ -10028,6 +10052,18 @@
             {
               "tag": "CapitalMarketsFees",
               "label": "Capital markets fees",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
               "line": 19,
               "indent": 0,
               "negating": false,
@@ -10060,6 +10096,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -10096,6 +10144,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "LaborAndRelatedExpense",
@@ -10312,66 +10372,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -10495,6 +10495,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -10555,6 +10567,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 149000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ConsumerBankingRevenue",
               "label": "Consumer banking revenue",
               "line": 18,
@@ -10579,6 +10603,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 106000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -10597,6 +10633,18 @@
               "indent": 0,
               "negating": false,
               "value": 50000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 43000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -10635,6 +10683,18 @@
               "value": 711000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10853,66 +10913,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 149000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 106000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 43000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11036,6 +11036,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -11096,6 +11108,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 144000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ConsumerBankingRevenue",
               "label": "Consumer banking revenue",
               "line": 18,
@@ -11120,6 +11144,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 106000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -11138,6 +11174,18 @@
               "indent": 0,
               "negating": false,
               "value": 59000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 38000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11176,6 +11224,18 @@
               "value": 695000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11394,66 +11454,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 144000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 106000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 38000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11577,6 +11577,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 696000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -11637,6 +11649,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 151000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ConsumerBankingRevenue",
               "label": "Consumer banking revenue",
               "line": 18,
@@ -11661,6 +11685,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 102000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -11679,6 +11715,18 @@
               "indent": 0,
               "negating": false,
               "value": 54000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 57000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11715,6 +11763,18 @@
               "indent": 0,
               "negating": false,
               "value": 710000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11935,66 +11995,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 151000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 102000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 57000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 696000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12118,6 +12118,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 1835000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -12178,6 +12190,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 150000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ConsumerBankingRevenue",
               "label": "Consumer banking revenue",
               "line": 18,
@@ -12202,6 +12226,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 92000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -12220,6 +12256,18 @@
               "indent": 0,
               "negating": false,
               "value": 113000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 122000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -12256,6 +12304,18 @@
               "indent": 0,
               "negating": false,
               "value": 691000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities losses, net - non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -12476,66 +12536,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 150000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 92000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 122000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1835000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities losses, net - non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12659,6 +12659,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 1091000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -12719,6 +12731,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 143000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ConsumerBankingRevenue",
               "label": "Consumer banking revenue",
               "line": 18,
@@ -12743,6 +12767,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 105000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -12761,6 +12797,18 @@
               "indent": 0,
               "negating": false,
               "value": 57000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 60000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12797,6 +12845,18 @@
               "indent": 0,
               "negating": false,
               "value": 715000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities losses, net  non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13017,66 +13077,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 143000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 105000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 60000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1091000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities losses, net  non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -13200,6 +13200,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 913000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -13260,6 +13272,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 144000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ConsumerBankingRevenue",
               "label": "Consumer banking revenue",
               "line": 18,
@@ -13284,6 +13308,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 105000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -13302,6 +13338,18 @@
               "indent": 0,
               "negating": false,
               "value": 31000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 56000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13338,6 +13386,18 @@
               "indent": 0,
               "negating": false,
               "value": 676000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities losses, net  non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13558,66 +13618,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 144000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 105000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 56000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 913000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities losses, net  non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -13741,6 +13741,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 94000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -13801,6 +13813,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Service charges on deposits",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 152000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ConsumerBankingRevenue",
               "label": "Consumer banking revenue",
               "line": 18,
@@ -13825,6 +13849,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CardAndProcessingRevenue",
+              "label": "Card and processing revenue",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 100000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommercialBankingRevenue",
               "label": "Commercial banking revenue",
               "line": 20,
@@ -13843,6 +13879,18 @@
               "indent": 0,
               "negating": false,
               "value": 69000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LeaseIncome",
+              "label": "Leasing business revenue",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 62000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13879,6 +13927,18 @@
               "indent": 0,
               "negating": false,
               "value": 684000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesTradingGainLoss",
+              "label": "Securities losses, net  non-qualifying hedges on mortgage servicing rights",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14099,66 +14159,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-              "label": "Service charges on deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 152000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CardAndProcessingRevenue",
-              "label": "Card and processing revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 100000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LeaseIncome",
-              "label": "Leasing business revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 62000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 94000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesTradingGainLoss",
-              "label": "Securities losses, net  non-qualifying hedges on mortgage servicing rights",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -14220,6 +14220,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 11,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net Interest Income",
             "line": 12,
@@ -14244,6 +14250,12 @@
             "indent": 0
           },
           {
+            "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Service charges on deposits",
+            "line": 16,
+            "indent": 0
+          },
+          {
             "tag": "CommercialPaymentsRevenue",
             "label": "Commercial payments revenue",
             "line": 17,
@@ -14262,6 +14274,12 @@
             "indent": 0
           },
           {
+            "tag": "CardAndProcessingRevenue",
+            "label": "Card and processing revenue",
+            "line": 19,
+            "indent": 0
+          },
+          {
             "tag": "CommercialBankingRevenue",
             "label": "Commercial banking revenue",
             "line": 20,
@@ -14270,6 +14288,12 @@
           {
             "tag": "FeesAndCommissionsMortgageBankingAndServicing",
             "label": "Mortgage banking net revenue",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "LeaseIncome",
+            "label": "Leasing business revenue",
             "line": 21,
             "indent": 0
           },
@@ -14288,6 +14312,12 @@
           {
             "tag": "NoninterestIncome",
             "label": "Total noninterest income",
+            "line": 24,
+            "indent": 0
+          },
+          {
+            "tag": "DebtSecuritiesTradingGainLoss",
+            "label": "Securities losses, net - non-qualifying hedges on mortgage servicing rights",
             "line": 24,
             "indent": 0
           },
@@ -14398,36 +14428,6 @@
             "label": "Average common shares outstanding - diluted (in shares)",
             "line": 44,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-            "label": "Service charges on deposits",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CardAndProcessingRevenue",
-            "label": "Card and processing revenue",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LeaseIncome",
-            "label": "Leasing business revenue",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesTradingGainLoss",
-            "label": "Securities losses, net - non-qualifying hedges on mortgage servicing rights",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -14486,6 +14486,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 11,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net Interest Income",
             "line": 12,
@@ -14516,6 +14522,12 @@
             "indent": 0
           },
           {
+            "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Service charges on deposits",
+            "line": 17,
+            "indent": 0
+          },
+          {
             "tag": "ConsumerBankingRevenue",
             "label": "Consumer banking revenue",
             "line": 18,
@@ -14528,6 +14540,12 @@
             "indent": 0
           },
           {
+            "tag": "CardAndProcessingRevenue",
+            "label": "Card and processing revenue",
+            "line": 19,
+            "indent": 0
+          },
+          {
             "tag": "CommercialBankingRevenue",
             "label": "Commercial banking revenue",
             "line": 20,
@@ -14536,6 +14554,12 @@
           {
             "tag": "FeesAndCommissionsMortgageBankingAndServicing",
             "label": "Mortgage banking net revenue",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "LeaseIncome",
+            "label": "Leasing business revenue",
             "line": 21,
             "indent": 0
           },
@@ -14554,6 +14578,12 @@
           {
             "tag": "NoninterestIncome",
             "label": "Total noninterest income",
+            "line": 24,
+            "indent": 0
+          },
+          {
+            "tag": "DebtSecuritiesTradingGainLoss",
+            "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
             "line": 24,
             "indent": 0
           },
@@ -14663,36 +14693,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Average common shares outstanding - diluted (in shares)",
             "line": 44,
-            "indent": 0
-          },
-          {
-            "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
-            "label": "Service charges on deposits",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CardAndProcessingRevenue",
-            "label": "Card and processing revenue",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LeaseIncome",
-            "label": "Leasing business revenue",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesTradingGainLoss",
-            "label": "Securities gains, net  non-qualifying hedges on mortgage servicing rights",
-            "line": 9999,
             "indent": 0
           }
         ]

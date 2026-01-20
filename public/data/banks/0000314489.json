@@ -410,6 +410,16 @@
               "hasValue": true
             },
             {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "SubordinatedDebt",
               "label": "Subordinated notes, net of unamortized issuance costs",
               "line": 28,
@@ -570,6 +580,16 @@
               "hasValue": true
             },
             {
+              "tag": "TreasuryStockShares",
+              "label": "Less treasury shares (in shares)",
+              "line": 45,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common shares outstanding (in shares)",
               "line": 46,
@@ -578,26 +598,6 @@
               "value": 56895981,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "TreasuryStockShares",
-              "label": "Less treasury shares (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -832,6 +832,16 @@
               "hasValue": true
             },
             {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "SubordinatedDebt",
               "label": "Subordinated notes, net of unamortized issuance costs",
               "line": 28,
@@ -992,32 +1002,22 @@
               "hasValue": false
             },
             {
+              "tag": "TreasuryStockShares",
+              "label": "Less treasury shares (in shares)",
+              "line": 45,
+              "indent": 0,
+              "negating": true,
+              "value": -2682060,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common shares outstanding (in shares)",
               "line": 46,
               "indent": 0,
               "negating": false,
               "value": 55279124,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "TreasuryStockShares",
-              "label": "Less treasury shares (in shares)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -2682060,
               "uom": "USD",
               "hasValue": true
             }
@@ -1067,6 +1067,18 @@
               "indent": 0,
               "negating": false,
               "value": 697659000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 719581000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -1165,6 +1177,18 @@
               "value": 333695000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Right of use assets",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1289,6 +1313,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherShortTermBorrowings",
+              "label": "Short-term borrowings",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust",
               "label": "Junior subordinated debt owed to unconsolidated trusts",
               "line": 27,
@@ -1297,6 +1333,18 @@
               "value": 74815000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1321,6 +1369,18 @@
               "value": 10663453000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Lease liabilities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1493,69 +1553,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockSharesOutstanding",
-              "label": "Common stock outstanding (in shares)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 56895981,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Right of use assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Lease liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherShortTermBorrowings",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 719581000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "TreasuryStockShares",
               "label": "Less: Treasury shares (in shares)",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -1565,14 +1565,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
+              "tag": "CommonStockSharesOutstanding",
+              "label": "Common stock outstanding (in shares)",
+              "line": 45,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 56895981,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -1620,6 +1620,18 @@
               "indent": 0,
               "negating": false,
               "value": 697659000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 752352000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -1716,6 +1728,18 @@
               "indent": 0,
               "negating": false,
               "value": 381794000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Right of use assets",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 10608000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -1842,6 +1866,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherShortTermBorrowings",
+              "label": "Short-term borrowings",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust",
               "label": "Junior subordinated debt owed to unconsolidated trusts",
               "line": 27,
@@ -1850,6 +1886,18 @@
               "value": 77187000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1872,6 +1920,18 @@
               "indent": 0,
               "negating": false,
               "value": 16506194000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Lease liabilities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 39235000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2046,69 +2106,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockSharesOutstanding",
-              "label": "Common stock outstanding (in shares)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 56895981,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Right of use assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10608000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Lease liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 39235000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherShortTermBorrowings",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 752352000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "TreasuryStockShares",
               "label": "Less: Treasury shares (in shares)",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -2118,14 +2118,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
+              "tag": "CommonStockSharesOutstanding",
+              "label": "Common stock outstanding (in shares)",
+              "line": 45,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 56895981,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2173,6 +2173,18 @@
               "indent": 0,
               "negating": false,
               "value": 697659000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 591071000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2269,6 +2281,18 @@
               "indent": 0,
               "negating": false,
               "value": 333695000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Right of use assets",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 40594000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2395,6 +2419,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherShortTermBorrowings",
+              "label": "Short-term borrowings",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust",
               "label": "Junior subordinated debt owed to unconsolidated trusts",
               "line": 27,
@@ -2403,6 +2439,18 @@
               "value": 74815000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2425,6 +2473,18 @@
               "indent": 0,
               "negating": false,
               "value": 10663453000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Lease liabilities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 11040000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2599,69 +2659,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockSharesOutstanding",
-              "label": "Common shares outstanding (in shares)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 90008178,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Right of use assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 40594000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Lease liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11040000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherShortTermBorrowings",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 591071000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "TreasuryStockShares",
               "label": "Less: Treasury shares (in shares)",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -2671,14 +2671,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
+              "tag": "CommonStockSharesOutstanding",
+              "label": "Common shares outstanding (in shares)",
+              "line": 45,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 90008178,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2721,6 +2721,18 @@
             },
             {
               "tag": "CashAndCashEquivalentsAtCarryingValue",
+              "label": "Total cash and cash equivalents",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 719581000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
               "label": "Total cash and cash equivalents",
               "line": 5,
               "indent": 0,
@@ -2822,6 +2834,18 @@
               "indent": 0,
               "negating": false,
               "value": 317873000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Right of use assets",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 10608000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2948,6 +2972,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherShortTermBorrowings",
+              "label": "Short-term borrowings",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 12000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust",
               "label": "Junior subordinated debt owed to unconsolidated trusts",
               "line": 27,
@@ -2956,6 +2992,18 @@
               "value": 71993000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2978,6 +3026,18 @@
               "indent": 0,
               "negating": false,
               "value": 10663453000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Lease liabilities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 11308000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3152,69 +3212,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockSharesOutstanding",
-              "label": "Common shares outstanding (in shares)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 56895981,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Right of use assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10608000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Lease liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11308000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherShortTermBorrowings",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 12000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 719581000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "TreasuryStockShares",
               "label": "Less: Treasury shares (in shares)",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -3224,14 +3224,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
+              "tag": "CommonStockSharesOutstanding",
+              "label": "Common shares outstanding (in shares)",
+              "line": 45,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 56895981,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3279,6 +3279,18 @@
               "indent": 0,
               "negating": false,
               "value": 553709000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 227164000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3375,6 +3387,18 @@
               "indent": 0,
               "negating": false,
               "value": 317873000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Right of use assets",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 11027000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3501,6 +3525,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherShortTermBorrowings",
+              "label": "Short-term borrowings",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust",
               "label": "Junior subordinated debt owed to unconsolidated trusts",
               "line": 27,
@@ -3509,6 +3545,18 @@
               "value": 74754000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3531,6 +3579,18 @@
               "indent": 0,
               "negating": false,
               "value": 11011434000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Lease liabilities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 11470000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3705,69 +3765,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockSharesOutstanding",
-              "label": "Common shares outstanding (in shares)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 55244119,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Right of use assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11027000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Lease liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11470000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherShortTermBorrowings",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 227164000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "TreasuryStockShares",
               "label": "Less: Treasury shares (in shares)",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -3777,14 +3777,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
+              "tag": "CommonStockSharesOutstanding",
+              "label": "Common shares outstanding (in shares)",
+              "line": 45,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 55244119,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3832,6 +3832,18 @@
               "indent": 0,
               "negating": false,
               "value": 285269000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 232703000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3928,6 +3940,18 @@
               "indent": 0,
               "negating": false,
               "value": 333281000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Right of use assets",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 11027000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4054,6 +4078,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherShortTermBorrowings",
+              "label": "Short-term borrowings",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 12000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust",
               "label": "Junior subordinated debt owed to unconsolidated trusts",
               "line": 27,
@@ -4062,6 +4098,18 @@
               "value": 71993000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4084,6 +4132,18 @@
               "indent": 0,
               "negating": false,
               "value": 11011434000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Lease liabilities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 11469000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4258,69 +4318,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockSharesOutstanding",
-              "label": "Common shares outstanding (in shares)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 56746937,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Right of use assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11027000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Lease liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11469000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherShortTermBorrowings",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 12000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 232703000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "TreasuryStockShares",
               "label": "Less: Treasury shares (in shares)",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -4330,14 +4330,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
+              "tag": "CommonStockSharesOutstanding",
+              "label": "Common shares outstanding (in shares)",
+              "line": 45,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 56746937,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4380,6 +4380,18 @@
             },
             {
               "tag": "CashAndCashEquivalentsAtCarryingValue",
+              "label": "Total cash and cash equivalents",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 719581000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
               "label": "Total cash and cash equivalents",
               "line": 5,
               "indent": 0,
@@ -4481,6 +4493,18 @@
               "indent": 0,
               "negating": false,
               "value": 317873000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Right of use assets",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 11027000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4607,6 +4631,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherShortTermBorrowings",
+              "label": "Short-term borrowings",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 12000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust",
               "label": "Junior subordinated debt owed to unconsolidated trusts",
               "line": 27,
@@ -4615,6 +4651,18 @@
               "value": 71993000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4637,6 +4685,18 @@
               "indent": 0,
               "negating": false,
               "value": 10604807000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Lease liabilities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 10896000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4811,69 +4871,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockSharesOutstanding",
-              "label": "Common shares outstanding (in shares)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 55244119,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Right of use assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11027000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Lease liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10896000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherShortTermBorrowings",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 12000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 719581000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "TreasuryStockShares",
               "label": "Less: Treasury shares (in shares)",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -4883,14 +4883,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
+              "tag": "CommonStockSharesOutstanding",
+              "label": "Common shares outstanding (in shares)",
+              "line": 45,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 55244119,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4940,6 +4940,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 337919000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5034,6 +5046,18 @@
               "indent": 0,
               "negating": false,
               "value": 317873000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Right of use assets",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 12829000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5160,6 +5184,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherShortTermBorrowings",
+              "label": "Short-term borrowings",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 351054000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust",
               "label": "Junior subordinated debt owed to unconsolidated trusts",
               "line": 27,
@@ -5168,6 +5204,18 @@
               "value": 71946000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5190,6 +5238,18 @@
               "indent": 0,
               "negating": false,
               "value": 11068092000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Lease liabilities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 12995000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5364,69 +5424,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockSharesOutstanding",
-              "label": "Common shares outstanding (in shares)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 55279124,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Right of use assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 12829000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Lease liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 12995000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherShortTermBorrowings",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 351054000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 337919000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "TreasuryStockShares",
               "label": "Less: Treasury shares (in shares)",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -5436,14 +5436,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
+              "tag": "CommonStockSharesOutstanding",
+              "label": "Common shares outstanding (in shares)",
+              "line": 45,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 55279124,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -5493,6 +5493,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 836095000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5587,6 +5599,18 @@
               "indent": 0,
               "negating": false,
               "value": 317873000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Right of use assets",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 11806000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5713,6 +5737,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherShortTermBorrowings",
+              "label": "Short-term borrowings",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 351054000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust",
               "label": "Junior subordinated debt owed to unconsolidated trusts",
               "line": 27,
@@ -5721,6 +5757,18 @@
               "value": 71900000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5743,6 +5791,18 @@
               "indent": 0,
               "negating": false,
               "value": 11190700000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Lease liabilities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 12995000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5917,69 +5977,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockSharesOutstanding",
-              "label": "Common shares outstanding (in shares)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 55290847,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Right of use assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11806000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Lease liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 12995000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherShortTermBorrowings",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 351054000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 836095000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "TreasuryStockShares",
               "label": "Less: Treasury shares (in shares)",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -5989,14 +5989,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
+              "tag": "CommonStockSharesOutstanding",
+              "label": "Common shares outstanding (in shares)",
+              "line": 45,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 55290847,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -6044,6 +6044,18 @@
               "indent": 0,
               "negating": false,
               "value": 275569000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 479228000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6140,6 +6152,18 @@
               "indent": 0,
               "negating": false,
               "value": 317873000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Right of use assets",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 12829000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6266,6 +6290,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherShortTermBorrowings",
+              "label": "Short-term borrowings",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 615881000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust",
               "label": "Junior subordinated debt owed to unconsolidated trusts",
               "line": 27,
@@ -6274,6 +6310,18 @@
               "value": 71855000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "SeniorNotes",
+              "label": "Senior notes, net of unamortized issuance costs",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6296,6 +6344,18 @@
               "indent": 0,
               "negating": false,
               "value": 11145997000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Lease liabilities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 12515000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6470,69 +6530,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommonStockSharesOutstanding",
-              "label": "Common shares outstanding (in shares)",
-              "line": 45,
-              "indent": 0,
-              "negating": false,
-              "value": 55279124,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Right of use assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 12829000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Lease liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 12515000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherShortTermBorrowings",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 615881000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 479228000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "TreasuryStockShares",
               "label": "Less: Treasury shares (in shares)",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": true,
               "value": -2837846,
@@ -6542,14 +6542,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "SeniorNotes",
-              "label": "Senior notes, net of unamortized issuance costs",
-              "line": 9999,
+              "tag": "CommonStockSharesOutstanding",
+              "label": "Common shares outstanding (in shares)",
+              "line": 45,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 55279124,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -6691,6 +6691,12 @@
             "indent": 0
           },
           {
+            "tag": "SeniorNotes",
+            "label": "Senior notes, net of unamortized issuance costs",
+            "line": 27,
+            "indent": 0
+          },
+          {
             "tag": "SubordinatedDebt",
             "label": "Subordinated notes, net of unamortized issuance costs",
             "line": 28,
@@ -6787,21 +6793,15 @@
             "indent": 0
           },
           {
+            "tag": "TreasuryStockShares",
+            "label": "Less treasury shares (in shares)",
+            "line": 45,
+            "indent": 0
+          },
+          {
             "tag": "CommonStockSharesOutstanding",
             "label": "Common shares outstanding (in shares)",
             "line": 46,
-            "indent": 0
-          },
-          {
-            "tag": "SeniorNotes",
-            "label": "Senior notes, net of unamortized issuance costs",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "TreasuryStockShares",
-            "label": "Less treasury shares (in shares)",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -6820,6 +6820,12 @@
           },
           {
             "tag": "CashAndCashEquivalentsAtCarryingValue",
+            "label": "Total cash and cash equivalents",
+            "line": 5,
+            "indent": 0
+          },
+          {
+            "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
             "label": "Total cash and cash equivalents",
             "line": 5,
             "indent": 0
@@ -6869,6 +6875,12 @@
           {
             "tag": "Goodwill",
             "label": "Goodwill",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "OperatingLeaseRightOfUseAsset",
+            "label": "Right of use assets",
             "line": 13,
             "indent": 0
           },
@@ -6933,8 +6945,20 @@
             "indent": 0
           },
           {
+            "tag": "OtherShortTermBorrowings",
+            "label": "Short-term borrowings",
+            "line": 26,
+            "indent": 0
+          },
+          {
             "tag": "JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust",
             "label": "Junior subordinated debt owed to unconsolidated trusts",
+            "line": 27,
+            "indent": 0
+          },
+          {
+            "tag": "SeniorNotes",
+            "label": "Senior notes, net of unamortized issuance costs",
             "line": 27,
             "indent": 0
           },
@@ -6947,6 +6971,12 @@
           {
             "tag": "Liabilities",
             "label": "Total liabilities",
+            "line": 29,
+            "indent": 0
+          },
+          {
+            "tag": "OperatingLeaseLiability",
+            "label": "Lease liabilities",
             "line": 29,
             "indent": 0
           },
@@ -7035,45 +7065,15 @@
             "indent": 0
           },
           {
+            "tag": "TreasuryStockShares",
+            "label": "Less: Treasury shares (in shares)",
+            "line": 44,
+            "indent": 0
+          },
+          {
             "tag": "CommonStockSharesOutstanding",
             "label": "Common stock outstanding (in shares)",
             "line": 45,
-            "indent": 0
-          },
-          {
-            "tag": "OperatingLeaseRightOfUseAsset",
-            "label": "Right of use assets",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OperatingLeaseLiability",
-            "label": "Lease liabilities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OtherShortTermBorrowings",
-            "label": "Short-term borrowings",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-            "label": "Total cash and cash equivalents",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "TreasuryStockShares",
-            "label": "Less: Treasury shares (in shares)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "SeniorNotes",
-            "label": "Senior notes, net of unamortized issuance costs",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -7334,6 +7334,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total interest expense",
               "line": 24,
@@ -7434,6 +7444,16 @@
               "hasValue": true
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other noninterest income",
               "line": 35,
@@ -7452,6 +7472,16 @@
               "value": 121214000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "LaborAndRelatedExpense",
@@ -7612,36 +7642,6 @@
               "value": 0.96,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7786,6 +7786,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 36548000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total interest expense",
               "line": 24,
@@ -7886,6 +7896,16 @@
               "hasValue": true
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 132804000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 35,
@@ -7904,6 +7924,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 21648000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "LaborAndRelatedExpense",
@@ -8064,36 +8094,6 @@
               "value": 0.92,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 36548000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 132804000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 21648000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -8219,6 +8219,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingInterestExpense",
+              "label": "Senior notes",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOtherLongTermDebt",
               "label": "Long-term borrowings",
               "line": 21,
@@ -8239,6 +8251,18 @@
               "value": 3181000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8375,6 +8399,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other noninterest income",
               "line": 35,
@@ -8395,6 +8431,18 @@
               "value": 35845000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8579,6 +8627,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockDividendsPerShareDeclared",
+              "label": "Dividends declared per share of common stock (in dollars per share)",
+              "line": 52,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average number of common shares outstanding, basic (in shares)",
               "line": 53,
@@ -8623,66 +8683,6 @@
               "value": 0.55,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockDividendsPerShareDeclared",
-              "label": "Dividends declared per share of common stock (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingInterestExpense",
-              "label": "Senior notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8808,6 +8808,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingInterestExpense",
+              "label": "Senior notes",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOtherLongTermDebt",
               "label": "Long-term debt",
               "line": 21,
@@ -8828,6 +8840,18 @@
               "value": 3177000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8964,6 +8988,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other noninterest income",
               "line": 35,
@@ -8984,6 +9020,18 @@
               "value": 44863000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9168,6 +9216,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockDividendsPerShareDeclared",
+              "label": "Dividends declared per share of common stock (in dollars per share)",
+              "line": 52,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average number of common shares outstanding, basic (in shares)",
               "line": 53,
@@ -9212,66 +9272,6 @@
               "value": 0.47,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockDividendsPerShareDeclared",
-              "label": "Dividends declared per share of common stock (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingInterestExpense",
-              "label": "Senior notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9397,6 +9397,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingInterestExpense",
+              "label": "Senior notes",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOtherLongTermDebt",
               "label": "Long-term debt",
               "line": 21,
@@ -9417,6 +9429,18 @@
               "value": 3109000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9553,6 +9577,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other noninterest income",
               "line": 35,
@@ -9573,6 +9609,18 @@
               "value": 34913000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9757,6 +9805,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockDividendsPerShareDeclared",
+              "label": "Dividends declared per share of common stock (in dollars per share)",
+              "line": 52,
+              "indent": 0,
+              "negating": false,
+              "value": 0.24,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average number of common shares outstanding, basic (in shares)",
               "line": 53,
@@ -9801,66 +9861,6 @@
               "value": 0.46,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockDividendsPerShareDeclared",
-              "label": "Dividends declared per share of common stock (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0.24,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingInterestExpense",
-              "label": "Senior notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9986,6 +9986,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingInterestExpense",
+              "label": "Senior notes",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestExpenseOtherLongTermDebt",
               "label": "Long-term debt",
               "line": 21,
@@ -10008,6 +10020,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "InterestExpenseJuniorSubordinatedDebentures",
@@ -10142,6 +10166,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other noninterest income",
               "line": 35,
@@ -10157,6 +10193,18 @@
               "tag": "NoninterestIncome",
               "label": "Total noninterest income",
               "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10346,6 +10394,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "CommonStockDividendsPerShareDeclared",
+              "label": "Dividends declared per share of common stock (in dollars per share)",
+              "line": 52,
+              "indent": 0,
+              "negating": false,
+              "value": 0.24,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average number of common shares outstanding, basic (in shares)",
               "line": 53,
@@ -10392,66 +10452,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockDividendsPerShareDeclared",
-              "label": "Dividends declared per share of common stock (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0.24,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FinancingInterestExpense",
-              "label": "Senior notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -10575,6 +10575,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingInterestExpense",
+              "label": "Senior notes",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOtherLongTermDebt",
               "label": "Long-term debt",
               "line": 21,
@@ -10595,6 +10607,18 @@
               "value": 3181000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10731,6 +10755,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other noninterest income",
               "line": 35,
@@ -10751,6 +10787,18 @@
               "value": 31008000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10935,6 +10983,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockDividendsPerShareDeclared",
+              "label": "Dividends declared per share of common stock (in dollars per share)",
+              "line": 52,
+              "indent": 0,
+              "negating": false,
+              "value": 0.24,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average number of common shares outstanding, basic (in shares)",
               "line": 53,
@@ -10979,66 +11039,6 @@
               "value": 0.55,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockDividendsPerShareDeclared",
-              "label": "Dividends declared per share of common stock (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0.24,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingInterestExpense",
-              "label": "Senior notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11164,6 +11164,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingInterestExpense",
+              "label": "Senior notes",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOtherLongTermDebt",
               "label": "Long-term debt",
               "line": 21,
@@ -11182,6 +11194,18 @@
               "indent": 0,
               "negating": false,
               "value": 3177000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 49407000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11320,6 +11344,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 33801000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other noninterest income",
               "line": 35,
@@ -11340,6 +11376,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 5902000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11524,6 +11572,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockDividendsPerShareDeclared",
+              "label": "Dividends declared per share of common stock (in dollars per share)",
+              "line": 52,
+              "indent": 0,
+              "negating": false,
+              "value": 0.24,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average number of common shares outstanding, basic (in shares)",
               "line": 53,
@@ -11568,66 +11628,6 @@
               "value": 0.47,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockDividendsPerShareDeclared",
-              "label": "Dividends declared per share of common stock (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0.24,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 49407000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 33801000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5902000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingInterestExpense",
-              "label": "Senior notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11753,6 +11753,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingInterestExpense",
+              "label": "Senior notes",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOtherLongTermDebt",
               "label": "Long-term debt",
               "line": 21,
@@ -11771,6 +11783,18 @@
               "indent": 0,
               "negating": false,
               "value": 3097000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 25248000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11909,6 +11933,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 31848000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 35,
@@ -11929,6 +11965,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 6550000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12113,6 +12161,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockDividendsPerShareDeclared",
+              "label": "Dividends declared per share of common stock (in dollars per share)",
+              "line": 52,
+              "indent": 0,
+              "negating": false,
+              "value": 0.24,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average number of common shares outstanding, basic (in shares)",
               "line": 53,
@@ -12157,66 +12217,6 @@
               "value": 0.46,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockDividendsPerShareDeclared",
-              "label": "Dividends declared per share of common stock (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0.24,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 25248000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 31848000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6550000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingInterestExpense",
-              "label": "Senior notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12342,6 +12342,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingInterestExpense",
+              "label": "Senior notes",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOtherLongTermDebt",
               "label": "Long-term debt",
               "line": 21,
@@ -12360,6 +12372,18 @@
               "indent": 0,
               "negating": false,
               "value": 3738000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 9110000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12498,6 +12522,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 31008000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 35,
@@ -12518,6 +12554,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 5447000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12702,6 +12750,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockDividendsPerShareDeclared",
+              "label": "Dividends declared per share of common stock (in dollars per share)",
+              "line": 52,
+              "indent": 0,
+              "negating": false,
+              "value": 0.23,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average number of common shares outstanding, basic (in shares)",
               "line": 53,
@@ -12744,66 +12804,6 @@
               "indent": 0,
               "negating": false,
               "value": 0.64,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockDividendsPerShareDeclared",
-              "label": "Dividends declared per share of common stock (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0.23,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9110000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 31008000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5447000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingInterestExpense",
-              "label": "Senior notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12931,6 +12931,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingInterestExpense",
+              "label": "Senior notes",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOtherLongTermDebt",
               "label": "Long-term debt",
               "line": 21,
@@ -12949,6 +12961,18 @@
               "indent": 0,
               "negating": false,
               "value": 3100000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 38229000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13087,6 +13111,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 28012000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 35,
@@ -13107,6 +13143,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 5902000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13291,6 +13339,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockDividendsPerShareDeclared",
+              "label": "Dividends declared per share of common stock (in dollars per share)",
+              "line": 52,
+              "indent": 0,
+              "negating": false,
+              "value": 0.24,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average number of common shares outstanding, basic (in shares)",
               "line": 53,
@@ -13333,66 +13393,6 @@
               "indent": 0,
               "negating": false,
               "value": 0.53,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockDividendsPerShareDeclared",
-              "label": "Dividends declared per share of common stock (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0.24,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 38229000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 28012000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5902000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingInterestExpense",
-              "label": "Senior notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13520,6 +13520,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingInterestExpense",
+              "label": "Senior notes",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOtherLongTermDebt",
               "label": "Long-term debt",
               "line": 21,
@@ -13538,6 +13550,18 @@
               "indent": 0,
               "negating": false,
               "value": 3097000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 6035000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13676,6 +13700,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+              "label": "Total noninterest income",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 35772000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 35,
@@ -13696,6 +13732,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommunicationsAndInformationTechnology",
+              "label": "Data processing",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 5640000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13880,6 +13928,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockDividendsPerShareDeclared",
+              "label": "Dividends declared per share of common stock (in dollars per share)",
+              "line": 52,
+              "indent": 0,
+              "negating": false,
+              "value": 0.23,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average number of common shares outstanding, basic (in shares)",
               "line": 53,
@@ -13922,66 +13982,6 @@
               "indent": 0,
               "negating": false,
               "value": 0.65,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockDividendsPerShareDeclared",
-              "label": "Dividends declared per share of common stock (in dollars per share)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0.23,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6035000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-              "label": "Total noninterest income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 35772000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommunicationsAndInformationTechnology",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5640000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingInterestExpense",
-              "label": "Senior notes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14071,6 +14071,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 23,
+            "indent": 0
+          },
+          {
             "tag": "InterestExpenseOperating",
             "label": "Total interest expense",
             "line": 24,
@@ -14131,6 +14137,12 @@
             "indent": 0
           },
           {
+            "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+            "label": "Total noninterest income",
+            "line": 34,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestIncomeOtherOperatingIncome",
             "label": "Other noninterest income",
             "line": 35,
@@ -14140,6 +14152,12 @@
             "tag": "NoninterestIncome",
             "label": "Total noninterest income",
             "line": 36,
+            "indent": 0
+          },
+          {
+            "tag": "CommunicationsAndInformationTechnology",
+            "label": "Data processing",
+            "line": 37,
             "indent": 0
           },
           {
@@ -14237,24 +14255,6 @@
             "label": "Dividends declared per share of common stock (in dollars per share)",
             "line": 53,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-            "label": "Total noninterest income",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommunicationsAndInformationTechnology",
-            "label": "Data processing",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -14313,6 +14313,12 @@
             "indent": 0
           },
           {
+            "tag": "FinancingInterestExpense",
+            "label": "Senior notes",
+            "line": 20,
+            "indent": 0
+          },
+          {
             "tag": "InterestExpenseOtherLongTermDebt",
             "label": "Long-term borrowings",
             "line": 21,
@@ -14321,6 +14327,12 @@
           {
             "tag": "InterestExpenseSubordinatedNotesAndDebentures",
             "label": "Subordinated notes",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
             "line": 22,
             "indent": 0
           },
@@ -14391,6 +14403,12 @@
             "indent": 0
           },
           {
+            "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
+            "label": "Total noninterest income",
+            "line": 34,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestIncomeOtherOperatingIncome",
             "label": "Other noninterest income",
             "line": 35,
@@ -14400,6 +14418,12 @@
             "tag": "NoninterestIncome",
             "label": "Total noninterest income",
             "line": 36,
+            "indent": 0
+          },
+          {
+            "tag": "CommunicationsAndInformationTechnology",
+            "label": "Data processing",
+            "line": 37,
             "indent": 0
           },
           {
@@ -14493,6 +14517,12 @@
             "indent": 0
           },
           {
+            "tag": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per share of common stock (in dollars per share)",
+            "line": 52,
+            "indent": 0
+          },
+          {
             "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
             "label": "Weighted average number of common shares outstanding, basic (in shares)",
             "line": 53,
@@ -14514,36 +14544,6 @@
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted earnings per common share (in dollars per share)",
             "line": 56,
-            "indent": 0
-          },
-          {
-            "tag": "CommonStockDividendsPerShareDeclared",
-            "label": "Dividends declared per share of common stock (in dollars per share)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "RevenueNotFromContractWithCustomerExcludingInterestIncome",
-            "label": "Total noninterest income",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommunicationsAndInformationTechnology",
-            "label": "Data processing",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingInterestExpense",
-            "label": "Senior notes",
-            "line": 9999,
             "indent": 0
           }
         ]

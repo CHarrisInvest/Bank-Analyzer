@@ -275,6 +275,16 @@
               "hasValue": true
             },
             {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed real estate",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "PropertyPlantAndEquipmentNet",
               "label": "Premises and equipment, net",
               "line": 12,
@@ -445,6 +455,16 @@
               "hasValue": true
             },
             {
+              "tag": "PreferredAndCommonStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
               "line": 32,
@@ -513,26 +533,6 @@
               "value": 911821000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "PreferredAndCommonStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -645,6 +645,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ForeclosedAssets",
+              "label": "Foreclosed real estate",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 1987000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "PropertyPlantAndEquipmentNet",
@@ -817,6 +827,16 @@
               "hasValue": false
             },
             {
+              "tag": "PreferredAndCommonStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2023 and 14,000,000 authorized at December 31, 2022; 11,375,803 shares issued and outstanding as of December 31, 2023; 7,958,904 shares issued outstanding as of December 31, 2022",
               "line": 32,
@@ -883,26 +903,6 @@
               "indent": 0,
               "negating": false,
               "value": 885254000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ForeclosedAssets",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1987000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "PreferredAndCommonStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -1038,6 +1038,18 @@
               "value": 159000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1246,6 +1258,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapitalCommonStock",
               "label": "Paid-in capital",
               "line": 32,
@@ -1254,6 +1278,18 @@
               "value": 94679000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1314,42 +1350,6 @@
               "value": 911821000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -1483,6 +1483,18 @@
               "value": 159000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1691,6 +1703,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapitalCommonStock",
               "label": "Paid-in capital",
               "line": 32,
@@ -1699,6 +1723,18 @@
               "value": 94679000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1759,42 +1795,6 @@
               "value": 911821000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -1928,6 +1928,18 @@
               "value": 159000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2136,6 +2148,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapitalCommonStock",
               "label": "Paid-in capital",
               "line": 32,
@@ -2144,6 +2168,18 @@
               "value": 94679000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2204,42 +2240,6 @@
               "value": 911821000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2373,6 +2373,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 1987000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2581,12 +2593,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapitalCommonStock",
               "label": "Paid-in capital",
               "line": 32,
               "indent": 0,
               "negating": false,
               "value": 110465000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 114000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2647,42 +2683,6 @@
               "indent": 0,
               "negating": false,
               "value": 911821000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1987000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 114000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2818,6 +2818,18 @@
               "value": 170000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3026,6 +3038,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapitalCommonStock",
               "label": "Paid-in capital",
               "line": 32,
@@ -3034,6 +3058,18 @@
               "value": 110697000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3094,42 +3130,6 @@
               "value": 892709000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3263,6 +3263,18 @@
               "value": 170000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3471,6 +3483,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapitalCommonStock",
               "label": "Paid-in capital",
               "line": 32,
@@ -3479,6 +3503,18 @@
               "value": 110465000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3539,42 +3575,6 @@
               "value": 897162000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3708,6 +3708,18 @@
               "value": 170000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3916,6 +3928,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapitalCommonStock",
               "label": "Paid-in capital",
               "line": 32,
@@ -3924,6 +3948,18 @@
               "value": 110534000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3984,42 +4020,6 @@
               "value": 892545000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4153,6 +4153,18 @@
               "value": 1987000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4361,12 +4373,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapitalCommonStock",
               "label": "Paid-in capital",
               "line": 32,
               "indent": 0,
               "negating": false,
               "value": 110465000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2023 and 14,000,000 authorized at December 31, 2022; 11,375,803 shares issued and outstanding as of December 31, 2023; 7,958,904 shares issued outstanding as of December 31, 2022",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 114000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4427,42 +4463,6 @@
               "indent": 0,
               "negating": false,
               "value": 885254000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2023 and 14,000,000 authorized at December 31, 2022; 11,375,803 shares issued and outstanding as of December 31, 2023; 7,958,904 shares issued outstanding as of December 31, 2022",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 114000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4598,6 +4598,18 @@
               "value": 555000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4806,6 +4818,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapitalCommonStock",
               "label": "Paid-in capital",
               "line": 32,
@@ -4814,6 +4838,18 @@
               "value": 15406000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4874,42 +4910,6 @@
               "value": 844963000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -5043,6 +5043,18 @@
               "value": 1987000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5251,6 +5263,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapitalCommonStock",
               "label": "Paid-in capital",
               "line": 32,
@@ -5259,6 +5283,18 @@
               "value": 15599000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5319,42 +5355,6 @@
               "value": 920835000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -5488,6 +5488,18 @@
               "value": 1987000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5696,6 +5708,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapitalCommonStock",
               "label": "Paid-in capital",
               "line": 32,
@@ -5704,6 +5728,18 @@
               "value": 15406000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5764,42 +5800,6 @@
               "value": 844963000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -5865,6 +5865,12 @@
           {
             "tag": "OtherRealEstate",
             "label": "Other real estate owned",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "ForeclosedAssets",
+            "label": "Foreclosed real estate",
             "line": 11,
             "indent": 0
           },
@@ -5971,6 +5977,12 @@
             "indent": 0
           },
           {
+            "tag": "PreferredAndCommonStockValue",
+            "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+            "line": 31,
+            "indent": 0
+          },
+          {
             "tag": "CommonStockValue",
             "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
             "line": 32,
@@ -6010,18 +6022,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and stockholders' equity",
             "line": 38,
-            "indent": 0
-          },
-          {
-            "tag": "ForeclosedAssets",
-            "label": "Foreclosed real estate",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "PreferredAndCommonStockValue",
-            "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -6083,6 +6083,12 @@
           {
             "tag": "ForeclosedAssets",
             "label": "Foreclosed real estate",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "OtherRealEstate",
+            "label": "Other real estate owned",
             "line": 11,
             "indent": 0
           },
@@ -6189,8 +6195,20 @@
             "indent": 0
           },
           {
+            "tag": "PreferredStockValue",
+            "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
+            "line": 31,
+            "indent": 0
+          },
+          {
             "tag": "AdditionalPaidInCapitalCommonStock",
             "label": "Paid-in capital",
+            "line": 32,
+            "indent": 0
+          },
+          {
+            "tag": "CommonStockValue",
+            "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
             "line": 32,
             "indent": 0
           },
@@ -6222,24 +6240,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and stockholders' equity",
             "line": 37,
-            "indent": 0
-          },
-          {
-            "tag": "OtherRealEstate",
-            "label": "Other real estate owned",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "PreferredStockValue",
-            "label": "Preferred stock, $0.01 par value; 1,000,000 shares authorized; none issued or outstanding",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommonStockValue",
-            "label": "Common stock, $0.01 par value; 45,000,000 shares authorized at December 31, 2024 and December 31, 2023; 10,645,284 shares issued and outstanding as of December 31, 2024 and 11,375,803 shares issued and outstanding as of December 31, 2023",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -6469,6 +6469,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -6527,6 +6537,16 @@
               "value": 709000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "GainLossOnDispositionOfAssets1",
@@ -6717,26 +6737,6 @@
               "value": 1.47,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -6841,6 +6841,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 9190000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -6897,6 +6907,16 @@
               "indent": 0,
               "negating": false,
               "value": 709000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 1000,
               "uom": "USD",
               "hasValue": true
             },
@@ -7089,26 +7109,6 @@
               "value": 1.32,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9190000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -7234,6 +7234,42 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestExpenseNet",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseOther",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -7302,6 +7338,18 @@
               "value": 26000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7410,6 +7458,18 @@
               "value": 97000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+              "label": "Foreclosed real estate and repossessed assets holding costs",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7530,66 +7590,6 @@
               "value": 0.35,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestExpenseNet",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOther",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-              "label": "Foreclosed real estate and repossessed assets holding costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -7715,6 +7715,42 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestExpenseNet",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseOther",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -7777,6 +7813,18 @@
             {
               "tag": "GainOnRepossessedAssets",
               "label": "Gain on foreclosed real estate",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
@@ -7891,6 +7939,18 @@
               "value": 103000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+              "label": "Foreclosed real estate and repossessed assets holding costs",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8011,66 +8071,6 @@
               "value": 0.32,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestExpenseNet",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOther",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-              "label": "Foreclosed real estate and repossessed assets holding costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8196,6 +8196,42 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestExpenseNet",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseOther",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -8258,6 +8294,18 @@
             {
               "tag": "GainOnRepossessedAssets",
               "label": "Gain on foreclosed real estate",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
@@ -8372,6 +8420,18 @@
               "value": 91000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+              "label": "Foreclosed real estate and repossessed assets holding costs",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8492,66 +8552,6 @@
               "value": 0.21,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestExpenseNet",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOther",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-              "label": "Foreclosed real estate and repossessed assets holding costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8677,6 +8677,42 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "OtherInterestExpenseNet",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpenseOther",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -8739,6 +8775,18 @@
             {
               "tag": "GainOnRepossessedAssets",
               "label": "Gain on foreclosed real estate",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
@@ -8855,6 +8903,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+              "label": "Foreclosed real estate and repossessed assets holding costs",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "ForeclosedRealEstateAndHoldingCosts",
@@ -8975,66 +9035,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "OtherInterestExpenseNet",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpenseOther",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-              "label": "Foreclosed real estate and repossessed assets holding costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -9158,6 +9158,42 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestExpenseNet",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseOther",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -9220,6 +9256,18 @@
             {
               "tag": "GainOnRepossessedAssets",
               "label": "Gain on foreclosed real estate",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
@@ -9334,6 +9382,18 @@
               "value": 105000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+              "label": "Foreclosed real estate and repossessed assets holding costs",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9454,66 +9514,6 @@
               "value": 0.35,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestExpenseNet",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOther",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-              "label": "Foreclosed real estate and repossessed assets holding costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9639,6 +9639,42 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 2302000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestExpenseNet",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseOther",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -9707,6 +9743,18 @@
               "value": 678000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9815,6 +9863,18 @@
               "value": 108000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+              "label": "Foreclosed real estate and repossessed assets holding costs",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9935,66 +9995,6 @@
               "value": 0.32,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2302000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestExpenseNet",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOther",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-              "label": "Foreclosed real estate and repossessed assets holding costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10120,6 +10120,42 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 3041000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestExpenseNet",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseOther",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -10182,6 +10218,18 @@
             {
               "tag": "GainOnRepossessedAssets",
               "label": "Gain on foreclosed real estate",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
@@ -10296,6 +10344,18 @@
               "value": 102000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+              "label": "Foreclosed real estate and repossessed assets holding costs",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10416,66 +10476,6 @@
               "value": 0.39,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3041000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestExpenseNet",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOther",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-              "label": "Foreclosed real estate and repossessed assets holding costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10601,6 +10601,42 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 4028000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestExpenseNet",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpenseOther",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -10663,6 +10699,18 @@
             {
               "tag": "GainOnRepossessedAssets",
               "label": "Gain on foreclosed real estate",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
@@ -10779,6 +10827,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+              "label": "Foreclosed real estate and repossessed assets holding costs",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "ForeclosedRealEstateAndHoldingCosts",
@@ -10899,66 +10959,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4028000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "OtherInterestExpenseNet",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpenseOther",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-              "label": "Foreclosed real estate and repossessed assets holding costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11082,6 +11082,42 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 2839000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestExpenseNet",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseOther",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -11144,6 +11180,18 @@
             {
               "tag": "GainOnRepossessedAssets",
               "label": "Gain on foreclosed real estate",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
@@ -11258,6 +11306,18 @@
               "value": 197000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+              "label": "Foreclosed real estate and repossessed assets holding costs",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11378,66 +11438,6 @@
               "value": 0.35,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2839000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestExpenseNet",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOther",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-              "label": "Foreclosed real estate and repossessed assets holding costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11563,6 +11563,42 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 835000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestExpenseNet",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 5000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseOther",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -11631,6 +11667,18 @@
               "value": 678000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11739,6 +11787,18 @@
               "value": 108000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+              "label": "Foreclosed real estate and repossessed assets holding costs",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11859,66 +11919,6 @@
               "value": 0.52,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 835000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestExpenseNet",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOther",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-              "label": "Foreclosed real estate and repossessed assets holding costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12044,6 +12044,42 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1488000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestExpenseNet",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseOther",
+              "label": "Other interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 18,
@@ -12106,6 +12142,18 @@
             {
               "tag": "GainOnRepossessedAssets",
               "label": "Gain on foreclosed real estate",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Gain on sale of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
@@ -12218,6 +12266,18 @@
               "indent": 0,
               "negating": false,
               "value": 105000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+              "label": "Foreclosed real estate and repossessed assets holding costs",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 127000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12342,66 +12402,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1488000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Gain on sale of loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestExpenseNet",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseOther",
-              "label": "Other interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-              "label": "Foreclosed real estate and repossessed assets holding costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 127000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -12463,6 +12463,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 17,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 18,
@@ -12495,6 +12501,12 @@
           {
             "tag": "GainOnRepossessedAssets",
             "label": "Gain on foreclosed real estate",
+            "line": 24,
+            "indent": 0
+          },
+          {
+            "tag": "GainLossOnSalesOfLoansNet",
+            "label": "Gain on sale of loans",
             "line": 24,
             "indent": 0
           },
@@ -12611,18 +12623,6 @@
             "label": "Diluted earnings per share",
             "line": 44,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnSalesOfLoansNet",
-            "label": "Gain on sale of loans",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -12681,6 +12681,24 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "OtherInterestExpenseNet",
+            "label": "Other interest expense",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseOther",
+            "label": "Other interest expense",
+            "line": 17,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 18,
@@ -12713,6 +12731,12 @@
           {
             "tag": "GainOnRepossessedAssets",
             "label": "Gain on foreclosed real estate",
+            "line": 24,
+            "indent": 0
+          },
+          {
+            "tag": "GainLossOnSalesOfLoansNet",
+            "label": "Gain on sale of loans",
             "line": 24,
             "indent": 0
           },
@@ -12767,6 +12791,12 @@
           {
             "tag": "EquipmentExpense",
             "label": "Equipment",
+            "line": 34,
+            "indent": 0
+          },
+          {
+            "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
+            "label": "Foreclosed real estate and repossessed assets holding costs",
             "line": 34,
             "indent": 0
           },
@@ -12828,36 +12858,6 @@
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted earnings per share",
             "line": 44,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnSalesOfLoansNet",
-            "label": "Gain on sale of loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OtherInterestExpenseNet",
-            "label": "Other interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseOther",
-            "label": "Other interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ForeclosedRealEstateAndRepossessedAssetsHoldingCosts",
-            "label": "Foreclosed real estate and repossessed assets holding costs",
-            "line": 9999,
             "indent": 0
           }
         ]

@@ -205,6 +205,16 @@
               "hasValue": true
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held-to-maturity (\"\"HTM\"\") securities, at amortized cost (fair value of net of $65,622, net of allowance for credit losses of $0 at December 31, 2024 and fair value of $73,262, net of allowance for credit losses of $0 at December 31, 2023)\"",
               "line": 4,
@@ -215,6 +225,16 @@
               "hasValue": true
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Securities available for sale \"\"AFS\"\"\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
@@ -223,6 +243,16 @@
               "value": 3284000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Securities held to maturity \"\"HTM\"\"\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "OtherInvestments",
@@ -255,6 +285,16 @@
               "hasValue": true
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -265,6 +305,16 @@
               "hasValue": true
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for loan losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
@@ -273,6 +323,16 @@
               "value": 1329000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "ServicingAssetatAmortizedCostNetOfValuationAllowance",
@@ -483,66 +543,6 @@
               "value": 1748519000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Securities available for sale \"\"AFS\"\"\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Securities held to maturity \"\"HTM\"\"\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -577,6 +577,16 @@
               "hasValue": true
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 249000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at December 31, 2023\"",
               "line": 4,
@@ -587,6 +597,16 @@
               "hasValue": true
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Securities available for sale \"\"AFS\"\"\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
@@ -595,6 +615,16 @@
               "value": 3284000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Securities held to maturity \"\"HTM\"\"\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "OtherInvestments",
@@ -627,6 +657,16 @@
               "hasValue": true
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -637,6 +677,16 @@
               "hasValue": true
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for loan losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
@@ -645,6 +695,16 @@
               "value": 5773000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "ServicingAssetatAmortizedCostNetOfValuationAllowance",
@@ -855,66 +915,6 @@
               "value": 1816386000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 249000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Securities available for sale \"\"AFS\"\"\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Securities held to maturity \"\"HTM\"\"\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -949,6 +949,16 @@
               "hasValue": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 1511000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held-to-maturity (\"\"HTM\"\") securities, at amortized cost (fair value of net of $65,622, net of allowance for credit losses of $0 at December 31, 2024 and fair value of $73,262, net of allowance for credit losses of $0 at December 31, 2023)\"",
               "line": 4,
@@ -959,12 +969,32 @@
               "hasValue": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Securities available for sale \"\"AFS\"\"\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 165991000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
               "indent": 0,
               "negating": false,
               "value": 1328000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Securities held to maturity \"\"HTM\"\"\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 96379000,
               "uom": "USD",
               "hasValue": true
             },
@@ -999,6 +1029,16 @@
               "hasValue": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1310963000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -1009,12 +1049,32 @@
               "hasValue": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for loan losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": -17939000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
               "indent": 0,
               "negating": false,
               "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 1294050000,
               "uom": "USD",
               "hasValue": true
             },
@@ -1227,66 +1287,6 @@
               "value": 1816386000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1511000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Securities available for sale \"\"AFS\"\"\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 165991000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Securities held to maturity \"\"HTM\"\"\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 96379000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1310963000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -17939000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1294050000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1328,6 +1328,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost (fair value of $64,879, net of allowance for credit losses of $0 at September 30, 2025 and fair value of $65,622, net of allowance for credit losses of $0 at December 31, 2024)\"",
               "line": 4,
@@ -1340,6 +1352,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
@@ -1348,6 +1372,18 @@
               "value": 4702000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1388,6 +1424,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -1400,6 +1448,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
@@ -1408,6 +1468,18 @@
               "value": 1329000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1580,6 +1652,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock$0.01 par value, authorized 30,000,000; 9,856,745 and 9,981,996 shares issued and outstanding, respectively",
               "line": 28,
@@ -1650,90 +1734,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1773,6 +1773,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost (fair value of $65,012, net of allowance for credit losses of $0 at June 30, 2025 and fair value of $65,622, net of allowance for credit losses of $0 at December 31, 2024)\"",
               "line": 4,
@@ -1785,6 +1797,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
@@ -1793,6 +1817,18 @@
               "value": 4702000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1833,6 +1869,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -1845,6 +1893,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
@@ -1853,6 +1913,18 @@
               "value": 6063000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2025,6 +2097,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock$0.01 par value, authorized 30,000,000; 9,991,997 and 9,981,996 shares issued and outstanding, respectively",
               "line": 28,
@@ -2095,90 +2179,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2218,6 +2218,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost (fair value of $66,191, net of allowance for credit losses of $0 at March 31, 2025 and fair value of $65,622, net of allowance for credit losses of $0 at December 31, 2024)\"",
               "line": 4,
@@ -2230,6 +2242,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
@@ -2238,6 +2262,18 @@
               "value": 5462000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2278,6 +2314,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -2290,6 +2338,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
@@ -2298,6 +2358,18 @@
               "value": 3296000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2470,6 +2542,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock$0.01 par value, authorized 30,000,000; 9,989,536 and 9,981,996 shares issued and outstanding, respectively",
               "line": 28,
@@ -2540,90 +2624,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2663,6 +2663,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held-to-maturity (\"\"HTM\"\") securities, at amortized cost (fair value of net of $65,622, net of allowance for credit losses of $0 at December 31, 2024 and fair value of $73,262, net of allowance for credit losses of $0 at December 31, 2023)\"",
               "line": 4,
@@ -2675,6 +2687,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
@@ -2683,6 +2707,18 @@
               "value": 3284000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2723,6 +2759,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -2735,6 +2783,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
@@ -2743,6 +2803,18 @@
               "value": 1329000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2915,6 +2987,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock $0.01 par value, authorized 30,000,000; 9,981,996 and 10,440,591 shares issued and outstanding, respectively",
               "line": 28,
@@ -2985,90 +3069,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3108,6 +3108,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost (fair value of $71,046, net of allowance for credit losses of $0 at September 30, 2024 and fair value of $73,262, net of allowance for credit losses of $0 at December 31, 2023)\"",
               "line": 4,
@@ -3120,6 +3132,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
@@ -3128,6 +3152,18 @@
               "value": 5096000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3168,6 +3204,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -3180,6 +3228,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
@@ -3188,6 +3248,18 @@
               "value": 697000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3360,6 +3432,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock$0.01 par value, authorized 30,000,000; 10,074,136 and 10,440,591 shares issued and outstanding, respectively",
               "line": 28,
@@ -3430,90 +3514,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3553,6 +3553,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost (fair value of $69,027, net of allowance for credit losses of $0 at June 30, 2024 and fair value of $73,262, net of allowance for credit losses of $0 at December 31, 2023)\"",
               "line": 4,
@@ -3565,6 +3577,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
@@ -3573,6 +3597,18 @@
               "value": 3284000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3613,6 +3649,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -3625,6 +3673,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
@@ -3633,6 +3693,18 @@
               "value": 275000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3805,6 +3877,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock$0.01 par value, authorized 30,000,000; 10,297,341 and 10,440,591 shares issued and outstanding, respectively",
               "line": 28,
@@ -3875,90 +3959,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3998,6 +3998,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost (fair value of $70,270, net of allowance for credit losses of $0 at March 31, 2024 and fair value of $73,262, net of allowance for credit losses of $0 at December 31, 2023)\"",
               "line": 4,
@@ -4010,6 +4022,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
@@ -4018,6 +4042,18 @@
               "value": 3284000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4058,6 +4094,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -4070,6 +4118,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
@@ -4078,6 +4138,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4250,6 +4322,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock$0.01 par value, authorized 30,000,000; 10,406,880 and 10,440,591 shares issued and outstanding, respectively",
               "line": 28,
@@ -4320,90 +4404,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4443,6 +4443,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 249000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at December 31, 2023\"",
               "line": 4,
@@ -4455,6 +4467,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
@@ -4463,6 +4487,18 @@
               "value": 3284000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4503,6 +4539,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -4515,6 +4563,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
@@ -4523,6 +4583,18 @@
               "value": 5773000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4695,6 +4767,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock $0.01 par value, authorized 30,000,000; 10,440,591 and 10,425,119 shares issued and outstanding, respectively",
               "line": 28,
@@ -4765,90 +4849,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 249000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4888,6 +4888,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost (fair value of $64,879, net of allowance for credit losses of $0 at September 30, 2025 and fair value of $65,622, net of allowance for credit losses of $0 at December 31, 2024)\"",
               "line": 4,
@@ -4900,12 +4912,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 165991000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
               "indent": 0,
               "negating": false,
               "value": 1794000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 92336000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4948,6 +4984,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -4960,6 +5008,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
@@ -4968,6 +5028,18 @@
               "value": 2737000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5140,6 +5212,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock$0.01 par value, authorized 30,000,000; 10,468,091 and 10,425,119 shares issued and outstanding, respectively",
               "line": 28,
@@ -5210,90 +5294,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 165991000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 92336000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5333,6 +5333,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 249000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost (fair value of $64,879, net of allowance for credit losses of $0 at September 30, 2025 and fair value of $65,622, net of allowance for credit losses of $0 at December 31, 2024)\"",
               "line": 4,
@@ -5345,12 +5357,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $187,172, net of allowance for credit losses of $0 at June 30, 2023)\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 161135000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
               "indent": 0,
               "negating": false,
               "value": 2299000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at June 30, 2023\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 93800000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5393,6 +5429,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1424988000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -5405,12 +5453,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": -23164000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
               "indent": 0,
               "negating": false,
               "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 1393845000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5585,6 +5657,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock$0.01 par value, authorized 30,000,000; 10,470,175 and 10,425,119 shares issued and outstanding, respectively",
               "line": 28,
@@ -5655,90 +5739,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 249000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $187,172, net of allowance for credit losses of $0 at June 30, 2023)\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 161135000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at June 30, 2023\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 93800000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1424988000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -23164000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1393845000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5778,6 +5778,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherInterestEarningAssets",
+              "label": "Other interest bearing deposits",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 249000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost (fair value of $64,879, net of allowance for credit losses of $0 at September 30, 2025 and fair value of $65,622, net of allowance for credit losses of $0 at December 31, 2024)\"",
               "line": 4,
@@ -5790,12 +5802,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "\"Securities available for sale \"\"AFS\"\"\"",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 173423000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EquitySecuritiesFvNi",
               "label": "Equity investments",
               "line": 5,
               "indent": 0,
               "negating": false,
               "value": 2151000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "\"Securities held to maturity \"\"HTM\"\"\"",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 95301000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5838,6 +5874,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans receivable",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1420955000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans receivable, net",
               "line": 9,
@@ -5850,12 +5898,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 9,
+              "indent": 0,
+              "negating": true,
+              "value": -17939000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 10,
               "indent": 0,
               "negating": false,
               "value": 761000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans receivable, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 1393845000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6030,6 +6102,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock$0.01 par value, authorized 30,000,000; 10,482,821 and 10,425,119 shares issued and outstanding, respectively",
               "line": 28,
@@ -6100,90 +6184,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestEarningAssets",
-              "label": "Other interest bearing deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 249000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "\"Securities available for sale \"\"AFS\"\"\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 173423000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "\"Securities held to maturity \"\"HTM\"\"\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 95301000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1420955000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -17939000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans receivable, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1393845000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -6203,14 +6203,32 @@
             "indent": 0
           },
           {
+            "tag": "OtherInterestEarningAssets",
+            "label": "Other interest bearing deposits",
+            "line": 3,
+            "indent": 0
+          },
+          {
             "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "\"Held-to-maturity (\"\"HTM\"\") securities, at amortized cost (fair value of net of $65,622, net of allowance for credit losses of $0 at December 31, 2024 and fair value of $73,262, net of allowance for credit losses of $0 at December 31, 2023)\"",
             "line": 4,
             "indent": 0
           },
           {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "\"Securities available for sale \"\"AFS\"\"\"",
+            "line": 4,
+            "indent": 0
+          },
+          {
             "tag": "EquitySecuritiesFvNi",
             "label": "Equity investments",
+            "line": 5,
+            "indent": 0
+          },
+          {
+            "tag": "HeldToMaturitySecurities",
+            "label": "\"Securities held to maturity \"\"HTM\"\"\"",
             "line": 5,
             "indent": 0
           },
@@ -6233,14 +6251,32 @@
             "indent": 0
           },
           {
+            "tag": "NotesReceivableGross",
+            "label": "Loans receivable",
+            "line": 8,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Loans receivable, net",
             "line": 9,
             "indent": 0
           },
           {
+            "tag": "FinancingReceivableAllowanceForCreditLosses",
+            "label": "Allowance for loan losses",
+            "line": 9,
+            "indent": 0
+          },
+          {
             "tag": "LoansReceivableHeldForSaleAmount",
             "label": "Loans held for sale",
+            "line": 10,
+            "indent": 0
+          },
+          {
+            "tag": "NotesReceivableNet",
+            "label": "Loans receivable, net",
             "line": 10,
             "indent": 0
           },
@@ -6369,42 +6405,6 @@
             "label": "TOTAL LIABILITIES AND STOCKHOLDERS EQUITY",
             "line": 34,
             "indent": 0
-          },
-          {
-            "tag": "OtherInterestEarningAssets",
-            "label": "Other interest bearing deposits",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "\"Securities available for sale \"\"AFS\"\"\"",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "HeldToMaturitySecurities",
-            "label": "\"Securities held to maturity \"\"HTM\"\"\"",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableGross",
-            "label": "Loans receivable",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableAllowanceForCreditLosses",
-            "label": "Allowance for loan losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableNet",
-            "label": "Loans receivable, net",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -6421,14 +6421,32 @@
             "indent": 0
           },
           {
+            "tag": "OtherInterestEarningAssets",
+            "label": "Other interest bearing deposits",
+            "line": 3,
+            "indent": 0
+          },
+          {
             "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost (fair value of $64,879, net of allowance for credit losses of $0 at September 30, 2025 and fair value of $65,622, net of allowance for credit losses of $0 at December 31, 2024)\"",
             "line": 4,
             "indent": 0
           },
           {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
+            "line": 4,
+            "indent": 0
+          },
+          {
             "tag": "EquitySecuritiesFvNi",
             "label": "Equity investments",
+            "line": 5,
+            "indent": 0
+          },
+          {
+            "tag": "HeldToMaturitySecurities",
+            "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
             "line": 5,
             "indent": 0
           },
@@ -6451,14 +6469,32 @@
             "indent": 0
           },
           {
+            "tag": "NotesReceivableGross",
+            "label": "Loans receivable",
+            "line": 8,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Loans receivable, net",
             "line": 9,
             "indent": 0
           },
           {
+            "tag": "FinancingReceivableAllowanceForCreditLosses",
+            "label": "Allowance for credit losses",
+            "line": 9,
+            "indent": 0
+          },
+          {
             "tag": "LoansReceivableHeldForSaleAmount",
             "label": "Loans held for sale",
+            "line": 10,
+            "indent": 0
+          },
+          {
+            "tag": "NotesReceivableNet",
+            "label": "Loans receivable, net",
             "line": 10,
             "indent": 0
           },
@@ -6547,6 +6583,12 @@
             "indent": 0
           },
           {
+            "tag": "CommitmentsAndContingencies",
+            "label": "Commitments and contingent liabilities",
+            "line": 27,
+            "indent": 0
+          },
+          {
             "tag": "CommonStockValue",
             "label": "Common stock$0.01 par value, authorized 30,000,000; 9,856,745 and 9,981,996 shares issued and outstanding, respectively",
             "line": 28,
@@ -6580,48 +6622,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "TOTAL LIABILITIES AND STOCKHOLDERS EQUITY",
             "line": 33,
-            "indent": 0
-          },
-          {
-            "tag": "OtherInterestEarningAssets",
-            "label": "Other interest bearing deposits",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "\"Available for sale (\"\"AFS\"\") securities, at fair value (amortized cost of $183,152, net of allowance for credit losses of $0 at September 30, 2023)\"",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "HeldToMaturitySecurities",
-            "label": "\"Held to maturity (\"\"HTM\"\") securities, at amortized cost, net of allowance for credit losses of $0 at September 30, 2023\"",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableGross",
-            "label": "Loans receivable",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableAllowanceForCreditLosses",
-            "label": "Allowance for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableNet",
-            "label": "Loans receivable, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommitmentsAndContingencies",
-            "label": "Commitments and contingent liabilities",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -6839,6 +6839,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 10,
@@ -7049,6 +7059,16 @@
               "hasValue": true
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "GainLossOnDispositionOfAssets1",
               "label": "Losses on repossessed assets, net",
               "line": 33,
@@ -7077,6 +7097,16 @@
               "value": 40142000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
@@ -7137,36 +7167,6 @@
               "value": 0.32,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7249,6 +7249,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 35899000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -7461,6 +7471,16 @@
               "hasValue": true
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 650000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "GainLossOnDispositionOfAssets1",
               "label": "Losses (gains) on repossessed assets, net",
               "line": 33,
@@ -7489,6 +7509,16 @@
               "value": 40142000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
@@ -7549,36 +7579,6 @@
               "value": 0.29,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 35899000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 650000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7661,6 +7661,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 13028000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -7873,6 +7883,16 @@
               "hasValue": true
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "GainLossOnDispositionOfAssets1",
               "label": "Gain on repossessed assets, net",
               "line": 33,
@@ -7899,6 +7919,16 @@
               "indent": 0,
               "negating": false,
               "value": 41743000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 28959000,
               "uom": "USD",
               "hasValue": true
             },
@@ -7959,36 +7989,6 @@
               "indent": 0,
               "negating": false,
               "value": 0.23,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13028000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 28959000,
               "uom": "USD",
               "hasValue": true
             }
@@ -8088,6 +8088,18 @@
               "value": 11227000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8196,6 +8208,18 @@
               "value": -78000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesRealizedGainLoss",
+              "label": "Net realized gains on debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8344,6 +8368,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 33,
@@ -8376,6 +8412,18 @@
               "value": 4185000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8436,54 +8484,6 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesRealizedGainLoss",
-              "label": "Net realized gains on debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8581,6 +8581,18 @@
               "value": 10887000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8689,6 +8701,18 @@
               "value": -658000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesRealizedGainLoss",
+              "label": "Net realized gains on debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8837,6 +8861,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 33,
@@ -8869,6 +8905,18 @@
               "value": 4715000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8929,54 +8977,6 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesRealizedGainLoss",
-              "label": "Net realized gains on debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9074,6 +9074,18 @@
               "value": 10774000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9180,6 +9192,18 @@
               "indent": 0,
               "negating": false,
               "value": 10000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesRealizedGainLoss",
+              "label": "Net realized gains on debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -9330,6 +9354,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 33,
@@ -9362,6 +9398,18 @@
               "value": 3974000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9422,54 +9470,6 @@
               "value": 0.32,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesRealizedGainLoss",
-              "label": "Net realized gains on debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9560,6 +9560,18 @@
             },
             {
               "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpense",
               "label": "Total interest expense",
               "line": 9,
               "indent": 0,
@@ -9677,6 +9689,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesRealizedGainLoss",
+              "label": "Net realized gains on debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "BankOwnedLifeInsuranceIncome",
@@ -9823,6 +9847,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 33,
@@ -9857,6 +9893,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "IncomeTaxExpenseBenefit",
@@ -9917,54 +9965,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesRealizedGainLoss",
-              "label": "Net realized gains on debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -10060,6 +10060,18 @@
               "value": 11227000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10166,6 +10178,18 @@
               "indent": 0,
               "negating": false,
               "value": 116000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesRealizedGainLoss",
+              "label": "Net realized gains on debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -10316,6 +10340,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 33,
@@ -10348,6 +10384,18 @@
               "value": 5042000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10408,54 +10456,6 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesRealizedGainLoss",
-              "label": "Net realized gains on debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10553,6 +10553,18 @@
               "value": 9091000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10659,6 +10671,18 @@
               "indent": 0,
               "negating": false,
               "value": -2000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesRealizedGainLoss",
+              "label": "Net realized gains on debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -10809,6 +10833,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 33,
@@ -10841,6 +10877,18 @@
               "value": 4715000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10901,54 +10949,6 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesRealizedGainLoss",
-              "label": "Net realized gains on debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11046,6 +11046,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 10774000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11154,6 +11166,18 @@
               "value": 167000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesRealizedGainLoss",
+              "label": "Net realized gains on debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11302,6 +11326,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 27000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 33,
@@ -11334,6 +11370,18 @@
               "value": 4916000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11394,54 +11442,6 @@
               "value": 0.29,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesRealizedGainLoss",
-              "label": "Net realized gains on debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10774000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 27000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11541,6 +11541,18 @@
               "hasValue": false,
               "isDerived": true,
               "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 10279000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -11649,6 +11661,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesRealizedGainLoss",
+              "label": "Net realized gains on debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "BankOwnedLifeInsuranceIncome",
@@ -11795,6 +11819,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 487000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 33,
@@ -11829,6 +11865,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "IncomeTaxExpenseBenefit",
@@ -11889,54 +11937,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesRealizedGainLoss",
-              "label": "Net realized gains on debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10279000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 487000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -12032,6 +12032,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 9651000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12140,6 +12152,18 @@
               "value": 116000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesRealizedGainLoss",
+              "label": "Net realized gains on debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12288,6 +12312,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 163000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 33,
@@ -12320,6 +12356,18 @@
               "value": 5277000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12380,54 +12428,6 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesRealizedGainLoss",
-              "label": "Net realized gains on debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9651000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 163000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12525,6 +12525,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 9091000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12633,6 +12645,18 @@
               "value": -75000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesRealizedGainLoss",
+              "label": "Net realized gains on debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12781,6 +12805,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 33,
@@ -12813,6 +12849,18 @@
               "value": 5777000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12873,54 +12921,6 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesRealizedGainLoss",
-              "label": "Net realized gains on debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9091000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13018,6 +13018,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 6878000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13126,6 +13138,18 @@
               "value": -37000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesRealizedGainLoss",
+              "label": "Net realized gains on debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13274,6 +13298,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InvestmentTaxCredit",
+              "label": "New market tax credit depletion expense",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 33,
@@ -13306,6 +13342,18 @@
               "value": 4916000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+              "label": "Income before provision for income taxes",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13368,54 +13416,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesRealizedGainLoss",
-              "label": "Net realized gains on debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6878000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InvestmentTaxCredit",
-              "label": "New market tax credit depletion expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-              "label": "Income before provision for income taxes",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -13460,6 +13460,12 @@
           },
           {
             "tag": "InterestExpenseOperating",
+            "label": "Total interest expense",
+            "line": 9,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
             "label": "Total interest expense",
             "line": 9,
             "indent": 0
@@ -13591,6 +13597,12 @@
             "indent": 0
           },
           {
+            "tag": "InvestmentTaxCredit",
+            "label": "New market tax credit depletion",
+            "line": 32,
+            "indent": 0
+          },
+          {
             "tag": "GainLossOnDispositionOfAssets1",
             "label": "Losses on repossessed assets, net",
             "line": 33,
@@ -13605,6 +13617,12 @@
           {
             "tag": "NoninterestExpense",
             "label": "Total non-interest expense",
+            "line": 35,
+            "indent": 0
+          },
+          {
+            "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before provision for income taxes",
             "line": 35,
             "indent": 0
           },
@@ -13642,24 +13660,6 @@
             "tag": "CommonStockDividendsPerShareCashPaid",
             "label": "Cash dividends paid (USD per share)",
             "line": 42,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InvestmentTaxCredit",
-            "label": "New market tax credit depletion",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-            "label": "Income before provision for income taxes",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -13702,6 +13702,12 @@
           },
           {
             "tag": "InterestExpenseOperating",
+            "label": "Total interest expense",
+            "line": 9,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
             "label": "Total interest expense",
             "line": 9,
             "indent": 0
@@ -13757,6 +13763,12 @@
           {
             "tag": "EquitySecuritiesFvNiGainLoss",
             "label": "Net gains (losses) on equity securities",
+            "line": 19,
+            "indent": 0
+          },
+          {
+            "tag": "DebtSecuritiesRealizedGainLoss",
+            "label": "Net realized gains on debt securities",
             "line": 19,
             "indent": 0
           },
@@ -13833,6 +13845,12 @@
             "indent": 0
           },
           {
+            "tag": "InvestmentTaxCredit",
+            "label": "New market tax credit depletion",
+            "line": 32,
+            "indent": 0
+          },
+          {
             "tag": "OtherNoninterestExpense",
             "label": "Other",
             "line": 33,
@@ -13846,6 +13864,12 @@
           },
           {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "line": 35,
+            "indent": 0
+          },
+          {
+            "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
             "label": "Income before provision for income taxes",
             "line": 35,
             "indent": 0
@@ -13878,30 +13902,6 @@
             "tag": "CommonStockDividendsPerShareCashPaid",
             "label": "Cash dividends paid (USD per share)",
             "line": 41,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesRealizedGainLoss",
-            "label": "Net realized gains on debt securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InvestmentTaxCredit",
-            "label": "New market tax credit depletion",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-            "label": "Income before provision for income taxes",
-            "line": 9999,
             "indent": 0
           }
         ]

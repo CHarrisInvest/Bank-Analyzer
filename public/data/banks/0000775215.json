@@ -225,6 +225,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
               "label": "Debt securities available-for-sale, at fair value",
               "line": 6,
@@ -235,6 +245,16 @@
               "hasValue": true
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $445,186 at 2024 and $466,496 at 2023)",
               "line": 7,
@@ -243,6 +263,16 @@
               "value": 114850000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $478,801 in 2022 and $336,027 in 2021)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
@@ -295,6 +325,16 @@
               "hasValue": true
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses",
               "line": 13,
@@ -305,6 +345,16 @@
               "hasValue": true
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 14,
@@ -313,6 +363,16 @@
               "value": 3364369000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "BankOwnedLifeInsurance",
@@ -603,66 +663,6 @@
               "value": 5073170000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $478,801 in 2022 and $336,027 in 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -717,6 +717,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
               "label": "Debt securities available-for-sale, at fair value",
               "line": 6,
@@ -727,6 +737,16 @@
               "hasValue": true
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $466,496 at 2023 and $478,801 at 2022)",
               "line": 7,
@@ -735,6 +755,16 @@
               "value": 114850000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $478,801 in 2022 and $336,027 in 2021)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
@@ -787,6 +817,16 @@
               "hasValue": true
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses",
               "line": 13,
@@ -797,6 +837,16 @@
               "hasValue": true
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 14,
@@ -805,6 +855,16 @@
               "value": 2594920000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "BankOwnedLifeInsurance",
@@ -1095,66 +1155,6 @@
               "value": 5073170000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $478,801 in 2022 and $336,027 in 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -1209,6 +1209,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 490000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
               "label": "Debt securities available-for-sale, at fair value",
               "line": 6,
@@ -1219,6 +1229,16 @@
               "hasValue": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 843524000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $445,186 at 2024 and $466,496 at 2023)",
               "line": 7,
@@ -1227,6 +1247,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $478,801 in 2022 and $336,027 in 2021)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 541600000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
@@ -1279,6 +1309,16 @@
               "hasValue": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 2620253000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses",
               "line": 13,
@@ -1289,6 +1329,16 @@
               "hasValue": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": -23936000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 14,
@@ -1297,6 +1347,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 2594920000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "BankOwnedLifeInsurance",
@@ -1587,66 +1647,6 @@
               "value": 4286734000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 490000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 843524000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $478,801 in 2022 and $336,027 in 2021)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 541600000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2620253000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -23936000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2594920000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1712,6 +1712,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $431,493 at 2025 and $445,186 at 2024)",
               "line": 6,
@@ -1720,6 +1744,18 @@
               "value": 499858000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1744,6 +1780,18 @@
               "value": 2629000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1796,6 +1844,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 13,
@@ -1808,6 +1868,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank owned life insurance",
               "line": 14,
@@ -1816,6 +1888,30 @@
               "value": 23989000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableGross",
+              "label": "Loans, before allowance for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1844,6 +1940,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ForeclosedAssets",
               "label": "Foreclosed assets",
               "line": 17,
@@ -1864,6 +1972,18 @@
               "value": 59820000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net of allowance for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2154,126 +2274,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans, before allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net of allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2337,6 +2337,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $442,064 at 2025 and $445,186 at 2024)",
               "line": 6,
@@ -2345,6 +2369,18 @@
               "value": 481942000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2369,6 +2405,18 @@
               "value": 2629000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2421,6 +2469,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 13,
@@ -2433,6 +2493,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank owned life insurance",
               "line": 14,
@@ -2441,6 +2513,30 @@
               "value": 24320000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableGross",
+              "label": "Loans, before allowance for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2469,6 +2565,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ForeclosedAssets",
               "label": "Foreclosed assets",
               "line": 17,
@@ -2489,6 +2597,18 @@
               "value": 59820000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net of allowance for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2779,126 +2899,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans, before allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net of allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2962,6 +2962,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $445,762 at 2025 and $445,186 at 2024)",
               "line": 6,
@@ -2970,6 +2994,18 @@
               "value": 499858000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2994,6 +3030,18 @@
               "value": 2629000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3046,6 +3094,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 13,
@@ -3058,6 +3118,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank owned life insurance",
               "line": 14,
@@ -3066,6 +3138,30 @@
               "value": 23989000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableGross",
+              "label": "Loans, before allowance for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3094,6 +3190,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ForeclosedAssets",
               "label": "Foreclosed assets",
               "line": 17,
@@ -3114,6 +3222,18 @@
               "value": 59820000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net of allowance for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3404,126 +3524,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans, before allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net of allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3587,6 +3587,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 509000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $445,186 at 2024 and $466,496 at 2023)",
               "line": 6,
@@ -3595,6 +3619,18 @@
               "value": 114850000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3619,6 +3655,18 @@
               "value": 2505000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3671,6 +3719,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 13,
@@ -3683,6 +3743,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank owned life insurance",
               "line": 14,
@@ -3691,6 +3763,30 @@
               "value": 23989000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableGross",
+              "label": "Loans, before allowance for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3719,6 +3815,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ForeclosedAssets",
               "label": "Foreclosed assets",
               "line": 17,
@@ -3739,6 +3847,18 @@
               "value": 59820000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net of allowance for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4029,126 +4149,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 509000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans, before allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net of allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4212,6 +4212,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $463,259 at 2024 and $466,496 at 2023)",
               "line": 6,
@@ -4220,6 +4244,18 @@
               "value": 521439000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4244,6 +4280,18 @@
               "value": 2638000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4296,6 +4344,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 13,
@@ -4308,6 +4368,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank owned life insurance",
               "line": 14,
@@ -4316,6 +4388,30 @@
               "value": 23905000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableGross",
+              "label": "Loans, before allowance for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4344,6 +4440,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ForeclosedAssets",
               "label": "Foreclosed assets",
               "line": 17,
@@ -4364,6 +4472,18 @@
               "value": 59820000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net of allowance for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4654,126 +4774,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans, before allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net of allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4837,6 +4837,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 509000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $453,753 at 2024 and $466,496 at 2023)",
               "line": 6,
@@ -4845,6 +4869,18 @@
               "value": 521439000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4869,6 +4905,18 @@
               "value": 2505000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4921,6 +4969,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 13,
@@ -4933,6 +4993,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank owned life insurance",
               "line": 14,
@@ -4941,6 +5013,30 @@
               "value": 23905000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableGross",
+              "label": "Loans, before allowance for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4969,6 +5065,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ForeclosedAssets",
               "label": "Foreclosed assets",
               "line": 17,
@@ -4989,6 +5097,18 @@
               "value": 59820000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net of allowance for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5279,126 +5399,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 509000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans, before allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net of allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5462,6 +5462,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 509000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $458,640 at 2024 and $466,496 at 2023)",
               "line": 6,
@@ -5470,6 +5494,18 @@
               "value": 521439000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5494,6 +5530,18 @@
               "value": 2622000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5546,6 +5594,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 13,
@@ -5558,6 +5618,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank owned life insurance",
               "line": 14,
@@ -5566,6 +5638,30 @@
               "value": 24069000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableGross",
+              "label": "Loans, before allowance for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5594,6 +5690,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ForeclosedAssets",
               "label": "Foreclosed assets",
               "line": 17,
@@ -5614,6 +5722,18 @@
               "value": 59820000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net of allowance for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5904,126 +6024,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 509000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans, before allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net of allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6087,6 +6087,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 509000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $466,496 at 2023 and $478,801 at 2022)",
               "line": 6,
@@ -6095,6 +6119,18 @@
               "value": 114850000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6119,6 +6155,18 @@
               "value": 2505000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6171,6 +6219,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 13,
@@ -6183,6 +6243,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank owned life insurance",
               "line": 14,
@@ -6191,6 +6263,30 @@
               "value": 23905000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableGross",
+              "label": "Loans, before allowance for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6219,6 +6315,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ForeclosedAssets",
               "label": "Foreclosed assets",
               "line": 17,
@@ -6239,6 +6347,18 @@
               "value": 29322000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net of allowance for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6529,126 +6649,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 509000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans, before allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net of allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6712,6 +6712,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $450,313 at 2023 and $478,801 at 2022)",
               "line": 6,
@@ -6720,6 +6744,18 @@
               "value": 527144000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6744,6 +6780,18 @@
               "value": 1977000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6796,6 +6844,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 13,
@@ -6808,6 +6868,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank owned life insurance",
               "line": 14,
@@ -6816,6 +6888,30 @@
               "value": 7557000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableGross",
+              "label": "Loans, before allowance for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6844,6 +6940,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ForeclosedAssets",
               "label": "Foreclosed assets",
               "line": 17,
@@ -6864,6 +6972,18 @@
               "value": 59820000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net of allowance for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7154,126 +7274,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans, before allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net of allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -7337,12 +7337,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $469,921 at 2023 and $478,801 at 2022)",
               "line": 6,
               "indent": 0,
               "negating": false,
               "value": 533231000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 843524000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -7367,6 +7403,18 @@
               "indent": 0,
               "negating": false,
               "value": 2275000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 541600000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -7421,6 +7469,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 13,
@@ -7433,6 +7493,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank owned life insurance",
               "line": 14,
@@ -7441,6 +7513,30 @@
               "value": 7557000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableGross",
+              "label": "Loans, before allowance for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 2620253000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7469,6 +7565,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -23936000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ForeclosedAssets",
               "label": "Foreclosed assets",
               "line": 17,
@@ -7487,6 +7595,18 @@
               "indent": 0,
               "negating": false,
               "value": 29322000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net of allowance for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 2594920000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -7779,126 +7899,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 843524000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 541600000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans, before allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2620253000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -23936000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net of allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2594920000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -7962,6 +7962,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestBearingDepositTimeDepositsWithBanks",
+              "label": "Interest-bearing time deposits with banks",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 249000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
               "line": 6,
@@ -7970,6 +7994,18 @@
               "value": 541600000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7994,6 +8030,18 @@
               "value": 1980000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8046,11 +8094,35 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans, before allowance for loan losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Loans, net of allowance for credit losses",
               "line": 13,
               "indent": 0,
               "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses",
+              "line": 13,
+              "indent": 0,
+              "negating": true,
               "value": null,
               "uom": "USD",
               "hasValue": false,
@@ -8066,6 +8138,30 @@
               "value": 23447000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableGross",
+              "label": "Loans, before allowance for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 3195540000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net of allowance for loan losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8094,6 +8190,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -38776000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ForeclosedAssets",
               "label": "Foreclosed assets",
               "line": 17,
@@ -8112,6 +8220,18 @@
               "indent": 0,
               "negating": false,
               "value": 29322000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Loans, net of allowance for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 3156764000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -8404,126 +8524,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans, before allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3195540000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -38776000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Loans, net of allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3156764000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestBearingDepositTimeDepositsWithBanks",
-              "label": "Interest-bearing time deposits with banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 249000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans, before allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net of allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -8555,7 +8555,19 @@
             "indent": 0
           },
           {
+            "tag": "InterestBearingDepositTimeDepositsWithBanks",
+            "label": "Interest-bearing time deposits with banks",
+            "line": 5,
+            "indent": 0
+          },
+          {
             "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
+            "label": "Debt securities available-for-sale, at fair value",
+            "line": 6,
+            "indent": 0
+          },
+          {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
             "label": "Debt securities available-for-sale, at fair value",
             "line": 6,
             "indent": 0
@@ -8563,6 +8575,12 @@
           {
             "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
             "label": "Debt securities held-to-maturity (fair value of $445,186 at 2024 and $466,496 at 2023)",
+            "line": 7,
+            "indent": 0
+          },
+          {
+            "tag": "HeldToMaturitySecurities",
+            "label": "Debt securities held-to-maturity (fair value of $478,801 in 2022 and $336,027 in 2021)",
             "line": 7,
             "indent": 0
           },
@@ -8597,14 +8615,32 @@
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+            "label": "Loans, before allowance for loan losses",
+            "line": 12,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
             "label": "Allowance for credit losses",
             "line": 13,
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableAllowance",
+            "label": "Allowance for loan losses",
+            "line": 13,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Loans, net of allowance for credit losses",
+            "line": 14,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
+            "label": "Loans, net of allowance for loan losses",
             "line": 14,
             "indent": 0
           },
@@ -8781,42 +8817,6 @@
             "label": "Total liabilities and stockholders equity",
             "line": 47,
             "indent": 0
-          },
-          {
-            "tag": "InterestBearingDepositTimeDepositsWithBanks",
-            "label": "Interest-bearing time deposits with banks",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "Debt securities available-for-sale, at fair value",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "HeldToMaturitySecurities",
-            "label": "Debt securities held-to-maturity (fair value of $478,801 in 2022 and $336,027 in 2021)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-            "label": "Loans, before allowance for loan losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableAllowance",
-            "label": "Allowance for loan losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Loans, net of allowance for loan losses",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -8845,8 +8845,26 @@
             "indent": 0
           },
           {
+            "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
+            "label": "Interest-bearing time deposits with banks",
+            "line": 5,
+            "indent": 0
+          },
+          {
+            "tag": "InterestBearingDepositTimeDepositsWithBanks",
+            "label": "Interest-bearing time deposits with banks",
+            "line": 5,
+            "indent": 0
+          },
+          {
             "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
             "label": "Debt securities held-to-maturity (fair value of $431,493 at 2025 and $445,186 at 2024)",
+            "line": 6,
+            "indent": 0
+          },
+          {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
             "line": 6,
             "indent": 0
           },
@@ -8859,6 +8877,12 @@
           {
             "tag": "EquitySecuritiesWithoutReadilyDeterminableFairValueAmount",
             "label": "Equity securities with no readily determinable fair value",
+            "line": 8,
+            "indent": 0
+          },
+          {
+            "tag": "HeldToMaturitySecurities",
+            "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
             "line": 8,
             "indent": 0
           },
@@ -8887,14 +8911,38 @@
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+            "label": "Loans, before allowance for loan losses",
+            "line": 12,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Loans, net of allowance for credit losses",
             "line": 13,
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableAllowance",
+            "label": "Allowance for loan losses",
+            "line": 13,
+            "indent": 0
+          },
+          {
             "tag": "BankOwnedLifeInsurance",
             "label": "Bank owned life insurance",
+            "line": 14,
+            "indent": 0
+          },
+          {
+            "tag": "NotesReceivableGross",
+            "label": "Loans, before allowance for credit losses",
+            "line": 14,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
+            "label": "Loans, net of allowance for loan losses",
             "line": 14,
             "indent": 0
           },
@@ -8911,6 +8959,12 @@
             "indent": 0
           },
           {
+            "tag": "FinancingReceivableAllowanceForCreditLosses",
+            "label": "Allowance for credit losses",
+            "line": 16,
+            "indent": 0
+          },
+          {
             "tag": "ForeclosedAssets",
             "label": "Foreclosed assets",
             "line": 17,
@@ -8919,6 +8973,12 @@
           {
             "tag": "Goodwill",
             "label": "Goodwill",
+            "line": 18,
+            "indent": 0
+          },
+          {
+            "tag": "NotesReceivableNet",
+            "label": "Loans, net of allowance for credit losses",
             "line": 18,
             "indent": 0
           },
@@ -9064,66 +9124,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and stockholders equity",
             "line": 46,
-            "indent": 0
-          },
-          {
-            "tag": "InterestBearingTimeDepositsInBanksAndOtherFinancialInstitutions",
-            "label": "Interest-bearing time deposits with banks",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "Debt securities available-for-sale, at fair value (allowance for credit losses of $800 at 2023)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "HeldToMaturitySecurities",
-            "label": "Debt securities held-to-maturity (fair value of $481,925 at 2023 and $478,801 at 2022)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableGross",
-            "label": "Loans, before allowance for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableAllowanceForCreditLosses",
-            "label": "Allowance for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableNet",
-            "label": "Loans, net of allowance for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestBearingDepositTimeDepositsWithBanks",
-            "label": "Interest-bearing time deposits with banks",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-            "label": "Loans, before allowance for loan losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableAllowance",
-            "label": "Allowance for loan losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Loans, net of allowance for loan losses",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -9401,6 +9401,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -9419,6 +9429,26 @@
               "value": 7573000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -9721,39 +9751,9 @@
               "hasValue": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
+              "line": 58,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9903,6 +9903,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 7180000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -9915,6 +9925,26 @@
             {
               "tag": "CreditLossExpenseReversal",
               "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": -8077000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
               "line": 26,
               "indent": 0,
               "negating": false,
@@ -10223,39 +10253,9 @@
               "hasValue": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7180000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -8077000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
+              "line": 58,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10405,6 +10405,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 5820000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -10423,6 +10433,26 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 10532000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -10725,39 +10755,9 @@
               "hasValue": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5820000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10532000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
+              "line": 58,
               "indent": 0,
               "negating": false,
               "value": 27811293,
@@ -10936,6 +10936,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -10956,6 +10968,30 @@
               "value": 603000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11332,45 +11368,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
+              "line": 59,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11549,6 +11549,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -11569,6 +11581,30 @@
               "value": 1176000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11945,45 +11981,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
+              "line": 59,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12162,6 +12162,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -12182,6 +12194,30 @@
               "value": 527000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12558,45 +12594,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
+              "line": 59,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12775,6 +12775,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -12797,6 +12809,30 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -13171,45 +13207,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
+              "line": 59,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -13388,6 +13388,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -13408,6 +13420,30 @@
               "value": 603000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13784,45 +13820,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
+              "line": 59,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -14001,6 +14001,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 15796000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -14021,6 +14033,30 @@
               "value": 1176000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14397,45 +14433,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 15796000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
+              "line": 59,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -14614,6 +14614,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 15273000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -14634,6 +14646,30 @@
               "value": 6210000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15010,45 +15046,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 15273000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
+              "line": 59,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -15227,6 +15227,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": -7282000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -15241,6 +15253,30 @@
             {
               "tag": "CreditLossExpenseReversal",
               "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": -14537000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
               "line": 26,
               "indent": 0,
               "negating": false,
@@ -15623,45 +15659,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -7282000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -14537000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
+              "line": 59,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -15840,6 +15840,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 1624000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -15854,6 +15866,30 @@
             {
               "tag": "CreditLossExpenseReversal",
               "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 480000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
               "line": 26,
               "indent": 0,
               "negating": false,
@@ -16236,45 +16272,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1624000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 480000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
+              "line": 59,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -16453,6 +16453,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 7896000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -16467,6 +16479,30 @@
             {
               "tag": "CreditLossExpenseReversal",
               "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": -230000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
               "line": 26,
               "indent": 0,
               "negating": false,
@@ -16849,50 +16885,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7896000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR CREDIT LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -230000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
+              "line": 59,
               "indent": 0,
               "negating": false,
               "value": 32079983,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -17066,6 +17066,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 4942000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 25,
@@ -17080,6 +17092,30 @@
             {
               "tag": "CreditLossExpenseReversal",
               "label": "PROVISION FOR CREDIT LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+              "label": "PROVISION FOR LOAN LOSSES",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 6210000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "PROVISION FOR LOAN LOSSES",
               "line": 26,
               "indent": 0,
               "negating": false,
@@ -17462,50 +17498,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4942000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6210000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-              "line": 9999,
+              "line": 59,
               "indent": 0,
               "negating": false,
               "value": 29030239,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "PROVISION FOR LOAN LOSSES",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -17593,6 +17593,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 24,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 25,
@@ -17601,6 +17607,18 @@
           {
             "tag": "CreditLossExpenseReversal",
             "label": "PROVISION FOR CREDIT LOSSES",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+            "label": "PROVISION FOR CREDIT LOSSES",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "PROVISION FOR LOAN LOSSES",
             "line": 26,
             "indent": 0
           },
@@ -17785,27 +17803,9 @@
             "indent": 0
           },
           {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-            "label": "PROVISION FOR CREDIT LOSSES",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "PROVISION FOR LOAN LOSSES",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-            "line": 9999,
+            "line": 58,
             "indent": 0
           }
         ],
@@ -17889,6 +17889,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 24,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 25,
@@ -17897,6 +17903,18 @@
           {
             "tag": "CreditLossExpenseReversal",
             "label": "PROVISION FOR CREDIT LOSSES",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
+            "label": "PROVISION FOR CREDIT LOSSES",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "PROVISION FOR LOAN LOSSES",
             "line": 26,
             "indent": 0
           },
@@ -18087,27 +18105,9 @@
             "indent": 0
           },
           {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLossesExpensedPlusAdjustmentsForPurchasedCreditDeterioratedLoans",
-            "label": "PROVISION FOR CREDIT LOSSES",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "WEIGHTED AVERAGE SHARES OF COMMON STOCK OUTSTANDING - Diluted",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "PROVISION FOR LOAN LOSSES",
-            "line": 9999,
+            "line": 59,
             "indent": 0
           }
         ]

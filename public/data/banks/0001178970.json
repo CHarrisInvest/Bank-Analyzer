@@ -250,6 +250,16 @@
               "hasValue": true
             },
             {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Federal Home Loan Bank stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "LoansReceivableHeldForSaleAmount",
               "label": "Loans held for sale",
               "line": 9,
@@ -568,16 +578,6 @@
               "value": 24051825000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Federal Home Loan Bank stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -660,6 +660,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Federal Home Loan Bank stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 68554000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "LoansReceivableHeldForSaleAmount",
@@ -980,16 +990,6 @@
               "value": 14210810000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Federal Home Loan Bank stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 68554000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -1072,6 +1072,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Federal Home Loan Bank stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 68554000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "LoansReceivableHeldForSaleAmount",
@@ -1392,16 +1402,6 @@
               "value": 13783436000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Federal Home Loan Bank stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 68554000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1443,12 +1443,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashEquivalentsAtCarryingValue",
+              "label": "Short-term investments",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, (net of $19,000 allowance as of September 30, 2025 (unaudited) and $14,000 allowance as of December 31, 2024)",
               "line": 4,
               "indent": 0,
               "negating": false,
               "value": 327623000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 180255000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -1499,6 +1523,18 @@
               "value": 18659370000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+              "label": "Federal Home Loan Bank and other stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1827,33 +1863,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CashEquivalentsAtCarryingValue",
-              "label": "Short-term investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 180255000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnearnedESOPShares",
               "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-              "line": 9999,
+              "line": 40,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -1865,7 +1877,7 @@
             {
               "tag": "CommonStockHeldInTrust",
               "label": "Common stock acquired by deferred compensation plans",
-              "line": 9999,
+              "line": 41,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -1877,19 +1889,7 @@
             {
               "tag": "DirectorsDeferredFeePlan",
               "label": "Deferred compensation plans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-              "label": "Federal Home Loan Bank and other stock",
-              "line": 9999,
+              "line": 42,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -1936,12 +1936,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashEquivalentsAtCarryingValue",
+              "label": "Short-term investments",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, (net of $20,000 allowance as of June 30, 2025 (unaudited) and $14,000 allowance as of December 31, 2024)",
               "line": 4,
               "indent": 0,
               "negating": false,
               "value": 327623000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 205939000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -1992,6 +2016,18 @@
               "value": 19104830000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+              "label": "Federal Home Loan Bank and other stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2320,33 +2356,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CashEquivalentsAtCarryingValue",
-              "label": "Short-term investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 205939000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnearnedESOPShares",
               "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-              "line": 9999,
+              "line": 40,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -2358,7 +2370,7 @@
             {
               "tag": "CommonStockHeldInTrust",
               "label": "Common stock acquired by deferred compensation plans",
-              "line": 9999,
+              "line": 41,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -2370,19 +2382,7 @@
             {
               "tag": "DirectorsDeferredFeePlan",
               "label": "Deferred compensation plans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-              "label": "Federal Home Loan Bank and other stock",
-              "line": 9999,
+              "line": 42,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -2429,12 +2429,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashEquivalentsAtCarryingValue",
+              "label": "Short-term investments",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, (net of $17,000 allowance as of March 31, 2025 and $14,000 allowance as of December 31, 2024)",
               "line": 4,
               "indent": 0,
               "negating": false,
               "value": 327623000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 234076000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2485,6 +2509,18 @@
               "value": 18791371000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+              "label": "Federal Home Loan Bank and other stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2813,33 +2849,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CashEquivalentsAtCarryingValue",
-              "label": "Short-term investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 234076000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnearnedESOPShares",
               "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-              "line": 9999,
+              "line": 40,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -2851,7 +2863,7 @@
             {
               "tag": "CommonStockHeldInTrust",
               "label": "Common stock acquired by deferred compensation plans",
-              "line": 9999,
+              "line": 41,
               "indent": 0,
               "negating": true,
               "value": null,
@@ -2863,19 +2875,7 @@
             {
               "tag": "DirectorsDeferredFeePlan",
               "label": "Deferred compensation plans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-              "label": "Federal Home Loan Bank and other stock",
-              "line": 9999,
+              "line": 42,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -2922,12 +2922,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashEquivalentsAtCarryingValue",
+              "label": "Short-term investments",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 25000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, (net of $14,000 allowance as of December 31, 2024 and $31,000 as of December 31, 2023, respectively)",
               "line": 4,
               "indent": 0,
               "negating": false,
               "value": 363080000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 205939000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2976,6 +3000,18 @@
               "indent": 0,
               "negating": false,
               "value": 18659370000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+              "label": "Federal Home Loan Bank and other stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 79217000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3306,33 +3342,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CashEquivalentsAtCarryingValue",
-              "label": "Short-term investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 25000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 205939000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnearnedESOPShares",
               "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-              "line": 9999,
+              "line": 40,
               "indent": 0,
               "negating": true,
               "value": 0,
@@ -3344,7 +3356,7 @@
             {
               "tag": "CommonStockHeldInTrust",
               "label": "Common stock acquired by deferred compensation plans",
-              "line": 9999,
+              "line": 41,
               "indent": 0,
               "negating": true,
               "value": 0,
@@ -3356,22 +3368,10 @@
             {
               "tag": "DirectorsDeferredFeePlan",
               "label": "Deferred compensation plans",
-              "line": 9999,
+              "line": 42,
               "indent": 0,
               "negating": false,
               "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-              "label": "Federal Home Loan Bank and other stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 79217000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3415,12 +3415,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashEquivalentsAtCarryingValue",
+              "label": "Short-term investments",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 14000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, (net of $15,000 allowance as of September 30, 2024 (unaudited) and $31,000 allowance as of December 31, 2023)",
               "line": 4,
               "indent": 0,
               "negating": false,
               "value": 332021000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 189269000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3471,6 +3495,18 @@
               "value": 10871916000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+              "label": "Federal Home Loan Bank and other stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3799,33 +3835,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CashEquivalentsAtCarryingValue",
-              "label": "Short-term investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 14000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 189269000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnearnedESOPShares",
               "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-              "line": 9999,
+              "line": 40,
               "indent": 0,
               "negating": true,
               "value": -4896000,
@@ -3837,7 +3849,7 @@
             {
               "tag": "CommonStockHeldInTrust",
               "label": "Common stock acquired by deferred compensation plans",
-              "line": 9999,
+              "line": 41,
               "indent": 0,
               "negating": true,
               "value": -2247000,
@@ -3849,24 +3861,12 @@
             {
               "tag": "DirectorsDeferredFeePlan",
               "label": "Deferred compensation plans",
-              "line": 9999,
+              "line": 42,
               "indent": 0,
               "negating": false,
               "value": 2694000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-              "label": "Federal Home Loan Bank and other stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3908,12 +3908,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashEquivalentsAtCarryingValue",
+              "label": "Short-term investments",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 14000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, net (fair value of $332,691 as of June 30, 2024 (unaudited) and $352,601 as of December 31, 2023)",
               "line": 4,
               "indent": 0,
               "negating": false,
               "value": 350528000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 180255000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3964,6 +3988,18 @@
               "value": 18759330000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+              "label": "Federal Home Loan Bank and other stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4292,33 +4328,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CashEquivalentsAtCarryingValue",
-              "label": "Short-term investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 14000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 180255000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnearnedESOPShares",
               "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-              "line": 9999,
+              "line": 40,
               "indent": 0,
               "negating": true,
               "value": -4896000,
@@ -4330,7 +4342,7 @@
             {
               "tag": "CommonStockHeldInTrust",
               "label": "Common stock acquired by deferred compensation plans",
-              "line": 9999,
+              "line": 41,
               "indent": 0,
               "negating": true,
               "value": -2694000,
@@ -4342,24 +4354,12 @@
             {
               "tag": "DirectorsDeferredFeePlan",
               "label": "Deferred compensation plans",
-              "line": 9999,
+              "line": 42,
               "indent": 0,
               "negating": false,
               "value": 2694000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-              "label": "Federal Home Loan Bank and other stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4401,12 +4401,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashEquivalentsAtCarryingValue",
+              "label": "Short-term investments",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 14000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, net (fair value of $341,459 as of March 31, 2024 and $352,601 as of December 31, 2023)",
               "line": 4,
               "indent": 0,
               "negating": false,
               "value": 354671000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 233853000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4457,6 +4481,18 @@
               "value": 10873701000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+              "label": "Federal Home Loan Bank and other stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4785,33 +4821,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CashEquivalentsAtCarryingValue",
-              "label": "Short-term investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 14000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 233853000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnearnedESOPShares",
               "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-              "line": 9999,
+              "line": 40,
               "indent": 0,
               "negating": true,
               "value": -4896000,
@@ -4823,7 +4835,7 @@
             {
               "tag": "CommonStockHeldInTrust",
               "label": "Common stock acquired by deferred compensation plans",
-              "line": 9999,
+              "line": 41,
               "indent": 0,
               "negating": true,
               "value": -2546000,
@@ -4835,24 +4847,12 @@
             {
               "tag": "DirectorsDeferredFeePlan",
               "label": "Deferred compensation plans",
-              "line": 9999,
+              "line": 42,
               "indent": 0,
               "negating": false,
               "value": 2694000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-              "label": "Federal Home Loan Bank and other stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4894,12 +4894,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashEquivalentsAtCarryingValue",
+              "label": "Short-term investments",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 14000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, net (fair value of $352,601 and $373,468 as of December 31, 2023 and December 31, 2022, respectively).",
               "line": 4,
               "indent": 0,
               "negating": false,
               "value": 363080000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 712463000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4950,6 +4974,18 @@
               "value": 10873701000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+              "label": "Federal Home Loan Bank and other stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5278,33 +5314,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CashEquivalentsAtCarryingValue",
-              "label": "Short-term investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 14000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 712463000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnearnedESOPShares",
               "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-              "line": 9999,
+              "line": 40,
               "indent": 0,
               "negating": true,
               "value": -10226000,
@@ -5316,7 +5328,7 @@
             {
               "tag": "CommonStockHeldInTrust",
               "label": "Common stock acquired by deferred compensation plans",
-              "line": 9999,
+              "line": 41,
               "indent": 0,
               "negating": true,
               "value": -2694000,
@@ -5328,24 +5340,12 @@
             {
               "tag": "DirectorsDeferredFeePlan",
               "label": "Deferred compensation plans",
-              "line": 9999,
+              "line": 42,
               "indent": 0,
               "negating": false,
               "value": 3427000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-              "label": "Federal Home Loan Bank and other stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -5387,12 +5387,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashEquivalentsAtCarryingValue",
+              "label": "Short-term investments",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 696000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, net (fair value of $343,082 at September 30, 2023 (unaudited) and $373,468 at December 31, 2022)",
               "line": 4,
               "indent": 0,
               "negating": false,
               "value": 387923000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 184868000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5443,6 +5467,18 @@
               "value": 10248883000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+              "label": "Federal Home Loan Bank and other stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5771,33 +5807,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CashEquivalentsAtCarryingValue",
-              "label": "Short-term investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 696000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 184868000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnearnedESOPShares",
               "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-              "line": 9999,
+              "line": 40,
               "indent": 0,
               "negating": true,
               "value": -7791000,
@@ -5809,7 +5821,7 @@
             {
               "tag": "CommonStockHeldInTrust",
               "label": "Common stock acquired by deferred compensation plans",
-              "line": 9999,
+              "line": 41,
               "indent": 0,
               "negating": true,
               "value": -3427000,
@@ -5821,24 +5833,12 @@
             {
               "tag": "DirectorsDeferredFeePlan",
               "label": "Deferred compensation plans",
-              "line": 9999,
+              "line": 42,
               "indent": 0,
               "negating": false,
               "value": 3013000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-              "label": "Federal Home Loan Bank and other stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -5880,12 +5880,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashEquivalentsAtCarryingValue",
+              "label": "Short-term investments",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 18000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, net (fair value of $365,029 at June 30, 2023 (unaudited) and $373,468 at December 31, 2022)",
               "line": 4,
               "indent": 0,
               "negating": false,
               "value": 378894000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 208872000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5936,6 +5960,18 @@
               "value": 10530531000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+              "label": "Federal Home Loan Bank and other stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6264,33 +6300,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CashEquivalentsAtCarryingValue",
-              "label": "Short-term investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 208872000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnearnedESOPShares",
               "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-              "line": 9999,
+              "line": 40,
               "indent": 0,
               "negating": true,
               "value": -8603000,
@@ -6302,7 +6314,7 @@
             {
               "tag": "CommonStockHeldInTrust",
               "label": "Common stock acquired by deferred compensation plans",
-              "line": 9999,
+              "line": 41,
               "indent": 0,
               "negating": true,
               "value": -3427000,
@@ -6314,24 +6326,12 @@
             {
               "tag": "DirectorsDeferredFeePlan",
               "label": "Deferred compensation plans",
-              "line": 9999,
+              "line": 42,
               "indent": 0,
               "negating": false,
               "value": 3150000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-              "label": "Federal Home Loan Bank and other stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -6373,12 +6373,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashEquivalentsAtCarryingValue",
+              "label": "Short-term investments",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 18000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, net (fair value of $371,397 and $373,468 at March 31, 2023 and December 31, 2022, respectively).",
               "line": 4,
               "indent": 0,
               "negating": false,
               "value": 387923000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 233853000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6429,6 +6453,18 @@
               "value": 10248883000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+              "label": "Federal Home Loan Bank and other stock",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6757,33 +6793,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CashEquivalentsAtCarryingValue",
-              "label": "Short-term investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 233853000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnearnedESOPShares",
               "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-              "line": 9999,
+              "line": 40,
               "indent": 0,
               "negating": true,
               "value": -10226000,
@@ -6795,7 +6807,7 @@
             {
               "tag": "CommonStockHeldInTrust",
               "label": "\"Common stock acquired by the Directors' Deferred Fee Plan (\"\"DDFP\"\")\"",
-              "line": 9999,
+              "line": 41,
               "indent": 0,
               "negating": true,
               "value": -3427000,
@@ -6807,24 +6819,12 @@
             {
               "tag": "DirectorsDeferredFeePlan",
               "label": "Deferred Compensation - Directors' Deferred Fee Plan",
-              "line": 9999,
+              "line": 42,
               "indent": 0,
               "negating": false,
               "value": 3289000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-              "label": "Federal Home Loan Bank and other stock",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -6872,6 +6872,12 @@
           {
             "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
             "label": "Federal Home Loan Bank and other stock",
+            "line": 8,
+            "indent": 0
+          },
+          {
+            "tag": "FederalHomeLoanBankStock",
+            "label": "Federal Home Loan Bank stock",
             "line": 8,
             "indent": 0
           },
@@ -7066,12 +7072,6 @@
             "label": "Total liabilities and stockholders equity",
             "line": 43,
             "indent": 0
-          },
-          {
-            "tag": "FederalHomeLoanBankStock",
-            "label": "Federal Home Loan Bank stock",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -7088,8 +7088,20 @@
             "indent": 0
           },
           {
+            "tag": "CashEquivalentsAtCarryingValue",
+            "label": "Short-term investments",
+            "line": 3,
+            "indent": 0
+          },
+          {
             "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Held to maturity debt securities, (net of $19,000 allowance as of September 30, 2025 (unaudited) and $14,000 allowance as of December 31, 2024)",
+            "line": 4,
+            "indent": 0
+          },
+          {
+            "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+            "label": "Total cash and cash equivalents",
             "line": 4,
             "indent": 0
           },
@@ -7114,6 +7126,12 @@
           {
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
             "label": "Loans held for investment",
+            "line": 8,
+            "indent": 0
+          },
+          {
+            "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
+            "label": "Federal Home Loan Bank and other stock",
             "line": 8,
             "indent": 0
           },
@@ -7280,39 +7298,21 @@
             "indent": 0
           },
           {
-            "tag": "CashEquivalentsAtCarryingValue",
-            "label": "Short-term investments",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-            "label": "Total cash and cash equivalents",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "UnearnedESOPShares",
             "label": "Unallocated common stock held by the Employee Stock Ownership Plan",
-            "line": 9999,
+            "line": 40,
             "indent": 0
           },
           {
             "tag": "CommonStockHeldInTrust",
             "label": "Common stock acquired by deferred compensation plans",
-            "line": 9999,
+            "line": 41,
             "indent": 0
           },
           {
             "tag": "DirectorsDeferredFeePlan",
             "label": "Deferred compensation plans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalHomeLoanBankStockAndFederalReserveBankStock",
-            "label": "Federal Home Loan Bank and other stock",
-            "line": 9999,
+            "line": 42,
             "indent": 0
           }
         ]
@@ -7550,6 +7550,26 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debentures",
               "line": 12,
@@ -7570,6 +7590,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -7588,6 +7618,16 @@
               "value": 28168000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -7730,6 +7770,16 @@
               "hasValue": true
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "BusinessCombinationAcquisitionRelatedCosts",
               "label": "Merger-related expenses",
               "line": 32,
@@ -7748,6 +7798,16 @@
               "value": 54706000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestExpense",
@@ -7828,66 +7888,6 @@
               "value": 74873256,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7992,6 +7992,26 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 9310000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debentures",
               "line": 12,
@@ -8012,6 +8032,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 48629000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -8030,6 +8060,16 @@
               "value": 8388000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -8172,6 +8212,16 @@
               "hasValue": true
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 264000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "BusinessCombinationAcquisitionRelatedCosts",
               "label": "Merger-related expenses",
               "line": 32,
@@ -8188,6 +8238,16 @@
               "indent": 0,
               "negating": false,
               "value": 38927000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 7826000,
               "uom": "USD",
               "hasValue": true
             },
@@ -8270,66 +8330,6 @@
               "value": 76560840,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9310000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 48629000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 264000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7826000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -8434,6 +8434,26 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 8614000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debentures",
               "line": 12,
@@ -8454,6 +8474,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 36316000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -8472,6 +8502,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 29719000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -8614,6 +8654,16 @@
               "hasValue": true
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Credit loss (benefit) charge for off-balance sheet credit exposure",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 1814000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "BusinessCombinationAcquisitionRelatedCosts",
               "label": "Merger-related expenses",
               "line": 32,
@@ -8632,6 +8682,16 @@
               "value": 38610000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestExpense",
@@ -8710,66 +8770,6 @@
               "indent": 0,
               "negating": false,
               "value": 76560840,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 36316000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Credit loss (benefit) charge for off-balance sheet credit exposure",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1814000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 8614000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 29719000,
               "uom": "USD",
               "hasValue": true
             }
@@ -8897,6 +8897,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debt",
               "line": 12,
@@ -8921,6 +8945,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -8941,6 +8977,30 @@
               "value": 9299000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9125,6 +9185,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": -300000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expenses",
               "line": 33,
@@ -9133,6 +9205,18 @@
               "value": 15761000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9229,90 +9313,6 @@
               "value": 130004870,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -300000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9438,6 +9438,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debt",
               "line": 12,
@@ -9462,6 +9486,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -9482,6 +9518,30 @@
               "value": 69705000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9666,6 +9726,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": -241000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expenses",
               "line": 33,
@@ -9674,6 +9746,18 @@
               "value": 14488000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9770,90 +9854,6 @@
               "value": 130500143,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -241000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9979,6 +9979,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debt",
               "line": 12,
@@ -10003,6 +10027,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -10023,6 +10059,30 @@
               "value": -320000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10207,6 +10267,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expenses",
               "line": 33,
@@ -10215,6 +10287,18 @@
               "value": 16423000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10311,90 +10395,6 @@
               "value": 130380475,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10520,6 +10520,30 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debentures",
               "line": 12,
@@ -10533,6 +10557,18 @@
             },
             {
               "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpense",
               "label": "Total interest expense",
               "line": 13,
               "indent": 0,
@@ -10566,6 +10602,30 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -10748,6 +10808,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expenses",
               "line": 33,
@@ -10758,6 +10830,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestExpense",
@@ -10854,90 +10938,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11061,6 +11061,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debt",
               "line": 12,
@@ -11085,6 +11109,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -11105,6 +11141,30 @@
               "value": 12541000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11289,6 +11349,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expenses",
               "line": 33,
@@ -11297,6 +11369,18 @@
               "value": 10728000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11393,90 +11477,6 @@
               "value": 74914205,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11602,6 +11602,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 20566000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debt",
               "line": 12,
@@ -11626,6 +11650,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 50790000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -11646,6 +11682,30 @@
               "value": 9750000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11830,6 +11890,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expenses",
               "line": 33,
@@ -11838,6 +11910,18 @@
               "value": 11262000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11934,90 +12018,6 @@
               "value": 102957521,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 20566000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 50790000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12143,6 +12143,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 7476000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debt",
               "line": 12,
@@ -12167,6 +12191,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 70189000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -12187,6 +12223,30 @@
               "value": 186000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12371,6 +12431,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 739000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expenses",
               "line": 33,
@@ -12379,6 +12451,18 @@
               "value": 10331000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12475,90 +12559,6 @@
               "value": 75275660,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7476000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 70189000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 739000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12684,6 +12684,30 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debentures",
               "line": 12,
@@ -12708,6 +12732,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": -20866000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -12721,6 +12757,30 @@
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversalAndProvisionForOtherCreditLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Provision charge (benefit) for credit losses",
               "line": 15,
               "indent": 0,
@@ -12912,6 +12972,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": -1077000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expenses",
               "line": 33,
@@ -12922,6 +12994,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestExpense",
@@ -13018,90 +13102,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -20866000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1077000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -13225,6 +13225,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 2518000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debt",
               "line": 12,
@@ -13249,6 +13273,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 12242000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -13269,6 +13305,30 @@
               "value": 11009000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13453,6 +13513,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 1575000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expenses",
               "line": 33,
@@ -13461,6 +13533,18 @@
               "value": 9331000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13557,90 +13641,6 @@
               "value": 74914205,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2518000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 12242000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1575000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13766,6 +13766,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 14088000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debt",
               "line": 12,
@@ -13790,6 +13814,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 50790000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -13804,6 +13840,30 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversalAndProvisionForOtherCreditLosses",
               "label": "Provision charge for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 10397000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
               "line": 15,
               "indent": 0,
               "negating": false,
@@ -13994,6 +14054,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision (benefit) charge for credit losses on off-balance sheet credit exposures",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": -973000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expenses",
               "line": 33,
@@ -14002,6 +14074,18 @@
               "value": 9949000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14098,90 +14182,6 @@
               "value": 74400788,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 50790000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision (benefit) charge for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -973000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 14088000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10397000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -14307,6 +14307,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpenseBorrowedFunds",
+              "label": "Borrowed funds",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 7476000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseSubordinatedNotesAndDebentures",
               "label": "Subordinated debt",
               "line": 12,
@@ -14331,6 +14355,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 6463000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -14345,6 +14381,30 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversalAndProvisionForOtherCreditLosses",
               "label": "Provision charge for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision charge (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": -6405000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLeaseAndOtherLosses",
+              "label": "Provision charge (benefit) for credit losses",
               "line": 15,
               "indent": 0,
               "negating": false,
@@ -14535,6 +14595,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 739000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other operating expenses",
               "line": 33,
@@ -14543,6 +14615,18 @@
               "value": 12160000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14641,90 +14725,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6463000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 739000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseBorrowedFunds",
-              "label": "Borrowed funds",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7476000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -6405000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLeaseAndOtherLosses",
-              "label": "Provision charge (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -14786,6 +14786,18 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpenseDebt",
+            "label": "Borrowed funds",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseBorrowedFunds",
+            "label": "Borrowed funds",
+            "line": 11,
+            "indent": 0
+          },
+          {
             "tag": "InterestExpenseSubordinatedNotesAndDebentures",
             "label": "Subordinated debentures",
             "line": 12,
@@ -14793,6 +14805,12 @@
           },
           {
             "tag": "InterestExpenseOperating",
+            "label": "Total interest expense",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
             "label": "Total interest expense",
             "line": 13,
             "indent": 0
@@ -14806,6 +14824,12 @@
           {
             "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversalAndProvisionForOtherCreditLosses",
             "label": "Provision charge for credit losses",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLeaseAndOtherLosses",
+            "label": "Provision charge (benefit) for credit losses",
             "line": 15,
             "indent": 0
           },
@@ -14894,6 +14918,12 @@
             "indent": 0
           },
           {
+            "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+            "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+            "line": 31,
+            "indent": 0
+          },
+          {
             "tag": "BusinessCombinationAcquisitionRelatedCosts",
             "label": "Merger-related expenses",
             "line": 32,
@@ -14902,6 +14932,12 @@
           {
             "tag": "OtherNoninterestExpense",
             "label": "Other operating expenses",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "NoncashMergerRelatedCosts",
+            "label": "Merger-related expenses",
             "line": 33,
             "indent": 0
           },
@@ -14951,42 +14987,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Average diluted shares outstanding (in shares)",
             "line": 41,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseDebt",
-            "label": "Borrowed funds",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-            "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NoncashMergerRelatedCosts",
-            "label": "Merger-related expenses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseBorrowedFunds",
-            "label": "Borrowed funds",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLeaseAndOtherLosses",
-            "label": "Provision charge (benefit) for credit losses",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -15046,6 +15046,18 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpenseDebt",
+            "label": "Borrowed funds",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseBorrowedFunds",
+            "label": "Borrowed funds",
+            "line": 11,
+            "indent": 0
+          },
+          {
             "tag": "InterestExpenseSubordinatedNotesAndDebentures",
             "label": "Subordinated debt",
             "line": 12,
@@ -15053,6 +15065,12 @@
           },
           {
             "tag": "InterestExpenseOperating",
+            "label": "Total interest expense",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
             "label": "Total interest expense",
             "line": 13,
             "indent": 0
@@ -15066,6 +15084,18 @@
           {
             "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversalAndProvisionForOtherCreditLosses",
             "label": "Provision charge for credit losses",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLossesExpensed",
+            "label": "Provision charge (benefit) for credit losses",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLeaseAndOtherLosses",
+            "label": "Provision charge (benefit) for credit losses",
             "line": 15,
             "indent": 0
           },
@@ -15160,8 +15190,20 @@
             "indent": 0
           },
           {
+            "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+            "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
+            "line": 32,
+            "indent": 0
+          },
+          {
             "tag": "OtherNoninterestExpense",
             "label": "Other operating expenses",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "NoncashMergerRelatedCosts",
+            "label": "Merger-related expenses",
             "line": 33,
             "indent": 0
           },
@@ -15211,48 +15253,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Weighted average diluted shares outstanding (in shares)",
             "line": 41,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseDebt",
-            "label": "Borrowed funds",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-            "label": "Provision charge (benefit) for credit losses on off-balance sheet credit exposures",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseBorrowedFunds",
-            "label": "Borrowed funds",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLossesExpensed",
-            "label": "Provision charge (benefit) for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NoncashMergerRelatedCosts",
-            "label": "Merger-related expenses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLeaseAndOtherLosses",
-            "label": "Provision charge (benefit) for credit losses",
-            "line": 9999,
             "indent": 0
           }
         ]

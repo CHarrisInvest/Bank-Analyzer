@@ -465,6 +465,16 @@
               "hasValue": true
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 21)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -533,16 +543,6 @@
               "value": 8863419000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 21)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -837,6 +837,16 @@
               "hasValue": true
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 21)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -903,16 +913,6 @@
               "indent": 0,
               "negating": false,
               "value": 8170102000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 21)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -1209,6 +1209,16 @@
               "hasValue": true
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 21)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -1275,16 +1285,6 @@
               "indent": 0,
               "negating": false,
               "value": 6646025000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 21)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -1364,6 +1364,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities (amortized cost of $1,140,571 in 2025 and $1,114,961 in 2024, respectively)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities (fair value of $183,811 in 2025 and $341,357 in 2024, respectively)",
               "line": 13,
@@ -1372,6 +1384,18 @@
               "value": 370171000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities (fair value of $189,017 in 2025 and $341,357 in 2024, respectively)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1400,6 +1424,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses on loans",
               "line": 16,
@@ -1412,6 +1448,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses on loans",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 17,
@@ -1420,6 +1468,18 @@
               "value": 6433459000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Net loans",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1640,6 +1700,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 12)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -1722,78 +1794,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities (amortized cost of $1,140,571 in 2025 and $1,114,961 in 2024, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities (fair value of $189,017 in 2025 and $341,357 in 2024, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 12)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1869,6 +1869,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities (amortized cost of $1,140,571 in 2025 and $1,114,961 in 2024, respectively)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities (fair value of $187,271 in 2025 and $341,357 in 2024, respectively)",
               "line": 13,
@@ -1877,6 +1889,18 @@
               "value": 207980000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities (fair value of $189,017 in 2025 and $341,357 in 2024, respectively)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1905,6 +1929,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses on loans",
               "line": 16,
@@ -1917,6 +1953,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses on loans",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 17,
@@ -1925,6 +1973,18 @@
               "value": 6433459000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Net loans",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2145,6 +2205,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 12)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -2227,78 +2299,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities (amortized cost of $1,140,571 in 2025 and $1,114,961 in 2024, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities (fair value of $189,017 in 2025 and $341,357 in 2024, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 12)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2374,6 +2374,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities (amortized cost of $1,140,571 in 2025 and $1,114,961 in 2024, respectively)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 990114000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities (fair value of $183,811 in 2025 and $341,357 in 2024, respectively)",
               "line": 13,
@@ -2382,6 +2394,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities (fair value of $189,017 in 2025 and $341,357 in 2024, respectively)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 212451000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2410,6 +2434,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 6646360000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses on loans",
               "line": 16,
@@ -2422,6 +2458,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses on loans",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -80897000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 17,
@@ -2430,6 +2478,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Net loans",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 6557546000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2650,6 +2710,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 12)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -2732,78 +2804,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities (amortized cost of $1,140,571 in 2025 and $1,114,961 in 2024, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 990114000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities (fair value of $189,017 in 2025 and $341,357 in 2024, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 212451000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6646360000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -80897000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6557546000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 12)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2879,6 +2879,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities (amortized cost of $1,114,961 in 2024 and $1,154,153 in 2023, respectively)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 990114000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities (fair value of $183,811 in 2025 and $341,357 in 2024, respectively)",
               "line": 13,
@@ -2887,6 +2899,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities (fair value of $341,357 in 2024 and $408,519 in 2023, respectively)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 370171000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2915,6 +2939,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 6520402000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses on loans",
               "line": 16,
@@ -2927,6 +2963,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses on loans",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -53898000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 17,
@@ -2935,6 +2983,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Net loans",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 5691664000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3155,6 +3215,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 12)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -3237,78 +3309,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities (amortized cost of $1,114,961 in 2024 and $1,154,153 in 2023, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 990114000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities (fair value of $341,357 in 2024 and $408,519 in 2023, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 370171000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6520402000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -53898000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5691664000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 12)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3384,6 +3384,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities (amortized cost of $958,606 in 2024 and $1,154,153 in 2023, respectively)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 861832000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities (fair value of $183,811 in 2025 and $341,357 in 2024, respectively)",
               "line": 13,
@@ -3392,6 +3404,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities (fair value of $352,430 in 2024 and $408,519 in 2023, respectively)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 374912000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3420,6 +3444,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 6278133000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses on loans",
               "line": 16,
@@ -3432,6 +3468,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses on loans",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -85343000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 17,
@@ -3440,6 +3488,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Net loans",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 5691664000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3660,6 +3720,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 12)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -3742,78 +3814,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities (amortized cost of $958,606 in 2024 and $1,154,153 in 2023, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 861832000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities (fair value of $352,430 in 2024 and $408,519 in 2023, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 374912000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6278133000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -85343000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5691664000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 12)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3889,6 +3889,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities (amortized cost of $1,091,348 in 2024 and $1,154,153 in 2023, respectively)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1031179000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities (fair value of $183,811 in 2025 and $341,357 in 2024, respectively)",
               "line": 13,
@@ -3897,6 +3909,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities (fair value of $347,886 in 2024 and $408,519 in 2023, respectively)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 380726000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3925,6 +3949,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 5771038000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses on loans",
               "line": 16,
@@ -3937,6 +3973,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses on loans",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -82155000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 17,
@@ -3945,6 +3993,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Net loans",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 5691664000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4165,6 +4225,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 12)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -4247,78 +4319,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities (amortized cost of $1,091,348 in 2024 and $1,154,153 in 2023, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1031179000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities (fair value of $347,886 in 2024 and $408,519 in 2023, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 380726000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5771038000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -82155000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5691664000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 12)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4394,6 +4394,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities (amortized cost of $1,123,119 in 2024 and $1,154,153 in 2023, respectively)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1031179000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities (fair value of $183,811 in 2025 and $341,357 in 2024, respectively)",
               "line": 13,
@@ -4402,6 +4414,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities (fair value of $351,869 in 2024 and $408,519 in 2023, respectively)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 439837000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4430,6 +4454,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 5849715000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses on loans",
               "line": 16,
@@ -4442,6 +4478,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses on loans",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -80897000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 17,
@@ -4450,6 +4498,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Net loans",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 5691664000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4670,6 +4730,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 12)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -4752,78 +4824,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities (amortized cost of $1,123,119 in 2024 and $1,154,153 in 2023, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1031179000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities (fair value of $351,869 in 2024 and $408,519 in 2023, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 439837000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5849715000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -80897000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5691664000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 12)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4899,6 +4899,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities (amortized cost of $1,154,153 in 2023 and $1,297,977 in 2022, respectively)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1031179000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities (fair value of $183,811 in 2025 and $341,357 in 2024, respectively)",
               "line": 13,
@@ -4907,6 +4919,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities (fair value of $408,519 in 2023 and $431,833 in 2022, respectively)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 439837000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4935,6 +4959,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 5771038000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses on loans",
               "line": 16,
@@ -4947,6 +4983,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses on loans",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -53898000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 17,
@@ -4955,6 +5003,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Net loans",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 5691664000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5175,6 +5235,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 21)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -5257,78 +5329,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities (amortized cost of $1,154,153 in 2023 and $1,297,977 in 2022, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1031179000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities (fair value of $408,519 in 2023 and $431,833 in 2022, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 439837000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5771038000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -53898000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5691664000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 21)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5404,6 +5404,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities (amortized cost of $1,195,721 in 2023 and $1,297,977 in 2022, respectively)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1020248000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities (fair value of $183,811 in 2025 and $341,357 in 2024, respectively)",
               "line": 13,
@@ -5412,6 +5424,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities (fair value of $397,418 in 2023 and $431,833 in 2022, respectively)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 445205000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5440,6 +5464,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 5205918000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses on loans",
               "line": 16,
@@ -5452,6 +5488,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses on loans",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -73531000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 17,
@@ -5460,6 +5508,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Net loans",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 5539009000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5680,6 +5740,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 12)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -5762,78 +5834,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities (amortized cost of $1,195,721 in 2023 and $1,297,977 in 2022, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1020248000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities (fair value of $397,418 in 2023 and $431,833 in 2022, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 445205000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5205918000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -73531000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5539009000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 12)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5909,6 +5909,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities (amortized cost of $1,238,249 in 2023 and $1,297,977 in 2022, respectively)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1092724000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities (fair value of $183,811 in 2025 and $341,357 in 2024, respectively)",
               "line": 13,
@@ -5917,6 +5929,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities (fair value of $410,249 in 2023 and $431,833 in 2022, respectively)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 450029000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5945,6 +5969,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 5205918000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses on loans",
               "line": 16,
@@ -5957,6 +5993,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses on loans",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -73531000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 17,
@@ -5965,6 +6013,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Net loans",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 5132387000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6185,6 +6245,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 12)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -6267,78 +6339,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities (amortized cost of $1,238,249 in 2023 and $1,297,977 in 2022, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1092724000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities (fair value of $410,249 in 2023 and $431,833 in 2022, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 450029000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5205918000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -73531000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5132387000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 12)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6414,6 +6414,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities (amortized cost of $1,266,356 in 2023 and $1,297,977 in 2022, respectively)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1131852000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held to maturity debt securities (fair value of $183,811 in 2025 and $341,357 in 2024, respectively)",
               "line": 13,
@@ -6422,6 +6434,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities (fair value of $433,900 in 2023 and $431,833 in 2022, respectively)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 473217000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6450,6 +6474,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 5205918000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses on loans",
               "line": 16,
@@ -6462,6 +6498,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableAllowanceForCreditLosses",
+              "label": "Allowance for credit losses on loans",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 73531000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 17,
@@ -6470,6 +6518,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NotesReceivableNet",
+              "label": "Net loans",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 5132387000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6690,6 +6750,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingent liabilities (Footnote 13)",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
               "line": 38,
@@ -6768,78 +6840,6 @@
               "indent": 0,
               "negating": false,
               "value": 7667648000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities (amortized cost of $1,266,356 in 2023 and $1,297,977 in 2022, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1131852000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities (fair value of $433,900 in 2023 and $431,833 in 2022, respectively)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 473217000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5205918000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableAllowanceForCreditLosses",
-              "label": "Allowance for credit losses on loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 73531000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5132387000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingent liabilities (Footnote 13)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -7019,6 +7019,12 @@
             "indent": 0
           },
           {
+            "tag": "CommitmentsAndContingencies",
+            "label": "Commitments and contingent liabilities (Footnote 21)",
+            "line": 37,
+            "indent": 0
+          },
+          {
             "tag": "PreferredStockValue",
             "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
             "line": 38,
@@ -7059,12 +7065,6 @@
             "label": "Total liabilities and equity",
             "line": 44,
             "indent": 0
-          },
-          {
-            "tag": "CommitmentsAndContingencies",
-            "label": "Commitments and contingent liabilities (Footnote 21)",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -7099,8 +7099,20 @@
             "indent": 0
           },
           {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "Available for sale debt securities (amortized cost of $1,140,571 in 2025 and $1,114,961 in 2024, respectively)",
+            "line": 12,
+            "indent": 0
+          },
+          {
             "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Held to maturity debt securities (fair value of $183,811 in 2025 and $341,357 in 2024, respectively)",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "HeldToMaturitySecurities",
+            "label": "Held to maturity debt securities (fair value of $189,017 in 2025 and $341,357 in 2024, respectively)",
             "line": 13,
             "indent": 0
           },
@@ -7117,13 +7129,31 @@
             "indent": 0
           },
           {
+            "tag": "NotesReceivableGross",
+            "label": "Loans",
+            "line": 15,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
             "label": "Allowance for credit losses on loans",
             "line": 16,
             "indent": 0
           },
           {
+            "tag": "FinancingReceivableAllowanceForCreditLosses",
+            "label": "Allowance for credit losses on loans",
+            "line": 16,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+            "label": "Net loans",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "NotesReceivableNet",
             "label": "Net loans",
             "line": 17,
             "indent": 0
@@ -7237,6 +7267,12 @@
             "indent": 0
           },
           {
+            "tag": "CommitmentsAndContingencies",
+            "label": "Commitments and contingent liabilities (Footnote 12)",
+            "line": 37,
+            "indent": 0
+          },
+          {
             "tag": "PreferredStockValue",
             "label": "Preferred stock, no par value. Authorized 1,000,000 shares; no shares issued or outstanding",
             "line": 38,
@@ -7276,42 +7312,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and equity",
             "line": 44,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "Available for sale debt securities (amortized cost of $1,140,571 in 2025 and $1,114,961 in 2024, respectively)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "HeldToMaturitySecurities",
-            "label": "Held to maturity debt securities (fair value of $189,017 in 2025 and $341,357 in 2024, respectively)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableGross",
-            "label": "Loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableAllowanceForCreditLosses",
-            "label": "Allowance for credit losses on loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableNet",
-            "label": "Net loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommitmentsAndContingencies",
-            "label": "Commitments and contingent liabilities (Footnote 12)",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -7589,6 +7589,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -7809,6 +7819,16 @@
               "hasValue": true
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "GainLossOnSaleOfBusiness",
               "label": "Loss on disposition of LFA",
               "line": 51,
@@ -7927,26 +7947,6 @@
               "value": 28922000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -8089,6 +8089,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 6002000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -8311,6 +8321,16 @@
               "hasValue": true
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "GainLossOnSaleOfBusiness",
               "label": "Loss on disposition of LFA",
               "line": 51,
@@ -8427,26 +8447,6 @@
               "indent": 0,
               "negating": false,
               "value": 29343000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6002000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -8591,6 +8591,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 11950000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -8813,6 +8823,16 @@
               "hasValue": true
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "GainLossOnSaleOfBusiness",
               "label": "Loss on disposition of LFA",
               "line": 51,
@@ -8929,26 +8949,6 @@
               "indent": 0,
               "negating": false,
               "value": 25156000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11950000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -9124,6 +9124,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -9192,6 +9204,18 @@
               "value": 634000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Loss on sale of securities AFS debt securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9364,6 +9388,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+              "label": "Amortization of investments in tax credit partnerships",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expenses",
               "line": 49,
@@ -9388,6 +9436,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
               "line": 51,
@@ -9396,6 +9456,18 @@
               "value": 7639000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfBusiness",
+              "label": "Loss on disposition of LFA",
+              "line": 51,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9436,6 +9508,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 54,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+              "label": "Less income attributed to non-controlling interest",
+              "line": 55,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Basic (in shares)",
               "line": 56,
@@ -9448,6 +9544,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net income available to stockholders",
+              "line": 56,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Diluted (in shares)",
               "line": 57,
@@ -9456,114 +9564,6 @@
               "value": 29445000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-              "label": "Amortization of investments in tax credit partnerships",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-              "label": "Less income attributed to non-controlling interest",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-              "label": "Net income available to stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Loss on sale of securities AFS debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfBusiness",
-              "label": "Loss on disposition of LFA",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9737,6 +9737,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -9805,6 +9817,18 @@
               "value": 595000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Loss on sale of securities AFS debt securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9977,6 +10001,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+              "label": "Amortization of investments in tax credit partnerships",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expenses",
               "line": 49,
@@ -10001,6 +10049,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
               "line": 51,
@@ -10009,6 +10069,18 @@
               "value": 7670000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfBusiness",
+              "label": "Loss on disposition of LFA",
+              "line": 51,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10049,6 +10121,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 54,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+              "label": "Less income attributed to non-controlling interest",
+              "line": 55,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Basic (in shares)",
               "line": 56,
@@ -10061,6 +10157,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net income available to stockholders",
+              "line": 56,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Diluted (in shares)",
               "line": 57,
@@ -10069,114 +10177,6 @@
               "value": 29505000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-              "label": "Amortization of investments in tax credit partnerships",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-              "label": "Less income attributed to non-controlling interest",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-              "label": "Net income available to stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Loss on sale of securities AFS debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfBusiness",
-              "label": "Loss on disposition of LFA",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10350,6 +10350,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -10418,6 +10430,18 @@
               "value": 588000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Loss on sale of securities AFS debt securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10590,6 +10614,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+              "label": "Amortization of investments in tax credit partnerships",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expenses",
               "line": 49,
@@ -10614,6 +10662,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
               "line": 51,
@@ -10622,6 +10682,18 @@
               "value": 7068000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfBusiness",
+              "label": "Loss on disposition of LFA",
+              "line": 51,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10662,6 +10734,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 54,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+              "label": "Less income attributed to non-controlling interest",
+              "line": 55,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Basic (in shares)",
               "line": 56,
@@ -10674,6 +10770,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net income available to stockholders",
+              "line": 56,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Diluted (in shares)",
               "line": 57,
@@ -10682,114 +10790,6 @@
               "value": 29361000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-              "label": "Amortization of investments in tax credit partnerships",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-              "label": "Less income attributed to non-controlling interest",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-              "label": "Net income available to stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Loss on sale of securities AFS debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfBusiness",
-              "label": "Loss on disposition of LFA",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10963,6 +10963,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -11033,6 +11045,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Loss on sale of securities AFS debt securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
@@ -11203,6 +11227,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+              "label": "Amortization of investments in tax credit partnerships",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": -646000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expenses",
               "line": 49,
@@ -11227,6 +11275,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
               "line": 51,
@@ -11237,6 +11297,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfBusiness",
+              "label": "Loss on disposition of LFA",
+              "line": 51,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NetIncomeLoss",
@@ -11275,6 +11347,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 54,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+              "label": "Less net income attributed to non-controlling interest",
+              "line": 55,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Basic (in shares)",
               "line": 56,
@@ -11287,6 +11383,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net income available to stockholders",
+              "line": 56,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Diluted (in shares)",
               "line": 57,
@@ -11297,114 +11405,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-              "label": "Amortization of investments in tax credit partnerships",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -646000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-              "label": "Less net income attributed to non-controlling interest",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-              "label": "Net income available to stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Loss on sale of securities AFS debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnSaleOfBusiness",
-              "label": "Loss on disposition of LFA",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11576,6 +11576,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -11644,6 +11656,18 @@
               "value": 634000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Loss on sale of securities AFS debt securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11816,6 +11840,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+              "label": "Amortization of investments in tax credit partnerships",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": 323000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expenses",
               "line": 49,
@@ -11840,6 +11888,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
               "line": 51,
@@ -11848,6 +11908,18 @@
               "value": 7642000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfBusiness",
+              "label": "Loss on disposition of LFA",
+              "line": 51,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11888,6 +11960,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 54,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+              "label": "Less income attributed to non-controlling interest",
+              "line": 55,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Basic (in shares)",
               "line": 56,
@@ -11900,6 +11996,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net income available to stockholders",
+              "line": 56,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Diluted (in shares)",
               "line": 57,
@@ -11908,114 +12016,6 @@
               "value": 29445000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-              "label": "Amortization of investments in tax credit partnerships",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 323000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-              "label": "Less income attributed to non-controlling interest",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-              "label": "Net income available to stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Loss on sale of securities AFS debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfBusiness",
-              "label": "Loss on disposition of LFA",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12189,6 +12189,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -12257,6 +12269,18 @@
               "value": 595000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Loss on sale of securities AFS debt securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12429,6 +12453,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+              "label": "Amortization of investments in tax credit partnerships",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expenses",
               "line": 49,
@@ -12453,6 +12501,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
               "line": 51,
@@ -12461,6 +12521,18 @@
               "value": 7975000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfBusiness",
+              "label": "Loss on disposition of LFA",
+              "line": 51,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12501,6 +12573,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 54,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+              "label": "Less income attributed to non-controlling interest",
+              "line": 55,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Basic (in shares)",
               "line": 56,
@@ -12513,6 +12609,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net income available to stockholders",
+              "line": 56,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Diluted (in shares)",
               "line": 57,
@@ -12521,114 +12629,6 @@
               "value": 29383000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-              "label": "Amortization of investments in tax credit partnerships",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-              "label": "Less income attributed to non-controlling interest",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-              "label": "Net income available to stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Loss on sale of securities AFS debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfBusiness",
-              "label": "Loss on disposition of LFA",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12802,6 +12802,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 16395000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -12870,6 +12882,18 @@
               "value": 588000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Loss on sale of securities AFS debt securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13042,6 +13066,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+              "label": "Amortization of investments in tax credit partnerships",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": 323000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expenses",
               "line": 49,
@@ -13066,6 +13114,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
               "line": 51,
@@ -13074,6 +13134,18 @@
               "value": 7068000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfBusiness",
+              "label": "Loss on disposition of LFA",
+              "line": 51,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13114,6 +13186,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 54,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+              "label": "Less income attributed to non-controlling interest",
+              "line": 55,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Basic (in shares)",
               "line": 56,
@@ -13126,6 +13222,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net income available to stockholders",
+              "line": 56,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Diluted (in shares)",
               "line": 57,
@@ -13134,114 +13242,6 @@
               "value": 29365000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-              "label": "Amortization of investments in tax credit partnerships",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 323000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 16395000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-              "label": "Less income attributed to non-controlling interest",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-              "label": "Net income available to stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Loss on sale of securities AFS debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfBusiness",
-              "label": "Loss on disposition of LFA",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13415,6 +13415,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": -24956000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -13485,6 +13497,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Loss on sale of securities AFS debt securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
@@ -13655,6 +13679,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+              "label": "Amortization of investments in tax credit partnerships",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": -147000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": 19500000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expenses",
               "line": 49,
@@ -13679,6 +13727,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
               "line": 51,
@@ -13689,6 +13749,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfBusiness",
+              "label": "Loss on disposition of LFA",
+              "line": 51,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NetIncomeLoss",
@@ -13727,12 +13799,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 54,
+              "indent": 0,
+              "negating": false,
+              "value": 27256000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+              "label": "Less net income attributed to non-controlling interest",
+              "line": 55,
+              "indent": 0,
+              "negating": false,
+              "value": -121000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Basic (in shares)",
               "line": 56,
               "indent": 0,
               "negating": false,
               "value": -60778000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net income available to stockholders",
+              "line": 56,
+              "indent": 0,
+              "negating": false,
+              "value": 44593000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -13749,114 +13857,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-              "label": "Amortization of investments in tax credit partnerships",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -147000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -24956000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19500000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 27256000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-              "label": "Less net income attributed to non-controlling interest",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -121000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-              "label": "Net income available to stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 44593000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Loss on sale of securities AFS debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnSaleOfBusiness",
-              "label": "Loss on disposition of LFA",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -14028,6 +14028,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 27610000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -14096,6 +14108,18 @@
               "value": 569000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Loss on sale of securities AFS debt securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14268,6 +14292,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+              "label": "Amortization of investments in tax credit partnerships",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": 323000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expenses",
               "line": 49,
@@ -14292,6 +14340,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
               "line": 51,
@@ -14300,6 +14360,18 @@
               "value": 9024000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfBusiness",
+              "label": "Loss on disposition of LFA",
+              "line": 51,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14340,12 +14412,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 54,
+              "indent": 0,
+              "negating": false,
+              "value": 29048000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+              "label": "Less income attributed to non-controlling interest",
+              "line": 55,
+              "indent": 0,
+              "negating": false,
+              "value": 85000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Basic (in shares)",
               "line": 56,
               "indent": 0,
               "negating": false,
               "value": 29223000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net income available to stockholders",
+              "line": 56,
+              "indent": 0,
+              "negating": false,
+              "value": 28455000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14360,114 +14468,6 @@
               "value": 29336000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-              "label": "Amortization of investments in tax credit partnerships",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 323000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 27610000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 29048000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-              "label": "Less income attributed to non-controlling interest",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 85000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-              "label": "Net income available to stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 28455000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Loss on sale of securities AFS debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfBusiness",
-              "label": "Loss on disposition of LFA",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -14641,6 +14641,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 2124000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -14709,6 +14721,18 @@
               "value": 559000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Loss on sale of securities AFS debt securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14881,6 +14905,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+              "label": "Amortization of investments in tax credit partnerships",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": 89000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expenses",
               "line": 49,
@@ -14905,6 +14953,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
               "line": 51,
@@ -14913,6 +14973,18 @@
               "value": 7547000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfBusiness",
+              "label": "Loss on disposition of LFA",
+              "line": 51,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14953,12 +15025,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 54,
+              "indent": 0,
+              "negating": false,
+              "value": 7942000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+              "label": "Less income attributed to non-controlling interest",
+              "line": 55,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Basic (in shares)",
               "line": 56,
               "indent": 0,
               "negating": false,
               "value": 29223000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net income available to stockholders",
+              "line": 56,
+              "indent": 0,
+              "negating": false,
+              "value": 26794000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14973,114 +15081,6 @@
               "value": 29340000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-              "label": "Amortization of investments in tax credit partnerships",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 89000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2124000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7942000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-              "label": "Less income attributed to non-controlling interest",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-              "label": "Net income available to stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 26794000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Loss on sale of securities AFS debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfBusiness",
-              "label": "Loss on disposition of LFA",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -15254,6 +15254,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 1224000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 27,
@@ -15322,6 +15334,18 @@
               "value": 549000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Loss on sale of securities AFS debt securities",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15494,6 +15518,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+              "label": "Amortization of investments in tax credit partnerships",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": 88000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total non-interest expenses",
               "line": 49,
@@ -15518,6 +15566,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+              "label": "Federal Home Loans Bank early termination penalty",
+              "line": 50,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
               "line": 51,
@@ -15526,6 +15586,18 @@
               "value": 1445000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfBusiness",
+              "label": "Loss on disposition of LFA",
+              "line": 51,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15566,12 +15638,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfitLoss",
+              "label": "Net income",
+              "line": 54,
+              "indent": 0,
+              "negating": false,
+              "value": 29048000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+              "label": "Less income attributed to non-controlling interest",
+              "line": 55,
+              "indent": 0,
+              "negating": false,
+              "value": 36000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Basic (in shares)",
               "line": 56,
               "indent": 0,
               "negating": false,
               "value": 27230000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net income available to stockholders",
+              "line": 56,
+              "indent": 0,
+              "negating": false,
+              "value": 7906000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -15586,114 +15694,6 @@
               "value": 27485000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-              "label": "Amortization of investments in tax credit partnerships",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 88000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1224000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfitLoss",
-              "label": "Net income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 29048000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-              "label": "Less income attributed to non-controlling interest",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 36000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-              "label": "Net income available to stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7906000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Loss on sale of securities AFS debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfBusiness",
-              "label": "Loss on disposition of LFA",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-              "label": "Federal Home Loans Bank early termination penalty",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -15776,6 +15776,12 @@
           },
           {
             "tag": "InterestExpenseOperating",
+            "label": "Total interest expense",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
             "label": "Total interest expense",
             "line": 26,
             "indent": 0
@@ -15913,6 +15919,12 @@
             "indent": 0
           },
           {
+            "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+            "label": "Federal Home Loans Bank early termination penalty",
+            "line": 50,
+            "indent": 0
+          },
+          {
             "tag": "GainLossOnSaleOfBusiness",
             "label": "Loss on disposition of LFA",
             "line": 51,
@@ -15982,18 +15994,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Diluted (in shares)",
             "line": 63,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-            "label": "Federal Home Loans Bank early termination penalty",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -16077,6 +16077,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 26,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 27,
@@ -16109,6 +16115,12 @@
           {
             "tag": "BankOwnedLifeInsuranceIncome",
             "label": "Bank owned life insurance",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+            "label": "Loss on sale of securities AFS debt securities",
             "line": 33,
             "indent": 0
           },
@@ -16197,6 +16209,18 @@
             "indent": 0
           },
           {
+            "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
+            "label": "Amortization of investments in tax credit partnerships",
+            "line": 48,
+            "indent": 0
+          },
+          {
+            "tag": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger expenses",
+            "line": 48,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestExpense",
             "label": "Total non-interest expenses",
             "line": 49,
@@ -16209,8 +16233,20 @@
             "indent": 0
           },
           {
+            "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
+            "label": "Federal Home Loans Bank early termination penalty",
+            "line": 50,
+            "indent": 0
+          },
+          {
             "tag": "IncomeTaxExpenseBenefit",
             "label": "Income tax expense",
+            "line": 51,
+            "indent": 0
+          },
+          {
+            "tag": "GainLossOnSaleOfBusiness",
+            "label": "Loss on disposition of LFA",
             "line": 51,
             "indent": 0
           },
@@ -16233,8 +16269,26 @@
             "indent": 0
           },
           {
+            "tag": "ProfitLoss",
+            "label": "Net income",
+            "line": 54,
+            "indent": 0
+          },
+          {
+            "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less income attributed to non-controlling interest",
+            "line": 55,
+            "indent": 0
+          },
+          {
             "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
             "label": "Basic (in shares)",
+            "line": 56,
+            "indent": 0
+          },
+          {
+            "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income available to stockholders",
             "line": 56,
             "indent": 0
           },
@@ -16242,60 +16296,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Diluted (in shares)",
             "line": 57,
-            "indent": 0
-          },
-          {
-            "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
-            "label": "Amortization of investments in tax credit partnerships",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BusinessCombinationAcquisitionRelatedCosts",
-            "label": "Merger expenses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProfitLoss",
-            "label": "Net income",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
-            "label": "Less income attributed to non-controlling interest",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
-            "label": "Net income available to stockholders",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-            "label": "Loss on sale of securities AFS debt securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnSaleOfBusiness",
-            "label": "Loss on disposition of LFA",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
-            "label": "Federal Home Loans Bank early termination penalty",
-            "line": 9999,
             "indent": 0
           }
         ]

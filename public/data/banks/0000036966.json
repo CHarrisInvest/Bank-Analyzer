@@ -1553,7 +1553,7 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 16750,
@@ -1962,7 +1962,7 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 16750,
@@ -2371,7 +2371,7 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 16750,
@@ -2780,7 +2780,7 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 16750,
@@ -3189,7 +3189,7 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 26750,
@@ -3598,7 +3598,7 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 16750,
@@ -4007,7 +4007,7 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 26750,
@@ -4416,7 +4416,7 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 31686,
@@ -4825,7 +4825,7 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 26750,
@@ -5234,7 +5234,7 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 26750,
@@ -5643,7 +5643,7 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 31686,
@@ -6046,7 +6046,7 @@
           {
             "tag": "PreferredStockSharesIssued",
             "label": "Preferred stock, shares issued (in shares)",
-            "line": 9999,
+            "line": 36,
             "indent": 0
           }
         ]
@@ -6304,6 +6304,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -6322,6 +6332,16 @@
               "value": 95000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -6422,6 +6442,16 @@
               "value": -89000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -6574,6 +6604,16 @@
               "hasValue": true
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 43,
@@ -6702,46 +6742,6 @@
               "value": 544285000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -6866,6 +6866,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 1560000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -6884,6 +6894,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 95000000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -6984,6 +7004,16 @@
               "value": 18000000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -7136,6 +7166,16 @@
               "hasValue": true
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 43,
@@ -7264,46 +7304,6 @@
               "value": 561732000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1560000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 95000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7428,6 +7428,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 164000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -7446,6 +7456,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": -310000000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -7544,6 +7564,16 @@
               "indent": 0,
               "negating": false,
               "value": 18000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": -1000000,
               "uom": "USD",
               "hasValue": true
             },
@@ -7698,6 +7728,16 @@
               "hasValue": true
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": 34000000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 43,
@@ -7824,46 +7864,6 @@
               "indent": 0,
               "negating": false,
               "value": 551241000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 164000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -310000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 34000000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1000000,
               "uom": "USD",
               "hasValue": true
             }
@@ -8015,6 +8015,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income (expense)",
               "line": 14,
@@ -8035,6 +8047,30 @@
               "value": 35000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8147,6 +8183,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnContractTermination",
+              "label": "Gain on merger termination",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredCompensationIncomeLoss",
+              "label": "Deferred compensation income",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 26,
@@ -8155,6 +8215,18 @@
               "value": 27000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8215,6 +8287,18 @@
               "value": 25000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContributionOfProperty",
+              "label": "Contributions",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8339,6 +8423,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income (loss) before income taxes",
               "line": 43,
@@ -8423,6 +8519,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+              "label": "Preferred stock dividends",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
               "label": "Net income available to common shareholders",
               "line": 50,
@@ -8479,114 +8587,6 @@
               "value": 537971000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnContractTermination",
-              "label": "Gain on merger termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-              "label": "Preferred stock dividends",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredCompensationIncomeLoss",
-              "label": "Deferred compensation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContributionOfProperty",
-              "label": "Contributions",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8736,6 +8736,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income (expense)",
               "line": 14,
@@ -8756,6 +8768,30 @@
               "value": 55000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8868,6 +8904,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnContractTermination",
+              "label": "Gain on merger termination",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredCompensationIncomeLoss",
+              "label": "Deferred compensation income",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 26,
@@ -8876,6 +8936,18 @@
               "value": 20000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8936,6 +9008,18 @@
               "value": 23000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContributionOfProperty",
+              "label": "Contributions",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9060,6 +9144,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income (loss) before income taxes",
               "line": 43,
@@ -9144,6 +9240,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+              "label": "Preferred stock dividends",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
               "label": "Net income available to common shareholders",
               "line": 50,
@@ -9200,114 +9308,6 @@
               "value": 547093000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnContractTermination",
-              "label": "Gain on merger termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-              "label": "Preferred stock dividends",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredCompensationIncomeLoss",
-              "label": "Deferred compensation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContributionOfProperty",
-              "label": "Contributions",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9457,6 +9457,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -9477,6 +9489,30 @@
               "value": 40000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9589,6 +9625,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnContractTermination",
+              "label": "Gain on merger termination",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredCompensationIncomeLoss",
+              "label": "Deferred compensation income",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 26,
@@ -9597,6 +9657,18 @@
               "value": 22000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9657,6 +9729,18 @@
               "value": 21000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContributionOfProperty",
+              "label": "Contributions",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9781,6 +9865,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income taxes",
               "line": 43,
@@ -9865,6 +9961,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+              "label": "Preferred stock dividends",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
               "label": "Net income available to common shareholders",
               "line": 50,
@@ -9921,114 +10029,6 @@
               "value": 557873000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnContractTermination",
-              "label": "Gain on merger termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-              "label": "Preferred stock dividends",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredCompensationIncomeLoss",
-              "label": "Deferred compensation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContributionOfProperty",
-              "label": "Contributions",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10178,6 +10178,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -10191,6 +10203,30 @@
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAndOffBalanceSheetLiabilityCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
               "label": "Provision for credit losses",
               "line": 15,
               "indent": 0,
@@ -10310,6 +10346,30 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "GainLossOnContractTermination",
+              "label": "Gain on merger termination",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "DeferredCompensationIncomeLoss",
+              "label": "Deferred compensation income",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 26,
@@ -10320,6 +10380,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestIncome",
@@ -10380,6 +10452,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ContributionOfProperty",
+              "label": "Contributions",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "LegalFees",
@@ -10502,6 +10586,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income taxes",
               "line": 43,
@@ -10586,6 +10682,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+              "label": "Preferred stock dividends",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
               "label": "Net income available to common shareholders",
               "line": 50,
@@ -10644,114 +10752,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnContractTermination",
-              "label": "Gain on merger termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-              "label": "Preferred stock dividends",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DeferredCompensationIncomeLoss",
-              "label": "Deferred compensation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ContributionOfProperty",
-              "label": "Contributions",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -10899,6 +10899,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -10919,6 +10931,30 @@
               "value": 110000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11031,6 +11067,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnContractTermination",
+              "label": "Gain on merger termination",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredCompensationIncomeLoss",
+              "label": "Deferred compensation income",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 26,
@@ -11039,6 +11099,18 @@
               "value": 25000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11099,6 +11171,18 @@
               "value": 21000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContributionOfProperty",
+              "label": "Contributions",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11223,6 +11307,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income taxes",
               "line": 43,
@@ -11307,6 +11403,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+              "label": "Preferred stock dividends",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": 8000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
               "label": "Net income available to common shareholders",
               "line": 50,
@@ -11363,114 +11471,6 @@
               "value": 537971000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnContractTermination",
-              "label": "Gain on merger termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-              "label": "Preferred stock dividends",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 8000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredCompensationIncomeLoss",
-              "label": "Deferred compensation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContributionOfProperty",
-              "label": "Contributions",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11620,6 +11620,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -11633,6 +11645,30 @@
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAndOffBalanceSheetLiabilityCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 55000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
               "label": "Provision for credit losses",
               "line": 15,
               "indent": 0,
@@ -11752,6 +11788,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnContractTermination",
+              "label": "Gain on merger termination",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 225000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredCompensationIncomeLoss",
+              "label": "Deferred compensation income",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 26,
@@ -11760,6 +11820,18 @@
               "value": 20000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11820,6 +11892,18 @@
               "value": 22000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContributionOfProperty",
+              "label": "Contributions",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11944,6 +12028,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income taxes",
               "line": 43,
@@ -12028,6 +12124,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+              "label": "Preferred stock dividends",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": 15000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
               "label": "Net income available to common shareholders",
               "line": 50,
@@ -12084,114 +12192,6 @@
               "value": 560878000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnContractTermination",
-              "label": "Gain on merger termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 225000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-              "label": "Preferred stock dividends",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 15000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 55000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredCompensationIncomeLoss",
-              "label": "Deferred compensation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContributionOfProperty",
-              "label": "Contributions",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12341,6 +12341,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 232000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -12361,6 +12373,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 50000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12473,6 +12509,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnContractTermination",
+              "label": "Gain on merger termination",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredCompensationIncomeLoss",
+              "label": "Deferred compensation income",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 26,
@@ -12481,6 +12541,18 @@
               "value": 19000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12541,6 +12613,18 @@
               "value": 22000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContributionOfProperty",
+              "label": "Contributions",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12665,6 +12749,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income taxes",
               "line": 43,
@@ -12749,6 +12845,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+              "label": "Preferred stock dividends",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
               "label": "Net income available to common shareholders",
               "line": 50,
@@ -12805,114 +12913,6 @@
               "value": 557873000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnContractTermination",
-              "label": "Gain on merger termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-              "label": "Preferred stock dividends",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 232000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 50000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredCompensationIncomeLoss",
-              "label": "Deferred compensation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContributionOfProperty",
-              "label": "Contributions",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13062,6 +13062,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 468000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -13084,6 +13096,30 @@
               "hasValue": false,
               "isDerived": true,
               "derivedUnavailable": true
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision (benefit) for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": -65000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -13194,6 +13230,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnContractTermination",
+              "label": "Gain on merger termination",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "DeferredCompensationIncomeLoss",
+              "label": "Deferred compensation income",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 26,
@@ -13204,6 +13264,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestIncome",
@@ -13264,6 +13336,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ContributionOfProperty",
+              "label": "Contributions",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "LegalFees",
@@ -13386,6 +13470,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income before income taxes",
               "line": 43,
@@ -13470,6 +13566,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+              "label": "Preferred stock dividends",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
               "label": "Net income available to common shareholders",
               "line": 50,
@@ -13528,114 +13636,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnContractTermination",
-              "label": "Gain on merger termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-              "label": "Preferred stock dividends",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 468000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -65000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredCompensationIncomeLoss",
-              "label": "Deferred compensation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ContributionOfProperty",
-              "label": "Contributions",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -13783,6 +13783,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 475000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -13803,6 +13815,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 60000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13915,6 +13951,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnContractTermination",
+              "label": "Gain on merger termination",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredCompensationIncomeLoss",
+              "label": "Deferred compensation income",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": -3000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 26,
@@ -13923,6 +13983,18 @@
               "value": 38000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13983,6 +14055,18 @@
               "value": 21000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContributionOfProperty",
+              "label": "Contributions",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14107,6 +14191,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income (loss) before income taxes",
               "line": 43,
@@ -14191,6 +14287,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+              "label": "Preferred stock dividends",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
               "label": "Net income available to common shareholders",
               "line": 50,
@@ -14247,114 +14355,6 @@
               "value": 570153000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnContractTermination",
-              "label": "Gain on merger termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-              "label": "Preferred stock dividends",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 475000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 60000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredCompensationIncomeLoss",
-              "label": "Deferred compensation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -3000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContributionOfProperty",
-              "label": "Contributions",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -14504,6 +14504,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 385000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -14524,6 +14536,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 50000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14636,6 +14672,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnContractTermination",
+              "label": "Gain on merger termination",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredCompensationIncomeLoss",
+              "label": "Deferred compensation income",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 8000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 26,
@@ -14644,6 +14704,18 @@
               "value": 17000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14702,6 +14774,18 @@
               "indent": 0,
               "negating": false,
               "value": 23000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContributionOfProperty",
+              "label": "Contributions",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 53000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14828,6 +14912,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income (loss) before income taxes",
               "line": 43,
@@ -14912,6 +15008,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+              "label": "Preferred stock dividends",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
               "label": "Net income available to common shareholders",
               "line": 50,
@@ -14968,114 +15076,6 @@
               "value": 560878000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnContractTermination",
-              "label": "Gain on merger termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-              "label": "Preferred stock dividends",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 385000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 50000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredCompensationIncomeLoss",
-              "label": "Deferred compensation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 8000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContributionOfProperty",
-              "label": "Contributions",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 53000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -15225,6 +15225,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 232000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -15245,6 +15257,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 50000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15357,6 +15393,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnContractTermination",
+              "label": "Gain on merger termination",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredCompensationIncomeLoss",
+              "label": "Deferred compensation income",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other income",
               "line": 26,
@@ -15365,6 +15425,18 @@
               "value": 19000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+              "label": "Purchase accounting gain",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15425,6 +15497,18 @@
               "value": 20000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContributionOfProperty",
+              "label": "Contributions",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15549,6 +15633,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+              "label": "Impairment of long-lived assets",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Income (loss) before income taxes",
               "line": 43,
@@ -15633,6 +15729,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+              "label": "Preferred stock dividends",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
               "label": "Net income available to common shareholders",
               "line": 50,
@@ -15689,114 +15797,6 @@
               "value": 571991000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnContractTermination",
-              "label": "Gain on merger termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-              "label": "Preferred stock dividends",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 232000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 50000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredCompensationIncomeLoss",
-              "label": "Deferred compensation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContributionOfProperty",
-              "label": "Contributions",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-              "label": "Impairment of long-lived assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-              "label": "Purchase accounting gain",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -15872,6 +15872,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 13,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 14,
@@ -15880,6 +15886,12 @@
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAndOffBalanceSheetLiabilityCreditLossExpenseReversal",
             "label": "Provision for credit losses",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLossesExpensed",
+            "label": "Provision (benefit) for credit losses",
             "line": 15,
             "indent": 0
           },
@@ -15940,6 +15952,12 @@
           {
             "tag": "DebtAndEquitySecuritiesRealizedGainLoss",
             "label": "Securities gains (losses), net",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+            "label": "Purchase accounting gain",
             "line": 26,
             "indent": 0
           },
@@ -16034,6 +16052,12 @@
             "indent": 0
           },
           {
+            "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+            "label": "Impairment of long-lived assets",
+            "line": 42,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestExpense",
             "label": "Total noninterest expense",
             "line": 43,
@@ -16110,30 +16134,6 @@
             "label": "Diluted average common shares (in shares)",
             "line": 55,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLossesExpensed",
-            "label": "Provision (benefit) for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-            "label": "Impairment of long-lived assets",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-            "label": "Purchase accounting gain",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -16204,6 +16204,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 13,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income (expense)",
             "line": 14,
@@ -16211,6 +16217,18 @@
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAndOffBalanceSheetLiabilityCreditLossExpenseReversal",
+            "label": "Provision for credit losses",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+            "label": "Provision for credit losses",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLossesExpensed",
             "label": "Provision for credit losses",
             "line": 15,
             "indent": 0
@@ -16270,8 +16288,26 @@
             "indent": 0
           },
           {
+            "tag": "GainLossOnContractTermination",
+            "label": "Gain on merger termination",
+            "line": 25,
+            "indent": 0
+          },
+          {
+            "tag": "DeferredCompensationIncomeLoss",
+            "label": "Deferred compensation income",
+            "line": 25,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestIncomeOtherOperatingIncome",
             "label": "Other income",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
+            "label": "Purchase accounting gain",
             "line": 26,
             "indent": 0
           },
@@ -16302,6 +16338,12 @@
           {
             "tag": "InformationTechnologyAndDataProcessing",
             "label": "Operations services",
+            "line": 32,
+            "indent": 0
+          },
+          {
+            "tag": "ContributionOfProperty",
+            "label": "Contributions",
             "line": 32,
             "indent": 0
           },
@@ -16366,6 +16408,12 @@
             "indent": 0
           },
           {
+            "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
+            "label": "Impairment of long-lived assets",
+            "line": 42,
+            "indent": 0
+          },
+          {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
             "label": "Income (loss) before income taxes",
             "line": 43,
@@ -16408,6 +16456,12 @@
             "indent": 0
           },
           {
+            "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
+            "label": "Preferred stock dividends",
+            "line": 49,
+            "indent": 0
+          },
+          {
             "tag": "NetIncomeLossAvailableToCommonStockholdersDiluted",
             "label": "Net income available to common shareholders",
             "line": 50,
@@ -16435,60 +16489,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Diluted average common shares (in shares)",
             "line": 54,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnContractTermination",
-            "label": "Gain on merger termination",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "PreferredStockDividendsRedemptionsAndExciseTax",
-            "label": "Preferred stock dividends",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-            "label": "Provision for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLossesExpensed",
-            "label": "Provision for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DeferredCompensationIncomeLoss",
-            "label": "Deferred compensation income",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ContributionOfProperty",
-            "label": "Contributions",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ImpairmentOfLongLivedAssetsHeldForUse",
-            "label": "Impairment of long-lived assets",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
-            "label": "Purchase accounting gain",
-            "line": 9999,
             "indent": 0
           }
         ]

@@ -220,6 +220,16 @@
               "hasValue": true
             },
             {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestbearingTimeDeposits",
               "label": "Interest-bearing time deposits",
               "line": 5,
@@ -548,16 +558,6 @@
               "value": 1595958000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -598,6 +598,16 @@
               "indent": 0,
               "negating": false,
               "value": 18377000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 1000,
               "uom": "USD",
               "hasValue": true
             },
@@ -930,16 +940,6 @@
               "value": 1639779000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -993,6 +993,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale debt securities, at fair value",
               "line": 5,
@@ -1001,6 +1025,18 @@
               "value": 323248000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestbearingTimeDeposits",
+              "label": "Interest-bearing time deposits",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1037,6 +1073,18 @@
               "value": 1691000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Restricted securities",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1113,6 +1161,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Operating lease right-of-use",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank-owned life insurance",
               "line": 15,
@@ -1169,6 +1241,18 @@
               "value": 10047000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1257,6 +1341,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 28,
@@ -1277,6 +1373,18 @@
               "value": 11338000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Operating lease liability",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1375,114 +1483,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestReceivable",
-              "label": "Accrued interest receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestbearingTimeDeposits",
-              "label": "Interest-bearing time deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Restricted securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Operating lease right-of-use",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Operating lease liability",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1534,6 +1534,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale debt securities, at fair value",
               "line": 5,
@@ -1542,6 +1566,18 @@
               "value": 323248000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestbearingTimeDeposits",
+              "label": "Interest-bearing time deposits",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1578,6 +1614,18 @@
               "value": 2719000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Restricted securities",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1654,6 +1702,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Operating lease right-of-use",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank-owned life insurance",
               "line": 15,
@@ -1710,6 +1782,18 @@
               "value": 10047000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1798,6 +1882,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 28,
@@ -1818,6 +1914,18 @@
               "value": 11338000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Operating lease liability",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1916,114 +2024,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestReceivable",
-              "label": "Accrued interest receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestbearingTimeDeposits",
-              "label": "Interest-bearing time deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Restricted securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Operating lease right-of-use",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Operating lease liability",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2075,6 +2075,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 17380000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale debt securities, at fair value",
               "line": 5,
@@ -2083,6 +2107,18 @@
               "value": 323248000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestbearingTimeDeposits",
+              "label": "Interest-bearing time deposits",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2119,6 +2155,18 @@
               "value": 1782000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Restricted securities",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2195,6 +2243,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 4850000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Operating lease right-of-use",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank-owned life insurance",
               "line": 15,
@@ -2251,6 +2323,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 9555000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2339,6 +2423,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 50384000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 28,
@@ -2359,6 +2455,18 @@
               "value": 11338000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Operating lease liability",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2457,114 +2565,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 17380000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestReceivable",
-              "label": "Accrued interest receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4850000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9555000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 50384000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestbearingTimeDeposits",
-              "label": "Interest-bearing time deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Restricted securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Operating lease right-of-use",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Operating lease liability",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2616,12 +2616,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 17380000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale debt securities, at fair value",
               "line": 5,
               "indent": 0,
               "negating": false,
               "value": 323248000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestbearingTimeDeposits",
+              "label": "Interest-bearing time deposits",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2660,6 +2696,18 @@
               "value": 1691000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Restricted securities",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2736,6 +2784,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 5362000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Operating lease right-of-use",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank-owned life insurance",
               "line": 15,
@@ -2792,6 +2864,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 11895000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2880,6 +2964,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 55536000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 28,
@@ -2900,6 +2996,18 @@
               "value": 11338000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Operating lease liability",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2998,114 +3106,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 17380000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestReceivable",
-              "label": "Accrued interest receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5362000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11895000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 55536000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestbearingTimeDeposits",
-              "label": "Interest-bearing time deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Restricted securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Operating lease right-of-use",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Operating lease liability",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3157,12 +3157,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 28069000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale debt securities, at fair value",
               "line": 5,
               "indent": 0,
               "negating": false,
               "value": 335535000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestbearingTimeDeposits",
+              "label": "Interest-bearing time deposits",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 249000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3201,6 +3237,18 @@
               "value": 2192000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Restricted securities",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3277,6 +3325,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 5362000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Operating lease right-of-use",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank-owned life insurance",
               "line": 15,
@@ -3333,6 +3405,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 11895000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3421,6 +3505,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 60465000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 28,
@@ -3441,6 +3537,18 @@
               "value": 9947000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Operating lease liability",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3539,114 +3647,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 28069000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestReceivable",
-              "label": "Accrued interest receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5362000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11895000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 60465000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestbearingTimeDeposits",
-              "label": "Interest-bearing time deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 249000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Restricted securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Operating lease right-of-use",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Operating lease liability",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3698,12 +3698,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 18377000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale debt securities, at fair value",
               "line": 5,
               "indent": 0,
               "negating": false,
               "value": 413302000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestbearingTimeDeposits",
+              "label": "Interest-bearing time deposits",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 979000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3742,6 +3778,18 @@
               "value": 754000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Restricted securities",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3818,6 +3866,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 5077000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Operating lease right-of-use",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank-owned life insurance",
               "line": 15,
@@ -3874,6 +3946,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 11895000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3962,6 +4046,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 65599000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 28,
@@ -3982,6 +4078,18 @@
               "value": 9947000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Operating lease liability",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4080,114 +4188,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18377000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestReceivable",
-              "label": "Accrued interest receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5077000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11895000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 65599000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestbearingTimeDeposits",
-              "label": "Interest-bearing time deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 979000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Restricted securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Operating lease right-of-use",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Operating lease liability",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4239,12 +4239,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 18377000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale debt securities, at fair value",
               "line": 5,
               "indent": 0,
               "negating": false,
               "value": 339594000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestbearingTimeDeposits",
+              "label": "Interest-bearing time deposits",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 979000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4283,6 +4319,18 @@
               "value": 366000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Restricted securities",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4359,6 +4407,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 5362000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Operating lease right-of-use",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank-owned life insurance",
               "line": 15,
@@ -4415,6 +4487,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 11346000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4503,6 +4587,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 70448000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 28,
@@ -4523,6 +4619,18 @@
               "value": 11190000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Operating lease liability",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4621,114 +4729,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18377000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestReceivable",
-              "label": "Accrued interest receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5362000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11346000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 70448000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestbearingTimeDeposits",
-              "label": "Interest-bearing time deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 979000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Restricted securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Operating lease right-of-use",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Operating lease liability",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4780,12 +4780,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 18377000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 1000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale debt securities, at fair value",
               "line": 5,
               "indent": 0,
               "negating": false,
               "value": 413302000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestbearingTimeDeposits",
+              "label": "Interest-bearing time deposits",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 979000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4824,6 +4860,18 @@
               "value": 4568000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Restricted securities",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4900,6 +4948,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 2222000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Operating lease right-of-use",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Bank-owned life insurance",
               "line": 15,
@@ -4956,6 +5028,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 11895000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5044,6 +5128,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 24000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 28,
@@ -5064,6 +5160,18 @@
               "value": 3795000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Operating lease liability",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5162,114 +5270,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18377000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestReceivable",
-              "label": "Accrued interest receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2222000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11895000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 24000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestbearingTimeDeposits",
-              "label": "Interest-bearing time deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 979000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Restricted securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Operating lease right-of-use",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Operating lease liability",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5321,6 +5321,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 17441000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 1000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Investment debt securities, available-for-sale, at fair value",
               "line": 5,
@@ -5329,6 +5353,18 @@
               "value": 341051000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestbearingTimeDeposits",
+              "label": "Interest-bearing time deposits",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5363,6 +5399,18 @@
               "indent": 0,
               "negating": false,
               "value": 607000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Restricted securities",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 3223000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5441,6 +5489,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 2664000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Operating lease right-of-use",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 298000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Cash surrender value of bank-owned life insurance",
               "line": 15,
@@ -5490,6 +5562,18 @@
             },
             {
               "tag": "OtherIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
               "label": "Other intangible assets, net",
               "line": 19,
               "indent": 0,
@@ -5585,6 +5669,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 25021000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 28,
@@ -5603,6 +5699,18 @@
               "indent": 0,
               "negating": false,
               "value": 3680000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Operating lease liability",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 277000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5703,114 +5811,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 17441000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestReceivable",
-              "label": "Accrued interest receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2664000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 25021000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestbearingTimeDeposits",
-              "label": "Interest-bearing time deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Restricted securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3223000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Operating lease right-of-use",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 298000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Operating lease liability",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 277000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5862,6 +5862,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Total cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 13084000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 1000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Investment debt securities, available-for-sale, at fair value",
               "line": 5,
@@ -5870,6 +5894,18 @@
               "value": 341051000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestbearingTimeDeposits",
+              "label": "Interest-bearing time deposits",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5904,6 +5940,18 @@
               "indent": 0,
               "negating": false,
               "value": 402000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Restricted securities",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 4498000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5982,6 +6030,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 2331000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseRightOfUseAsset",
+              "label": "Operating lease right-of-use",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 284000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsurance",
               "label": "Cash surrender value of bank-owned life insurance",
               "line": 15,
@@ -6031,6 +6103,18 @@
             },
             {
               "tag": "OtherIntangibleAssetsNet",
+              "label": "Other intangible assets, net",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
               "label": "Other intangible assets, net",
               "line": 19,
               "indent": 0,
@@ -6126,6 +6210,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 24000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 28,
@@ -6144,6 +6240,18 @@
               "indent": 0,
               "negating": false,
               "value": 3497000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OperatingLeaseLiability",
+              "label": "Operating lease liability",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 298000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6244,114 +6352,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Total cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13084000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestReceivable",
-              "label": "Accrued interest receivable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2331000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Other intangible assets, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 24000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestbearingTimeDeposits",
-              "label": "Interest-bearing time deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankStock",
-              "label": "Restricted securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4498000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseRightOfUseAsset",
-              "label": "Operating lease right-of-use",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 284000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OperatingLeaseLiability",
-              "label": "Operating lease liability",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 298000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -6373,6 +6373,12 @@
           {
             "tag": "CashCashEquivalentsAndFederalFundsSold",
             "label": "Total cash and cash equivalents",
+            "line": 4,
+            "indent": 0
+          },
+          {
+            "tag": "FederalFundsSold",
+            "label": "Federal funds sold",
             "line": 4,
             "indent": 0
           },
@@ -6573,12 +6579,6 @@
             "label": "TOTAL LIABILITIES AND STOCKHOLDERS EQUITY",
             "line": 39,
             "indent": 0
-          },
-          {
-            "tag": "FederalFundsSold",
-            "label": "Federal funds sold",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -6601,8 +6601,26 @@
             "indent": 0
           },
           {
+            "tag": "CashCashEquivalentsAndFederalFundsSold",
+            "label": "Total cash and cash equivalents",
+            "line": 4,
+            "indent": 0
+          },
+          {
+            "tag": "FederalFundsSold",
+            "label": "Federal funds sold",
+            "line": 4,
+            "indent": 0
+          },
+          {
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
             "label": "Available-for-sale debt securities, at fair value",
+            "line": 5,
+            "indent": 0
+          },
+          {
+            "tag": "InterestbearingTimeDeposits",
+            "label": "Interest-bearing time deposits",
             "line": 5,
             "indent": 0
           },
@@ -6621,6 +6639,12 @@
           {
             "tag": "LoansReceivableHeldForSaleAmount",
             "label": "Loans held for sale",
+            "line": 8,
+            "indent": 0
+          },
+          {
+            "tag": "FederalHomeLoanBankStock",
+            "label": "Restricted securities",
             "line": 8,
             "indent": 0
           },
@@ -6661,6 +6685,18 @@
             "indent": 0
           },
           {
+            "tag": "InterestReceivable",
+            "label": "Accrued interest receivable",
+            "line": 14,
+            "indent": 0
+          },
+          {
+            "tag": "OperatingLeaseRightOfUseAsset",
+            "label": "Operating lease right-of-use",
+            "line": 14,
+            "indent": 0
+          },
+          {
             "tag": "BankOwnedLifeInsurance",
             "label": "Bank-owned life insurance",
             "line": 15,
@@ -6686,6 +6722,12 @@
           },
           {
             "tag": "OtherIntangibleAssetsNet",
+            "label": "Other intangible assets, net",
+            "line": 19,
+            "indent": 0
+          },
+          {
+            "tag": "FiniteLivedIntangibleAssetsNet",
             "label": "Other intangible assets, net",
             "line": 19,
             "indent": 0
@@ -6733,6 +6775,12 @@
             "indent": 0
           },
           {
+            "tag": "FederalHomeLoanBankAdvancesLongTerm",
+            "label": "Long-term borrowings",
+            "line": 27,
+            "indent": 0
+          },
+          {
             "tag": "InterestPayableCurrentAndNoncurrent",
             "label": "Accrued interest payable",
             "line": 28,
@@ -6741,6 +6789,12 @@
           {
             "tag": "OtherLiabilities",
             "label": "Other liabilities",
+            "line": 29,
+            "indent": 0
+          },
+          {
+            "tag": "OperatingLeaseLiability",
+            "label": "Operating lease liability",
             "line": 29,
             "indent": 0
           },
@@ -6790,60 +6844,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "TOTAL LIABILITIES AND STOCKHOLDERS' EQUITY",
             "line": 38,
-            "indent": 0
-          },
-          {
-            "tag": "CashCashEquivalentsAndFederalFundsSold",
-            "label": "Total cash and cash equivalents",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestReceivable",
-            "label": "Accrued interest receivable",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FiniteLivedIntangibleAssetsNet",
-            "label": "Other intangible assets, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalHomeLoanBankAdvancesLongTerm",
-            "label": "Long-term borrowings",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestbearingTimeDeposits",
-            "label": "Interest-bearing time deposits",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalFundsSold",
-            "label": "Federal funds sold",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalHomeLoanBankStock",
-            "label": "Restricted securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OperatingLeaseRightOfUseAsset",
-            "label": "Operating lease right-of-use",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OperatingLeaseLiability",
-            "label": "Operating lease liability",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -7092,6 +7092,16 @@
               "value": 15085000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -7404,19 +7414,9 @@
               "hasValue": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "EarningsPerShareBasic",
               "label": "EARNINGS PER SHARE - BASIC",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": 1.49,
@@ -7426,7 +7426,7 @@
             {
               "tag": "EarningsPerShareDiluted",
               "label": "EARNINGS PER SHARE - DILUTED",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": 5.33,
@@ -7436,7 +7436,7 @@
             {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - BASIC",
-              "line": 9999,
+              "line": 51,
               "indent": 0,
               "negating": false,
               "value": 3568145,
@@ -7446,7 +7446,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
+              "line": 52,
               "indent": 0,
               "negating": false,
               "value": 2279808,
@@ -7584,6 +7584,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 15085000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -7896,19 +7906,9 @@
               "hasValue": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 15085000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
               "tag": "EarningsPerShareBasic",
               "label": "EARNINGS PER SHARE - BASIC",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": 4.58,
@@ -7918,7 +7918,7 @@
             {
               "tag": "EarningsPerShareDiluted",
               "label": "EARNINGS PER SHARE - DILUTED",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": 1.49,
@@ -7928,7 +7928,7 @@
             {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - BASIC",
-              "line": 9999,
+              "line": 51,
               "indent": 0,
               "negating": false,
               "value": 2279808,
@@ -7938,7 +7938,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
+              "line": 52,
               "indent": 0,
               "negating": false,
               "value": 2078218,
@@ -8033,6 +8033,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeFederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestAndDividendIncomeOperating",
               "label": "TOTAL INTEREST AND DIVIDEND INCOME",
               "line": 10,
@@ -8081,6 +8093,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "TOTAL INTEREST EXPENSE",
               "line": 15,
@@ -8089,6 +8113,18 @@
               "value": 8017000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8129,6 +8165,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (credit) for credit losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherCreditLosses",
+              "label": "Provision (credit) for credit losses - off balance sheet credit exposures",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServiceChargesAndFeesIncome",
               "label": "Service charges and fees",
               "line": 20,
@@ -8149,6 +8209,18 @@
               "value": 664000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8333,6 +8405,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Employee benefits",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Communication",
               "label": "Data processing and telecommunications",
               "line": 38,
@@ -8353,6 +8437,18 @@
               "value": 107000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxesExcludingIncomeAndExciseTaxes",
+              "label": "State shares tax",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8477,93 +8573,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeFederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (credit) for credit losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherCreditLosses",
-              "label": "Provision (credit) for credit losses - off balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LaborAndRelatedExpense",
-              "label": "Employee benefits",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -8575,24 +8587,12 @@
             {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "CASH DIVIDENDS PER SHARE",
-              "line": 9999,
+              "line": 53,
               "indent": 0,
               "negating": false,
               "value": 0.44,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxesExcludingIncomeAndExciseTaxes",
-              "label": "State shares tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8682,6 +8682,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeFederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestAndDividendIncomeOperating",
               "label": "TOTAL INTEREST AND DIVIDEND INCOME",
               "line": 10,
@@ -8730,6 +8742,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "TOTAL INTEREST EXPENSE",
               "line": 15,
@@ -8738,6 +8762,18 @@
               "value": 7835000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8778,6 +8814,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (credit) for credit losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherCreditLosses",
+              "label": "Provision (credit) for credit losses - off balance sheet credit exposures",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServiceChargesAndFeesIncome",
               "label": "Service charges and fees",
               "line": 20,
@@ -8798,6 +8858,18 @@
               "value": 673000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8982,6 +9054,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Employee benefits",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Communication",
               "label": "Data processing and telecommunications",
               "line": 38,
@@ -9002,6 +9086,18 @@
               "value": 106000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxesExcludingIncomeAndExciseTaxes",
+              "label": "State shares tax",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9126,93 +9222,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeFederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (credit) for credit losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherCreditLosses",
-              "label": "Provision (credit) for credit losses - off balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LaborAndRelatedExpense",
-              "label": "Employee benefits",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9224,24 +9236,12 @@
             {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "CASH DIVIDENDS PER SHARE",
-              "line": 9999,
+              "line": 53,
               "indent": 0,
               "negating": false,
               "value": 0.44,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxesExcludingIncomeAndExciseTaxes",
-              "label": "State shares tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9331,6 +9331,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeFederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestAndDividendIncomeOperating",
               "label": "TOTAL INTEREST AND DIVIDEND INCOME",
               "line": 10,
@@ -9379,6 +9391,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 629000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "TOTAL INTEREST EXPENSE",
               "line": 15,
@@ -9387,6 +9411,18 @@
               "value": 6973000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9427,6 +9463,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (credit) for credit losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherCreditLosses",
+              "label": "Provision (credit) for credit losses - off balance sheet credit exposures",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServiceChargesAndFeesIncome",
               "label": "Service charges and fees",
               "line": 20,
@@ -9447,6 +9507,18 @@
               "value": 619000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9631,6 +9703,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Employee benefits",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Communication",
               "label": "Data processing and telecommunications",
               "line": 38,
@@ -9651,6 +9735,18 @@
               "value": 262000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxesExcludingIncomeAndExciseTaxes",
+              "label": "State shares tax",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9775,21 +9871,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 629000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": 3570342,
@@ -9799,98 +9883,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestIncomeFederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (credit) for credit losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherCreditLosses",
-              "label": "Provision (credit) for credit losses - off balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LaborAndRelatedExpense",
-              "label": "Employee benefits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "CASH DIVIDENDS PER SHARE",
-              "line": 9999,
+              "line": 53,
               "indent": 0,
               "negating": false,
               "value": 0.44,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxesExcludingIncomeAndExciseTaxes",
-              "label": "State shares tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9980,6 +9980,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeFederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestAndDividendIncomeOperating",
               "label": "TOTAL INTEREST AND DIVIDEND INCOME",
               "line": 10,
@@ -10028,7 +10040,31 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 2069000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpense",
               "label": "TOTAL INTEREST EXPENSE",
               "line": 15,
               "indent": 0,
@@ -10076,6 +10112,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision for credit losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 922000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherCreditLosses",
+              "label": "Recovery of credit losses - off balance sheet credit exposures",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": -15000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServiceChargesAndFeesIncome",
               "label": "Service charges and fees",
               "line": 20,
@@ -10098,6 +10158,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "GainLossOnSalesOfLoansNet",
@@ -10280,6 +10352,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Employee benefits",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "Communication",
               "label": "Data processing and telecommunications",
               "line": 38,
@@ -10302,6 +10386,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxesExcludingIncomeAndExciseTaxes",
+              "label": "State shares tax",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoncashMergerRelatedCosts",
@@ -10424,21 +10520,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2069000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": -6944226,
@@ -10448,81 +10532,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestIncomeFederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision for credit losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 922000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherCreditLosses",
-              "label": "Recovery of credit losses - off balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -15000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "LaborAndRelatedExpense",
-              "label": "Employee benefits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "CASH DIVIDENDS PER SHARE",
-              "line": 9999,
+              "line": 53,
               "indent": 0,
               "negating": false,
               "value": 0.4100000000000001,
@@ -10530,18 +10542,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxesExcludingIncomeAndExciseTaxes",
-              "label": "State shares tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -10629,6 +10629,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeFederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestAndDividendIncomeOperating",
               "label": "TOTAL INTEREST AND DIVIDEND INCOME",
               "line": 10,
@@ -10677,6 +10689,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 268000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "TOTAL INTEREST EXPENSE",
               "line": 15,
@@ -10685,6 +10709,18 @@
               "value": 3497000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10725,6 +10761,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (credit) for credit losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": -172000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherCreditLosses",
+              "label": "Provision (credit) for credit losses - off balance sheet credit exposures",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServiceChargesAndFeesIncome",
               "label": "Service charges and fees",
               "line": 20,
@@ -10745,6 +10805,18 @@
               "value": 664000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10929,6 +11001,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Employee benefits",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Communication",
               "label": "Data processing and telecommunications",
               "line": 38,
@@ -10949,6 +11033,18 @@
               "value": 111000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxesExcludingIncomeAndExciseTaxes",
+              "label": "State shares tax",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11073,21 +11169,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 268000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": 3574043,
@@ -11097,98 +11181,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestIncomeFederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (credit) for credit losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -172000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherCreditLosses",
-              "label": "Provision (credit) for credit losses - off balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LaborAndRelatedExpense",
-              "label": "Employee benefits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "CASH DIVIDENDS PER SHARE",
-              "line": 9999,
+              "line": 53,
               "indent": 0,
               "negating": false,
               "value": 0.44,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxesExcludingIncomeAndExciseTaxes",
-              "label": "State shares tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11278,6 +11278,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeFederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestAndDividendIncomeOperating",
               "label": "TOTAL INTEREST AND DIVIDEND INCOME",
               "line": 10,
@@ -11326,6 +11338,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 798000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "TOTAL INTEREST EXPENSE",
               "line": 15,
@@ -11334,6 +11358,18 @@
               "value": 3051000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11374,6 +11410,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (credit) for credit losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": -4000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherCreditLosses",
+              "label": "(Credit) provision for credit losses - off balance sheet credit exposures",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": -7000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServiceChargesAndFeesIncome",
               "label": "Service charges and fees",
               "line": 20,
@@ -11394,6 +11454,18 @@
               "value": 687000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11578,6 +11650,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Employee benefits",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Communication",
               "label": "Data processing and telecommunications",
               "line": 38,
@@ -11598,6 +11682,18 @@
               "value": -9000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxesExcludingIncomeAndExciseTaxes",
+              "label": "State shares tax",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11722,21 +11818,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 798000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": 2079649,
@@ -11746,98 +11830,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestIncomeFederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (credit) for credit losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -4000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherCreditLosses",
-              "label": "(Credit) provision for credit losses - off balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -7000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LaborAndRelatedExpense",
-              "label": "Employee benefits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "CASH DIVIDENDS PER SHARE",
-              "line": 9999,
+              "line": 53,
               "indent": 0,
               "negating": false,
               "value": 0.44,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxesExcludingIncomeAndExciseTaxes",
-              "label": "State shares tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11927,6 +11927,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeFederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestAndDividendIncomeOperating",
               "label": "TOTAL INTEREST AND DIVIDEND INCOME",
               "line": 10,
@@ -11975,6 +11987,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "TOTAL INTEREST EXPENSE",
               "line": 15,
@@ -11983,6 +12007,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 2413000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12023,6 +12059,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (credit) for credit losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 101000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherCreditLosses",
+              "label": "(Credit) provision for credit losses - off balance sheet credit exposures",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": -11000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServiceChargesAndFeesIncome",
               "label": "Service charges and fees",
               "line": 20,
@@ -12043,6 +12103,18 @@
               "value": 619000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12227,6 +12299,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Employee benefits",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Communication",
               "label": "Telecommunications",
               "line": 38,
@@ -12247,6 +12331,18 @@
               "value": 262000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxesExcludingIncomeAndExciseTaxes",
+              "label": "State shares tax",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12371,21 +12467,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": 3570342,
@@ -12395,98 +12479,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestIncomeFederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (credit) for credit losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 101000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherCreditLosses",
-              "label": "(Credit) provision for credit losses - off balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -11000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2413000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LaborAndRelatedExpense",
-              "label": "Employee benefits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "CASH DIVIDENDS PER SHARE",
-              "line": 9999,
+              "line": 53,
               "indent": 0,
               "negating": false,
               "value": 0.42,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxesExcludingIncomeAndExciseTaxes",
-              "label": "State shares tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12576,6 +12576,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestIncomeFederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestAndDividendIncomeOperating",
               "label": "TOTAL INTEREST AND DIVIDEND INCOME",
               "line": 10,
@@ -12624,7 +12636,31 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestExpenseOperating",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpense",
               "label": "TOTAL INTEREST EXPENSE",
               "line": 15,
               "indent": 0,
@@ -12672,6 +12708,30 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (credit) for credit losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForOtherCreditLosses",
+              "label": "(Credit) provision for credit losses - off balance sheet credit exposures",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "ServiceChargesAndFeesIncome",
               "label": "Service charges and fees",
               "line": 20,
@@ -12686,6 +12746,18 @@
             {
               "tag": "NonInterestIncomeInterchangeFees",
               "label": "Interchange fees",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
               "line": 21,
               "indent": 0,
               "negating": false,
@@ -12876,6 +12948,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Employee benefits",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "Communication",
               "label": "Telecommunications",
               "line": 38,
@@ -12890,6 +12974,18 @@
             {
               "tag": "AtmAndInterchangeExpenses",
               "label": "Automated teller machine and interchange",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "TaxesExcludingIncomeAndExciseTaxes",
+              "label": "State shares tax",
               "line": 39,
               "indent": 0,
               "negating": false,
@@ -13020,93 +13116,9 @@
               "derivedUnavailable": true
             },
             {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestIncomeFederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (credit) for credit losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForOtherCreditLosses",
-              "label": "(Credit) provision for credit losses - off balance sheet credit exposures",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "LaborAndRelatedExpense",
-              "label": "Employee benefits",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -13118,19 +13130,7 @@
             {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "CASH DIVIDENDS PER SHARE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "TaxesExcludingIncomeAndExciseTaxes",
-              "label": "State shares tax",
-              "line": 9999,
+              "line": 53,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -13225,6 +13225,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeFederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestAndDividendIncomeOperating",
               "label": "TOTAL INTEREST AND DIVIDEND INCOME",
               "line": 10,
@@ -13273,6 +13285,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 268000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "TOTAL INTEREST EXPENSE",
               "line": 15,
@@ -13281,6 +13305,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 3497000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13321,6 +13357,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": -172000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherCreditLosses",
+              "label": "(Credit) Provision for credit losses - investment debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServiceChargesAndFeesIncome",
               "label": "Service charges and fees",
               "line": 20,
@@ -13339,6 +13399,18 @@
               "indent": 0,
               "negating": false,
               "value": 428000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13525,6 +13597,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Employee benefits",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 487000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Communication",
               "label": "Telecommunications",
               "line": 38,
@@ -13545,6 +13629,18 @@
               "value": 111000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxesExcludingIncomeAndExciseTaxes",
+              "label": "State shares tax",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13669,122 +13765,26 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 268000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
               "uom": "USD",
               "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeFederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -172000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherCreditLosses",
-              "label": "(Credit) Provision for credit losses - investment debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3497000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LaborAndRelatedExpense",
-              "label": "Employee benefits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 487000,
-              "uom": "USD",
-              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
             {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "CASH DIVIDENDS PER SHARE",
-              "line": 9999,
+              "line": 53,
               "indent": 0,
               "negating": false,
               "value": 0.43,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxesExcludingIncomeAndExciseTaxes",
-              "label": "State shares tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13874,6 +13874,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeFederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 5000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestAndDividendIncomeOperating",
               "label": "TOTAL INTEREST AND DIVIDEND INCOME",
               "line": 10,
@@ -13922,6 +13934,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Long-term borrowings",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 146000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "TOTAL INTEREST EXPENSE",
               "line": 15,
@@ -13930,6 +13954,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "TOTAL INTEREST EXPENSE",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 3051000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13970,6 +14006,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - loans",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": -190000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForOtherCreditLosses",
+              "label": "(Credit) Provision for credit losses - investment debt securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServiceChargesAndFeesIncome",
               "label": "Service charges and fees",
               "line": 20,
@@ -13988,6 +14048,18 @@
               "indent": 0,
               "negating": false,
               "value": 442000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14174,6 +14246,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Employee benefits",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 769000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Communication",
               "label": "Telecommunications",
               "line": 38,
@@ -14192,6 +14276,18 @@
               "indent": 0,
               "negating": false,
               "value": -9000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxesExcludingIncomeAndExciseTaxes",
+              "label": "State shares tax",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": 131000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14318,21 +14414,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
-              "label": "Long-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 146000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -14342,96 +14426,12 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestIncomeFederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -190000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForOtherCreditLosses",
-              "label": "(Credit) Provision for credit losses - investment debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "TOTAL INTEREST EXPENSE",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3051000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-              "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LaborAndRelatedExpense",
-              "label": "Employee benefits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 769000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockDividendsPerShareCashPaid",
               "label": "CASH DIVIDENDS PER SHARE",
-              "line": 9999,
+              "line": 53,
               "indent": 0,
               "negating": false,
               "value": 0.43,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxesExcludingIncomeAndExciseTaxes",
-              "label": "State shares tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 131000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14510,6 +14510,12 @@
           },
           {
             "tag": "InterestExpenseOperating",
+            "label": "TOTAL INTEREST EXPENSE",
+            "line": 16,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
             "label": "TOTAL INTEREST EXPENSE",
             "line": 16,
             "indent": 0
@@ -14701,33 +14707,27 @@
             "indent": 0
           },
           {
-            "tag": "InterestExpense",
-            "label": "TOTAL INTEREST EXPENSE",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "EarningsPerShareBasic",
             "label": "EARNINGS PER SHARE - BASIC",
-            "line": 9999,
+            "line": 49,
             "indent": 0
           },
           {
             "tag": "EarningsPerShareDiluted",
             "label": "EARNINGS PER SHARE - DILUTED",
-            "line": 9999,
+            "line": 50,
             "indent": 0
           },
           {
             "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
             "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - BASIC",
-            "line": 9999,
+            "line": 51,
             "indent": 0
           },
           {
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-            "line": 9999,
+            "line": 52,
             "indent": 0
           }
         ],
@@ -14769,6 +14769,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestIncomeFederalFundsSold",
+            "label": "Federal funds sold",
+            "line": 9,
+            "indent": 0
+          },
+          {
             "tag": "InterestAndDividendIncomeOperating",
             "label": "TOTAL INTEREST AND DIVIDEND INCOME",
             "line": 10,
@@ -14793,7 +14799,19 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+            "label": "Long-term borrowings",
+            "line": 14,
+            "indent": 0
+          },
+          {
             "tag": "InterestExpenseOperating",
+            "label": "TOTAL INTEREST EXPENSE",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
             "label": "TOTAL INTEREST EXPENSE",
             "line": 15,
             "indent": 0
@@ -14817,6 +14835,18 @@
             "indent": 0
           },
           {
+            "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+            "label": "Provision (credit) for credit losses - loans",
+            "line": 18,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForOtherCreditLosses",
+            "label": "Provision (credit) for credit losses - off balance sheet credit exposures",
+            "line": 19,
+            "indent": 0
+          },
+          {
             "tag": "ServiceChargesAndFeesIncome",
             "label": "Service charges and fees",
             "line": 20,
@@ -14825,6 +14855,12 @@
           {
             "tag": "NonInterestIncomeInterchangeFees",
             "label": "Interchange fees",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
+            "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
             "line": 21,
             "indent": 0
           },
@@ -14919,6 +14955,12 @@
             "indent": 0
           },
           {
+            "tag": "LaborAndRelatedExpense",
+            "label": "Employee benefits",
+            "line": 37,
+            "indent": 0
+          },
+          {
             "tag": "Communication",
             "label": "Data processing and telecommunications",
             "line": 38,
@@ -14927,6 +14969,12 @@
           {
             "tag": "AtmAndInterchangeExpenses",
             "label": "Automated teller machine and interchange",
+            "line": 39,
+            "indent": 0
+          },
+          {
+            "tag": "TaxesExcludingIncomeAndExciseTaxes",
+            "label": "State shares tax",
             "line": 39,
             "indent": 0
           },
@@ -14991,63 +15039,15 @@
             "indent": 0
           },
           {
-            "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
-            "label": "Long-term borrowings",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "WEIGHTED AVERAGE SHARES OUTSTANDING - DILUTED",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestIncomeFederalFundsSold",
-            "label": "Federal funds sold",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-            "label": "Provision (credit) for credit losses - loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForOtherCreditLosses",
-            "label": "Provision (credit) for credit losses - off balance sheet credit exposures",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "TOTAL INTEREST EXPENSE",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
-            "label": "(Credit) Provision for credit losses - off-balance sheet commitments",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LaborAndRelatedExpense",
-            "label": "Employee benefits",
-            "line": 9999,
+            "line": 50,
             "indent": 0
           },
           {
             "tag": "CommonStockDividendsPerShareCashPaid",
             "label": "CASH DIVIDENDS PER SHARE",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "TaxesExcludingIncomeAndExciseTaxes",
-            "label": "State shares tax",
-            "line": 9999,
+            "line": 53,
             "indent": 0
           }
         ]

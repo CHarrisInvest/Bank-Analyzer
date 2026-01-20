@@ -7446,6 +7446,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 19,
@@ -7504,6 +7514,16 @@
               "value": 19454000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NetSwapFeeAndValuationIncome",
@@ -7784,26 +7804,6 @@
               "value": 1.37,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7968,6 +7968,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 39343000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 19,
@@ -8026,6 +8036,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 19318000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "NetSwapFeeAndValuationIncome",
@@ -8306,26 +8326,6 @@
               "value": 1.37,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 39343000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19318000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -8490,6 +8490,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 39343000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 19,
@@ -8548,6 +8558,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 20002000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "NetSwapFeeAndValuationIncome",
@@ -8828,26 +8848,6 @@
               "value": 1.32,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 39343000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 20002000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -9045,6 +9045,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 21,
@@ -9117,6 +9129,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetSwapFeeAndValuationIncomeLoss",
               "label": "Net swap fee and valuation income",
               "line": 28,
@@ -9125,6 +9149,18 @@
               "value": -627000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetSwapFeeAndValuationIncome",
+              "label": "Net swap fee and valuation income",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9451,42 +9487,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetSwapFeeAndValuationIncome",
-              "label": "Net swap fee and valuation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9682,6 +9682,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 21,
@@ -9754,6 +9766,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetSwapFeeAndValuationIncomeLoss",
               "label": "Net swap fee and valuation income",
               "line": 28,
@@ -9762,6 +9786,18 @@
               "value": 1776000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetSwapFeeAndValuationIncome",
+              "label": "Net swap fee and valuation income",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10088,42 +10124,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetSwapFeeAndValuationIncome",
-              "label": "Net swap fee and valuation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10319,6 +10319,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 21,
@@ -10391,6 +10403,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetSwapFeeAndValuationIncomeLoss",
               "label": "Net swap fee and valuation income",
               "line": 28,
@@ -10399,6 +10423,18 @@
               "value": 961000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetSwapFeeAndValuationIncome",
+              "label": "Net swap fee and valuation income",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10725,42 +10761,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetSwapFeeAndValuationIncome",
-              "label": "Net swap fee and valuation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10956,6 +10956,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 21,
@@ -11028,7 +11040,31 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NetSwapFeeAndValuationIncomeLoss",
+              "label": "Net swap fee and valuation income",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "NetSwapFeeAndValuationIncome",
               "label": "Net swap fee and valuation income",
               "line": 28,
               "indent": 0,
@@ -11362,42 +11398,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "NetSwapFeeAndValuationIncome",
-              "label": "Net swap fee and valuation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11593,6 +11593,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 21,
@@ -11665,6 +11677,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetSwapFeeAndValuationIncomeLoss",
               "label": "Net swap fee and valuation (loss) income",
               "line": 28,
@@ -11673,6 +11697,18 @@
               "value": 3845000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetSwapFeeAndValuationIncome",
+              "label": "Net swap fee and valuation income",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11999,42 +12035,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetSwapFeeAndValuationIncome",
-              "label": "Net swap fee and valuation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12230,6 +12230,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 86400000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 21,
@@ -12302,6 +12314,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetSwapFeeAndValuationIncomeLoss",
               "label": "Net swap fee and valuation income",
               "line": 28,
@@ -12310,6 +12334,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetSwapFeeAndValuationIncome",
+              "label": "Net swap fee and valuation income",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 1776000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12636,42 +12672,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 86400000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetSwapFeeAndValuationIncome",
-              "label": "Net swap fee and valuation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1776000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12867,6 +12867,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 36223000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 21,
@@ -12939,6 +12951,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetSwapFeeAndValuationIncomeLoss",
               "label": "Net swap fee and valuation income",
               "line": 28,
@@ -12947,6 +12971,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetSwapFeeAndValuationIncome",
+              "label": "Net swap fee and valuation income",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 799000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13273,42 +13309,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 36223000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetSwapFeeAndValuationIncome",
-              "label": "Net swap fee and valuation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 799000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -13504,6 +13504,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 19045000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 21,
@@ -13576,7 +13588,31 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 4754000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetSwapFeeAndValuationIncomeLoss",
+              "label": "Net swap fee and valuation income",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "NetSwapFeeAndValuationIncome",
               "label": "Net swap fee and valuation income",
               "line": 28,
               "indent": 0,
@@ -13910,42 +13946,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19045000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetSwapFeeAndValuationIncome",
-              "label": "Net swap fee and valuation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4754000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -14141,6 +14141,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 9616000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 21,
@@ -14213,6 +14225,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 4949000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetSwapFeeAndValuationIncomeLoss",
               "label": "Net swap fee and valuation income",
               "line": 28,
@@ -14221,6 +14245,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetSwapFeeAndValuationIncome",
+              "label": "Net swap fee and valuation income",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 2430000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14547,42 +14583,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9616000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetSwapFeeAndValuationIncome",
-              "label": "Net swap fee and valuation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2430000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4949000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -14778,6 +14778,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 6219000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 21,
@@ -14850,7 +14862,31 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 5010000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetSwapFeeAndValuationIncomeLoss",
+              "label": "Net swap fee and valuation income",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetSwapFeeAndValuationIncome",
               "label": "Net swap fee and valuation income",
               "line": 28,
               "indent": 0,
@@ -15184,42 +15220,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6219000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetSwapFeeAndValuationIncome",
-              "label": "Net swap fee and valuation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5010000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -15415,6 +15415,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 4463000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 21,
@@ -15487,7 +15499,31 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ElectronicBankingFees",
+              "label": "Electronic banking fees",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 4605000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetSwapFeeAndValuationIncomeLoss",
+              "label": "Net swap fee and valuation income",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetSwapFeeAndValuationIncome",
               "label": "Net swap fee and valuation income",
               "line": 28,
               "indent": 0,
@@ -15821,42 +15857,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4463000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetSwapFeeAndValuationIncome",
-              "label": "Net swap fee and valuation income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ElectronicBankingFees",
-              "label": "Electronic banking fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4605000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -15954,6 +15954,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 18,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "NET INTEREST INCOME",
             "line": 19,
@@ -15986,6 +15992,12 @@
           {
             "tag": "DigitalBankingIncome",
             "label": "Digital banking income",
+            "line": 25,
+            "indent": 0
+          },
+          {
+            "tag": "ElectronicBankingFees",
+            "label": "Electronic banking fees",
             "line": 25,
             "indent": 0
           },
@@ -16156,18 +16168,6 @@
             "label": "DIVIDENDS DECLARED PER COMMON SHARE",
             "line": 56,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ElectronicBankingFees",
-            "label": "Electronic banking fees",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -16262,6 +16262,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 20,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "NET INTEREST INCOME",
             "line": 21,
@@ -16298,7 +16304,19 @@
             "indent": 0
           },
           {
+            "tag": "ElectronicBankingFees",
+            "label": "Electronic banking fees",
+            "line": 27,
+            "indent": 0
+          },
+          {
             "tag": "NetSwapFeeAndValuationIncomeLoss",
+            "label": "Net swap fee and valuation income",
+            "line": 28,
+            "indent": 0
+          },
+          {
+            "tag": "NetSwapFeeAndValuationIncome",
             "label": "Net swap fee and valuation income",
             "line": 28,
             "indent": 0
@@ -16463,24 +16481,6 @@
             "tag": "CommonStockDividendsPerShareDeclared",
             "label": "DIVIDENDS DECLARED PER COMMON SHARE",
             "line": 58,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NetSwapFeeAndValuationIncome",
-            "label": "Net swap fee and valuation income",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ElectronicBankingFees",
-            "label": "Electronic banking fees",
-            "line": 9999,
             "indent": 0
           }
         ]

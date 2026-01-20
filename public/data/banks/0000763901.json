@@ -535,6 +535,16 @@
               "hasValue": true
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, 30,000,000 shares authorized; 885,726 shares issued and outstanding (2023 - 885,726)",
               "line": 44,
@@ -613,16 +623,6 @@
               "value": 73045383000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -987,6 +987,16 @@
               "hasValue": true
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, 30,000,000 shares authorized; 885,726 shares issued and outstanding (2022 - 885,726)",
               "line": 44,
@@ -1063,16 +1073,6 @@
               "indent": 0,
               "negating": false,
               "value": 70758155000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -1439,6 +1439,16 @@
               "hasValue": true
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 42,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "PreferredStockValue",
               "label": "Preferred stock, 30,000,000 shares authorized; 885,726 shares issued and outstanding (2021 - 885,726)",
               "line": 44,
@@ -1515,16 +1525,6 @@
               "indent": 0,
               "negating": false,
               "value": 67637917000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -1624,6 +1624,30 @@
               "value": 18245903000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGross",
+              "label": "Debt securities available-for-sale",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+              "label": "Less - Allowance for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1964,6 +1988,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,906,144 shares issued (2024 - 104,849,460) and 66,959,866 shares outstanding (2024 - 70,141,291)",
               "line": 45,
@@ -2044,42 +2080,6 @@
               "value": 73045383000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGross",
-              "label": "Debt securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-              "label": "Less - Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2177,6 +2177,30 @@
               "value": 18245903000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGross",
+              "label": "Debt securities available-for-sale",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+              "label": "Less - Allowance for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2517,6 +2541,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,889,180 shares issued (2024 - 104,849,460) and 67,937,468 shares outstanding (2024 - 70,141,291)",
               "line": 45,
@@ -2597,42 +2633,6 @@
               "value": 73045383000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGross",
-              "label": "Debt securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-              "label": "Less - Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2730,6 +2730,30 @@
               "value": 19493180000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGross",
+              "label": "Debt securities available-for-sale",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+              "label": "Less - Allowance for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3070,6 +3094,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,869,189 shares issued (2024 - 104,849,460) and 68,984,148 shares outstanding (2024 - 70,141,291)",
               "line": 45,
@@ -3150,42 +3186,6 @@
               "value": 74038606000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGross",
-              "label": "Debt securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-              "label": "Less - Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3283,6 +3283,30 @@
               "value": 18245903000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGross",
+              "label": "Debt securities available-for-sale",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 18245903000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+              "label": "Less - Allowance for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3623,6 +3647,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,849,460 shares issued (2023 - 104,767,348) and 70,141,291 shares outstanding (2023 - 72,153,621)",
               "line": 45,
@@ -3703,42 +3739,6 @@
               "value": 73045383000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGross",
-              "label": "Debt securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18245903000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-              "label": "Less - Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3836,6 +3836,30 @@
               "value": 17186123000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGross",
+              "label": "Debt securities available-for-sale",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 16729044000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+              "label": "Less - Allowance for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4176,6 +4200,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,832,712 shares issued (2023 - 104,767,348) and 71,787,349 shares outstanding (2023 - 72,153,621)",
               "line": 45,
@@ -4256,42 +4292,6 @@
               "value": 70758155000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGross",
-              "label": "Debt securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 16729044000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-              "label": "Less - Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4387,6 +4387,30 @@
               "indent": 0,
               "negating": false,
               "value": 18542779000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGross",
+              "label": "Debt securities available-for-sale",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 16729044000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+              "label": "Less - Allowance for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4729,6 +4753,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,811,971 shares issued (2023 - 104,767,348) and 72,365,926 shares outstanding (2023 - 72,153,621)",
               "line": 45,
@@ -4807,42 +4843,6 @@
               "indent": 0,
               "negating": false,
               "value": 72845072000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGross",
-              "label": "Debt securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 16729044000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-              "label": "Less - Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4940,6 +4940,30 @@
               "indent": 0,
               "negating": false,
               "value": 18017424000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGross",
+              "label": "Debt securities available-for-sale",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 18017924000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+              "label": "Less - Allowance for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 500000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5282,6 +5306,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,790,485 shares issued (2023 - 104,767,348) and 72,284,875 shares outstanding (2023 - 72,153,621)",
               "line": 45,
@@ -5360,42 +5396,6 @@
               "indent": 0,
               "negating": false,
               "value": 70936939000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGross",
-              "label": "Debt securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18017924000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-              "label": "Less - Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 500000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5490,6 +5490,30 @@
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Debt securities available-for-sale, net",
               "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGross",
+              "label": "Debt securities available-for-sale",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+              "label": "Less - Allowance for credit losses",
+              "line": 12,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -5835,6 +5859,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,767,348 shares issued (2022 - 104,657,522) and 72,153,621 shares outstanding (2022 - 71,853,720)",
               "line": 45,
@@ -5913,42 +5949,6 @@
               "indent": 0,
               "negating": false,
               "value": 70758155000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGross",
-              "label": "Debt securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-              "label": "Less - Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6043,6 +6043,30 @@
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Debt securities available-for-sale, net",
               "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGross",
+              "label": "Debt securities available-for-sale",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+              "label": "Less - Allowance for credit losses",
+              "line": 12,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -6388,6 +6412,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,740,311 shares issued (2022 - 104,657,522) and 72,127,595 shares outstanding (2022 - 71,853,720)",
               "line": 45,
@@ -6466,42 +6502,6 @@
               "indent": 0,
               "negating": false,
               "value": 67637917000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGross",
-              "label": "Debt securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-              "label": "Less - Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6596,6 +6596,30 @@
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Debt securities available-for-sale, net",
               "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGross",
+              "label": "Debt securities available-for-sale",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+              "label": "Less - Allowance for credit losses",
+              "line": 12,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -6941,6 +6965,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,712,430 shares issued (2022 - 104,657,522) and 72,103,969 shares outstanding (2022 - 71,853,720)",
               "line": 45,
@@ -7019,42 +7055,6 @@
               "indent": 0,
               "negating": false,
               "value": 67637917000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGross",
-              "label": "Debt securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-              "label": "Less - Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -7149,6 +7149,30 @@
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Debt securities available-for-sale, net",
               "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGross",
+              "label": "Debt securities available-for-sale",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+              "label": "Less - Allowance for credit losses",
+              "line": 12,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -7494,6 +7518,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and contingencies",
+              "line": 44,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CommonStockValue",
               "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,683,010 shares issued (2022 - 104,657,522) and 71,965,984 shares outstanding (2022 - 71,853,720)",
               "line": 45,
@@ -7572,42 +7608,6 @@
               "indent": 0,
               "negating": false,
               "value": 67675759000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGross",
-              "label": "Debt securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-              "label": "Less - Allowance for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -7829,6 +7829,12 @@
             "indent": 0
           },
           {
+            "tag": "CommitmentsAndContingencies",
+            "label": "Commitments and contingencies",
+            "line": 42,
+            "indent": 0
+          },
+          {
             "tag": "PreferredStockValue",
             "label": "Preferred stock, 30,000,000 shares authorized; 885,726 shares issued and outstanding (2023 - 885,726)",
             "line": 44,
@@ -7875,12 +7881,6 @@
             "label": "Total liabilities and stockholders' equity",
             "line": 51,
             "indent": 0
-          },
-          {
-            "tag": "CommitmentsAndContingencies",
-            "label": "Commitments and contingencies",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -7924,6 +7924,18 @@
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
             "label": "Debt securities available-for-sale, net",
             "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "DebtSecuritiesAvailableForSaleGross",
+            "label": "Debt securities available-for-sale",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
+            "label": "Less - Allowance for credit losses",
+            "line": 12,
             "indent": 0
           },
           {
@@ -8095,6 +8107,12 @@
             "indent": 0
           },
           {
+            "tag": "CommitmentsAndContingencies",
+            "label": "Commitments and contingencies",
+            "line": 44,
+            "indent": 0
+          },
+          {
             "tag": "CommonStockValue",
             "label": "Common stock, $0.01 par value; 170,000,000 shares authorized;104,906,144 shares issued (2024 - 104,849,460) and 66,959,866 shares outstanding (2024 - 70,141,291)",
             "line": 45,
@@ -8134,24 +8152,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and stockholders' equity",
             "line": 51,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesAvailableForSaleGross",
-            "label": "Debt securities available-for-sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss",
-            "label": "Less - Allowance for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommitmentsAndContingencies",
-            "label": "Commitments and contingencies",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -8439,6 +8439,16 @@
               "hasValue": true
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net gain (loss) on trading account debt securities",
               "line": 23,
@@ -8697,16 +8707,6 @@
               "value": 14.63,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -8857,6 +8857,16 @@
               "indent": 0,
               "negating": false,
               "value": -7334000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 23000,
               "uom": "USD",
               "hasValue": true
             },
@@ -9119,16 +9129,6 @@
               "value": 7.52,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 23000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -9279,6 +9279,16 @@
               "indent": 0,
               "negating": false,
               "value": 131000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true
             },
@@ -9541,16 +9551,6 @@
               "value": 5.87,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -9712,6 +9712,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherServiceFee",
+              "label": "Other service fees",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "MortgageBankingActivities",
               "label": "Mortgage banking activities",
               "line": 21,
@@ -9736,6 +9748,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net gain on trading account debt securities",
               "line": 23,
@@ -9756,6 +9780,18 @@
               "value": 808000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10034,42 +10070,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherServiceFee",
-              "label": "Other service fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10229,6 +10229,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherServiceFee",
+              "label": "Other service fees",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "MortgageBankingActivities",
               "label": "Mortgage banking activities",
               "line": 21,
@@ -10253,6 +10265,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net gain on trading account debt securities",
               "line": 23,
@@ -10273,6 +10297,18 @@
               "value": 120000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10551,42 +10587,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherServiceFee",
-              "label": "Other service fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10746,6 +10746,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherServiceFee",
+              "label": "Other service fees",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 94508000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "MortgageBankingActivities",
               "label": "Mortgage banking activities",
               "line": 21,
@@ -10770,6 +10782,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net gain on trading account debt securities",
               "line": 23,
@@ -10790,6 +10814,18 @@
               "value": 173000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11068,42 +11104,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherServiceFee",
-              "label": "Other service fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 94508000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11263,6 +11263,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "OtherServiceFee",
+              "label": "Other service fees",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "MortgageBankingActivities",
               "label": "Mortgage banking activities",
               "line": 21,
@@ -11287,6 +11299,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net gain (loss) on trading account debt securities",
               "line": 23,
@@ -11309,6 +11333,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Net gain (loss) on sale of loans, including valuation on loans held for sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -11585,42 +11621,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherServiceFee",
-              "label": "Other service fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Net gain (loss) on sale of loans, including valuation on loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11780,6 +11780,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherServiceFee",
+              "label": "Other service fees",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "MortgageBankingActivities",
               "label": "Mortgage banking activities",
               "line": 21,
@@ -11804,6 +11816,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net gain on trading account debt securities",
               "line": 23,
@@ -11822,6 +11846,18 @@
               "indent": 0,
               "negating": false,
               "value": -187000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12102,42 +12138,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherServiceFee",
-              "label": "Other service fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12297,6 +12297,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherServiceFee",
+              "label": "Other service fees",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "MortgageBankingActivities",
               "label": "Mortgage banking activities",
               "line": 21,
@@ -12321,6 +12333,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net gain on trading account debt securities",
               "line": 23,
@@ -12341,6 +12365,18 @@
               "value": 212000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12619,42 +12655,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherServiceFee",
-              "label": "Other service fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12814,6 +12814,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherServiceFee",
+              "label": "Other service fees",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "MortgageBankingActivities",
               "label": "Mortgage banking activities",
               "line": 21,
@@ -12838,6 +12850,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net gain on trading account debt securities",
               "line": 23,
@@ -12858,6 +12882,18 @@
               "value": -237000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13136,42 +13172,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherServiceFee",
-              "label": "Other service fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -13331,6 +13331,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "OtherServiceFee",
+              "label": "Other service fees",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "MortgageBankingActivities",
               "label": "Mortgage banking activities",
               "line": 21,
@@ -13355,6 +13367,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net profit (loss) on trading account debt securities",
               "line": 23,
@@ -13377,6 +13401,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Net loss on sale of loans, including valuation adjustments on loans held-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -13653,42 +13689,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherServiceFee",
-              "label": "Other service fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Net loss on sale of loans, including valuation adjustments on loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -13848,6 +13848,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherServiceFee",
+              "label": "Other service fees",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "MortgageBankingActivities",
               "label": "Mortgage banking activities",
               "line": 21,
@@ -13872,6 +13884,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net gain (loss) on trading account debt securities",
               "line": 23,
@@ -13890,6 +13914,18 @@
               "indent": 0,
               "negating": false,
               "value": 1715000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Net loss on sale of loans on loans held-for-sale, including valudation adjustments",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": -44000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14170,42 +14206,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherServiceFee",
-              "label": "Other service fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Net loss on sale of loans on loans held-for-sale, including valudation adjustments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -44000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -14365,6 +14365,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherServiceFee",
+              "label": "Other service fees",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "MortgageBankingActivities",
               "label": "Mortgage banking activities",
               "line": 21,
@@ -14389,6 +14401,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net gain (loss) on trading account debt securities",
               "line": 23,
@@ -14409,6 +14433,18 @@
               "value": -456000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14687,42 +14723,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherServiceFee",
-              "label": "Other service fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -14882,6 +14882,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherServiceFee",
+              "label": "Other service fees",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "MortgageBankingActivities",
               "label": "Mortgage banking activities",
               "line": 21,
@@ -14906,6 +14918,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesGainLoss",
+              "label": "Net gain on sale of debt securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TradingGainsLosses",
               "label": "Net gain (loss) on trading account debt securities",
               "line": 23,
@@ -14926,6 +14950,18 @@
               "value": 612000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSalesOfLoansNet",
+              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15204,42 +15240,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherServiceFee",
-              "label": "Other service fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSalesOfLoansNet",
-              "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesGainLoss",
-              "label": "Net gain on sale of debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -15327,6 +15327,12 @@
           {
             "tag": "EquitySecuritiesRealizedGainLossImpairment",
             "label": "Net (loss) gain, including impairment on equity securities",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "DebtSecuritiesGainLoss",
+            "label": "Net gain on sale of debt securities",
             "line": 22,
             "indent": 0
           },
@@ -15485,12 +15491,6 @@
             "label": "Net Income per Common Share - Diluted",
             "line": 49,
             "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesGainLoss",
-            "label": "Net gain on sale of debt securities",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -15567,6 +15567,12 @@
             "indent": 0
           },
           {
+            "tag": "OtherServiceFee",
+            "label": "Other service fees",
+            "line": 20,
+            "indent": 0
+          },
+          {
             "tag": "MortgageBankingActivities",
             "label": "Mortgage banking activities",
             "line": 21,
@@ -15579,6 +15585,12 @@
             "indent": 0
           },
           {
+            "tag": "DebtSecuritiesGainLoss",
+            "label": "Net gain on sale of debt securities",
+            "line": 22,
+            "indent": 0
+          },
+          {
             "tag": "TradingGainsLosses",
             "label": "Net gain on trading account debt securities",
             "line": 23,
@@ -15587,6 +15599,12 @@
           {
             "tag": "AdjustmentsToIndemnityReservesOnLoansSold",
             "label": "Adjustments to indemnity reserves on loans sold",
+            "line": 24,
+            "indent": 0
+          },
+          {
+            "tag": "GainLossOnSalesOfLoansNet",
+            "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
             "line": 24,
             "indent": 0
           },
@@ -15726,24 +15744,6 @@
             "tag": "EarningsPerShareDiluted",
             "label": "Net Income per Common Share - Diluted",
             "line": 48,
-            "indent": 0
-          },
-          {
-            "tag": "OtherServiceFee",
-            "label": "Other service fees",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnSalesOfLoansNet",
-            "label": "Net loss on sale of loans on loans held-for-sale, including valuation adjustments",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesGainLoss",
-            "label": "Net gain on sale of debt securities",
-            "line": 9999,
             "indent": 0
           }
         ]

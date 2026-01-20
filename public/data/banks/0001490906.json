@@ -370,6 +370,16 @@
               "hasValue": true
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
               "line": 22,
@@ -418,16 +428,6 @@
               "value": 9527608000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -622,6 +622,16 @@
               "hasValue": true
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -28083000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
               "line": 22,
@@ -668,16 +678,6 @@
               "indent": 0,
               "negating": false,
               "value": 10177461000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -28083000,
               "uom": "USD",
               "hasValue": true
             }
@@ -874,6 +874,16 @@
               "hasValue": true
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -29735000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "UnearnedESOPShares",
               "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
               "line": 22,
@@ -920,16 +930,6 @@
               "indent": 0,
               "negating": false,
               "value": 9624897000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -29735000,
               "uom": "USD",
               "hasValue": true
             }
@@ -1081,6 +1081,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -1099,6 +1111,18 @@
               "indent": 0,
               "negating": false,
               "value": 123991000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -1165,6 +1189,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Accumulated deficit",
               "line": 22,
@@ -1207,42 +1243,6 @@
               "indent": 0,
               "negating": false,
               "value": 9527608000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -1394,6 +1394,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -1414,6 +1426,18 @@
               "value": 123991000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1478,6 +1502,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Accumulated deficit",
               "line": 22,
@@ -1522,42 +1558,6 @@
               "value": 9527608000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -1707,6 +1707,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -1727,6 +1739,18 @@
               "value": 123991000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1791,6 +1815,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -25606000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Accumulated deficit",
               "line": 22,
@@ -1835,42 +1871,6 @@
               "value": 9527608000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -25606000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2020,6 +2020,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -2040,6 +2052,18 @@
               "value": 115248000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2104,6 +2128,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -26019000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Accumulated deficit",
               "line": 22,
@@ -2148,42 +2184,6 @@
               "value": 9527608000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -26019000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2333,6 +2333,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -2353,6 +2365,18 @@
               "value": 140069000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2417,6 +2441,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -28083000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Accumulated deficit",
               "line": 22,
@@ -2461,42 +2497,6 @@
               "value": 10177461000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -28083000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2646,6 +2646,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -2666,6 +2678,18 @@
               "value": 140069000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2730,6 +2754,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -26844000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Accumulated deficit",
               "line": 22,
@@ -2774,42 +2810,6 @@
               "value": 10177461000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -26844000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2959,6 +2959,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -2979,6 +2991,18 @@
               "value": 150952000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3043,6 +3067,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -27258000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Accumulated deficit",
               "line": 22,
@@ -3087,42 +3123,6 @@
               "value": 10177461000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -27258000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3272,6 +3272,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -3292,6 +3304,18 @@
               "value": 140069000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3356,6 +3380,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -27671000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Retained earnings",
               "line": 22,
@@ -3400,42 +3436,6 @@
               "value": 10177461000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -27671000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3585,6 +3585,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -3605,6 +3617,18 @@
               "value": 140069000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3669,6 +3693,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -29735000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Retained earnings",
               "line": 22,
@@ -3713,42 +3749,6 @@
               "value": 9624897000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -29735000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3898,6 +3898,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 2132154000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -3918,6 +3930,18 @@
               "value": 112858000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3982,6 +4006,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -29735000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Retained earnings",
               "line": 22,
@@ -4026,42 +4062,6 @@
               "value": 9624897000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -29735000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2132154000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4211,6 +4211,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 2132154000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -4231,6 +4243,18 @@
               "value": 112502000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4295,6 +4319,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -29735000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Retained earnings",
               "line": 22,
@@ -4339,42 +4375,6 @@
               "value": 9624897000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -29735000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2132154000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4524,6 +4524,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Borrowings",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 2645195000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
               "label": "Advances by borrowers",
               "line": 14,
@@ -4544,6 +4556,18 @@
               "value": 119014000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DeferredIncomeTaxLiabilitiesNet",
+              "label": "Deferred income tax liabilities, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4608,6 +4632,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "UnearnedESOPSharesCost",
+              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+              "line": 21,
+              "indent": 0,
+              "negating": true,
+              "value": -29735000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RetainedEarningsAccumulatedDeficit",
               "label": "Retained earnings",
               "line": 22,
@@ -4652,42 +4688,6 @@
               "value": 9929760000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnearnedESOPSharesCost",
-              "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -29735000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesLongTerm",
-              "label": "Borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2645195000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DeferredIncomeTaxLiabilitiesNet",
-              "label": "Deferred income tax liabilities, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4805,6 +4805,12 @@
             "indent": 0
           },
           {
+            "tag": "UnearnedESOPSharesCost",
+            "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+            "line": 21,
+            "indent": 0
+          },
+          {
             "tag": "UnearnedESOPShares",
             "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
             "line": 22,
@@ -4832,12 +4838,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "TOTAL LIABILITIES AND STOCKHOLDERS' EQUITY",
             "line": 26,
-            "indent": 0
-          },
-          {
-            "tag": "UnearnedESOPSharesCost",
-            "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -4909,6 +4909,12 @@
             "indent": 0
           },
           {
+            "tag": "FederalHomeLoanBankAdvancesLongTerm",
+            "label": "Borrowings",
+            "line": 13,
+            "indent": 0
+          },
+          {
             "tag": "AdvancePaymentsByBorrowersForTaxesAndInsurance",
             "label": "Advances by borrowers",
             "line": 14,
@@ -4917,6 +4923,12 @@
           {
             "tag": "AccountsPayableAndOtherAccruedLiabilities",
             "label": "Other liabilities",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "DeferredIncomeTaxLiabilitiesNet",
+            "label": "Deferred income tax liabilities, net",
             "line": 15,
             "indent": 0
           },
@@ -4951,6 +4963,12 @@
             "indent": 0
           },
           {
+            "tag": "UnearnedESOPSharesCost",
+            "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
+            "line": 21,
+            "indent": 0
+          },
+          {
             "tag": "RetainedEarningsAccumulatedDeficit",
             "label": "Accumulated deficit",
             "line": 22,
@@ -4972,24 +4990,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "TOTAL LIABILITIES AND STOCKHOLDERS' EQUITY",
             "line": 25,
-            "indent": 0
-          },
-          {
-            "tag": "UnearnedESOPSharesCost",
-            "label": "\"Unearned compensation, Employee Stock Ownership Plan (\"\"ESOP\"\")\"",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalHomeLoanBankAdvancesLongTerm",
-            "label": "Borrowings",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DeferredIncomeTaxLiabilitiesNet",
-            "label": "Deferred income tax liabilities, net",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -5236,6 +5236,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -5284,6 +5294,16 @@
               "value": -192622000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncomeOther",
@@ -5406,6 +5426,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME (LOSS) BEFORE INCOME TAX EXPENSE",
               "line": 37,
@@ -5454,36 +5484,6 @@
               "value": -0.76,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -5588,6 +5588,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -5636,6 +5646,16 @@
               "value": -192622000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncomeOther",
@@ -5758,6 +5778,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME (LOSS) BEFORE INCOME TAX EXPENSE (BENEFIT)",
               "line": 37,
@@ -5806,36 +5836,6 @@
               "value": -0.76,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -5940,6 +5940,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 206517000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -5986,6 +5996,16 @@
               "indent": 0,
               "negating": false,
               "value": -192622000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 7386000,
               "uom": "USD",
               "hasValue": true
             },
@@ -6110,6 +6130,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": 4752000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "(LOSS) INCOME BEFORE INCOME TAX (BENEFIT) EXPENSE",
               "line": 37,
@@ -6156,36 +6186,6 @@
               "indent": 0,
               "negating": false,
               "value": 0.56,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 206517000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7386000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 4752000,
               "uom": "USD",
               "hasValue": true
             }
@@ -6313,6 +6313,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -6371,6 +6383,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestIncomeOther",
@@ -6517,6 +6541,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME (LOSS) BEFORE INCOME TAX EXPENSE",
               "line": 37,
@@ -6594,42 +6630,6 @@
               "line": 43,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
               "value": null,
               "uom": "USD",
               "hasValue": false,
@@ -6758,6 +6758,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -6814,6 +6826,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6962,6 +6986,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME BEFORE INCOME TAX EXPENSE",
               "line": 37,
@@ -7042,42 +7078,6 @@
               "value": 129866397,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -7203,6 +7203,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -7259,6 +7271,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7407,6 +7431,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME BEFORE INCOME TAX EXPENSE",
               "line": 37,
@@ -7487,42 +7523,6 @@
               "value": 130536246,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -7648,6 +7648,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -7704,6 +7716,18 @@
               "value": -13345000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7852,6 +7876,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME BEFORE INCOME TAX EXPENSE (BENEFIT)",
               "line": 37,
@@ -7932,42 +7968,6 @@
               "value": 129972969,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8093,6 +8093,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -8151,6 +8163,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestIncomeOther",
@@ -8297,6 +8321,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME (LOSS) BEFORE INCOME TAX EXPENSE (BENEFIT)",
               "line": 37,
@@ -8374,42 +8410,6 @@
               "line": 43,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
               "value": null,
               "uom": "USD",
               "hasValue": false,
@@ -8538,6 +8538,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 54671000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -8594,6 +8606,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8742,6 +8766,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME BEFORE INCOME TAX EXPENSE",
               "line": 37,
@@ -8822,42 +8858,6 @@
               "value": 129866397,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 54671000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8983,6 +8983,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 47587000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -9039,6 +9051,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9187,6 +9211,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME BEFORE INCOME TAX EXPENSE",
               "line": 37,
@@ -9267,42 +9303,6 @@
               "value": 133150224,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 47587000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9428,6 +9428,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 45512000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -9484,6 +9496,18 @@
               "value": -13345000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9632,6 +9656,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME BEFORE INCOME TAX (BENEFIT) EXPENSE",
               "line": 37,
@@ -9712,42 +9748,6 @@
               "value": 134640932,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 45512000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9873,6 +9873,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 86184000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -9923,6 +9935,18 @@
             {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net loss from securities transactions",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
               "line": 23,
               "indent": 0,
               "negating": false,
@@ -10077,6 +10101,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "(LOSS) INCOME BEFORE INCOME TAX (BENEFIT) EXPENSE",
               "line": 37,
@@ -10154,42 +10190,6 @@
               "line": 43,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 86184000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
               "value": null,
               "uom": "USD",
               "hasValue": false,
@@ -10318,6 +10318,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 55894000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -10368,6 +10380,18 @@
             {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net loss from securities transactions",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
               "line": 23,
               "indent": 0,
               "negating": false,
@@ -10522,6 +10546,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME BEFORE INCOME TAX EXPENSE",
               "line": 37,
@@ -10602,42 +10638,6 @@
               "value": 135724658,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 55894000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10763,6 +10763,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 47587000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -10813,6 +10825,18 @@
             {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net loss from securities transactions",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
               "line": 23,
               "indent": 0,
               "negating": false,
@@ -10967,6 +10991,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME BEFORE INCOME TAX EXPENSE",
               "line": 37,
@@ -11047,42 +11083,6 @@
               "value": 133150224,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 47587000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11208,6 +11208,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 16852000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 18,
@@ -11258,6 +11270,18 @@
             {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net loss from securities transactions",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiRealizedGain",
+              "label": "Gain on sale of Visa Class B shares",
               "line": 23,
               "indent": 0,
               "negating": false,
@@ -11412,6 +11436,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+              "label": "Loss on interest rate swap termination",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "INCOME BEFORE INCOME TAX EXPENSE",
               "line": 37,
@@ -11494,42 +11530,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 16852000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGain",
-              "label": "Gain on sale of Visa Class B shares",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-              "label": "Loss on interest rate swap termination",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -11591,6 +11591,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 17,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "NET INTEREST INCOME",
             "line": 18,
@@ -11617,6 +11623,12 @@
           {
             "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
             "label": "Net loss from securities transactions",
+            "line": 23,
+            "indent": 0
+          },
+          {
+            "tag": "EquitySecuritiesFvNiRealizedGain",
+            "label": "Gain on sale of Visa Class B shares",
             "line": 23,
             "indent": 0
           },
@@ -11693,6 +11705,12 @@
             "indent": 0
           },
           {
+            "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+            "label": "Loss on interest rate swap termination",
+            "line": 36,
+            "indent": 0
+          },
+          {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
             "label": "INCOME (LOSS) BEFORE INCOME TAX EXPENSE",
             "line": 37,
@@ -11720,24 +11738,6 @@
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted EPS",
             "line": 41,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "EquitySecuritiesFvNiRealizedGain",
-            "label": "Gain on sale of Visa Class B shares",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-            "label": "Loss on interest rate swap termination",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -11797,6 +11797,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 17,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "NET INTEREST INCOME",
             "line": 18,
@@ -11823,6 +11829,12 @@
           {
             "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
             "label": "Net loss from securities transactions",
+            "line": 23,
+            "indent": 0
+          },
+          {
+            "tag": "EquitySecuritiesFvNiRealizedGain",
+            "label": "Gain on sale of Visa Class B shares",
             "line": 23,
             "indent": 0
           },
@@ -11899,6 +11911,12 @@
             "indent": 0
           },
           {
+            "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
+            "label": "Loss on interest rate swap termination",
+            "line": 36,
+            "indent": 0
+          },
+          {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
             "label": "INCOME BEFORE INCOME TAX EXPENSE",
             "line": 37,
@@ -11938,24 +11956,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Diluted weighted average common shares",
             "line": 43,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "EquitySecuritiesFvNiRealizedGain",
-            "label": "Gain on sale of Visa Class B shares",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnDiscontinuationOfCashFlowHedgeDueToForecastedTransactionProbableOfNotOccurringNet",
-            "label": "Loss on interest rate swap termination",
-            "line": 9999,
             "indent": 0
           }
         ]

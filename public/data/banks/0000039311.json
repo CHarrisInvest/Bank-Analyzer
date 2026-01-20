@@ -255,6 +255,16 @@
               "hasValue": true
             },
             {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "NotesReceivableGross",
               "label": "Financing receivable, before allowance for credit loss",
               "line": 17,
@@ -543,16 +553,6 @@
               "value": 5263726000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -633,6 +633,16 @@
               "indent": 0,
               "negating": false,
               "value": 55470000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 20367000,
               "uom": "USD",
               "hasValue": true
             },
@@ -925,16 +935,6 @@
               "value": 5263726000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 20367000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -1015,6 +1015,16 @@
               "indent": 0,
               "negating": false,
               "value": 55470000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 34811000,
               "uom": "USD",
               "hasValue": true
             },
@@ -1307,16 +1317,6 @@
               "value": 4999787000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 34811000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1382,6 +1382,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+              "label": "Equity securities at fair value",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair value of $293,242 at September 30, 2025 and $301,860 at December 31, 2024 )",
               "line": 13,
@@ -1414,6 +1426,30 @@
               "value": 7643000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1764,42 +1800,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-              "label": "Equity securities at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1863,6 +1863,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+              "label": "Equity securities at fair value",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair value of $293,658 at June 30, 2025 and $301,860 at December 31, 2024 )",
               "line": 13,
@@ -1895,6 +1907,30 @@
               "value": 12492000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2245,42 +2281,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-              "label": "Equity securities at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2344,6 +2344,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+              "label": "Equity securities at fair value",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair value of $302,579 at March 31, 2025 and $301,860 at December 31, 2024 )",
               "line": 13,
@@ -2376,6 +2388,30 @@
               "value": 7643000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2726,42 +2762,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-              "label": "Equity securities at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2825,6 +2825,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+              "label": "Equity securities at fair value",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair value of $301,860 at December 31, 2024 and $318,606 at December 31, 2023)",
               "line": 13,
@@ -2857,6 +2869,30 @@
               "value": 26518000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3207,42 +3243,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-              "label": "Equity securities at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3306,6 +3306,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+              "label": "Equity securities at fair value",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Securities held to maturity",
               "line": 13,
@@ -3338,6 +3350,30 @@
               "value": 14029000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3688,42 +3724,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-              "label": "Equity securities at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3787,6 +3787,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+              "label": "Equity securities at fair value",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 872000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Securities held to maturity",
               "line": 13,
@@ -3819,6 +3831,30 @@
               "value": 12063000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4169,42 +4205,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-              "label": "Equity securities at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 872000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4268,6 +4268,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+              "label": "Equity securities at fair value",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Securities held to maturity",
               "line": 13,
@@ -4300,6 +4312,30 @@
               "value": 12063000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4650,42 +4686,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-              "label": "Equity securities at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4749,6 +4749,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+              "label": "Equity securities at fair value",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Securities held to maturity (fair value of $318,606 at December 31, 2023 and $335,418 at December 31, 2022)",
               "line": 13,
@@ -4779,6 +4791,30 @@
               "indent": 0,
               "negating": false,
               "value": 55470000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 20367000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5131,42 +5167,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-              "label": "Equity securities at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 20367000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5230,6 +5230,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+              "label": "Equity securities at fair value",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Securities held to maturity",
               "line": 13,
@@ -5262,6 +5274,30 @@
               "value": 13979000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5612,42 +5648,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-              "label": "Equity securities at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5711,6 +5711,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+              "label": "Equity securities at fair value",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Securities held to maturity",
               "line": 13,
@@ -5743,6 +5755,30 @@
               "value": 20270000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6093,42 +6129,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-              "label": "Equity securities at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6192,6 +6192,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+              "label": "Equity securities at fair value",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Securities held to maturity",
               "line": 13,
@@ -6224,6 +6236,30 @@
               "value": 16935000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 20367000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+              "label": "Loans held for sale, carried at lower of cost or fair value",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6574,42 +6610,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-              "label": "Equity securities at fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 20367000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-              "label": "Loans held for sale, carried at lower of cost or fair value",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -6656,6 +6656,12 @@
             "tag": "LoansHeldForSaleFairValueDisclosure",
             "label": "Loans held for sale, carried at fair value",
             "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+            "label": "Loans held for sale, carried at lower of cost or fair value",
+            "line": 16,
             "indent": 0
           },
           {
@@ -6831,12 +6837,6 @@
             "label": "Total Liabilities and Shareholders Equity",
             "line": 48,
             "indent": 0
-          },
-          {
-            "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-            "label": "Loans held for sale, carried at lower of cost or fair value",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -6865,6 +6865,12 @@
             "indent": 0
           },
           {
+            "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
+            "label": "Equity securities at fair value",
+            "line": 12,
+            "indent": 0
+          },
+          {
             "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Securities held to maturity (fair value of $293,242 at September 30, 2025 and $301,860 at December 31, 2024 )",
             "line": 13,
@@ -6880,6 +6886,18 @@
             "tag": "LoansHeldForSaleFairValueDisclosure",
             "label": "Loans held for sale, carried at fair value",
             "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
+            "label": "Loans held for sale, carried at lower of cost or fair value",
+            "line": 16,
+            "indent": 0
+          },
+          {
+            "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
+            "label": "Loans held for sale, carried at lower of cost or fair value",
+            "line": 16,
             "indent": 0
           },
           {
@@ -7054,24 +7072,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total Liabilities and Shareholders Equity",
             "line": 48,
-            "indent": 0
-          },
-          {
-            "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
-            "label": "Equity securities at fair value",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansHeldForSaleCarriedAtLowerOfCostOrFairValue",
-            "label": "Loans held for sale, carried at lower of cost or fair value",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansHeldForSaleCarriedAtTheLowerOfCostOrFairValue",
-            "label": "Loans held for sale, carried at lower of cost or fair value",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -7299,6 +7299,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -7509,6 +7519,16 @@
               "hasValue": true
             },
             {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
               "label": "Costs (recoveries) related to unfunded lending commitments",
               "line": 36,
@@ -7517,6 +7537,16 @@
               "value": 424000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "OtherNoninterestExpense",
@@ -7587,36 +7617,6 @@
               "value": 2.97,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7709,6 +7709,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 19447000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -7921,12 +7931,32 @@
               "hasValue": true
             },
             {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
               "label": "Costs related to unfunded lending commitments",
               "line": 36,
               "indent": 0,
               "negating": false,
               "value": 1207000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": 50000,
               "uom": "USD",
               "hasValue": true
             },
@@ -7999,36 +8029,6 @@
               "value": 2.97,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19447000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 50000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -8121,6 +8121,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 8315000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -8333,6 +8343,16 @@
               "hasValue": true
             },
             {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 263000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
               "label": "Costs (recoveries) related to unfunded lending commitments",
               "line": 36,
@@ -8341,6 +8361,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": 1827000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "OtherNoninterestExpense",
@@ -8409,36 +8439,6 @@
               "indent": 0,
               "negating": false,
               "value": 2.97,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 8315000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1827000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 263000,
               "uom": "USD",
               "hasValue": true
             }
@@ -8554,6 +8554,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -8574,6 +8586,18 @@
               "value": 1488000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLossReimbursementOnSoldLoans",
+              "label": "Provision for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8806,6 +8830,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+              "label": "Costs (recoveries) related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 36,
@@ -8814,6 +8862,18 @@
               "value": 2074000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8886,66 +8946,6 @@
               "value": 0.65,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-              "label": "Costs (recoveries) related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLossReimbursementOnSoldLoans",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9059,6 +9059,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -9079,6 +9091,18 @@
               "value": 1500000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLossReimbursementOnSoldLoans",
+              "label": "Provision for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9311,6 +9335,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+              "label": "Costs (recoveries) related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 36,
@@ -9319,6 +9367,18 @@
               "value": 1639000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9391,66 +9451,6 @@
               "value": 0.81,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-              "label": "Costs (recoveries) related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLossReimbursementOnSoldLoans",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9564,6 +9564,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -9584,6 +9596,18 @@
               "value": 744000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLossReimbursementOnSoldLoans",
+              "label": "Provision for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9816,6 +9840,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+              "label": "Costs (recoveries) related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 196000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 36,
@@ -9824,6 +9872,18 @@
               "value": 2299000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9896,66 +9956,6 @@
               "value": 0.76,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-              "label": "Costs (recoveries) related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 196000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLossReimbursementOnSoldLoans",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10069,6 +10069,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -10082,6 +10094,18 @@
             },
             {
               "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLossReimbursementOnSoldLoans",
               "label": "Provision for credit losses",
               "line": 13,
               "indent": 0,
@@ -10321,6 +10345,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+              "label": "Costs (recoveries) related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 686000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 36,
@@ -10331,6 +10379,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestExpense",
@@ -10403,66 +10463,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-              "label": "Costs (recoveries) related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 686000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLossReimbursementOnSoldLoans",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -10574,6 +10574,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -10594,6 +10606,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLossReimbursementOnSoldLoans",
+              "label": "Provision for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 1350000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10826,6 +10850,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+              "label": "Costs (recoveries) related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 113000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 36,
@@ -10834,6 +10882,18 @@
               "value": 1854000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10906,66 +10966,6 @@
               "value": 0.83,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-              "label": "Costs (recoveries) related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 113000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLossReimbursementOnSoldLoans",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1350000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11079,6 +11079,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -11099,6 +11111,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLossReimbursementOnSoldLoans",
+              "label": "Provision for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 19000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11331,6 +11355,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+              "label": "Costs (recoveries) related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 100000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 36,
@@ -11339,6 +11387,18 @@
               "value": 1919000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11411,66 +11471,6 @@
               "value": 0.88,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-              "label": "Costs (recoveries) related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 100000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLossReimbursementOnSoldLoans",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11584,6 +11584,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 15495000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -11604,6 +11616,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLossReimbursementOnSoldLoans",
+              "label": "Provision for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 2160000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11836,6 +11860,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+              "label": "Costs (recoveries) related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": -475000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 36,
@@ -11844,6 +11892,18 @@
               "value": 1837000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11916,66 +11976,6 @@
               "value": 0.61,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-              "label": "Costs (recoveries) related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -475000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLossReimbursementOnSoldLoans",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2160000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 15495000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12089,6 +12089,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": -21356000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -12102,6 +12114,18 @@
             },
             {
               "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLossReimbursementOnSoldLoans",
               "label": "Provision for credit losses",
               "line": 13,
               "indent": 0,
@@ -12341,6 +12365,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 1200000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 36,
@@ -12351,6 +12399,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestExpense",
@@ -12423,66 +12483,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1200000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLossReimbursementOnSoldLoans",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -21356000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -12594,6 +12594,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 23005000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -12614,6 +12626,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLossReimbursementOnSoldLoans",
+              "label": "Provision for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 3145000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12846,6 +12870,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+              "label": "Costs (recoveries) related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 382000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 36,
@@ -12854,6 +12902,18 @@
               "value": 1854000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12926,66 +12986,6 @@
               "value": 0.81,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-              "label": "Costs (recoveries) related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 382000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLossReimbursementOnSoldLoans",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3145000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 23005000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13099,6 +13099,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 2303000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -13119,6 +13131,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLossReimbursementOnSoldLoans",
+              "label": "Provision for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 2379000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13351,6 +13375,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+              "label": "Costs (recoveries) related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 100000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 36,
@@ -13359,6 +13407,18 @@
               "value": 1973000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13431,66 +13491,6 @@
               "value": 0.7,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-              "label": "Costs (recoveries) related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 100000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLossReimbursementOnSoldLoans",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2379000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2303000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13604,6 +13604,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 15495000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -13624,6 +13636,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLossReimbursementOnSoldLoans",
+              "label": "Provision for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": -1573000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13856,6 +13880,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+              "label": "Recoveries related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": -475000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CostsRelatedToUnfundedLendingCommitments",
+              "label": "Costs related to unfunded lending commitments",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 36,
@@ -13864,6 +13912,18 @@
               "value": 1849000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ConversionRelatedExpense",
+              "label": "Conversion related expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13938,66 +13998,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-              "label": "Recoveries related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -475000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLossReimbursementOnSoldLoans",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1573000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 15495000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ConversionRelatedExpense",
-              "label": "Conversion related expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CostsRelatedToUnfundedLendingCommitments",
-              "label": "Costs related to unfunded lending commitments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -14053,243 +14053,7 @@
             "indent": 0
           },
           {
-            "tag": "InterestIncomeExpenseNet",
-            "label": "Net Interest Income",
-            "line": 12,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLossesExpensed",
-            "label": "Provision for credit losses",
-            "line": 13,
-            "indent": 0
-          },
-          {
-            "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-            "label": "Net Interest Income After Provision for Credit Losses",
-            "line": 14,
-            "indent": 0
-          },
-          {
-            "tag": "InterchangeIncome",
-            "label": "Interchange income",
-            "line": 16,
-            "indent": 0
-          },
-          {
-            "tag": "DepositorAccountsFeesAndCommissions",
-            "label": "Service charges on deposit accounts",
-            "line": 17,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnSalesOfLoansNet",
-            "label": "Mortgage loans",
-            "line": 19,
-            "indent": 0
-          },
-          {
-            "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-            "label": "Equity securities at fair value",
-            "line": 20,
-            "indent": 0
-          },
-          {
-            "tag": "MarketableSecuritiesGainLossExcludingOtherThanTemporaryImpairments",
-            "label": "Securities available for sale",
-            "line": 21,
-            "indent": 0
-          },
-          {
-            "tag": "MortgageLoanServicingIncome",
-            "label": "Mortgage loan servicing, net",
-            "line": 22,
-            "indent": 0
-          },
-          {
-            "tag": "NoninterestIncomeOtherOperatingIncome",
-            "label": "Other",
-            "line": 23,
-            "indent": 0
-          },
-          {
-            "tag": "NoninterestIncome",
-            "label": "Total Non-interest Income",
-            "line": 24,
-            "indent": 0
-          },
-          {
-            "tag": "LaborAndRelatedExpense",
-            "label": "Compensation and employee benefits",
-            "line": 26,
-            "indent": 0
-          },
-          {
-            "tag": "DataProcessing",
-            "label": "Data processing",
-            "line": 27,
-            "indent": 0
-          },
-          {
-            "tag": "OccupancyNet",
-            "label": "Occupancy, net",
-            "line": 28,
-            "indent": 0
-          },
-          {
-            "tag": "InterchangeExpense",
-            "label": "Interchange expense",
-            "line": 29,
-            "indent": 0
-          },
-          {
-            "tag": "EquipmentExpense",
-            "label": "Furniture, fixtures and equipment",
-            "line": 30,
-            "indent": 0
-          },
-          {
-            "tag": "AdvertisingExpense",
-            "label": "Advertising",
-            "line": 31,
-            "indent": 0
-          },
-          {
-            "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-            "label": "FDIC deposit insurance",
-            "line": 32,
-            "indent": 0
-          },
-          {
-            "tag": "ProfessionalFees",
-            "label": "Legal and professional",
-            "line": 33,
-            "indent": 0
-          },
-          {
-            "tag": "LoanAndCollection",
-            "label": "Loan and collection",
-            "line": 34,
-            "indent": 0
-          },
-          {
-            "tag": "Communication",
-            "label": "Communications",
-            "line": 35,
-            "indent": 0
-          },
-          {
-            "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-            "label": "Costs (recoveries) related to unfunded lending commitments",
-            "line": 36,
-            "indent": 0
-          },
-          {
-            "tag": "OtherNoninterestExpense",
-            "label": "Other",
-            "line": 37,
-            "indent": 0
-          },
-          {
-            "tag": "NoninterestExpense",
-            "label": "Total Non-interest Expense",
-            "line": 38,
-            "indent": 0
-          },
-          {
-            "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
-            "label": "Income Before Income Tax",
-            "line": 39,
-            "indent": 0
-          },
-          {
-            "tag": "IncomeTaxExpenseBenefit",
-            "label": "Income tax expense",
-            "line": 40,
-            "indent": 0
-          },
-          {
-            "tag": "NetIncomeLoss",
-            "label": "Net Income",
-            "line": 41,
-            "indent": 0
-          },
-          {
-            "tag": "EarningsPerShareBasic",
-            "label": "Basic (in dollars per share)",
-            "line": 43,
-            "indent": 0
-          },
-          {
-            "tag": "EarningsPerShareDiluted",
-            "label": "Diluted (in dollars per share)",
-            "line": 44,
-            "indent": 0
-          },
-          {
             "tag": "InterestExpense",
-            "label": "Total Interest Expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ConversionRelatedExpense",
-            "label": "Conversion related expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CostsRelatedToUnfundedLendingCommitments",
-            "label": "Costs related to unfunded lending commitments",
-            "line": 9999,
-            "indent": 0
-          }
-        ],
-        "quarterly": [
-          {
-            "tag": "InterestAndFeeIncomeLoansAndLeases",
-            "label": "Interest and fees on loans",
-            "line": 2,
-            "indent": 0
-          },
-          {
-            "tag": "InterestIncomeSecuritiesTaxable",
-            "label": "Taxable",
-            "line": 4,
-            "indent": 0
-          },
-          {
-            "tag": "InterestIncomeSecuritiesTaxExempt",
-            "label": "Tax-exempt",
-            "line": 5,
-            "indent": 0
-          },
-          {
-            "tag": "OtherInterestAndDividendIncome",
-            "label": "Other investments",
-            "line": 6,
-            "indent": 0
-          },
-          {
-            "tag": "InterestAndDividendIncomeOperating",
-            "label": "Total Interest Income",
-            "line": 7,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseDeposits",
-            "label": "Deposits",
-            "line": 9,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseBorrowings",
-            "label": "Other borrowings and subordinated debt and debentures",
-            "line": 10,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseOperating",
             "label": "Total Interest Expense",
             "line": 11,
             "indent": 0
@@ -14385,6 +14149,254 @@
             "indent": 0
           },
           {
+            "tag": "EquipmentExpense",
+            "label": "Furniture, fixtures and equipment",
+            "line": 30,
+            "indent": 0
+          },
+          {
+            "tag": "AdvertisingExpense",
+            "label": "Advertising",
+            "line": 31,
+            "indent": 0
+          },
+          {
+            "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+            "label": "FDIC deposit insurance",
+            "line": 32,
+            "indent": 0
+          },
+          {
+            "tag": "ProfessionalFees",
+            "label": "Legal and professional",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "LoanAndCollection",
+            "label": "Loan and collection",
+            "line": 34,
+            "indent": 0
+          },
+          {
+            "tag": "Communication",
+            "label": "Communications",
+            "line": 35,
+            "indent": 0
+          },
+          {
+            "tag": "CostsRelatedToUnfundedLendingCommitments",
+            "label": "Costs related to unfunded lending commitments",
+            "line": 35,
+            "indent": 0
+          },
+          {
+            "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+            "label": "Costs (recoveries) related to unfunded lending commitments",
+            "line": 36,
+            "indent": 0
+          },
+          {
+            "tag": "ConversionRelatedExpense",
+            "label": "Conversion related expense",
+            "line": 36,
+            "indent": 0
+          },
+          {
+            "tag": "OtherNoninterestExpense",
+            "label": "Other",
+            "line": 37,
+            "indent": 0
+          },
+          {
+            "tag": "NoninterestExpense",
+            "label": "Total Non-interest Expense",
+            "line": 38,
+            "indent": 0
+          },
+          {
+            "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Before Income Tax",
+            "line": 39,
+            "indent": 0
+          },
+          {
+            "tag": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "line": 40,
+            "indent": 0
+          },
+          {
+            "tag": "NetIncomeLoss",
+            "label": "Net Income",
+            "line": 41,
+            "indent": 0
+          },
+          {
+            "tag": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "line": 43,
+            "indent": 0
+          },
+          {
+            "tag": "EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "line": 44,
+            "indent": 0
+          }
+        ],
+        "quarterly": [
+          {
+            "tag": "InterestAndFeeIncomeLoansAndLeases",
+            "label": "Interest and fees on loans",
+            "line": 2,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeSecuritiesTaxable",
+            "label": "Taxable",
+            "line": 4,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeSecuritiesTaxExempt",
+            "label": "Tax-exempt",
+            "line": 5,
+            "indent": 0
+          },
+          {
+            "tag": "OtherInterestAndDividendIncome",
+            "label": "Other investments",
+            "line": 6,
+            "indent": 0
+          },
+          {
+            "tag": "InterestAndDividendIncomeOperating",
+            "label": "Total Interest Income",
+            "line": 7,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseDeposits",
+            "label": "Deposits",
+            "line": 9,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseBorrowings",
+            "label": "Other borrowings and subordinated debt and debentures",
+            "line": 10,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseOperating",
+            "label": "Total Interest Expense",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
+            "label": "Total Interest Expense",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeExpenseNet",
+            "label": "Net Interest Income",
+            "line": 12,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLossesExpensed",
+            "label": "Provision for credit losses",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLossReimbursementOnSoldLoans",
+            "label": "Provision for credit losses",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+            "label": "Net Interest Income After Provision for Credit Losses",
+            "line": 14,
+            "indent": 0
+          },
+          {
+            "tag": "InterchangeIncome",
+            "label": "Interchange income",
+            "line": 16,
+            "indent": 0
+          },
+          {
+            "tag": "DepositorAccountsFeesAndCommissions",
+            "label": "Service charges on deposit accounts",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "GainLossOnSalesOfLoansNet",
+            "label": "Mortgage loans",
+            "line": 19,
+            "indent": 0
+          },
+          {
+            "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+            "label": "Equity securities at fair value",
+            "line": 20,
+            "indent": 0
+          },
+          {
+            "tag": "MarketableSecuritiesGainLossExcludingOtherThanTemporaryImpairments",
+            "label": "Securities available for sale",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "MortgageLoanServicingIncome",
+            "label": "Mortgage loan servicing, net",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "NoninterestIncomeOtherOperatingIncome",
+            "label": "Other",
+            "line": 23,
+            "indent": 0
+          },
+          {
+            "tag": "NoninterestIncome",
+            "label": "Total Non-interest Income",
+            "line": 24,
+            "indent": 0
+          },
+          {
+            "tag": "LaborAndRelatedExpense",
+            "label": "Compensation and employee benefits",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "DataProcessing",
+            "label": "Data processing",
+            "line": 27,
+            "indent": 0
+          },
+          {
+            "tag": "OccupancyNet",
+            "label": "Occupancy, net",
+            "line": 28,
+            "indent": 0
+          },
+          {
+            "tag": "InterchangeExpense",
+            "label": "Interchange expense",
+            "line": 29,
+            "indent": 0
+          },
+          {
             "tag": "AdvertisingExpense",
             "label": "Advertising",
             "line": 30,
@@ -14421,8 +14433,26 @@
             "indent": 0
           },
           {
+            "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
+            "label": "Costs (recoveries) related to unfunded lending commitments",
+            "line": 35,
+            "indent": 0
+          },
+          {
+            "tag": "CostsRelatedToUnfundedLendingCommitments",
+            "label": "Costs related to unfunded lending commitments",
+            "line": 35,
+            "indent": 0
+          },
+          {
             "tag": "OtherNoninterestExpense",
             "label": "Other",
+            "line": 36,
+            "indent": 0
+          },
+          {
+            "tag": "ConversionRelatedExpense",
+            "label": "Conversion related expense",
             "line": 36,
             "indent": 0
           },
@@ -14460,36 +14490,6 @@
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted (in dollars per share)",
             "line": 43,
-            "indent": 0
-          },
-          {
-            "tag": "CostsRecoveriesRelatedToUnfundedLendingCommitments",
-            "label": "Costs (recoveries) related to unfunded lending commitments",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLossReimbursementOnSoldLoans",
-            "label": "Provision for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total Interest Expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ConversionRelatedExpense",
-            "label": "Conversion related expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CostsRelatedToUnfundedLendingCommitments",
-            "label": "Costs related to unfunded lending commitments",
-            "line": 9999,
             "indent": 0
           }
         ]

@@ -490,6 +490,16 @@
               "hasValue": true
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value: 25,000,000 shares authorized; 13,186,198 and 13,156,308 shares issued, respectively; and 11,183,015 and 11,465,572 shares outstanding, respectively.",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -558,16 +568,6 @@
               "value": 2385867000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value: 25,000,000 shares authorized; 13,186,198 and 13,156,308 shares issued, respectively; and 11,183,015 and 11,465,572 shares outstanding, respectively.",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -882,6 +882,16 @@
               "hasValue": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value: 25,000,000 shares authorized; 13,186,198 and 13,156,308 shares issued, respectively; and 11,183,015 and 11,465,572 shares outstanding, respectively.",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 13156000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -948,16 +958,6 @@
               "indent": 0,
               "negating": false,
               "value": 2062228000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value: 25,000,000 shares authorized; 13,186,198 and 13,156,308 shares issued, respectively; and 11,183,015 and 11,465,572 shares outstanding, respectively.",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13156000,
               "uom": "USD",
               "hasValue": true
             }
@@ -1274,6 +1274,16 @@
               "hasValue": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value per share. 25,000,000 shares authorized;  and 6,534,587 shares issued and outstanding, respectively",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 13156000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -1342,16 +1352,6 @@
               "value": 1713443000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value per share. 25,000,000 shares authorized;  and 6,534,587 shares issued and outstanding, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13156000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1401,6 +1401,18 @@
               "value": 27462000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1561,6 +1573,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServicingAssetAtAmortizedValue",
               "label": "Servicing assets",
               "line": 18,
@@ -1581,6 +1605,18 @@
               "value": 899000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+              "label": "Servicing assets held for sale",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1729,6 +1765,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -1813,33 +1861,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common Stock, Shares, Outstanding",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": 11240075,
@@ -1851,36 +1875,12 @@
             {
               "tag": "CommonStockSharesIssued",
               "label": "Common Stock, Shares, Issued",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 13243258,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-              "label": "Servicing assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -1930,6 +1930,18 @@
               "value": 27462000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2090,6 +2102,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServicingAssetAtAmortizedValue",
               "label": "Servicing assets",
               "line": 18,
@@ -2110,6 +2134,18 @@
               "value": 899000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+              "label": "Servicing assets held for sale",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2258,6 +2294,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -2342,33 +2390,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common Stock, Shares, Outstanding",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": 11296778,
@@ -2380,36 +2404,12 @@
             {
               "tag": "CommonStockSharesIssued",
               "label": "Common Stock, Shares, Issued",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 13243258,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-              "label": "Servicing assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2457,6 +2457,18 @@
               "indent": 0,
               "negating": false,
               "value": 131225000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 629000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2619,6 +2631,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 159000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServicingAssetAtAmortizedValue",
               "label": "Servicing assets",
               "line": 18,
@@ -2639,6 +2663,18 @@
               "value": 899000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+              "label": "Servicing assets held for sale",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2787,6 +2823,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -2871,33 +2919,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 629000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 159000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common Stock, Shares, Outstanding",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": 11285278,
@@ -2909,36 +2933,12 @@
             {
               "tag": "CommonStockSharesIssued",
               "label": "Common Stock, Shares, Issued",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 13288461,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-              "label": "Servicing assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2988,6 +2988,18 @@
               "value": 56697000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3148,6 +3160,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1703000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServicingAssetAtAmortizedValue",
               "label": "Servicing assets",
               "line": 18,
@@ -3168,6 +3192,18 @@
               "value": 899000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+              "label": "Servicing assets held for sale",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3316,6 +3352,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -3400,33 +3448,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1703000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common Stock, Shares, Outstanding",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": 11183015,
@@ -3438,36 +3462,12 @@
             {
               "tag": "CommonStockSharesIssued",
               "label": "Common Stock, Shares, Issued",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 13243258,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-              "label": "Servicing assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3517,6 +3517,18 @@
               "value": 56697000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3677,6 +3689,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1703000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServicingAssetAtAmortizedValue",
               "label": "Servicing assets",
               "line": 18,
@@ -3695,6 +3719,18 @@
               "indent": 0,
               "negating": false,
               "value": 899000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+              "label": "Servicing assets held for sale",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3845,6 +3881,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -3929,33 +3977,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1703000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common Stock, Shares, Outstanding",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": 11183015,
@@ -3967,36 +3991,12 @@
             {
               "tag": "CommonStockSharesIssued",
               "label": "Common Stock, Shares, Issued",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 13232258,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-              "label": "Servicing assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4046,6 +4046,18 @@
               "value": 56697000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4206,6 +4218,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1862000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServicingAssetAtAmortizedValue",
               "label": "Servicing assets",
               "line": 18,
@@ -4226,6 +4250,18 @@
               "value": 899000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+              "label": "Servicing assets held for sale",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4374,6 +4410,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -4458,33 +4506,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1862000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common Stock, Shares, Outstanding",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": 11183015,
@@ -4496,36 +4520,12 @@
             {
               "tag": "CommonStockSharesIssued",
               "label": "Common Stock, Shares, Issued",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 13194058,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-              "label": "Servicing assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4575,6 +4575,18 @@
               "value": 56697000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4735,6 +4747,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1703000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServicingAssetAtAmortizedValue",
               "label": "Servicing assets",
               "line": 18,
@@ -4755,6 +4779,18 @@
               "value": 899000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+              "label": "Servicing assets held for sale",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4903,6 +4939,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 13189000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -4987,33 +5035,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1703000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common Stock, Shares, Outstanding",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": 11185515,
@@ -5025,34 +5049,10 @@
             {
               "tag": "CommonStockSharesIssued",
               "label": "Common Stock, Shares, Issued",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 13186198,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-              "label": "Servicing assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13189000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5104,6 +5104,18 @@
               "value": 38391000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5264,6 +5276,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1703000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServicingAssetAtAmortizedValue",
               "label": "Servicing assets",
               "line": 18,
@@ -5284,6 +5308,18 @@
               "value": 899000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+              "label": "Servicing assets held for sale",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5432,6 +5468,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value: 25,000,000 shares authorized; 13,186,198 and 13,156,308 shares issued, respectively; and 11,183,015 and 11,465,572 shares outstanding, respectively.",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 13156000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -5516,33 +5564,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1703000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common Stock, Shares, Outstanding",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": 11465572,
@@ -5554,34 +5578,10 @@
             {
               "tag": "CommonStockSharesIssued",
               "label": "Common Stock, Shares, Issued",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 13156308,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-              "label": "Servicing assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value: 25,000,000 shares authorized; 13,186,198 and 13,156,308 shares issued, respectively; and 11,183,015 and 11,465,572 shares outstanding, respectively.",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13156000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5633,6 +5633,18 @@
               "value": 59759000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5793,6 +5805,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1703000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServicingAssetAtAmortizedValue",
               "label": "Servicing assets",
               "line": 18,
@@ -5813,6 +5837,18 @@
               "value": 899000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+              "label": "Servicing assets held for sale",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5961,6 +5997,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value per share. 25,000,000 shares authorized; 13,180,934 and 13,156,308 shares issued and 11,177,751 and 11,465,572 shares outstanding, respectively",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 13181000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -6045,33 +6093,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1703000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common Stock, Shares, Outstanding",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": 11177751,
@@ -6083,34 +6107,10 @@
             {
               "tag": "CommonStockSharesIssued",
               "label": "Common Stock, Shares, Issued",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 13156308,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-              "label": "Servicing assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value per share. 25,000,000 shares authorized; 13,180,934 and 13,156,308 shares issued and 11,177,751 and 11,465,572 shares outstanding, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13181000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6162,6 +6162,18 @@
               "value": 46866000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6322,6 +6334,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1703000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServicingAssetAtAmortizedValue",
               "label": "Servicing assets",
               "line": 18,
@@ -6342,6 +6366,18 @@
               "value": 899000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+              "label": "Servicing assets held for sale",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6490,6 +6526,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value per share. 25,000,000 shares authorized; 13,180,934 and 13,156,308 shares issued and 11,177,751 and 11,465,572 shares outstanding, respectively",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 13181000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -6574,33 +6622,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1703000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common Stock, Shares, Outstanding",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": 11177751,
@@ -6612,34 +6636,10 @@
             {
               "tag": "CommonStockSharesIssued",
               "label": "Common Stock, Shares, Issued",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 13180934,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-              "label": "Servicing assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value per share. 25,000,000 shares authorized; 13,180,934 and 13,156,308 shares issued and 11,177,751 and 11,465,572 shares outstanding, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13181000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6691,6 +6691,18 @@
               "value": 108503000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6851,6 +6863,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1703000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ServicingAssetAtAmortizedValue",
               "label": "Servicing assets",
               "line": 18,
@@ -6871,6 +6895,18 @@
               "value": 899000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+              "label": "Servicing assets held for sale",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7019,6 +7055,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommonStockValue",
+              "label": "Common stock, $1 par value per share. 25,000,000 shares authorized; 13,180,184 and 13,156,308 shares issued and 11,177,001 and 11,465,572 shares outstanding, respectively",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 13180000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AdditionalPaidInCapital",
               "label": "Surplus",
               "line": 35,
@@ -7103,33 +7151,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "FederalFundsSold",
-              "label": "Federal funds sold",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1703000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "CommonStockSharesOutstanding",
               "label": "Common Stock, Shares, Outstanding",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": 11177001,
@@ -7141,34 +7165,10 @@
             {
               "tag": "CommonStockSharesIssued",
               "label": "Common Stock, Shares, Issued",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": 13180184,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-              "label": "Servicing assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommonStockValue",
-              "label": "Common stock, $1 par value per share. 25,000,000 shares authorized; 13,180,184 and 13,156,308 shares issued and 11,177,001 and 11,465,572 shares outstanding, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13180000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -7360,6 +7360,12 @@
             "indent": 0
           },
           {
+            "tag": "CommonStockValue",
+            "label": "Common stock, $1 par value: 25,000,000 shares authorized; 13,186,198 and 13,156,308 shares issued, respectively; and 11,183,015 and 11,465,572 shares outstanding, respectively.",
+            "line": 34,
+            "indent": 0
+          },
+          {
             "tag": "AdditionalPaidInCapital",
             "label": "Surplus",
             "line": 35,
@@ -7400,12 +7406,6 @@
             "label": "Total liabilities and stockholders equity",
             "line": 41,
             "indent": 0
-          },
-          {
-            "tag": "CommonStockValue",
-            "label": "Common stock, $1 par value: 25,000,000 shares authorized; 13,186,198 and 13,156,308 shares issued, respectively; and 11,183,015 and 11,465,572 shares outstanding, respectively.",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -7424,6 +7424,12 @@
           {
             "tag": "CashCashEquivalentsAndFederalFundsSold",
             "label": "Cash and cash equivalents",
+            "line": 4,
+            "indent": 0
+          },
+          {
+            "tag": "FederalFundsSold",
+            "label": "Federal funds sold",
             "line": 4,
             "indent": 0
           },
@@ -7506,6 +7512,12 @@
             "indent": 0
           },
           {
+            "tag": "OtherRealEstate",
+            "label": "Other real estate owned",
+            "line": 17,
+            "indent": 0
+          },
+          {
             "tag": "ServicingAssetAtAmortizedValue",
             "label": "Servicing assets",
             "line": 18,
@@ -7514,6 +7526,12 @@
           {
             "tag": "Goodwill",
             "label": "Goodwill",
+            "line": 19,
+            "indent": 0
+          },
+          {
+            "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
+            "label": "Servicing assets held for sale",
             "line": 19,
             "indent": 0
           },
@@ -7590,6 +7608,12 @@
             "indent": 0
           },
           {
+            "tag": "CommonStockValue",
+            "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
+            "line": 34,
+            "indent": 0
+          },
+          {
             "tag": "AdditionalPaidInCapital",
             "label": "Surplus",
             "line": 35,
@@ -7632,39 +7656,15 @@
             "indent": 0
           },
           {
-            "tag": "FederalFundsSold",
-            "label": "Federal funds sold",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OtherRealEstate",
-            "label": "Other real estate owned",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "CommonStockSharesOutstanding",
             "label": "Common Stock, Shares, Outstanding",
-            "line": 9999,
+            "line": 43,
             "indent": 0
           },
           {
             "tag": "CommonStockSharesIssued",
             "label": "Common Stock, Shares, Issued",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ServicingAssetHeldForSaleNotPartOfDisposalGroupAtAmortizedCost",
-            "label": "Servicing assets held for sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommonStockValue",
-            "label": "Common stock, $1 par value per share. $25,000,000 shares authorized; $13,188,698 and $13,186,198 shares issued and $11,185,515 and $11,183,015 shares outstanding, respectively",
-            "line": 9999,
+            "line": 44,
             "indent": 0
           }
         ]
@@ -7892,6 +7892,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -7950,6 +7960,16 @@
               "value": 4485000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "BankOwnedLifeInsuranceIncome",
@@ -8032,6 +8052,16 @@
               "hasValue": true
             },
             {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": -25000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 27,
@@ -8090,6 +8120,16 @@
               "value": 6144000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "MarketingAndAdvertisingExpense",
@@ -8200,46 +8240,6 @@
               "value": 11243000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -25000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -8334,6 +8334,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 18593000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -8392,6 +8402,16 @@
               "value": 4485000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "BankOwnedLifeInsuranceIncome",
@@ -8474,6 +8494,16 @@
               "hasValue": true
             },
             {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": -844000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 27,
@@ -8530,6 +8560,16 @@
               "indent": 0,
               "negating": false,
               "value": 6415000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 2929000,
               "uom": "USD",
               "hasValue": true
             },
@@ -8642,46 +8682,6 @@
               "value": 12204000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18593000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2929000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -844000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -8776,6 +8776,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 8411000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -8832,6 +8842,16 @@
               "indent": 0,
               "negating": false,
               "value": 6898000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 1070000,
               "uom": "USD",
               "hasValue": true
             },
@@ -8916,6 +8936,16 @@
               "hasValue": true
             },
             {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": -844000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 27,
@@ -8974,6 +9004,16 @@
               "value": 4382000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "MarketingAndAdvertisingExpense",
@@ -9082,46 +9122,6 @@
               "indent": 0,
               "negating": false,
               "value": 12412000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 8411000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1070000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -844000,
               "uom": "USD",
               "hasValue": true
             }
@@ -9237,6 +9237,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -9309,6 +9321,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Earnings on investment in life insurance",
               "line": 19,
@@ -9341,6 +9365,18 @@
               "value": -102000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Gain on sale of OREO",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9381,6 +9417,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net loss on sale of investment securities available-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 25,
@@ -9401,6 +9449,18 @@
               "value": 10831000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9473,6 +9533,18 @@
               "value": 181000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9581,78 +9653,6 @@
               "value": 11234000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net loss on sale of investment securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Gain on sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9766,6 +9766,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -9838,6 +9850,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Earnings on investment in life insurance",
               "line": 19,
@@ -9870,6 +9894,18 @@
               "value": 203000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Gain on sale of OREO",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9910,6 +9946,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net loss on sale of investment securities available-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 25,
@@ -9930,6 +9978,18 @@
               "value": 11288000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10002,6 +10062,18 @@
               "value": 269000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10110,78 +10182,6 @@
               "value": 11392000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net loss on sale of investment securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Gain on sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10295,6 +10295,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -10367,6 +10379,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Earnings on investment in life insurance",
               "line": 19,
@@ -10399,6 +10423,18 @@
               "value": 75000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Gain on sale of OREO",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10439,6 +10475,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net loss on sale of investment securities available-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 25,
@@ -10457,6 +10505,18 @@
               "indent": 0,
               "negating": false,
               "value": 7984000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 102000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -10531,6 +10591,18 @@
               "value": 274000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10637,78 +10709,6 @@
               "indent": 0,
               "negating": false,
               "value": 11201000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net loss on sale of investment securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Gain on sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 102000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -10824,6 +10824,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -10896,6 +10908,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Earnings on investment in life insurance",
               "line": 19,
@@ -10930,6 +10954,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Gain on sale of OREO",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "LoansHeldForSaleGainLossOnChangeInFairValue",
@@ -10968,6 +11004,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net loss on sale of investment securities available-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 25,
@@ -10990,6 +11038,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "LaborAndRelatedExpense",
@@ -11062,6 +11122,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "OtherNoninterestExpense",
@@ -11170,78 +11242,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net loss on sale of investment securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Gain on sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11353,6 +11353,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -11425,6 +11437,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Earnings on investment in life insurance",
               "line": 19,
@@ -11457,6 +11481,18 @@
               "value": 103000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Gain on sale of OREO",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11497,6 +11533,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net loss on sale of investment securities available-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": -57000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 25,
@@ -11517,6 +11565,18 @@
               "value": 8086000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11589,6 +11649,18 @@
               "value": 244000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11697,78 +11769,6 @@
               "value": 11363000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net loss on sale of investment securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -57000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Gain on sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11882,6 +11882,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -11954,6 +11966,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Earnings on investment in life insurance",
               "line": 19,
@@ -11986,6 +12010,18 @@
               "value": 203000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Gain on sale of OREO",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12026,6 +12062,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net loss on sale of investment securities available-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 25,
@@ -12046,6 +12094,18 @@
               "value": 9244000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12118,6 +12178,18 @@
               "value": 245000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12226,78 +12298,6 @@
               "value": 11304000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net loss on sale of investment securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Gain on sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12411,6 +12411,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 20606000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -12483,6 +12495,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Earnings on investment in life insurance",
               "line": 19,
@@ -12515,6 +12539,18 @@
               "value": -69000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Gain on sale of OREO",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12555,6 +12591,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net loss on sale of investment securities available-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 25,
@@ -12573,6 +12621,18 @@
               "indent": 0,
               "negating": false,
               "value": 6638000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": -1000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12647,6 +12707,18 @@
               "value": 274000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12753,78 +12825,6 @@
               "indent": 0,
               "negating": false,
               "value": 11656000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net loss on sale of investment securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 20606000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Gain on sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12940,6 +12940,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": -15398000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -13012,6 +13024,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Earnings on investment in life insurance",
               "line": 19,
@@ -13046,6 +13070,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Gain on sale of OREO",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "LoansHeldForSaleGainLossOnChangeInFairValue",
@@ -13084,6 +13120,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net gain on sale of investment securities available-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 25,
@@ -13106,6 +13154,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "LaborAndRelatedExpense",
@@ -13170,6 +13230,18 @@
             {
               "tag": "PennsylvaniaBankSharesTaxExpense",
               "label": "Pennsylvania bank shares tax",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
               "line": 33,
               "indent": 0,
               "negating": false,
@@ -13286,78 +13358,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net gain on sale of investment securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -15398000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Gain on sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -13469,6 +13469,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 18235000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -13541,6 +13553,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Earnings on investment in life insurance",
               "line": 19,
@@ -13573,6 +13597,18 @@
               "value": 127000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Gain on sale of OREO",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13613,6 +13649,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net loss on sale of investment securities available-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 25,
@@ -13633,6 +13681,18 @@
               "value": 10224000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13699,6 +13759,18 @@
             {
               "tag": "PennsylvaniaBankSharesTaxExpense",
               "label": "Pennsylvania bank shares tax",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
               "line": 33,
               "indent": 0,
               "negating": false,
@@ -13815,78 +13887,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net loss on sale of investment securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18235000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Gain on sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -13998,6 +13998,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 2486000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -14070,6 +14082,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Earnings on investment in life insurance",
               "line": 19,
@@ -14102,6 +14126,18 @@
               "value": 183000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Gain on sale of OREO",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14142,6 +14178,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net loss on sale of investment securities available-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": -54000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 25,
@@ -14162,6 +14210,18 @@
               "value": 10403000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14228,6 +14288,18 @@
             {
               "tag": "PennsylvaniaBankSharesTaxExpense",
               "label": "Pennsylvania bank shares tax",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
               "line": 33,
               "indent": 0,
               "negating": false,
@@ -14344,78 +14416,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net loss on sale of investment securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -54000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2486000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Gain on sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -14527,6 +14527,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 13270000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -14599,6 +14611,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for credit losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 615000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Earnings on investment in life insurance",
               "line": 19,
@@ -14631,6 +14655,18 @@
               "value": -166000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Gain on sale of OREO",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14671,6 +14707,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net loss on sale of investment securities available-for-sale",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncomeOtherOperatingIncome",
               "label": "Other",
               "line": 25,
@@ -14689,6 +14737,18 @@
               "indent": 0,
               "negating": false,
               "value": 6638000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "IncreaseDecreaseInLoansHeldForSale",
+              "label": "Net change in the fair value of loans held-for-sale",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": -1000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14763,6 +14823,18 @@
               "value": 199000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+              "label": "FDIC premiums",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14873,78 +14945,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net loss on sale of investment securities available-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13270000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 615000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Gain on sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-              "label": "FDIC premiums",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "IncreaseDecreaseInLoansHeldForSale",
-              "label": "Net change in the fair value of loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -15000,6 +15000,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 10,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 11,
@@ -15032,6 +15038,12 @@
           {
             "tag": "SbaIncomeNetAmortization",
             "label": "SBA loan income",
+            "line": 18,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Provision for loan losses",
             "line": 18,
             "indent": 0
           },
@@ -15084,6 +15096,12 @@
             "indent": 0
           },
           {
+            "tag": "IncreaseDecreaseInLoansHeldForSale",
+            "label": "Net change in the fair value of loans held-for-sale",
+            "line": 26,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestIncomeOtherOperatingIncome",
             "label": "Other",
             "line": 27,
@@ -15116,6 +15134,12 @@
           {
             "tag": "DataProcessingAndSoftware",
             "label": "Data processing and software",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+            "label": "FDIC premiums",
             "line": 33,
             "indent": 0
           },
@@ -15184,30 +15208,6 @@
             "label": "Diluted weighted average shares outstanding (in shares)",
             "line": 44,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-            "label": "FDIC premiums",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision for loan losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "IncreaseDecreaseInLoansHeldForSale",
-            "label": "Net change in the fair value of loans held-for-sale",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -15260,6 +15260,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 10,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 11,
@@ -15296,6 +15302,12 @@
             "indent": 0
           },
           {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Provision for credit losses",
+            "line": 18,
+            "indent": 0
+          },
+          {
             "tag": "BankOwnedLifeInsuranceIncome",
             "label": "Earnings on investment in life insurance",
             "line": 19,
@@ -15310,6 +15322,12 @@
           {
             "tag": "DerivativeGainLossOnDerivativeNet",
             "label": "Net change in the fair value of derivative instruments",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "GainsLossesOnSalesOfOtherRealEstate",
+            "label": "Gain on sale of OREO",
             "line": 21,
             "indent": 0
           },
@@ -15332,6 +15350,12 @@
             "indent": 0
           },
           {
+            "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+            "label": "Net loss on sale of investment securities available-for-sale",
+            "line": 24,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestIncomeOtherOperatingIncome",
             "label": "Other",
             "line": 25,
@@ -15340,6 +15364,12 @@
           {
             "tag": "NoninterestIncome",
             "label": "Total non-interest income",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "IncreaseDecreaseInLoansHeldForSale",
+            "label": "Net change in the fair value of loans held-for-sale",
             "line": 26,
             "indent": 0
           },
@@ -15376,6 +15406,12 @@
           {
             "tag": "PennsylvaniaBankSharesTaxExpense",
             "label": "Pennsylvania bank shares tax",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "FederalDepositInsuranceCorporationPremiumExpense",
+            "label": "FDIC premiums",
             "line": 33,
             "indent": 0
           },
@@ -15431,42 +15467,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Diluted weighted average shares outstanding (in shares)",
             "line": 42,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-            "label": "Net loss on sale of investment securities available-for-sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainsLossesOnSalesOfOtherRealEstate",
-            "label": "Gain on sale of OREO",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalDepositInsuranceCorporationPremiumExpense",
-            "label": "FDIC premiums",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "IncreaseDecreaseInLoansHeldForSale",
-            "label": "Net change in the fair value of loans held-for-sale",
-            "line": 9999,
             "indent": 0
           }
         ]

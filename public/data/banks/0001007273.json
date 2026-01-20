@@ -545,6 +545,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses",
               "line": 7,
@@ -557,6 +569,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less: Allowance for loan losses",
+              "line": 7,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 8,
@@ -565,6 +589,18 @@
               "value": 337649010,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -843,42 +879,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -954,6 +954,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+              "label": "Loans",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: Allowance for credit losses",
               "line": 7,
@@ -966,6 +978,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Less: Allowance for loan losses",
+              "line": 7,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Net loans",
               "line": 8,
@@ -974,6 +998,18 @@
               "value": 326690561,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Net loans",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1252,42 +1288,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Less: Allowance for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Net loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -1495,13 +1495,31 @@
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
+            "label": "Loans",
+            "line": 6,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
             "label": "Less: Allowance for credit losses",
             "line": 7,
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableAllowance",
+            "label": "Less: Allowance for loan losses",
+            "line": 7,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+            "label": "Net loans",
+            "line": 8,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Net loans",
             "line": 8,
             "indent": 0
@@ -1642,24 +1660,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and shareholders equity",
             "line": 35,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
-            "label": "Loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableAllowance",
-            "label": "Less: Allowance for loan losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Net loans",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -2113,6 +2113,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
               "label": "Provision for credit losses",
               "line": 12,
@@ -2351,18 +2363,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2482,6 +2482,18 @@
               "value": 4218163,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2724,18 +2736,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -2967,6 +2967,12 @@
             "indent": 0
           },
           {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Provision for loan losses",
+            "line": 11,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
             "label": "Provision for credit losses",
             "line": 12,
@@ -3084,12 +3090,6 @@
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted income per common share",
             "line": 34,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision for loan losses",
-            "line": 9999,
             "indent": 0
           }
         ]

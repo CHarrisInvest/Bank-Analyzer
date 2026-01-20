@@ -265,6 +265,16 @@
               "hasValue": true
             },
             {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Loans",
               "line": 11,
@@ -533,16 +543,6 @@
               "value": 9910089000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -635,6 +635,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 1846000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -905,16 +915,6 @@
               "value": 9930986000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1846000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -1007,6 +1007,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 1846000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -1277,16 +1287,6 @@
               "value": 8614787000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1846000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1364,6 +1364,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TradingSecuritiesDebt",
+              "label": "Trading securities",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
               "line": 8,
@@ -1372,6 +1396,18 @@
               "value": 111866000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1396,6 +1432,18 @@
               "value": 709000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1722,54 +1770,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TradingSecuritiesDebt",
-              "label": "Trading securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1845,6 +1845,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TradingSecuritiesDebt",
+              "label": "Trading securities",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
               "line": 8,
@@ -1853,6 +1877,18 @@
               "value": 111866000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1877,6 +1913,18 @@
               "value": 709000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2203,54 +2251,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TradingSecuritiesDebt",
-              "label": "Trading securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2326,6 +2326,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TradingSecuritiesDebt",
+              "label": "Trading securities",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
               "line": 8,
@@ -2334,6 +2358,18 @@
               "value": 111866000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2358,6 +2394,18 @@
               "value": 709000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2684,54 +2732,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TradingSecuritiesDebt",
-              "label": "Trading securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2807,6 +2807,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TradingSecuritiesDebt",
+              "label": "Trading securities",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
               "line": 8,
@@ -2815,6 +2839,18 @@
               "value": 133494000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2839,6 +2875,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 458000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3165,54 +3213,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TradingSecuritiesDebt",
-              "label": "Trading securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 458000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3288,6 +3288,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TradingSecuritiesDebt",
+              "label": "Trading securities",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
               "line": 8,
@@ -3296,6 +3320,18 @@
               "value": 133494000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3320,6 +3356,18 @@
               "value": 458000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3646,54 +3694,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TradingSecuritiesDebt",
-              "label": "Trading securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3769,6 +3769,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TradingSecuritiesDebt",
+              "label": "Trading securities",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
               "line": 8,
@@ -3777,6 +3801,18 @@
               "value": 133494000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3801,6 +3837,18 @@
               "value": 474000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4127,54 +4175,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TradingSecuritiesDebt",
-              "label": "Trading securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4250,6 +4250,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TradingSecuritiesDebt",
+              "label": "Trading securities",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
               "line": 8,
@@ -4258,6 +4282,18 @@
               "value": 133494000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4282,6 +4318,18 @@
               "value": 458000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4608,54 +4656,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TradingSecuritiesDebt",
-              "label": "Trading securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4731,6 +4731,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TradingSecuritiesDebt",
+              "label": "Trading securities",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Securities held to maturity",
               "line": 8,
@@ -4739,6 +4763,18 @@
               "value": 133494000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4763,6 +4799,18 @@
               "value": 1846000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5089,54 +5137,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TradingSecuritiesDebt",
-              "label": "Trading securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5212,6 +5212,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TradingSecuritiesDebt",
+              "label": "Trading securities",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 2452438000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
               "line": 8,
@@ -5220,6 +5244,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 139058000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5244,6 +5280,18 @@
               "value": 1846000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5570,54 +5618,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TradingSecuritiesDebt",
-              "label": "Trading securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2452438000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 139058000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5693,6 +5693,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TradingSecuritiesDebt",
+              "label": "Trading securities",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities, net of allowance for credit losses of $0",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 2452438000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
               "line": 8,
@@ -5701,6 +5725,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities, net of allowance for credit losses of $0",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 145117000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5725,6 +5761,18 @@
               "value": 1846000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6051,54 +6099,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TradingSecuritiesDebt",
-              "label": "Trading securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2452438000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 145117000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6174,6 +6174,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TradingSecuritiesDebt",
+              "label": "Trading securities",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AvailableForSaleSecuritiesDebtSecurities",
+              "label": "Available for sale debt securities, net of allowance for credit losses of $0",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 2452438000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
               "line": 8,
@@ -6182,6 +6206,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "HeldToMaturitySecurities",
+              "label": "Held to maturity debt securities, net of allowance for credit losses of $0",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 152067000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6206,6 +6242,18 @@
               "value": 226000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+              "label": "Loans held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6532,54 +6580,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "TradingSecuritiesDebt",
-              "label": "Trading securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AvailableForSaleSecuritiesDebtSecurities",
-              "label": "Available for sale debt securities, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2452438000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "HeldToMaturitySecurities",
-              "label": "Held to maturity debt securities, net of allowance for credit losses of $0",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 152067000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -6630,6 +6630,12 @@
           },
           {
             "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
+            "label": "Loans held for sale",
+            "line": 10,
+            "indent": 0
+          },
+          {
+            "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
             "label": "Loans held for sale",
             "line": 10,
             "indent": 0
@@ -6795,12 +6801,6 @@
             "label": "Total liabilities and shareholders equity",
             "line": 41,
             "indent": 0
-          },
-          {
-            "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
-            "label": "Loans held for sale",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -6835,7 +6835,25 @@
             "indent": 0
           },
           {
+            "tag": "TradingSecuritiesDebt",
+            "label": "Trading securities",
+            "line": 7,
+            "indent": 0
+          },
+          {
+            "tag": "AvailableForSaleSecuritiesDebtSecurities",
+            "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
+            "line": 7,
+            "indent": 0
+          },
+          {
             "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestBeforeAllowanceForCreditLoss",
+            "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
+            "line": 8,
+            "indent": 0
+          },
+          {
+            "tag": "HeldToMaturitySecurities",
             "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
             "line": 8,
             "indent": 0
@@ -6848,6 +6866,12 @@
           },
           {
             "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
+            "label": "Loans held for sale",
+            "line": 10,
+            "indent": 0
+          },
+          {
+            "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
             "label": "Loans held for sale",
             "line": 10,
             "indent": 0
@@ -7012,30 +7036,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and shareholders equity",
             "line": 41,
-            "indent": 0
-          },
-          {
-            "tag": "TradingSecuritiesDebt",
-            "label": "Trading securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AvailableForSaleSecuritiesDebtSecurities",
-            "label": "Available for sale debt securities, at fair value (amortized cost of $2,509,623 and $2,742,987)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "HeldToMaturitySecurities",
-            "label": "Held to maturity debt securities, at amortized cost, net of allowance for credit losses of $0",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupValuationAllowance",
-            "label": "Loans held for sale",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -7283,6 +7283,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -7301,6 +7311,16 @@
               "value": 23990000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -7461,26 +7481,6 @@
               "value": 3.83,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7595,6 +7595,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 81677000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -7613,6 +7623,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 23990000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -7773,26 +7793,6 @@
               "value": 3.83,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 81677000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 23990000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -7907,6 +7907,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 9529000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -7925,6 +7935,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 18470000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -8085,26 +8105,6 @@
               "value": 3.83,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9529000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18470000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -8242,6 +8242,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -8262,6 +8274,30 @@
               "value": 220000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCredit",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8298,6 +8334,18 @@
               "value": 549000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+              "label": "Commissions on sale of non-deposit investment products",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8468,54 +8516,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCredit",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-              "label": "Commissions on sale of non-deposit investment products",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -8651,6 +8651,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -8671,6 +8683,30 @@
               "value": 405000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCredit",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8707,6 +8743,18 @@
               "value": 388000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+              "label": "Commissions on sale of non-deposit investment products",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8877,54 +8925,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCredit",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-              "label": "Commissions on sale of non-deposit investment products",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9060,6 +9060,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -9074,6 +9086,30 @@
             {
               "tag": "ProvisionForBenefitFromProvisionsForLoanLosses",
               "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 3728000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCredit",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
               "line": 15,
               "indent": 0,
               "negating": false,
@@ -9116,6 +9152,18 @@
               "value": 261000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+              "label": "Commissions on sale of non-deposit investment products",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9286,54 +9334,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCredit",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-              "label": "Commissions on sale of non-deposit investment products",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3728000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9469,6 +9469,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -9483,6 +9495,30 @@
             {
               "tag": "ProvisionForBenefitFromProvisionsForLoanLosses",
               "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCredit",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
               "line": 15,
               "indent": 0,
               "negating": false,
@@ -9527,6 +9563,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+              "label": "Commissions on sale of non-deposit investment products",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "GainLossOnSaleOfInvestments",
@@ -9695,54 +9743,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCredit",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-              "label": "Commissions on sale of non-deposit investment products",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -9878,6 +9878,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -9898,6 +9910,30 @@
               "value": 220000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCredit",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9934,6 +9970,18 @@
               "value": 549000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+              "label": "Commissions on sale of non-deposit investment products",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10104,54 +10152,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCredit",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-              "label": "Commissions on sale of non-deposit investment products",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10287,6 +10287,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -10307,6 +10319,30 @@
               "value": 9650000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCredit",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10343,6 +10379,18 @@
               "value": 295000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+              "label": "Commissions on sale of non-deposit investment products",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10513,54 +10561,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCredit",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-              "label": "Commissions on sale of non-deposit investment products",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10696,6 +10696,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 32681000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -10714,6 +10726,30 @@
               "indent": 0,
               "negating": false,
               "value": 4305000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCredit",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 4015000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -10752,6 +10788,18 @@
               "value": 261000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+              "label": "Commissions on sale of non-deposit investment products",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10922,54 +10970,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 32681000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCredit",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-              "label": "Commissions on sale of non-deposit investment products",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4015000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11105,6 +11105,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 54240000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -11119,6 +11131,30 @@
             {
               "tag": "ProvisionForBenefitFromProvisionsForLoanLosses",
               "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCredit",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
               "line": 15,
               "indent": 0,
               "negating": false,
@@ -11163,6 +11199,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+              "label": "Commissions on sale of non-deposit investment products",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "GainLossOnSaleOfInvestments",
@@ -11331,54 +11379,6 @@
               "hasValue": false,
               "isDerived": true,
               "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 54240000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCredit",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-              "label": "Commissions on sale of non-deposit investment products",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11514,6 +11514,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 24257000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -11534,6 +11546,30 @@
               "value": 4155000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCredit",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11570,6 +11606,18 @@
               "value": 357000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+              "label": "Commissions on sale of non-deposit investment products",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11740,54 +11788,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 24257000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCredit",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-              "label": "Commissions on sale of non-deposit investment products",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11923,6 +11923,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 1909000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -11943,6 +11955,30 @@
               "value": 9650000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCredit",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11979,6 +12015,18 @@
               "value": 542000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+              "label": "Commissions on sale of non-deposit investment products",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12149,54 +12197,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1909000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCredit",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-              "label": "Commissions on sale of non-deposit investment products",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12332,6 +12332,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 1271000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 14,
@@ -12350,6 +12362,30 @@
               "indent": 0,
               "negating": false,
               "value": 8330000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCredit",
+              "label": "Provision for credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+              "label": "Provision for (benefit from) credit losses",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 4195000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12388,6 +12424,18 @@
               "value": 1246000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+              "label": "Commissions on sale of non-deposit investment products",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12558,54 +12606,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1271000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCredit",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-              "label": "Commissions on sale of non-deposit investment products",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-              "label": "Provision for (benefit from) credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4195000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -12673,6 +12673,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 13,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 14,
@@ -12681,6 +12687,12 @@
           {
             "tag": "ProvisionForBenefitFromProvisionsForCredit",
             "label": "Provision for credit losses",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+            "label": "Provision for (benefit from) credit losses",
             "line": 15,
             "indent": 0
           },
@@ -12779,18 +12791,6 @@
             "label": "Diluted (in USD per share)",
             "line": 34,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-            "label": "Provision for (benefit from) credit losses",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -12855,6 +12855,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 13,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 14,
@@ -12863,6 +12869,18 @@
           {
             "tag": "ProvisionForBenefitFromProvisionsForLoanLosses",
             "label": "Provision for credit losses",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForBenefitFromProvisionsForCredit",
+            "label": "Provision for credit losses",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
+            "label": "Provision for (benefit from) credit losses",
             "line": 15,
             "indent": 0
           },
@@ -12881,6 +12899,12 @@
           {
             "tag": "GainLossOnSalesOfLoansNet",
             "label": "Gain on sale of loans",
+            "line": 19,
+            "indent": 0
+          },
+          {
+            "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
+            "label": "Commissions on sale of non-deposit investment products",
             "line": 19,
             "indent": 0
           },
@@ -12966,30 +12990,6 @@
             "tag": "CommonStockDividendsPerShareDeclared",
             "label": "Dividends per share (in USD per share)",
             "line": 35,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForBenefitFromProvisionsForCredit",
-            "label": "Provision for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommissionsOnSaleOfNonDepositInvestmentProducts",
-            "label": "Commissions on sale of non-deposit investment products",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForBenefitFromProvisionsForCreditLosses",
-            "label": "Provision for (benefit from) credit losses",
-            "line": 9999,
             "indent": 0
           }
         ]

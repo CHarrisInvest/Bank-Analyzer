@@ -215,6 +215,16 @@
               "hasValue": true
             },
             {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
               "label": "Portfolio Loans",
               "line": 5,
@@ -385,6 +395,16 @@
               "hasValue": true
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "OtherLiabilities",
               "label": "Other Liabilities",
               "line": 24,
@@ -473,26 +493,6 @@
               "value": 4659189000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -535,6 +535,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -707,6 +717,16 @@
               "hasValue": true
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherLiabilities",
               "label": "Other Liabilities",
               "line": 24,
@@ -795,26 +815,6 @@
               "value": 4204519000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -857,6 +857,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -1029,6 +1039,16 @@
               "hasValue": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherLiabilities",
               "label": "Other Liabilities",
               "line": 24,
@@ -1117,26 +1137,6 @@
               "value": 4133746000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1186,6 +1186,18 @@
               "value": 5200000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1394,6 +1406,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total Deposits",
               "line": 24,
@@ -1536,30 +1560,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1607,6 +1607,18 @@
               "value": 5100000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1815,6 +1827,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total Deposits",
               "line": 24,
@@ -1957,30 +1981,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2028,6 +2028,18 @@
               "value": 10178000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2236,6 +2248,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total Deposits",
               "line": 24,
@@ -2378,30 +2402,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2449,6 +2449,18 @@
               "value": 10041000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2657,6 +2669,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total Deposits",
               "line": 24,
@@ -2799,30 +2823,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2870,6 +2870,18 @@
               "value": 5207000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3078,6 +3090,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total Deposits",
               "line": 24,
@@ -3220,30 +3244,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3291,6 +3291,18 @@
               "value": 5063000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3499,6 +3511,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total Deposits",
               "line": 24,
@@ -3641,30 +3665,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3706,6 +3706,18 @@
             {
               "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
               "label": "Equity Securities",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
               "line": 4,
               "indent": 0,
               "negating": false,
@@ -3920,6 +3932,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total Deposits",
               "line": 24,
@@ -4062,30 +4086,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4133,6 +4133,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4341,6 +4353,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total Deposits",
               "line": 24,
@@ -4483,30 +4507,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4548,6 +4548,18 @@
             {
               "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
               "label": "Equity Securities",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
               "line": 4,
               "indent": 0,
               "negating": false,
@@ -4762,6 +4774,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total Deposits",
               "line": 24,
@@ -4904,30 +4928,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4969,6 +4969,18 @@
             {
               "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
               "label": "Equity Securities",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
               "line": 4,
               "indent": 0,
               "negating": false,
@@ -5183,6 +5195,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 17870000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total Deposits",
               "line": 24,
@@ -5325,30 +5349,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 17870000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5390,6 +5390,18 @@
             {
               "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
               "label": "Equity Securities",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+              "label": "Loans Held-for-Sale",
               "line": 4,
               "indent": 0,
               "negating": false,
@@ -5604,6 +5616,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total Deposits",
               "line": 24,
@@ -5746,30 +5770,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-              "label": "Loans Held-for-Sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -5791,6 +5791,12 @@
           {
             "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
             "label": "Equity Securities",
+            "line": 4,
+            "indent": 0
+          },
+          {
+            "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+            "label": "Loans Held-for-Sale",
             "line": 4,
             "indent": 0
           },
@@ -5897,6 +5903,12 @@
             "indent": 0
           },
           {
+            "tag": "FederalFundsPurchased",
+            "label": "Federal Funds Purchased",
+            "line": 23,
+            "indent": 0
+          },
+          {
             "tag": "OtherLiabilities",
             "label": "Other Liabilities",
             "line": 24,
@@ -5949,18 +5961,6 @@
             "label": "Total Liabilities and Shareholders Equity",
             "line": 33,
             "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-            "label": "Loans Held-for-Sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalFundsPurchased",
-            "label": "Federal Funds Purchased",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -5979,6 +5979,12 @@
           {
             "tag": "EquitySecuritiesFvNiCurrentAndNoncurrent",
             "label": "Equity Securities",
+            "line": 4,
+            "indent": 0
+          },
+          {
+            "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
+            "label": "Loans Held-for-Sale",
             "line": 4,
             "indent": 0
           },
@@ -6085,6 +6091,12 @@
             "indent": 0
           },
           {
+            "tag": "FederalFundsPurchased",
+            "label": "Federal Funds Purchased",
+            "line": 23,
+            "indent": 0
+          },
+          {
             "tag": "Deposits",
             "label": "Total Deposits",
             "line": 24,
@@ -6154,18 +6166,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total Liabilities and Shareholders Equity",
             "line": 36,
-            "indent": 0
-          },
-          {
-            "tag": "FederalFundsPurchased",
-            "label": "Federal Funds Purchased",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableHeldForSaleNotPartOfDisposalGroupBeforeValuationAllowance",
-            "label": "Loans Held-for-Sale",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -6433,6 +6433,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -6533,6 +6543,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "NoninterestIncomeOther",
               "label": "Other",
               "line": 28,
@@ -6561,6 +6581,16 @@
               "value": 57908000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "OccupancyNet",
@@ -6653,6 +6683,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 41,
@@ -6703,6 +6743,16 @@
               "hasValue": true
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "EarningsPerShareBasic",
               "label": "Basic Earnings per Common Share (in usd per share)",
               "line": 47,
@@ -6723,6 +6773,16 @@
               "hasValue": true
             },
             {
+              "tag": "UnfundedLoanCommitmentExpense",
+              "label": "Unfunded Loan Commitment Expense",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 49,
@@ -6731,6 +6791,16 @@
               "value": 22817149,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "OtherRealEstateOwnedExpense",
+              "label": "Other Real Estate Owned Expense",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
@@ -6743,79 +6813,9 @@
               "hasValue": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "UnfundedLoanCommitmentExpense",
-              "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "OtherRealEstateOwnedExpense",
-              "label": "Other Real Estate Owned Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -6955,6 +6955,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 22714000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -7055,6 +7065,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 73000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "NoninterestIncomeOther",
               "label": "Other",
               "line": 28,
@@ -7083,6 +7103,16 @@
               "value": 52399000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "OccupancyNet",
@@ -7175,6 +7205,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": 1100000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 41,
@@ -7225,6 +7265,16 @@
               "hasValue": true
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "EarningsPerShareBasic",
               "label": "Basic Earnings per Common Share (in usd per share)",
               "line": 47,
@@ -7245,6 +7295,16 @@
               "hasValue": true
             },
             {
+              "tag": "UnfundedLoanCommitmentExpense",
+              "label": "Unfunded Loan Commitment Expense",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 49,
@@ -7253,6 +7313,16 @@
               "value": 23240543,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "OtherRealEstateOwnedExpense",
+              "label": "Other Real Estate Owned Expense",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
@@ -7265,79 +7335,9 @@
               "hasValue": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 22714000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 73000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 1100000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "UnfundedLoanCommitmentExpense",
-              "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "OtherRealEstateOwnedExpense",
-              "label": "Other Real Estate Owned Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -7477,6 +7477,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 22714000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -7577,6 +7587,16 @@
               "hasValue": false
             },
             {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "NoninterestIncomeOther",
               "label": "Other",
               "line": 28,
@@ -7603,6 +7623,16 @@
               "indent": 0,
               "negating": false,
               "value": 54157000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 18006000,
               "uom": "USD",
               "hasValue": true
             },
@@ -7697,6 +7727,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": 1435000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 41,
@@ -7747,6 +7787,16 @@
               "hasValue": true
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": 99000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "EarningsPerShareBasic",
               "label": "Basic Earnings (Loss) per Common Share (in usd per share)",
               "line": 47,
@@ -7767,12 +7817,32 @@
               "hasValue": true
             },
             {
+              "tag": "UnfundedLoanCommitmentExpense",
+              "label": "Unfunded Loan Commitment Expense",
+              "line": 48,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 49,
               "indent": 0,
               "negating": false,
               "value": 26342729,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "OtherRealEstateOwnedExpense",
+              "label": "Other Real Estate Owned Expense",
+              "line": 49,
+              "indent": 0,
+              "negating": false,
+              "value": 407000,
               "uom": "USD",
               "hasValue": true
             },
@@ -7787,79 +7857,9 @@
               "hasValue": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 22714000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 1435000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18006000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 99000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "UnfundedLoanCommitmentExpense",
-              "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "OtherRealEstateOwnedExpense",
-              "label": "Other Real Estate Owned Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 407000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": 62192000,
@@ -8002,6 +8002,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalFundsPurchased",
+              "label": "Interest Expense on Federal Funds Purchased",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total Interest Expense",
               "line": 15,
@@ -8022,6 +8034,18 @@
               "value": 28798000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8134,6 +8158,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncome",
               "label": "Total Noninterest Income",
               "line": 27,
@@ -8142,6 +8178,18 @@
               "value": 5422000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialLoanSwapFeeIncome",
+              "label": "Commercial Loan Swap Fee Income",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8182,6 +8230,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "Revenue from contract with customer",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TaxesOther",
               "label": "Other Taxes",
               "line": 32,
@@ -8202,6 +8262,18 @@
               "value": 585000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8290,6 +8362,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income Tax Provision",
               "line": 41,
@@ -8338,6 +8422,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 46,
@@ -8346,6 +8442,18 @@
               "value": 22832619,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxCreditAmortization",
+              "label": "Tax Credit Amortization",
+              "line": 46,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8362,117 +8470,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalFundsPurchased",
-              "label": "Interest Expense on Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialLoanSwapFeeIncome",
-              "label": "Commercial Loan Swap Fee Income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-              "label": "Revenue from contract with customer",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxCreditAmortization",
-              "label": "Tax Credit Amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnfundedLoanCommitmentExpense",
               "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
+              "line": 48,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -8484,7 +8484,7 @@
             {
               "tag": "OtherRealEstateOwnedExpense",
               "label": "Other Real Estate Owned Expense",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -8496,7 +8496,7 @@
             {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -8639,6 +8639,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalFundsPurchased",
+              "label": "Interest Expense on Federal Funds Purchased",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total Interest Expense",
               "line": 15,
@@ -8659,6 +8671,18 @@
               "value": 28092000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8771,6 +8795,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncome",
               "label": "Total Noninterest Income",
               "line": 27,
@@ -8779,6 +8815,18 @@
               "value": 4908000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialLoanSwapFeeIncome",
+              "label": "Commercial Loan Swap Fee Income",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8819,6 +8867,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "Revenue from contract with customer",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TaxesOther",
               "label": "Other Taxes",
               "line": 32,
@@ -8839,6 +8899,18 @@
               "value": 528000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8927,6 +8999,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income Tax Provision",
               "line": 41,
@@ -8975,6 +9059,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 46,
@@ -8983,6 +9079,18 @@
               "value": 22805881,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxCreditAmortization",
+              "label": "Tax Credit Amortization",
+              "line": 46,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8999,117 +9107,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalFundsPurchased",
-              "label": "Interest Expense on Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialLoanSwapFeeIncome",
-              "label": "Commercial Loan Swap Fee Income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-              "label": "Revenue from contract with customer",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxCreditAmortization",
-              "label": "Tax Credit Amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnfundedLoanCommitmentExpense",
               "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
+              "line": 48,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9121,7 +9121,7 @@
             {
               "tag": "OtherRealEstateOwnedExpense",
               "label": "Other Real Estate Owned Expense",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9133,7 +9133,7 @@
             {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9276,6 +9276,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalFundsPurchased",
+              "label": "Interest Expense on Federal Funds Purchased",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total Interest Expense",
               "line": 15,
@@ -9296,6 +9308,18 @@
               "value": 28419000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9408,6 +9432,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncome",
               "label": "Total Noninterest Income",
               "line": 27,
@@ -9416,6 +9452,18 @@
               "value": 5045000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialLoanSwapFeeIncome",
+              "label": "Commercial Loan Swap Fee Income",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9456,6 +9504,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "Revenue from contract with customer",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TaxesOther",
               "label": "Other Taxes",
               "line": 32,
@@ -9476,6 +9536,18 @@
               "value": 357000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9564,6 +9636,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income Tax Provision",
               "line": 41,
@@ -9612,6 +9696,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 46,
@@ -9620,6 +9716,18 @@
               "value": 22770311,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxCreditAmortization",
+              "label": "Tax Credit Amortization",
+              "line": 46,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9636,117 +9744,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalFundsPurchased",
-              "label": "Interest Expense on Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialLoanSwapFeeIncome",
-              "label": "Commercial Loan Swap Fee Income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-              "label": "Revenue from contract with customer",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxCreditAmortization",
-              "label": "Tax Credit Amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnfundedLoanCommitmentExpense",
               "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
+              "line": 48,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9758,7 +9758,7 @@
             {
               "tag": "OtherRealEstateOwnedExpense",
               "label": "Other Real Estate Owned Expense",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9770,7 +9770,7 @@
             {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9913,6 +9913,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalFundsPurchased",
+              "label": "Interest Expense on Federal Funds Purchased",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 192000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total Interest Expense",
               "line": 15,
@@ -9935,6 +9947,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
@@ -10045,12 +10069,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestIncome",
               "label": "Total Noninterest Income",
               "line": 27,
               "indent": 0,
               "negating": false,
               "value": 6180000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialLoanSwapFeeIncome",
+              "label": "Commercial Loan Swap Fee Income",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 23000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -10093,6 +10141,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "Revenue from contract with customer",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "TaxesOther",
               "label": "Other Taxes",
               "line": 32,
@@ -10115,6 +10175,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "Communication",
@@ -10201,6 +10273,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income Tax Provision",
               "line": 41,
@@ -10249,6 +10333,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 46,
@@ -10259,6 +10355,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxCreditAmortization",
+              "label": "Tax Credit Amortization",
+              "line": 46,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
@@ -10273,117 +10381,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalFundsPurchased",
-              "label": "Interest Expense on Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 192000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialLoanSwapFeeIncome",
-              "label": "Commercial Loan Swap Fee Income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 23000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-              "label": "Revenue from contract with customer",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "TaxCreditAmortization",
-              "label": "Tax Credit Amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
               "tag": "UnfundedLoanCommitmentExpense",
               "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
+              "line": 48,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10395,7 +10395,7 @@
             {
               "tag": "OtherRealEstateOwnedExpense",
               "label": "Other Real Estate Owned Expense",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10407,7 +10407,7 @@
             {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10550,6 +10550,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalFundsPurchased",
+              "label": "Interest Expense on Federal Funds Purchased",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total Interest Expense",
               "line": 15,
@@ -10570,6 +10582,18 @@
               "value": 27394000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10682,12 +10706,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncome",
               "label": "Total Noninterest Income",
               "line": 27,
               "indent": 0,
               "negating": false,
               "value": 5270000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialLoanSwapFeeIncome",
+              "label": "Commercial Loan Swap Fee Income",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -10730,6 +10778,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "Revenue from contract with customer",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TaxesOther",
               "label": "Other Taxes",
               "line": 32,
@@ -10750,6 +10810,18 @@
               "value": 363000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10838,6 +10910,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income Tax Provision",
               "line": 41,
@@ -10886,6 +10970,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 46,
@@ -10894,6 +10990,18 @@
               "value": 22946179,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxCreditAmortization",
+              "label": "Tax Credit Amortization",
+              "line": 46,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10910,117 +11018,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalFundsPurchased",
-              "label": "Interest Expense on Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialLoanSwapFeeIncome",
-              "label": "Commercial Loan Swap Fee Income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-              "label": "Revenue from contract with customer",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxCreditAmortization",
-              "label": "Tax Credit Amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnfundedLoanCommitmentExpense",
               "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
+              "line": 48,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11032,7 +11032,7 @@
             {
               "tag": "OtherRealEstateOwnedExpense",
               "label": "Other Real Estate Owned Expense",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11044,7 +11044,7 @@
             {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11187,6 +11187,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalFundsPurchased",
+              "label": "Interest Expense on Federal Funds Purchased",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total Interest Expense",
               "line": 15,
@@ -11207,6 +11219,18 @@
               "value": 26711000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11319,12 +11343,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncome",
               "label": "Total Noninterest Income",
               "line": 27,
               "indent": 0,
               "negating": false,
               "value": 5533000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialLoanSwapFeeIncome",
+              "label": "Commercial Loan Swap Fee Income",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11367,6 +11415,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "Revenue from contract with customer",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TaxesOther",
               "label": "Other Taxes",
               "line": 32,
@@ -11387,6 +11447,18 @@
               "value": 528000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11475,6 +11547,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income Tax Provision",
               "line": 41,
@@ -11523,6 +11607,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 46,
@@ -11531,6 +11627,18 @@
               "value": 22826510,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxCreditAmortization",
+              "label": "Tax Credit Amortization",
+              "line": 46,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11547,117 +11655,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalFundsPurchased",
-              "label": "Interest Expense on Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialLoanSwapFeeIncome",
-              "label": "Commercial Loan Swap Fee Income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-              "label": "Revenue from contract with customer",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxCreditAmortization",
-              "label": "Tax Credit Amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnfundedLoanCommitmentExpense",
               "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
+              "line": 48,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11669,7 +11669,7 @@
             {
               "tag": "OtherRealEstateOwnedExpense",
               "label": "Other Real Estate Owned Expense",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11681,7 +11681,7 @@
             {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11824,6 +11824,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalFundsPurchased",
+              "label": "Interest Expense on Federal Funds Purchased",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 176000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total Interest Expense",
               "line": 15,
@@ -11842,6 +11854,18 @@
               "indent": 0,
               "negating": false,
               "value": 40785000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 25630000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11956,12 +11980,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncome",
               "label": "Total Noninterest Income",
               "line": 27,
               "indent": 0,
               "negating": false,
               "value": 4735000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialLoanSwapFeeIncome",
+              "label": "Commercial Loan Swap Fee Income",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 116000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12004,6 +12052,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "Revenue from contract with customer",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TaxesOther",
               "label": "Other Taxes",
               "line": 32,
@@ -12024,6 +12084,18 @@
               "value": 357000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12112,6 +12184,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income Tax Provision",
               "line": 41,
@@ -12160,6 +12244,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 46,
@@ -12168,6 +12264,18 @@
               "value": 22770311,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxCreditAmortization",
+              "label": "Tax Credit Amortization",
+              "line": 46,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12184,117 +12292,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalFundsPurchased",
-              "label": "Interest Expense on Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 176000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialLoanSwapFeeIncome",
-              "label": "Commercial Loan Swap Fee Income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 116000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 25630000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-              "label": "Revenue from contract with customer",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxCreditAmortization",
-              "label": "Tax Credit Amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnfundedLoanCommitmentExpense",
               "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
+              "line": 48,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12306,7 +12306,7 @@
             {
               "tag": "OtherRealEstateOwnedExpense",
               "label": "Other Real Estate Owned Expense",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12318,7 +12318,7 @@
             {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12461,6 +12461,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalFundsPurchased",
+              "label": "Interest Expense on Federal Funds Purchased",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": -27000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total Interest Expense",
               "line": 15,
@@ -12479,6 +12491,18 @@
               "indent": 0,
               "negating": false,
               "value": 45038000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": -7736000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -12593,6 +12617,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestIncome",
               "label": "Total Noninterest Income",
               "line": 27,
@@ -12603,6 +12639,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialLoanSwapFeeIncome",
+              "label": "Commercial Loan Swap Fee Income",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "LaborAndRelatedExpense",
@@ -12641,6 +12689,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "Revenue from contract with customer",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "TaxesOther",
               "label": "Other Taxes",
               "line": 32,
@@ -12659,6 +12719,18 @@
               "indent": 0,
               "negating": false,
               "value": 724000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 110000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -12749,6 +12821,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income Tax Provision",
               "line": 41,
@@ -12797,12 +12881,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 46,
               "indent": 0,
               "negating": false,
               "value": -49936574,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxCreditAmortization",
+              "label": "Tax Credit Amortization",
+              "line": 46,
+              "indent": 0,
+              "negating": false,
+              "value": 1242000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -12821,117 +12929,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalFundsPurchased",
-              "label": "Interest Expense on Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -27000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialLoanSwapFeeIncome",
-              "label": "Commercial Loan Swap Fee Income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -7736000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-              "label": "Revenue from contract with customer",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 110000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxCreditAmortization",
-              "label": "Tax Credit Amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1242000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
               "tag": "UnfundedLoanCommitmentExpense",
               "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
+              "line": 48,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12943,7 +12943,7 @@
             {
               "tag": "OtherRealEstateOwnedExpense",
               "label": "Other Real Estate Owned Expense",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12955,7 +12955,7 @@
             {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -13098,6 +13098,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalFundsPurchased",
+              "label": "Interest Expense on Federal Funds Purchased",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 23000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total Interest Expense",
               "line": 15,
@@ -13116,6 +13128,18 @@
               "indent": 0,
               "negating": false,
               "value": 27394000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 21492000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13230,6 +13254,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncome",
               "label": "Total Noninterest Income",
               "line": 27,
@@ -13238,6 +13274,18 @@
               "value": 5270000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialLoanSwapFeeIncome",
+              "label": "Commercial Loan Swap Fee Income",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13278,6 +13326,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "Revenue from contract with customer",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TaxesOther",
               "label": "Other Taxes",
               "line": 32,
@@ -13296,6 +13356,18 @@
               "indent": 0,
               "negating": false,
               "value": 363000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13386,6 +13458,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income Tax Provision",
               "line": 41,
@@ -13434,12 +13518,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 46,
               "indent": 0,
               "negating": false,
               "value": 22946179,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxCreditAmortization",
+              "label": "Tax Credit Amortization",
+              "line": 46,
+              "indent": 0,
+              "negating": false,
+              "value": -764000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13458,117 +13566,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalFundsPurchased",
-              "label": "Interest Expense on Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 23000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialLoanSwapFeeIncome",
-              "label": "Commercial Loan Swap Fee Income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 21492000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-              "label": "Revenue from contract with customer",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxCreditAmortization",
-              "label": "Tax Credit Amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -764000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnfundedLoanCommitmentExpense",
               "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
+              "line": 48,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -13580,7 +13580,7 @@
             {
               "tag": "OtherRealEstateOwnedExpense",
               "label": "Other Real Estate Owned Expense",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -13592,7 +13592,7 @@
             {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -13735,6 +13735,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalFundsPurchased",
+              "label": "Interest Expense on Federal Funds Purchased",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 4000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total Interest Expense",
               "line": 15,
@@ -13753,6 +13765,18 @@
               "indent": 0,
               "negating": false,
               "value": 26711000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 4502000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13867,6 +13891,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 1814000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncome",
               "label": "Total Noninterest Income",
               "line": 27,
@@ -13875,6 +13911,18 @@
               "value": 5604000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialLoanSwapFeeIncome",
+              "label": "Commercial Loan Swap Fee Income",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13915,6 +13963,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "Revenue from contract with customer",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TaxesOther",
               "label": "Other Taxes",
               "line": 32,
@@ -13933,6 +13993,18 @@
               "indent": 0,
               "negating": false,
               "value": 267000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": -37000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14023,6 +14095,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income Tax Provision",
               "line": 41,
@@ -14071,12 +14155,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 46,
               "indent": 0,
               "negating": false,
               "value": 24490302,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxCreditAmortization",
+              "label": "Tax Credit Amortization",
+              "line": 46,
+              "indent": 0,
+              "negating": false,
+              "value": 615000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14095,117 +14203,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalFundsPurchased",
-              "label": "Interest Expense on Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialLoanSwapFeeIncome",
-              "label": "Commercial Loan Swap Fee Income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4502000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-              "label": "Revenue from contract with customer",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -37000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxCreditAmortization",
-              "label": "Tax Credit Amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 615000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1814000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnfundedLoanCommitmentExpense",
               "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
+              "line": 48,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -14217,7 +14217,7 @@
             {
               "tag": "OtherRealEstateOwnedExpense",
               "label": "Other Real Estate Owned Expense",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -14229,7 +14229,7 @@
             {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -14372,6 +14372,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseFederalFundsPurchased",
+              "label": "Interest Expense on Federal Funds Purchased",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseOperating",
               "label": "Total Interest Expense",
               "line": 15,
@@ -14390,6 +14402,18 @@
               "indent": 0,
               "negating": false,
               "value": 40785000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 4456000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14504,6 +14528,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for Credit Losses",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 1415000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestIncome",
               "label": "Total Noninterest Income",
               "line": 27,
@@ -14512,6 +14548,18 @@
               "value": 5335000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialLoanSwapFeeIncome",
+              "label": "Commercial Loan Swap Fee Income",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14552,6 +14600,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "Revenue from contract with customer",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "TaxesOther",
               "label": "Other Taxes",
               "line": 32,
@@ -14570,6 +14630,18 @@
               "indent": 0,
               "negating": false,
               "value": 339000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+              "label": "Gains on Sales and Write-downs of Bank Premises, net",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14660,6 +14732,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+              "line": 40,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income Tax Provision",
               "line": 41,
@@ -14708,12 +14792,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+              "label": "Losses on Sales and Write-downs of Bank Premises, net",
+              "line": 45,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Average Shares Outstanding - Basic (in shares)",
               "line": 46,
               "indent": 0,
               "negating": false,
               "value": 25740636,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TaxCreditAmortization",
+              "label": "Tax Credit Amortization",
+              "line": 46,
+              "indent": 0,
+              "negating": false,
+              "value": 615000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14732,117 +14840,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpenseFederalFundsPurchased",
-              "label": "Interest Expense on Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommercialLoanSwapFeeIncome",
-              "label": "Commercial Loan Swap Fee Income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4456000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-              "label": "Revenue from contract with customer",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-              "label": "Gains on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TaxCreditAmortization",
-              "label": "Tax Credit Amortization",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 615000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for Credit Losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1415000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-              "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-              "label": "Losses on Sales and Write-downs of Bank Premises, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "UnfundedLoanCommitmentExpense",
               "label": "Unfunded Loan Commitment Expense",
-              "line": 9999,
+              "line": 48,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -14854,7 +14854,7 @@
             {
               "tag": "OtherRealEstateOwnedExpense",
               "label": "Other Real Estate Owned Expense",
-              "line": 9999,
+              "line": 49,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -14866,7 +14866,7 @@
             {
               "tag": "GoodwillImpairmentLoss",
               "label": "Goodwill Impairment Expense",
-              "line": 9999,
+              "line": 50,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -14953,6 +14953,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total Interest Expense",
+            "line": 16,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "NET INTEREST INCOME",
             "line": 17,
@@ -15013,6 +15019,12 @@
             "indent": 0
           },
           {
+            "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+            "label": "Gains on Sales and Write-downs of Bank Premises, net",
+            "line": 27,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestIncomeOther",
             "label": "Other",
             "line": 28,
@@ -15027,6 +15039,12 @@
           {
             "tag": "LaborAndRelatedExpense",
             "label": "Salaries and Employee Benefits",
+            "line": 31,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLossesExpensed",
+            "label": "Provision for Credit Losses",
             "line": 31,
             "indent": 0
           },
@@ -15085,6 +15103,12 @@
             "indent": 0
           },
           {
+            "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+            "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+            "line": 40,
+            "indent": 0
+          },
+          {
             "tag": "OtherNoninterestExpense",
             "label": "Other",
             "line": 41,
@@ -15115,6 +15139,12 @@
             "indent": 0
           },
           {
+            "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+            "label": "Losses on Sales and Write-downs of Bank Premises, net",
+            "line": 45,
+            "indent": 0
+          },
+          {
             "tag": "EarningsPerShareBasic",
             "label": "Basic Earnings per Common Share (in usd per share)",
             "line": 47,
@@ -15127,8 +15157,20 @@
             "indent": 0
           },
           {
+            "tag": "UnfundedLoanCommitmentExpense",
+            "label": "Unfunded Loan Commitment Expense",
+            "line": 48,
+            "indent": 0
+          },
+          {
             "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
             "label": "Average Shares Outstanding - Basic (in shares)",
+            "line": 49,
+            "indent": 0
+          },
+          {
+            "tag": "OtherRealEstateOwnedExpense",
+            "label": "Other Real Estate Owned Expense",
             "line": 49,
             "indent": 0
           },
@@ -15139,51 +15181,9 @@
             "indent": 0
           },
           {
-            "tag": "InterestExpense",
-            "label": "Total Interest Expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-            "label": "Gains on Sales and Write-downs of Bank Premises, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-            "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLossesExpensed",
-            "label": "Provision for Credit Losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-            "label": "Losses on Sales and Write-downs of Bank Premises, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "UnfundedLoanCommitmentExpense",
-            "label": "Unfunded Loan Commitment Expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OtherRealEstateOwnedExpense",
-            "label": "Other Real Estate Owned Expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "GoodwillImpairmentLoss",
             "label": "Goodwill Impairment Expense",
-            "line": 9999,
+            "line": 50,
             "indent": 0
           }
         ],
@@ -15249,6 +15249,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpenseFederalFundsPurchased",
+            "label": "Interest Expense on Federal Funds Purchased",
+            "line": 14,
+            "indent": 0
+          },
+          {
             "tag": "InterestExpenseOperating",
             "label": "Total Interest Expense",
             "line": 15,
@@ -15257,6 +15263,12 @@
           {
             "tag": "InterestIncomeExpenseNet",
             "label": "NET INTEREST INCOME",
+            "line": 16,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
+            "label": "Total Interest Expense",
             "line": 16,
             "indent": 0
           },
@@ -15315,8 +15327,20 @@
             "indent": 0
           },
           {
+            "tag": "ProvisionForLoanLossesExpensed",
+            "label": "Provision for Credit Losses",
+            "line": 26,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestIncome",
             "label": "Total Noninterest Income",
+            "line": 27,
+            "indent": 0
+          },
+          {
+            "tag": "CommercialLoanSwapFeeIncome",
+            "label": "Commercial Loan Swap Fee Income",
             "line": 27,
             "indent": 0
           },
@@ -15339,6 +15363,12 @@
             "indent": 0
           },
           {
+            "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from contract with customer",
+            "line": 31,
+            "indent": 0
+          },
+          {
             "tag": "TaxesOther",
             "label": "Other Taxes",
             "line": 32,
@@ -15347,6 +15377,12 @@
           {
             "tag": "AdvertisingExpense",
             "label": "Advertising Expense",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
+            "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
             "line": 33,
             "indent": 0
           },
@@ -15393,6 +15429,12 @@
             "indent": 0
           },
           {
+            "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
+            "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
+            "line": 40,
+            "indent": 0
+          },
+          {
             "tag": "IncomeTaxExpenseBenefit",
             "label": "Income Tax Provision",
             "line": 41,
@@ -15417,8 +15459,20 @@
             "indent": 0
           },
           {
+            "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
+            "label": "Losses on Sales and Write-downs of Bank Premises, net",
+            "line": 45,
+            "indent": 0
+          },
+          {
             "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
             "label": "Average Shares Outstanding - Basic (in shares)",
+            "line": 46,
+            "indent": 0
+          },
+          {
+            "tag": "TaxCreditAmortization",
+            "label": "Tax Credit Amortization",
             "line": 46,
             "indent": 0
           },
@@ -15429,75 +15483,21 @@
             "indent": 0
           },
           {
-            "tag": "InterestExpenseFederalFundsPurchased",
-            "label": "Interest Expense on Federal Funds Purchased",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommercialLoanSwapFeeIncome",
-            "label": "Commercial Loan Swap Fee Income",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total Interest Expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
-            "label": "Revenue from contract with customer",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainsLossesOnSaleOfOtherRealEstateNetOfWriteDowns",
-            "label": "(Losses) Gains on Sales and Write-downs of Bank Premises, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "TaxCreditAmortization",
-            "label": "Tax Credit Amortization",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLossesExpensed",
-            "label": "Provision for Credit Losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossesOnSaleOfOtherRealEstateOwnedAndImpairmentOfOtherRealEstateOwned",
-            "label": "Losses on Sales and Write-downs of Other Real Estate Owned, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LossOnDispositionOfPropertyPlantEquipmentAndImpairmentOfPropertyPlantAndEquipment",
-            "label": "Losses on Sales and Write-downs of Bank Premises, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "UnfundedLoanCommitmentExpense",
             "label": "Unfunded Loan Commitment Expense",
-            "line": 9999,
+            "line": 48,
             "indent": 0
           },
           {
             "tag": "OtherRealEstateOwnedExpense",
             "label": "Other Real Estate Owned Expense",
-            "line": 9999,
+            "line": 49,
             "indent": 0
           },
           {
             "tag": "GoodwillImpairmentLoss",
             "label": "Goodwill Impairment Expense",
-            "line": 9999,
+            "line": 50,
             "indent": 0
           }
         ]

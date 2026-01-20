@@ -6320,6 +6320,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -6520,6 +6530,16 @@
               "hasValue": true
             },
             {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 41,
@@ -6588,26 +6608,6 @@
               "value": 0.22,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -6720,6 +6720,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 29384000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -6922,6 +6932,16 @@
               "hasValue": false
             },
             {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": 5525000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 41,
@@ -6988,26 +7008,6 @@
               "indent": 0,
               "negating": false,
               "value": 1.39,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 29384000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5525000,
               "uom": "USD",
               "hasValue": true
             }
@@ -7147,6 +7147,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -7231,6 +7243,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale of fixed assets",
               "line": 27,
@@ -7239,6 +7275,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Gain on sale of available-for-sale debt securities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7375,6 +7423,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstateExpense",
+              "label": "Other real estate owned expenses/losses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 40,
@@ -7383,6 +7443,18 @@
               "value": 1700000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation (recovery) settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7455,78 +7527,6 @@
               "value": -0.59,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstateExpense",
-              "label": "Other real estate owned expenses/losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-              "label": "Gain on sale of available-for-sale debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation (recovery) settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -7664,6 +7664,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -7748,6 +7760,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale and disposal of fixed assets",
               "line": 27,
@@ -7756,6 +7792,18 @@
               "value": -19000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Gain on sale of available-for-sale debt securities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7892,6 +7940,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstateExpense",
+              "label": "Other real estate owned expenses/losses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": 862000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 40,
@@ -7900,6 +7960,18 @@
               "value": 974000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation (recovery) settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7972,78 +8044,6 @@
               "value": 0.01,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstateExpense",
-              "label": "Other real estate owned expenses/losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 862000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-              "label": "Gain on sale of available-for-sale debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation (recovery) settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8181,6 +8181,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -8265,6 +8277,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 142000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale and disposal of fixed assets",
               "line": 27,
@@ -8273,6 +8309,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Gain on sale of available-for-sale debt securities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8409,6 +8457,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstateExpense",
+              "label": "Other real estate owned expenses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": 88000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 40,
@@ -8417,6 +8477,18 @@
               "value": 961000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation (recovery) settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8489,78 +8561,6 @@
               "value": 0.26,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstateExpense",
-              "label": "Other real estate owned expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 88000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 142000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-              "label": "Gain on sale of available-for-sale debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation (recovery) settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8698,6 +8698,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -8782,8 +8794,44 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale and disposal of fixed assets",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Loss on sale of available-for-sale debt securities",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -8926,6 +8974,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "OtherRealEstateExpense",
+              "label": "Other real estate owned expenses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 40,
@@ -8936,6 +8996,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation (recovery) settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestExpense",
@@ -9008,78 +9080,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstateExpense",
-              "label": "Other real estate owned expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-              "label": "Loss on sale of available-for-sale debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation (recovery) settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -9215,6 +9215,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -9299,8 +9311,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 61000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale and disposal of fixed assets",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Gain on sale of available-for-sale debt securities",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -9443,6 +9491,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstateExpense",
+              "label": "Other real estate owned expenses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 40,
@@ -9451,6 +9511,18 @@
               "value": 1012000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation (recovery) settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9523,78 +9595,6 @@
               "value": -0.59,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstateExpense",
-              "label": "Other real estate owned expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 61000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-              "label": "Gain on sale of available-for-sale debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation (recovery) settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9732,6 +9732,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -9816,12 +9828,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+              "label": "Servicing and related (expense) income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": -5000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale and disposal of fixed assets",
               "line": 27,
               "indent": 0,
               "negating": false,
               "value": -19000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Gain on sale of available-for-sale debt securities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 34000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -9960,6 +10008,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstateExpense",
+              "label": "Other real estate owned expenses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": 4935000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 40,
@@ -9968,6 +10028,18 @@
               "value": 892000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation (recovery) settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10040,78 +10112,6 @@
               "value": 0.01,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstateExpense",
-              "label": "Other real estate owned expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4935000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-              "label": "Servicing and related (expense) income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -5000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-              "label": "Gain on sale of available-for-sale debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 34000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation (recovery) settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10249,6 +10249,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 4317000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -10333,8 +10345,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 75000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale of fixed assets",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Gain on sale of available-for-sale debt securities",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -10477,6 +10525,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstateExpense",
+              "label": "Other real estate owned expenses/losses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 40,
@@ -10485,6 +10545,18 @@
               "value": 734000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation (recovery) settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10557,78 +10629,6 @@
               "value": 0.44,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstateExpense",
-              "label": "Other real estate owned expenses/losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 75000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-              "label": "Gain on sale of available-for-sale debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4317000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation (recovery) settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10766,6 +10766,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 19823000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -10850,8 +10862,44 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 33000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale and disposal of fixed assets",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Loss on sale of available-for-sale debt securities",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -10994,6 +11042,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "OtherRealEstateExpense",
+              "label": "Other real estate owned expenses/losses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 40,
@@ -11004,6 +11064,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestExpense",
@@ -11076,78 +11148,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstateExpense",
-              "label": "Other real estate owned expenses/losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 33000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-              "label": "Loss on sale of available-for-sale debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19823000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11283,6 +11283,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 8223000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -11367,8 +11379,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 45000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale and disposal of fixed assets",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Gain on sale of available-for-sale debt securities",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -11511,12 +11559,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstateExpense",
+              "label": "Other real estate owned expenses/losses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 40,
               "indent": 0,
               "negating": false,
               "value": 771000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation (recovery) settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11589,78 +11661,6 @@
               "indent": 0,
               "negating": false,
               "value": 0.35,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstateExpense",
-              "label": "Other real estate owned expenses/losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 45000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-              "label": "Gain on sale of available-for-sale debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 8223000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation (recovery) settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11800,6 +11800,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 648000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -11884,6 +11896,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 87000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale of fixed assets",
               "line": 27,
@@ -11892,6 +11928,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Gain on sale of available-for-sale debt securities",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 34000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12028,12 +12076,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstateExpense",
+              "label": "Other real estate owned expenses/losses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 40,
               "indent": 0,
               "negating": false,
               "value": 892000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12106,78 +12178,6 @@
               "indent": 0,
               "negating": false,
               "value": 0.36,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstateExpense",
-              "label": "Other real estate owned expenses/losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 87000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-              "label": "Gain on sale of available-for-sale debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 34000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 648000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12317,6 +12317,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 690000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 19,
@@ -12401,8 +12413,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 75000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+              "label": "Servicing and related income on loans, net",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale of fixed assets",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Gain on sale of available-for-sale debt securities",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -12545,6 +12593,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherRealEstateExpense",
+              "label": "Other real estate owned expenses/losses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other expenses",
               "line": 40,
@@ -12553,6 +12613,18 @@
               "value": 752000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LitigationSettlementExpense",
+              "label": "Litigation (recovery) settlements, net",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12627,78 +12699,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstateExpense",
-              "label": "Other real estate owned expenses/losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 75000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-              "label": "Servicing and related income on loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-              "label": "Gain on sale of available-for-sale debt securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 690000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LitigationSettlementExpense",
-              "label": "Litigation (recovery) settlements, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -12761,6 +12761,12 @@
           },
           {
             "tag": "InterestExpenseOperating",
+            "label": "Total interest expense",
+            "line": 18,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
             "label": "Total interest expense",
             "line": 18,
             "indent": 0
@@ -12886,6 +12892,12 @@
             "indent": 0
           },
           {
+            "tag": "LitigationSettlementExpense",
+            "label": "Litigation settlements, net",
+            "line": 40,
+            "indent": 0
+          },
+          {
             "tag": "OtherNoninterestExpense",
             "label": "Other expenses",
             "line": 41,
@@ -12925,18 +12937,6 @@
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted (in dollars per share)",
             "line": 48,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LitigationSettlementExpense",
-            "label": "Litigation settlements, net",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -13002,6 +13002,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 18,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 19,
@@ -13044,8 +13050,26 @@
             "indent": 0
           },
           {
+            "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+            "label": "Servicing and related income on loans, net",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
+            "label": "Servicing and related income on loans, net",
+            "line": 26,
+            "indent": 0
+          },
+          {
             "tag": "GainLossOnSaleOfPropertyPlantEquipment",
             "label": "Loss on sale of fixed assets",
+            "line": 27,
+            "indent": 0
+          },
+          {
+            "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+            "label": "Gain on sale of available-for-sale debt securities",
             "line": 27,
             "indent": 0
           },
@@ -13116,8 +13140,20 @@
             "indent": 0
           },
           {
+            "tag": "OtherRealEstateExpense",
+            "label": "Other real estate owned expenses/losses",
+            "line": 39,
+            "indent": 0
+          },
+          {
             "tag": "OtherNoninterestExpense",
             "label": "Other expenses",
+            "line": 40,
+            "indent": 0
+          },
+          {
+            "tag": "LitigationSettlementExpense",
+            "label": "Litigation (recovery) settlements, net",
             "line": 40,
             "indent": 0
           },
@@ -13155,42 +13191,6 @@
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted (in dollars per share)",
             "line": 47,
-            "indent": 0
-          },
-          {
-            "tag": "OtherRealEstateExpense",
-            "label": "Other real estate owned expenses/losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-            "label": "Servicing and related income on loans, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FeesAndCommissionsMortgageBankingAndServicingIncomeExpense",
-            "label": "Servicing and related income on loans, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesAvailableForSaleGainLoss",
-            "label": "Gain on sale of available-for-sale debt securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LitigationSettlementExpense",
-            "label": "Litigation (recovery) settlements, net",
-            "line": 9999,
             "indent": 0
           }
         ]

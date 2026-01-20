@@ -312,6 +312,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Real estate owned, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Loans",
               "line": 13,
@@ -598,18 +610,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Real estate owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -739,6 +739,18 @@
               "indent": 0,
               "negating": false,
               "value": 8579000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Real estate owned, net",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -1031,18 +1043,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Real estate owned, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -1108,6 +1108,12 @@
             "tag": "PropertyPlantAndEquipmentNet",
             "label": "Premises and equipment, net",
             "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "RealEstateAcquiredThroughForeclosure",
+            "label": "Real estate owned, net",
+            "line": 12,
             "indent": 0
           },
           {
@@ -1252,12 +1258,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and shareholders equity",
             "line": 39,
-            "indent": 0
-          },
-          {
-            "tag": "RealEstateAcquiredThroughForeclosure",
-            "label": "Real estate owned, net",
-            "line": 9999,
             "indent": 0
           }
         ]

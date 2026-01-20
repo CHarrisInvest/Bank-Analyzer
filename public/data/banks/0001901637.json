@@ -318,6 +318,16 @@
               "hasValue": true
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Savings and money market deposits",
               "line": 29,
@@ -476,16 +486,6 @@
               "value": 2339093000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -650,6 +650,16 @@
               "hasValue": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 629776000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Money market and savings accounts",
               "line": 29,
@@ -808,16 +818,6 @@
               "value": 2339093000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 629776000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -919,6 +919,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Accrued interest receivable",
               "line": 18,
@@ -1015,6 +1027,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand deposits",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Savings and money market deposits",
               "line": 29,
@@ -1051,6 +1075,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TimeDeposits250000OrMore",
+              "label": "Time deposits over $250,000",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -1071,6 +1107,30 @@
               "value": 163000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvancesFederalHomeLoanBank",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1217,66 +1277,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-              "label": "Federal Home Loan Bank advances and other borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFederalHomeLoanBank",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits250000OrMore",
-              "label": "Time deposits over $250,000",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1372,6 +1372,18 @@
               "value": 2088385000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1472,6 +1484,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand deposits",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Savings and money market deposits",
               "line": 29,
@@ -1508,6 +1532,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TimeDeposits250000OrMore",
+              "label": "Time deposits over $250,000",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -1528,6 +1564,30 @@
               "value": 108000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvancesFederalHomeLoanBank",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1674,66 +1734,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-              "label": "Federal Home Loan Bank advances and other borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFederalHomeLoanBank",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits250000OrMore",
-              "label": "Time deposits over $250,000",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1829,6 +1829,18 @@
               "value": 2011472000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1929,6 +1941,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand deposits",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Savings and money market deposits",
               "line": 29,
@@ -1965,6 +1989,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TimeDeposits250000OrMore",
+              "label": "Time deposits over $250,000",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -1985,6 +2021,30 @@
               "value": 163000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvancesFederalHomeLoanBank",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2131,66 +2191,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-              "label": "Federal Home Loan Bank advances and other borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFederalHomeLoanBank",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits250000OrMore",
-              "label": "Time deposits over $250,000",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2286,6 +2286,18 @@
               "value": 1759743000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2386,6 +2398,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand deposits",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Savings and money market deposits",
               "line": 29,
@@ -2422,6 +2446,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TimeDeposits250000OrMore",
+              "label": "Time deposits over $250,000",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -2442,6 +2478,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvancesFederalHomeLoanBank",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 183000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2588,66 +2648,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-              "label": "Federal Home Loan Bank advances and other borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFederalHomeLoanBank",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 183000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits250000OrMore",
-              "label": "Time deposits over $250,000",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2743,6 +2743,18 @@
               "value": 1908295000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2843,6 +2855,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand deposits",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 637313000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Money market and savings accounts",
               "line": 29,
@@ -2879,6 +2903,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TimeDeposits250000OrMore",
+              "label": "Time deposits over $250,000",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -2892,6 +2928,30 @@
             },
             {
               "tag": "Advancesfederalhomeloanbank",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 118000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvancesFederalHomeLoanBank",
               "label": "Federal Home Loan Bank advances",
               "line": 33,
               "indent": 0,
@@ -3045,66 +3105,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 637313000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-              "label": "Federal Home Loan Bank advances and other borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 118000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFederalHomeLoanBank",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits250000OrMore",
-              "label": "Time deposits over $250,000",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3200,6 +3200,18 @@
               "value": 1759743000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3300,6 +3312,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand deposits",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 579243000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Money market and savings accounts",
               "line": 29,
@@ -3336,6 +3360,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TimeDeposits250000OrMore",
+              "label": "Time deposits over $250,000",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -3349,6 +3385,30 @@
             },
             {
               "tag": "Advancesfederalhomeloanbank",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 162000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvancesFederalHomeLoanBank",
               "label": "Federal Home Loan Bank advances",
               "line": 33,
               "indent": 0,
@@ -3502,66 +3562,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 579243000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-              "label": "Federal Home Loan Bank advances and other borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 162000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFederalHomeLoanBank",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits250000OrMore",
-              "label": "Time deposits over $250,000",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3657,6 +3657,18 @@
               "value": 1759743000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3757,6 +3769,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand deposits",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 576626000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Money market and savings accounts",
               "line": 29,
@@ -3793,6 +3817,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TimeDeposits250000OrMore",
+              "label": "Time deposits over $250,000",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -3806,6 +3842,30 @@
             },
             {
               "tag": "Advancesfederalhomeloanbank",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 183000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvancesFederalHomeLoanBank",
               "label": "Federal Home Loan Bank advances",
               "line": 33,
               "indent": 0,
@@ -3959,66 +4019,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 576626000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-              "label": "Federal Home Loan Bank advances and other borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 183000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFederalHomeLoanBank",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits250000OrMore",
-              "label": "Time deposits over $250,000",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4114,6 +4114,18 @@
               "value": 1759743000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4214,6 +4226,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 629776000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Money market and savings accounts",
               "line": 29,
@@ -4250,6 +4274,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TimeDeposits250000OrMore",
+              "label": "Time deposits over $250,000",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -4270,6 +4306,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvancesFederalHomeLoanBank",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 46000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4416,66 +4476,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 629776000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-              "label": "Federal Home Loan Bank advances and other borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFederalHomeLoanBank",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 46000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits250000OrMore",
-              "label": "Time deposits over $250,000",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4571,6 +4571,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1489851000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4671,6 +4683,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand deposits",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 573546000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Money market and savings accounts",
               "line": 29,
@@ -4707,6 +4731,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TimeDeposits250000OrMore",
+              "label": "Time deposits over $250,000",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -4727,6 +4763,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvancesFederalHomeLoanBank",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 46000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4873,66 +4933,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 573546000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-              "label": "Federal Home Loan Bank advances and other borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1489851000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFederalHomeLoanBank",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 46000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits250000OrMore",
-              "label": "Time deposits over $250,000",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5028,6 +5028,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans held for investment, net of allowance of $18,815 and $17,487, respectively",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1577144000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5128,6 +5140,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand deposits",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 629776000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Money market and savings accounts",
               "line": 29,
@@ -5164,6 +5188,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TimeDeposits250000OrMore",
+              "label": "Time deposits over $250,000",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -5184,6 +5220,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvancesFederalHomeLoanBank",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 46000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5330,66 +5390,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 629776000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-              "label": "Federal Home Loan Bank advances and other borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans held for investment, net of allowance of $18,815 and $17,487, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1577144000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFederalHomeLoanBank",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 46000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits250000OrMore",
-              "label": "Time deposits over $250,000",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5485,6 +5485,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans held for investment, net of allowance of $18,887 and $17487, respectively",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1489851000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5585,6 +5597,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DemandDepositAccounts",
+              "label": "Demand deposits",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 633606000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DepositsMoneyMarketAndSavingsDeposits",
               "label": "Money market and savings accounts",
               "line": 29,
@@ -5621,6 +5645,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "TimeDeposits250000OrMore",
+              "label": "Time deposits over $250,000",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 245805000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -5641,6 +5677,30 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvancesFederalHomeLoanBank",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 120000000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5787,66 +5847,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DemandDepositAccounts",
-              "label": "Demand deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 633606000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-              "label": "Federal Home Loan Bank advances and other borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans held for investment, net of allowance of $18,887 and $17487, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1489851000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFederalHomeLoanBank",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 120000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits250000OrMore",
-              "label": "Time deposits over $250,000",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 245805000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -5940,6 +5940,12 @@
           {
             "tag": "NoninterestBearingDepositLiabilities",
             "label": "Non-interest bearing demand deposits",
+            "line": 28,
+            "indent": 0
+          },
+          {
+            "tag": "DemandDepositAccounts",
+            "label": "Demand",
             "line": 28,
             "indent": 0
           },
@@ -6038,12 +6044,6 @@
             "label": "Total liabilities and stockholders' equity",
             "line": 45,
             "indent": 0
-          },
-          {
-            "tag": "DemandDepositAccounts",
-            "label": "Demand",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -6086,6 +6086,12 @@
           {
             "tag": "NotesReceivableNet",
             "label": "Loans held for investment, net of allowance of $24,964 and $24,070, respectively",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
+            "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
             "line": 17,
             "indent": 0
           },
@@ -6138,6 +6144,12 @@
             "indent": 0
           },
           {
+            "tag": "DemandDepositAccounts",
+            "label": "Demand deposits",
+            "line": 28,
+            "indent": 0
+          },
+          {
             "tag": "DepositsMoneyMarketAndSavingsDeposits",
             "label": "Savings and money market deposits",
             "line": 29,
@@ -6156,6 +6168,12 @@
             "indent": 0
           },
           {
+            "tag": "TimeDeposits250000OrMore",
+            "label": "Time deposits over $250,000",
+            "line": 31,
+            "indent": 0
+          },
+          {
             "tag": "Deposits",
             "label": "Total deposits",
             "line": 32,
@@ -6163,6 +6181,18 @@
           },
           {
             "tag": "Advancesfederalhomeloanbank",
+            "label": "Federal Home Loan Bank advances",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
+            "label": "Federal Home Loan Bank advances and other borrowings",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "AdvancesFederalHomeLoanBank",
             "label": "Federal Home Loan Bank advances",
             "line": 33,
             "indent": 0
@@ -6237,36 +6267,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and stockholders' equity",
             "line": 46,
-            "indent": 0
-          },
-          {
-            "tag": "DemandDepositAccounts",
-            "label": "Demand deposits",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalHomeLoanBankAdvancesAndOtherBorrowings",
-            "label": "Federal Home Loan Bank advances and other borrowings",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Loans held for investment, net of allowance of $19,493 and $17,487, respectively",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AdvancesFederalHomeLoanBank",
-            "label": "Federal Home Loan Bank advances",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "TimeDeposits250000OrMore",
-            "label": "Time deposits over $250,000",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -6496,6 +6496,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 18,
@@ -6574,6 +6584,16 @@
               "value": 1246000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncome",
@@ -6656,6 +6676,16 @@
               "hasValue": true
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Net income before income tax expense",
               "line": 36,
@@ -6729,36 +6759,6 @@
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
               "line": 44,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -6868,6 +6868,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 42449000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income before provision for credit losses",
               "line": 18,
@@ -6944,6 +6954,16 @@
               "indent": 0,
               "negating": false,
               "value": 1634000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true
             },
@@ -7028,6 +7048,16 @@
               "hasValue": true
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 1287000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
               "label": "Net income before income tax expense",
               "line": 36,
@@ -7106,36 +7136,6 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 42449000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1287000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -7309,6 +7309,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsuranceIncome",
+              "label": "Bank Owned life insurance income",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
               "label": "Service fees",
               "line": 18,
@@ -7329,6 +7353,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7389,6 +7425,18 @@
               "value": 1341000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7501,6 +7549,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Net income per share, diluted",
               "line": 36,
@@ -7525,57 +7585,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
               "label": "Net income available to common stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsuranceIncome",
-              "label": "Bank Owned life insurance income",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -7587,7 +7599,7 @@
             {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average shares outstanding: Basic",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -7599,19 +7611,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -7790,6 +7790,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsuranceIncome",
+              "label": "Bank Owned life insurance income",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
               "label": "Service fees",
               "line": 18,
@@ -7810,6 +7834,18 @@
               "value": 14000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7870,6 +7906,18 @@
               "value": 1337000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7982,6 +8030,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Net income per share, diluted",
               "line": 36,
@@ -8006,57 +8066,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
               "label": "Net income available to common stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsuranceIncome",
-              "label": "Bank Owned life insurance income",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -8068,7 +8080,7 @@
             {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average shares outstanding: Basic",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -8080,19 +8092,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -8271,6 +8271,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsuranceIncome",
+              "label": "Bank Owned life insurance income",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 411000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
               "label": "Service fees",
               "line": 18,
@@ -8285,6 +8309,18 @@
             {
               "tag": "DebtSecuritiesRealizedGainLoss",
               "label": "(Loss) gain on sale of securities available for sale, net",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
               "line": 19,
               "indent": 0,
               "negating": false,
@@ -8351,6 +8387,18 @@
               "value": 1314000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8463,6 +8511,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Net income per share, diluted",
               "line": 36,
@@ -8487,69 +8547,21 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
               "label": "Net income available to common stockholders",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": null,
               "uom": "USD",
               "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsuranceIncome",
-              "label": "Bank Owned life insurance income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 411000,
-              "uom": "USD",
-              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
             {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average shares outstanding: Basic",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -8561,19 +8573,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -8752,6 +8752,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "BankOwnedLifeInsuranceIncome",
+              "label": "Bank Owned life insurance income",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
               "label": "Service fees",
               "line": 18,
@@ -8774,6 +8798,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "GainLossOnSalesOfLoansNet",
@@ -8834,6 +8870,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "RegulatoryAssessmentAndFees",
@@ -8944,6 +8992,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Net income per share, diluted",
               "line": 36,
@@ -8968,57 +9028,9 @@
               "derivedUnavailable": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
               "label": "Net income available to common stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "BankOwnedLifeInsuranceIncome",
-              "label": "Bank Owned life insurance income",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9030,7 +9042,7 @@
             {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average shares outstanding: Basic",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9042,19 +9054,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9233,6 +9233,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsuranceIncome",
+              "label": "Bank Owned life insurance income",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
               "label": "Service fees",
               "line": 18,
@@ -9253,6 +9277,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9313,6 +9349,18 @@
               "value": 1350000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9425,6 +9473,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Net income per share, diluted",
               "line": 36,
@@ -9449,57 +9509,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
               "label": "Net income available to common stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsuranceIncome",
-              "label": "Bank Owned life insurance income",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9511,7 +9523,7 @@
             {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average shares outstanding: Basic",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9523,19 +9535,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9714,6 +9714,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 10107000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsuranceIncome",
+              "label": "Bank Owned life insurance income",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
               "label": "Service fees",
               "line": 18,
@@ -9734,6 +9758,18 @@
               "value": 14000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9794,6 +9830,18 @@
               "value": 1266000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9906,6 +9954,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Net income per share, diluted",
               "line": 36,
@@ -9930,57 +9990,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10107000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
               "label": "Net income available to common stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsuranceIncome",
-              "label": "Bank Owned life insurance income",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9992,7 +10004,7 @@
             {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average shares outstanding: Basic",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10004,19 +10016,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10195,6 +10195,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 6382000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsuranceIncome",
+              "label": "Bank Owned life insurance income",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 411000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
               "label": "Service fees",
               "line": 18,
@@ -10215,6 +10239,18 @@
               "value": -21000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10275,6 +10311,18 @@
               "value": 1314000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10387,6 +10435,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Net income per share, diluted",
               "line": 36,
@@ -10411,69 +10471,21 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6382000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
               "label": "Net income available to common stockholders",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": null,
               "uom": "USD",
               "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsuranceIncome",
-              "label": "Bank Owned life insurance income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 411000,
-              "uom": "USD",
-              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
             {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average shares outstanding: Basic",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10485,19 +10497,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10676,6 +10676,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 38741000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsuranceIncome",
+              "label": "Bank Owned life insurance income",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
               "label": "Service fees",
               "line": 18,
@@ -10698,6 +10722,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "GainLossOnSalesOfLoansNet",
@@ -10754,6 +10790,18 @@
               "indent": 0,
               "negating": false,
               "value": 1188000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": -161000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -10868,6 +10916,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Net income per share, diluted",
               "line": 36,
@@ -10892,57 +10952,9 @@
               "derivedUnavailable": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 38741000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -161000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
               "label": "Net income available to common stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "BankOwnedLifeInsuranceIncome",
-              "label": "Bank Owned life insurance income",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10954,7 +10966,7 @@
             {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average shares outstanding: Basic",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -10966,19 +10978,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11157,6 +11157,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1703000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsuranceIncome",
+              "label": "Bank Owned life insurance income",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
               "label": "Service fees",
               "line": 18,
@@ -11175,6 +11199,18 @@
               "indent": 0,
               "negating": false,
               "value": -558000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 910000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11235,6 +11271,18 @@
               "indent": 0,
               "negating": false,
               "value": 1281000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11349,6 +11397,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Net income per share, diluted",
               "line": 36,
@@ -11373,57 +11433,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1703000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 910000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
               "label": "Net income available to common stockholders",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BankOwnedLifeInsuranceIncome",
-              "label": "Bank Owned life insurance income",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11435,7 +11447,7 @@
             {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average shares outstanding: Basic",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11447,19 +11459,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11638,6 +11638,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1042000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsuranceIncome",
+              "label": "Bank Owned life insurance income",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
               "label": "Service fees",
               "line": 18,
@@ -11656,6 +11680,18 @@
               "indent": 0,
               "negating": false,
               "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 705000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11716,6 +11752,18 @@
               "indent": 0,
               "negating": false,
               "value": 1319000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11830,6 +11878,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Net income per share, diluted",
               "line": 36,
@@ -11854,45 +11914,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1042000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 705000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
               "label": "Net income available to common stockholders",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 5295000,
@@ -11902,21 +11926,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "BankOwnedLifeInsuranceIncome",
-              "label": "Bank Owned life insurance income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average shares outstanding: Basic",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -11928,19 +11940,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12119,6 +12119,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 963000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BankOwnedLifeInsuranceIncome",
+              "label": "Bank Owned life insurance income",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 266000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
               "label": "Service fees",
               "line": 18,
@@ -12137,6 +12161,18 @@
               "indent": 0,
               "negating": false,
               "value": 21000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 201000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12197,6 +12233,18 @@
               "indent": 0,
               "negating": false,
               "value": 1270000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoanSettlement",
+              "label": "Loan settlement",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 161000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12311,6 +12359,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProfessionalFees",
+              "label": "Audit and tax services fees",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Net income per share, diluted",
               "line": 36,
@@ -12335,45 +12395,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 963000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 201000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoanSettlement",
-              "label": "Loan settlement",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 161000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
               "label": "Net income available to common stockholders",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 4854000,
@@ -12383,21 +12407,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "BankOwnedLifeInsuranceIncome",
-              "label": "Bank Owned life insurance income",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 266000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
               "label": "Weighted average shares outstanding: Basic",
-              "line": 9999,
+              "line": 43,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12409,19 +12421,7 @@
             {
               "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
               "label": "Weighted average shares outstanding: Diluted",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProfessionalFees",
-              "label": "Audit and tax services fees",
-              "line": 9999,
+              "line": 44,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12490,6 +12490,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 17,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income before provision for credit losses",
             "line": 18,
@@ -12534,6 +12540,12 @@
           {
             "tag": "NoninterestIncomeOther",
             "label": "Other non-interest income",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "LoanSettlement",
+            "label": "Loan settlement",
             "line": 26,
             "indent": 0
           },
@@ -12586,6 +12598,12 @@
             "indent": 0
           },
           {
+            "tag": "ProfessionalFees",
+            "label": "Audit and tax services fees",
+            "line": 35,
+            "indent": 0
+          },
+          {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
             "label": "Net income before income tax expense",
             "line": 36,
@@ -12631,24 +12649,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Weighted average shares outstanding: Diluted",
             "line": 44,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoanSettlement",
-            "label": "Loan settlement",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProfessionalFees",
-            "label": "Audit and tax services fees",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -12732,6 +12732,18 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "BankOwnedLifeInsuranceIncome",
+            "label": "Bank Owned life insurance income",
+            "line": 17,
+            "indent": 0
+          },
+          {
             "tag": "InvestmentBankingAdvisoryBrokerageAndUnderwritingFeesAndCommissions",
             "label": "Service fees",
             "line": 18,
@@ -12740,6 +12752,12 @@
           {
             "tag": "DebtSecuritiesRealizedGainLoss",
             "label": "(Loss) gain on sale of securities available for sale, net",
+            "line": 19,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLossesExpensed",
+            "label": "Provision for credit losses",
             "line": 19,
             "indent": 0
           },
@@ -12770,6 +12788,12 @@
           {
             "tag": "OccupancyNet",
             "label": "Occupancy",
+            "line": 25,
+            "indent": 0
+          },
+          {
+            "tag": "LoanSettlement",
+            "label": "Loan settlement",
             "line": 25,
             "indent": 0
           },
@@ -12828,6 +12852,12 @@
             "indent": 0
           },
           {
+            "tag": "ProfessionalFees",
+            "label": "Audit and tax services fees",
+            "line": 35,
+            "indent": 0
+          },
+          {
             "tag": "EarningsPerShareDiluted",
             "label": "Net income per share, diluted",
             "line": 36,
@@ -12840,51 +12870,21 @@
             "indent": 0
           },
           {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLossesExpensed",
-            "label": "Provision for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoanSettlement",
-            "label": "Loan settlement",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
             "label": "Net income available to common stockholders",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BankOwnedLifeInsuranceIncome",
-            "label": "Bank Owned life insurance income",
-            "line": 9999,
+            "line": 39,
             "indent": 0
           },
           {
             "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
             "label": "Weighted average shares outstanding: Basic",
-            "line": 9999,
+            "line": 43,
             "indent": 0
           },
           {
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Weighted average shares outstanding: Diluted",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProfessionalFees",
-            "label": "Audit and tax services fees",
-            "line": 9999,
+            "line": 44,
             "indent": 0
           }
         ]

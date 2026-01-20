@@ -310,6 +310,16 @@
               "hasValue": true
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans (Note 3)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLosses",
               "label": "Allowance for loan losses (Note 3)",
               "line": 16,
@@ -320,6 +330,26 @@
               "hasValue": true
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses (Note 3)",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 17,
@@ -328,6 +358,16 @@
               "value": 1529088000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "PropertyPlantAndEquipmentNet",
@@ -378,6 +418,16 @@
               "value": 1854000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "OtherAssets",
@@ -538,56 +588,6 @@
               "value": 2576706000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -722,11 +722,41 @@
               "hasValue": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans (Note 3)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 1410653000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLosses",
               "label": "Allowance for loan losses (Note 3)",
               "line": 16,
               "indent": 0,
               "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses (Note 3)",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -7619000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
               "value": null,
               "uom": "USD",
               "hasValue": false
@@ -740,6 +770,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1182163000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "PropertyPlantAndEquipmentNet",
@@ -790,6 +830,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 1854000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "OtherAssets",
@@ -950,56 +1000,6 @@
               "value": 2385915000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1410653000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -7619000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1182163000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1854000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -1134,6 +1134,16 @@
               "hasValue": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans (Note 3)",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLosses",
               "label": "Allowance for loan losses (Note 3)",
               "line": 16,
@@ -1144,6 +1154,26 @@
               "hasValue": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses (Note 3)",
+              "line": 16,
+              "indent": 0,
+              "negating": true,
+              "value": -7688000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 1189782000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 17,
@@ -1152,6 +1182,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 1009160000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "PropertyPlantAndEquipmentNet",
@@ -1202,6 +1242,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 2809000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "OtherAssets",
@@ -1362,56 +1412,6 @@
               "value": 2366682000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -7688000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1009160000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2809000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1189782000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1561,6 +1561,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableGross",
               "label": "Total loans held for investment (Note 3)",
               "line": 13,
@@ -1569,6 +1581,18 @@
               "value": 1545640000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans held for investment (Note 3)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1585,6 +1609,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for credit losses (Note 3)",
+              "line": 14,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 15,
@@ -1593,6 +1629,18 @@
               "value": 1529088000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1657,6 +1705,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherAssets",
               "label": "Other assets",
               "line": 21,
@@ -1677,6 +1737,18 @@
               "value": 2723243000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1871,78 +1943,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans held for investment (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for credit losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2090,6 +2090,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableGross",
               "label": "Total loans held for investment (Note 3)",
               "line": 13,
@@ -2098,6 +2110,18 @@
               "value": 1545640000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans held for investment (Note 3)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2114,6 +2138,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for credit losses (Note 3)",
+              "line": 14,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 15,
@@ -2122,6 +2158,18 @@
               "value": 2885994000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2186,6 +2234,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherAssets",
               "label": "Other assets",
               "line": 21,
@@ -2206,6 +2266,18 @@
               "value": 2670699000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2400,78 +2472,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans held for investment (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for credit losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2619,6 +2619,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableGross",
               "label": "Total loans held for investment (Note 3)",
               "line": 13,
@@ -2627,6 +2639,18 @@
               "value": 2924955000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans held for investment (Note 3)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2643,6 +2667,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for credit losses (Note 3)",
+              "line": 14,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 15,
@@ -2651,6 +2687,18 @@
               "value": 2890388000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2715,6 +2763,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherAssets",
               "label": "Other assets",
               "line": 21,
@@ -2735,6 +2795,18 @@
               "value": 2723243000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2929,78 +3001,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans held for investment (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for credit losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3148,6 +3148,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableGross",
               "label": "Total loans held for investment (Note 3)",
               "line": 13,
@@ -3156,6 +3168,18 @@
               "value": 1410653000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans held for investment (Note 3)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3172,6 +3196,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for credit losses (Note 3)",
+              "line": 14,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 15,
@@ -3180,6 +3216,18 @@
               "value": 1529088000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3244,6 +3292,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherAssets",
               "label": "Other assets",
               "line": 21,
@@ -3262,6 +3322,18 @@
               "indent": 0,
               "negating": false,
               "value": 2576706000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 1854000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3458,78 +3530,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans held for investment (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for credit losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1854000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3677,6 +3677,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableGross",
               "label": "Total loans held for investment (Note 3)",
               "line": 13,
@@ -3685,6 +3697,18 @@
               "value": 1410653000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans held for investment (Note 3)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3701,6 +3725,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for credit losses (Note 3)",
+              "line": 14,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 15,
@@ -3709,6 +3745,18 @@
               "value": 1487460000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3773,6 +3821,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 1250000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherAssets",
               "label": "Other assets",
               "line": 21,
@@ -3793,6 +3853,18 @@
               "value": 2726003000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3987,78 +4059,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1250000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans held for investment (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for credit losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4206,6 +4206,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableGross",
               "label": "Total loans held for investment (Note 3)",
               "line": 13,
@@ -4214,6 +4226,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans held for investment (Note 3)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 1437527000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4230,6 +4254,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for credit losses (Note 3)",
+              "line": 14,
+              "indent": 0,
+              "negating": true,
+              "value": -14582000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 15,
@@ -4238,6 +4274,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 1421375000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4302,6 +4350,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 1448000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherAssets",
               "label": "Other assets",
               "line": 21,
@@ -4322,6 +4382,18 @@
               "value": 2623067000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4516,78 +4588,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1448000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans held for investment (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1437527000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for credit losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -14582000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1421375000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4735,6 +4735,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableGross",
               "label": "Total loans held for investment (Note 3)",
               "line": 13,
@@ -4743,6 +4755,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans held for investment (Note 3)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 1410653000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4759,6 +4783,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for credit losses (Note 3)",
+              "line": 14,
+              "indent": 0,
+              "negating": true,
+              "value": -15685000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 15,
@@ -4767,6 +4803,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 1394968000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4831,6 +4879,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 1854000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherAssets",
               "label": "Other assets",
               "line": 21,
@@ -4851,6 +4911,18 @@
               "value": 2576706000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5045,78 +5117,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1854000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans held for investment (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1410653000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for credit losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -15685000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1394968000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5264,6 +5264,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableGross",
               "label": "Total loans held for investment (Note 3)",
               "line": 13,
@@ -5272,6 +5284,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans (Note 3)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 1410653000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5288,6 +5312,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for loan losses (Note 3)",
+              "line": 14,
+              "indent": 0,
+              "negating": true,
+              "value": -7619000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 15,
@@ -5296,6 +5332,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 1182163000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5360,6 +5408,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible (Note 6)",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 1854000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherAssets",
               "label": "Other assets",
               "line": 21,
@@ -5380,6 +5440,18 @@
               "value": 2576706000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5574,78 +5646,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1854000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1410653000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for loan losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -7619000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1182163000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5793,6 +5793,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableGross",
               "label": "Total loans held for investment (Note 3)",
               "line": 13,
@@ -5801,6 +5813,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans (Note 3)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 1309800000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5817,6 +5841,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for credit losses (Note 3)",
+              "line": 14,
+              "indent": 0,
+              "negating": true,
+              "value": -14872000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 15,
@@ -5825,6 +5861,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 1294928000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5889,6 +5937,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 2057000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherAssets",
               "label": "Other assets",
               "line": 21,
@@ -5909,6 +5969,18 @@
               "value": 2574196000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6103,78 +6175,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2057000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1309800000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for credit losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -14872000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1294928000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6322,6 +6322,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableGross",
               "label": "Total loans held for investment (Note 3)",
               "line": 13,
@@ -6330,6 +6342,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+              "label": "Total loans (Note 3)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 1264228000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6346,6 +6370,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for credit losses (Note 3)",
+              "line": 14,
+              "indent": 0,
+              "negating": true,
+              "value": -7688000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 15,
@@ -6354,6 +6390,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 1182163000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6418,6 +6466,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 2304000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherAssets",
               "label": "Other assets",
               "line": 21,
@@ -6438,6 +6498,18 @@
               "value": 2483726000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6632,78 +6704,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2304000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1264228000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for credit losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -7688000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1182163000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6851,7 +6851,31 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+              "label": "Loans (Note 3)",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 1210583000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableGross",
+              "label": "Total loans held for investment (Note 3)",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
               "label": "Total loans held for investment (Note 3)",
               "line": 13,
               "indent": 0,
@@ -6875,6 +6899,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableAllowance",
+              "label": "Allowance for credit losses (Note 3)",
+              "line": 14,
+              "indent": 0,
+              "negating": true,
+              "value": -7688000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Loans, net",
               "line": 15,
@@ -6883,6 +6919,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans, net",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 1182163000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6947,6 +6995,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FiniteLivedCoreDepositsGross",
+              "label": "Core deposit intangible",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 2809000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherAssets",
               "label": "Other assets",
               "line": 21,
@@ -6967,6 +7027,18 @@
               "value": 2385915000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FiniteLivedIntangibleAssetsNet",
+              "label": "Core deposit intangible, net (Note 6)",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7161,78 +7233,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedCoreDepositsGross",
-              "label": "Core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2809000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-              "label": "Total loans held for investment (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableAllowance",
-              "label": "Allowance for credit losses (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -7688000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1182163000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-              "label": "Loans (Note 3)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1210583000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FiniteLivedIntangibleAssetsNet",
-              "label": "Core deposit intangible, net (Note 6)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -7312,13 +7312,37 @@
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
+            "label": "Total loans (Note 3)",
+            "line": 15,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableAllowanceForCreditLosses",
             "label": "Allowance for loan losses (Note 3)",
             "line": 16,
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableAllowance",
+            "label": "Allowance for loan losses (Note 3)",
+            "line": 16,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+            "label": "Loans (Note 3)",
+            "line": 16,
+            "indent": 0
+          },
+          {
             "tag": "NotesReceivableNet",
+            "label": "Loans, net",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Loans, net",
             "line": 17,
             "indent": 0
@@ -7350,6 +7374,12 @@
           {
             "tag": "FiniteLivedIntangibleAssetsNet",
             "label": "Core deposit intangible, net (Note 6)",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "FiniteLivedCoreDepositsGross",
+            "label": "Core deposit intangible (Note 6)",
             "line": 22,
             "indent": 0
           },
@@ -7448,36 +7478,6 @@
             "label": "Total liabilities and shareholders equity",
             "line": 40,
             "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-            "label": "Total loans (Note 3)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableAllowance",
-            "label": "Allowance for loan losses (Note 3)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Loans, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FiniteLivedCoreDepositsGross",
-            "label": "Core deposit intangible (Note 6)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-            "label": "Loans (Note 3)",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -7548,7 +7548,19 @@
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
+            "label": "Loans (Note 3)",
+            "line": 12,
+            "indent": 0
+          },
+          {
             "tag": "NotesReceivableGross",
+            "label": "Total loans held for investment (Note 3)",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
             "label": "Total loans held for investment (Note 3)",
             "line": 13,
             "indent": 0
@@ -7560,7 +7572,19 @@
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableAllowance",
+            "label": "Allowance for credit losses (Note 3)",
+            "line": 14,
+            "indent": 0
+          },
+          {
             "tag": "NotesReceivableNet",
+            "label": "Loans, net",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Loans, net",
             "line": 15,
             "indent": 0
@@ -7596,6 +7620,12 @@
             "indent": 0
           },
           {
+            "tag": "FiniteLivedCoreDepositsGross",
+            "label": "Core deposit intangible",
+            "line": 20,
+            "indent": 0
+          },
+          {
             "tag": "OtherAssets",
             "label": "Other assets",
             "line": 21,
@@ -7604,6 +7634,12 @@
           {
             "tag": "Assets",
             "label": "Total assets",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "FiniteLivedIntangibleAssetsNet",
+            "label": "Core deposit intangible, net (Note 6)",
             "line": 22,
             "indent": 0
           },
@@ -7701,42 +7737,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and shareholders equity",
             "line": 40,
-            "indent": 0
-          },
-          {
-            "tag": "FiniteLivedCoreDepositsGross",
-            "label": "Core deposit intangible",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmountCovered",
-            "label": "Total loans held for investment (Note 3)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableAllowance",
-            "label": "Allowance for credit losses (Note 3)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Loans, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
-            "label": "Loans (Note 3)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FiniteLivedIntangibleAssetsNet",
-            "label": "Core deposit intangible, net (Note 6)",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -7974,6 +7974,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -8014,6 +8024,16 @@
               "hasValue": true
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision for credit losses",
               "line": 19,
@@ -8052,6 +8072,16 @@
               "value": 742000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "GainLossOnSalesOfLoansNet",
@@ -8112,6 +8142,16 @@
               "value": -246000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncomeOther",
@@ -8312,46 +8352,6 @@
               "value": 1.05,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -8456,6 +8456,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 7746000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -8496,6 +8506,16 @@
               "hasValue": true
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision for credit losses",
               "line": 19,
@@ -8532,6 +8552,16 @@
               "indent": 0,
               "negating": false,
               "value": 698000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 1007000,
               "uom": "USD",
               "hasValue": true
             },
@@ -8594,6 +8624,16 @@
               "value": 479000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncomeOther",
@@ -8794,46 +8834,6 @@
               "value": 0.94,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7746000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1007000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -8938,6 +8938,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 4644000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -8978,6 +8988,16 @@
               "hasValue": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 250000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision for loan losses",
               "line": 19,
@@ -9014,6 +9034,16 @@
               "indent": 0,
               "negating": false,
               "value": 779000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 3180000,
               "uom": "USD",
               "hasValue": true
             },
@@ -9076,6 +9106,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": -955000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "NoninterestIncomeOther",
@@ -9276,46 +9316,6 @@
               "value": 1.01,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4644000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3180000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 250000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -955000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -9441,6 +9441,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -9489,6 +9501,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision",
               "line": 19,
@@ -9525,6 +9549,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CreditAndDebitCardFees",
+              "label": "Credit and debit card fees",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InsuranceCommissionsAndFees",
               "label": "Insurance and investment commissions",
               "line": 23,
@@ -9537,6 +9573,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSalesOfLoansNet",
               "label": "Gains on sales of loans",
               "line": 24,
@@ -9545,6 +9593,18 @@
               "value": 631000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net gains (losses) on sales of securities",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9593,6 +9653,18 @@
               "value": 277000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9835,78 +9907,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CreditAndDebitCardFees",
-              "label": "Credit and debit card fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net gains (losses) on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10030,6 +10030,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -10078,6 +10090,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision",
               "line": 19,
@@ -10114,6 +10138,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CreditAndDebitCardFees",
+              "label": "Credit and debit card fees",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 1516000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InsuranceCommissionsAndFees",
               "label": "Insurance and investment commissions",
               "line": 23,
@@ -10126,6 +10162,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSalesOfLoansNet",
               "label": "Gains on sales of loans",
               "line": 24,
@@ -10134,6 +10182,18 @@
               "value": 355000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net gains (losses) on sales of securities",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10182,6 +10242,18 @@
               "value": -71000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10424,78 +10496,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CreditAndDebitCardFees",
-              "label": "Credit and debit card fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1516000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net gains (losses) on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10619,6 +10619,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -10667,6 +10679,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision",
               "line": 19,
@@ -10703,6 +10727,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CreditAndDebitCardFees",
+              "label": "Credit and debit card fees",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 1262000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InsuranceCommissionsAndFees",
               "label": "Insurance and investment commissions",
               "line": 23,
@@ -10715,6 +10751,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSalesOfLoansNet",
               "label": "Gains on sales of loans",
               "line": 24,
@@ -10723,6 +10771,18 @@
               "value": 454000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net gains (losses) on sales of securities",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10771,6 +10831,18 @@
               "value": 35000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11013,78 +11085,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CreditAndDebitCardFees",
-              "label": "Credit and debit card fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1262000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net gains (losses) on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11208,6 +11208,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -11256,6 +11268,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision for credit losses",
               "line": 19,
@@ -11292,6 +11316,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "CreditAndDebitCardFees",
+              "label": "Credit and debit card fees",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InsuranceCommissionsAndFees",
               "label": "Insurance and investment commissions",
               "line": 23,
@@ -11304,12 +11340,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "GainLossOnSalesOfLoansNet",
               "label": "Gains on sales of loans (Note 4)",
               "line": 24,
               "indent": 0,
               "negating": false,
               "value": 424000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net (losses) gains on sales of securities (Note 2)",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 71000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -11362,6 +11422,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestIncomeOther",
@@ -11602,78 +11674,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CreditAndDebitCardFees",
-              "label": "Credit and debit card fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net (losses) gains on sales of securities (Note 2)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 71000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -11797,6 +11797,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -11845,6 +11857,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision",
               "line": 19,
@@ -11881,6 +11905,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CreditAndDebitCardFees",
+              "label": "Credit and debit card fees",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InsuranceCommissionsAndFees",
               "label": "Insurance and investment commissions",
               "line": 23,
@@ -11893,12 +11929,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSalesOfLoansNet",
               "label": "Gains on sales of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
               "value": 536000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net gains (losses) on sales of securities",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": -71000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11949,6 +12009,18 @@
               "value": 277000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12191,78 +12263,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CreditAndDebitCardFees",
-              "label": "Credit and debit card fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net gains (losses) on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -71000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12386,6 +12386,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 7225000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -12434,6 +12446,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision",
               "line": 19,
@@ -12470,6 +12494,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CreditAndDebitCardFees",
+              "label": "Credit and debit card fees",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InsuranceCommissionsAndFees",
               "label": "Insurance and investment commissions",
               "line": 23,
@@ -12482,12 +12518,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSalesOfLoansNet",
               "label": "Gains on sales of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
               "value": 540000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net gains (losses) on sales of securities",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12538,6 +12598,18 @@
               "value": -71000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12780,78 +12852,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CreditAndDebitCardFees",
-              "label": "Credit and debit card fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net gains (losses) on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 7225000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12975,6 +12975,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 11958000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -13023,6 +13035,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision",
               "line": 19,
@@ -13059,6 +13083,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CreditAndDebitCardFees",
+              "label": "Credit and debit card fees",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InsuranceCommissionsAndFees",
               "label": "Insurance and investment commissions",
               "line": 23,
@@ -13071,12 +13107,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSalesOfLoansNet",
               "label": "Gains on sales of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
               "value": 454000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net gains (losses) on sales of securities",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13127,6 +13187,18 @@
               "value": 63000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13369,78 +13441,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CreditAndDebitCardFees",
-              "label": "Credit and debit card fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net gains (losses) on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11958000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -13564,6 +13564,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 3269000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -13612,6 +13624,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision for credit losses",
               "line": 19,
@@ -13648,6 +13672,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "CreditAndDebitCardFees",
+              "label": "Credit and debit card fees",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InsuranceCommissionsAndFees",
               "label": "Insurance and investment commissions",
               "line": 23,
@@ -13660,6 +13696,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "GainLossOnSalesOfLoansNet",
               "label": "Gains on sales of loans (Note 4)",
               "line": 24,
@@ -13670,6 +13718,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net (losses) gains on sales of securities (Note 2)",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "GainLossOnSaleOfOtherAssets",
@@ -13709,6 +13769,18 @@
             },
             {
               "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
               "label": "Change in market value of equity securities",
               "line": 28,
               "indent": 0,
@@ -13958,78 +14030,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CreditAndDebitCardFees",
-              "label": "Credit and debit card fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net (losses) gains on sales of securities (Note 2)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3269000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -14153,6 +14153,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 1947000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -14201,6 +14213,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision",
               "line": 19,
@@ -14237,6 +14261,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CreditAndDebitCardFees",
+              "label": "Credit and debit card fees",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InsuranceCommissionsAndFees",
               "label": "Insurance and investment commissions",
               "line": 23,
@@ -14249,12 +14285,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSalesOfLoansNet",
               "label": "Gains on sales of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
               "value": 432000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net gains (losses) on sales of securities",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": -378000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14305,6 +14365,18 @@
               "value": -134000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14547,78 +14619,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CreditAndDebitCardFees",
-              "label": "Credit and debit card fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net gains (losses) on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -378000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1947000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -14742,6 +14742,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 1377000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -14790,6 +14802,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision",
               "line": 19,
@@ -14826,6 +14850,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CreditAndDebitCardFees",
+              "label": "Credit and debit card fees",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InsuranceCommissionsAndFees",
               "label": "Insurance and investment commissions",
               "line": 23,
@@ -14838,12 +14874,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSalesOfLoansNet",
               "label": "Gains on sales of loans",
               "line": 24,
               "indent": 0,
               "negating": false,
               "value": 540000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net gains (losses) on sales of securities",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": -427000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14894,6 +14954,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": -385000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15136,78 +15208,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CreditAndDebitCardFees",
-              "label": "Credit and debit card fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net gains (losses) on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -427000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1377000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -385000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -15331,6 +15331,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 1153000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 15,
@@ -15379,6 +15391,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision for loan losses",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision",
               "line": 19,
@@ -15415,6 +15439,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CreditAndDebitCardFees",
+              "label": "Credit and debit card fees",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InsuranceCommissionsAndFees",
               "label": "Insurance and investment commissions",
               "line": 23,
@@ -15427,6 +15463,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgageServicingRights",
+              "label": "Mortgage servicing rights (Note 4)",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSalesOfLoansNet",
               "label": "Gains on sales of loans",
               "line": 24,
@@ -15435,6 +15483,18 @@
               "value": 804000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Net gains (losses) on sales of securities",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15483,6 +15543,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "EquitySecuritiesFvNiGainLoss",
+              "label": "Change in market value of equity securities",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 63000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15725,78 +15797,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "CreditAndDebitCardFees",
-              "label": "Credit and debit card fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Net gains (losses) on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1153000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiGainLoss",
-              "label": "Change in market value of equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 63000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgageServicingRights",
-              "label": "Mortgage servicing rights (Note 4)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -15858,6 +15858,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 14,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 15,
@@ -15882,6 +15888,12 @@
             "indent": 0
           },
           {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Provision for loan losses",
+            "line": 18,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
             "label": "Net interest income after provision for credit losses",
             "line": 19,
@@ -15902,6 +15914,12 @@
           {
             "tag": "InsuranceCommissionsAndFees",
             "label": "Insurance and investment commissions",
+            "line": 23,
+            "indent": 0
+          },
+          {
+            "tag": "MortgageServicingRights",
+            "label": "Mortgage servicing rights (Note 4)",
             "line": 23,
             "indent": 0
           },
@@ -15937,6 +15955,12 @@
           },
           {
             "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+            "label": "Change in market value of equity securities",
+            "line": 29,
+            "indent": 0
+          },
+          {
+            "tag": "EquitySecuritiesFvNiGainLoss",
             "label": "Change in market value of equity securities",
             "line": 29,
             "indent": 0
@@ -16060,30 +16084,6 @@
             "label": "Dividends declared per share",
             "line": 50,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "MortgageServicingRights",
-            "label": "Mortgage servicing rights (Note 4)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision for loan losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "EquitySecuritiesFvNiGainLoss",
-            "label": "Change in market value of equity securities",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -16142,6 +16142,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 14,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 15,
@@ -16166,6 +16172,12 @@
             "indent": 0
           },
           {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Provision for loan losses",
+            "line": 18,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
             "label": "Net interest income after provision",
             "line": 19,
@@ -16184,14 +16196,32 @@
             "indent": 0
           },
           {
+            "tag": "CreditAndDebitCardFees",
+            "label": "Credit and debit card fees",
+            "line": 22,
+            "indent": 0
+          },
+          {
             "tag": "InsuranceCommissionsAndFees",
             "label": "Insurance and investment commissions",
             "line": 23,
             "indent": 0
           },
           {
+            "tag": "MortgageServicingRights",
+            "label": "Mortgage servicing rights (Note 4)",
+            "line": 23,
+            "indent": 0
+          },
+          {
             "tag": "GainLossOnSalesOfLoansNet",
             "label": "Gains on sales of loans",
+            "line": 24,
+            "indent": 0
+          },
+          {
+            "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+            "label": "Net gains (losses) on sales of securities",
             "line": 24,
             "indent": 0
           },
@@ -16215,6 +16245,12 @@
           },
           {
             "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+            "label": "Change in market value of equity securities",
+            "line": 28,
+            "indent": 0
+          },
+          {
+            "tag": "EquitySecuritiesFvNiGainLoss",
             "label": "Change in market value of equity securities",
             "line": 28,
             "indent": 0
@@ -16337,42 +16373,6 @@
             "tag": "CommonStockDividendsPerShareDeclared",
             "label": "Dividends declared per share",
             "line": 49,
-            "indent": 0
-          },
-          {
-            "tag": "CreditAndDebitCardFees",
-            "label": "Credit and debit card fees",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-            "label": "Net gains (losses) on sales of securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "EquitySecuritiesFvNiGainLoss",
-            "label": "Change in market value of equity securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "MortgageServicingRights",
-            "label": "Mortgage servicing rights (Note 4)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision for loan losses",
-            "line": 9999,
             "indent": 0
           }
         ]

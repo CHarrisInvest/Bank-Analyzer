@@ -225,6 +225,16 @@
               "hasValue": true
             },
             {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Debt securities available for sale, at fair value (amortized cost of $154,199, $128,964 and $157,251 at December 31, 2024, December 31, 2023 and June 30, 2023, respectively)",
               "line": 6,
@@ -533,16 +543,6 @@
               "value": 128964000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -593,6 +593,16 @@
               "indent": 0,
               "negating": false,
               "value": 23551000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 194427000,
               "uom": "USD",
               "hasValue": true
             },
@@ -905,16 +915,6 @@
               "value": 157251000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 194427000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -976,6 +976,18 @@
               "value": 28538000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1244,6 +1256,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and Contingencies",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValueOutstanding",
               "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
               "line": 31,
@@ -1252,6 +1276,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1340,45 +1376,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and Contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
               "label": "Debt securities available for sale, at fair value, amortized cost",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 154199000,
@@ -1445,6 +1445,18 @@
               "value": 28538000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1713,6 +1725,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and Contingencies",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValueOutstanding",
               "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
               "line": 31,
@@ -1721,6 +1745,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1809,45 +1845,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and Contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
               "label": "Debt securities available for sale, at fair value, amortized cost",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 144301000,
@@ -1914,6 +1914,18 @@
               "value": 25806000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2182,6 +2194,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and Contingencies",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValueOutstanding",
               "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
               "line": 31,
@@ -2190,6 +2214,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2278,45 +2314,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and Contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
               "label": "Debt securities available for sale, at fair value, amortized cost",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 154199000,
@@ -2383,6 +2383,18 @@
               "value": 28538000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2651,6 +2663,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and Contingencies",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValueOutstanding",
               "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
               "line": 31,
@@ -2659,6 +2683,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2747,45 +2783,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and Contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
               "label": "Debt securities available for sale, at fair value, amortized cost",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 128964000,
@@ -2852,6 +2852,18 @@
               "value": 34722000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3120,6 +3132,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and Contingencies",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValueOutstanding",
               "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
               "line": 31,
@@ -3128,6 +3152,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3216,45 +3252,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and Contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
               "label": "Debt securities available for sale, at fair value, amortized cost",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 137212000,
@@ -3321,6 +3321,18 @@
               "value": 29290000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3589,6 +3601,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and Contingencies",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValueOutstanding",
               "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
               "line": 31,
@@ -3597,6 +3621,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3685,45 +3721,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and Contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
               "label": "Debt securities available for sale, at fair value, amortized cost",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 140486000,
@@ -3790,6 +3790,18 @@
               "value": 33625000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4058,6 +4070,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and Contingencies",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValueOutstanding",
               "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
               "line": 31,
@@ -4066,6 +4090,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4154,45 +4190,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and Contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
               "label": "Debt securities available for sale, at fair value, amortized cost",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 123606000,
@@ -4259,6 +4259,18 @@
               "value": 35380000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4527,6 +4539,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and Contingencies",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValueOutstanding",
               "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
               "line": 31,
@@ -4535,6 +4559,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4623,45 +4659,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and Contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
               "label": "Debt securities available for sale, at fair value, amortized cost",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 157251000,
@@ -4726,6 +4726,18 @@
               "indent": 0,
               "negating": false,
               "value": 23551000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 194427000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4996,6 +5008,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and Contingencies",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValueOutstanding",
               "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
               "line": 31,
@@ -5004,6 +5028,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5092,45 +5128,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 194427000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and Contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
               "label": "Debt securities available for sale, at fair value, amortized cost",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 157251000,
@@ -5195,6 +5195,18 @@
               "indent": 0,
               "negating": false,
               "value": 23551000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5465,6 +5477,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and Contingencies",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValueOutstanding",
               "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
               "line": 31,
@@ -5473,6 +5497,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5561,45 +5597,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and Contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
               "label": "Debt securities available for sale, at fair value, amortized cost",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 130099000,
@@ -5664,6 +5664,18 @@
               "indent": 0,
               "negating": false,
               "value": 29371000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+              "label": "Commercial paper, net",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5934,6 +5946,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CommitmentsAndContingencies",
+              "label": "Commitments and Contingencies",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "PreferredStockValueOutstanding",
               "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
               "line": 31,
@@ -5942,6 +5966,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6030,45 +6066,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CommitmentsAndContingencies",
-              "label": "Commitments and Contingencies",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
               "label": "Debt securities available for sale, at fair value, amortized cost",
-              "line": 9999,
+              "line": 39,
               "indent": 0,
               "negating": false,
               "value": 130099000,
@@ -6103,6 +6103,12 @@
           {
             "tag": "CertificatesOfDepositAtCarryingValue",
             "label": "Certificates of deposit in other banks",
+            "line": 5,
+            "indent": 0
+          },
+          {
+            "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+            "label": "Commercial paper, net",
             "line": 5,
             "indent": 0
           },
@@ -6291,12 +6297,6 @@
             "label": "Debt securities available for sale, at fair value, amortized cost",
             "line": 39,
             "indent": 0
-          },
-          {
-            "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-            "label": "Commercial paper, net",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -6321,6 +6321,12 @@
           {
             "tag": "CertificatesOfDepositAtCarryingValue",
             "label": "Certificates of deposit in other banks",
+            "line": 5,
+            "indent": 0
+          },
+          {
+            "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
+            "label": "Commercial paper, net",
             "line": 5,
             "indent": 0
           },
@@ -6457,7 +6463,19 @@
             "indent": 0
           },
           {
+            "tag": "CommitmentsAndContingencies",
+            "label": "Commitments and Contingencies",
+            "line": 29,
+            "indent": 0
+          },
+          {
             "tag": "PreferredStockValueOutstanding",
+            "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
+            "line": 31,
+            "indent": 0
+          },
+          {
+            "tag": "PreferredStockValue",
             "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
             "line": 31,
             "indent": 0
@@ -6505,27 +6523,9 @@
             "indent": 0
           },
           {
-            "tag": "CommercialPaperNotIncludedWithCashAndCashEquivalents",
-            "label": "Commercial paper, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CommitmentsAndContingencies",
-            "label": "Commitments and Contingencies",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "PreferredStockValue",
-            "label": "Preferred stock, $0.01 par value, 10,000,000 shares authorized, none issued or outstanding",
-            "line": 9999,
-            "indent": 0
-          },
-          {
             "tag": "AvailableForSaleDebtSecuritiesAmortizedCostBasis",
             "label": "Debt securities available for sale, at fair value, amortized cost",
-            "line": 9999,
+            "line": 39,
             "indent": 0
           }
         ]
@@ -6735,6 +6735,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 10,
@@ -6755,6 +6765,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -6773,6 +6793,16 @@
               "value": -592000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -6955,6 +6985,16 @@
               "hasValue": true
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "OfficerTransitionAgreementExpense",
               "label": "Officer transition agreement expense",
               "line": 34,
@@ -6983,6 +7023,16 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "OtherNoninterestExpense",
@@ -7073,56 +7123,6 @@
               "value": 15781506,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7207,6 +7207,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 10,
@@ -7227,6 +7237,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 29711000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -7245,6 +7265,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": -7135000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -7427,6 +7457,16 @@
               "hasValue": true
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 1513000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OfficerTransitionAgreementExpense",
               "label": "Officer transition agreement expense",
               "line": 34,
@@ -7455,6 +7495,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "OtherNoninterestExpense",
@@ -7545,56 +7595,6 @@
               "value": 15810409,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 29711000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -7135000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1513000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -7632,6 +7632,18 @@
               "value": 1616000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeDomesticDeposits",
+              "label": "Commercial paper",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7684,6 +7696,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 9,
@@ -7704,6 +7728,18 @@
               "value": 24291000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7740,6 +7776,42 @@
               "value": 39383000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after provision (benefit) for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7824,6 +7896,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Gain on sale of debt securities available for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7936,6 +8020,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CoreDepositIntangibleAmortization",
               "label": "Core deposit intangible amortization",
               "line": 32,
@@ -7960,6 +8056,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 34,
@@ -7968,6 +8076,18 @@
               "value": 30869000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OfficerTransitionAgreementExpense",
+              "label": "Officer transition agreement expense",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7992,6 +8112,30 @@
               "value": 3684000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContractRenewalConsultingFee",
+              "label": "Contract renewal consulting fee",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8054,150 +8198,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeDomesticDeposits",
-              "label": "Commercial paper",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-              "label": "Net interest income after provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Gain on sale of debt securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OfficerTransitionAgreementExpense",
-              "label": "Officer transition agreement expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContractRenewalConsultingFee",
-              "label": "Contract renewal consulting fee",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -8233,6 +8233,18 @@
               "value": 1495000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeDomesticDeposits",
+              "label": "Commercial paper",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8285,6 +8297,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 9,
@@ -8305,6 +8329,18 @@
               "value": 19412000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8341,6 +8377,42 @@
               "value": 38186000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after provision (benefit) for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8425,6 +8497,18 @@
               "value": 28000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Gain on sale of debt securities available for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8537,6 +8621,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CoreDepositIntangibleAmortization",
               "label": "Core deposit intangible amortization",
               "line": 32,
@@ -8561,6 +8657,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 34,
@@ -8569,6 +8677,18 @@
               "value": 31255000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OfficerTransitionAgreementExpense",
+              "label": "Officer transition agreement expense",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8593,6 +8713,30 @@
               "value": 4618000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContractRenewalConsultingFee",
+              "label": "Contract renewal consulting fee",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8655,150 +8799,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeDomesticDeposits",
-              "label": "Commercial paper",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-              "label": "Net interest income after provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Gain on sale of debt securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OfficerTransitionAgreementExpense",
-              "label": "Officer transition agreement expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContractRenewalConsultingFee",
-              "label": "Contract renewal consulting fee",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -8834,6 +8834,18 @@
               "value": 1787000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeDomesticDeposits",
+              "label": "Commercial paper",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8886,6 +8898,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 9,
@@ -8906,6 +8930,18 @@
               "value": 22125000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8942,6 +8978,42 @@
               "value": 40065000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after provision (benefit) for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9026,6 +9098,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Gain on sale of debt securities available for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9138,6 +9222,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CoreDepositIntangibleAmortization",
               "label": "Core deposit intangible amortization",
               "line": 32,
@@ -9162,6 +9258,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 34,
@@ -9170,6 +9278,18 @@
               "value": 30961000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OfficerTransitionAgreementExpense",
+              "label": "Officer transition agreement expense",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9194,6 +9314,30 @@
               "value": 3894000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContractRenewalConsultingFee",
+              "label": "Contract renewal consulting fee",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9256,150 +9400,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeDomesticDeposits",
-              "label": "Commercial paper",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-              "label": "Net interest income after provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Gain on sale of debt securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OfficerTransitionAgreementExpense",
-              "label": "Officer transition agreement expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContractRenewalConsultingFee",
-              "label": "Contract renewal consulting fee",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9429,6 +9429,18 @@
             {
               "tag": "InterestIncomeDebtSecuritiesAvailableForSaleOperating",
               "label": "Debt securities available for sale",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestIncomeDomesticDeposits",
+              "label": "Commercial paper, net",
               "line": 3,
               "indent": 0,
               "negating": false,
@@ -9487,6 +9499,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 9,
@@ -9500,6 +9524,18 @@
             },
             {
               "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpense",
               "label": "Total interest expense",
               "line": 10,
               "indent": 0,
@@ -9538,6 +9574,42 @@
               "tag": "NetInterestIncomeAfterProvisionRecoveryForCreditLosses",
               "label": "Net interest income after provision for credit losses",
               "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after provision (benefit) for credit losses",
+              "line": 14,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -9621,6 +9693,18 @@
             {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Gain (loss) on sale of premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Gain on sale of debt securities available for sale",
               "line": 21,
               "indent": 0,
               "negating": false,
@@ -9739,6 +9823,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "CoreDepositIntangibleAmortization",
               "label": "Core deposit intangible amortization",
               "line": 32,
@@ -9763,8 +9859,32 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "OfficerTransitionAgreementExpense",
+              "label": "Officer transition agreement expense",
               "line": 34,
               "indent": 0,
               "negating": false,
@@ -9789,6 +9909,30 @@
             {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ContractRenewalConsultingFee",
+              "label": "Contract renewal consulting fee",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
               "line": 36,
               "indent": 0,
               "negating": false,
@@ -9857,150 +10001,6 @@
               "hasValue": false,
               "isDerived": true,
               "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestIncomeDomesticDeposits",
-              "label": "Commercial paper, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-              "label": "Net interest income after provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Gain on sale of debt securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "OfficerTransitionAgreementExpense",
-              "label": "Officer transition agreement expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ContractRenewalConsultingFee",
-              "label": "Contract renewal consulting fee",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -10036,6 +10036,18 @@
               "value": 1338000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeDomesticDeposits",
+              "label": "Commercial paper",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10088,6 +10100,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 218000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 9,
@@ -10108,6 +10132,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 23248000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10144,6 +10180,42 @@
               "value": 37906000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after provision (benefit) for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10228,6 +10300,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Gain on sale of debt securities available for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10340,6 +10424,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CoreDepositIntangibleAmortization",
               "label": "Core deposit intangible amortization",
               "line": 32,
@@ -10364,6 +10460,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 34,
@@ -10372,6 +10480,18 @@
               "value": 30911000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OfficerTransitionAgreementExpense",
+              "label": "Officer transition agreement expense",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10396,6 +10516,30 @@
               "value": 4455000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContractRenewalConsultingFee",
+              "label": "Contract renewal consulting fee",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10458,150 +10602,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 218000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 23248000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeDomesticDeposits",
-              "label": "Commercial paper",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-              "label": "Net interest income after provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Gain on sale of debt securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OfficerTransitionAgreementExpense",
-              "label": "Officer transition agreement expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContractRenewalConsultingFee",
-              "label": "Contract renewal consulting fee",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10637,6 +10637,18 @@
               "value": 1259000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeDomesticDeposits",
+              "label": "Commercial paper",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10689,6 +10701,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 235000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 9,
@@ -10709,6 +10733,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 24575000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10745,6 +10781,42 @@
               "value": 39590000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after provision (benefit) for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10829,6 +10901,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Gain on sale of debt securities available for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10941,6 +11025,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CoreDepositIntangibleAmortization",
               "label": "Core deposit intangible amortization",
               "line": 32,
@@ -10965,6 +11061,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 34,
@@ -10973,6 +11081,18 @@
               "value": 30585000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OfficerTransitionAgreementExpense",
+              "label": "Officer transition agreement expense",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10997,6 +11117,30 @@
               "value": 3820000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContractRenewalConsultingFee",
+              "label": "Contract renewal consulting fee",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11059,150 +11203,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 235000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 24575000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeDomesticDeposits",
-              "label": "Commercial paper",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-              "label": "Net interest income after provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Gain on sale of debt securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OfficerTransitionAgreementExpense",
-              "label": "Officer transition agreement expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContractRenewalConsultingFee",
-              "label": "Contract renewal consulting fee",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11238,6 +11238,18 @@
               "value": 1313000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeDomesticDeposits",
+              "label": "Commercial paper",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11290,6 +11302,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 109000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 9,
@@ -11310,6 +11334,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 9212000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11346,6 +11382,42 @@
               "value": 32694000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after provision (benefit) for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11430,6 +11502,18 @@
               "value": 900000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Gain on sale of debt securities available for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11542,6 +11626,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CoreDepositIntangibleAmortization",
               "label": "Core deposit intangible amortization",
               "line": 32,
@@ -11566,6 +11662,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 34,
@@ -11574,6 +11682,18 @@
               "value": 29864000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OfficerTransitionAgreementExpense",
+              "label": "Officer transition agreement expense",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11598,6 +11718,30 @@
               "value": 3945000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContractRenewalConsultingFee",
+              "label": "Contract renewal consulting fee",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11660,150 +11804,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 109000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9212000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeDomesticDeposits",
-              "label": "Commercial paper",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-              "label": "Net interest income after provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Gain on sale of debt securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OfficerTransitionAgreementExpense",
-              "label": "Officer transition agreement expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContractRenewalConsultingFee",
-              "label": "Contract renewal consulting fee",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11837,6 +11837,18 @@
               "indent": 0,
               "negating": false,
               "value": 1259000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeDomesticDeposits",
+              "label": "Commercial paper",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 1116000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11891,6 +11903,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 236000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 9,
@@ -11911,6 +11935,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 1407000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11947,6 +11983,42 @@
               "value": 39590000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after provision (benefit) for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12031,6 +12103,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Gain on sale of debt securities available for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12143,6 +12227,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 474000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CoreDepositIntangibleAmortization",
               "label": "Core deposit intangible amortization",
               "line": 32,
@@ -12167,6 +12263,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 34,
@@ -12175,6 +12283,18 @@
               "value": 29564000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OfficerTransitionAgreementExpense",
+              "label": "Officer transition agreement expense",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12199,6 +12319,30 @@
               "value": 3820000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContractRenewalConsultingFee",
+              "label": "Contract renewal consulting fee",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12261,150 +12405,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 236000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1407000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 474000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeDomesticDeposits",
-              "label": "Commercial paper",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1116000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-              "label": "Net interest income after provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Gain on sale of debt securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OfficerTransitionAgreementExpense",
-              "label": "Officer transition agreement expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContractRenewalConsultingFee",
-              "label": "Contract renewal consulting fee",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12434,6 +12434,18 @@
             {
               "tag": "InterestIncomeDebtSecuritiesAvailableForSaleOperating",
               "label": "Debt securities available for sale",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestIncomeDomesticDeposits",
+              "label": "Commercial paper",
               "line": 3,
               "indent": 0,
               "negating": false,
@@ -12492,6 +12504,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 9,
@@ -12505,6 +12529,18 @@
             },
             {
               "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestExpense",
               "label": "Total interest expense",
               "line": 10,
               "indent": 0,
@@ -12543,6 +12579,42 @@
               "tag": "NetInterestIncomeAfterProvisionRecoveryForCreditLosses",
               "label": "Net interest income after provision for credit losses",
               "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after provision (benefit) for credit losses",
+              "line": 14,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -12626,6 +12698,18 @@
             {
               "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Gain (loss) on sale of premises and equipment",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Gain on sale of debt securities available for sale",
               "line": 21,
               "indent": 0,
               "negating": false,
@@ -12744,6 +12828,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "CoreDepositIntangibleAmortization",
               "label": "Core deposit intangible amortization",
               "line": 32,
@@ -12768,8 +12864,32 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "OfficerTransitionAgreementExpense",
+              "label": "Officer transition agreement expense",
               "line": 34,
               "indent": 0,
               "negating": false,
@@ -12794,6 +12914,30 @@
             {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Income tax expense",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ContractRenewalConsultingFee",
+              "label": "Contract renewal consulting fee",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
               "line": 36,
               "indent": 0,
               "negating": false,
@@ -12862,150 +13006,6 @@
               "hasValue": false,
               "isDerived": true,
               "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestIncomeDomesticDeposits",
-              "label": "Commercial paper",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-              "label": "Net interest income after provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Gain on sale of debt securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "OfficerTransitionAgreementExpense",
-              "label": "Officer transition agreement expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ContractRenewalConsultingFee",
-              "label": "Contract renewal consulting fee",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -13039,6 +13039,18 @@
               "indent": 0,
               "negating": false,
               "value": 1183000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeDomesticDeposits",
+              "label": "Commercial paper",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 411000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13093,6 +13105,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 9,
@@ -13113,6 +13137,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 9212000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13149,6 +13185,42 @@
               "value": 27085000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after provision (benefit) for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13233,6 +13305,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Gain on sale of debt securities available for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13345,6 +13429,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 4741000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CoreDepositIntangibleAmortization",
               "label": "Core deposit intangible amortization",
               "line": 32,
@@ -13369,6 +13465,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 34,
@@ -13377,6 +13485,18 @@
               "value": 32833000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OfficerTransitionAgreementExpense",
+              "label": "Officer transition agreement expense",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13401,6 +13521,30 @@
               "value": 1437000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContractRenewalConsultingFee",
+              "label": "Contract renewal consulting fee",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13463,150 +13607,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9212000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4741000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeDomesticDeposits",
-              "label": "Commercial paper",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 411000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-              "label": "Net interest income after provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Gain on sale of debt securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OfficerTransitionAgreementExpense",
-              "label": "Officer transition agreement expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContractRenewalConsultingFee",
-              "label": "Contract renewal consulting fee",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -13640,6 +13640,18 @@
               "indent": 0,
               "negating": false,
               "value": 1151000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeDomesticDeposits",
+              "label": "Commercial paper",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 303000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13694,6 +13706,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpenseDebt",
+              "label": "Junior subordinated debt",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestExpenseBorrowings",
               "label": "Borrowings",
               "line": 9,
@@ -13714,6 +13738,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 1320000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13750,6 +13786,42 @@
               "value": 35305000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Provision (benefit) for credit losses",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after provision (benefit) for credit losses",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13834,6 +13906,18 @@
               "value": 1127000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+              "label": "Gain on sale of debt securities available for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13946,6 +14030,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NoncashMergerRelatedCosts",
+              "label": "Merger-related expenses",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 250000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "CoreDepositIntangibleAmortization",
               "label": "Core deposit intangible amortization",
               "line": 32,
@@ -13970,6 +14066,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "RestructuringCharges",
+              "label": "Branch closure and restructuring expenses",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestExpense",
               "label": "Total noninterest expense",
               "line": 34,
@@ -13978,6 +14086,18 @@
               "value": 25822000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OfficerTransitionAgreementExpense",
+              "label": "Officer transition agreement expense",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14002,6 +14122,30 @@
               "value": 2861000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ContractRenewalConsultingFee",
+              "label": "Contract renewal consulting fee",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtPrepaymentPenalty",
+              "label": "Prepayment penalties on borrowings",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14064,150 +14208,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpenseDebt",
-              "label": "Junior subordinated debt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1320000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NoncashMergerRelatedCosts",
-              "label": "Merger-related expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 250000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeDomesticDeposits",
-              "label": "Commercial paper",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 303000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-              "label": "Net interest income after provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-              "label": "Gain on sale of debt securities available for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OfficerTransitionAgreementExpense",
-              "label": "Officer transition agreement expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ContractRenewalConsultingFee",
-              "label": "Contract renewal consulting fee",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (benefit) for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "RestructuringCharges",
-              "label": "Branch closure and restructuring expenses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtPrepaymentPenalty",
-              "label": "Prepayment penalties on borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -14257,6 +14257,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpenseDebt",
+            "label": "Junior subordinated debt",
+            "line": 9,
+            "indent": 0
+          },
+          {
             "tag": "InterestExpenseBorrowings",
             "label": "Borrowings",
             "line": 10,
@@ -14269,6 +14275,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 11,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 12,
@@ -14276,6 +14288,12 @@
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+            "label": "Provision (benefit) for credit losses",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanAndLeaseLosses",
             "label": "Provision (benefit) for credit losses",
             "line": 13,
             "indent": 0
@@ -14389,6 +14407,12 @@
             "indent": 0
           },
           {
+            "tag": "RestructuringCharges",
+            "label": "Branch closure and restructuring expenses",
+            "line": 33,
+            "indent": 0
+          },
+          {
             "tag": "OfficerTransitionAgreementExpense",
             "label": "Officer transition agreement expense",
             "line": 34,
@@ -14403,6 +14427,12 @@
           {
             "tag": "ContractRenewalConsultingFee",
             "label": "Contract renewal consulting fee",
+            "line": 36,
+            "indent": 0
+          },
+          {
+            "tag": "DebtPrepaymentPenalty",
+            "label": "Prepayment penalties on borrowings",
             "line": 36,
             "indent": 0
           },
@@ -14459,36 +14489,6 @@
             "label": "Diluted (in shares)",
             "line": 48,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpenseDebt",
-            "label": "Junior subordinated debt",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision (benefit) for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "RestructuringCharges",
-            "label": "Branch closure and restructuring expenses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtPrepaymentPenalty",
-            "label": "Prepayment penalties on borrowings",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -14501,6 +14501,12 @@
           {
             "tag": "InterestIncomeDebtSecuritiesAvailableForSaleOperating",
             "label": "Debt securities available for sale",
+            "line": 3,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeDomesticDeposits",
+            "label": "Commercial paper",
             "line": 3,
             "indent": 0
           },
@@ -14529,6 +14535,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpenseDebt",
+            "label": "Junior subordinated debt",
+            "line": 8,
+            "indent": 0
+          },
+          {
             "tag": "InterestExpenseBorrowings",
             "label": "Borrowings",
             "line": 9,
@@ -14536,6 +14548,12 @@
           },
           {
             "tag": "InterestExpenseOperating",
+            "label": "Total interest expense",
+            "line": 10,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
             "label": "Total interest expense",
             "line": 10,
             "indent": 0
@@ -14556,6 +14574,24 @@
             "tag": "NetInterestIncomeAfterProvisionRecoveryForCreditLosses",
             "label": "Net interest income after provision for credit losses",
             "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+            "label": "Provision (benefit) for credit losses",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Provision (benefit) for credit losses",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+            "label": "Net interest income after provision (benefit) for credit losses",
+            "line": 14,
             "indent": 0
           },
           {
@@ -14597,6 +14633,12 @@
           {
             "tag": "GainLossOnSaleOfPropertyPlantEquipment",
             "label": "Gain (loss) on sale of premises and equipment",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+            "label": "Gain on sale of debt securities available for sale",
             "line": 21,
             "indent": 0
           },
@@ -14655,6 +14697,12 @@
             "indent": 0
           },
           {
+            "tag": "NoncashMergerRelatedCosts",
+            "label": "Merger-related expenses",
+            "line": 31,
+            "indent": 0
+          },
+          {
             "tag": "CoreDepositIntangibleAmortization",
             "label": "Core deposit intangible amortization",
             "line": 32,
@@ -14667,8 +14715,20 @@
             "indent": 0
           },
           {
+            "tag": "RestructuringCharges",
+            "label": "Branch closure and restructuring expenses",
+            "line": 33,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestExpense",
             "label": "Total noninterest expense",
+            "line": 34,
+            "indent": 0
+          },
+          {
+            "tag": "OfficerTransitionAgreementExpense",
+            "label": "Officer transition agreement expense",
             "line": 34,
             "indent": 0
           },
@@ -14681,6 +14741,18 @@
           {
             "tag": "IncomeTaxExpenseBenefit",
             "label": "Income tax expense",
+            "line": 36,
+            "indent": 0
+          },
+          {
+            "tag": "ContractRenewalConsultingFee",
+            "label": "Contract renewal consulting fee",
+            "line": 36,
+            "indent": 0
+          },
+          {
+            "tag": "DebtPrepaymentPenalty",
+            "label": "Prepayment penalties on borrowings",
             "line": 36,
             "indent": 0
           },
@@ -14712,78 +14784,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Diluted (in shares)",
             "line": 44,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpenseDebt",
-            "label": "Junior subordinated debt",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NoncashMergerRelatedCosts",
-            "label": "Merger-related expenses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestIncomeDomesticDeposits",
-            "label": "Commercial paper",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
-            "label": "Provision (benefit) for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
-            "label": "Net interest income after provision (benefit) for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
-            "label": "Gain on sale of debt securities available for sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OfficerTransitionAgreementExpense",
-            "label": "Officer transition agreement expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ContractRenewalConsultingFee",
-            "label": "Contract renewal consulting fee",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision (benefit) for credit losses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "RestructuringCharges",
-            "label": "Branch closure and restructuring expenses",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtPrepaymentPenalty",
-            "label": "Prepayment penalties on borrowings",
-            "line": 9999,
             "indent": 0
           }
         ]

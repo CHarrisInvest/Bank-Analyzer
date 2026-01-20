@@ -393,6 +393,16 @@
               "hasValue": true
             },
             {
+              "tag": "AdvancesFromFederalHomeLoanBanks",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "SubordinatedLongTermDebt",
               "label": "Subordinated debt, net of issuance costs",
               "line": 34,
@@ -451,6 +461,16 @@
               "value": 831580000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on December 31, 2023, and December 31, 2022, respectively",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "CommonStockValue",
@@ -521,26 +541,6 @@
               "value": 581265000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "AdvancesFromFederalHomeLoanBanks",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on December 31, 2023, and December 31, 2022, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -785,6 +785,16 @@
               "hasValue": true
             },
             {
+              "tag": "AdvancesFromFederalHomeLoanBanks",
+              "label": "Federal Home Loan Bank advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "SubordinatedLongTermDebt",
               "label": "Subordinate debt, net of issuance costs",
               "line": 34,
@@ -841,6 +851,16 @@
               "indent": 0,
               "negating": false,
               "value": 520544000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on December 31, 2023, and December 31, 2022, respectively",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true
             },
@@ -911,26 +931,6 @@
               "indent": 0,
               "negating": false,
               "value": 574340000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "AdvancesFromFederalHomeLoanBanks",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on December 31, 2023, and December 31, 2022, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true
             }
@@ -1202,6 +1202,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AdvancesFromFederalHomeLoanBanks",
+              "label": "Federal Home Loan Bank advances",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -1222,6 +1234,18 @@
               "value": 29000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1282,6 +1306,18 @@
               "value": 4771000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1378,42 +1414,6 @@
               "value": 581265000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFromFederalHomeLoanBanks",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -1683,6 +1683,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AdvancesFromFederalHomeLoanBanks",
+              "label": "Federal Home Loan Bank advances",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -1703,6 +1715,18 @@
               "value": 29000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1763,6 +1787,18 @@
               "value": 4771000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1859,42 +1895,6 @@
               "value": 939414000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFromFederalHomeLoanBanks",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2164,6 +2164,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AdvancesFromFederalHomeLoanBanks",
+              "label": "Federal Home Loan Bank advances",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -2182,6 +2194,18 @@
               "indent": 0,
               "negating": false,
               "value": 29000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 1663000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2244,6 +2268,18 @@
               "value": 4771000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2340,42 +2376,6 @@
               "value": 581265000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1663000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFromFederalHomeLoanBanks",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2645,6 +2645,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AdvancesFromFederalHomeLoanBanks",
+              "label": "Federal Home Loan Bank advances",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -2665,6 +2677,18 @@
               "value": 29000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2725,6 +2749,18 @@
               "value": 4771000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2821,42 +2857,6 @@
               "value": 581265000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFromFederalHomeLoanBanks",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3126,6 +3126,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AdvancesFromFederalHomeLoanBanks",
+              "label": "Federal Home Loan Bank advances",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -3146,6 +3158,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3204,6 +3228,18 @@
               "indent": 0,
               "negating": false,
               "value": 4771000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on December 31, 2023, and December 31, 2022, respectively",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3300,42 +3336,6 @@
               "indent": 0,
               "negating": false,
               "value": 574340000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFromFederalHomeLoanBanks",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on December 31, 2023, and December 31, 2022, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3607,6 +3607,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AdvancesFromFederalHomeLoanBanks",
+              "label": "Federal Home Loan Bank advances",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 18000000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "Deposits",
               "label": "Total deposits",
               "line": 32,
@@ -3621,6 +3633,18 @@
             {
               "tag": "AdvancesFromFederalReserveBank",
               "label": "Federal Reserve Bank BTFP Advances",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Federal Funds Purchased",
               "line": 33,
               "indent": 0,
               "negating": false,
@@ -3685,6 +3709,18 @@
               "indent": 0,
               "negating": false,
               "value": 5652000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PreferredStockValue",
+              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": 5000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3781,42 +3817,6 @@
               "indent": 0,
               "negating": false,
               "value": 574340000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Federal Funds Purchased",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvancesFromFederalHomeLoanBanks",
-              "label": "Federal Home Loan Bank advances",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 18000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PreferredStockValue",
-              "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3966,6 +3966,12 @@
             "indent": 0
           },
           {
+            "tag": "AdvancesFromFederalHomeLoanBanks",
+            "label": "Federal Home Loan Bank advances",
+            "line": 33,
+            "indent": 0
+          },
+          {
             "tag": "SubordinatedLongTermDebt",
             "label": "Subordinated debt, net of issuance costs",
             "line": 34,
@@ -3999,6 +4005,12 @@
             "tag": "Liabilities",
             "label": "Total liabilities",
             "line": 39,
+            "indent": 0
+          },
+          {
+            "tag": "PreferredStockValue",
+            "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on December 31, 2023, and December 31, 2022, respectively",
+            "line": 40,
             "indent": 0
           },
           {
@@ -4041,18 +4053,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and stockholders equity",
             "line": 47,
-            "indent": 0
-          },
-          {
-            "tag": "AdvancesFromFederalHomeLoanBanks",
-            "label": "Federal Home Loan Bank advances",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "PreferredStockValue",
-            "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on December 31, 2023, and December 31, 2022, respectively",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -4184,6 +4184,12 @@
             "indent": 0
           },
           {
+            "tag": "AdvancesFromFederalHomeLoanBanks",
+            "label": "Federal Home Loan Bank advances",
+            "line": 31,
+            "indent": 0
+          },
+          {
             "tag": "Deposits",
             "label": "Total deposits",
             "line": 32,
@@ -4192,6 +4198,12 @@
           {
             "tag": "AdvancesFromFederalReserveBank",
             "label": "Federal Reserve Bank BTFP Advances",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "FederalFundsPurchased",
+            "label": "Federal Funds Purchased",
             "line": 33,
             "indent": 0
           },
@@ -4222,6 +4234,12 @@
           {
             "tag": "AccruedLiabilitiesAndOtherLiabilities",
             "label": "Accrued interest and other liabilities",
+            "line": 38,
+            "indent": 0
+          },
+          {
+            "tag": "PreferredStockValue",
+            "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
             "line": 38,
             "indent": 0
           },
@@ -4271,24 +4289,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and stockholders equity",
             "line": 47,
-            "indent": 0
-          },
-          {
-            "tag": "FederalFundsPurchased",
-            "label": "Federal Funds Purchased",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AdvancesFromFederalHomeLoanBanks",
-            "label": "Federal Home Loan Bank advances",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "PreferredStockValue",
-            "label": "Preferred stock, $0.01 par value Authorized: 50,000,000 shares Issued and outstanding: 0 and 521,849 on September 30, 2023, and December 31, 2022, respectively",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -4523,6 +4523,16 @@
               "hasValue": true
             },
             {
+              "tag": "GainLossOnDispositionOfIntangibleAssets",
+              "label": "Gain (Loss) on disposal or impairment of fixed assets",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
               "label": "Bargain purchase gain on the merger (Note 2)",
               "line": 18,
@@ -4673,12 +4683,42 @@
               "hasValue": true
             },
             {
+              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
+              "label": "Other comprehensive income (loss)",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "NetIncomeLoss",
               "label": "Net income (loss)",
               "line": 34,
               "indent": 0,
               "negating": false,
               "value": 1689000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
+              "label": "Tax effect of other comprehensive income or loss",
+              "line": 34,
+              "indent": 0,
+              "negating": true,
+              "value": 88000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+              "label": "Other comprehensive income (loss), net of tax",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 1213000,
               "uom": "USD",
               "hasValue": true
             },
@@ -4693,62 +4733,22 @@
               "hasValue": true
             },
             {
+              "tag": "ComprehensiveIncomeNetOfTax",
+              "label": "Comprehensive (loss)",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": -2189000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "Diluted",
               "line": 37,
               "indent": 0,
               "negating": false,
               "value": -0.88,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainLossOnDispositionOfIntangibleAssets",
-              "label": "Gain (Loss) on disposal or impairment of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
-              "label": "Other comprehensive income (loss)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
-              "label": "Tax effect of other comprehensive income or loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 88000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
-              "label": "Other comprehensive income (loss), net of tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1213000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ComprehensiveIncomeNetOfTax",
-              "label": "Comprehensive (loss)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -2189000,
               "uom": "USD",
               "hasValue": true
             }
@@ -4905,6 +4905,16 @@
               "hasValue": false
             },
             {
+              "tag": "GainLossOnDispositionOfIntangibleAssets",
+              "label": "Gain (Loss) on disposal or impairment of fixed assets",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 74000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
               "label": "Bargain purchase gain on the merger (Note 2)",
               "line": 18,
@@ -5055,12 +5065,42 @@
               "hasValue": true
             },
             {
+              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
+              "label": "Other comprehensive income (loss)",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": -7868000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "NetIncomeLoss",
               "label": "Net (loss) income",
               "line": 34,
               "indent": 0,
               "negating": false,
               "value": -3402000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
+              "label": "Tax effect of other comprehensive income or loss",
+              "line": 34,
+              "indent": 0,
+              "negating": true,
+              "value": -471000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+              "label": "Other comprehensive income (loss), net of tax",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": -5853000,
               "uom": "USD",
               "hasValue": true
             },
@@ -5075,62 +5115,22 @@
               "hasValue": true
             },
             {
+              "tag": "ComprehensiveIncomeNetOfTax",
+              "label": "Comprehensive (loss)",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": -2189000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "(Loss) Earnings per common share Diluted",
               "line": 37,
               "indent": 0,
               "negating": false,
               "value": -0.88,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainLossOnDispositionOfIntangibleAssets",
-              "label": "Gain (Loss) on disposal or impairment of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 74000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
-              "label": "Other comprehensive income (loss)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -7868000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
-              "label": "Tax effect of other comprehensive income or loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -471000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
-              "label": "Other comprehensive income (loss), net of tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -5853000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ComprehensiveIncomeNetOfTax",
-              "label": "Comprehensive (loss)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -2189000,
               "uom": "USD",
               "hasValue": true
             }
@@ -5318,6 +5318,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDispositionOfIntangibleAssets",
+              "label": "Gain (Loss) on disposal or impairment of fixed assets",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
               "label": "Bargain purchase gain on the merger (Note 2)",
               "line": 18,
@@ -5498,6 +5510,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
+              "label": "Other comprehensive loss",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NetIncomeLoss",
               "label": "Net income (loss)",
               "line": 34,
@@ -5510,12 +5534,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
+              "label": "Tax effect of other comprehensive loss",
+              "line": 34,
+              "indent": 0,
+              "negating": true,
+              "value": 324000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+              "label": "Other comprehensive loss, net of tax",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "EarningsPerShareBasic",
               "label": "Basic",
               "line": 36,
               "indent": 0,
               "negating": false,
               "value": -1.42,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ComprehensiveIncomeNetOfTax",
+              "label": "Comprehensive loss",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": -2849000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -5532,66 +5592,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
-              "label": "Other comprehensive loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
-              "label": "Tax effect of other comprehensive loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 324000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
-              "label": "Other comprehensive loss, net of tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ComprehensiveIncomeNetOfTax",
-              "label": "Comprehensive loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -2849000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnDispositionOfIntangibleAssets",
-              "label": "Gain (Loss) on disposal or impairment of fixed assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -5771,6 +5771,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnDispositionOfIntangibleAssets",
+              "label": "Gain (Loss) on disposal or impairment of fixed assets",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5955,6 +5967,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
+              "label": "Other comprehensive loss",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLoss",
               "label": "Net (loss) income",
               "line": 34,
@@ -5963,6 +5987,30 @@
               "value": 1575000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
+              "label": "Tax effect of other comprehensive loss",
+              "line": 34,
+              "indent": 0,
+              "negating": true,
+              "value": -534000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+              "label": "Other comprehensive loss, net of tax",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5979,57 +6027,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "EarningsPerShareDiluted",
-              "label": "Diluted",
-              "line": 37,
-              "indent": 0,
-              "negating": false,
-              "value": 0.22,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
-              "label": "Other comprehensive loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
-              "label": "Tax effect of other comprehensive loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -534000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
-              "label": "Other comprehensive loss, net of tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "ComprehensiveIncomeNetOfTax",
               "label": "Comprehensive loss",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": 3001000,
@@ -6039,14 +6039,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "GainLossOnDispositionOfIntangibleAssets",
-              "label": "Gain (Loss) on disposal or impairment of fixed assets",
-              "line": 9999,
+              "tag": "EarningsPerShareDiluted",
+              "label": "Diluted",
+              "line": 37,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 0.22,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -6232,6 +6232,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDispositionOfIntangibleAssets",
+              "label": "Gain (Loss) on disposal or impairment of fixed assets",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
               "label": "Preliminary bargain purchase gain on the merger (Note 2)",
               "line": 18,
@@ -6412,6 +6424,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
+              "label": "Other comprehensive loss",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLoss",
               "label": "Net (loss) income",
               "line": 34,
@@ -6420,6 +6444,30 @@
               "value": 1505000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
+              "label": "Tax effect of other comprehensive loss",
+              "line": 34,
+              "indent": 0,
+              "negating": true,
+              "value": 193000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+              "label": "Other comprehensive loss, net of tax",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6436,57 +6484,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "EarningsPerShareDiluted",
-              "label": "Diluted",
-              "line": 37,
-              "indent": 0,
-              "negating": false,
-              "value": 0.01,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
-              "label": "Other comprehensive loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
-              "label": "Tax effect of other comprehensive loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 193000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
-              "label": "Other comprehensive loss, net of tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "ComprehensiveIncomeNetOfTax",
               "label": "Comprehensive loss",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": -480000,
@@ -6496,14 +6496,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "GainLossOnDispositionOfIntangibleAssets",
-              "label": "Gain (Loss) on disposal or impairment of fixed assets",
-              "line": 9999,
+              "tag": "EarningsPerShareDiluted",
+              "label": "Diluted",
+              "line": 37,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 0.01,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -6689,6 +6689,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDispositionOfIntangibleAssets",
+              "label": "Gain (Loss) on disposal or impairment of fixed assets",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
               "label": "Preliminary bargain purchase gain on the merger (Note 2)",
               "line": 18,
@@ -6869,6 +6881,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
+              "label": "Other comprehensive loss",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLoss",
               "label": "Net (loss) income",
               "line": 34,
@@ -6877,6 +6901,30 @@
               "value": 444000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
+              "label": "Tax effect of other comprehensive loss",
+              "line": 34,
+              "indent": 0,
+              "negating": true,
+              "value": 105000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+              "label": "Other comprehensive loss, net of tax",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6893,57 +6941,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "EarningsPerShareDiluted",
-              "label": "Diluted",
-              "line": 37,
-              "indent": 0,
-              "negating": false,
-              "value": 0.11,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
-              "label": "Other comprehensive loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
-              "label": "Tax effect of other comprehensive loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 105000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
-              "label": "Other comprehensive loss, net of tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "ComprehensiveIncomeNetOfTax",
               "label": "Comprehensive loss",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": -1861000,
@@ -6953,14 +6953,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "GainLossOnDispositionOfIntangibleAssets",
-              "label": "Gain (Loss) on disposal or impairment of fixed assets",
-              "line": 9999,
+              "tag": "EarningsPerShareDiluted",
+              "label": "Diluted",
+              "line": 37,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 0.11,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -7136,6 +7136,18 @@
             {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
               "label": "Loss on sale of other real estate owned",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "GainLossOnDispositionOfIntangibleAssets",
+              "label": "Gain (Loss) on disposal or impairment of fixed assets",
               "line": 17,
               "indent": 0,
               "negating": false,
@@ -7326,9 +7338,45 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
+              "label": "Other comprehensive income (loss)",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "NetIncomeLoss",
               "label": "Net (loss) income",
               "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
+              "label": "Tax effect of other comprehensive income or loss",
+              "line": 34,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+              "label": "Other comprehensive income (loss), net of tax",
+              "line": 35,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -7350,69 +7398,21 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "ComprehensiveIncomeNetOfTax",
+              "label": "Comprehensive (loss)",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "EarningsPerShareDiluted",
               "label": "(Loss) Earnings per common share Diluted",
               "line": 37,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
-              "label": "Other comprehensive income (loss)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
-              "label": "Tax effect of other comprehensive income or loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
-              "label": "Other comprehensive income (loss), net of tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ComprehensiveIncomeNetOfTax",
-              "label": "Comprehensive (loss)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnDispositionOfIntangibleAssets",
-              "label": "Gain (Loss) on disposal or impairment of fixed assets",
-              "line": 9999,
               "indent": 0,
               "negating": false,
               "value": null,
@@ -7603,6 +7603,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnDispositionOfIntangibleAssets",
+              "label": "Gain (Loss) on disposal or impairment of fixed assets",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
               "label": "Preliminary bargain purchase gain on the merger (Note 2)",
               "line": 18,
@@ -7783,12 +7795,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
+              "label": "Other comprehensive loss",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": -3145000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NetIncomeLoss",
               "label": "Net income (loss)",
               "line": 34,
               "indent": 0,
               "negating": false,
               "value": 1004000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
+              "label": "Tax effect of other comprehensive loss",
+              "line": 34,
+              "indent": 0,
+              "negating": true,
+              "value": 800000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+              "label": "Other comprehensive loss, net of tax",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": -1069000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -7807,57 +7855,9 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "EarningsPerShareDiluted",
-              "label": "Earnings per common share - Diluted",
-              "line": 37,
-              "indent": 0,
-              "negating": false,
-              "value": 0.42,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
-              "label": "Other comprehensive loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -3145000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
-              "label": "Tax effect of other comprehensive loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 800000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
-              "label": "Other comprehensive loss, net of tax",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1069000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
               "tag": "ComprehensiveIncomeNetOfTax",
               "label": "Comprehensive loss",
-              "line": 9999,
+              "line": 36,
               "indent": 0,
               "negating": false,
               "value": -3344000,
@@ -7867,14 +7867,14 @@
               "derivedUnavailable": false
             },
             {
-              "tag": "GainLossOnDispositionOfIntangibleAssets",
-              "label": "Gain (Loss) on disposal or impairment of fixed assets",
-              "line": 9999,
+              "tag": "EarningsPerShareDiluted",
+              "label": "Earnings per common share - Diluted",
+              "line": 37,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 0.42,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -7964,6 +7964,12 @@
           {
             "tag": "GainsLossesOnSalesOfOtherRealEstate",
             "label": "Loss on sale of other real estate owned",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "GainLossOnDispositionOfIntangibleAssets",
+            "label": "Gain (Loss) on disposal or impairment of fixed assets",
             "line": 17,
             "indent": 0
           },
@@ -8058,9 +8064,27 @@
             "indent": 0
           },
           {
+            "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss)",
+            "line": 33,
+            "indent": 0
+          },
+          {
             "tag": "NetIncomeLoss",
             "label": "Net income (loss)",
             "line": 34,
+            "indent": 0
+          },
+          {
+            "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
+            "label": "Tax effect of other comprehensive income or loss",
+            "line": 34,
+            "indent": 0
+          },
+          {
+            "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss), net of tax",
+            "line": 35,
             "indent": 0
           },
           {
@@ -8070,39 +8094,15 @@
             "indent": 0
           },
           {
+            "tag": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive (loss)",
+            "line": 36,
+            "indent": 0
+          },
+          {
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted",
             "line": 37,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnDispositionOfIntangibleAssets",
-            "label": "Gain (Loss) on disposal or impairment of fixed assets",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
-            "label": "Other comprehensive income (loss)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
-            "label": "Tax effect of other comprehensive income or loss",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
-            "label": "Other comprehensive income (loss), net of tax",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ComprehensiveIncomeNetOfTax",
-            "label": "Comprehensive (loss)",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -8188,6 +8188,12 @@
           {
             "tag": "GainsLossesOnSalesOfOtherRealEstate",
             "label": "Loss on sale of other real estate owned",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "GainLossOnDispositionOfIntangibleAssets",
+            "label": "Gain (Loss) on disposal or impairment of fixed assets",
             "line": 17,
             "indent": 0
           },
@@ -8282,9 +8288,27 @@
             "indent": 0
           },
           {
+            "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
+            "label": "Other comprehensive loss",
+            "line": 33,
+            "indent": 0
+          },
+          {
             "tag": "NetIncomeLoss",
             "label": "Net (loss) income",
             "line": 34,
+            "indent": 0
+          },
+          {
+            "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
+            "label": "Tax effect of other comprehensive loss",
+            "line": 34,
+            "indent": 0
+          },
+          {
+            "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive loss, net of tax",
+            "line": 35,
             "indent": 0
           },
           {
@@ -8294,39 +8318,15 @@
             "indent": 0
           },
           {
+            "tag": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive loss",
+            "line": 36,
+            "indent": 0
+          },
+          {
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted",
             "line": 37,
-            "indent": 0
-          },
-          {
-            "tag": "OtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParent",
-            "label": "Other comprehensive loss",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OtherComprehensiveIncomeLossTaxPortionAttributableToParent1",
-            "label": "Tax effect of other comprehensive loss",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
-            "label": "Other comprehensive loss, net of tax",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ComprehensiveIncomeNetOfTax",
-            "label": "Comprehensive loss",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnDispositionOfIntangibleAssets",
-            "label": "Gain (Loss) on disposal or impairment of fixed assets",
-            "line": 9999,
             "indent": 0
           }
         ]

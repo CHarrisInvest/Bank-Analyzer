@@ -228,6 +228,16 @@
               "hasValue": true
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable (net of allowance for credit losses 2023: $18,968; 2022: $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -516,16 +526,6 @@
               "value": 2201079000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable (net of allowance for credit losses 2023: $18,968; 2022: $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -588,6 +588,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable (net of allowance for credit losses 2023: $18,968; 2022: $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1584650000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "FederalHomeLoanBankStock",
@@ -878,16 +888,6 @@
               "value": 2047070000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable (net of allowance for credit losses 2023: $18,968; 2022: $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1584650000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -950,6 +950,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable (net of allowance for loan losses 2022: $16,999; 2021: $16,442)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1338489000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "FederalHomeLoanBankStock",
@@ -1240,16 +1250,6 @@
               "value": 2068504000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable (net of allowance for loan losses 2022: $16,999; 2021: $16,442)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1338489000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1327,6 +1327,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -1383,6 +1395,18 @@
               "value": 17696000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Foreclosed real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1483,6 +1507,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsMoneyMarketDeposits",
+              "label": "Money market deposit accounts",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankAdvancesLongTerm",
               "label": "Other borrowings",
               "line": 23,
@@ -1495,6 +1531,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsSavingsDeposits",
+              "label": "Savings",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 24,
@@ -1503,6 +1551,18 @@
               "value": 12615000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TimeDeposits",
+              "label": "Time",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1625,66 +1685,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Foreclosed real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsMoneyMarketDeposits",
-              "label": "Money market deposit accounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsSavingsDeposits",
-              "label": "Savings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits",
-              "label": "Time",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1760,6 +1760,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -1816,6 +1828,18 @@
               "value": 17693000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Foreclosed real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1916,6 +1940,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsMoneyMarketDeposits",
+              "label": "Money market deposit accounts",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankAdvancesLongTerm",
               "label": "Other borrowings",
               "line": 23,
@@ -1928,6 +1964,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsSavingsDeposits",
+              "label": "Savings",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 24,
@@ -1936,6 +1984,18 @@
               "value": 12615000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TimeDeposits",
+              "label": "Time",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2058,66 +2118,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Foreclosed real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsMoneyMarketDeposits",
-              "label": "Money market deposit accounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsSavingsDeposits",
-              "label": "Savings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits",
-              "label": "Time",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2193,6 +2193,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -2249,6 +2261,18 @@
               "value": 17696000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Foreclosed real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2349,6 +2373,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsMoneyMarketDeposits",
+              "label": "Money market deposit accounts",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankAdvancesLongTerm",
               "label": "Other borrowings",
               "line": 23,
@@ -2361,6 +2397,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsSavingsDeposits",
+              "label": "Savings",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 24,
@@ -2369,6 +2417,18 @@
               "value": 12615000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TimeDeposits",
+              "label": "Time",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2491,66 +2551,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Foreclosed real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsMoneyMarketDeposits",
-              "label": "Money market deposit accounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsSavingsDeposits",
-              "label": "Savings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits",
-              "label": "Time",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2626,6 +2626,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -2680,6 +2692,18 @@
               "indent": 0,
               "negating": false,
               "value": 21353000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Foreclosed real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2782,6 +2806,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsMoneyMarketDeposits",
+              "label": "Money market deposit accounts",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 206928000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankAdvancesLongTerm",
               "label": "Other borrowings",
               "line": 23,
@@ -2794,12 +2830,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsSavingsDeposits",
+              "label": "Savings",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 210312000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 24,
               "indent": 0,
               "negating": false,
               "value": 12615000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TimeDeposits",
+              "label": "Time",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 767519000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2924,66 +2984,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Foreclosed real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsMoneyMarketDeposits",
-              "label": "Money market deposit accounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 206928000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsSavingsDeposits",
-              "label": "Savings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 210312000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits",
-              "label": "Time",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 767519000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3059,6 +3059,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -3113,6 +3125,18 @@
               "indent": 0,
               "negating": false,
               "value": 21353000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Foreclosed real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3215,6 +3239,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsMoneyMarketDeposits",
+              "label": "Money market deposit accounts",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankAdvancesLongTerm",
               "label": "Other borrowings",
               "line": 23,
@@ -3227,6 +3263,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsSavingsDeposits",
+              "label": "Savings",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 24,
@@ -3235,6 +3283,18 @@
               "value": 12688000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TimeDeposits",
+              "label": "Time",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3357,66 +3417,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Foreclosed real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsMoneyMarketDeposits",
-              "label": "Money market deposit accounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsSavingsDeposits",
-              "label": "Savings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits",
-              "label": "Time",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3492,6 +3492,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -3546,6 +3558,18 @@
               "indent": 0,
               "negating": false,
               "value": 21353000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Foreclosed real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 97000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3648,6 +3672,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsMoneyMarketDeposits",
+              "label": "Money market deposit accounts",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankAdvancesLongTerm",
               "label": "Other borrowings",
               "line": 23,
@@ -3660,6 +3696,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsSavingsDeposits",
+              "label": "Savings",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 24,
@@ -3668,6 +3716,18 @@
               "value": 10510000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TimeDeposits",
+              "label": "Time",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3790,66 +3850,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Foreclosed real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 97000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsMoneyMarketDeposits",
-              "label": "Money market deposit accounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsSavingsDeposits",
-              "label": "Savings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits",
-              "label": "Time",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3925,6 +3925,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -3979,6 +3991,18 @@
               "indent": 0,
               "negating": false,
               "value": 21353000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Foreclosed real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 97000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4081,6 +4105,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsMoneyMarketDeposits",
+              "label": "Money market deposit accounts",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankAdvancesLongTerm",
               "label": "Other borrowings",
               "line": 23,
@@ -4093,6 +4129,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsSavingsDeposits",
+              "label": "Savings",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 24,
@@ -4101,6 +4149,18 @@
               "value": 10510000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TimeDeposits",
+              "label": "Time",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4223,66 +4283,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Foreclosed real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 97000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsMoneyMarketDeposits",
-              "label": "Money market deposit accounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsSavingsDeposits",
-              "label": "Savings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits",
-              "label": "Time",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4358,6 +4358,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable (net of allowance for credit losses 2023: $18,968; 2022: $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1584650000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -4412,6 +4424,18 @@
               "indent": 0,
               "negating": false,
               "value": 23549000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Foreclosed real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 97000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4514,6 +4538,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsMoneyMarketDeposits",
+              "label": "Money market deposit accounts",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 206928000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankAdvancesLongTerm",
               "label": "Other borrowings",
               "line": 23,
@@ -4526,12 +4562,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsSavingsDeposits",
+              "label": "Savings",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 226444000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 24,
               "indent": 0,
               "negating": false,
               "value": 2653000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TimeDeposits",
+              "label": "Time",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 709109000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4656,66 +4716,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Foreclosed real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 97000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable (net of allowance for credit losses 2023: $18,968; 2022: $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1584650000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsMoneyMarketDeposits",
-              "label": "Money market deposit accounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 206928000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsSavingsDeposits",
-              "label": "Savings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 226444000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits",
-              "label": "Time",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 709109000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4791,6 +4791,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1456946000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -4845,6 +4857,18 @@
               "indent": 0,
               "negating": false,
               "value": 23549000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Foreclosed real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 290000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4947,6 +4971,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsMoneyMarketDeposits",
+              "label": "Money market deposit accounts",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankAdvancesLongTerm",
               "label": "Other borrowings",
               "line": 23,
@@ -4959,6 +4995,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsSavingsDeposits",
+              "label": "Savings",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 24,
@@ -4967,6 +5015,18 @@
               "value": 8605000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TimeDeposits",
+              "label": "Time",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5089,66 +5149,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Foreclosed real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 290000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1456946000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsMoneyMarketDeposits",
-              "label": "Money market deposit accounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsSavingsDeposits",
-              "label": "Savings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits",
-              "label": "Time",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5224,6 +5224,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net of allowance for credit losses of $17,483 and $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1560216000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -5278,6 +5290,18 @@
               "indent": 0,
               "negating": false,
               "value": 23549000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Foreclosed real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 346000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5380,6 +5404,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsMoneyMarketDeposits",
+              "label": "Money market deposit accounts",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankAdvancesLongTerm",
               "label": "Other borrowings",
               "line": 23,
@@ -5392,6 +5428,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsSavingsDeposits",
+              "label": "Savings",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 24,
@@ -5400,6 +5448,18 @@
               "value": 7101000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TimeDeposits",
+              "label": "Time",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5522,66 +5582,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Foreclosed real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 346000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net of allowance for credit losses of $17,483 and $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1560216000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsMoneyMarketDeposits",
-              "label": "Money market deposit accounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsSavingsDeposits",
-              "label": "Savings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits",
-              "label": "Time",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5657,6 +5657,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansAndLeasesReceivableNetReportedAmount",
+              "label": "Loans receivable, net of allowance for credit losses of $19,445 and $16,999)",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 1456946000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankStock",
               "label": "Regulatory stock, at cost",
               "line": 7,
@@ -5711,6 +5723,18 @@
               "indent": 0,
               "negating": false,
               "value": 22164000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "RealEstateAcquiredThroughForeclosure",
+              "label": "Foreclosed real estate owned",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 346000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5813,6 +5837,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsMoneyMarketDeposits",
+              "label": "Money market deposit accounts",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FederalHomeLoanBankAdvancesLongTerm",
               "label": "Other borrowings",
               "line": 23,
@@ -5825,6 +5861,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DepositsSavingsDeposits",
+              "label": "Savings",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestPayableCurrentAndNoncurrent",
               "label": "Accrued interest payable",
               "line": 24,
@@ -5833,6 +5881,18 @@
               "value": 2653000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "TimeDeposits",
+              "label": "Time",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5955,66 +6015,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "RealEstateAcquiredThroughForeclosure",
-              "label": "Foreclosed real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 346000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansAndLeasesReceivableNetReportedAmount",
-              "label": "Loans receivable, net of allowance for credit losses of $19,445 and $16,999)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1456946000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsMoneyMarketDeposits",
-              "label": "Money market deposit accounts",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DepositsSavingsDeposits",
-              "label": "Savings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "TimeDeposits",
-              "label": "Time",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -6048,6 +6048,12 @@
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Loans receivable (net of allowance for credit losses 2024: $19,843; 2023: $18,968)",
+            "line": 6,
+            "indent": 0
+          },
+          {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
+            "label": "Loans receivable (net of allowance for credit losses 2023: $18,968; 2022: $16,999)",
             "line": 6,
             "indent": 0
           },
@@ -6224,12 +6230,6 @@
             "label": "Total Liabilities and Stockholders' Equity",
             "line": 39,
             "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Loans receivable (net of allowance for credit losses 2023: $18,968; 2022: $16,999)",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -6264,6 +6264,12 @@
             "indent": 0
           },
           {
+            "tag": "LoansAndLeasesReceivableNetReportedAmount",
+            "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
+            "line": 6,
+            "indent": 0
+          },
+          {
             "tag": "FederalHomeLoanBankStock",
             "label": "Regulatory stock, at cost",
             "line": 7,
@@ -6290,6 +6296,12 @@
           {
             "tag": "DeferredIncomeTaxAssetsNet",
             "label": "Deferred tax assets, net",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "RealEstateAcquiredThroughForeclosure",
+            "label": "Foreclosed real estate owned",
             "line": 11,
             "indent": 0
           },
@@ -6342,14 +6354,32 @@
             "indent": 0
           },
           {
+            "tag": "DepositsMoneyMarketDeposits",
+            "label": "Money market deposit accounts",
+            "line": 22,
+            "indent": 0
+          },
+          {
             "tag": "FederalHomeLoanBankAdvancesLongTerm",
             "label": "Other borrowings",
             "line": 23,
             "indent": 0
           },
           {
+            "tag": "DepositsSavingsDeposits",
+            "label": "Savings",
+            "line": 23,
+            "indent": 0
+          },
+          {
             "tag": "InterestPayableCurrentAndNoncurrent",
             "label": "Accrued interest payable",
+            "line": 24,
+            "indent": 0
+          },
+          {
+            "tag": "TimeDeposits",
+            "label": "Time",
             "line": 24,
             "indent": 0
           },
@@ -6411,36 +6441,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "TOTAL LIABILITIES AND STOCKHOLDERS EQUITY",
             "line": 35,
-            "indent": 0
-          },
-          {
-            "tag": "RealEstateAcquiredThroughForeclosure",
-            "label": "Foreclosed real estate owned",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansAndLeasesReceivableNetReportedAmount",
-            "label": "Loans receivable, net of allowance for credit losses of $16,086 and $16,999)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DepositsMoneyMarketDeposits",
-            "label": "Money market deposit accounts",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DepositsSavingsDeposits",
-            "label": "Savings",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "TimeDeposits",
-            "label": "Time",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -6676,6 +6676,16 @@
               "value": 50389000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -6956,16 +6966,6 @@
               "value": -0.02,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7068,6 +7068,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 33473000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -7348,16 +7358,6 @@
               "value": 3.58,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 33473000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -7460,6 +7460,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 5757000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -7740,16 +7750,6 @@
               "value": 3.04,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5757000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -7791,6 +7791,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Securities: Taxable",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
               "label": "Interest bearing deposits with other banks",
               "line": 10,
@@ -7799,6 +7811,30 @@
               "value": 497000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestAndDividendIncome",
+              "label": "Other",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Securities: Tax exempt",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7863,6 +7899,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -7919,6 +7967,18 @@
               "value": 14586000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtAndEquitySecuritiesGainLoss",
+              "label": "Net realized gains on sales of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8019,6 +8079,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InformationTechnologyAndDataProcessing",
               "label": "Data processing and related operations",
               "line": 33,
@@ -8043,6 +8115,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+              "label": "Federal Deposit Insurance Corporation insurance",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateExpense",
+              "label": "Foreclosed real estate",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 35,
@@ -8051,6 +8147,18 @@
               "value": 576000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvertisingExpense",
+              "label": "Advertising",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8075,6 +8183,18 @@
               "value": 9000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PostageAndTelephoneExpense",
+              "label": "Postage and telephone",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8173,126 +8293,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestAndDividendIncome",
-              "label": "Other",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtAndEquitySecuritiesGainLoss",
-              "label": "Net realized gains on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-              "label": "Federal Deposit Insurance Corporation insurance",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateExpense",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxable",
-              "label": "Securities: Taxable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxExempt",
-              "label": "Securities: Tax exempt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquipmentExpense",
-              "label": "Furniture and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvertisingExpense",
-              "label": "Advertising",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PostageAndTelephoneExpense",
-              "label": "Postage and telephone",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -8332,6 +8332,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Securities: Taxable",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
               "label": "Interest bearing deposits with other banks",
               "line": 10,
@@ -8340,6 +8352,30 @@
               "value": 966000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestAndDividendIncome",
+              "label": "Other",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Securities: Tax exempt",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8404,6 +8440,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -8460,6 +8508,18 @@
               "value": 18115000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtAndEquitySecuritiesGainLoss",
+              "label": "Net realized gains on sales of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8560,6 +8620,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InformationTechnologyAndDataProcessing",
               "label": "Data processing and related operations",
               "line": 33,
@@ -8584,6 +8656,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+              "label": "Federal Deposit Insurance Corporation insurance",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateExpense",
+              "label": "Foreclosed real estate",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 35,
@@ -8592,6 +8688,18 @@
               "value": 508000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvertisingExpense",
+              "label": "Advertising",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8616,6 +8724,18 @@
               "value": 15000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PostageAndTelephoneExpense",
+              "label": "Postage and telephone",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8714,126 +8834,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestAndDividendIncome",
-              "label": "Other",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtAndEquitySecuritiesGainLoss",
-              "label": "Net realized gains on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-              "label": "Federal Deposit Insurance Corporation insurance",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateExpense",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxable",
-              "label": "Securities: Taxable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxExempt",
-              "label": "Securities: Tax exempt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquipmentExpense",
-              "label": "Furniture and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvertisingExpense",
-              "label": "Advertising",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PostageAndTelephoneExpense",
-              "label": "Postage and telephone",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -8873,6 +8873,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Securities: Taxable",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
               "label": "Interest bearing deposits with other banks",
               "line": 10,
@@ -8881,6 +8893,30 @@
               "value": 731000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestAndDividendIncome",
+              "label": "Other",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Securities: Tax exempt",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8945,6 +8981,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -9001,6 +9049,18 @@
               "value": 17000000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtAndEquitySecuritiesGainLoss",
+              "label": "Net realized gains on sales of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9101,6 +9161,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InformationTechnologyAndDataProcessing",
               "label": "Data processing and related operations",
               "line": 33,
@@ -9125,6 +9197,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+              "label": "Federal Deposit Insurance Corporation insurance",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateExpense",
+              "label": "Foreclosed real estate",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 35,
@@ -9133,6 +9229,18 @@
               "value": 659000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvertisingExpense",
+              "label": "Advertising",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9157,6 +9265,18 @@
               "value": 21000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PostageAndTelephoneExpense",
+              "label": "Postage and telephone",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9255,126 +9375,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestAndDividendIncome",
-              "label": "Other",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtAndEquitySecuritiesGainLoss",
-              "label": "Net realized gains on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-              "label": "Federal Deposit Insurance Corporation insurance",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateExpense",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxable",
-              "label": "Securities: Taxable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxExempt",
-              "label": "Securities: Tax exempt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquipmentExpense",
-              "label": "Furniture and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvertisingExpense",
-              "label": "Advertising",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PostageAndTelephoneExpense",
-              "label": "Postage and telephone",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9414,8 +9414,44 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Securities: Taxable",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
               "label": "Interest-bearing deposits with banks",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "OtherInterestAndDividendIncome",
+              "label": "Other",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Securities: Tax exempt",
               "line": 10,
               "indent": 0,
               "negating": false,
@@ -9486,6 +9522,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 17,
@@ -9544,6 +9592,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtAndEquitySecuritiesGainLoss",
+              "label": "Net realized (losses) gains on sales of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -9642,6 +9702,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InformationTechnologyAndDataProcessing",
               "label": "Data processing and related operations",
               "line": 33,
@@ -9666,6 +9738,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+              "label": "Federal Deposit Insurance Corporation insurance assessment",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 202000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateExpense",
+              "label": "Foreclosed real estate",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 35,
@@ -9676,6 +9772,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvertisingExpense",
+              "label": "Advertising",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "FederalDepositInsuranceCorporationPremiumExpense",
@@ -9692,6 +9800,18 @@
             {
               "tag": "ForeclosedRealEstateExpenseIncome",
               "label": "Foreclosed real estate",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "PostageAndTelephoneExpense",
+              "label": "Postage and telephone",
               "line": 37,
               "indent": 0,
               "negating": false,
@@ -9796,126 +9916,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestAndDividendIncome",
-              "label": "Other",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtAndEquitySecuritiesGainLoss",
-              "label": "Net realized (losses) gains on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-              "label": "Federal Deposit Insurance Corporation insurance assessment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 202000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateExpense",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxable",
-              "label": "Securities: Taxable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxExempt",
-              "label": "Securities: Tax exempt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "EquipmentExpense",
-              "label": "Furniture and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "AdvertisingExpense",
-              "label": "Advertising",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "PostageAndTelephoneExpense",
-              "label": "Postage and telephone",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -9955,8 +9955,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Securities: Taxable",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
               "label": "Interest bearing deposits with other banks",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestAndDividendIncome",
+              "label": "Other",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 54000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Securities: Tax exempt",
               "line": 10,
               "indent": 0,
               "negating": false,
@@ -10027,6 +10063,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -10083,6 +10131,18 @@
               "value": 14157000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtAndEquitySecuritiesGainLoss",
+              "label": "Net realized gains on sales of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10183,6 +10243,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InformationTechnologyAndDataProcessing",
               "label": "Data processing and related operations",
               "line": 33,
@@ -10207,6 +10279,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+              "label": "Federal Deposit Insurance Corporation insurance",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 339000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateExpense",
+              "label": "Foreclosed real estate",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 35,
@@ -10215,6 +10311,18 @@
               "value": 576000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvertisingExpense",
+              "label": "Advertising",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10239,6 +10347,18 @@
               "value": 9000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PostageAndTelephoneExpense",
+              "label": "Postage and telephone",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10337,126 +10457,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestAndDividendIncome",
-              "label": "Other",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 54000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtAndEquitySecuritiesGainLoss",
-              "label": "Net realized gains on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-              "label": "Federal Deposit Insurance Corporation insurance",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 339000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateExpense",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxable",
-              "label": "Securities: Taxable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxExempt",
-              "label": "Securities: Tax exempt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquipmentExpense",
-              "label": "Furniture and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvertisingExpense",
-              "label": "Advertising",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PostageAndTelephoneExpense",
-              "label": "Postage and telephone",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10496,8 +10496,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Securities: Taxable",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
               "label": "Interest bearing deposits with other banks",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestAndDividendIncome",
+              "label": "Other",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 966000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Securities: Tax exempt",
               "line": 10,
               "indent": 0,
               "negating": false,
@@ -10568,6 +10604,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -10622,6 +10670,18 @@
               "indent": 0,
               "negating": false,
               "value": 17392000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtAndEquitySecuritiesGainLoss",
+              "label": "Net realized gains on sales of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": -212000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -10724,6 +10784,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InformationTechnologyAndDataProcessing",
               "label": "Data processing and related operations",
               "line": 33,
@@ -10748,6 +10820,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+              "label": "Federal Deposit Insurance Corporation insurance",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 244000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateExpense",
+              "label": "Foreclosed real estate",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 15000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 35,
@@ -10756,6 +10852,18 @@
               "value": 508000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvertisingExpense",
+              "label": "Advertising",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10774,6 +10882,18 @@
             {
               "tag": "ForeclosedRealEstateExpenseIncome",
               "label": "Foreclosed real estate",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PostageAndTelephoneExpense",
+              "label": "Postage and telephone",
               "line": 37,
               "indent": 0,
               "negating": false,
@@ -10878,126 +10998,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestAndDividendIncome",
-              "label": "Other",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 966000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtAndEquitySecuritiesGainLoss",
-              "label": "Net realized gains on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -212000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-              "label": "Federal Deposit Insurance Corporation insurance",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 244000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateExpense",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 15000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxable",
-              "label": "Securities: Taxable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxExempt",
-              "label": "Securities: Tax exempt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquipmentExpense",
-              "label": "Furniture and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvertisingExpense",
-              "label": "Advertising",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PostageAndTelephoneExpense",
-              "label": "Postage and telephone",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11037,8 +11037,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Securities: Taxable",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
               "label": "Interest bearing deposits with other banks",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestAndDividendIncome",
+              "label": "Other",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 48000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Securities: Tax exempt",
               "line": 10,
               "indent": 0,
               "negating": false,
@@ -11109,6 +11145,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 12228000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -11163,6 +11211,18 @@
               "indent": 0,
               "negating": false,
               "value": 15793000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtAndEquitySecuritiesGainLoss",
+              "label": "Net realized gains on sales of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 2000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11265,6 +11325,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InformationTechnologyAndDataProcessing",
               "label": "Data processing and related operations",
               "line": 33,
@@ -11289,6 +11361,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+              "label": "Federal Deposit Insurance Corporation insurance",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 200000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateExpense",
+              "label": "Foreclosed real estate",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 29000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 35,
@@ -11297,6 +11393,18 @@
               "value": 285000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvertisingExpense",
+              "label": "Advertising",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11315,6 +11423,18 @@
             {
               "tag": "ForeclosedRealEstateExpenseIncome",
               "label": "Foreclosed real estate",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PostageAndTelephoneExpense",
+              "label": "Postage and telephone",
               "line": 37,
               "indent": 0,
               "negating": false,
@@ -11419,126 +11539,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestAndDividendIncome",
-              "label": "Other",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 48000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtAndEquitySecuritiesGainLoss",
-              "label": "Net realized gains on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-              "label": "Federal Deposit Insurance Corporation insurance",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 200000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateExpense",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 29000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 12228000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxable",
-              "label": "Securities: Taxable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxExempt",
-              "label": "Securities: Tax exempt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquipmentExpense",
-              "label": "Furniture and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvertisingExpense",
-              "label": "Advertising",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PostageAndTelephoneExpense",
-              "label": "Postage and telephone",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11578,8 +11578,44 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Securities: Taxable",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
               "label": "Interest-bearing deposits with banks",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "OtherInterestAndDividendIncome",
+              "label": "Other",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Securities: Tax exempt",
               "line": 10,
               "indent": 0,
               "negating": false,
@@ -11650,6 +11686,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 21559000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -11708,6 +11756,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtAndEquitySecuritiesGainLoss",
+              "label": "Net realized (losses) gains on sales of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -11806,6 +11866,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InformationTechnologyAndDataProcessing",
               "label": "Data processing and related operations",
               "line": 33,
@@ -11830,6 +11902,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+              "label": "Federal Deposit Insurance Corporation insurance assessment",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "ForeclosedRealEstateExpense",
+              "label": "Foreclosed real estate",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 30000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 35,
@@ -11840,6 +11936,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvertisingExpense",
+              "label": "Advertising",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "FederalDepositInsuranceCorporationPremiumExpense",
@@ -11856,6 +11964,18 @@
             {
               "tag": "ForeclosedRealEstateExpenseIncome",
               "label": "Foreclosed real estate",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "PostageAndTelephoneExpense",
+              "label": "Postage and telephone",
               "line": 37,
               "indent": 0,
               "negating": false,
@@ -11960,126 +12080,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestAndDividendIncome",
-              "label": "Other",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DebtAndEquitySecuritiesGainLoss",
-              "label": "Net realized (losses) gains on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-              "label": "Federal Deposit Insurance Corporation insurance assessment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ForeclosedRealEstateExpense",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 30000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 21559000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxable",
-              "label": "Securities: Taxable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxExempt",
-              "label": "Securities: Tax exempt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "EquipmentExpense",
-              "label": "Furniture and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "AdvertisingExpense",
-              "label": "Advertising",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "PostageAndTelephoneExpense",
-              "label": "Postage and telephone",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -12119,8 +12119,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Securities: Taxable",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
               "label": "Interest bearing deposits with other banks",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestAndDividendIncome",
+              "label": "Other",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 245000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Securities: Tax exempt",
               "line": 10,
               "indent": 0,
               "negating": false,
@@ -12191,6 +12227,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 9469000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -12247,6 +12295,18 @@
               "value": 18170000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtAndEquitySecuritiesGainLoss",
+              "label": "Net realized (losses) gains on sales of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12347,6 +12407,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InformationTechnologyAndDataProcessing",
               "label": "Data processing and related operations",
               "line": 33,
@@ -12371,6 +12443,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+              "label": "Federal Deposit Insurance Corporation insurance",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 254000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateExpense",
+              "label": "Foreclosed real estate",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 4000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 35,
@@ -12379,6 +12475,18 @@
               "value": 524000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvertisingExpense",
+              "label": "Advertising",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12397,6 +12505,18 @@
             {
               "tag": "ForeclosedRealEstateExpenseIncome",
               "label": "Foreclosed real estate",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PostageAndTelephoneExpense",
+              "label": "Postage and telephone",
               "line": 37,
               "indent": 0,
               "negating": false,
@@ -12501,126 +12621,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestAndDividendIncome",
-              "label": "Other",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 245000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtAndEquitySecuritiesGainLoss",
-              "label": "Net realized (losses) gains on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-              "label": "Federal Deposit Insurance Corporation insurance",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 254000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateExpense",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9469000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxable",
-              "label": "Securities: Taxable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxExempt",
-              "label": "Securities: Tax exempt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquipmentExpense",
-              "label": "Furniture and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvertisingExpense",
-              "label": "Advertising",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PostageAndTelephoneExpense",
-              "label": "Postage and telephone",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12660,8 +12660,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Securities: Taxable",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
               "label": "Interest bearing deposits with other banks",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestAndDividendIncome",
+              "label": "Other",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 182000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Securities: Tax exempt",
               "line": 10,
               "indent": 0,
               "negating": false,
@@ -12732,6 +12768,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 1199000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -12786,6 +12834,18 @@
               "indent": 0,
               "negating": false,
               "value": 16594000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtAndEquitySecuritiesGainLoss",
+              "label": "Net realized (losses) gains on sales of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": -212000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12888,6 +12948,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InformationTechnologyAndDataProcessing",
               "label": "Data processing and related operations",
               "line": 33,
@@ -12912,6 +12984,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+              "label": "Federal Deposit Insurance Corporation insurance",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 244000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateExpense",
+              "label": "Foreclosed real estate",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 10000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 35,
@@ -12920,6 +13016,18 @@
               "value": 406000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvertisingExpense",
+              "label": "Advertising",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12938,6 +13046,18 @@
             {
               "tag": "ForeclosedRealEstateExpenseIncome",
               "label": "Foreclosed real estate",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PostageAndTelephoneExpense",
+              "label": "Postage and telephone",
               "line": 37,
               "indent": 0,
               "negating": false,
@@ -13042,126 +13162,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestAndDividendIncome",
-              "label": "Other",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 182000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtAndEquitySecuritiesGainLoss",
-              "label": "Net realized (losses) gains on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -212000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-              "label": "Federal Deposit Insurance Corporation insurance",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 244000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateExpense",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1199000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxable",
-              "label": "Securities: Taxable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxExempt",
-              "label": "Securities: Tax exempt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquipmentExpense",
-              "label": "Furniture and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvertisingExpense",
-              "label": "Advertising",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PostageAndTelephoneExpense",
-              "label": "Postage and telephone",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -13201,8 +13201,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Securities: Taxable",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
               "label": "Interest bearing deposits with other banks",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherInterestAndDividendIncome",
+              "label": "Other",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 78000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Securities: Tax exempt",
               "line": 10,
               "indent": 0,
               "negating": false,
@@ -13273,6 +13309,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total Interest Expense",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 1246000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "NET INTEREST INCOME",
               "line": 17,
@@ -13327,6 +13375,18 @@
               "indent": 0,
               "negating": false,
               "value": 15793000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DebtAndEquitySecuritiesGainLoss",
+              "label": "Net realized gains on sales of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 2000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13429,6 +13489,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InformationTechnologyAndDataProcessing",
               "label": "Data processing and related operations",
               "line": 33,
@@ -13453,6 +13525,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+              "label": "Federal Deposit Insurance Corporation insurance",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ForeclosedRealEstateExpense",
+              "label": "Foreclosed real estate",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 29000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 35,
@@ -13461,6 +13557,18 @@
               "value": 285000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AdvertisingExpense",
+              "label": "Advertising",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13479,6 +13587,18 @@
             {
               "tag": "ForeclosedRealEstateExpenseIncome",
               "label": "Foreclosed real estate",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "PostageAndTelephoneExpense",
+              "label": "Postage and telephone",
               "line": 37,
               "indent": 0,
               "negating": false,
@@ -13583,126 +13703,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherInterestAndDividendIncome",
-              "label": "Other",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 78000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DebtAndEquitySecuritiesGainLoss",
-              "label": "Net realized gains on sales of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-              "label": "Federal Deposit Insurance Corporation insurance",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ForeclosedRealEstateExpense",
-              "label": "Foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 29000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1246000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxable",
-              "label": "Securities: Taxable",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestIncomeSecuritiesTaxExempt",
-              "label": "Securities: Tax exempt",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquipmentExpense",
-              "label": "Furniture and equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AdvertisingExpense",
-              "label": "Advertising",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "PostageAndTelephoneExpense",
-              "label": "Postage and telephone",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -13760,6 +13760,12 @@
           {
             "tag": "InterestExpenseOperating",
             "label": "Total Interest Expense",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
             "line": 17,
             "indent": 0
           },
@@ -13930,12 +13936,6 @@
             "label": "DILUTED (LOSS) EARNINGS PER SHARE",
             "line": 47,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -13952,8 +13952,26 @@
             "indent": 0
           },
           {
+            "tag": "InterestIncomeSecuritiesTaxable",
+            "label": "Securities: Taxable",
+            "line": 9,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeDepositsWithFinancialInstitutions",
             "label": "Interest bearing deposits with other banks",
+            "line": 10,
+            "indent": 0
+          },
+          {
+            "tag": "OtherInterestAndDividendIncome",
+            "label": "Other",
+            "line": 10,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeSecuritiesTaxExempt",
+            "label": "Securities: Tax exempt",
             "line": 10,
             "indent": 0
           },
@@ -13988,6 +14006,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 16,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "NET INTEREST INCOME",
             "line": 17,
@@ -14014,6 +14038,12 @@
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
             "label": "NET INTEREST INCOME AFTER (RELEASE OF) PROVISION FOR CREDIT LOSSES",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "DebtAndEquitySecuritiesGainLoss",
+            "label": "Net realized gains on sales of securities",
             "line": 22,
             "indent": 0
           },
@@ -14066,6 +14096,12 @@
             "indent": 0
           },
           {
+            "tag": "EquipmentExpense",
+            "label": "Furniture and equipment",
+            "line": 32,
+            "indent": 0
+          },
+          {
             "tag": "InformationTechnologyAndDataProcessing",
             "label": "Data processing and related operations",
             "line": 33,
@@ -14078,8 +14114,26 @@
             "indent": 0
           },
           {
+            "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
+            "label": "Federal Deposit Insurance Corporation insurance",
+            "line": 34,
+            "indent": 0
+          },
+          {
+            "tag": "ForeclosedRealEstateExpense",
+            "label": "Foreclosed real estate",
+            "line": 34,
+            "indent": 0
+          },
+          {
             "tag": "ProfessionalFees",
             "label": "Professional fees",
+            "line": 35,
+            "indent": 0
+          },
+          {
+            "tag": "AdvertisingExpense",
+            "label": "Advertising",
             "line": 35,
             "indent": 0
           },
@@ -14092,6 +14146,12 @@
           {
             "tag": "ForeclosedRealEstateExpenseIncome",
             "label": "Foreclosed real estate",
+            "line": 37,
+            "indent": 0
+          },
+          {
+            "tag": "PostageAndTelephoneExpense",
+            "label": "Postage and telephone",
             "line": 37,
             "indent": 0
           },
@@ -14141,66 +14201,6 @@
             "tag": "EarningsPerShareDiluted",
             "label": "DILUTED EARNINGS PER SHARE",
             "line": 45,
-            "indent": 0
-          },
-          {
-            "tag": "OtherInterestAndDividendIncome",
-            "label": "Other",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DebtAndEquitySecuritiesGainLoss",
-            "label": "Net realized gains on sales of securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalDepositInsuranceCorporationPremiumExpenseIncome",
-            "label": "Federal Deposit Insurance Corporation insurance",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ForeclosedRealEstateExpense",
-            "label": "Foreclosed real estate",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestIncomeSecuritiesTaxable",
-            "label": "Securities: Taxable",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestIncomeSecuritiesTaxExempt",
-            "label": "Securities: Tax exempt",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "EquipmentExpense",
-            "label": "Furniture and equipment",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AdvertisingExpense",
-            "label": "Advertising",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "PostageAndTelephoneExpense",
-            "label": "Postage and telephone",
-            "line": 9999,
             "indent": 0
           }
         ]

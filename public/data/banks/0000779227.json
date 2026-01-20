@@ -295,6 +295,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses",
               "line": 16,
@@ -351,6 +363,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -653,30 +677,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -800,6 +800,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Allowance for credit losses",
               "line": 16,
@@ -856,6 +868,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 78000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1158,30 +1182,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 78000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1305,6 +1305,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Loans held for sale",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
               "label": "Less: allowance for credit losses",
               "line": 16,
@@ -1361,6 +1373,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "OtherRealEstate",
+              "label": "Other real estate owned",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 77000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1663,30 +1687,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "OtherRealEstate",
-              "label": "Other real estate owned",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 77000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "LoansReceivableHeldForSaleAmount",
-              "label": "Loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -1749,6 +1749,12 @@
             "indent": 0
           },
           {
+            "tag": "LoansReceivableHeldForSaleAmount",
+            "label": "Loans held for sale",
+            "line": 15,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
             "label": "Allowance for credit losses",
             "line": 16,
@@ -1775,6 +1781,12 @@
           {
             "tag": "FiniteLivedIntangibleAssetsNet",
             "label": "Core deposit intangible, net",
+            "line": 20,
+            "indent": 0
+          },
+          {
+            "tag": "OtherRealEstate",
+            "label": "Other real estate owned",
             "line": 20,
             "indent": 0
           },
@@ -1926,18 +1938,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total Liabilities and Stockholders' Equity",
             "line": 47,
-            "indent": 0
-          },
-          {
-            "tag": "OtherRealEstate",
-            "label": "Other real estate owned",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "LoansReceivableHeldForSaleAmount",
-            "label": "Loans held for sale",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -2170,6 +2170,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Mortgage banking revenue",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BrokerageCommissionsRevenue",
+              "label": "Commissions from investment product sales",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
               "label": "Noninterest income, revenues",
               "line": 28,
@@ -2262,6 +2286,18 @@
               "value": 410000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Loss on sale of foreclosed real estate",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2442,42 +2478,6 @@
               "value": 0.74,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Mortgage banking revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BrokerageCommissionsRevenue",
-              "label": "Commissions from investment product sales",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Loss on sale of foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2675,6 +2675,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Mortgage banking revenue",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 66000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BrokerageCommissionsRevenue",
+              "label": "Commissions from investment product sales",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 29000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
               "label": "Noninterest income, revenues",
               "line": 28,
@@ -2765,6 +2789,18 @@
               "indent": 0,
               "negating": false,
               "value": 415000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Loss on sale of foreclosed real estate",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2945,42 +2981,6 @@
               "indent": 0,
               "negating": false,
               "value": 0.71,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Mortgage banking revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 66000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BrokerageCommissionsRevenue",
-              "label": "Commissions from investment product sales",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 29000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Loss on sale of foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3180,6 +3180,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+              "label": "Mortgage banking revenue",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 77000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BrokerageCommissionsRevenue",
+              "label": "Commissions from investment product sales",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 30000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
               "label": "Noninterest income, revenues",
               "line": 28,
@@ -3270,6 +3294,18 @@
               "indent": 0,
               "negating": false,
               "value": 573000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfOtherRealEstate",
+              "label": "Loss on sale of foreclosed real estate",
+              "line": 36,
+              "indent": 0,
+              "negating": true,
+              "value": 6000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3454,42 +3490,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-              "label": "Mortgage banking revenue",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 77000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BrokerageCommissionsRevenue",
-              "label": "Commissions from investment product sales",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 30000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfOtherRealEstate",
-              "label": "Loss on sale of foreclosed real estate",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 6000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -3588,6 +3588,18 @@
             "indent": 0
           },
           {
+            "tag": "FeesAndCommissionsMortgageBankingAndServicing",
+            "label": "Mortgage banking revenue",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "BrokerageCommissionsRevenue",
+            "label": "Commissions from investment product sales",
+            "line": 27,
+            "indent": 0
+          },
+          {
             "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
             "label": "Noninterest income, revenues",
             "line": 28,
@@ -3633,6 +3645,12 @@
             "tag": "NoninterestIncome",
             "label": "Total Noninterest Income",
             "line": 35,
+            "indent": 0
+          },
+          {
+            "tag": "GainsLossesOnSalesOfOtherRealEstate",
+            "label": "Loss on sale of foreclosed real estate",
+            "line": 36,
             "indent": 0
           },
           {
@@ -3723,24 +3741,6 @@
             "tag": "EarningsPerShareBasic",
             "label": "Earnings Per Share - Basic and Diluted (in dollars per share)",
             "line": 51,
-            "indent": 0
-          },
-          {
-            "tag": "FeesAndCommissionsMortgageBankingAndServicing",
-            "label": "Mortgage banking revenue",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BrokerageCommissionsRevenue",
-            "label": "Commissions from investment product sales",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainsLossesOnSalesOfOtherRealEstate",
-            "label": "Loss on sale of foreclosed real estate",
-            "line": 9999,
             "indent": 0
           }
         ]

@@ -235,6 +235,16 @@
               "hasValue": true
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unearned fees and unamortized loan origination costs - net",
               "line": 9,
@@ -243,6 +253,16 @@
               "value": -1782000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "FinancingReceivableAllowanceForCreditLosses",
@@ -255,6 +275,16 @@
               "hasValue": true
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Net loans",
               "line": 11,
@@ -263,6 +293,16 @@
               "value": 904384000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "PropertyPlantAndEquipmentAndFinanceLeaseRightOfUseAssetAfterAccumulatedDepreciationAndAmortization",
@@ -503,46 +543,6 @@
               "value": 1211045000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -607,12 +607,32 @@
               "hasValue": true
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 40577000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unearned fees and unamortized loan origination costs - net",
               "line": 9,
               "indent": 0,
               "negating": true,
               "value": 1299000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 6945000,
               "uom": "USD",
               "hasValue": true
             },
@@ -627,6 +647,16 @@
               "hasValue": true
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Net loans",
               "line": 11,
@@ -635,6 +665,16 @@
               "value": 969996000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "PropertyPlantAndEquipmentAndFinanceLeaseRightOfUseAssetAfterAccumulatedDepreciationAndAmortization",
@@ -875,46 +915,6 @@
               "value": 1299193000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 40577000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6945000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -979,6 +979,16 @@
               "hasValue": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 31650000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
               "label": "Unearned fees and unamortized loan origination costs - net",
               "line": 9,
@@ -987,6 +997,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 6945000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "FinancingReceivableAllowanceForCreditLosses",
@@ -999,12 +1019,32 @@
               "hasValue": true
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 981772000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "NotesReceivableNet",
               "label": "Net loans",
               "line": 11,
               "indent": 0,
               "negating": false,
               "value": 969996000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 2219000,
               "uom": "USD",
               "hasValue": true
             },
@@ -1247,46 +1287,6 @@
               "value": 1299193000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 31650000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6945000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 981772000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2219000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1316,6 +1316,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale (AFS) securities net of allowance for credit losses of $0 (amortized cost of $157,049 and $179,753)",
               "line": 9,
@@ -1324,6 +1348,18 @@
               "value": 157382000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Cash and cash equivalents",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1340,6 +1376,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ShortTermInvestments",
               "label": "Total investment securities",
               "line": 11,
@@ -1348,6 +1396,18 @@
               "value": 160708000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1520,6 +1580,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Federal funds purchased and securities sold under agreements to resell",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestBearingDepositLiabilities",
               "label": "Non-interest-bearing",
               "line": 30,
@@ -1564,6 +1636,18 @@
               "value": 3161000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Short-term borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1674,90 +1758,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-              "label": "Federal funds purchased and securities sold under agreements to resell",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -1785,6 +1785,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale (AFS) securities net of allowance for credit losses of $0 (amortized cost of $165,252 and $179,753)",
               "line": 9,
@@ -1793,6 +1817,18 @@
               "value": 147041000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Cash and cash equivalents",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1809,6 +1845,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ShortTermInvestments",
               "label": "Total investment securities",
               "line": 11,
@@ -1817,6 +1865,18 @@
               "value": 150423000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1989,6 +2049,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Federal funds purchased and securities sold under agreements to resell",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestBearingDepositLiabilities",
               "label": "Non-interest-bearing",
               "line": 30,
@@ -2033,6 +2105,18 @@
               "value": 3161000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Short-term borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2143,90 +2227,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-              "label": "Federal funds purchased and securities sold under agreements to resell",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2254,6 +2254,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale (AFS) securities net of allowance for credit losses of $0 (amortized cost of $176,938 and $179,753)",
               "line": 9,
@@ -2262,6 +2286,18 @@
               "value": 157155000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Cash and cash equivalents",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2278,6 +2314,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ShortTermInvestments",
               "label": "Total investment securities",
               "line": 11,
@@ -2286,6 +2334,18 @@
               "value": 160708000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2458,6 +2518,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Federal funds purchased and securities sold under agreements to resell",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestBearingDepositLiabilities",
               "label": "Non-interest-bearing",
               "line": 30,
@@ -2500,6 +2572,18 @@
               "indent": 0,
               "negating": false,
               "value": 2999000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Short-term borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2612,90 +2696,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-              "label": "Federal funds purchased and securities sold under agreements to resell",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2723,12 +2723,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale (AFS) debt securities net of allowance for credit losses of $0 (amortized cost of $179,753 and $204,390, respectively)",
               "line": 9,
               "indent": 0,
               "negating": false,
               "value": 181266000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Cash and cash equivalents",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 40784000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -2747,6 +2783,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ShortTermInvestments",
               "label": "Total investment securities",
               "line": 11,
@@ -2755,6 +2803,18 @@
               "value": 160708000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2927,6 +2987,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Federal funds purchased and securities sold under agreements to resell",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestBearingDepositLiabilities",
               "label": "Noninterest-bearing",
               "line": 30,
@@ -2969,6 +3041,18 @@
               "indent": 0,
               "negating": false,
               "value": 3161000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Short-term borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 62000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3081,90 +3165,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 62000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 40784000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-              "label": "Federal funds purchased and securities sold under agreements to resell",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3192,6 +3192,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale (AFS) securities (at fair-value) net of allowance for credit losses of $0 (amortized cost of $182,624 and $204,389)",
               "line": 9,
@@ -3200,6 +3224,18 @@
               "value": 165211000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Cash and cash equivalents",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3216,6 +3252,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ShortTermInvestments",
               "label": "Total investment securities",
               "line": 11,
@@ -3224,6 +3272,18 @@
               "value": 184620000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3396,6 +3456,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Federal funds purchased and securities sold under agreements to resell",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestBearingDepositLiabilities",
               "label": "Non-interest-bearing",
               "line": 30,
@@ -3438,6 +3510,18 @@
               "indent": 0,
               "negating": false,
               "value": 3266000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Short-term borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 34000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3550,90 +3634,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 34000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-              "label": "Federal funds purchased and securities sold under agreements to resell",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3661,12 +3661,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 36002000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 2755000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale (AFS) securities (at fair-value) net of allowance for credit losses of $0 (amortized cost of $186,101 and $204,389)",
               "line": 9,
               "indent": 0,
               "negating": false,
               "value": 162916000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Cash and cash equivalents",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 38757000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3685,6 +3721,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ShortTermInvestments",
               "label": "Total investment securities",
               "line": 11,
@@ -3693,6 +3741,18 @@
               "value": 184620000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3865,6 +3925,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Federal funds purchased and securities sold under agreements to resell",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestBearingDepositLiabilities",
               "label": "Non-interest-bearing",
               "line": 30,
@@ -3907,6 +3979,18 @@
               "indent": 0,
               "negating": false,
               "value": 3417000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Short-term borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 62000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4019,90 +4103,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 62000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 36002000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2755000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 38757000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-              "label": "Federal funds purchased and securities sold under agreements to resell",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4130,12 +4130,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 41146000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 207000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Total AFS securities",
               "line": 9,
               "indent": 0,
               "negating": false,
               "value": 181265000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Cash and cash equivalents",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 43004000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4154,6 +4190,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ShortTermInvestments",
               "label": "Total investment securities",
               "line": 11,
@@ -4162,6 +4210,18 @@
               "value": 184620000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4334,6 +4394,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Federal funds purchased and securities sold under agreements to resell",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestBearingDepositLiabilities",
               "label": "Non-interest-bearing",
               "line": 30,
@@ -4376,6 +4448,18 @@
               "indent": 0,
               "negating": false,
               "value": 1272000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Short-term borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 103000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4488,90 +4572,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 103000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 41146000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 207000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 43004000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-              "label": "Federal funds purchased and securities sold under agreements to resell",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4599,12 +4599,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 40577000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 6945000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Debt securities, available-for-sale",
               "line": 9,
               "indent": 0,
               "negating": false,
               "value": 181265000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Cash and cash equivalents",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 40784000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4623,6 +4659,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ShortTermInvestments",
               "label": "Total investment securities",
               "line": 11,
@@ -4631,6 +4679,18 @@
               "value": 184620000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4803,6 +4863,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Federal funds purchased and securities sold under agreements to resell",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestBearingDepositLiabilities",
               "label": "Noninterest-bearing",
               "line": 30,
@@ -4845,6 +4917,18 @@
               "indent": 0,
               "negating": false,
               "value": 2093000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Short-term borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 62000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4957,90 +5041,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 62000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 40577000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6945000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 40784000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-              "label": "Federal funds purchased and securities sold under agreements to resell",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5068,12 +5068,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 34329000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 6945000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale (AFS) securities, at fair value, net of allowance for credit losses of $0 (amortized cost of $214,645 and $234,610)",
               "line": 9,
               "indent": 0,
               "negating": false,
               "value": 207545000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Cash and cash equivalents",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 38595000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5092,6 +5128,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ShortTermInvestments",
               "label": "Total investment securities",
               "line": 11,
@@ -5100,6 +5148,18 @@
               "value": 210860000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5272,6 +5332,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Federal funds purchased and securities sold under agreements to resell",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestBearingDepositLiabilities",
               "label": "Non-interest-bearing",
               "line": 30,
@@ -5314,6 +5386,18 @@
               "indent": 0,
               "negating": false,
               "value": 1599000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Short-term borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 142000000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5426,90 +5510,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 142000000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 34329000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6945000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 38595000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-              "label": "Federal funds purchased and securities sold under agreements to resell",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5537,12 +5537,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 31650000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 6945000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale (AFS) securities",
               "line": 9,
               "indent": 0,
               "negating": false,
               "value": 207545000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Cash and cash equivalents",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 58403000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5561,6 +5597,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ShortTermInvestments",
               "label": "Total investment securities",
               "line": 11,
@@ -5569,6 +5617,18 @@
               "value": 210860000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5741,6 +5801,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Federal funds purchased and securities sold under agreements to resell",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestBearingDepositLiabilities",
               "label": "Non-interest-bearing",
               "line": 30,
@@ -5783,6 +5855,18 @@
               "indent": 0,
               "negating": false,
               "value": 1759000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Short-term borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5895,90 +5979,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 31650000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6945000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 58403000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-              "label": "Federal funds purchased and securities sold under agreements to resell",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6006,12 +6006,48 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and noninterest-bearing deposits in other banks",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 31650000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DueFromFrbInterestBearingCash",
+              "label": "Due from Federal Reserve Bank (FRB)",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 6945000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
               "label": "Available-for-sale (AFS) securities",
               "line": 9,
               "indent": 0,
               "negating": false,
               "value": 205556000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "CashCashEquivalentsAndFederalFundsSold",
+              "label": "Cash and cash equivalents",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 45153000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6030,6 +6066,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "NotesReceivableGross",
+              "label": "Loans",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ShortTermInvestments",
               "label": "Total investment securities",
               "line": 11,
@@ -6038,6 +6086,18 @@
               "value": 210860000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+              "label": "Unearned fees and unamortized loan origination costs - net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6210,6 +6270,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Federal funds purchased and securities sold under agreements to resell",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "NoninterestBearingDepositLiabilities",
               "label": "Non-interest-bearing",
               "line": 30,
@@ -6254,6 +6326,18 @@
               "value": 2093000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalFundsPurchased",
+              "label": "Short-term borrowings",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6364,90 +6448,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchased",
-              "label": "Short-term borrowings",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashAndDueFromBanks",
-              "label": "Cash and noninterest-bearing deposits in other banks",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 31650000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DueFromFrbInterestBearingCash",
-              "label": "Due from Federal Reserve Bank (FRB)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6945000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CashCashEquivalentsAndFederalFundsSold",
-              "label": "Cash and cash equivalents",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 45153000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-              "label": "Federal funds purchased and securities sold under agreements to resell",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NotesReceivableGross",
-              "label": "Loans",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-              "label": "Unearned fees and unamortized loan origination costs - net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -6485,8 +6485,20 @@
             "indent": 0
           },
           {
+            "tag": "CashAndDueFromBanks",
+            "label": "Cash and noninterest-bearing deposits in other banks",
+            "line": 8,
+            "indent": 0
+          },
+          {
             "tag": "FinancingReceivableUnamortizedLoanCommitmentOriginationFeeAndPremiumDiscount",
             "label": "Unearned fees and unamortized loan origination costs - net",
+            "line": 9,
+            "indent": 0
+          },
+          {
+            "tag": "DueFromFrbInterestBearingCash",
+            "label": "Due from Federal Reserve Bank (FRB)",
             "line": 9,
             "indent": 0
           },
@@ -6497,8 +6509,20 @@
             "indent": 0
           },
           {
+            "tag": "NotesReceivableGross",
+            "label": "Loans",
+            "line": 10,
+            "indent": 0
+          },
+          {
             "tag": "NotesReceivableNet",
             "label": "Net loans",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+            "label": "Unearned fees and unamortized loan origination costs - net",
             "line": 11,
             "indent": 0
           },
@@ -6645,30 +6669,6 @@
             "label": "Total liabilities and shareholders equity",
             "line": 39,
             "indent": 0
-          },
-          {
-            "tag": "CashAndDueFromBanks",
-            "label": "Cash and noninterest-bearing deposits in other banks",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DueFromFrbInterestBearingCash",
-            "label": "Due from Federal Reserve Bank (FRB)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableGross",
-            "label": "Loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-            "label": "Unearned fees and unamortized loan origination costs - net",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -6679,8 +6679,26 @@
             "indent": 0
           },
           {
+            "tag": "CashAndDueFromBanks",
+            "label": "Cash and noninterest-bearing deposits in other banks",
+            "line": 7,
+            "indent": 0
+          },
+          {
+            "tag": "DueFromFrbInterestBearingCash",
+            "label": "Due from Federal Reserve Bank (FRB)",
+            "line": 8,
+            "indent": 0
+          },
+          {
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
             "label": "Available-for-sale (AFS) securities net of allowance for credit losses of $0 (amortized cost of $157,049 and $179,753)",
+            "line": 9,
+            "indent": 0
+          },
+          {
+            "tag": "CashCashEquivalentsAndFederalFundsSold",
+            "label": "Cash and cash equivalents",
             "line": 9,
             "indent": 0
           },
@@ -6691,8 +6709,20 @@
             "indent": 0
           },
           {
+            "tag": "NotesReceivableGross",
+            "label": "Loans",
+            "line": 10,
+            "indent": 0
+          },
+          {
             "tag": "ShortTermInvestments",
             "label": "Total investment securities",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
+            "label": "Unearned fees and unamortized loan origination costs - net",
             "line": 11,
             "indent": 0
           },
@@ -6781,6 +6811,12 @@
             "indent": 0
           },
           {
+            "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+            "label": "Federal funds purchased and securities sold under agreements to resell",
+            "line": 29,
+            "indent": 0
+          },
+          {
             "tag": "NoninterestBearingDepositLiabilities",
             "label": "Non-interest-bearing",
             "line": 30,
@@ -6801,6 +6837,12 @@
           {
             "tag": "OperatingLeaseLiability",
             "label": "Operating lease liabilities",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "FederalFundsPurchased",
+            "label": "Short-term borrowings",
             "line": 33,
             "indent": 0
           },
@@ -6856,48 +6898,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and shareholders equity",
             "line": 43,
-            "indent": 0
-          },
-          {
-            "tag": "FederalFundsPurchased",
-            "label": "Short-term borrowings",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CashAndDueFromBanks",
-            "label": "Cash and noninterest-bearing deposits in other banks",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DueFromFrbInterestBearingCash",
-            "label": "Due from Federal Reserve Bank (FRB)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CashCashEquivalentsAndFederalFundsSold",
-            "label": "Cash and cash equivalents",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
-            "label": "Federal funds purchased and securities sold under agreements to resell",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableGross",
-            "label": "Loans",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
-            "label": "Unearned fees and unamortized loan origination costs - net",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -7115,6 +7115,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -7175,6 +7185,16 @@
               "hasValue": true
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": -28000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "(Loss) gain on fair value of junior subordinated debentures",
               "line": 17,
@@ -7203,6 +7223,16 @@
               "value": 1274000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncome",
@@ -7305,6 +7335,16 @@
               "hasValue": true
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 30,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Provision for income taxes",
               "line": 31,
@@ -7313,6 +7353,16 @@
               "value": 5537000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 31,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NetIncomeLoss",
@@ -7363,56 +7413,6 @@
               "value": 17125186,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -28000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7497,6 +7497,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 11056000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -7557,6 +7567,16 @@
               "hasValue": true
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 39000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "Gain (loss) on fair value of junior subordinated debentures",
               "line": 17,
@@ -7583,6 +7603,16 @@
               "indent": 0,
               "negating": false,
               "value": 874000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true
             },
@@ -7687,12 +7717,32 @@
               "hasValue": true
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 30,
+              "indent": 0,
+              "negating": false,
+              "value": 80000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Provision for income taxes",
               "line": 31,
               "indent": 0,
               "negating": false,
               "value": 6373000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 31,
+              "indent": 0,
+              "negating": true,
+              "value": 102000,
               "uom": "USD",
               "hasValue": true
             },
@@ -7743,56 +7793,6 @@
               "indent": 0,
               "negating": false,
               "value": 17125186,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11056000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 39000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 80000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 102000,
               "uom": "USD",
               "hasValue": true
             }
@@ -7879,6 +7879,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 3195000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -7939,6 +7949,16 @@
               "hasValue": true
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized (loss) gain on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": -106000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "(Loss) gain on fair value of junior subordinated debentures",
               "line": 17,
@@ -7965,6 +7985,16 @@
               "indent": 0,
               "negating": false,
               "value": 1198000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Loss on dissolution of real estate investment trust",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true
             },
@@ -8069,12 +8099,32 @@
               "hasValue": true
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 30,
+              "indent": 0,
+              "negating": false,
+              "value": 93000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "IncomeTaxExpenseBenefit",
               "label": "Provision for income taxes",
               "line": 31,
               "indent": 0,
               "negating": false,
               "value": 6373000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation and sale of OREO",
+              "line": 31,
+              "indent": 0,
+              "negating": true,
+              "value": 102000,
               "uom": "USD",
               "hasValue": true
             },
@@ -8125,56 +8175,6 @@
               "indent": 0,
               "negating": false,
               "value": 17061833,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3195000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized (loss) gain on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -106000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Loss on dissolution of real estate investment trust",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 93000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation and sale of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 102000,
               "uom": "USD",
               "hasValue": true
             }
@@ -8278,6 +8278,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -8350,6 +8362,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": -42000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "Gain on fair value and partial redemption of junior subordinated debentures (TruPS)",
               "line": 17,
@@ -8370,6 +8394,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8446,6 +8482,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InformationTechnologyAndDataProcessing",
+              "label": "Data processing",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 26,
@@ -8494,6 +8542,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 30,
@@ -8502,6 +8562,18 @@
               "value": 768000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 30,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8598,78 +8670,6 @@
               "value": 17206391,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -42000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InformationTechnologyAndDataProcessing",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -8771,6 +8771,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -8843,6 +8855,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 4000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "Loss on fair value of junior subordinated debentures",
               "line": 17,
@@ -8863,6 +8887,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8939,6 +8975,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InformationTechnologyAndDataProcessing",
+              "label": "Data processing",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 26,
@@ -8987,6 +9035,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 30,
@@ -8995,6 +9055,18 @@
               "value": 727000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 30,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9091,78 +9163,6 @@
               "value": 17187266,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InformationTechnologyAndDataProcessing",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9264,6 +9264,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -9336,6 +9348,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 53000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "Gain (loss) on fair value of junior subordinated debentures",
               "line": 17,
@@ -9356,6 +9380,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9432,6 +9468,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InformationTechnologyAndDataProcessing",
+              "label": "Data processing",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 26,
@@ -9480,6 +9528,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 30,
@@ -9488,6 +9548,18 @@
               "value": 716000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 30,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9584,78 +9656,6 @@
               "value": 17171642,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 53000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InformationTechnologyAndDataProcessing",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -9757,6 +9757,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -9829,6 +9841,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 17000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "(Loss) gain on fair value of junior subordinated debentures",
               "line": 17,
@@ -9851,6 +9875,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -9925,6 +9961,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InformationTechnologyAndDataProcessing",
+              "label": "Data processing",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 264000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 26,
@@ -9973,6 +10021,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 30,
@@ -9983,6 +10043,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 30,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestExpense",
@@ -10079,78 +10151,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 17000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InformationTechnologyAndDataProcessing",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 264000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -10250,6 +10250,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -10322,6 +10334,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": -92000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "Gain (loss) on fair value of junior subordinated debentures",
               "line": 17,
@@ -10342,6 +10366,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10418,6 +10454,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InformationTechnologyAndDataProcessing",
+              "label": "Data processing",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 204000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 26,
@@ -10466,12 +10514,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 20000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 30,
               "indent": 0,
               "negating": false,
               "value": 718000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 30,
+              "indent": 0,
+              "negating": true,
+              "value": 37000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -10570,78 +10642,6 @@
               "value": 17206391,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -92000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InformationTechnologyAndDataProcessing",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 204000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 20000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 37000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10743,6 +10743,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 2582000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -10815,6 +10827,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 4000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "(Loss) gain on fair value of junior subordinated debentures",
               "line": 17,
@@ -10835,6 +10859,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10911,6 +10947,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InformationTechnologyAndDataProcessing",
+              "label": "Data processing",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 205000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 26,
@@ -10959,12 +11007,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 11000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 30,
               "indent": 0,
               "negating": false,
               "value": 557000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 30,
+              "indent": 0,
+              "negating": true,
+              "value": 58000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11063,78 +11135,6 @@
               "value": 17114740,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 4000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InformationTechnologyAndDataProcessing",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 205000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 58000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2582000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11236,6 +11236,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 1614000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -11308,6 +11320,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized gain on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 43000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "(Loss) gain on fair value of junior subordinated debentures",
               "line": 17,
@@ -11328,6 +11352,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11404,6 +11440,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InformationTechnologyAndDataProcessing",
+              "label": "Data processing",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 111000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 26,
@@ -11452,12 +11500,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 19000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 30,
               "indent": 0,
               "negating": false,
               "value": 745000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net (gain) cost of operation of OREO",
+              "line": 30,
+              "indent": 0,
+              "negating": true,
+              "value": 37000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11556,78 +11628,6 @@
               "value": 17171642,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized gain on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 43000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InformationTechnologyAndDataProcessing",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 111000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 19000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net (gain) cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 37000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1614000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11729,6 +11729,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 9130000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -11801,6 +11813,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 440000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "Gain (loss) on fair value of junior subordinated debentures",
               "line": 17,
@@ -11823,6 +11847,18 @@
               "hasValue": false,
               "isDerived": true,
               "derivedUnavailable": true
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -11897,6 +11933,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InformationTechnologyAndDataProcessing",
+              "label": "Data processing",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 103000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 26,
@@ -11945,12 +11993,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 11000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 30,
               "indent": 0,
               "negating": false,
               "value": 752000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 30,
+              "indent": 0,
+              "negating": true,
+              "value": 19000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -12047,78 +12119,6 @@
               "indent": 0,
               "negating": false,
               "value": -34105320,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 440000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InformationTechnologyAndDataProcessing",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 103000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 11000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 19000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 9130000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -12222,6 +12222,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 789000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -12294,6 +12306,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized loss on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": -92000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "Loss on fair value of junior subordinated debentures",
               "line": 17,
@@ -12314,6 +12338,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12390,6 +12426,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InformationTechnologyAndDataProcessing",
+              "label": "Data processing",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 204000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 26,
@@ -12438,12 +12486,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 20000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 30,
               "indent": 0,
               "negating": false,
               "value": 641000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 30,
+              "indent": 0,
+              "negating": true,
+              "value": 33000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12540,78 +12612,6 @@
               "indent": 0,
               "negating": false,
               "value": 17063947,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized loss on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -92000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InformationTechnologyAndDataProcessing",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 204000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 20000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 33000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 789000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12715,6 +12715,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 584000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -12787,6 +12799,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized loss on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": -127000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "Gain (loss) on fair value of junior subordinated debentures",
               "line": 17,
@@ -12807,6 +12831,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12883,6 +12919,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InformationTechnologyAndDataProcessing",
+              "label": "Data processing",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 205000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 26,
@@ -12931,12 +12979,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 24000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 30,
               "indent": 0,
               "negating": false,
               "value": 557000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 30,
+              "indent": 0,
+              "negating": true,
+              "value": 58000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13033,78 +13105,6 @@
               "indent": 0,
               "negating": false,
               "value": 17114740,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized loss on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -127000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InformationTechnologyAndDataProcessing",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 205000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 24000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": 58000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 584000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13208,6 +13208,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 553000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 10,
@@ -13280,6 +13292,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": -182000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossonFairValueOptionofFinancialLiability",
               "label": "Gain (Loss) on fair value of junior subordinated debentures",
               "line": 17,
@@ -13300,6 +13324,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfOtherInvestments",
+              "label": "Gain on sale of investment securities",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13376,6 +13412,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InformationTechnologyAndDataProcessing",
+              "label": "Data processing",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 174000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "ProfessionalFees",
               "label": "Professional fees",
               "line": 26,
@@ -13424,12 +13472,36 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "CorrespondentBankServiceCharges",
+              "label": "Correspondent bank service charges",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 25000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 30,
               "indent": 0,
               "negating": false,
               "value": 604000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+              "label": "Net cost of operation of OREO",
+              "line": 30,
+              "indent": 0,
+              "negating": true,
+              "value": -8000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13530,78 +13602,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-              "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -182000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InformationTechnologyAndDataProcessing",
-              "label": "Data processing",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 174000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "CorrespondentBankServiceCharges",
-              "label": "Correspondent bank service charges",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 25000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-              "label": "Net cost of operation of OREO",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -8000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 553000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfOtherInvestments",
-              "label": "Gain on sale of investment securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -13651,6 +13651,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 9,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net Interest Income",
             "line": 10,
@@ -13687,6 +13693,12 @@
             "indent": 0
           },
           {
+            "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+            "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+            "line": 16,
+            "indent": 0
+          },
+          {
             "tag": "GainLossonFairValueOptionofFinancialLiability",
             "label": "(Loss) gain on fair value of junior subordinated debentures",
             "line": 17,
@@ -13701,6 +13713,12 @@
           {
             "tag": "NoninterestIncomeOtherOperatingIncome",
             "label": "Other",
+            "line": 19,
+            "indent": 0
+          },
+          {
+            "tag": "GainLossOnSaleOfOtherInvestments",
+            "label": "Gain on sale of investment securities",
             "line": 19,
             "indent": 0
           },
@@ -13765,8 +13783,20 @@
             "indent": 0
           },
           {
+            "tag": "CorrespondentBankServiceCharges",
+            "label": "Correspondent bank service charges",
+            "line": 30,
+            "indent": 0
+          },
+          {
             "tag": "IncomeTaxExpenseBenefit",
             "label": "Provision for income taxes",
+            "line": 31,
+            "indent": 0
+          },
+          {
+            "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+            "label": "Net cost of operation of OREO",
             "line": 31,
             "indent": 0
           },
@@ -13798,36 +13828,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Diluted (in shares)",
             "line": 38,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-            "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnSaleOfOtherInvestments",
-            "label": "Gain on sale of investment securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CorrespondentBankServiceCharges",
-            "label": "Correspondent bank service charges",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-            "label": "Net cost of operation of OREO",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -13875,6 +13875,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 9,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net Interest Income",
             "line": 10,
@@ -13911,6 +13917,12 @@
             "indent": 0
           },
           {
+            "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
+            "label": "Unrealized gain (loss) on fair value of marketable equity securities",
+            "line": 16,
+            "indent": 0
+          },
+          {
             "tag": "GainLossonFairValueOptionofFinancialLiability",
             "label": "Gain on fair value and partial redemption of junior subordinated debentures (TruPS)",
             "line": 17,
@@ -13919,6 +13931,12 @@
           {
             "tag": "GainLossOnDispositionOfAssets1",
             "label": "(Loss) gain on sale of assets",
+            "line": 18,
+            "indent": 0
+          },
+          {
+            "tag": "GainLossOnSaleOfOtherInvestments",
+            "label": "Gain on sale of investment securities",
             "line": 18,
             "indent": 0
           },
@@ -13959,6 +13977,12 @@
             "indent": 0
           },
           {
+            "tag": "InformationTechnologyAndDataProcessing",
+            "label": "Data processing",
+            "line": 25,
+            "indent": 0
+          },
+          {
             "tag": "ProfessionalFees",
             "label": "Professional fees",
             "line": 26,
@@ -13983,8 +14007,20 @@
             "indent": 0
           },
           {
+            "tag": "CorrespondentBankServiceCharges",
+            "label": "Correspondent bank service charges",
+            "line": 29,
+            "indent": 0
+          },
+          {
             "tag": "OtherNoninterestExpense",
             "label": "Other",
+            "line": 30,
+            "indent": 0
+          },
+          {
+            "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
+            "label": "Net cost of operation of OREO",
             "line": 30,
             "indent": 0
           },
@@ -14034,42 +14070,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Diluted (in shares)",
             "line": 40,
-            "indent": 0
-          },
-          {
-            "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
-            "label": "Unrealized gain (loss) on fair value of marketable equity securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InformationTechnologyAndDataProcessing",
-            "label": "Data processing",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "CorrespondentBankServiceCharges",
-            "label": "Correspondent bank service charges",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
-            "label": "Net cost of operation of OREO",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnSaleOfOtherInvestments",
-            "label": "Gain on sale of investment securities",
-            "line": 9999,
             "indent": 0
           }
         ]

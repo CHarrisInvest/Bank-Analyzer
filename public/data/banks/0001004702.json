@@ -260,6 +260,16 @@
               "hasValue": true
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -528,16 +538,6 @@
               "value": 13421247000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -620,6 +620,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 5166000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestReceivable",
@@ -890,16 +900,6 @@
               "value": 13538253000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5166000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         },
@@ -982,6 +982,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestReceivable",
@@ -1252,16 +1262,6 @@
               "value": 11739616000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1363,6 +1363,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -1407,6 +1419,18 @@
               "value": 270208000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+              "label": "Assets held for sale",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1677,36 +1701,12 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 57370,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-              "label": "Assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -1808,6 +1808,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -1852,6 +1864,18 @@
               "value": 271184000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+              "label": "Assets held for sale",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2122,36 +2146,12 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 57370,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-              "label": "Assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2253,6 +2253,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -2297,6 +2309,18 @@
               "value": 270208000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+              "label": "Assets held for sale",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2567,36 +2591,12 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 57370,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-              "label": "Assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -2698,6 +2698,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -2740,6 +2752,18 @@
               "indent": 0,
               "negating": false,
               "value": 270208000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+              "label": "Assets held for sale",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 28000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3012,36 +3036,12 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 57370,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-              "label": "Assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 28000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3143,6 +3143,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -3185,6 +3197,18 @@
               "indent": 0,
               "negating": false,
               "value": 266498000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+              "label": "Assets held for sale",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3457,36 +3481,12 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 57370,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-              "label": "Assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -3588,6 +3588,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -3630,6 +3642,18 @@
               "indent": 0,
               "negating": false,
               "value": 266498000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+              "label": "Assets held for sale",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 28000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3902,36 +3926,12 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 57370,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-              "label": "Assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 28000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4033,6 +4033,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -4075,6 +4087,18 @@
               "indent": 0,
               "negating": false,
               "value": 266615000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+              "label": "Assets held for sale",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 28000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4347,36 +4371,12 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 57370,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-              "label": "Assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 28000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -4478,6 +4478,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 5166000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -4520,6 +4532,18 @@
               "indent": 0,
               "negating": false,
               "value": 266498000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+              "label": "Assets held for sale",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 28000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4792,34 +4816,10 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 57370,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-              "label": "Assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 28000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5166000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4923,6 +4923,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -4965,6 +4977,18 @@
               "indent": 0,
               "negating": false,
               "value": 261603000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+              "label": "Assets held for sale",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 2719000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5237,36 +5261,12 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 57370,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-              "label": "Assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2719000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -5368,6 +5368,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -5410,6 +5422,18 @@
               "indent": 0,
               "negating": false,
               "value": 261603000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+              "label": "Assets held for sale",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 3608000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5682,36 +5706,12 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 57370,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-              "label": "Assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 3608000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -5813,6 +5813,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "MortgagesHeldforsaleCarryingValue",
+              "label": "Loans held-for-sale",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 690000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestReceivable",
               "label": "Interest and dividends receivable",
               "line": 9,
@@ -5855,6 +5867,18 @@
               "indent": 0,
               "negating": false,
               "value": 262654000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+              "label": "Assets held for sale",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 2719000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6127,34 +6151,10 @@
             {
               "tag": "PreferredStockSharesIssued",
               "label": "Preferred stock, shares issued (in shares)",
-              "line": 9999,
+              "line": 37,
               "indent": 0,
               "negating": false,
               "value": 57370,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-              "label": "Assets held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2719000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MortgagesHeldforsaleCarryingValue",
-              "label": "Loans held-for-sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 690000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6203,6 +6203,12 @@
           },
           {
             "tag": "MortgagesHeldForSaleCarryingValue",
+            "label": "Loans held-for-sale",
+            "line": 8,
+            "indent": 0
+          },
+          {
+            "tag": "MortgagesHeldforsaleCarryingValue",
             "label": "Loans held-for-sale",
             "line": 8,
             "indent": 0
@@ -6368,12 +6374,6 @@
             "label": "Total liabilities and stockholders equity",
             "line": 37,
             "indent": 0
-          },
-          {
-            "tag": "MortgagesHeldforsaleCarryingValue",
-            "label": "Loans held-for-sale",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -6420,6 +6420,12 @@
             "indent": 0
           },
           {
+            "tag": "MortgagesHeldforsaleCarryingValue",
+            "label": "Loans held-for-sale",
+            "line": 8,
+            "indent": 0
+          },
+          {
             "tag": "InterestReceivable",
             "label": "Interest and dividends receivable",
             "line": 9,
@@ -6440,6 +6446,12 @@
           {
             "tag": "BankOwnedLifeInsurance",
             "label": "Bank owned life insurance",
+            "line": 12,
+            "indent": 0
+          },
+          {
+            "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
+            "label": "Assets held for sale",
             "line": 12,
             "indent": 0
           },
@@ -6578,19 +6590,7 @@
           {
             "tag": "PreferredStockSharesIssued",
             "label": "Preferred stock, shares issued (in shares)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
-            "label": "Assets held for sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "MortgagesHeldforsaleCarryingValue",
-            "label": "Loans held-for-sale",
-            "line": 9999,
+            "line": 37,
             "indent": 0
           }
         ]
@@ -6808,6 +6808,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -6826,6 +6836,16 @@
               "value": 17678000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -7018,6 +7038,26 @@
               "hasValue": true
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "BranchConsolidationExpense",
               "label": "Branch consolidation expense, net",
               "line": 39,
@@ -7176,46 +7216,6 @@
               "value": 58957000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7300,6 +7300,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 36754000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -7318,6 +7328,16 @@
               "value": 17678000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -7510,6 +7530,26 @@
               "hasValue": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": 5453000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "BranchConsolidationExpense",
               "label": "Branch consolidation expense, net",
               "line": 39,
@@ -7668,46 +7708,6 @@
               "value": 58878000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 36754000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5453000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -7792,6 +7792,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 53698000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -7810,6 +7820,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": -11832000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -8002,6 +8022,26 @@
               "hasValue": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": 6186000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": 14257000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "BranchConsolidationExpense",
               "label": "Branch consolidation expense, net",
               "line": 39,
@@ -8160,46 +8200,6 @@
               "value": 60072000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 53698000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6186000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -11832000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 14257000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -8301,6 +8301,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -8321,6 +8333,18 @@
               "value": 517000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8375,6 +8399,18 @@
             {
               "tag": "DebtSecuritiesAvailableForSaleGainLoss",
               "label": "Net (loss) gain on equity investments",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 1420000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "MarketableSecuritiesUnrealizedGainLoss",
+              "label": "Net gain (loss) on equity investments",
               "line": 23,
               "indent": 0,
               "negating": false,
@@ -8541,6 +8577,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of intangibles",
               "line": 38,
@@ -8553,6 +8601,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BranchConsolidationExpense",
+              "label": "Branch consolidation expense, net",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BusinessCombinationAcquisitionRelatedCosts",
               "label": "Merger related expenses",
               "line": 39,
@@ -8561,6 +8633,18 @@
               "value": 1669000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpenseBenefit",
+              "label": "Branch consolidation (benefit) expense, net",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -8755,90 +8839,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpense",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MarketableSecuritiesUnrealizedGainLoss",
-              "label": "Net gain (loss) on equity investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1420000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpenseBenefit",
-              "label": "Branch consolidation (benefit) expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -8938,6 +8938,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -8958,6 +8970,18 @@
               "value": 3039000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9016,6 +9040,18 @@
               "indent": 0,
               "negating": false,
               "value": 887000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "MarketableSecuritiesUnrealizedGainLoss",
+              "label": "Net gain (loss) on equity investments",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 488000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -9178,6 +9214,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of intangibles",
               "line": 38,
@@ -9190,8 +9238,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BranchConsolidationExpense",
+              "label": "Branch consolidation expense, net",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BusinessCombinationAcquisitionRelatedCosts",
               "label": "Merger related expenses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpenseBenefit",
+              "label": "Branch consolidation (benefit) expense, net",
               "line": 39,
               "indent": 0,
               "negating": false,
@@ -9392,90 +9476,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpense",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MarketableSecuritiesUnrealizedGainLoss",
-              "label": "Net gain (loss) on equity investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 488000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpenseBenefit",
-              "label": "Branch consolidation (benefit) expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -9575,6 +9575,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -9595,6 +9607,18 @@
               "value": 5340000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9649,6 +9673,18 @@
             {
               "tag": "DebtSecuritiesAvailableForSaleGainLoss",
               "label": "Net gain on equity investments",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 1923000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "MarketableSecuritiesUnrealizedGainLoss",
+              "label": "Net gain (loss) on equity investments",
               "line": 23,
               "indent": 0,
               "negating": false,
@@ -9815,6 +9851,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of intangibles",
               "line": 38,
@@ -9827,8 +9875,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BranchConsolidationExpense",
+              "label": "Branch consolidation expense, net",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "BusinessCombinationAcquisitionRelatedCosts",
               "label": "Merger related expenses",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpenseBenefit",
+              "label": "Branch consolidation (benefit) expense, net",
               "line": 39,
               "indent": 0,
               "negating": false,
@@ -10029,90 +10113,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpense",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MarketableSecuritiesUnrealizedGainLoss",
-              "label": "Net gain (loss) on equity investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1923000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpenseBenefit",
-              "label": "Branch consolidation (benefit) expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -10212,6 +10212,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -10234,6 +10246,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -10290,6 +10314,18 @@
               "indent": 0,
               "negating": false,
               "value": 10165000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "MarketableSecuritiesUnrealizedGainLoss",
+              "label": "Net gain (loss) on equity investments",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 730000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
@@ -10452,8 +10488,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of intangibles",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "BranchConsolidationExpense",
+              "label": "Branch consolidation expense, net",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": 70000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
               "line": 38,
               "indent": 0,
               "negating": false,
@@ -10474,6 +10546,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpenseBenefit",
+              "label": "Branch consolidation (benefit) expense, net",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "RestructuringCharges",
@@ -10666,90 +10750,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "BranchConsolidationExpense",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 70000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "MarketableSecuritiesUnrealizedGainLoss",
-              "label": "Net gain (loss) on equity investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 730000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpenseBenefit",
-              "label": "Branch consolidation (benefit) expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -10849,6 +10849,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -10869,6 +10881,18 @@
               "value": 517000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10927,6 +10951,18 @@
               "indent": 0,
               "negating": false,
               "value": 1420000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "MarketableSecuritiesUnrealizedGainLoss",
+              "label": "Net gain (loss) on equity investments",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 1452000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11089,8 +11125,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 803000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of intangibles",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpense",
+              "label": "Branch consolidation expense, net",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
               "line": 38,
               "indent": 0,
               "negating": false,
@@ -11109,6 +11181,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpenseBenefit",
+              "label": "Branch consolidation (benefit) expense, net",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11303,90 +11387,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 803000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpense",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MarketableSecuritiesUnrealizedGainLoss",
-              "label": "Net gain (loss) on equity investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1452000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpenseBenefit",
-              "label": "Branch consolidation (benefit) expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -11486,6 +11486,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -11506,6 +11518,18 @@
               "value": 1229000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11564,6 +11588,18 @@
               "indent": 0,
               "negating": false,
               "value": -559000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "MarketableSecuritiesUnrealizedGainLoss",
+              "label": "Net gain (loss) on equity investments",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 887000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11726,8 +11762,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 994000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of intangibles",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpense",
+              "label": "Branch consolidation expense, net",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
               "line": 38,
               "indent": 0,
               "negating": false,
@@ -11746,6 +11818,18 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpenseBenefit",
+              "label": "Branch consolidation (benefit) expense, net",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11940,90 +12024,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 994000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpense",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MarketableSecuritiesUnrealizedGainLoss",
-              "label": "Net gain (loss) on equity investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 887000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpenseBenefit",
-              "label": "Branch consolidation (benefit) expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12123,6 +12123,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 40232000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -12143,6 +12155,18 @@
               "value": 3013000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12196,6 +12220,18 @@
             },
             {
               "tag": "DebtSecuritiesAvailableForSaleGainLoss",
+              "label": "Net gain (loss) on equity investments",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": -6801000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "MarketableSecuritiesUnrealizedGainLoss",
               "label": "Net gain (loss) on equity investments",
               "line": 23,
               "indent": 0,
@@ -12363,8 +12399,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 1027000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of intangibles",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpense",
+              "label": "Branch consolidation expense, net",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
               "line": 38,
               "indent": 0,
               "negating": false,
@@ -12383,6 +12455,18 @@
               "value": 22000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpenseBenefit",
+              "label": "Branch consolidation (benefit) expense, net",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12577,90 +12661,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1027000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpense",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 0,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 40232000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MarketableSecuritiesUnrealizedGainLoss",
-              "label": "Net gain (loss) on equity investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -6801000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpenseBenefit",
-              "label": "Branch consolidation (benefit) expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -12760,6 +12760,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": -26631000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -12782,6 +12794,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -12842,6 +12866,18 @@
               "hasValue": false,
               "isDerived": true,
               "derivedUnavailable": true
+            },
+            {
+              "tag": "MarketableSecuritiesUnrealizedGainLoss",
+              "label": "Net gain (loss) on equity investments",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 13053000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
             },
             {
               "tag": "ProfitLossFromRealEstateOperations",
@@ -13000,8 +13036,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 2445000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of intangibles",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "BranchConsolidationExpense",
+              "label": "Branch consolidation expense, net",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
               "line": 38,
               "indent": 0,
               "negating": false,
@@ -13022,6 +13094,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpenseBenefit",
+              "label": "Branch consolidation (benefit) expense, net",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "RestructuringCharges",
@@ -13214,90 +13298,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 2445000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpense",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -26631000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MarketableSecuritiesUnrealizedGainLoss",
-              "label": "Net gain (loss) on equity investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 13053000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpenseBenefit",
-              "label": "Branch consolidation (benefit) expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -13397,6 +13397,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 14534000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -13417,6 +13429,18 @@
               "value": 10283000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13477,6 +13501,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "MarketableSecuritiesUnrealizedGainLoss",
+              "label": "Net gain (loss) on equity investments",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 1452000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13637,8 +13673,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 987000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of intangibles",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpense",
+              "label": "Branch consolidation expense, net",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
               "line": 38,
               "indent": 0,
               "negating": false,
@@ -13655,6 +13727,18 @@
               "indent": 0,
               "negating": false,
               "value": 0,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpenseBenefit",
+              "label": "Branch consolidation (benefit) expense, net",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": -346000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13851,90 +13935,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 987000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpense",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 14534000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MarketableSecuritiesUnrealizedGainLoss",
-              "label": "Net gain (loss) on equity investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1452000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpenseBenefit",
-              "label": "Branch consolidation (benefit) expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -346000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -14034,6 +14034,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 8619000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -14054,6 +14066,18 @@
               "value": 1229000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14114,6 +14138,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "MarketableSecuritiesUnrealizedGainLoss",
+              "label": "Net loss on equity investments",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": -559000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14274,8 +14310,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 994000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of intangibles",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpense",
+              "label": "Branch consolidation expense, net",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
               "line": 38,
               "indent": 0,
               "negating": false,
@@ -14292,6 +14364,18 @@
               "indent": 0,
               "negating": false,
               "value": 196000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpenseBenefit",
+              "label": "Branch consolidation expense, net",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": 546000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14488,90 +14572,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 994000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpense",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 8619000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MarketableSecuritiesUnrealizedGainLoss",
-              "label": "Net loss on equity investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -559000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpenseBenefit",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 546000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -14671,6 +14671,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 40232000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 16,
@@ -14691,6 +14703,18 @@
               "value": 1851000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanAndLeaseLosses",
+              "label": "Credit loss expense (benefit)",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14751,6 +14775,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "MarketableSecuritiesUnrealizedGainLoss",
+              "label": "Net loss on equity investments",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": -6801000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14911,8 +14947,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "AmortizationOfDeferredCharges",
+              "label": "Amortization of core deposit intangible",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 1027000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of intangibles",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpense",
+              "label": "Branch consolidation expense, net",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+              "label": "FHLB advance prepayment fees",
               "line": 38,
               "indent": 0,
               "negating": false,
@@ -14929,6 +15001,18 @@
               "indent": 0,
               "negating": false,
               "value": 1965000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchConsolidationExpenseBenefit",
+              "label": "Branch consolidation expense, net",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": 70000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -15125,90 +15209,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "AmortizationOfDeferredCharges",
-              "label": "Amortization of core deposit intangible",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1027000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpense",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 40232000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "MarketableSecuritiesUnrealizedGainLoss",
-              "label": "Net loss on equity investments",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -6801000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchConsolidationExpenseBenefit",
-              "label": "Branch consolidation expense, net",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 70000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Credit loss expense (benefit)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-              "label": "FHLB advance prepayment fees",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -15258,6 +15258,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 15,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 16,
@@ -15266,6 +15272,12 @@
           {
             "tag": "ProvisionForLoanLeaseAndOtherLosses",
             "label": "Provision for credit losses",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Credit loss expense (benefit)",
             "line": 17,
             "indent": 0
           },
@@ -15384,6 +15396,18 @@
             "indent": 0
           },
           {
+            "tag": "AmortizationOfDeferredCharges",
+            "label": "Amortization of core deposit intangible",
+            "line": 38,
+            "indent": 0
+          },
+          {
+            "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+            "label": "FHLB advance prepayment fees",
+            "line": 38,
+            "indent": 0
+          },
+          {
             "tag": "BranchConsolidationExpense",
             "label": "Branch consolidation expense, net",
             "line": 39,
@@ -15478,30 +15502,6 @@
             "label": "Average diluted shares outstanding (in shares)",
             "line": 54,
             "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "AmortizationOfDeferredCharges",
-            "label": "Amortization of core deposit intangible",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Credit loss expense (benefit)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-            "label": "FHLB advance prepayment fees",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -15548,6 +15548,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 15,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 16,
@@ -15556,6 +15562,12 @@
           {
             "tag": "ProvisionForLoanLeaseAndOtherLosses",
             "label": "Provision for credit losses",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanAndLeaseLosses",
+            "label": "Credit loss expense (benefit)",
             "line": 17,
             "indent": 0
           },
@@ -15586,6 +15598,12 @@
           {
             "tag": "DebtSecuritiesAvailableForSaleGainLoss",
             "label": "Net (loss) gain on equity investments",
+            "line": 23,
+            "indent": 0
+          },
+          {
+            "tag": "MarketableSecuritiesUnrealizedGainLoss",
+            "label": "Net gain (loss) on equity investments",
             "line": 23,
             "indent": 0
           },
@@ -15668,14 +15686,38 @@
             "indent": 0
           },
           {
+            "tag": "AmortizationOfDeferredCharges",
+            "label": "Amortization of core deposit intangible",
+            "line": 37,
+            "indent": 0
+          },
+          {
             "tag": "AmortizationOfIntangibleAssets",
             "label": "Amortization of intangibles",
             "line": 38,
             "indent": 0
           },
           {
+            "tag": "BranchConsolidationExpense",
+            "label": "Branch consolidation expense, net",
+            "line": 38,
+            "indent": 0
+          },
+          {
+            "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
+            "label": "FHLB advance prepayment fees",
+            "line": 38,
+            "indent": 0
+          },
+          {
             "tag": "BusinessCombinationAcquisitionRelatedCosts",
             "label": "Merger related expenses",
+            "line": 39,
+            "indent": 0
+          },
+          {
+            "tag": "BranchConsolidationExpenseBenefit",
+            "label": "Branch consolidation (benefit) expense, net",
             "line": 39,
             "indent": 0
           },
@@ -15773,48 +15815,6 @@
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Average diluted shares outstanding (in shares)",
             "line": 55,
-            "indent": 0
-          },
-          {
-            "tag": "AmortizationOfDeferredCharges",
-            "label": "Amortization of core deposit intangible",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BranchConsolidationExpense",
-            "label": "Branch consolidation expense, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "MarketableSecuritiesUnrealizedGainLoss",
-            "label": "Net gain (loss) on equity investments",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BranchConsolidationExpenseBenefit",
-            "label": "Branch consolidation (benefit) expense, net",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Credit loss expense (benefit)",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "FederalHomeLoanBankAdvancesPrepaymentFeesBeforeTax",
-            "label": "FHLB advance prepayment fees",
-            "line": 9999,
             "indent": 0
           }
         ]

@@ -400,6 +400,16 @@
               "hasValue": true
             },
             {
+              "tag": "Deposits",
+              "label": "Total deposits",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestBearingMortgageEscrowDeposits",
               "label": "Interest-bearing mortgage escrow deposits",
               "line": 26,
@@ -598,16 +608,6 @@
               "value": 13636005000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "Deposits",
-              "label": "Total deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -842,6 +842,16 @@
               "hasValue": true
             },
             {
+              "tag": "Deposits",
+              "label": "Total deposits",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestBearingMortgageEscrowDeposits",
               "label": "Interest-bearing mortgage escrow deposits",
               "line": 26,
@@ -1040,16 +1050,6 @@
               "value": 13636005000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "Deposits",
-              "label": "Total deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -1284,6 +1284,16 @@
               "hasValue": false
             },
             {
+              "tag": "Deposits",
+              "label": "Total deposits",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 10254407000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestBearingMortgageEscrowDeposits",
               "label": "Interest-bearing mortgage escrow deposits",
               "line": 26,
@@ -1482,16 +1492,6 @@
               "value": 12066364000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "Deposits",
-              "label": "Total deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10254407000,
-              "uom": "USD",
-              "hasValue": true
             }
           ]
         }
@@ -1613,6 +1613,18 @@
               "value": 69106000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+              "label": "Premises held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1769,6 +1781,18 @@
               "value": 6000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Deposits (excluding mortgage escrow deposits)",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -1999,30 +2023,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-              "label": "Premises held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Deposits",
-              "label": "Deposits (excluding mortgage escrow deposits)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2142,6 +2142,18 @@
               "value": 67110000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+              "label": "Premises held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2298,6 +2310,18 @@
               "value": 6000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Deposits (excluding mortgage escrow deposits)",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2528,30 +2552,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-              "label": "Premises held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Deposits",
-              "label": "Deposits (excluding mortgage escrow deposits)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -2671,6 +2671,18 @@
               "value": 66987000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+              "label": "Premises held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -2827,6 +2839,18 @@
               "value": 6000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Deposits (excluding mortgage escrow deposits)",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3057,30 +3081,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-              "label": "Premises held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Deposits",
-              "label": "Deposits (excluding mortgage escrow deposits)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3198,6 +3198,18 @@
               "indent": 0,
               "negating": false,
               "value": 69106000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+              "label": "Premises held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 905000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3356,6 +3368,18 @@
               "value": 6000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Deposits (excluding mortgage escrow deposits)",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -3586,30 +3610,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-              "label": "Premises held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 905000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Deposits",
-              "label": "Deposits (excluding mortgage escrow deposits)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -3727,6 +3727,18 @@
               "indent": 0,
               "negating": false,
               "value": 98750000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+              "label": "Premises held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 905000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -3885,6 +3897,18 @@
               "value": 136000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Deposits (excluding mortgage escrow deposits)",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4115,30 +4139,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-              "label": "Premises held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 905000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Deposits",
-              "label": "Deposits (excluding mortgage escrow deposits)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4256,6 +4256,18 @@
               "indent": 0,
               "negating": false,
               "value": 98750000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+              "label": "Disposal Group, Including Discontinued Operation, Property, Plant and Equipment",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 905000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4414,6 +4426,18 @@
               "value": 2000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Deposits (excluding mortgage escrow deposits)",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -4644,30 +4668,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-              "label": "Disposal Group, Including Discontinued Operation, Property, Plant and Equipment",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 905000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Deposits",
-              "label": "Deposits (excluding mortgage escrow deposits)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -4785,6 +4785,18 @@
               "indent": 0,
               "negating": false,
               "value": 98750000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+              "label": "Premises held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 905000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -4943,6 +4955,18 @@
               "value": 136000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Deposits (excluding mortgage escrow deposits)",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5173,30 +5197,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-              "label": "Premises held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 905000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Deposits",
-              "label": "Deposits (excluding mortgage escrow deposits)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5314,6 +5314,18 @@
               "indent": 0,
               "negating": false,
               "value": 88745000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+              "label": "Premises held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 905000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5472,6 +5484,18 @@
               "value": 192000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Deposits (excluding mortgage escrow deposits)",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -5702,30 +5726,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-              "label": "Premises held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 905000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Deposits",
-              "label": "Deposits (excluding mortgage escrow deposits)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -5843,6 +5843,18 @@
               "indent": 0,
               "negating": false,
               "value": 88745000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+              "label": "Premises held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 905000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -5999,6 +6011,18 @@
               "indent": 0,
               "negating": false,
               "value": 192000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Deposits (excluding mortgage escrow deposits)",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 10528778000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6231,30 +6255,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-              "label": "Premises held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 905000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Deposits",
-              "label": "Deposits (excluding mortgage escrow deposits)",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10528778000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6374,6 +6374,18 @@
               "value": 104724000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+              "label": "Premises held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -6528,6 +6540,18 @@
               "indent": 0,
               "negating": false,
               "value": 203000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Total deposits",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 10184760000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -6760,30 +6784,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-              "label": "Premises held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Deposits",
-              "label": "Total deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10184760000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         },
@@ -6903,6 +6903,18 @@
               "value": 105258000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+              "label": "Premises held for sale",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7059,6 +7071,18 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Total deposits",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 10254407000,
+              "uom": "USD",
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -7289,30 +7313,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-              "label": "Premises held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "Deposits",
-              "label": "Total deposits",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 10254407000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -7452,6 +7452,12 @@
             "indent": 0
           },
           {
+            "tag": "Deposits",
+            "label": "Total deposits",
+            "line": 25,
+            "indent": 0
+          },
+          {
             "tag": "InterestBearingMortgageEscrowDeposits",
             "label": "Interest-bearing mortgage escrow deposits",
             "line": 26,
@@ -7570,12 +7576,6 @@
             "label": "Total liabilities and stockholders' equity",
             "line": 46,
             "indent": 0
-          },
-          {
-            "tag": "Deposits",
-            "label": "Total deposits",
-            "line": 9999,
-            "indent": 0
           }
         ],
         "quarterly": [
@@ -7630,6 +7630,12 @@
           {
             "tag": "RestrictedInvestments",
             "label": "Restricted stock",
+            "line": 10,
+            "indent": 0
+          },
+          {
+            "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
+            "label": "Premises held for sale",
             "line": 10,
             "indent": 0
           },
@@ -7708,6 +7714,12 @@
           {
             "tag": "InterestBearingMortgageEscrowDeposits",
             "label": "Interest-bearing mortgage escrow deposits",
+            "line": 25,
+            "indent": 0
+          },
+          {
+            "tag": "Deposits",
+            "label": "Deposits (excluding mortgage escrow deposits)",
             "line": 25,
             "indent": 0
           },
@@ -7823,18 +7835,6 @@
             "tag": "LiabilitiesAndStockholdersEquity",
             "label": "Total liabilities and stockholders' equity",
             "line": 45,
-            "indent": 0
-          },
-          {
-            "tag": "DisposalGroupIncludingDiscontinuedOperationPropertyPlantAndEquipment",
-            "label": "Premises held for sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "Deposits",
-            "label": "Deposits (excluding mortgage escrow deposits)",
-            "line": 9999,
             "indent": 0
           }
         ]
@@ -8062,6 +8062,16 @@
               "hasValue": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -8080,6 +8090,16 @@
               "value": 36113000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -8172,6 +8192,16 @@
               "hasValue": true
             },
             {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net (loss) gain on sale of securities and other assets",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "GainLossOnSaleOfOtherAssets",
               "label": "Gain (loss) on sale of other assets",
               "line": 23,
@@ -8180,6 +8210,16 @@
               "value": 7219000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -8292,6 +8332,16 @@
               "hasValue": true
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -8302,6 +8352,16 @@
               "hasValue": true
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -8310,6 +8370,16 @@
               "value": 12542000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "NoninterestExpense",
@@ -8390,76 +8460,6 @@
               "value": 3.73,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net (loss) gain on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -8554,6 +8554,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 292789000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -8572,6 +8582,16 @@
               "value": 5374000,
               "uom": "USD",
               "hasValue": true
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -8664,6 +8684,16 @@
               "hasValue": false
             },
             {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net (loss) gain on sale of securities and other assets",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": -1469000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "GainLossOnSaleOfOtherAssets",
               "label": "Gain (loss) on sale of other assets",
               "line": 23,
@@ -8672,6 +8702,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": -16505000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -8784,6 +8824,16 @@
               "hasValue": false
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": -1543000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -8794,12 +8844,32 @@
               "hasValue": true
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": 44824000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
               "indent": 0,
               "negating": false,
               "value": 13937000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 5059000,
               "uom": "USD",
               "hasValue": true
             },
@@ -8882,76 +8952,6 @@
               "value": 2.29,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 292789000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net (loss) gain on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1469000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -16505000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1543000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 44824000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5059000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             }
           ]
         },
@@ -9046,6 +9046,16 @@
               "hasValue": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 56303000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -9064,6 +9074,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 6212000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -9156,6 +9176,16 @@
               "hasValue": false
             },
             {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net gain on sale of securities and other assets",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 1705000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "GainLossOnSaleOfOtherAssets",
               "label": "Gain (loss) on sale of other assets",
               "line": 23,
@@ -9164,6 +9194,16 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": -16505000,
+              "uom": "USD",
+              "hasValue": true
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -9276,6 +9316,16 @@
               "hasValue": false
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss (gain)",
+              "line": 35,
+              "indent": 0,
+              "negating": true,
+              "value": -1651000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -9286,12 +9336,32 @@
               "hasValue": true
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": 15256000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
               "indent": 0,
               "negating": false,
               "value": 6748000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 5059000,
               "uom": "USD",
               "hasValue": true
             },
@@ -9372,76 +9442,6 @@
               "indent": 0,
               "negating": false,
               "value": 3.73,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 56303000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net gain on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1705000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -16505000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss (gain)",
-              "line": 9999,
-              "indent": 0,
-              "negating": true,
-              "value": -1651000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 15256000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 5059000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 6212000,
               "uom": "USD",
               "hasValue": true
             }
@@ -9557,6 +9557,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -9577,6 +9589,18 @@
               "value": 11603000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9677,6 +9701,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+              "label": "Fair value change in equity securities and loans held for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net gain on securities",
               "line": 22,
@@ -9689,6 +9725,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnSecuritizationOfFinancialAssets",
+              "label": "Net loss on sale of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net loss on sale of securities and other assets",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfOtherAssets",
               "label": "(Loss) gain on sale of other assets",
               "line": 23,
@@ -9697,6 +9757,18 @@
               "value": 2000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9833,6 +9905,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -9845,6 +9929,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -9853,6 +9949,18 @@
               "value": 3548000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -9949,114 +10057,6 @@
               "value": 0.29,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-              "label": "Fair value change in equity securities and loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSecuritizationOfFinancialAssets",
-              "label": "Net loss on sale of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net loss on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10170,6 +10170,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -10190,6 +10202,18 @@
               "value": 5585000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10290,6 +10314,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+              "label": "Fair value change in equity securities and loans held for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net gain on securities",
               "line": 22,
@@ -10302,6 +10338,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnSecuritizationOfFinancialAssets",
+              "label": "Net loss on sale of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net loss on sale of securities and other assets",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfOtherAssets",
               "label": "Gain on sale of other assets",
               "line": 23,
@@ -10310,6 +10370,18 @@
               "value": 3695000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10446,6 +10518,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -10458,6 +10542,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -10466,6 +10562,18 @@
               "value": 5533000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10562,114 +10670,6 @@
               "value": 0.64,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-              "label": "Fair value change in equity securities and loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSecuritizationOfFinancialAssets",
-              "label": "Net loss on sale of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net loss on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -10783,6 +10783,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -10803,6 +10815,18 @@
               "value": 5210000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -10903,8 +10927,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+              "label": "Fair value change in equity securities and loans held for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": -842000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net gain on securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSecuritizationOfFinancialAssets",
+              "label": "Net loss on sale of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net loss on sale of securities and other assets",
               "line": 22,
               "indent": 0,
               "negating": false,
@@ -10923,6 +10983,18 @@
               "value": 2968000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11059,6 +11131,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -11071,6 +11155,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -11079,6 +11175,18 @@
               "value": 2788000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -11175,114 +11283,6 @@
               "value": 0.45,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-              "label": "Fair value change in equity securities and loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -842000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSecuritizationOfFinancialAssets",
-              "label": "Net loss on sale of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net loss on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -11396,6 +11396,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -11418,6 +11430,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -11516,8 +11540,44 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+              "label": "Fair value change in equity securities and loans held for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 1163000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net gain on securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "GainLossOnSecuritizationOfFinancialAssets",
+              "label": "Net loss on sale of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net loss on sale of securities and other assets",
               "line": 22,
               "indent": 0,
               "negating": false,
@@ -11538,6 +11598,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -11672,6 +11744,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -11684,6 +11768,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -11694,6 +11790,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestExpense",
@@ -11790,114 +11898,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-              "label": "Fair value change in equity securities and loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1163000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSecuritizationOfFinancialAssets",
-              "label": "Net loss on sale of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net loss on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -12009,6 +12009,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -12029,6 +12041,18 @@
               "value": 11603000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12129,8 +12153,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+              "label": "Fair value change in equity securities and loans held for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": -299000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net gain on securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSecuritizationOfFinancialAssets",
+              "label": "Net loss on sale of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net loss on sale of securities and other assets",
               "line": 22,
               "indent": 0,
               "negating": false,
@@ -12149,6 +12209,18 @@
               "value": -22000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12285,6 +12357,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -12297,6 +12381,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -12305,6 +12401,18 @@
               "value": 3548000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12401,114 +12509,6 @@
               "value": 0.34,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-              "label": "Fair value change in equity securities and loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -299000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSecuritizationOfFinancialAssets",
-              "label": "Net loss on sale of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net loss on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -12622,6 +12622,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -12642,6 +12654,18 @@
               "value": 5585000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12742,8 +12766,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+              "label": "Fair value change in equity securities and loans held for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": -780000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net gain on securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSecuritizationOfFinancialAssets",
+              "label": "Net loss on sale of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net loss on sale of securities and other assets",
               "line": 22,
               "indent": 0,
               "negating": false,
@@ -12762,6 +12822,18 @@
               "value": 3695000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -12898,6 +12970,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -12910,6 +12994,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -12918,6 +13014,18 @@
               "value": 5077000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13014,114 +13122,6 @@
               "value": 0.66,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-              "label": "Fair value change in equity securities and loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -780000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSecuritizationOfFinancialAssets",
-              "label": "Net loss on sale of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net loss on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13235,6 +13235,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 54920000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -13255,6 +13267,18 @@
               "value": 5210000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13355,6 +13379,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+              "label": "Fair value change in equity securities and loans held for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": -842000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net gain on securities",
               "line": 22,
@@ -13367,6 +13403,30 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnSecuritizationOfFinancialAssets",
+              "label": "Net loss on sale of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": -1447000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net loss on sale of securities and other assets",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfOtherAssets",
               "label": "Gain on sale of other assets",
               "line": 23,
@@ -13375,6 +13435,18 @@
               "value": 2968000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13511,6 +13583,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -13523,6 +13607,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -13531,6 +13627,18 @@
               "value": 2788000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -13627,114 +13735,6 @@
               "value": 0.41,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-              "label": "Fair value change in equity securities and loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -842000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSecuritizationOfFinancialAssets",
-              "label": "Net loss on sale of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1447000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 54920000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net loss on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -13848,6 +13848,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 84635000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -13870,6 +13882,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -13968,6 +13992,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+              "label": "Net (loss) gain on equity securities",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net gain on securities",
               "line": 22,
@@ -13980,8 +14016,44 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "GainLossOnSecuritizationOfFinancialAssets",
+              "label": "Net loss on sale of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net (loss) gain on sale of securities and other assets",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "GainLossOnSaleOfOtherAssets",
               "label": "(Loss) gain on sale of other assets",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
               "line": 23,
               "indent": 0,
               "negating": false,
@@ -14124,6 +14196,18 @@
               "derivedUnavailable": true
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -14136,6 +14220,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -14146,6 +14242,18 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": true,
+              "derivedUnavailable": true
             },
             {
               "tag": "NoninterestExpense",
@@ -14242,114 +14350,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-              "label": "Net (loss) gain on equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnSecuritizationOfFinancialAssets",
-              "label": "Net loss on sale of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 84635000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net (loss) gain on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": true,
-              "derivedUnavailable": true
             }
           ]
         },
@@ -14461,6 +14461,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 81362000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -14481,6 +14493,18 @@
               "value": 1806000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14581,6 +14605,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+              "label": "Loss on equity securities",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": -299000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net gain on securities",
               "line": 22,
@@ -14593,8 +14629,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnSecuritizationOfFinancialAssets",
+              "label": "Net loss on sale of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net loss on sale of securities and other assets",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 1397000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfOtherAssets",
               "label": "(Loss) gain on sale of other assets",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
               "line": 23,
               "indent": 0,
               "negating": false,
@@ -14737,6 +14809,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -14749,6 +14833,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -14757,6 +14853,18 @@
               "value": 3284000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -14853,114 +14961,6 @@
               "value": 0.34,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-              "label": "Loss on equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -299000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSecuritizationOfFinancialAssets",
-              "label": "Net loss on sale of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 81362000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net loss on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 1397000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -15074,6 +15074,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 71872000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -15094,6 +15106,18 @@
               "value": 44000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15194,6 +15218,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+              "label": "Loss on equity securities",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": -780000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net gain on securities",
               "line": 22,
@@ -15206,8 +15242,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnSecuritizationOfFinancialAssets",
+              "label": "Net loss on sale of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net loss on sale of securities and other assets",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfOtherAssets",
               "label": "(Loss) gain on sale of other assets",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
               "line": 23,
               "indent": 0,
               "negating": false,
@@ -15350,6 +15422,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -15362,6 +15446,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -15370,6 +15466,18 @@
               "value": 4019000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15466,114 +15574,6 @@
               "value": 0.66,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-              "label": "Loss on equity securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -780000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSecuritizationOfFinancialAssets",
-              "label": "Net loss on sale of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 71872000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net loss on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             }
@@ -15687,6 +15687,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "InterestExpense",
+              "label": "Total interest expense",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 54920000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 11,
@@ -15707,6 +15719,18 @@
               "value": -3648000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "ProvisionForLoanLossesExpensed",
+              "label": "Provision for credit losses",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -15807,6 +15831,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+              "label": "Fair value change in equity securities and loans held for sale",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
               "label": "Net gain on securities",
               "line": 22,
@@ -15819,8 +15855,44 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "GainLossOnSecuritizationOfFinancialAssets",
+              "label": "Net loss on sale of securities",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+              "label": "Net loss on sale of securities and other assets",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": -1447000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "GainLossOnSaleOfOtherAssets",
               "label": "(Loss) gain on sale of other assets",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "GainLossOnSaleOfDerivatives",
+              "label": "Loss on termination of derivatives",
               "line": 23,
               "indent": 0,
               "negating": false,
@@ -15963,6 +16035,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+              "label": "Curtailment loss",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "AmortizationOfIntangibleAssets",
               "label": "Amortization of other intangible assets",
               "line": 36,
@@ -15975,6 +16059,18 @@
               "derivedUnavailable": false
             },
             {
+              "tag": "BusinessCombinationAcquisitionRelatedCosts",
+              "label": "Merger expenses and transaction costs",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
               "tag": "OtherNoninterestExpense",
               "label": "Other",
               "line": 37,
@@ -15983,6 +16079,18 @@
               "value": 3608000,
               "uom": "USD",
               "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false
+            },
+            {
+              "tag": "BranchRestructuringCosts",
+              "label": "Branch restructuring costs",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false
             },
@@ -16081,114 +16189,6 @@
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false
-            },
-            {
-              "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-              "label": "Fair value change in equity securities and loans held for sale",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSecuritizationOfFinancialAssets",
-              "label": "Net loss on sale of securities",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": 54920000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-              "label": "Net loss on sale of securities and other assets",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": -1447000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "GainLossOnSaleOfDerivatives",
-              "label": "Loss on termination of derivatives",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-              "label": "Curtailment loss",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BusinessCombinationAcquisitionRelatedCosts",
-              "label": "Merger expenses and transaction costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "BranchRestructuringCosts",
-              "label": "Branch restructuring costs",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
-            },
-            {
-              "tag": "ProvisionForLoanLossesExpensed",
-              "label": "Provision for credit losses",
-              "line": 9999,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false
             }
           ]
         }
@@ -16244,6 +16244,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 10,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 11,
@@ -16251,6 +16257,12 @@
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+            "label": "Provision for credit losses",
+            "line": 12,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLossesExpensed",
             "label": "Provision for credit losses",
             "line": 12,
             "indent": 0
@@ -16310,8 +16322,20 @@
             "indent": 0
           },
           {
+            "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+            "label": "Net (loss) gain on sale of securities and other assets",
+            "line": 22,
+            "indent": 0
+          },
+          {
             "tag": "GainLossOnSaleOfOtherAssets",
             "label": "Gain (loss) on sale of other assets",
+            "line": 23,
+            "indent": 0
+          },
+          {
+            "tag": "GainLossOnSaleOfDerivatives",
+            "label": "Loss on termination of derivatives",
             "line": 23,
             "indent": 0
           },
@@ -16382,14 +16406,32 @@
             "indent": 0
           },
           {
+            "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+            "label": "Curtailment loss",
+            "line": 35,
+            "indent": 0
+          },
+          {
             "tag": "AmortizationOfIntangibleAssets",
             "label": "Amortization of other intangible assets",
             "line": 36,
             "indent": 0
           },
           {
+            "tag": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger expenses and transaction costs",
+            "line": 36,
+            "indent": 0
+          },
+          {
             "tag": "OtherNoninterestExpense",
             "label": "Other",
+            "line": 37,
+            "indent": 0
+          },
+          {
+            "tag": "BranchRestructuringCosts",
+            "label": "Branch restructuring costs",
             "line": 37,
             "indent": 0
           },
@@ -16439,48 +16481,6 @@
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted (in dollars per share)",
             "line": 46,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-            "label": "Net (loss) gain on sale of securities and other assets",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnSaleOfDerivatives",
-            "label": "Loss on termination of derivatives",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-            "label": "Curtailment loss",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BusinessCombinationAcquisitionRelatedCosts",
-            "label": "Merger expenses and transaction costs",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BranchRestructuringCosts",
-            "label": "Branch restructuring costs",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLossesExpensed",
-            "label": "Provision for credit losses",
-            "line": 9999,
             "indent": 0
           }
         ],
@@ -16534,6 +16534,12 @@
             "indent": 0
           },
           {
+            "tag": "InterestExpense",
+            "label": "Total interest expense",
+            "line": 10,
+            "indent": 0
+          },
+          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 11,
@@ -16541,6 +16547,12 @@
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
+            "label": "Provision for credit losses",
+            "line": 12,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForLoanLossesExpensed",
             "label": "Provision for credit losses",
             "line": 12,
             "indent": 0
@@ -16594,14 +16606,38 @@
             "indent": 0
           },
           {
+            "tag": "EquitySecuritiesFvNiRealizedGainLoss",
+            "label": "Fair value change in equity securities and loans held for sale",
+            "line": 21,
+            "indent": 0
+          },
+          {
             "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
             "label": "Net gain on securities",
             "line": 22,
             "indent": 0
           },
           {
+            "tag": "GainLossOnSecuritizationOfFinancialAssets",
+            "label": "Net loss on sale of securities",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "NetGainLossOnSecuritiesAndOtherAssets",
+            "label": "Net loss on sale of securities and other assets",
+            "line": 22,
+            "indent": 0
+          },
+          {
             "tag": "GainLossOnSaleOfOtherAssets",
             "label": "(Loss) gain on sale of other assets",
+            "line": 23,
+            "indent": 0
+          },
+          {
+            "tag": "GainLossOnSaleOfDerivatives",
+            "label": "Loss on termination of derivatives",
             "line": 23,
             "indent": 0
           },
@@ -16672,14 +16708,32 @@
             "indent": 0
           },
           {
+            "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
+            "label": "Curtailment loss",
+            "line": 35,
+            "indent": 0
+          },
+          {
             "tag": "AmortizationOfIntangibleAssets",
             "label": "Amortization of other intangible assets",
             "line": 36,
             "indent": 0
           },
           {
+            "tag": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger expenses and transaction costs",
+            "line": 36,
+            "indent": 0
+          },
+          {
             "tag": "OtherNoninterestExpense",
             "label": "Other",
+            "line": 37,
+            "indent": 0
+          },
+          {
+            "tag": "BranchRestructuringCosts",
+            "label": "Branch restructuring costs",
             "line": 37,
             "indent": 0
           },
@@ -16729,60 +16783,6 @@
             "tag": "EarningsPerShareDiluted",
             "label": "Diluted (in dollars per share)",
             "line": 46,
-            "indent": 0
-          },
-          {
-            "tag": "EquitySecuritiesFvNiRealizedGainLoss",
-            "label": "Fair value change in equity securities and loans held for sale",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnSecuritizationOfFinancialAssets",
-            "label": "Net loss on sale of securities",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "NetGainLossOnSecuritiesAndOtherAssets",
-            "label": "Net loss on sale of securities and other assets",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnSaleOfDerivatives",
-            "label": "Loss on termination of derivatives",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "DefinedBenefitPlanRecognizedNetGainLossDueToCurtailments",
-            "label": "Curtailment loss",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BusinessCombinationAcquisitionRelatedCosts",
-            "label": "Merger expenses and transaction costs",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "BranchRestructuringCosts",
-            "label": "Branch restructuring costs",
-            "line": 9999,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanLossesExpensed",
-            "label": "Provision for credit losses",
-            "line": 9999,
             "indent": 0
           }
         ]
