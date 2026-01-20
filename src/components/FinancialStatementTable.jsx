@@ -164,7 +164,7 @@ function exportToCSV(items, periods, getValue, title, annotations = {}) {
   const rows = items.map(item => {
     const values = periods.map(p => {
       const val = getValue(item.tag, p.key, item.idx);
-      const v = typeof val === 'object' ? val.value : val;
+      const v = (val !== null && typeof val === 'object') ? val.value : val;
       return v !== null ? v : '';
     });
     // Gather any annotations for this item
@@ -360,7 +360,7 @@ export default function FinancialStatementTable({
   const getItemValues = useCallback((item) => {
     return allPeriods.map(p => {
       const val = getValue(item.tag, p.key, item.idx);
-      return typeof val === 'object' ? val.value : val;
+      return (val !== null && typeof val === 'object') ? val.value : val;
     });
   }, [allPeriods, getValue]);
 
