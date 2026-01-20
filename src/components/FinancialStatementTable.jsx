@@ -324,15 +324,25 @@ export default function FinancialStatementTable({
     }
   }, [annotations, bankId, title]);
 
-  // Filter items based on search
+  // Filter items based on search and whether they have values in displayed periods
   const filteredItems = useMemo(() => {
-    if (!searchTerm.trim()) return items;
+    // First filter to only items that have at least one value in displayed periods
+    const itemsWithValues = items.filter(item => {
+      // Check if item has a value in any displayed period
+      return periods.some(p => {
+        const val = getValue(item.tag, p.key, item.idx);
+        const value = (val !== null && typeof val === 'object') ? val.value : val;
+        return value !== null && value !== undefined;
+      });
+    });
+
+    if (!searchTerm.trim()) return itemsWithValues;
     const term = searchTerm.toLowerCase();
-    return items.filter(item =>
+    return itemsWithValues.filter(item =>
       item.label.toLowerCase().includes(term) ||
       item.tag.toLowerCase().includes(term)
     );
-  }, [items, searchTerm]);
+  }, [items, searchTerm, periods, getValue]);
 
   // Group items into sections for collapsible UI
   const sections = useMemo(() => {
