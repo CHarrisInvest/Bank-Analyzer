@@ -741,6 +741,7 @@ function buildHistoricalStatements(bankData) {
     const tagSet = new Set(canonicalItems.map(item => item.tag));
 
     // Check older filings for any items not in the canonical list
+    // Preserve their original line numbers so they appear in proper position
     for (const filing of filings.slice(1)) {
       const pres = presentationByFiling[filing.adsh];
       if (!pres || !pres[stmtType]) continue;
@@ -749,7 +750,7 @@ function buildHistoricalStatements(bankData) {
         if (!tagSet.has(item.tag)) {
           canonicalItems.push({
             ...item,
-            line: 9999,
+            // Keep original line number so item appears in its proper position
             fromOlderFiling: true,
           });
           tagSet.add(item.tag);
@@ -757,7 +758,8 @@ function buildHistoricalStatements(bankData) {
       }
     }
 
-    return canonicalItems;
+    // Re-sort by line number to interleave older items in proper positions
+    return canonicalItems.sort((a, b) => a.line - b.line);
   };
 
   /**
