@@ -59,7 +59,7 @@ const CONFIG = {
   financialInstitutionSicCodes: [
     '6020', '6021', '6022', '6029',  // Commercial Banks
     '6035', '6036',                   // Savings Institutions
-    '6712',                           // Bank Holding Companies
+    '6710', '6711', '6712',           // Bank Holding Companies
   ],
 
   // SIC code descriptions for output
@@ -70,7 +70,9 @@ const CONFIG = {
     '6029': 'Commercial Banks, NEC',
     '6035': 'Savings Institutions, Federally Chartered',
     '6036': 'Savings Institutions, Not Federally Chartered',
-    '6712': 'Bank Holding Companies',
+    '6710': 'Holding Offices',
+    '6711': 'Offices of Bank Holding Companies',
+    '6712': 'Offices of Bank Holding Companies',
   },
 
   // Statement types we care about from pre.txt
@@ -545,6 +547,17 @@ async function processQuarterlyDataset(datasetInfo) {
   // Filter to bank submissions by SIC code, excluding amended filings (prevrpt=1)
   // Per SEC docs: "prevrpt=TRUE indicates the submission was subsequently amended"
   const sicCodesSet = new Set(CONFIG.financialInstitutionSicCodes);
+
+  // Debug: Check for specific CIKs of interest
+  const debugCiks = ['1050743', '1531031', '0001050743', '0001531031'];
+  const debugMatches = subData.filter(sub => debugCiks.includes(sub.cik) || debugCiks.includes(sub.cik?.padStart(10, '0')));
+  if (debugMatches.length > 0) {
+    console.log(`    DEBUG: Found ${debugMatches.length} submissions for tracked CIKs:`);
+    debugMatches.forEach(sub => {
+      console.log(`      CIK: ${sub.cik}, Name: ${sub.name}, SIC: ${sub.sic}, Form: ${sub.form}, Filed: ${sub.filed}, Prevrpt: ${sub.prevrpt}`);
+    });
+  }
+
   const bankSubmissions = subData.filter(sub => {
     const isBank = sub.sic && sicCodesSet.has(sub.sic);
     const isAmended = sub.prevrpt === '1' || sub.prevrpt === 1;
@@ -642,6 +655,17 @@ function aggregateBankData(quarterlyResults, tickersByCik) {
   });
 
   console.log(`  Discovered ${discoveredBanks.size} unique banks by SIC code`);
+
+  // Log SIC code distribution
+  const sicCounts = new Map();
+  discoveredBanks.forEach(bank => {
+    const count = sicCounts.get(bank.sic) || 0;
+    sicCounts.set(bank.sic, count + 1);
+  });
+  console.log(`  SIC code distribution:`);
+  Array.from(sicCounts.entries()).sort().forEach(([sic, count]) => {
+    console.log(`    ${sic} (${CONFIG.sicDescriptions[sic] || 'Unknown'}): ${count}`);
+  });
 
   // Initialize bank data structures with best ticker selection
   discoveredBanks.forEach((bank, cik) => {
