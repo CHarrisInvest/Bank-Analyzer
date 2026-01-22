@@ -182,6 +182,93 @@ async function fetchSecCompanyTickers() {
 }
 
 /**
+ * Fetch ticker for a single CIK from SEC submissions endpoint
+ * This is a fallback for banks not found in company_tickers.json
+ */
+async function fetchTickerFromSubmissions(cik, delayMs = 150) {
+  const https = require('https');
+  const paddedCik = String(cik).padStart(10, '0');
+
+  // Rate limiting
+  await new Promise(resolve => setTimeout(resolve, delayMs));
+
+  return new Promise((resolve) => {
+    const options = {
+      hostname: 'data.sec.gov',
+      path: `/submissions/CIK${paddedCik}.json`,
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Bank-Analyzer/1.0 (https://github.com/CHarrisInvest/Bank-Analyzer)',
+        'Accept': 'application/json',
+      },
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        if (res.statusCode !== 200) {
+          resolve(null);
+          return;
+        }
+        try {
+          const json = JSON.parse(data);
+          // The submissions endpoint includes tickers array
+          const tickers = json.tickers || [];
+          resolve(tickers.length > 0 ? tickers : null);
+        } catch (e) {
+          resolve(null);
+        }
+      });
+    });
+
+    req.on('error', () => resolve(null));
+    req.setTimeout(10000, () => {
+      req.destroy();
+      resolve(null);
+    });
+    req.end();
+  });
+}
+
+/**
+ * Batch fetch tickers for banks without tickers
+ * Uses SEC submissions endpoint as fallback
+ */
+async function resolveMissingTickers(bankDataMap, tickersByCik) {
+  const banksNeedingTickers = [];
+
+  bankDataMap.forEach((bankData, cik) => {
+    if (!bankData.ticker && !tickersByCik.has(cik)) {
+      banksNeedingTickers.push({ cik, name: bankData.companyName });
+    }
+  });
+
+  if (banksNeedingTickers.length === 0) {
+    return;
+  }
+
+  console.log(`\nResolving tickers for ${banksNeedingTickers.length} banks via SEC submissions...`);
+
+  let resolved = 0;
+  for (const { cik, name } of banksNeedingTickers) {
+    const tickers = await fetchTickerFromSubmissions(cik);
+    if (tickers && tickers.length > 0) {
+      tickersByCik.set(cik, tickers);
+      const bestTicker = selectBestTicker(tickers);
+      const bankData = bankDataMap.get(cik);
+      if (bankData) {
+        bankData.ticker = bestTicker;
+      }
+      resolved++;
+      verboseLog(`  Resolved ${name}: ${bestTicker}`);
+    }
+  }
+
+  console.log(`  Resolved ${resolved} of ${banksNeedingTickers.length} banks`);
+}
+
+/**
  * Discover banks from sub.txt by SIC code
  * Returns array of bank objects with CIK, company name, SIC
  */
@@ -1567,6 +1654,9 @@ async function main() {
   // Aggregate bank data (banks discovered dynamically by SIC code)
   console.log('\nAggregating bank data...');
   const bankDataMap = aggregateBankData(quarterlyResults, secTickersByCik);
+
+  // Resolve missing tickers via SEC submissions endpoint fallback
+  await resolveMissingTickers(bankDataMap, secTickersByCik);
 
   // Filter to active filers only (filed within last N days)
   console.log(`\nFiltering to active filers (filed within ${CONFIG.activeFilerThresholdDays} days)...`);
