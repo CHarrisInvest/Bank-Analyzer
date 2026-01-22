@@ -547,17 +547,6 @@ async function processQuarterlyDataset(datasetInfo) {
   // Filter to bank submissions by SIC code, excluding amended filings (prevrpt=1)
   // Per SEC docs: "prevrpt=TRUE indicates the submission was subsequently amended"
   const sicCodesSet = new Set(CONFIG.financialInstitutionSicCodes);
-
-  // Debug: Check for specific CIKs of interest
-  const debugCiks = ['1050743', '1531031', '0001050743', '0001531031'];
-  const debugMatches = subData.filter(sub => debugCiks.includes(sub.cik) || debugCiks.includes(sub.cik?.padStart(10, '0')));
-  if (debugMatches.length > 0) {
-    console.log(`    DEBUG: Found ${debugMatches.length} submissions for tracked CIKs:`);
-    debugMatches.forEach(sub => {
-      console.log(`      CIK: ${sub.cik}, Name: ${sub.name}, SIC: ${sub.sic}, Form: ${sub.form}, Filed: ${sub.filed}, Prevrpt: ${sub.prevrpt}`);
-    });
-  }
-
   const bankSubmissions = subData.filter(sub => {
     const isBank = sub.sic && sicCodesSet.has(sub.sic);
     const isAmended = sub.prevrpt === '1' || sub.prevrpt === 1;
