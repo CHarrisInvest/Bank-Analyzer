@@ -5,21 +5,6 @@ on:
     # Run daily at 3am UTC (after SEC data typically updates)
     - cron: '0 3 * * *'
   workflow_dispatch:
-    inputs:
-      data_source:
-        description: 'Data source to use'
-        required: false
-        default: 'company-facts'
-        type: choice
-        options:
-          - company-facts
-          - fs-datasets
-          - both
-      use_bulk:
-        description: 'Use bulk companyfacts.zip download (for company-facts source)'
-        required: false
-        default: 'true'
-        type: boolean
 
 permissions:
   contents: write
@@ -45,22 +30,10 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Determine data source
-        id: source
-        run: |
-          SOURCE="${{ github.event.inputs.data_source }}"
-          # Default to company-facts for scheduled runs
-          if [ -z "$SOURCE" ]; then
-            SOURCE="company-facts"
-          fi
-          echo "data_source=$SOURCE" >> $GITHUB_OUTPUT
-          echo "Using data source: $SOURCE"
-
       # ============================================
       # SEC Financial Statement Data Sets Processing
       # ============================================
       - name: Download SEC FS Data Sets from release
-        if: steps.source.outputs.data_source == 'fs-datasets' || steps.source.outputs.data_source == 'both'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -78,43 +51,11 @@ jobs:
           ls -la .sec-data-cache/
 
       - name: Process SEC FS Data Sets
-        if: steps.source.outputs.data_source == 'fs-datasets' || steps.source.outputs.data_source == 'both'
         env:
           NODE_OPTIONS: '--max-old-space-size=8192'
         run: |
           echo "Processing SEC Financial Statement Data Sets..."
           node --expose-gc scripts/fetch-sec-fs-datasets.cjs --verbose
-
-      # ============================================
-      # SEC Company Facts API Processing
-      # ============================================
-      - name: Fetch SEC Company Facts data
-        if: steps.source.outputs.data_source == 'company-facts' || steps.source.outputs.data_source == 'both'
-        env:
-          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
-        run: |
-          if [ -z "$SEC_USER_AGENT" ]; then
-            echo "ERROR: SEC_USER_AGENT secret is not set."
-            echo ""
-            echo "The SEC requires identification for API access."
-            echo "To fix this:"
-            echo "1. Go to: https://github.com/${{ github.repository }}/settings/secrets/actions"
-            echo "2. Create a secret named 'SEC_USER_AGENT'"
-            echo "3. Set the value to your contact info, e.g.: 'Company Name admin@example.com'"
-            echo ""
-            echo "See: https://www.sec.gov/os/accessing-edgar-data"
-            exit 1
-          fi
-
-          BULK_FLAG=""
-          if [ "${{ github.event.inputs.use_bulk }}" = "true" ] || [ -z "${{ github.event.inputs.use_bulk }}" ]; then
-            BULK_FLAG="--bulk"
-            echo "Using bulk download mode (companyfacts.zip)"
-          else
-            echo "Using per-company API mode"
-          fi
-
-          node scripts/fetch-sec-company-facts.cjs $BULK_FLAG
 
       # ============================================
       # Commit and Deploy
@@ -131,24 +72,12 @@ jobs:
           if [ -d "public/data/banks" ]; then
             git add public/data/banks/
           fi
-          # Remove old monolithic file if it exists
-          if [ -f "public/data/sec-raw-data.json" ]; then
-            git rm --cached public/data/sec-raw-data.json 2>/dev/null || true
-          fi
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
             echo "changed=false" >> $GITHUB_OUTPUT
           else
-            SOURCE="${{ steps.source.outputs.data_source }}"
-            if [ "$SOURCE" = "fs-datasets" ]; then
-              MSG="Update bank data from SEC FS Data Sets (as reported)"
-            elif [ "$SOURCE" = "both" ]; then
-              MSG="Update bank data from SEC Company Facts + FS Data Sets"
-            else
-              MSG="Update bank data from SEC Company Facts API"
-            fi
-            git commit -m "$MSG - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git commit -m "Update bank data from SEC FS Data Sets - $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
             echo "✓ Changes committed and pushed"
             echo "changed=true" >> $GITHUB_OUTPUT

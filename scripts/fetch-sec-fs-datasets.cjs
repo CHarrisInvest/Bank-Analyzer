@@ -1075,6 +1075,8 @@ function calculateBankMetrics(bankData) {
                    getLatestPointInTime(concepts['DepositsDomestic']);
   const equity = getLatestPointInTime(concepts['StockholdersEquity']) ||
                  getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
+  const preferredStock = getLatestPointInTime(concepts['PreferredStockValue']) ||
+                         getLatestPointInTime(concepts['PreferredStockValueOutstanding']);
   const sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']);
 
   // Income Statement (TTM) - Calculate first to get TTM date for averaging alignment
@@ -1105,6 +1107,9 @@ function calculateBankMetrics(bankData) {
   const preTaxIncome = getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest']) ||
                        getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxes']);
   // netIncome already calculated above for TTM date alignment
+  const netIncomeToCommonDirect = getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
+  const preferredDividends = getTTMValue(concepts['PreferredStockDividendsAndOtherAdjustments']) ||
+                              getTTMValue(concepts['DividendsPreferredStock']);
   const eps = getTTMValue(concepts['EarningsPerShareBasic']) ||
               getTTMValue(concepts['EarningsPerShareDiluted']);
   const dps = getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
@@ -1114,6 +1119,8 @@ function calculateBankMetrics(bankData) {
   const totalAssets = assets?.value;
   const totalDeposits = deposits?.value;
   const totalEquity = equity?.value;
+  const preferredValue = preferredStock?.value || 0;
+  const loansValue = loans?.value;
   const sharesOutstanding = sharesData?.value;
   const ttmNii = netInterestIncome?.value;
   const ttmNonintIncome = noninterestIncome?.value;
@@ -1122,8 +1129,20 @@ function calculateBankMetrics(bankData) {
   const ttmEps = eps?.value;
   const ttmDps = dps?.value;
 
+  // NI to Common: use direct value, or derive from Net Income minus Preferred Dividends
+  let ttmNetIncomeToCommon = netIncomeToCommonDirect?.value ?? null;
+  if (ttmNetIncomeToCommon === null && ttmNetIncome !== null && preferredDividends?.value != null) {
+    ttmNetIncomeToCommon = ttmNetIncome - preferredDividends.value;
+  }
+  // Validation: NI to Common should not exceed Net Income
+  if (ttmNetIncomeToCommon !== null && ttmNetIncome !== null && ttmNetIncomeToCommon > ttmNetIncome) {
+    ttmNetIncomeToCommon = null;
+  }
+
   // Derived values
-  const bvps = totalEquity && sharesOutstanding ? totalEquity / sharesOutstanding : null;
+  // BVPS = Common Equity / Shares Outstanding (exclude preferred stock)
+  const commonEquity = totalEquity ? totalEquity - preferredValue : null;
+  const bvps = commonEquity && sharesOutstanding ? commonEquity / sharesOutstanding : null;
   const avgAssetsValue = avgAssets?.average || totalAssets;
   const avgEquityValue = avgEquity?.average || totalEquity;
 
@@ -1136,6 +1155,21 @@ function calculateBankMetrics(bankData) {
   const efficiencyRatio = ttmNonintExpense && totalRevenue > 0 ? (ttmNonintExpense / totalRevenue) * 100 : null;
   const depositsToAssets = totalDeposits && totalAssets ? (totalDeposits / totalAssets) * 100 : null;
   const equityToAssets = totalEquity && totalAssets ? (totalEquity / totalAssets) * 100 : null;
+  const loansToAssets = loansValue && totalAssets ? (loansValue / totalAssets) * 100 : null;
+  const loansToDeposits = loansValue && totalDeposits ? (loansValue / totalDeposits) * 100 : null;
+
+  // Graham metrics (grahamNum requires EPS and BVPS, price-dependent metrics are null placeholders)
+  const grahamNum = ttmEps && bvps && ttmEps > 0 && bvps > 0 ? Math.sqrt(22.5 * ttmEps * bvps) : null;
+  const dividendPayoutRatio = ttmDps && ttmEps && ttmEps > 0 ? (ttmDps / ttmEps) * 100 : null;
+
+  // Price/market data placeholders - will be populated from external source
+  // All price-dependent metrics return null until price data is available
+  const price = null;  // Placeholder: external price source
+  const marketCap = null;  // Placeholder: price * sharesOutstanding
+  const pni = null;  // Placeholder: price / ttmEps (P/E ratio)
+  const priceToBook = null;  // Placeholder: price / bvps (P/B ratio)
+  const grahamMoS = null;  // Placeholder: grahamNum - price (margin of safety $)
+  const grahamMoSPct = null;  // Placeholder: ((grahamNum - price) / price) * 100 (margin of safety %)
 
   const dataDate = assets?.ddate || equity?.ddate || netIncome?.date;
   const formattedDate = dataDate ? `${dataDate.slice(0,4)}-${dataDate.slice(4,6)}-${dataDate.slice(6,8)}` : null;
@@ -1152,6 +1186,7 @@ function calculateBankMetrics(bankData) {
       Liabilities: liabilities,
       Deposits: deposits,
       StockholdersEquity: equity,
+      PreferredStockValue: preferredStock,
       CommonStockSharesOutstanding: sharesData
     },
     incomeStatement: {
@@ -1163,6 +1198,8 @@ function calculateBankMetrics(bankData) {
       ProvisionForCreditLosses: provisionForCreditLosses,
       PreTaxIncome: preTaxIncome,
       NetIncomeLoss: netIncome,
+      NetIncomeLossAvailableToCommonStockholdersBasic: netIncomeToCommonDirect,
+      PreferredStockDividends: preferredDividends,
       EarningsPerShareBasic: eps
     },
     dividends: {
@@ -1186,13 +1223,16 @@ function calculateBankMetrics(bankData) {
       sic: bankData.sic,
       sicDescription: bankData.sicDescription,
       otcTier: bankData.otcTier,
+      // Balance Sheet
       totalAssets,
       cashAndCashEquivalents: cashAndCashEquivalents?.value,
-      loans: loans?.value,
+      loans: loansValue,
       totalLiabilities: liabilities?.value,
       totalDeposits,
       totalEquity,
+      preferredStock: preferredValue,
       sharesOutstanding,
+      // Income Statement (TTM)
       ttmInterestIncome: interestIncome?.value,
       ttmInterestExpense: interestExpense?.value,
       ttmNetInterestIncome: ttmNii,
@@ -1201,18 +1241,34 @@ function calculateBankMetrics(bankData) {
       ttmProvisionForCreditLosses: provisionForCreditLosses?.value,
       ttmPreTaxIncome: preTaxIncome?.value,
       ttmNetIncome,
+      ttmNetIncomeToCommon,
       ttmEps,
+      ttmDividendPerShare: ttmDps ? parseFloat(ttmDps.toFixed(4)) : null,
+      // Derived values
       bvps: bvps ? parseFloat(bvps.toFixed(4)) : null,
+      // Profitability ratios
       roe: roe ? parseFloat(roe.toFixed(4)) : null,
       roaa: roaa ? parseFloat(roaa.toFixed(4)) : null,
+      // Bank-specific ratios
       efficiencyRatio: efficiencyRatio ? parseFloat(efficiencyRatio.toFixed(2)) : null,
       depositsToAssets: depositsToAssets ? parseFloat(depositsToAssets.toFixed(2)) : null,
       equityToAssets: equityToAssets ? parseFloat(equityToAssets.toFixed(2)) : null,
-      grahamNum: ttmEps && bvps && ttmEps > 0 && bvps > 0 ? parseFloat(Math.sqrt(22.5 * ttmEps * bvps).toFixed(4)) : null,
-      ttmDividendPerShare: ttmDps ? parseFloat(ttmDps.toFixed(4)) : null,
-      dividendPayoutRatio: ttmDps && ttmEps && ttmEps > 0 ? parseFloat(((ttmDps / ttmEps) * 100).toFixed(2)) : null,
+      loansToAssets: loansToAssets ? parseFloat(loansToAssets.toFixed(2)) : null,
+      loansToDeposits: loansToDeposits ? parseFloat(loansToDeposits.toFixed(2)) : null,
+      // Graham metrics
+      grahamNum: grahamNum ? parseFloat(grahamNum.toFixed(4)) : null,
+      dividendPayoutRatio: dividendPayoutRatio ? parseFloat(dividendPayoutRatio.toFixed(2)) : null,
+      // Price/market data placeholders (null until external price source integrated)
+      price,
+      marketCap,
+      pni,  // P/E ratio
+      priceToBook,  // P/B ratio
+      grahamMoS,  // Graham margin of safety ($)
+      grahamMoSPct,  // Graham margin of safety (%)
+      // Averages for ratio calculations
       avgAssets: avgAssetsValue ? parseFloat(avgAssetsValue.toFixed(0)) : null,
       avgEquity: avgEquityValue ? parseFloat(avgEquityValue.toFixed(0)) : null,
+      // Metadata
       dataDate: formattedDate,
       ttmMethod: netIncome?.method || 'unknown',
       returnRatioAvgMethod: avgAssets?.method || avgEquity?.method || 'single-period',
