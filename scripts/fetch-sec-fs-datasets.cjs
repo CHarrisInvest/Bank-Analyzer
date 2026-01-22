@@ -51,6 +51,10 @@ const CONFIG = {
   minQuarterYear: 2023,
   minQuarter: 1,
 
+  // Maximum days since last filing to be considered an active filer
+  // Banks with no 10-Q or 10-K filed within this threshold are excluded
+  activeFilerThresholdDays: 150,
+
   // Financial institution SIC codes
   financialInstitutionSicCodes: [
     '6020', '6021', '6022', '6029',  // Commercial Banks
@@ -1564,13 +1568,48 @@ async function main() {
   console.log('\nAggregating bank data...');
   const bankDataMap = aggregateBankData(quarterlyResults, secTickersByCik);
 
-  // Calculate metrics
-  console.log('Calculating metrics...');
+  // Filter to active filers only (filed within last N days)
+  console.log(`\nFiltering to active filers (filed within ${CONFIG.activeFilerThresholdDays} days)...`);
+  const now = new Date();
+  const thresholdDate = new Date(now.getTime() - CONFIG.activeFilerThresholdDays * 24 * 60 * 60 * 1000);
+  const thresholdDateStr = thresholdDate.toISOString().slice(0, 10).replace(/-/g, '');
+
+  let activeBanks = 0;
+  let staleBanks = 0;
+  bankDataMap.forEach((bankData, cik) => {
+    // Find most recent filing date from submissions
+    let mostRecentFiled = null;
+    for (const sub of bankData.submissions) {
+      // Only consider 10-Q and 10-K filings
+      if (sub.form !== '10-Q' && sub.form !== '10-K') continue;
+      if (!mostRecentFiled || sub.filed > mostRecentFiled) {
+        mostRecentFiled = sub.filed;
+      }
+    }
+
+    // Mark stale banks for removal
+    if (!mostRecentFiled || mostRecentFiled < thresholdDateStr) {
+      bankData._isStale = true;
+      staleBanks++;
+      verboseLog(`  Excluding stale filer: ${bankData.ticker || cik} (last filed: ${mostRecentFiled || 'never'})`);
+    } else {
+      activeBanks++;
+    }
+  });
+
+  console.log(`  Active filers: ${activeBanks}`);
+  console.log(`  Stale filers excluded: ${staleBanks}`);
+
+  // Calculate metrics (only for active filers)
+  console.log('\nCalculating metrics...');
   const results = [];
   const rawDataStore = {};
 
   let bankIndex = 0;
   bankDataMap.forEach((bankData, cik) => {
+    // Skip stale filers
+    if (bankData._isStale) return;
+
     if (Object.keys(bankData.concepts).length === 0) {
       return;
     }
