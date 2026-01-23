@@ -1,6 +1,37 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 
 /**
+ * Clean financial statement labels by removing period-specific values
+ * Removes patterns like "(10,000,000 and 9,000,000 shares, respectively)"
+ * Keeps legitimate descriptors like "(in thousands)" or amounts like "$250,000"
+ */
+function cleanLabel(label) {
+  if (!label) return label;
+
+  // Pattern to match parenthetical share counts with numbers and "shares", "respectively"
+  // e.g., "(10,000,000 and 9,000,000 shares, respectively)"
+  // e.g., "(100,000 shares authorized, 50,000 shares issued)"
+  const shareCountPattern = /\s*\([^)]*\d{1,3}(?:,\d{3})*(?:\s+and\s+\d{1,3}(?:,\d{3})*)*\s+shares[^)]*\)/gi;
+
+  // Pattern to match parenthetical text with "respectively" containing numbers
+  // e.g., "(100 and 200, respectively)"
+  const respectivelyPattern = /\s*\([^)]*\d+[^)]*respectively[^)]*\)/gi;
+
+  let cleaned = label;
+
+  // Remove share count patterns
+  cleaned = cleaned.replace(shareCountPattern, '');
+
+  // Remove "respectively" patterns with numbers
+  cleaned = cleaned.replace(respectivelyPattern, '');
+
+  // Clean up any double spaces and trim
+  cleaned = cleaned.replace(/\s+/g, ' ').trim();
+
+  return cleaned;
+}
+
+/**
  * Sparkline Component - Mini inline SVG chart showing trend
  */
 function Sparkline({ values, width = 50, height = 16 }) {
@@ -662,7 +693,7 @@ export default function FinancialStatementTable({
           onClick={() => setFocusedCell({ row: rowIdx, col: 0 })}
         >
           {item.indent > 0 && <span className="indent-marker" style={{ paddingLeft: `${item.indent * 12}px` }} />}
-          <span className="item-label">{item.label}</span>
+          <span className="item-label">{cleanLabel(item.label)}</span>
           {showSparklines && itemValues.filter(v => v !== null).length >= 2 && (
             <Sparkline values={itemValues} />
           )}
@@ -680,13 +711,16 @@ export default function FinancialStatementTable({
           <thead>
             <tr>
               <th className="label-col sticky-col">Period</th>
-              {filteredItems.map((item, idx) => (
-                <th key={`${item.tag}-${idx}`} className="value-col transposed-header">
-                  <div className="transposed-item-label" title={item.label}>
-                    {item.label.length > 20 ? item.label.substring(0, 18) + '...' : item.label}
-                  </div>
-                </th>
-              ))}
+              {filteredItems.map((item, idx) => {
+                const cleaned = cleanLabel(item.label);
+                return (
+                  <th key={`${item.tag}-${idx}`} className="value-col transposed-header">
+                    <div className="transposed-item-label" title={cleaned}>
+                      {cleaned.length > 20 ? cleaned.substring(0, 18) + '...' : cleaned}
+                    </div>
+                  </th>
+                );
+              })}
             </tr>
           </thead>
           <tbody>
@@ -798,10 +832,10 @@ export default function FinancialStatementTable({
                           <SectionToggle
                             isCollapsed={isCollapsed}
                             onClick={() => toggleSection(section.id)}
-                            label={section.header.label}
+                            label={cleanLabel(section.header.label)}
                           />
                         )}
-                        <span className="item-label">{section.header.label}</span>
+                        <span className="item-label">{cleanLabel(section.header.label)}</span>
                         {showSparklines && (
                           <Sparkline values={getItemValues(section.header)} />
                         )}
