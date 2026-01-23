@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO.jsx';
 import { METRICS } from '../data/content/metrics.js';
-import { VALUATIONS } from '../data/content/valuations.js';
+import { VALUATION_METHODS } from '../data/content/valuations.js';
 
 /**
  * Glossary terms for bank financial analysis
@@ -104,7 +104,7 @@ function Glossary() {
       link: `/metrics/${m.slug}`,
     }));
 
-    const valuationTerms = VALUATIONS.map(v => ({
+    const valuationTerms = VALUATION_METHODS.map(v => ({
       term: v.name,
       definition: v.shortDescription,
       fullDescription: v.description,
