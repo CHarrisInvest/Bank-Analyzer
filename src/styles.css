@@ -2743,16 +2743,35 @@ body {
 }
 
 .hero-content h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-2);
+  letter-spacing: -0.02em;
+}
+
+.hero-tagline {
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  color: var(--color-gray-200);
   margin-bottom: var(--spacing-4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .hero-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-300);
+  max-width: 480px;
+  margin: 0 auto var(--spacing-4);
+  line-height: 1.7;
+}
+
+.hero-cta-text {
   font-size: var(--font-size-lg);
-  color: var(--color-gray-200);
-  max-width: 600px;
-  margin: 0 auto var(--spacing-8);
-  line-height: 1.6;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: var(--spacing-6);
+  letter-spacing: 0.02em;
 }
 
 .hero-actions {

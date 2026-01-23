@@ -72,11 +72,27 @@ function BankDetail({ banks = [], loading = false }) {
 
   const formatCurrency = (num) => {
     if (num === null || num === undefined) return '-';
-    if (Math.abs(num) >= 1e12) return '$' + (num / 1e12).toFixed(2) + 'T';
-    if (Math.abs(num) >= 1e9) return '$' + (num / 1e9).toFixed(2) + 'B';
-    if (Math.abs(num) >= 1e6) return '$' + (num / 1e6).toFixed(2) + 'M';
-    if (Math.abs(num) >= 1e3) return '$' + (num / 1e3).toFixed(2) + 'K';
-    return '$' + num.toFixed(2);
+    // Always show in millions for consistency and easy comparison
+    const inMillions = num / 1e6;
+    const absMillions = Math.abs(inMillions);
+
+    if (absMillions >= 1000) {
+      // Billions range: show with comma separator (e.g., $4,200.5M)
+      return '$' + inMillions.toLocaleString(undefined, {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1
+      }) + 'M';
+    } else if (absMillions >= 1) {
+      // Millions range: show with 1 decimal (e.g., $345.6M)
+      return '$' + inMillions.toFixed(1) + 'M';
+    } else if (absMillions >= 0.01) {
+      // Sub-million but significant: show with 2 decimals (e.g., $0.45M)
+      return '$' + inMillions.toFixed(2) + 'M';
+    } else if (Math.abs(num) >= 1) {
+      // Very small: show actual value
+      return '$' + num.toLocaleString(undefined, { maximumFractionDigits: 0 });
+    }
+    return '$0';
   };
 
   const formatPercent = (num) => {
@@ -276,11 +292,6 @@ function RatiosTab({ bank, formatCurrency, formatPercent, formatNumber }) {
               <Link to="/metrics/roaa" className="info-link">?</Link>
             </dt>
             <dd>{formatPercent(bank.roaa)}</dd>
-            <dt>
-              Net Interest Margin
-              <Link to="/metrics/net-interest-margin" className="info-link">?</Link>
-            </dt>
-            <dd>{formatPercent(bank.nim)}</dd>
           </dl>
         </div>
 

@@ -157,6 +157,12 @@ async function main() {
       console.log(`Generated: ${iconPath}`);
     }
 
+    // Generate apple-touch-icon (180x180)
+    const appleTouchSvg = createLogoSVG(180);
+    const appleTouchPath = join(publicDir, 'apple-touch-icon.png');
+    await svgToPng(appleTouchSvg, appleTouchPath, 180, 180);
+    console.log(`Generated: ${appleTouchPath}`);
+
     console.log('\nDone! All images generated in public/');
 
   } catch (error) {
