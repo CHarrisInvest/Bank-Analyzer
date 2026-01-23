@@ -81,6 +81,19 @@
         "adsh": "0000713676-25-000132",
         "version": "us-gaap/2025"
       },
+      "PreferredStockValue": {
+        "value": 0,
+        "ddate": "20250930",
+        "qtrs": 0,
+        "form": "10-Q",
+        "fy": "2025",
+        "fp": "Q3",
+        "filed": "20251103",
+        "period": "20250930",
+        "uom": "USD",
+        "adsh": "0000713676-25-000132",
+        "version": "us-gaap/2025"
+      },
       "CommonStockSharesOutstanding": null
     },
     "incomeStatement": {
@@ -124,6 +137,13 @@
       "NetIncomeLoss": {
         "value": 6469000000,
         "date": "20250930",
+        "method": "sum-4Q",
+        "form": "10-Q"
+      },
+      "NetIncomeLossAvailableToCommonStockholdersBasic": null,
+      "PreferredStockDividends": {
+        "value": 8000000,
+        "date": "20240930",
         "method": "sum-4Q",
         "form": "10-Q"
       },

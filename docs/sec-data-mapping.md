@@ -1,29 +1,22 @@
-# SEC Company Facts API - Concept Mapping
+# SEC Financial Statement Data Sets - Concept Mapping
 
 This document maps SEC EDGAR XBRL concepts to the calculated metrics used in BankSift.
 
 ## Data Source
 
-BankSift uses the **SEC EDGAR Company Facts API** to fetch financial data.
+BankSift uses the **SEC Financial Statement Data Sets** to fetch financial data.
 
-### SEC Company Facts API
+### SEC Financial Statement Data Sets
 
-**URL:** `https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json`
+**URL:** `https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets`
 
-**Bulk Download:** `https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip`
+**Script:** `scripts/fetch-sec-fs-datasets.cjs`
 
-**Script:** `scripts/fetch-sec-company-facts.cjs`
-
-**Advantages:**
-- Includes **DEI namespace** (EntityCommonStockSharesOutstanding on cover page)
-- Complete historical data per company
-- Real-time updates available
-- No quarterly ZIP file management
-
-**Required Environment Variable:**
-```bash
-export SEC_USER_AGENT="Your Company Name admin@example.com"
-```
+**Features:**
+- Quarterly ZIP file releases with complete filing data
+- Presentation linkbase (`pre.txt`) for "as reported on face" structure
+- Numerical data (`num.txt`) with explicit `qtrs` period indicator
+- Submission metadata (`sub.txt`) for filing details
 
 ---
 
@@ -32,50 +25,52 @@ export SEC_USER_AGENT="Your Company Name admin@example.com"
 | File | Description |
 |------|-------------|
 | `public/data/banks.json` | Calculated metrics for all banks |
-| `public/data/sec-raw-data.json` | Summary raw data for audit trail |
-| `public/data/company-facts/` | Full Company Facts JSON per bank |
-| `public/data/bank-list.json` | Bank CIK/ticker mapping |
+| `public/data/banks/{cik}.json` | Full raw data per bank (historical statements) |
+| `public/data/sec-data-index.json` | Metadata and bank data index |
 
 ---
 
 ## XBRL Concepts Extracted
 
-### DEI Namespace (Document & Entity Information)
+### Balance Sheet (Point-in-Time, qtrs=0)
 
 | XBRL Concept | Unit | Used For |
 |--------------|------|----------|
-| `EntityCommonStockSharesOutstanding` | shares | Primary shares source (cover page) |
-| `EntityPublicFloat` | USD | Public float |
-
-### Balance Sheet (Point-in-Time)
-
-| XBRL Concept | Unit | Used For |
-|--------------|------|----------|
-| `Assets` | USD | Total Assets, ROAA, Deposits/Assets |
+| `Assets` | USD | Total Assets, ROAA, ratios |
 | `StockholdersEquity` | USD | Total Equity, ROE, Book Value |
 | `StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest` | USD | Fallback for Equity |
 | `Deposits` | USD | Deposits/Assets ratio |
 | `DepositsDomestic` | USD | Fallback for Deposits |
 | `Liabilities` | USD | Total Liabilities |
-| `CommonStockSharesOutstanding` | shares | Fallback for shares (balance sheet) |
+| `PreferredStockValue` | USD | Preferred stock (for common equity calc) |
+| `CommonStockSharesOutstanding` | shares | Shares for per-share calculations |
 | `CashAndCashEquivalentsAtCarryingValue` | USD | Cash position |
 | `CashAndDueFromBanks` | USD | Fallback for Cash |
 | `LoansAndLeasesReceivableNetReportedAmount` | USD | Loans |
+| `LoansAndLeasesReceivableNetOfDeferredIncome` | USD | Fallback for Loans |
+| `FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss` | USD | Fallback for Loans |
 
-### Income Statement (TTM)
+### Income Statement (TTM from quarterly filings, qtrs=1)
 
 | XBRL Concept | Unit | Used For |
 |--------------|------|----------|
 | `NetIncomeLoss` | USD | Net Income, ROE, ROAA |
 | `ProfitLoss` | USD | Fallback for Net Income |
-| `NetIncomeLossAvailableToCommonStockholdersBasic` | USD | Fallback |
+| `NetIncomeLossAvailableToCommonStockholdersBasic` | USD | Net Income to Common |
+| `PreferredStockDividendsAndOtherAdjustments` | USD | For NI to Common derivation |
 | `EarningsPerShareBasic` | USD/shares | EPS, Graham Number |
 | `EarningsPerShareDiluted` | USD/shares | Fallback for EPS |
-| `InterestIncomeExpenseNet` | USD | Efficiency Ratio |
+| `InterestIncomeExpenseNet` | USD | Net Interest Income |
 | `NetInterestIncome` | USD | Fallback for NII |
+| `InterestIncome` | USD | Interest Income |
+| `InterestAndDividendIncomeOperating` | USD | Fallback |
+| `InterestExpense` | USD | Interest Expense |
 | `NoninterestIncome` | USD | Efficiency Ratio |
 | `NoninterestExpense` | USD | Efficiency Ratio |
-| `OperatingExpenses` | USD | Fallback |
+| `OperatingExpenses` | USD | Fallback for NIE |
+| `ProvisionForLoanLeaseAndOtherLosses` | USD | Provision |
+| `ProvisionForCreditLosses` | USD | Fallback |
+| `IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest` | USD | Pre-tax income |
 
 ### Dividend Concepts (TTM)
 
@@ -83,90 +78,43 @@ export SEC_USER_AGENT="Your Company Name admin@example.com"
 |--------------|------|----------|
 | `CommonStockDividendsPerShareDeclared` | USD/shares | TTM DPS |
 | `CommonStockDividendsPerShareCashPaid` | USD/shares | Fallback |
-| `PaymentsOfDividendsCommonStock` | USD | Total dividends |
-| `PaymentsOfDividends` | USD | Fallback |
 
 ---
 
-## Company Facts API Structure
+## Financial Statement Data Sets Structure
 
-The API returns data structured by namespace and concept:
+The data is provided in quarterly ZIP files containing tab-separated files:
 
-```json
-{
-  "cik": 18255,
-  "entityName": "JPMORGAN CHASE & CO",
-  "facts": {
-    "dei": {
-      "EntityCommonStockSharesOutstanding": {
-        "label": "Entity Common Stock, Shares Outstanding",
-        "units": {
-          "shares": [
-            {
-              "end": "2024-09-30",
-              "val": 2850000000,
-              "accn": "0000019617-24-000123",
-              "fy": 2024,
-              "fp": "Q3",
-              "form": "10-Q",
-              "filed": "2024-11-01"
-            }
-          ]
-        }
-      }
-    },
-    "us-gaap": {
-      "Assets": {
-        "label": "Assets",
-        "units": {
-          "USD": [
-            {
-              "end": "2024-09-30",
-              "val": 4200000000000,
-              "start": null,
-              "accn": "...",
-              "fy": 2024,
-              "fp": "Q3",
-              "form": "10-Q",
-              "filed": "2024-11-01"
-            }
-          ]
-        }
-      }
-    }
-  }
-}
+### sub.txt (Submissions)
+```
+adsh    cik     name    sic     form    filed   fy      fp
+0000018255-24-000123    18255   JPMORGAN CHASE & CO    6022    10-Q    2024-11-01  2024    Q3
+```
+
+### num.txt (Numeric Data)
+```
+adsh    tag     version     ddate       qtrs    value       uom
+0000018255-24-000123    Assets  us-gaap/2024    20240930    0   4200000000000   USD
+0000018255-24-000123    NetIncomeLoss   us-gaap/2024    20240930    1   15000000000 USD
+```
+
+### pre.txt (Presentation Linkbase)
+```
+adsh    report  line    stmt    inpth   tag     version     plabel  negating
+0000018255-24-000123    2   10  BS  0   Assets  us-gaap/2024    Total assets    0
 ```
 
 ### Key Fields
 
 | Field | Description |
 |-------|-------------|
-| `val` | Numeric value |
-| `end` | Period end date (YYYY-MM-DD) |
-| `start` | Period start date (null for point-in-time) |
-| `form` | Filing type (10-K, 10-Q) |
-| `fy` | Fiscal year |
-| `fp` | Fiscal period (Q1, Q2, Q3, FY) |
-| `filed` | Filing date |
-| `accn` | Accession number |
-
----
-
-## Period Length Inference
-
-The Company Facts API doesn't have an explicit `qtrs` field. We infer it:
-
-| Concept Type | `start` Field | Inferred Period |
-|--------------|---------------|-----------------|
-| Balance sheet | null | Point-in-time (qtrs=0) |
-| Income/cash flow | present | Duration-based |
-
-**Duration Classification:**
-- ≤100 days → Quarterly (qtrs=1)
-- 101-200 days → Semi-annual (qtrs=2)
-- 201-300 days → 9 months (qtrs=3)
-- >300 days → Annual (qtrs=4)
+| `adsh` | Accession number (filing ID) |
+| `ddate` | Period end date (YYYYMMDD) |
+| `qtrs` | Period length: 0=point-in-time, 1=quarter, 4=annual |
+| `stmt` | Statement type: BS, IS, CF, EQ, CI |
+| `line` | Presentation line number |
+| `negating` | 1 if value should be negated in presentation |
+| `inpth` | 1 if parenthetical (excluded from primary statements) |
 
 ---
 
@@ -212,7 +160,7 @@ const average = sum(periodsToUse.map(p => p.value)) / periodsToUse.length;
 
 | Metric | Formula |
 |--------|---------|
-| Book Value Per Share | `Equity / Shares` |
+| Book Value Per Share | `(Equity - PreferredStock) / Shares` |
 
 ### Profitability Ratios
 
@@ -228,14 +176,27 @@ const average = sum(periodsToUse.map(p => p.value)) / periodsToUse.length;
 | Efficiency Ratio % | `NIE / (NII + NonintIncome) × 100` | 50-70% |
 | Deposits/Assets % | `Deposits / Assets × 100` | 70-85% |
 | Equity/Assets % | `Equity / Assets × 100` | 8-12% |
+| Loans/Assets % | `Loans / Assets × 100` | 50-75% |
+| Loans/Deposits % | `Loans / Deposits × 100` | 70-100% |
 
 ### Graham Value Metrics
 
 | Metric | Formula |
 |--------|---------|
 | Graham Number | `√(22.5 × EPS × BVPS)` |
-| Graham MoS ($) | `GrahamNumber - Price` |
-| Graham MoS (%) | `(GrahamNumber - Price) / Price × 100` |
+| Graham MoS ($) | `GrahamNumber - Price` (requires price data) |
+| Graham MoS (%) | `(GrahamNumber - Price) / Price × 100` (requires price data) |
+
+### Price-Dependent Metrics (Placeholders)
+
+The following metrics require external price data and are currently null:
+
+| Metric | Formula | Status |
+|--------|---------|--------|
+| Price | External source | Placeholder |
+| Market Cap | `Price × Shares` | Placeholder |
+| P/E Ratio | `Price / EPS` | Placeholder |
+| P/B Ratio | `Price / BVPS` | Placeholder |
 
 ---
 
@@ -257,26 +218,18 @@ Values outside these ranges are flagged and nulled out.
 
 ## Running the Script
 
-### Fetch Using Per-Company API
+### Process Cached Data
 
 ```bash
-export SEC_USER_AGENT="Your Company Name admin@example.com"
-node scripts/fetch-sec-company-facts.cjs
-```
-
-### Fetch Using Bulk Download (Recommended)
-
-```bash
-export SEC_USER_AGENT="Your Company Name admin@example.com"
-node scripts/fetch-sec-company-facts.cjs --bulk
+node scripts/fetch-sec-fs-datasets.cjs --verbose
 ```
 
 This will:
-1. Download companyfacts.zip (~2GB)
-2. Extract and process bank company facts
-3. Store full JSON per bank in `public/data/company-facts/`
-4. Calculate metrics
-5. Save to `banks.json` and `sec-raw-data.json`
+1. Read quarterly ZIP files from `.sec-data-cache/`
+2. Parse sub.txt, num.txt, pre.txt files
+3. Build "as reported" financial statements
+4. Calculate TTM metrics
+5. Save to `banks.json` and individual bank files
 
 ---
 
@@ -284,12 +237,36 @@ This will:
 
 | Workflow | Schedule | Script |
 |----------|----------|--------|
-| `update-sec-data.yml` | Daily (3AM UTC) | `fetch-sec-company-facts.cjs --bulk` |
+| `update-sec-data.yml` | Daily (3AM UTC) | `fetch-sec-fs-datasets.cjs` |
 
-**Required Secret:** `SEC_USER_AGENT` - Your contact info for SEC API access.
+The workflow downloads quarterly ZIP files from the `sec-data` release and processes them.
 
 ---
 
-## Reversion Plan
+## Historical Statement Structure
 
-If issues arise with the Company Facts API, see `docs/reversion-plan-sec-fs-datasets.md` for instructions to revert to the SEC Financial Statement Data Sets approach.
+Each bank's data file includes "as reported on face" presentations:
+
+```json
+{
+  "rawData": {
+    "historicalBalanceSheet": {
+      "quarterly": [
+        {
+          "period": "Q3 2024",
+          "filingDate": "2024-11-01",
+          "items": [
+            { "tag": "Assets", "label": "Total assets", "line": 10, "value": 4200000000000 }
+          ]
+        }
+      ],
+      "annual": [...],
+      "canonicalItems": {
+        "quarterly": [...],
+        "annual": [...]
+      }
+    },
+    "historicalIncomeStatement": {...}
+  }
+}
+```

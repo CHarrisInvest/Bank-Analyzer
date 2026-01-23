@@ -66,7 +66,9 @@ function App() {
       const banksResult = await fetchBankData();
 
       if (banksResult.success) {
-        setBanks(banksResult.data);
+        // Filter out banks without tickers - they can't be looked up by users
+        const banksWithTickers = banksResult.data.filter(bank => bank.ticker);
+        setBanks(banksWithTickers);
         setError(null);
       } else {
         setError(banksResult.error?.message || 'Failed to load bank data');

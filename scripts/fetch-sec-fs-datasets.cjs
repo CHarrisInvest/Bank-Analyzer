@@ -51,11 +51,29 @@ const CONFIG = {
   minQuarterYear: 2023,
   minQuarter: 1,
 
+  // Maximum days since last filing to be considered an active filer
+  // Banks with no 10-Q or 10-K filed within this threshold are excluded
+  activeFilerThresholdDays: 150,
+
   // Financial institution SIC codes
   financialInstitutionSicCodes: [
     '6020', '6021', '6022', '6029',  // Commercial Banks
     '6035', '6036',                   // Savings Institutions
+    '6710', '6711', '6712',           // Bank Holding Companies
   ],
+
+  // SIC code descriptions for output
+  sicDescriptions: {
+    '6020': 'Commercial Banks',
+    '6021': 'National Commercial Banks',
+    '6022': 'State Commercial Banks',
+    '6029': 'Commercial Banks, NEC',
+    '6035': 'Savings Institutions, Federally Chartered',
+    '6036': 'Savings Institutions, Not Federally Chartered',
+    '6710': 'Holding Offices',
+    '6711': 'Offices of Bank Holding Companies',
+    '6712': 'Offices of Bank Holding Companies',
+  },
 
   // Statement types we care about from pre.txt
   statementTypes: {
@@ -110,6 +128,175 @@ function selectBestTicker(tickers) {
  */
 function verboseLog(...args) {
   if (VERBOSE) console.log('  [verbose]', ...args);
+}
+
+/**
+ * Fetch SEC company tickers for ticker resolution
+ * Returns a Map of CIK -> array of tickers
+ */
+async function fetchSecCompanyTickers() {
+  const https = require('https');
+
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: 'www.sec.gov',
+      path: '/files/company_tickers.json',
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Bank-Analyzer/1.0 (https://github.com/CHarrisInvest/Bank-Analyzer)',
+        'Accept': 'application/json',
+      },
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        if (res.statusCode !== 200) {
+          reject(new Error(`HTTP ${res.statusCode}`));
+          return;
+        }
+        try {
+          const json = JSON.parse(data);
+          const tickersByCik = new Map();
+
+          for (const key in json) {
+            const company = json[key];
+            const cik = String(company.cik_str).padStart(10, '0');
+            const ticker = company.ticker;
+
+            if (!tickersByCik.has(cik)) {
+              tickersByCik.set(cik, []);
+            }
+            tickersByCik.get(cik).push(ticker);
+          }
+
+          resolve(tickersByCik);
+        } catch (e) {
+          reject(e);
+        }
+      });
+    });
+
+    req.on('error', reject);
+    req.end();
+  });
+}
+
+/**
+ * Fetch ticker for a single CIK from SEC submissions endpoint
+ * This is a fallback for banks not found in company_tickers.json
+ */
+async function fetchTickerFromSubmissions(cik, delayMs = 150) {
+  const https = require('https');
+  const paddedCik = String(cik).padStart(10, '0');
+
+  // Rate limiting
+  await new Promise(resolve => setTimeout(resolve, delayMs));
+
+  return new Promise((resolve) => {
+    const options = {
+      hostname: 'data.sec.gov',
+      path: `/submissions/CIK${paddedCik}.json`,
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Bank-Analyzer/1.0 (https://github.com/CHarrisInvest/Bank-Analyzer)',
+        'Accept': 'application/json',
+      },
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        if (res.statusCode !== 200) {
+          resolve(null);
+          return;
+        }
+        try {
+          const json = JSON.parse(data);
+          // The submissions endpoint includes tickers array
+          const tickers = json.tickers || [];
+          resolve(tickers.length > 0 ? tickers : null);
+        } catch (e) {
+          resolve(null);
+        }
+      });
+    });
+
+    req.on('error', () => resolve(null));
+    req.setTimeout(10000, () => {
+      req.destroy();
+      resolve(null);
+    });
+    req.end();
+  });
+}
+
+/**
+ * Batch fetch tickers for banks without tickers
+ * Uses SEC submissions endpoint as fallback
+ */
+async function resolveMissingTickers(bankDataMap, tickersByCik) {
+  const banksNeedingTickers = [];
+
+  bankDataMap.forEach((bankData, cik) => {
+    if (!bankData.ticker && !tickersByCik.has(cik)) {
+      banksNeedingTickers.push({ cik, name: bankData.companyName });
+    }
+  });
+
+  if (banksNeedingTickers.length === 0) {
+    return;
+  }
+
+  console.log(`\nResolving tickers for ${banksNeedingTickers.length} banks via SEC submissions...`);
+
+  let resolved = 0;
+  for (const { cik, name } of banksNeedingTickers) {
+    const tickers = await fetchTickerFromSubmissions(cik);
+    if (tickers && tickers.length > 0) {
+      tickersByCik.set(cik, tickers);
+      const bestTicker = selectBestTicker(tickers);
+      const bankData = bankDataMap.get(cik);
+      if (bankData) {
+        bankData.ticker = bestTicker;
+      }
+      resolved++;
+      verboseLog(`  Resolved ${name}: ${bestTicker}`);
+    }
+  }
+
+  console.log(`  Resolved ${resolved} of ${banksNeedingTickers.length} banks`);
+}
+
+/**
+ * Discover banks from sub.txt by SIC code
+ * Returns array of bank objects with CIK, company name, SIC
+ */
+function discoverBanksFromSubmissions(subData) {
+  const sicCodesSet = new Set(CONFIG.financialInstitutionSicCodes);
+  const banksByCik = new Map();
+
+  for (const sub of subData) {
+    if (!sub.sic || !sicCodesSet.has(sub.sic)) continue;
+
+    const cik = sub.cik?.padStart(10, '0');
+    if (!cik) continue;
+
+    // Keep the most recent submission info for each CIK
+    if (!banksByCik.has(cik) || sub.filed > banksByCik.get(cik).filed) {
+      banksByCik.set(cik, {
+        cik,
+        companyName: sub.name,
+        sic: sub.sic,
+        sicDescription: CONFIG.sicDescriptions[sub.sic] || sub.sic,
+        filed: sub.filed,
+      });
+    }
+  }
+
+  return Array.from(banksByCik.values());
 }
 
 /**
@@ -182,18 +369,23 @@ async function parseTsvFile(filePath, filterFn = null) {
 }
 
 /**
- * Load bank list to get CIKs
+ * Load bank list if it exists (optional, used for ticker hints)
+ * Returns empty array if file doesn't exist
  */
 function loadBankList() {
   const bankListPath = path.join(OUTPUT_DIR, 'bank-list.json');
 
   if (!fs.existsSync(bankListPath)) {
-    console.error('Bank list not found. Run discover-banks.cjs first.');
-    process.exit(1);
+    return [];
   }
 
-  const data = JSON.parse(fs.readFileSync(bankListPath, 'utf8'));
-  return data.banks || [];
+  try {
+    const data = JSON.parse(fs.readFileSync(bankListPath, 'utf8'));
+    return data.banks || [];
+  } catch (e) {
+    console.warn(`Warning: Could not parse bank-list.json: ${e.message}`);
+    return [];
+  }
 }
 
 /**
@@ -324,8 +516,9 @@ async function processPresentation(extractDir, bankAdshs) {
 
 /**
  * Process a quarterly dataset from local ZIP file
+ * Discovers banks dynamically by filtering on SIC codes
  */
-async function processQuarterlyDataset(datasetInfo, bankCiks) {
+async function processQuarterlyDataset(datasetInfo) {
   const { period, zipPath } = datasetInfo;
 
   if (!zipPath || !fs.existsSync(zipPath)) {
@@ -346,20 +539,20 @@ async function processQuarterlyDataset(datasetInfo, bankCiks) {
     }
   }
 
-  // Parse sub.txt for bank submissions
+  // Parse sub.txt for all submissions
   console.log(`  Parsing sub.txt...`);
   const subData = await parseTsvFile(path.join(extractDir, 'sub.txt'));
   console.log(`    Found ${subData.length} submissions`);
 
-  // Filter to bank submissions, excluding amended filings (prevrpt=1)
+  // Filter to bank submissions by SIC code, excluding amended filings (prevrpt=1)
   // Per SEC docs: "prevrpt=TRUE indicates the submission was subsequently amended"
+  const sicCodesSet = new Set(CONFIG.financialInstitutionSicCodes);
   const bankSubmissions = subData.filter(sub => {
-    const cik = sub.cik?.padStart(10, '0');
-    const isBank = bankCiks.has(cik);
+    const isBank = sub.sic && sicCodesSet.has(sub.sic);
     const isAmended = sub.prevrpt === '1' || sub.prevrpt === 1;
     return isBank && !isAmended;
   });
-  console.log(`    Matched ${bankSubmissions.length} bank submissions (excluding amended)`);
+  console.log(`    Matched ${bankSubmissions.length} bank submissions by SIC code (excluding amended)`);
 
   const bankAdshs = new Set(bankSubmissions.map(s => s.adsh));
 
@@ -423,43 +616,64 @@ async function processQuarterlyDataset(datasetInfo, bankCiks) {
 
 /**
  * Aggregate data across quarters for each bank, including presentation structure
+ * Banks are discovered dynamically from the quarterly results (filtered by SIC code)
  */
-function aggregateBankData(quarterlyResults, bankList) {
+function aggregateBankData(quarterlyResults, tickersByCik) {
   const bankDataMap = new Map();
 
-  // First, build a map of CIK -> all available tickers for best ticker selection
-  const tickersByCik = new Map();
-  bankList.forEach(bank => {
-    const cik = bank.cik?.padStart(10, '0');
-    if (cik && bank.ticker) {
-      if (!tickersByCik.has(cik)) {
-        tickersByCik.set(cik, []);
+  // First pass: Discover all unique banks from submissions
+  // (submissions were already filtered by SIC code during processing)
+  const discoveredBanks = new Map();  // CIK -> bank info
+  quarterlyResults.forEach(qResult => {
+    if (!qResult || !qResult.submissions) return;
+    qResult.submissions.forEach(sub => {
+      const cik = sub.cik?.padStart(10, '0');
+      if (!cik) return;
+
+      // Keep the most recent info for each CIK
+      if (!discoveredBanks.has(cik) || sub.filed > discoveredBanks.get(cik).filed) {
+        discoveredBanks.set(cik, {
+          cik,
+          companyName: sub.name,
+          sic: sub.sic,
+          sicDescription: CONFIG.sicDescriptions[sub.sic] || sub.sic,
+          filed: sub.filed,
+        });
       }
-      tickersByCik.get(cik).push(bank.ticker);
-    }
+    });
+  });
+
+  console.log(`  Discovered ${discoveredBanks.size} unique banks by SIC code`);
+
+  // Log SIC code distribution
+  const sicCounts = new Map();
+  discoveredBanks.forEach(bank => {
+    const count = sicCounts.get(bank.sic) || 0;
+    sicCounts.set(bank.sic, count + 1);
+  });
+  console.log(`  SIC code distribution:`);
+  Array.from(sicCounts.entries()).sort().forEach(([sic, count]) => {
+    console.log(`    ${sic} (${CONFIG.sicDescriptions[sic] || 'Unknown'}): ${count}`);
   });
 
   // Initialize bank data structures with best ticker selection
-  bankList.forEach(bank => {
-    const cik = bank.cik?.padStart(10, '0');
-    if (cik && !bankDataMap.has(cik)) {
-      // Select best ticker (prefer common stock over preferred)
-      const availableTickers = tickersByCik.get(cik) || [bank.ticker];
-      const bestTicker = selectBestTicker(availableTickers);
+  discoveredBanks.forEach((bank, cik) => {
+    // Select best ticker (prefer common stock over preferred)
+    const availableTickers = tickersByCik.get(cik) || [];
+    const bestTicker = selectBestTicker(availableTickers);
 
-      bankDataMap.set(cik, {
-        cik,
-        ticker: bestTicker,
-        companyName: bank.companyName,
-        exchange: bank.exchange,
-        sic: bank.sic,
-        sicDescription: bank.sicDescription,
-        otcTier: bank.otcTier || null,
-        concepts: {},
-        submissions: [],
-        presentationByFiling: {}, // adsh -> {BS: [...], IS: [...]}
-      });
-    }
+    bankDataMap.set(cik, {
+      cik,
+      ticker: bestTicker,
+      companyName: bank.companyName,
+      exchange: null,  // Will be determined later or left null
+      sic: bank.sic,
+      sicDescription: bank.sicDescription,
+      otcTier: null,
+      concepts: {},
+      submissions: [],
+      presentationByFiling: {}, // adsh -> {BS: [...], IS: [...]}
+    });
   });
 
   // Aggregate data from all quarters
@@ -1075,6 +1289,8 @@ function calculateBankMetrics(bankData) {
                    getLatestPointInTime(concepts['DepositsDomestic']);
   const equity = getLatestPointInTime(concepts['StockholdersEquity']) ||
                  getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
+  const preferredStock = getLatestPointInTime(concepts['PreferredStockValue']) ||
+                         getLatestPointInTime(concepts['PreferredStockValueOutstanding']);
   const sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']);
 
   // Income Statement (TTM) - Calculate first to get TTM date for averaging alignment
@@ -1105,6 +1321,9 @@ function calculateBankMetrics(bankData) {
   const preTaxIncome = getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest']) ||
                        getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxes']);
   // netIncome already calculated above for TTM date alignment
+  const netIncomeToCommonDirect = getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
+  const preferredDividends = getTTMValue(concepts['PreferredStockDividendsAndOtherAdjustments']) ||
+                              getTTMValue(concepts['DividendsPreferredStock']);
   const eps = getTTMValue(concepts['EarningsPerShareBasic']) ||
               getTTMValue(concepts['EarningsPerShareDiluted']);
   const dps = getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
@@ -1114,6 +1333,8 @@ function calculateBankMetrics(bankData) {
   const totalAssets = assets?.value;
   const totalDeposits = deposits?.value;
   const totalEquity = equity?.value;
+  const preferredValue = preferredStock?.value || 0;
+  const loansValue = loans?.value;
   const sharesOutstanding = sharesData?.value;
   const ttmNii = netInterestIncome?.value;
   const ttmNonintIncome = noninterestIncome?.value;
@@ -1122,8 +1343,20 @@ function calculateBankMetrics(bankData) {
   const ttmEps = eps?.value;
   const ttmDps = dps?.value;
 
+  // NI to Common: use direct value, or derive from Net Income minus Preferred Dividends
+  let ttmNetIncomeToCommon = netIncomeToCommonDirect?.value ?? null;
+  if (ttmNetIncomeToCommon === null && ttmNetIncome !== null && preferredDividends?.value != null) {
+    ttmNetIncomeToCommon = ttmNetIncome - preferredDividends.value;
+  }
+  // Validation: NI to Common should not exceed Net Income
+  if (ttmNetIncomeToCommon !== null && ttmNetIncome !== null && ttmNetIncomeToCommon > ttmNetIncome) {
+    ttmNetIncomeToCommon = null;
+  }
+
   // Derived values
-  const bvps = totalEquity && sharesOutstanding ? totalEquity / sharesOutstanding : null;
+  // BVPS = Common Equity / Shares Outstanding (exclude preferred stock)
+  const commonEquity = totalEquity ? totalEquity - preferredValue : null;
+  const bvps = commonEquity && sharesOutstanding ? commonEquity / sharesOutstanding : null;
   const avgAssetsValue = avgAssets?.average || totalAssets;
   const avgEquityValue = avgEquity?.average || totalEquity;
 
@@ -1136,6 +1369,21 @@ function calculateBankMetrics(bankData) {
   const efficiencyRatio = ttmNonintExpense && totalRevenue > 0 ? (ttmNonintExpense / totalRevenue) * 100 : null;
   const depositsToAssets = totalDeposits && totalAssets ? (totalDeposits / totalAssets) * 100 : null;
   const equityToAssets = totalEquity && totalAssets ? (totalEquity / totalAssets) * 100 : null;
+  const loansToAssets = loansValue && totalAssets ? (loansValue / totalAssets) * 100 : null;
+  const loansToDeposits = loansValue && totalDeposits ? (loansValue / totalDeposits) * 100 : null;
+
+  // Graham metrics (grahamNum requires EPS and BVPS, price-dependent metrics are null placeholders)
+  const grahamNum = ttmEps && bvps && ttmEps > 0 && bvps > 0 ? Math.sqrt(22.5 * ttmEps * bvps) : null;
+  const dividendPayoutRatio = ttmDps && ttmEps && ttmEps > 0 ? (ttmDps / ttmEps) * 100 : null;
+
+  // Price/market data placeholders - will be populated from external source
+  // All price-dependent metrics return null until price data is available
+  const price = null;  // Placeholder: external price source
+  const marketCap = null;  // Placeholder: price * sharesOutstanding
+  const pni = null;  // Placeholder: price / ttmEps (P/E ratio)
+  const priceToBook = null;  // Placeholder: price / bvps (P/B ratio)
+  const grahamMoS = null;  // Placeholder: grahamNum - price (margin of safety $)
+  const grahamMoSPct = null;  // Placeholder: ((grahamNum - price) / price) * 100 (margin of safety %)
 
   const dataDate = assets?.ddate || equity?.ddate || netIncome?.date;
   const formattedDate = dataDate ? `${dataDate.slice(0,4)}-${dataDate.slice(4,6)}-${dataDate.slice(6,8)}` : null;
@@ -1152,6 +1400,7 @@ function calculateBankMetrics(bankData) {
       Liabilities: liabilities,
       Deposits: deposits,
       StockholdersEquity: equity,
+      PreferredStockValue: preferredStock,
       CommonStockSharesOutstanding: sharesData
     },
     incomeStatement: {
@@ -1163,6 +1412,8 @@ function calculateBankMetrics(bankData) {
       ProvisionForCreditLosses: provisionForCreditLosses,
       PreTaxIncome: preTaxIncome,
       NetIncomeLoss: netIncome,
+      NetIncomeLossAvailableToCommonStockholdersBasic: netIncomeToCommonDirect,
+      PreferredStockDividends: preferredDividends,
       EarningsPerShareBasic: eps
     },
     dividends: {
@@ -1186,13 +1437,16 @@ function calculateBankMetrics(bankData) {
       sic: bankData.sic,
       sicDescription: bankData.sicDescription,
       otcTier: bankData.otcTier,
+      // Balance Sheet
       totalAssets,
       cashAndCashEquivalents: cashAndCashEquivalents?.value,
-      loans: loans?.value,
+      loans: loansValue,
       totalLiabilities: liabilities?.value,
       totalDeposits,
       totalEquity,
+      preferredStock: preferredValue,
       sharesOutstanding,
+      // Income Statement (TTM)
       ttmInterestIncome: interestIncome?.value,
       ttmInterestExpense: interestExpense?.value,
       ttmNetInterestIncome: ttmNii,
@@ -1201,18 +1455,34 @@ function calculateBankMetrics(bankData) {
       ttmProvisionForCreditLosses: provisionForCreditLosses?.value,
       ttmPreTaxIncome: preTaxIncome?.value,
       ttmNetIncome,
+      ttmNetIncomeToCommon,
       ttmEps,
+      ttmDividendPerShare: ttmDps ? parseFloat(ttmDps.toFixed(4)) : null,
+      // Derived values
       bvps: bvps ? parseFloat(bvps.toFixed(4)) : null,
+      // Profitability ratios
       roe: roe ? parseFloat(roe.toFixed(4)) : null,
       roaa: roaa ? parseFloat(roaa.toFixed(4)) : null,
+      // Bank-specific ratios
       efficiencyRatio: efficiencyRatio ? parseFloat(efficiencyRatio.toFixed(2)) : null,
       depositsToAssets: depositsToAssets ? parseFloat(depositsToAssets.toFixed(2)) : null,
       equityToAssets: equityToAssets ? parseFloat(equityToAssets.toFixed(2)) : null,
-      grahamNum: ttmEps && bvps && ttmEps > 0 && bvps > 0 ? parseFloat(Math.sqrt(22.5 * ttmEps * bvps).toFixed(4)) : null,
-      ttmDividendPerShare: ttmDps ? parseFloat(ttmDps.toFixed(4)) : null,
-      dividendPayoutRatio: ttmDps && ttmEps && ttmEps > 0 ? parseFloat(((ttmDps / ttmEps) * 100).toFixed(2)) : null,
+      loansToAssets: loansToAssets ? parseFloat(loansToAssets.toFixed(2)) : null,
+      loansToDeposits: loansToDeposits ? parseFloat(loansToDeposits.toFixed(2)) : null,
+      // Graham metrics
+      grahamNum: grahamNum ? parseFloat(grahamNum.toFixed(4)) : null,
+      dividendPayoutRatio: dividendPayoutRatio ? parseFloat(dividendPayoutRatio.toFixed(2)) : null,
+      // Price/market data placeholders (null until external price source integrated)
+      price,
+      marketCap,
+      pni,  // P/E ratio
+      priceToBook,  // P/B ratio
+      grahamMoS,  // Graham margin of safety ($)
+      grahamMoSPct,  // Graham margin of safety (%)
+      // Averages for ratio calculations
       avgAssets: avgAssetsValue ? parseFloat(avgAssetsValue.toFixed(0)) : null,
       avgEquity: avgEquityValue ? parseFloat(avgEquityValue.toFixed(0)) : null,
+      // Metadata
       dataDate: formattedDate,
       ttmMethod: netIncome?.method || 'unknown',
       returnRatioAvgMethod: avgAssets?.method || avgEquity?.method || 'single-period',
@@ -1293,31 +1563,51 @@ async function main() {
     console.log('Prerequisites:');
     console.log('  1. Download SEC FS Data Sets ZIP files to .sec-data-cache/');
     console.log('     Example: 2025q3.zip, 2025q2.zip, etc.');
-    console.log('  2. Run discover-banks.cjs first to generate bank-list.json');
+    console.log('');
+    console.log('Banks are discovered dynamically by SIC code from SEC filings.');
+    console.log(`SIC codes: ${CONFIG.financialInstitutionSicCodes.join(', ')}`);
     process.exit(0);
   }
 
   console.log('SEC FINANCIAL STATEMENT DATA SETS PROCESSOR');
   console.log(`Started: ${new Date().toISOString()}`);
   console.log('Features: "As Reported on Face" presentation via pre.txt');
+  console.log('Discovery: Dynamic by SIC code from SEC filings');
 
   // Ensure cache directory exists
   if (!fs.existsSync(TEMP_DIR)) {
     fs.mkdirSync(TEMP_DIR, { recursive: true });
   }
 
-  // Load bank list
-  console.log('\nLoading bank list...');
-  const bankList = loadBankList();
-  console.log(`  Found ${bankList.length} banks`);
+  // Fetch SEC company tickers for ticker resolution
+  console.log('\nFetching SEC company tickers for ticker resolution...');
+  let secTickersByCik = new Map();
+  try {
+    secTickersByCik = await fetchSecCompanyTickers();
+    console.log(`  Loaded ${secTickersByCik.size} companies with tickers`);
+  } catch (e) {
+    console.warn(`  Warning: Could not fetch SEC tickers: ${e.message}`);
+    console.warn('  Continuing without ticker resolution...');
+  }
 
-  const bankCiks = new Set();
-  bankList.forEach(bank => {
-    if (bank.cik) {
-      bankCiks.add(bank.cik.padStart(10, '0'));
+  // Load optional bank list for additional ticker hints
+  const bankList = loadBankList();
+  if (bankList.length > 0) {
+    console.log(`  Loaded ${bankList.length} banks from bank-list.json (optional ticker hints)`);
+    // Merge bank-list tickers into secTickersByCik
+    for (const bank of bankList) {
+      const cik = bank.cik?.padStart(10, '0');
+      if (cik && bank.ticker) {
+        if (!secTickersByCik.has(cik)) {
+          secTickersByCik.set(cik, []);
+        }
+        const tickers = secTickersByCik.get(cik);
+        if (!tickers.includes(bank.ticker)) {
+          tickers.push(bank.ticker);
+        }
+      }
     }
-  });
-  console.log(`  ${bankCiks.size} unique CIKs`);
+  }
 
   // Find cached ZIP files
   const cached = findCachedQuarters();
@@ -1337,11 +1627,11 @@ async function main() {
     ? cached.slice(0, CONFIG.quartersToFetch)
     : cached;
 
-  // Process each quarter
+  // Process each quarter (banks discovered dynamically by SIC code)
   const quarterlyResults = [];
   for (const datasetInfo of datasetUrls) {
     try {
-      const result = await processQuarterlyDataset(datasetInfo, bankCiks);
+      const result = await processQuarterlyDataset(datasetInfo);
       if (result) {
         quarterlyResults.push(result);
       }
@@ -1374,17 +1664,55 @@ async function main() {
     process.exit(1);
   }
 
-  // Aggregate bank data
+  // Aggregate bank data (banks discovered dynamically by SIC code)
   console.log('\nAggregating bank data...');
-  const bankDataMap = aggregateBankData(quarterlyResults, bankList);
+  const bankDataMap = aggregateBankData(quarterlyResults, secTickersByCik);
 
-  // Calculate metrics
-  console.log('Calculating metrics...');
+  // Resolve missing tickers via SEC submissions endpoint fallback
+  await resolveMissingTickers(bankDataMap, secTickersByCik);
+
+  // Filter to active filers only (filed within last N days)
+  console.log(`\nFiltering to active filers (filed within ${CONFIG.activeFilerThresholdDays} days)...`);
+  const now = new Date();
+  const thresholdDate = new Date(now.getTime() - CONFIG.activeFilerThresholdDays * 24 * 60 * 60 * 1000);
+  const thresholdDateStr = thresholdDate.toISOString().slice(0, 10).replace(/-/g, '');
+
+  let activeBanks = 0;
+  let staleBanks = 0;
+  bankDataMap.forEach((bankData, cik) => {
+    // Find most recent filing date from submissions
+    let mostRecentFiled = null;
+    for (const sub of bankData.submissions) {
+      // Only consider 10-Q and 10-K filings
+      if (sub.form !== '10-Q' && sub.form !== '10-K') continue;
+      if (!mostRecentFiled || sub.filed > mostRecentFiled) {
+        mostRecentFiled = sub.filed;
+      }
+    }
+
+    // Mark stale banks for removal
+    if (!mostRecentFiled || mostRecentFiled < thresholdDateStr) {
+      bankData._isStale = true;
+      staleBanks++;
+      verboseLog(`  Excluding stale filer: ${bankData.ticker || cik} (last filed: ${mostRecentFiled || 'never'})`);
+    } else {
+      activeBanks++;
+    }
+  });
+
+  console.log(`  Active filers: ${activeBanks}`);
+  console.log(`  Stale filers excluded: ${staleBanks}`);
+
+  // Calculate metrics (only for active filers)
+  console.log('\nCalculating metrics...');
   const results = [];
   const rawDataStore = {};
 
   let bankIndex = 0;
   bankDataMap.forEach((bankData, cik) => {
+    // Skip stale filers
+    if (bankData._isStale) return;
+
     if (Object.keys(bankData.concepts).length === 0) {
       return;
     }
