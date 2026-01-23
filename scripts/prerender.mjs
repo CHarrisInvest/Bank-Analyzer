@@ -275,6 +275,29 @@ async function generatePages() {
   }));
   count++;
 
+  // Valuation index
+  writePage('/valuation', createPage({
+    path: '/valuation',
+    title: 'Bank Valuation Methods Guide - BankSift',
+    description: 'Learn how to value bank stocks using Graham Number, margin of safety, P/E ratio, P/B ratio, and other proven valuation methods for bank investing.',
+    canonical: `${SITE_URL}/valuation`,
+    content: `
+      <h1>Bank Valuation Methods</h1>
+      <p>Learn proven methods for valuing bank stocks and finding investment opportunities.</p>
+      <h2>Valuation Approaches</h2>
+      <ul>
+        <li>Graham Number - Benjamin Graham's intrinsic value formula</li>
+        <li>Margin of Safety - Discount to fair value</li>
+        <li>Price to Book Valuation</li>
+        <li>Price to Earnings Valuation</li>
+        <li>ROE-P/B Framework</li>
+        <li>Dividend Discount Model</li>
+        <li>Peer Comparison Analysis</li>
+      </ul>
+    `
+  }));
+  count++;
+
   // Glossary
   writePage('/glossary', createPage({
     path: '/glossary',

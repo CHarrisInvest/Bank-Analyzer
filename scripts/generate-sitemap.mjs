@@ -26,6 +26,7 @@ async function generateSitemap() {
     { path: '/screener/guide', priority: '0.8', changefreq: 'monthly' },
     { path: '/search', priority: '0.9', changefreq: 'weekly' },
     { path: '/metrics', priority: '0.9', changefreq: 'monthly' },
+    { path: '/valuation', priority: '0.9', changefreq: 'monthly' },
     { path: '/glossary', priority: '0.8', changefreq: 'monthly' },
     { path: '/privacy', priority: '0.3', changefreq: 'yearly' },
     { path: '/terms', priority: '0.3', changefreq: 'yearly' },
