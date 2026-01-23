@@ -1,0 +1,41 @@
+{
+  "name": "BankSift - Bank Investment Tools",
+  "short_name": "BankSift",
+  "description": "Sift through the noise. Screen and analyze publicly traded banks using comprehensive financial metrics from SEC filings.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7fafc",
+  "theme_color": "#1a365d",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["finance", "business", "utilities"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Bank Screener",
+      "short_name": "Screener",
+      "description": "Open the bank screener tool",
+      "url": "/screener"
+    },
+    {
+      "name": "Bank Search",
+      "short_name": "Search",
+      "description": "Search for a specific bank",
+      "url": "/search"
+    }
+  ]
+}

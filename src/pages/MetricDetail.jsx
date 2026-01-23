@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { METRICS } from '../data/content/metrics.js';
 import { trackMetricViewed } from '../analytics/events.js';
 import BackButton from '../components/BackButton.jsx';
 import NavigationLink from '../components/NavigationLink.jsx';
+import SEO from '../components/SEO.jsx';
 
 /**
  * Metric Detail Page
@@ -13,6 +14,41 @@ function MetricDetail() {
   const { slug } = useParams();
 
   const metric = METRICS.find(m => m.slug === slug);
+
+  // Generate FAQ schema for AI search optimization
+  const faqSchema = useMemo(() => {
+    if (!metric) return null;
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': [
+        {
+          '@type': 'Question',
+          'name': `What is ${metric.name}?`,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': metric.description
+          }
+        },
+        {
+          '@type': 'Question',
+          'name': `How is ${metric.name} calculated?`,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': `${metric.formula}. ${metric.formulaExplanation || ''}`
+          }
+        },
+        {
+          '@type': 'Question',
+          'name': `What is a good ${metric.name} for banks?`,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': metric.typicalRange + (metric.goodBad ? ` ${metric.goodBad.good}` : '')
+          }
+        }
+      ]
+    };
+  }, [metric]);
 
   useEffect(() => {
     if (metric) {
@@ -34,6 +70,12 @@ function MetricDetail() {
 
   return (
     <div className="page metric-detail-page">
+      <SEO
+        title={`${metric.name} - Bank Financial Metric Explained`}
+        description={`${metric.shortDescription} Learn how ${metric.name} is calculated, what values are good for banks, and how to use it in your analysis.`}
+        canonical={`/metrics/${slug}`}
+        schema={faqSchema}
+      />
       <BackButton />
 
       <nav className="breadcrumb">

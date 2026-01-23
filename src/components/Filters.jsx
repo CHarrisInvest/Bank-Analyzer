@@ -204,7 +204,7 @@ function ExchangeFilter({ exchanges, selectedExchanges, onChange }) {
  * - Keyboard shortcut: "/" to focus (when not in an input)
  * - Recent searches stored in localStorage (expandable)
  */
-const RECENT_SEARCHES_KEY = 'bankAnalyzer_recentSearches';
+const RECENT_SEARCHES_KEY = 'banksift_recentSearches';
 const MAX_RECENT_SEARCHES = 15;
 const DEFAULT_VISIBLE_RECENT = 5;
 
@@ -367,7 +367,7 @@ function FilterPresets({ onApplyPreset, onSavePreset, currentFilters }) {
   const [isOpen, setIsOpen] = useState(false);
   const [savedPresets, setSavedPresets] = useState(() => {
     try {
-      const saved = localStorage.getItem('bankAnalyzer_filterPresets');
+      const saved = localStorage.getItem('banksift_filterPresets');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -378,7 +378,7 @@ function FilterPresets({ onApplyPreset, onSavePreset, currentFilters }) {
 
   // Save presets to localStorage when they change
   useEffect(() => {
-    localStorage.setItem('bankAnalyzer_filterPresets', JSON.stringify(savedPresets));
+    localStorage.setItem('banksift_filterPresets', JSON.stringify(savedPresets));
   }, [savedPresets]);
 
   const handleSavePreset = () => {

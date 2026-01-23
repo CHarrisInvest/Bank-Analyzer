@@ -3,10 +3,96 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Professional bank equity screener for institutional investors - Screen and analyze publicly traded banks using comprehensive financial metrics" />
+    <meta name="description" content="BankSift - Bank Investment Tools. Sift through the noise. Screen and analyze publicly traded banks using comprehensive financial metrics from SEC filings." />
+    <meta name="keywords" content="bank screener, bank analysis, bank stocks, SEC filings, Graham Number, ROE, bank valuation, value investing, bank financial metrics" />
+    <meta name="author" content="BankSift" />
     <meta name="theme-color" content="#1a365d" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://banksift.org/" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>" />
-    <title>Bank Analyzer - Bank Equity Screener</title>
+    <link rel="manifest" href="/manifest.json" />
+    <title>BankSift - Bank Investment Tools</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://banksift.org/" />
+    <meta property="og:title" content="BankSift - Bank Investment Tools" />
+    <meta property="og:description" content="Sift through the noise. Screen and analyze publicly traded banks using comprehensive financial metrics from SEC filings. Free tools for value investors." />
+    <meta property="og:image" content="https://banksift.org/og-image.png" />
+    <meta property="og:site_name" content="BankSift" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://banksift.org/" />
+    <meta name="twitter:title" content="BankSift - Bank Investment Tools" />
+    <meta name="twitter:description" content="Sift through the noise. Screen and analyze publicly traded banks using comprehensive financial metrics from SEC filings." />
+    <meta name="twitter:image" content="https://banksift.org/og-image.png" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://banksift.org/#organization",
+          "name": "BankSift",
+          "url": "https://banksift.org",
+          "description": "Bank Investment Tools - Free screening and analysis tools for publicly traded banks",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://banksift.org/logo.png"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://banksift.org/#website",
+          "url": "https://banksift.org",
+          "name": "BankSift",
+          "description": "Bank Investment Tools",
+          "publisher": {
+            "@id": "https://banksift.org/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://banksift.org/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://banksift.org/#app",
+          "name": "BankSift Bank Screener",
+          "alternateName": "The Sifter",
+          "url": "https://banksift.org/screener",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Screen 300+ publicly traded banks",
+            "Filter by 25+ financial metrics",
+            "Graham Number calculations",
+            "Daily SEC data updates",
+            "Value investing tools"
+          ],
+          "screenshot": "https://banksift.org/screenshot.png",
+          "softwareHelp": {
+            "@type": "CreativeWork",
+            "url": "https://banksift.org/screener/guide"
+          }
+        }
+      ]
+    }
+    </script>
 
     <!-- Google Analytics 4 - Loaded asynchronously -->
     <!-- Measurement ID is injected at build time via environment variable -->
@@ -37,13 +123,13 @@
     <noscript>
       <div style="padding: 20px; text-align: center; font-family: sans-serif;">
         <h1>JavaScript Required</h1>
-        <p>Please enable JavaScript to use the Bank Equity Screener.</p>
+        <p>Please enable JavaScript to use BankSift.</p>
       </div>
     </noscript>
     <div id="root">
       <!-- Loading fallback - will be replaced by React -->
       <div id="loading-fallback" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; background: #f7fafc;">
-        <p style="font-size: 18px; color: #1a365d;">Loading Bank Equity Screener...</p>
+        <p style="font-size: 18px; color: #1a365d;">Loading BankSift...</p>
         <p id="loading-status" style="font-size: 14px; color: #718096; margin-top: 10px;"></p>
       </div>
     </div>

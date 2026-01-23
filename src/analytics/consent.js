@@ -4,7 +4,7 @@
  * Implements Google Consent Mode v2
  */
 
-const CONSENT_STORAGE_KEY = 'bankAnalyzer_cookieConsent';
+const CONSENT_STORAGE_KEY = 'banksift_cookieConsent';
 
 /**
  * Consent state options

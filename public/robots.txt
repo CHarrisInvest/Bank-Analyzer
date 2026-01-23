@@ -1,0 +1,14 @@
+# BankSift - Bank Investment Tools
+# https://banksift.org
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://banksift.org/sitemap.xml
+
+# Crawl-delay for polite crawling (optional)
+Crawl-delay: 1
+
+# Disallow data files (large JSON files)
+Disallow: /data/banks/*.json

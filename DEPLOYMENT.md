@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This guide covers deploying the Bank Analyzer application to production.
+This guide covers deploying the BankSift application to production.
 
 ## Prerequisites
 

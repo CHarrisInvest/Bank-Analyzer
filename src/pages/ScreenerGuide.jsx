@@ -1,6 +1,35 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import NavigationLink from '../components/NavigationLink.jsx';
+import SEO from '../components/SEO.jsx';
+
+// FAQ content for structured data and display
+const FAQ_ITEMS = [
+  {
+    question: 'How often is the bank data updated?',
+    answer: 'BankSift data is refreshed daily at approximately 3 AM UTC. We pull the latest SEC EDGAR filings and recalculate all metrics automatically.',
+  },
+  {
+    question: 'Where does the financial data come from?',
+    answer: 'All financial data comes directly from SEC EDGAR filings, specifically 10-K (annual) and 10-Q (quarterly) reports. This is the same official data source used by professional investors and analysts.',
+  },
+  {
+    question: 'What is the Graham Number?',
+    answer: 'The Graham Number is a value investing metric developed by Benjamin Graham. It estimates the maximum fair price for a stock using the formula: √(22.5 × EPS × Book Value Per Share). Stocks trading below their Graham Number may be undervalued.',
+  },
+  {
+    question: 'How many banks does BankSift track?',
+    answer: 'BankSift tracks over 300 publicly traded banks that file with the SEC under bank-related SIC codes. This includes national commercial banks, state commercial banks, and savings institutions.',
+  },
+  {
+    question: 'What does TTM mean?',
+    answer: 'TTM stands for Trailing Twelve Months. It represents the sum of the last four quarters of data, providing an up-to-date annual figure that smooths out seasonal variations.',
+  },
+  {
+    question: 'Is BankSift free to use?',
+    answer: 'Yes, BankSift is completely free to use. We provide professional-grade bank screening tools without requiring registration or payment.',
+  },
+];
 
 /**
  * Screener Guide Page
@@ -9,6 +38,20 @@ import NavigationLink from '../components/NavigationLink.jsx';
 function ScreenerGuide() {
   const location = useLocation();
   const incomingState = location.state || {};
+
+  // Generate FAQ schema for AI search optimization
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': FAQ_ITEMS.map(item => ({
+      '@type': 'Question',
+      'name': item.question,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': item.answer,
+      },
+    })),
+  };
 
   // Restore scroll position when returning via back button
   useEffect(() => {
@@ -21,16 +64,22 @@ function ScreenerGuide() {
 
   return (
     <div className="page guide-page">
+      <SEO
+        title="Screener Guide - How to Screen Bank Stocks"
+        description="Learn how to use the BankSift bank screener to find investment opportunities. Understand key metrics like ROE, efficiency ratio, and Graham Number for bank stock analysis."
+        canonical="/screener/guide"
+        schema={faqSchema}
+      />
       <div className="page-header">
         <h1>Screener Guide</h1>
-        <p>Learn how to use the Bank Analyzer screener to find investment opportunities.</p>
+        <p>Learn how to use the BankSift screener to find investment opportunities.</p>
       </div>
 
       <div className="guide-content">
         <section className="guide-section">
           <h2>Overview</h2>
           <p>
-            The Bank Analyzer screener allows you to filter publicly traded banks based on
+            The BankSift screener allows you to filter publicly traded banks based on
             various financial metrics. All data is sourced directly from SEC filings (10-K
             and 10-Q reports), ensuring accuracy and reliability.
           </p>
@@ -198,7 +247,7 @@ function ScreenerGuide() {
         <section className="guide-section">
           <h2>Important Disclaimers</h2>
           <p>
-            The information provided by Bank Analyzer is for educational and informational
+            The information provided by BankSift is for educational and informational
             purposes only. It should not be considered as investment advice. Always conduct
             your own research and consider consulting with a qualified financial advisor
             before making investment decisions.
@@ -207,6 +256,18 @@ function ScreenerGuide() {
             Past performance does not guarantee future results. Financial metrics can change
             rapidly, and the data shown may not reflect the most current information available.
           </p>
+        </section>
+
+        <section className="guide-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div className="faq-list">
+            {FAQ_ITEMS.map((item, index) => (
+              <details key={index} className="faq-item">
+                <summary className="faq-question">{item.question}</summary>
+                <p className="faq-answer">{item.answer}</p>
+              </details>
+            ))}
+          </div>
         </section>
 
         <div className="guide-cta">

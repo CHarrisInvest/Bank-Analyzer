@@ -679,7 +679,7 @@ function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
   });
   const [visibleColumns, setVisibleColumns] = useState(() => {
     // Try to load from localStorage
-    const saved = localStorage.getItem('bankAnalyzer_visibleColumns');
+    const saved = localStorage.getItem('banksift_visibleColumns');
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -727,7 +727,7 @@ function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
   }, [filteredColumns]);
   const [columnOrder, setColumnOrder] = useState(() => {
     // Try to load from localStorage
-    const saved = localStorage.getItem('bankAnalyzer_columnOrder');
+    const saved = localStorage.getItem('banksift_columnOrder');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
@@ -750,12 +750,12 @@ function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
 
   // Save visible columns to localStorage
   useEffect(() => {
-    localStorage.setItem('bankAnalyzer_visibleColumns', JSON.stringify(visibleColumns));
+    localStorage.setItem('banksift_visibleColumns', JSON.stringify(visibleColumns));
   }, [visibleColumns]);
 
   // Save column order to localStorage
   useEffect(() => {
-    localStorage.setItem('bankAnalyzer_columnOrder', JSON.stringify(columnOrder));
+    localStorage.setItem('banksift_columnOrder', JSON.stringify(columnOrder));
   }, [columnOrder]);
 
   // Get currently visible columns in the correct order

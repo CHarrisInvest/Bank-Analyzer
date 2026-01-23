@@ -1,10 +1,10 @@
 # SEC Financial Statement Data Sets - Concept Mapping
 
-This document maps SEC EDGAR XBRL concepts to the calculated metrics used in Bank Analyzer.
+This document maps SEC EDGAR XBRL concepts to the calculated metrics used in BankSift.
 
 ## Data Source
 
-Bank Analyzer uses the **SEC Financial Statement Data Sets** to fetch financial data.
+BankSift uses the **SEC Financial Statement Data Sets** to fetch financial data.
 
 ### SEC Financial Statement Data Sets
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO.jsx';
 
 /**
  * SVG Icon Components - Outlined/Stroked Style
@@ -148,14 +149,21 @@ function ShieldIcon() {
 function Home() {
   return (
     <div className="page home-page">
+      <SEO
+        title={null}
+        description="BankSift - Bank Investment Tools. Sift through the noise. Screen and analyze 300+ publicly traded banks using official SEC filing data. Free tools for value investors."
+        canonical="/"
+      />
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
-          <h1>Bank Equity Analyzer</h1>
+          <h1>BankSift</h1>
+          <p className="hero-tagline">Bank Investment Tools</p>
           <p className="hero-subtitle">
-            Free tools for screening and analyzing publicly traded banks using
-            official SEC filing data. Updated daily with the latest financial information.
+            Sift through the noise. Screen and analyze publicly traded banks using
+            official SEC filing data. Updated daily.
           </p>
+          <p className="hero-cta-text">Screen. Analyze. Invest.</p>
           <div className="hero-actions">
             <Link to="/screener" className="btn btn-primary btn-lg">
               Open Screener
@@ -187,7 +195,7 @@ function Home() {
             <div className="feature-icon">
               <ScreenerIcon />
             </div>
-            <h3>Bank Screener</h3>
+            <h3>Bank Screener <em>"The Sifter"</em></h3>
             <p>
               Filter banks by financial metrics like ROE, efficiency ratio,
               price-to-book, and more. Find banks that match your criteria.

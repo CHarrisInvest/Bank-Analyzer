@@ -1,6 +1,6 @@
 /**
  * Metrics Content Data
- * Educational content for all financial metrics used in Bank Analyzer
+ * Educational content for all financial metrics used in BankSift
  * All content is original and copyright-free for commercial use
  */
 

@@ -4,7 +4,7 @@
  */
 
 // Storage key for scroll positions
-const SCROLL_POSITIONS_KEY = 'bankAnalyzer_scrollPositions';
+const SCROLL_POSITIONS_KEY = 'banksift_scrollPositions';
 
 /**
  * Get stored scroll positions from sessionStorage

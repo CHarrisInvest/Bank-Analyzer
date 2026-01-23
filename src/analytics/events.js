@@ -1,6 +1,6 @@
 /**
  * Custom Event Tracking Module
- * Defines all trackable events for the Bank Analyzer application
+ * Defines all trackable events for the BankSift application
  * All events are designed with privacy in mind
  */
 
