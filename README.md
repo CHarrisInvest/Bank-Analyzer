@@ -1,4 +1,6 @@
-# Bank Analyzer
+# BankSift
+
+Bank Investment Tools. Sift through the noise.
 
 A comprehensive bank screening tool with SEC EDGAR data integration. Analyze publicly traded banks using financial metrics, value investing criteria, and custom filters.
 
@@ -98,7 +100,7 @@ cp .env.example .env
 # Edit .env with your database credentials and EDGAR User-Agent
 
 # Create database
-createdb bank_analyzer
+createdb banksift
 
 # Initialize database schema
 npm run db:init
@@ -198,7 +200,7 @@ cp .env.example .env
 # Edit .env with your database credentials and contact info
 
 # Create database
-createdb bank_analyzer
+createdb banksift
 
 # Initialize database schema
 npm run db:init
@@ -389,7 +391,7 @@ Bank-Analyzer/
 
 1. **Set up PostgreSQL database:**
 ```bash
-createdb bank_analyzer
+createdb banksift
 ```
 
 2. **Backend setup:**

@@ -55,7 +55,7 @@ function MetricsIndex() {
         <h1>Metrics & Ratios</h1>
         <p>
           Understanding financial metrics is essential for analyzing banks effectively.
-          This guide explains each metric used in Bank Analyzer, including how it is
+          This guide explains each metric used in BankSift, including how it is
           calculated and what it tells you about a bank's performance.
         </p>
       </div>

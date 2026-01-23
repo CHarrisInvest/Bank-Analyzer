@@ -1,4 +1,4 @@
-# Bank Analyzer Setup Guide
+# BankSift Setup Guide
 
 Complete step-by-step instructions for setting up your production backend.
 
@@ -339,7 +339,7 @@ npm run dev
 ```
 [nodemon] starting `node server.js`
 Connected to PostgreSQL database
-Bank Analyzer API running on port 3001
+BankSift API running on port 3001
 Environment: development
 Scheduled data refresh: Daily at 2:00 AM
 ```
@@ -730,4 +730,4 @@ pm2 logs              # View PM2 logs (VPS)
 
 **You're all set!** 🚀
 
-Your Bank Analyzer now has a production-ready backend with real SEC EDGAR data instead of Google Sheets.
+Your BankSift instance now has a production-ready backend with real SEC EDGAR data instead of Google Sheets.

@@ -4,7 +4,7 @@ import { useSearchTracking } from '../analytics/useAnalytics.js';
 import NavigationLink from '../components/NavigationLink.jsx';
 
 // Recent search history configuration
-const RECENT_BANK_SEARCHES_KEY = 'bankAnalyzer_recentBankSearches';
+const RECENT_BANK_SEARCHES_KEY = 'banksift_recentBankSearches';
 const MAX_RECENT_SEARCHES = 15;
 const DEFAULT_VISIBLE_RECENT = 7;
 

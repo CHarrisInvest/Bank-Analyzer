@@ -184,7 +184,7 @@ function Navigation() {
         {/* Logo/Brand */}
         <Link to="/" className="nav-brand" onClick={() => handleNavClick('home')}>
           <BankIcon />
-          <span className="nav-title">Bank Analyzer</span>
+          <span className="nav-title">BankSift</span>
         </Link>
 
         {/* Mobile menu toggle */}

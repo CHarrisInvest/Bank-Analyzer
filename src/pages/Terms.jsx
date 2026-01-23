@@ -19,7 +19,7 @@ function Terms() {
         <section className="legal-section">
           <h2>Agreement to Terms</h2>
           <p>
-            By accessing or using Bank Analyzer ("the Service"), you agree to be bound
+            By accessing or using BankSift ("the Service"), you agree to be bound
             by these Terms of Service ("Terms"). If you do not agree to these Terms,
             please do not use the Service.
           </p>
@@ -28,7 +28,7 @@ function Terms() {
         <section className="legal-section">
           <h2>Description of Service</h2>
           <p>
-            Bank Analyzer provides free tools for screening and analyzing publicly traded
+            BankSift provides free tools for screening and analyzing publicly traded
             banks using financial data from SEC EDGAR filings. The Service includes:
           </p>
           <ul>
@@ -42,7 +42,7 @@ function Terms() {
         <section className="legal-section">
           <h2>Not Investment Advice</h2>
           <p className="important-notice">
-            <strong>IMPORTANT:</strong> The information provided by Bank Analyzer is for
+            <strong>IMPORTANT:</strong> The information provided by BankSift is for
             educational and informational purposes only. It should NOT be considered as
             investment advice, financial advice, trading advice, or any other type of advice.
           </p>
@@ -125,7 +125,7 @@ function Terms() {
           <h2>Intellectual Property</h2>
           <p>
             The Service and its original content (excluding data sourced from SEC filings),
-            features, and functionality are owned by Bank Analyzer and are protected by
+            features, and functionality are owned by BankSift and are protected by
             copyright, trademark, and other intellectual property laws.
           </p>
           <p>
@@ -139,7 +139,7 @@ function Terms() {
           <h2>Third-Party Links</h2>
           <p>
             Our Service may contain links to third-party websites or services that are
-            not owned or controlled by Bank Analyzer. We have no control over and assume
+            not owned or controlled by BankSift. We have no control over and assume
             no responsibility for the content, privacy policies, or practices of any
             third-party sites or services.
           </p>
@@ -163,7 +163,7 @@ function Terms() {
         <section className="legal-section">
           <h2>Limitation of Liability</h2>
           <p>
-            TO THE MAXIMUM EXTENT PERMITTED BY LAW, BANK ANALYZER SHALL NOT BE LIABLE
+            TO THE MAXIMUM EXTENT PERMITTED BY LAW, BANKSIFT SHALL NOT BE LIABLE
             FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES,
             INCLUDING BUT NOT LIMITED TO:
           </p>
@@ -182,7 +182,7 @@ function Terms() {
         <section className="legal-section">
           <h2>Indemnification</h2>
           <p>
-            You agree to indemnify, defend, and hold harmless Bank Analyzer and its
+            You agree to indemnify, defend, and hold harmless BankSift and its
             operators from and against any claims, liabilities, damages, losses, and
             expenses arising out of or in any way connected with your use of the Service
             or violation of these Terms.

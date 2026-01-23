@@ -1,10 +1,10 @@
 # SEC Company Facts API - Concept Mapping
 
-This document maps SEC EDGAR XBRL concepts to the calculated metrics used in Bank Analyzer.
+This document maps SEC EDGAR XBRL concepts to the calculated metrics used in BankSift.
 
 ## Data Source
 
-Bank Analyzer uses the **SEC EDGAR Company Facts API** to fetch financial data.
+BankSift uses the **SEC EDGAR Company Facts API** to fetch financial data.
 
 ### SEC Company Facts API
 

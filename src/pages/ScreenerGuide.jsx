@@ -23,14 +23,14 @@ function ScreenerGuide() {
     <div className="page guide-page">
       <div className="page-header">
         <h1>Screener Guide</h1>
-        <p>Learn how to use the Bank Analyzer screener to find investment opportunities.</p>
+        <p>Learn how to use the BankSift screener to find investment opportunities.</p>
       </div>
 
       <div className="guide-content">
         <section className="guide-section">
           <h2>Overview</h2>
           <p>
-            The Bank Analyzer screener allows you to filter publicly traded banks based on
+            The BankSift screener allows you to filter publicly traded banks based on
             various financial metrics. All data is sourced directly from SEC filings (10-K
             and 10-Q reports), ensuring accuracy and reliability.
           </p>
@@ -198,7 +198,7 @@ function ScreenerGuide() {
         <section className="guide-section">
           <h2>Important Disclaimers</h2>
           <p>
-            The information provided by Bank Analyzer is for educational and informational
+            The information provided by BankSift is for educational and informational
             purposes only. It should not be considered as investment advice. Always conduct
             your own research and consider consulting with a qualified financial advisor
             before making investment decisions.

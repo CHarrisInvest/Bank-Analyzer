@@ -26,10 +26,10 @@ function Layout() {
         <div className="footer-container">
           <div className="footer-content">
             <div className="footer-section">
-              <h3>Bank Analyzer</h3>
+              <h3>BankSift</h3>
               <p>
+                Bank Investment Tools. Sift through the noise.
                 Free tools for analyzing publicly traded banks using SEC filing data.
-                Updated daily with the latest financial information.
               </p>
             </div>
             
@@ -65,7 +65,7 @@ function Layout() {
               Not investment advice. Always conduct your own research before making investment decisions.
             </p>
             <p className="footer-copyright">
-              &copy; {new Date().getFullYear()} Bank Analyzer. All rights reserved.
+              &copy; {new Date().getFullYear()} BankSift. All rights reserved.
             </p>
           </div>
         </div>

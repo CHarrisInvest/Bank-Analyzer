@@ -20,12 +20,12 @@ function Privacy() {
         <section className="legal-section">
           <h2>Introduction</h2>
           <p>
-            Bank Analyzer ("we," "our," or "us") respects your privacy and is committed
+            BankSift ("we," "our," or "us") respects your privacy and is committed
             to protecting your personal data. This privacy policy explains how we collect,
             use, and protect information when you use our website and services.
           </p>
           <p>
-            By using Bank Analyzer, you agree to the collection and use of information
+            By using BankSift, you agree to the collection and use of information
             in accordance with this policy.
           </p>
         </section>
@@ -56,7 +56,7 @@ function Privacy() {
 
           <h3>Information You Provide</h3>
           <p>
-            Bank Analyzer does not currently require user registration or collect personal
+            BankSift does not currently require user registration or collect personal
             information such as names, email addresses, or financial data directly from users.
           </p>
         </section>

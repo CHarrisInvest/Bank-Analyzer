@@ -136,7 +136,7 @@ function Screener({ banks, loading }) {
 
   const [filtersLayout, setFiltersLayout] = useState(() => {
     // Load from localStorage, default to 'side'
-    return localStorage.getItem('bankAnalyzer_filtersLayout') || 'side';
+    return localStorage.getItem('banksift_filtersLayout') || 'side';
   });
 
   // Refs for tracking debounce
@@ -387,7 +387,7 @@ function Screener({ banks, loading }) {
   const toggleFiltersLayout = useCallback(() => {
     setFiltersLayout((prev) => {
       const newLayout = prev === 'side' ? 'top' : 'side';
-      localStorage.setItem('bankAnalyzer_filtersLayout', newLayout);
+      localStorage.setItem('banksift_filtersLayout', newLayout);
       return newLayout;
     });
   }, []);
