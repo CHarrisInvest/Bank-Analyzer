@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO.jsx';
 
 /**
  * SVG Icon Components - Outlined/Stroked Style
@@ -148,6 +149,11 @@ function ShieldIcon() {
 function Home() {
   return (
     <div className="page home-page">
+      <SEO
+        title={null}
+        description="BankSift - Bank Investment Tools. Sift through the noise. Screen and analyze 300+ publicly traded banks using official SEC filing data. Free tools for value investors."
+        canonical="/"
+      />
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">

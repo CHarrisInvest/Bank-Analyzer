@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { fetchBankData } from './data/sheets.js';
 import { initializeGA4 } from './analytics/gtag.js';
 
@@ -38,6 +39,7 @@ import ValuationIndex from './pages/ValuationIndex.jsx';
 import ValuationDetail from './pages/ValuationDetail.jsx';
 import Privacy from './pages/Privacy.jsx';
 import Terms from './pages/Terms.jsx';
+import Glossary from './pages/Glossary.jsx';
 
 /**
  * Main Application Component
@@ -87,50 +89,55 @@ function App() {
   const basename = import.meta.env.BASE_URL || '/';
 
   return (
-    <BrowserRouter basename={basename}>
-      <SpaRedirectHandler />
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          {/* Home */}
-          <Route index element={<Home />} />
+    <HelmetProvider>
+      <BrowserRouter basename={basename}>
+        <SpaRedirectHandler />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            {/* Home */}
+            <Route index element={<Home />} />
 
-          {/* Bank Search */}
-          <Route
-            path="search"
-            element={<Search banks={banks} loading={loading} />}
-          />
+            {/* Bank Search */}
+            <Route
+              path="search"
+              element={<Search banks={banks} loading={loading} />}
+            />
 
-          {/* Screener */}
-          <Route
-            path="screener"
-            element={<ScreenerPage banks={banks} loading={loading} />}
-          />
-          <Route path="screener/guide" element={<ScreenerGuide />} />
+            {/* Screener */}
+            <Route
+              path="screener"
+              element={<ScreenerPage banks={banks} loading={loading} />}
+            />
+            <Route path="screener/guide" element={<ScreenerGuide />} />
 
-          {/* Individual Bank Pages */}
-          <Route
-            path="bank/:ticker"
-            element={<BankDetail banks={banks} loading={loading} />}
-          />
+            {/* Individual Bank Pages */}
+            <Route
+              path="bank/:ticker"
+              element={<BankDetail banks={banks} loading={loading} />}
+            />
 
-          {/* Metrics */}
-          <Route path="metrics" element={<MetricsIndex />} />
-          <Route path="metrics/:slug" element={<MetricDetail />} />
+            {/* Metrics */}
+            <Route path="metrics" element={<MetricsIndex />} />
+            <Route path="metrics/:slug" element={<MetricDetail />} />
 
-          {/* Valuation */}
-          <Route path="valuation" element={<ValuationIndex />} />
-          <Route path="valuation/:slug" element={<ValuationDetail />} />
+            {/* Valuation */}
+            <Route path="valuation" element={<ValuationIndex />} />
+            <Route path="valuation/:slug" element={<ValuationDetail />} />
 
-          {/* Legal */}
-          <Route path="privacy" element={<Privacy />} />
-          <Route path="terms" element={<Terms />} />
+            {/* Glossary */}
+            <Route path="glossary" element={<Glossary />} />
 
-          {/* 404 - Redirect to home */}
-          <Route path="*" element={<Home />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+            {/* Legal */}
+            <Route path="privacy" element={<Privacy />} />
+            <Route path="terms" element={<Terms />} />
+
+            {/* 404 - Redirect to home */}
+            <Route path="*" element={<Home />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

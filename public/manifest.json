@@ -1,0 +1,59 @@
+{
+  "name": "BankSift - Bank Investment Tools",
+  "short_name": "BankSift",
+  "description": "Sift through the noise. Screen and analyze publicly traded banks using comprehensive financial metrics from SEC filings.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7fafc",
+  "theme_color": "#1a365d",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["finance", "business", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Bank Screener",
+      "short_name": "Screener",
+      "description": "Open the bank screener tool",
+      "url": "/screener",
+      "icons": [{ "src": "/icons/screener-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Bank Search",
+      "short_name": "Search",
+      "description": "Search for a specific bank",
+      "url": "/search",
+      "icons": [{ "src": "/icons/search-96.png", "sizes": "96x96" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/screener-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Bank Screener - The Sifter"
+    },
+    {
+      "src": "/screenshots/screener-narrow.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Bank Screener on Mobile"
+    }
+  ]
+}
