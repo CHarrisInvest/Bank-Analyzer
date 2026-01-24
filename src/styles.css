@@ -3706,8 +3706,8 @@ body {
 }
 
 .financial-table.multi-period .label-col {
-  min-width: 180px;
-  max-width: 220px;
+  min-width: 280px;
+  max-width: 350px;
 }
 
 .financial-table.multi-period .value-col {
@@ -3745,8 +3745,8 @@ body {
 /* Mobile optimizations */
 @media (max-width: 640px) {
   .financial-table.multi-period .label-col {
-    min-width: 140px;
-    max-width: 160px;
+    min-width: 160px;
+    max-width: 200px;
     font-size: var(--font-size-xs);
   }
 
@@ -3897,20 +3897,21 @@ body {
   vertical-align: middle;
   flex-shrink: 0;
   margin-left: auto;
+  align-self: flex-start;
+  margin-top: 3px;
 }
 
 .label-col .item-label {
   display: inline;
   flex: 1;
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.4;
+  cursor: default;
 }
 
 .label-col {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--spacing-2);
 }
