@@ -113,6 +113,105 @@ function createOGImageSVG() {
 }
 
 /**
+ * Create X (Twitter) Profile Picture SVG (400x400, displays as circle)
+ */
+function createXProfileSVG() {
+  const size = 400;
+  const centerX = size / 2;
+  const centerY = size / 2;
+  const scale = size / 512 * 0.85; // Slightly smaller to fit in circle crop
+
+  // Bank building icon points - centered for circle crop
+  const roofY = centerY - 130 * scale;
+  const roofBaseY = centerY - 20 * scale;
+  const pedimentY = centerY - 30 * scale;
+  const columnY = centerY + 5 * scale;
+  const columnHeight = 120 * scale;
+  const columnWidth = 28 * scale;
+  const columnSpacing = 65 * scale;
+  const baseY = centerY + 125 * scale;
+
+  // Build column rects
+  const columns = [-1.5, -0.5, 0.5, 1.5].map(i => {
+    const x = centerX + i * columnSpacing - columnWidth / 2;
+    return `<rect x="${x}" y="${columnY}" width="${columnWidth}" height="${columnHeight}" fill="${WHITE}"/>`;
+  }).join('\n    ');
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}">
+  <!-- Background -->
+  <rect width="${size}" height="${size}" fill="${HEADER_COLOR}"/>
+
+  <!-- Bank Icon - centered for circle crop -->
+  <polygon points="${centerX - 130 * scale},${roofBaseY} ${centerX},${roofY} ${centerX + 130 * scale},${roofBaseY}" fill="${WHITE}"/>
+  <rect x="${centerX - 140 * scale}" y="${pedimentY}" width="${280 * scale}" height="${24 * scale}" fill="${WHITE}"/>
+  ${columns}
+  <rect x="${centerX - 145 * scale}" y="${baseY}" width="${290 * scale}" height="${20 * scale}" fill="${WHITE}"/>
+  <rect x="${centerX - 160 * scale}" y="${baseY + 20 * scale}" width="${320 * scale}" height="${16 * scale}" fill="${WHITE}"/>
+</svg>`;
+}
+
+/**
+ * Create X (Twitter) Header/Banner SVG (1500x500)
+ */
+function createXHeaderSVG() {
+  const width = 1500;
+  const height = 500;
+  const centerY = height / 2;
+
+  // Left side: Bank icon
+  const iconX = 200;
+  const iconScale = 0.55;
+  const roofY = centerY - 100 * iconScale;
+  const roofBaseY = centerY + 20 * iconScale;
+  const pedimentY = centerY + 10 * iconScale;
+  const columnY = centerY + 35 * iconScale;
+  const columnHeight = 80 * iconScale;
+  const columnWidth = 20 * iconScale;
+  const columnSpacing = 45 * iconScale;
+
+  const columns = [-1.5, -0.5, 0.5, 1.5].map(i => {
+    const x = iconX + i * columnSpacing - columnWidth / 2;
+    return `<rect x="${x}" y="${columnY}" width="${columnWidth}" height="${columnHeight}" fill="${WHITE}"/>`;
+  }).join('\n    ');
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">
+  <!-- Background with subtle gradient -->
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c5282;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="${width}" height="${height}" fill="url(#headerGrad)"/>
+
+  <!-- Decorative accent line at top -->
+  <rect x="0" y="0" width="${width}" height="4" fill="${ACCENT_BLUE}"/>
+
+  <!-- Bank Icon on left -->
+  <polygon points="${iconX - 90 * iconScale},${roofBaseY} ${iconX},${roofY} ${iconX + 90 * iconScale},${roofBaseY}" fill="${WHITE}"/>
+  <rect x="${iconX - 95 * iconScale}" y="${pedimentY}" width="${190 * iconScale}" height="${18 * iconScale}" fill="${WHITE}"/>
+  ${columns}
+  <rect x="${iconX - 100 * iconScale}" y="${columnY + columnHeight}" width="${200 * iconScale}" height="${14 * iconScale}" fill="${WHITE}"/>
+  <rect x="${iconX - 110 * iconScale}" y="${columnY + columnHeight + 14 * iconScale}" width="${220 * iconScale}" height="${12 * iconScale}" fill="${WHITE}"/>
+
+  <!-- BankSift text - center-right -->
+  <text x="750" y="${centerY - 30}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="120" font-weight="bold" fill="${WHITE}" text-anchor="middle">BankSift</text>
+
+  <!-- Tagline -->
+  <text x="750" y="${centerY + 50}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="36" fill="${LIGHT_BLUE}" text-anchor="middle">Bank Investment Tools</text>
+
+  <!-- Subtitle -->
+  <text x="750" y="${centerY + 100}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="28" fill="${GRAY}" text-anchor="middle" font-style="italic">Sift through the noise.</text>
+
+  <!-- Website URL on right -->
+  <text x="1350" y="${centerY + 10}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="28" fill="${ACCENT_BLUE}" text-anchor="middle">banksift.org</text>
+
+  <!-- Decorative accent line at bottom -->
+  <rect x="0" y="${height - 4}" width="${width}" height="4" fill="${ACCENT_BLUE}"/>
+</svg>`;
+}
+
+/**
  * Create ICO file from multiple PNG buffers
  * ICO format: ICONDIR header + ICONDIRENTRY for each image + image data
  */
@@ -242,6 +341,20 @@ async function main() {
     ]);
     writeFileSync(faviconIcoPath, icoBuffer);
     console.log(`Generated: ${faviconIcoPath}`);
+
+    // Generate X (Twitter) profile picture (400x400)
+    const xProfileSvg = createXProfileSVG();
+    const xProfilePath = join(publicDir, 'x-profile.png');
+    await svgToPng(xProfileSvg, xProfilePath, 400, 400);
+    console.log(`Generated: ${xProfilePath}`);
+    writeFileSync(join(publicDir, 'x-profile.svg'), xProfileSvg);
+
+    // Generate X (Twitter) header/banner (1500x500)
+    const xHeaderSvg = createXHeaderSVG();
+    const xHeaderPath = join(publicDir, 'x-header.png');
+    await svgToPng(xHeaderSvg, xHeaderPath, 1500, 500);
+    console.log(`Generated: ${xHeaderPath}`);
+    writeFileSync(join(publicDir, 'x-header.svg'), xHeaderSvg);
 
     console.log('\nDone! All images generated in public/');
 
