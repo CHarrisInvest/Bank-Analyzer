@@ -114,18 +114,16 @@ function createOGImageSVG() {
 
 /**
  * Create X (Twitter) Profile Picture SVG (400x400, displays as circle)
- * Design: Small bank icon above "BankSift" text, all within circle-safe area
+ * Design: Small bank icon above large "BankSift" text, all within circle-safe area
  */
 function createXProfileSVG() {
   const size = 400;
   const centerX = size / 2;
-
-  // Everything needs to fit within the circle crop (~70% of width from center)
-  const safeRadius = size * 0.35;
+  const centerY = size / 2;
 
   // Small bank icon at top
-  const iconScale = 0.35;
-  const iconCenterY = 130;
+  const iconScale = 0.32;
+  const iconCenterY = 115;
   const roofY = iconCenterY - 50 * iconScale;
   const roofBaseY = iconCenterY + 10 * iconScale;
   const pedimentY = iconCenterY + 5 * iconScale;
@@ -150,34 +148,33 @@ function createXProfileSVG() {
   ${columns}
   <rect x="${centerX - 65 * iconScale}" y="${baseY}" width="${130 * iconScale}" height="${8 * iconScale}" fill="${WHITE}"/>
 
-  <!-- BankSift text - centered below icon -->
-  <text x="${centerX}" y="250" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="56" font-weight="bold" fill="${WHITE}" text-anchor="middle" letter-spacing="-1">BankSift</text>
+  <!-- BankSift text - large, centered -->
+  <text x="${centerX}" y="${centerY + 45}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="72" font-weight="bold" fill="${WHITE}" text-anchor="middle" letter-spacing="-2">BankSift</text>
 
   <!-- Subtle tagline -->
-  <text x="${centerX}" y="290" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="18" fill="${LIGHT_BLUE}" text-anchor="middle" letter-spacing="2">BANK INVESTMENT TOOLS</text>
+  <text x="${centerX}" y="${centerY + 90}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="16" fill="${LIGHT_BLUE}" text-anchor="middle" letter-spacing="1.5">BANK INVESTMENT TOOLS</text>
 </svg>`;
 }
 
 /**
  * Create X (Twitter) Header/Banner SVG (1500x500)
- * Design: Clean, minimal with centered content
+ * Design: Bank icon on left, text content center-right, clean layout
  */
 function createXHeaderSVG() {
   const width = 1500;
   const height = 500;
-  const centerX = width / 2;
   const centerY = height / 2;
 
-  // Bank icon - small, to the left of text
-  const iconX = centerX - 280;
-  const iconScale = 0.5;
-  const roofY = centerY - 70 * iconScale;
-  const roofBaseY = centerY - 10 * iconScale;
-  const pedimentY = centerY - 15 * iconScale;
-  const columnY = centerY + 5 * iconScale;
-  const columnHeight = 60 * iconScale;
-  const columnWidth = 14 * iconScale;
-  const columnSpacing = 32 * iconScale;
+  // Bank icon on left side
+  const iconX = 220;
+  const iconScale = 0.6;
+  const roofY = centerY - 90 * iconScale;
+  const roofBaseY = centerY + 10 * iconScale;
+  const pedimentY = centerY + 0 * iconScale;
+  const columnY = centerY + 25 * iconScale;
+  const columnHeight = 70 * iconScale;
+  const columnWidth = 18 * iconScale;
+  const columnSpacing = 42 * iconScale;
 
   const columns = [-1.5, -0.5, 0.5, 1.5].map(i => {
     const x = iconX + i * columnSpacing - columnWidth / 2;
@@ -185,26 +182,27 @@ function createXHeaderSVG() {
   }).join('\n    ');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">
-  <!-- Clean solid background -->
+  <!-- Background -->
   <rect width="${width}" height="${height}" fill="${HEADER_COLOR}"/>
 
-  <!-- Subtle accent line at bottom -->
-  <rect x="0" y="${height - 3}" width="${width}" height="3" fill="${ACCENT_BLUE}" opacity="0.7"/>
-
-  <!-- Bank Icon -->
-  <polygon points="${iconX - 65 * iconScale},${roofBaseY} ${iconX},${roofY} ${iconX + 65 * iconScale},${roofBaseY}" fill="${WHITE}"/>
-  <rect x="${iconX - 70 * iconScale}" y="${pedimentY}" width="${140 * iconScale}" height="${12 * iconScale}" fill="${WHITE}"/>
+  <!-- Bank Icon on left -->
+  <polygon points="${iconX - 80 * iconScale},${roofBaseY} ${iconX},${roofY} ${iconX + 80 * iconScale},${roofBaseY}" fill="${WHITE}"/>
+  <rect x="${iconX - 85 * iconScale}" y="${pedimentY}" width="${170 * iconScale}" height="${16 * iconScale}" fill="${WHITE}"/>
   ${columns}
-  <rect x="${iconX - 75 * iconScale}" y="${columnY + columnHeight}" width="${150 * iconScale}" height="${10 * iconScale}" fill="${WHITE}"/>
+  <rect x="${iconX - 90 * iconScale}" y="${columnY + columnHeight}" width="${180 * iconScale}" height="${12 * iconScale}" fill="${WHITE}"/>
+  <rect x="${iconX - 100 * iconScale}" y="${columnY + columnHeight + 12 * iconScale}" width="${200 * iconScale}" height="${10 * iconScale}" fill="${WHITE}"/>
 
-  <!-- BankSift text -->
-  <text x="${centerX + 80}" y="${centerY + 5}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="100" font-weight="bold" fill="${WHITE}" text-anchor="middle" letter-spacing="-2">BankSift</text>
+  <!-- BankSift text - center -->
+  <text x="780" y="${centerY - 20}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="110" font-weight="bold" fill="${WHITE}" text-anchor="middle">BankSift</text>
 
-  <!-- Tagline below -->
-  <text x="${centerX + 80}" y="${centerY + 55}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="24" fill="${LIGHT_BLUE}" text-anchor="middle" letter-spacing="3">SIFT THROUGH THE NOISE</text>
+  <!-- Tagline -->
+  <text x="780" y="${centerY + 45}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="32" fill="${LIGHT_BLUE}" text-anchor="middle">Bank Investment Tools</text>
 
-  <!-- Website URL - right aligned -->
-  <text x="${width - 60}" y="${height - 25}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="${GRAY}" text-anchor="end">BankSift.org</text>
+  <!-- Subtitle -->
+  <text x="780" y="${centerY + 95}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="26" fill="${GRAY}" text-anchor="middle" font-style="italic">Sift through the noise.</text>
+
+  <!-- Website URL - right side -->
+  <text x="1320" y="${centerY + 10}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="26" fill="${ACCENT_BLUE}" text-anchor="middle">BankSift.org</text>
 </svg>`;
 }
 
