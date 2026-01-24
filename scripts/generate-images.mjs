@@ -114,24 +114,27 @@ function createOGImageSVG() {
 
 /**
  * Create X (Twitter) Profile Picture SVG (400x400, displays as circle)
+ * Design: Small bank icon above "BankSift" text, all within circle-safe area
  */
 function createXProfileSVG() {
   const size = 400;
   const centerX = size / 2;
-  const centerY = size / 2;
-  const scale = size / 512 * 0.85; // Slightly smaller to fit in circle crop
 
-  // Bank building icon points - centered for circle crop
-  const roofY = centerY - 130 * scale;
-  const roofBaseY = centerY - 20 * scale;
-  const pedimentY = centerY - 30 * scale;
-  const columnY = centerY + 5 * scale;
-  const columnHeight = 120 * scale;
-  const columnWidth = 28 * scale;
-  const columnSpacing = 65 * scale;
-  const baseY = centerY + 125 * scale;
+  // Everything needs to fit within the circle crop (~70% of width from center)
+  const safeRadius = size * 0.35;
 
-  // Build column rects
+  // Small bank icon at top
+  const iconScale = 0.35;
+  const iconCenterY = 130;
+  const roofY = iconCenterY - 50 * iconScale;
+  const roofBaseY = iconCenterY + 10 * iconScale;
+  const pedimentY = iconCenterY + 5 * iconScale;
+  const columnY = iconCenterY + 18 * iconScale;
+  const columnHeight = 45 * iconScale;
+  const columnWidth = 12 * iconScale;
+  const columnSpacing = 28 * iconScale;
+  const baseY = iconCenterY + 65 * iconScale;
+
   const columns = [-1.5, -0.5, 0.5, 1.5].map(i => {
     const x = centerX + i * columnSpacing - columnWidth / 2;
     return `<rect x="${x}" y="${columnY}" width="${columnWidth}" height="${columnHeight}" fill="${WHITE}"/>`;
@@ -141,33 +144,40 @@ function createXProfileSVG() {
   <!-- Background -->
   <rect width="${size}" height="${size}" fill="${HEADER_COLOR}"/>
 
-  <!-- Bank Icon - centered for circle crop -->
-  <polygon points="${centerX - 130 * scale},${roofBaseY} ${centerX},${roofY} ${centerX + 130 * scale},${roofBaseY}" fill="${WHITE}"/>
-  <rect x="${centerX - 140 * scale}" y="${pedimentY}" width="${280 * scale}" height="${24 * scale}" fill="${WHITE}"/>
+  <!-- Bank Icon - small, at top -->
+  <polygon points="${centerX - 55 * iconScale},${roofBaseY} ${centerX},${roofY} ${centerX + 55 * iconScale},${roofBaseY}" fill="${WHITE}"/>
+  <rect x="${centerX - 60 * iconScale}" y="${pedimentY}" width="${120 * iconScale}" height="${10 * iconScale}" fill="${WHITE}"/>
   ${columns}
-  <rect x="${centerX - 145 * scale}" y="${baseY}" width="${290 * scale}" height="${20 * scale}" fill="${WHITE}"/>
-  <rect x="${centerX - 160 * scale}" y="${baseY + 20 * scale}" width="${320 * scale}" height="${16 * scale}" fill="${WHITE}"/>
+  <rect x="${centerX - 65 * iconScale}" y="${baseY}" width="${130 * iconScale}" height="${8 * iconScale}" fill="${WHITE}"/>
+
+  <!-- BankSift text - centered below icon -->
+  <text x="${centerX}" y="250" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="56" font-weight="bold" fill="${WHITE}" text-anchor="middle" letter-spacing="-1">BankSift</text>
+
+  <!-- Subtle tagline -->
+  <text x="${centerX}" y="290" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="18" fill="${LIGHT_BLUE}" text-anchor="middle" letter-spacing="2">BANK INVESTMENT TOOLS</text>
 </svg>`;
 }
 
 /**
  * Create X (Twitter) Header/Banner SVG (1500x500)
+ * Design: Clean, minimal with centered content
  */
 function createXHeaderSVG() {
   const width = 1500;
   const height = 500;
+  const centerX = width / 2;
   const centerY = height / 2;
 
-  // Left side: Bank icon
-  const iconX = 200;
-  const iconScale = 0.55;
-  const roofY = centerY - 100 * iconScale;
-  const roofBaseY = centerY + 20 * iconScale;
-  const pedimentY = centerY + 10 * iconScale;
-  const columnY = centerY + 35 * iconScale;
-  const columnHeight = 80 * iconScale;
-  const columnWidth = 20 * iconScale;
-  const columnSpacing = 45 * iconScale;
+  // Bank icon - small, to the left of text
+  const iconX = centerX - 280;
+  const iconScale = 0.5;
+  const roofY = centerY - 70 * iconScale;
+  const roofBaseY = centerY - 10 * iconScale;
+  const pedimentY = centerY - 15 * iconScale;
+  const columnY = centerY + 5 * iconScale;
+  const columnHeight = 60 * iconScale;
+  const columnWidth = 14 * iconScale;
+  const columnSpacing = 32 * iconScale;
 
   const columns = [-1.5, -0.5, 0.5, 1.5].map(i => {
     const x = iconX + i * columnSpacing - columnWidth / 2;
@@ -175,39 +185,26 @@ function createXHeaderSVG() {
   }).join('\n    ');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">
-  <!-- Background with subtle gradient -->
-  <defs>
-    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2c5282;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect width="${width}" height="${height}" fill="url(#headerGrad)"/>
+  <!-- Clean solid background -->
+  <rect width="${width}" height="${height}" fill="${HEADER_COLOR}"/>
 
-  <!-- Decorative accent line at top -->
-  <rect x="0" y="0" width="${width}" height="4" fill="${ACCENT_BLUE}"/>
+  <!-- Subtle accent line at bottom -->
+  <rect x="0" y="${height - 3}" width="${width}" height="3" fill="${ACCENT_BLUE}" opacity="0.7"/>
 
-  <!-- Bank Icon on left -->
-  <polygon points="${iconX - 90 * iconScale},${roofBaseY} ${iconX},${roofY} ${iconX + 90 * iconScale},${roofBaseY}" fill="${WHITE}"/>
-  <rect x="${iconX - 95 * iconScale}" y="${pedimentY}" width="${190 * iconScale}" height="${18 * iconScale}" fill="${WHITE}"/>
+  <!-- Bank Icon -->
+  <polygon points="${iconX - 65 * iconScale},${roofBaseY} ${iconX},${roofY} ${iconX + 65 * iconScale},${roofBaseY}" fill="${WHITE}"/>
+  <rect x="${iconX - 70 * iconScale}" y="${pedimentY}" width="${140 * iconScale}" height="${12 * iconScale}" fill="${WHITE}"/>
   ${columns}
-  <rect x="${iconX - 100 * iconScale}" y="${columnY + columnHeight}" width="${200 * iconScale}" height="${14 * iconScale}" fill="${WHITE}"/>
-  <rect x="${iconX - 110 * iconScale}" y="${columnY + columnHeight + 14 * iconScale}" width="${220 * iconScale}" height="${12 * iconScale}" fill="${WHITE}"/>
+  <rect x="${iconX - 75 * iconScale}" y="${columnY + columnHeight}" width="${150 * iconScale}" height="${10 * iconScale}" fill="${WHITE}"/>
 
-  <!-- BankSift text - center-right -->
-  <text x="750" y="${centerY - 30}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="120" font-weight="bold" fill="${WHITE}" text-anchor="middle">BankSift</text>
+  <!-- BankSift text -->
+  <text x="${centerX + 80}" y="${centerY + 5}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="100" font-weight="bold" fill="${WHITE}" text-anchor="middle" letter-spacing="-2">BankSift</text>
 
-  <!-- Tagline -->
-  <text x="750" y="${centerY + 50}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="36" fill="${LIGHT_BLUE}" text-anchor="middle">Bank Investment Tools</text>
+  <!-- Tagline below -->
+  <text x="${centerX + 80}" y="${centerY + 55}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="24" fill="${LIGHT_BLUE}" text-anchor="middle" letter-spacing="3">SIFT THROUGH THE NOISE</text>
 
-  <!-- Subtitle -->
-  <text x="750" y="${centerY + 100}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="28" fill="${GRAY}" text-anchor="middle" font-style="italic">Sift through the noise.</text>
-
-  <!-- Website URL on right -->
-  <text x="1350" y="${centerY + 10}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="28" fill="${ACCENT_BLUE}" text-anchor="middle">banksift.org</text>
-
-  <!-- Decorative accent line at bottom -->
-  <rect x="0" y="${height - 4}" width="${width}" height="4" fill="${ACCENT_BLUE}"/>
+  <!-- Website URL - right aligned -->
+  <text x="${width - 60}" y="${height - 25}" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="${GRAY}" text-anchor="end">BankSift.org</text>
 </svg>`;
 }
 
