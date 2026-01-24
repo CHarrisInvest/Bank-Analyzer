@@ -649,7 +649,7 @@ export default function FinancialStatementTable({
     const annotationKey = `${item.tag}-${period.key}`;
     const hasAnnotation = !!annotations[annotationKey];
 
-    const isPerShare = item.tag?.toLowerCase().includes('pershare') || item.tag?.includes('Earnings');
+    const isPerShare = item.tag?.toLowerCase().includes('pershare') || item.tag?.startsWith('EarningsPerShare');
     const isShares = item.tag?.toLowerCase().includes('shares');
     const isExpense = item.label?.toLowerCase().includes('expense') || item.tag?.toLowerCase().includes('expense');
 
@@ -798,7 +798,7 @@ export default function FinancialStatementTable({
                     if (!item) return null;
                     const rawVal = getValue(item.tag, period.key, item.idx);
                     const value = (rawVal !== null && typeof rawVal === 'object') ? rawVal.value : rawVal;
-                    const isPerShare = item.tag?.toLowerCase().includes('pershare') || item.tag?.includes('Earnings');
+                    const isPerShare = item.tag?.toLowerCase().includes('pershare') || item.tag?.startsWith('EarningsPerShare');
                     const isShares = item.tag?.toLowerCase().includes('shares');
                     const valueClass = getValueClass(value, item);
 
