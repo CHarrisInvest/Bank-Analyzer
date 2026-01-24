@@ -3891,22 +3891,28 @@ body {
   background: rgba(66, 153, 225, 0.05);
 }
 
-/* Sparkline component */
+/* Sparkline component - anchored to right of label cell */
 .sparkline {
   display: inline-block;
   vertical-align: middle;
-  margin-left: var(--spacing-2);
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .label-col .item-label {
   display: inline;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .label-col {
   display: flex;
   align-items: center;
-  gap: var(--spacing-1);
+  justify-content: space-between;
+  gap: var(--spacing-2);
 }
 
 /* Indent marker for hierarchical items */
