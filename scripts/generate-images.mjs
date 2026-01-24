@@ -113,6 +113,55 @@ function createOGImageSVG() {
 }
 
 /**
+ * Create ICO file from multiple PNG buffers
+ * ICO format: ICONDIR header + ICONDIRENTRY for each image + image data
+ */
+function createIcoFromPngs(images) {
+  const numImages = images.length;
+  const headerSize = 6; // ICONDIR
+  const dirEntrySize = 16; // ICONDIRENTRY per image
+  const dirSize = headerSize + (dirEntrySize * numImages);
+
+  // Calculate total size
+  let totalSize = dirSize;
+  for (const img of images) {
+    totalSize += img.buffer.length;
+  }
+
+  const buffer = Buffer.alloc(totalSize);
+  let offset = 0;
+
+  // ICONDIR header
+  buffer.writeUInt16LE(0, offset); offset += 2; // Reserved
+  buffer.writeUInt16LE(1, offset); offset += 2; // Type: 1 = ICO
+  buffer.writeUInt16LE(numImages, offset); offset += 2; // Number of images
+
+  // Calculate image data offsets
+  let dataOffset = dirSize;
+
+  // ICONDIRENTRY for each image
+  for (const img of images) {
+    buffer.writeUInt8(img.size, offset); offset += 1; // Width (0 = 256)
+    buffer.writeUInt8(img.size, offset); offset += 1; // Height
+    buffer.writeUInt8(0, offset); offset += 1; // Color palette
+    buffer.writeUInt8(0, offset); offset += 1; // Reserved
+    buffer.writeUInt16LE(1, offset); offset += 2; // Color planes
+    buffer.writeUInt16LE(32, offset); offset += 2; // Bits per pixel
+    buffer.writeUInt32LE(img.buffer.length, offset); offset += 4; // Image size
+    buffer.writeUInt32LE(dataOffset, offset); offset += 4; // Image offset
+    dataOffset += img.buffer.length;
+  }
+
+  // Image data (PNG format)
+  for (const img of images) {
+    img.buffer.copy(buffer, offset);
+    offset += img.buffer.length;
+  }
+
+  return buffer;
+}
+
+/**
  * Convert SVG to PNG using sharp
  */
 async function svgToPng(svg, outputPath, width, height) {
@@ -162,6 +211,37 @@ async function main() {
     const appleTouchPath = join(publicDir, 'apple-touch-icon.png');
     await svgToPng(appleTouchSvg, appleTouchPath, 180, 180);
     console.log(`Generated: ${appleTouchPath}`);
+
+    // Generate favicons for browsers and Google
+    const faviconSizes = [16, 32, 48];
+    for (const size of faviconSizes) {
+      const faviconSvg = createLogoSVG(size);
+      const faviconPath = join(publicDir, `favicon-${size}x${size}.png`);
+      await svgToPng(faviconSvg, faviconPath, size, size);
+      console.log(`Generated: ${faviconPath}`);
+    }
+
+    // Generate favicon.ico (using 32x32 as base, converted to ICO format)
+    // Modern browsers accept PNG, but we'll create an ICO for maximum compatibility
+    const favicon32Svg = createLogoSVG(32);
+    const faviconIcoPath = join(publicDir, 'favicon.ico');
+    // Create multi-size ICO by embedding 16x16 and 32x32
+    const favicon16Buffer = await sharp(Buffer.from(createLogoSVG(16)))
+      .resize(16, 16)
+      .png()
+      .toBuffer();
+    const favicon32Buffer = await sharp(Buffer.from(favicon32Svg))
+      .resize(32, 32)
+      .png()
+      .toBuffer();
+
+    // Create ICO file manually (ICO format: header + directory + image data)
+    const icoBuffer = createIcoFromPngs([
+      { buffer: favicon16Buffer, size: 16 },
+      { buffer: favicon32Buffer, size: 32 }
+    ]);
+    writeFileSync(faviconIcoPath, icoBuffer);
+    console.log(`Generated: ${faviconIcoPath}`);
 
     console.log('\nDone! All images generated in public/');
 
