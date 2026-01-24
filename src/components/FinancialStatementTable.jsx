@@ -750,7 +750,7 @@ export default function FinancialStatementTable({
           onClick={() => setFocusedCell({ row: rowIdx, col: 0 })}
         >
           {item.indent > 0 && <span className="indent-marker" style={{ paddingLeft: `${item.indent * 12}px` }} />}
-          <span className="item-label">{cleanLabel(item.label)}</span>
+          <span className="item-label" title={item.label}>{cleanLabel(item.label)}</span>
           {showSparklines && itemValues.filter(v => v !== null).length >= 2 && (
             <Sparkline values={itemValues} />
           )}
@@ -892,7 +892,7 @@ export default function FinancialStatementTable({
                             label={cleanLabel(section.header.label)}
                           />
                         )}
-                        <span className="item-label">{cleanLabel(section.header.label)}</span>
+                        <span className="item-label" title={section.header.label}>{cleanLabel(section.header.label)}</span>
                         {showSparklines && (
                           <Sparkline values={getItemValues(section.header)} />
                         )}
