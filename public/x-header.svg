@@ -1,38 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
-  <!-- Background with subtle gradient -->
-  <defs>
-    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2c5282;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect width="1500" height="500" fill="url(#headerGrad)"/>
+  <!-- Clean solid background -->
+  <rect width="1500" height="500" fill="#1a365d"/>
 
-  <!-- Decorative accent line at top -->
-  <rect x="0" y="0" width="1500" height="4" fill="#4299e1"/>
+  <!-- Subtle accent line at bottom -->
+  <rect x="0" y="497" width="1500" height="3" fill="#4299e1" opacity="0.7"/>
 
-  <!-- Bank Icon on left -->
-  <polygon points="150.5,261 200,195 249.5,261" fill="#ffffff"/>
-  <rect x="147.75" y="255.5" width="104.50000000000001" height="9.9" fill="#ffffff"/>
-  <rect x="157.375" y="269.25" width="11" height="44" fill="#ffffff"/>
-    <rect x="182.125" y="269.25" width="11" height="44" fill="#ffffff"/>
-    <rect x="206.875" y="269.25" width="11" height="44" fill="#ffffff"/>
-    <rect x="231.625" y="269.25" width="11" height="44" fill="#ffffff"/>
-  <rect x="145" y="313.25" width="110.00000000000001" height="7.700000000000001" fill="#ffffff"/>
-  <rect x="139.5" y="320.95" width="121.00000000000001" height="6.6000000000000005" fill="#ffffff"/>
+  <!-- Bank Icon -->
+  <polygon points="437.5,245 470,215 502.5,245" fill="#ffffff"/>
+  <rect x="435" y="242.5" width="70" height="6" fill="#ffffff"/>
+  <rect x="442.5" y="252.5" width="7" height="30" fill="#ffffff"/>
+    <rect x="458.5" y="252.5" width="7" height="30" fill="#ffffff"/>
+    <rect x="474.5" y="252.5" width="7" height="30" fill="#ffffff"/>
+    <rect x="490.5" y="252.5" width="7" height="30" fill="#ffffff"/>
+  <rect x="432.5" y="282.5" width="75" height="5" fill="#ffffff"/>
 
-  <!-- BankSift text - center-right -->
-  <text x="750" y="220" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="120" font-weight="bold" fill="#ffffff" text-anchor="middle">BankSift</text>
+  <!-- BankSift text -->
+  <text x="830" y="255" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="100" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="-2">BankSift</text>
 
-  <!-- Tagline -->
-  <text x="750" y="300" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="36" fill="#90cdf4" text-anchor="middle">Bank Investment Tools</text>
+  <!-- Tagline below -->
+  <text x="830" y="305" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="24" fill="#90cdf4" text-anchor="middle" letter-spacing="3">SIFT THROUGH THE NOISE</text>
 
-  <!-- Subtitle -->
-  <text x="750" y="350" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="28" fill="#a0aec0" text-anchor="middle" font-style="italic">Sift through the noise.</text>
-
-  <!-- Website URL on right -->
-  <text x="1350" y="260" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="28" fill="#4299e1" text-anchor="middle">banksift.org</text>
-
-  <!-- Decorative accent line at bottom -->
-  <rect x="0" y="496" width="1500" height="4" fill="#4299e1"/>
+  <!-- Website URL - right aligned -->
+  <text x="1440" y="475" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#a0aec0" text-anchor="end">BankSift.org</text>
 </svg>
