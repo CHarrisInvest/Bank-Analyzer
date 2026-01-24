@@ -2,63 +2,86 @@ import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react'
 
 /**
  * Clean financial statement labels by removing period-specific values
+ *
+ * The key insight: period-specific data typically shows TWO values for two periods,
+ * connected by "and". Single values are usually thresholds/definitions to keep.
+ *
  * Removes patterns like:
- * - "(10,000,000 and 9,000,000 shares, respectively)"
- * - "(included $404,609 and $286,771 at fair value)"
- * - "(amortized cost of $492,300 and $411,045)"
- * - "September 30, 2025 1,310,485,026 shares and December 31, 2024..."
- * Keeps legitimate descriptors like "(in thousands)" or threshold amounts like "$250,000"
+ * - "(fair value of $4,493 and $4,293)"
+ * - "(issued 519,147,397 and 515,777,584)"
+ * - "net of allowance for credit losses of $74 and $69"
+ * - "4,312,228 and 3,630,636 shares, respectively"
+ *
+ * Keeps patterns like:
+ * - "$250,000" (single threshold)
+ * - "30 million" (single authorization)
+ * - "(in thousands)"
  */
 function cleanLabel(label) {
   if (!label) return label;
 
   let cleaned = label;
 
-  // 1. Remove parenthetical content with "included" and dollar amounts
+  // ============================================
+  // PARENTHETICAL PATTERNS (content inside parentheses)
+  // ============================================
+
+  // Remove parentheses containing "$X and $Y" pattern (two dollar amounts)
+  // e.g., "(fair value of $4,493 and $4,293)"
   // e.g., "(included $404,609 and $286,771 at fair value)"
-  cleaned = cleaned.replace(/\s*\([^)]*included[^)]*\$[\d,]+[^)]*\)/gi, '');
+  cleaned = cleaned.replace(/\s*\([^)]*\$[\d,]+\s+and\s+\$[\d,]+[^)]*\)/gi, '');
 
-  // 2. Remove parenthetical content with "amortized cost" and dollar amounts
-  // e.g., "(amortized cost of $492,300 and $411,045; ...)"
-  cleaned = cleaned.replace(/\s*\([^)]*amortized cost[^)]*\$[\d,]+[^)]*\)/gi, '');
+  // Remove parentheses containing "X and Y" followed by shares/issued/outstanding
+  // e.g., "(issued 519,147,397 and 515,777,584; and outstanding 307,827,978 and 305,387,550)"
+  cleaned = cleaned.replace(/\s*\([^)]*[\d,]+\s+and\s+[\d,]+[^)]*(?:shares|issued|outstanding)[^)]*\)/gi, '');
 
-  // 3. Remove parenthetical content with "fair value" and dollar amounts
-  // e.g., "(included $36,018 and $33,768 at fair value)"
-  cleaned = cleaned.replace(/\s*\([^)]*\$[\d,]+[^)]*fair value[^)]*\)/gi, '');
+  // Remove parentheses containing "X and Y" with "respectively"
+  // e.g., "(72,899,970 and 72,699,245 shares issued, respectively)"
+  cleaned = cleaned.replace(/\s*\([^)]*[\d,]+\s+and\s+[\d,]+[^)]*respectively[^)]*\)/gi, '');
 
-  // 4. Remove parenthetical content with "assets pledged" and dollar amounts
-  // e.g., "(included assets pledged of $242,201 and $136,070)"
-  cleaned = cleaned.replace(/\s*\([^)]*assets pledged[^)]*\$[\d,]+[^)]*\)/gi, '');
+  // Remove parentheses with "allowance" or "credit losses" containing two values
+  // e.g., "(net of allowance for credit losses of $74 and $69)"
+  cleaned = cleaned.replace(/\s*\([^)]*(?:allowance|credit loss)[^)]*\$?[\d,]+\s+and\s+\$?[\d,]+[^)]*\)/gi, '');
 
-  // 5. Remove parenthetical share counts
-  // e.g., "(10,000,000 and 9,000,000 shares, respectively)"
-  cleaned = cleaned.replace(/\s*\([^)]*\d{1,3}(?:,\d{3})*(?:\s+and\s+\d{1,3}(?:,\d{3})*)*\s+shares[^)]*\)/gi, '');
+  // ============================================
+  // INLINE PATTERNS (not in parentheses)
+  // ============================================
 
-  // 6. Remove parenthetical text with "respectively" containing numbers
-  // e.g., "(100 and 200, respectively)"
-  cleaned = cleaned.replace(/\s*\([^)]*\d+[^)]*respectively[^)]*\)/gi, '');
+  // Remove inline "of $X and $Y" patterns
+  // e.g., "net of allowance for credit losses of $74 and $69"
+  cleaned = cleaned.replace(/,?\s*(?:of|:)\s+\$[\d,]+\s+and\s+\$[\d,]+/gi, '');
 
-  // 7. Remove date-specific share counts NOT in parentheses
-  // e.g., "September 30, 2025 1,310,485,026 shares and December 31, 2024 1,222,647,540 shares"
-  // Match: month day, year followed by number and "shares"
+  // Remove inline "X and Y shares, respectively" patterns
+  // e.g., "4,312,228 and 3,630,636 shares, respectively"
+  cleaned = cleaned.replace(/,?\s*[\d,]+\s+and\s+[\d,]+\s+shares,?\s*(?:respectively)?/gi, '');
+
+  // Remove inline "; X and Y shares issued, respectively" patterns
+  // e.g., "; 72,899,970 and 72,699,245 shares issued, respectively"
+  cleaned = cleaned.replace(/[;,]\s*[\d,]+\s+and\s+[\d,]+\s+shares\s+(?:issued|outstanding),?\s*(?:respectively)?/gi, '');
+
+  // Remove date-specific patterns
+  // e.g., "September 30, 2025 1,310,485,026 shares and December 31, 2024..."
   cleaned = cleaned.replace(/[:,]?\s*(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\s*[\d,]+\s+shares(?:\s+and\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\s*[\d,]+\s+shares)?/gi, '');
 
-  // 8. Remove "as of [date] [number]" patterns
-  // e.g., "as of September 30, 2025 762,000 and as of December 31, 2024 714,000"
-  cleaned = cleaned.replace(/,?\s*(?:issued shares:)?\s*as of\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\s*[\d,]+(?:\s+and\s+as of\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\s*[\d,]+)?[^(]*/gi, '');
+  // Remove "as of [date] [number]" patterns
+  cleaned = cleaned.replace(/,?\s*(?:issued\s+)?(?:shares:?)?\s*as of\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\s*[\d,]+(?:\s+and\s+as of\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\s*[\d,]+)?[^(]*/gi, '');
 
-  // 9. Remove ", at aggregate liquidation value" suffix
+  // Remove ", at aggregate liquidation value" suffix
   cleaned = cleaned.replace(/,?\s*at aggregate liquidation value\s*$/gi, '');
 
-  // 10. Clean up any resulting awkward punctuation
-  cleaned = cleaned.replace(/\(\s*\)/g, ''); // Empty parentheses
-  cleaned = cleaned.replace(/,\s*,/g, ','); // Double commas
-  cleaned = cleaned.replace(/;\s*\)/g, ')'); // Semicolon before close paren
-  cleaned = cleaned.replace(/\(\s*;/g, '('); // Semicolon after open paren
+  // ============================================
+  // CLEANUP
+  // ============================================
 
-  // Clean up any double spaces and trim
+  // Remove empty parentheses
+  cleaned = cleaned.replace(/\(\s*\)/g, '');
+  // Fix doubled punctuation
+  cleaned = cleaned.replace(/,\s*,/g, ',');
+  cleaned = cleaned.replace(/;\s*;/g, ';');
+  cleaned = cleaned.replace(/;\s*\)/g, ')');
+  cleaned = cleaned.replace(/\(\s*;/g, '(');
+  // Clean up spaces
   cleaned = cleaned.replace(/\s+/g, ' ').trim();
-
   // Remove trailing punctuation
   cleaned = cleaned.replace(/[,;:]\s*$/, '');
 
