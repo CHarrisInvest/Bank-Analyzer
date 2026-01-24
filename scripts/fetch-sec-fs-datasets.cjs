@@ -1167,12 +1167,21 @@ function buildHistoricalStatements(bankData) {
 
         let value = null;
         let derivedUnavailable = false;
+        let itemIsDerived = false;
+
+        // Check if this is a share count or per-share value that should NOT be derived
+        // These represent period averages/values, not cumulative totals
+        const tagLower = canonicalItem.tag.toLowerCase();
+        const isSharesOrPerShare = tagLower.includes('shares') ||
+                                    tagLower.includes('pershare') ||
+                                    canonicalItem.tag.includes('EarningsPerShare');
 
         if (stmtType === 'BS') {
           // Balance sheet: always point-in-time (qtrs=0)
           value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 0, negating);
-        } else if (fp === 'Q4' && isDerived) {
+        } else if (fp === 'Q4' && isDerived && !isSharesOrPerShare) {
           // Income statement Q4: derive from annual - Q1 - Q2 - Q3
+          // BUT NOT for share counts or per-share values (they're not cumulative)
           const annualValue = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
 
           if (annualValue !== null && priorQuarters) {
@@ -1183,6 +1192,7 @@ function buildHistoricalStatements(bankData) {
             // Only derive if we have all three prior quarters
             if (q1Value !== null && q2Value !== null && q3Value !== null) {
               value = annualValue - q1Value - q2Value - q3Value;
+              itemIsDerived = true;
             } else {
               // Cannot derive - missing prior quarter data
               derivedUnavailable = true;
@@ -1190,6 +1200,9 @@ function buildHistoricalStatements(bankData) {
           } else {
             derivedUnavailable = true;
           }
+        } else if (fp === 'Q4' && isSharesOrPerShare) {
+          // Q4 share counts and per-share values: use quarterly value directly (not derived)
+          value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
         } else {
           // Income statement Q1-Q3: quarterly value (qtrs=1)
           value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
@@ -1204,7 +1217,7 @@ function buildHistoricalStatements(bankData) {
           value: value,
           uom: 'USD',
           hasValue: value !== null,
-          isDerived: fp === 'Q4' && stmtType === 'IS',
+          isDerived: itemIsDerived,
           derivedUnavailable: derivedUnavailable,
         });
       }
