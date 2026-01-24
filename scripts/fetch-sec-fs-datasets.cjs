@@ -1169,19 +1169,18 @@ function buildHistoricalStatements(bankData) {
         let derivedUnavailable = false;
         let itemIsDerived = false;
 
-        // Check if this is a share count or per-share value that should NOT be derived
-        // These represent period averages/values, not cumulative totals
+        // Check if this is a share count that should NOT be derived by subtraction
+        // Share counts are period averages, not cumulative - Annual ≠ Q1 + Q2 + Q3 + Q4
+        // Per-share values (EPS) CAN be derived since companies present them to reconcile
         const tagLower = canonicalItem.tag.toLowerCase();
-        const isSharesOrPerShare = tagLower.includes('shares') ||
-                                    tagLower.includes('pershare') ||
-                                    canonicalItem.tag.includes('EarningsPerShare');
+        const isShareCount = tagLower.includes('shares') && !tagLower.includes('pershare');
 
         if (stmtType === 'BS') {
           // Balance sheet: always point-in-time (qtrs=0)
           value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 0, negating);
-        } else if (fp === 'Q4' && isDerived && !isSharesOrPerShare) {
+        } else if (fp === 'Q4' && isDerived && !isShareCount) {
           // Income statement Q4: derive from annual - Q1 - Q2 - Q3
-          // BUT NOT for share counts or per-share values (they're not cumulative)
+          // Works for revenue, expenses, net income, AND per-share values (EPS)
           const annualValue = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
 
           if (annualValue !== null && priorQuarters) {
@@ -1200,60 +1199,16 @@ function buildHistoricalStatements(bankData) {
           } else {
             derivedUnavailable = true;
           }
-        } else if (fp === 'Q4' && isSharesOrPerShare) {
-          // Q4 share counts and per-share values: use quarterly value directly (not derived by subtraction)
+        } else if (fp === 'Q4' && isShareCount) {
+          // Q4 share counts: use quarterly value if available, otherwise use annual as proxy
+          // (Share counts can't be derived by subtraction since they're averages)
           value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
 
-          // Fallback for share counts: derive Q4 weighted average from end-of-period values
-          // Q4 weighted avg ≈ (Q3 end-of-period + Q4 end-of-period) / 2
-          if (value === null && tagLower.includes('shares') && !tagLower.includes('pershare') && priorQuarters?.Q3) {
-            const q4EndShares = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 0, negating);
-            const q3EndShares = getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 0, negating);
-
-            if (q4EndShares !== null && q3EndShares !== null) {
-              value = Math.round((q3EndShares + q4EndShares) / 2);
+          // Fallback: use annual weighted average as proxy for Q4
+          if (value === null) {
+            value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
+            if (value !== null) {
               itemIsDerived = true;
-            }
-          }
-
-          // Fallback for per-share values: derive from Q4 net income and Q4 shares
-          if (value === null && (tagLower.includes('pershare') || canonicalItem.tag.includes('EarningsPerShare'))) {
-            // Get Q4 net income (derived)
-            const annualNetIncome = getValueForFiling('NetIncomeLoss', null, filing, 4, false) ||
-                                    getValueForFiling('ProfitLoss', null, filing, 4, false);
-
-            if (annualNetIncome !== null && priorQuarters) {
-              const q1NetIncome = priorQuarters.Q1 ? (getValueForFiling('NetIncomeLoss', null, priorQuarters.Q1, 1, false) ||
-                                                       getValueForFiling('ProfitLoss', null, priorQuarters.Q1, 1, false)) : null;
-              const q2NetIncome = priorQuarters.Q2 ? (getValueForFiling('NetIncomeLoss', null, priorQuarters.Q2, 1, false) ||
-                                                       getValueForFiling('ProfitLoss', null, priorQuarters.Q2, 1, false)) : null;
-              const q3NetIncome = priorQuarters.Q3 ? (getValueForFiling('NetIncomeLoss', null, priorQuarters.Q3, 1, false) ||
-                                                       getValueForFiling('ProfitLoss', null, priorQuarters.Q3, 1, false)) : null;
-
-              if (q1NetIncome !== null && q2NetIncome !== null && q3NetIncome !== null) {
-                const q4NetIncome = annualNetIncome - q1NetIncome - q2NetIncome - q3NetIncome;
-
-                // Get Q4 weighted average shares (try quarterly first, then derive from end-of-period)
-                const sharesTag = tagLower.includes('diluted') ?
-                  'WeightedAverageNumberOfDilutedSharesOutstanding' :
-                  'WeightedAverageNumberOfSharesOutstandingBasic';
-
-                let q4Shares = getValueForFiling(sharesTag, null, filing, 1, false);
-
-                // Derive shares from end-of-period if not available
-                if (q4Shares === null && priorQuarters?.Q3) {
-                  const q4EndShares = getValueForFiling(sharesTag, null, filing, 0, false);
-                  const q3EndShares = getValueForFiling(sharesTag, null, priorQuarters.Q3, 0, false);
-                  if (q4EndShares !== null && q3EndShares !== null) {
-                    q4Shares = Math.round((q3EndShares + q4EndShares) / 2);
-                  }
-                }
-
-                if (q4Shares !== null && q4Shares !== 0) {
-                  value = q4NetIncome / q4Shares;
-                  itemIsDerived = true;
-                }
-              }
             }
           }
         } else {
