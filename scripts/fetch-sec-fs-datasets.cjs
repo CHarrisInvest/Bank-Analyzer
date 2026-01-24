@@ -978,16 +978,34 @@ function buildHistoricalStatements(bankData) {
 
   /**
    * Get value for a specific tag from a filing
+   *
+   * IMPORTANT: SEC filings contain multiple balance sheet values for the same concept:
+   * - Current period (e.g., Sept 30, 2025 for Q3 2025)
+   * - Comparative period (e.g., Dec 31, 2024 for year-end comparison)
+   *
+   * We must filter by ddate (filing.period) to get the current period value.
    */
   const getValueForFiling = (tag, version, filing, targetQtrs, negating) => {
     const conceptData = concepts[tag];
     if (!conceptData) return null;
 
     // Per SEC docs: PRE references NUM via adsh + tag + version
+    // Also filter by ddate to get current period (not comparative period)
     let match = conceptData.find(d =>
-      d.adsh === filing.adsh && d.qtrs === targetQtrs && d.version === version
+      d.adsh === filing.adsh && d.qtrs === targetQtrs && d.ddate === filing.period && d.version === version
     );
-    // Fallback: try without version
+    // Fallback: try without version (still require ddate match)
+    if (!match && version) {
+      match = conceptData.find(d =>
+        d.adsh === filing.adsh && d.qtrs === targetQtrs && d.ddate === filing.period
+      );
+    }
+    // Final fallback: if no ddate match, try without ddate (for backwards compatibility)
+    if (!match) {
+      match = conceptData.find(d =>
+        d.adsh === filing.adsh && d.qtrs === targetQtrs && d.version === version
+      );
+    }
     if (!match && version) {
       match = conceptData.find(d =>
         d.adsh === filing.adsh && d.qtrs === targetQtrs
