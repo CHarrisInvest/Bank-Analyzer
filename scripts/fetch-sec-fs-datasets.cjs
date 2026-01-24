@@ -94,6 +94,17 @@ const CONFIG = {
   },
 };
 
+// Tag equivalence mappings - companies sometimes change tags between periods
+// When deriving Q4, if the primary tag doesn't have a value, try these equivalents
+const TAG_EQUIVALENTS = {
+  'InterestExpense': ['InterestExpenseOperating', 'InterestExpenseDeposits'],
+  'InterestExpenseOperating': ['InterestExpense', 'InterestExpenseDeposits'],
+  'InterestIncome': ['InterestIncomeOperating', 'InterestAndDividendIncomeOperating'],
+  'InterestIncomeOperating': ['InterestIncome', 'InterestAndDividendIncomeOperating'],
+  'ProvisionForLoanLeaseAndOtherLosses': ['ProvisionForLoanLossesExpensed', 'ProvisionForCreditLosses'],
+  'ProvisionForCreditLosses': ['ProvisionForLoanLeaseAndOtherLosses', 'ProvisionForLoanLossesExpensed'],
+};
+
 // Directories
 const TEMP_DIR = path.join(__dirname, '..', '.sec-data-cache');
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'data');
@@ -1168,6 +1179,7 @@ function buildHistoricalStatements(bankData) {
         let value = null;
         let derivedUnavailable = false;
         let itemIsDerived = false;
+        let isAnnualProxy = false;
 
         // Check if this is a share count that should NOT be derived by subtraction
         // Share counts are period averages, not cumulative - Annual ≠ Q1 + Q2 + Q3 + Q4
@@ -1184,9 +1196,21 @@ function buildHistoricalStatements(bankData) {
           const annualValue = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
 
           if (annualValue !== null && priorQuarters) {
-            const q1Value = priorQuarters.Q1 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating) : null;
-            const q2Value = priorQuarters.Q2 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating) : null;
-            const q3Value = priorQuarters.Q3 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating) : null;
+            // Helper to get value with fallback to equivalent tags
+            const getValueWithEquivalents = (tag, version, quarterFiling, qtrs, neg) => {
+              let val = getValueForFiling(tag, version, quarterFiling, qtrs, neg);
+              if (val === null && TAG_EQUIVALENTS[tag]) {
+                for (const equivTag of TAG_EQUIVALENTS[tag]) {
+                  val = getValueForFiling(equivTag, null, quarterFiling, qtrs, neg);
+                  if (val !== null) break;
+                }
+              }
+              return val;
+            };
+
+            const q1Value = priorQuarters.Q1 ? getValueWithEquivalents(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating) : null;
+            const q2Value = priorQuarters.Q2 ? getValueWithEquivalents(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating) : null;
+            const q3Value = priorQuarters.Q3 ? getValueWithEquivalents(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating) : null;
 
             // Only derive if we have all three prior quarters
             if (q1Value !== null && q2Value !== null && q3Value !== null) {
@@ -1209,6 +1233,7 @@ function buildHistoricalStatements(bankData) {
             value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
             if (value !== null) {
               itemIsDerived = true;
+              isAnnualProxy = true;  // Flag that this is annual value used as Q4 proxy
             }
           }
         } else {
@@ -1227,6 +1252,7 @@ function buildHistoricalStatements(bankData) {
           hasValue: value !== null,
           isDerived: itemIsDerived,
           derivedUnavailable: derivedUnavailable,
+          isAnnualProxy: isAnnualProxy,  // True if Q4 share count uses annual value as proxy
         });
       }
 
