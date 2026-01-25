@@ -1245,13 +1245,81 @@ function buildHistoricalStatements(bankData) {
   };
 
   /**
+   * Get restated quarterly value from 10-K filing
+   *
+   * When companies restate prior quarters (e.g., accounting method changes),
+   * the 10-K may contain restated quarterly values (qtrs=1) for prior quarter-end dates.
+   * These are more accurate than the original 10-Q values.
+   *
+   * @param {string} tag - The XBRL tag
+   * @param {string} version - The taxonomy version
+   * @param {Object} annualFiling - The 10-K filing object
+   * @param {string} quarterEndDate - The quarter-end date (e.g., "20240331" for Q1)
+   * @param {boolean} negating - Whether to negate the value
+   * @returns {number|null} - The restated value or null if not available
+   */
+  const getRestatedValueFromAnnual = (tag, version, annualFiling, quarterEndDate, negating, visited = null) => {
+    if (!annualFiling) return null;
+
+    // Prevent infinite recursion
+    if (!visited) visited = new Set();
+    if (visited.has(tag)) return null;
+    visited.add(tag);
+
+    const conceptData = concepts[tag];
+    if (!conceptData) {
+      // Try equivalent tags
+      const equivalents = getAllEquivalentTags(tag);
+      for (const equivTag of equivalents) {
+        const equivResult = getRestatedValueFromAnnual(equivTag, version, annualFiling, quarterEndDate, negating, visited);
+        if (equivResult !== null) return equivResult;
+      }
+      return null;
+    }
+
+    // Look for qtrs=1 value in the 10-K filing with the specific quarter-end date
+    // This would be a restated quarterly value
+    let match = conceptData.find(d =>
+      d.adsh === annualFiling.adsh && d.qtrs === 1 && d.ddate === quarterEndDate && d.version === version
+    );
+    // Fallback: try without version match
+    if (!match) {
+      match = conceptData.find(d =>
+        d.adsh === annualFiling.adsh && d.qtrs === 1 && d.ddate === quarterEndDate
+      );
+    }
+
+    // Try equivalent tags if no match found
+    if (!match) {
+      const equivalents = getAllEquivalentTags(tag);
+      for (const equivTag of equivalents) {
+        const equivResult = getRestatedValueFromAnnual(equivTag, version, annualFiling, quarterEndDate, negating, visited);
+        if (equivResult !== null) return equivResult;
+      }
+    }
+
+    if (!match) return null;
+    return negating ? -match.value : match.value;
+  };
+
+  /**
    * Build quarterly statements (Q1-Q3 from 10-Q, Q4 from 10-K with I/S derivation)
+   *
+   * IMPORTANT: For income statement items, we prefer restated values from the 10-K
+   * over original 10-Q values when available. This handles cases where companies
+   * restate prior quarters due to accounting method changes.
    */
   const buildQuarterlyStatements = (stmtType) => {
     // Use both 10-Q and 10-K filings for canonical items
     const allFilings = [...quarterly10Qs, ...annual10Ks];
     const canonicalItems = buildCanonicalItems(allFilings, stmtType);
     if (canonicalItems.length === 0) return { statements: [], canonicalItems: [] };
+
+    // Build a map of fiscal year -> 10-K filing (for restated values)
+    const annualByYear = new Map();
+    for (const k of annual10Ks) {
+      annualByYear.set(k.fy, k);
+    }
 
     // Build a map of fiscal year -> Q1, Q2, Q3 10-Q filings
     const quartersByYear = new Map();
@@ -1270,6 +1338,7 @@ function buildHistoricalStatements(bankData) {
     const allQuarters = [];
 
     // Add Q1-Q3 from 10-Qs
+    // Include the 10-K filing reference for checking restated values
     for (const q of quarterly10Qs) {
       allQuarters.push({
         fy: q.fy,
@@ -1277,6 +1346,8 @@ function buildHistoricalStatements(bankData) {
         filing: q,
         form: '10-Q',
         isDerived: false,
+        // Reference to 10-K for this fiscal year (for restated I/S values)
+        annualFiling: annualByYear.get(q.fy) || null,
       });
     }
 
@@ -1293,6 +1364,7 @@ function buildHistoricalStatements(bankData) {
           isDerived: stmtType === 'IS', // I/S Q4 is derived, B/S is direct
           // For I/S derivation, we need Q1-Q3 values
           priorQuarters: quartersByYear.get(fy) || { Q1: null, Q2: null, Q3: null },
+          annualFiling: k, // The 10-K itself
         });
       }
     }
@@ -1308,7 +1380,7 @@ function buildHistoricalStatements(bankData) {
 
     const statements = [];
     for (const quarter of allQuarters) {
-      const { fy, fp, filing, form, isDerived, priorQuarters } = quarter;
+      const { fy, fp, filing, form, isDerived, priorQuarters, annualFiling } = quarter;
       const periodKey = `${fp} ${fy}`;
       const periodLabel = isDerived ? `${fp} ${fy} (derived)` : periodKey;
 
@@ -1331,6 +1403,7 @@ function buildHistoricalStatements(bankData) {
         let derivedUnavailable = false;
         let itemIsDerived = false;
         let isAnnualProxy = false;
+        let isRestated = false;  // True if value came from restated data in 10-K
 
         // Check if this is a share count that should NOT be derived by subtraction
         // Share counts are period averages, not cumulative - Annual ≠ Q1 + Q2 + Q3 + Q4
@@ -1363,33 +1436,46 @@ function buildHistoricalStatements(bankData) {
             value = directQ4Value;
             itemIsDerived = false;
           } else {
-            // No direct Q4 value - try derivation
+            // No direct Q4 value - try derivation using restated Q1-Q3 values from 10-K
             const annualValue = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
 
             if (annualValue !== null && priorQuarters) {
-              const q1Value = priorQuarters.Q1 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating) : null;
-              const q2Value = priorQuarters.Q2 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating) : null;
-              const q3Value = priorQuarters.Q3 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating) : null;
+              // IMPORTANT: Prefer restated Q1-Q3 values from the 10-K over original 10-Q values
+              // This ensures derivation uses consistent accounting when companies restate
+              let q1Value = null, q2Value = null, q3Value = null;
+
+              // Try restated values from 10-K first
+              if (priorQuarters.Q1) {
+                q1Value = getRestatedValueFromAnnual(canonicalItem.tag, canonicalItem.version, filing, priorQuarters.Q1.period, negating);
+                if (q1Value === null) {
+                  q1Value = getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating);
+                }
+              }
+              if (priorQuarters.Q2) {
+                q2Value = getRestatedValueFromAnnual(canonicalItem.tag, canonicalItem.version, filing, priorQuarters.Q2.period, negating);
+                if (q2Value === null) {
+                  q2Value = getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating);
+                }
+              }
+              if (priorQuarters.Q3) {
+                q3Value = getRestatedValueFromAnnual(canonicalItem.tag, canonicalItem.version, filing, priorQuarters.Q3.period, negating);
+                if (q3Value === null) {
+                  q3Value = getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating);
+                }
+              }
 
               if (q1Value !== null && q2Value !== null && q3Value !== null) {
                 const derivedQ4 = annualValue - q1Value - q2Value - q3Value;
 
-                // Validate derivation: check for restatement inconsistency
-                // If Q1+Q2+Q3 already exceeds the annual (or is very close), the 10-Qs
-                // likely use a different accounting method than the 10-K
-                const expectedQ4 = annualValue / 4; // Rough estimate of typical quarter
+                // Validate derivation: check for any remaining inconsistency
+                // (Should be rare if we successfully got restated values)
                 const priorSum = q1Value + q2Value + q3Value;
-
-                // Detect inconsistency: derived Q4 has opposite sign from expected,
-                // OR prior quarters sum exceeds annual (meaning derived Q4 would be negative
-                // when annual is positive, indicating restatement)
                 const signMismatch = (annualValue > 0 && derivedQ4 < 0) || (annualValue < 0 && derivedQ4 > 0);
                 const priorExceedsAnnual = (annualValue > 0 && priorSum > annualValue * 1.1) ||
                                           (annualValue < 0 && priorSum < annualValue * 1.1);
 
                 if (signMismatch || priorExceedsAnnual) {
-                  // Restatement detected - prior quarters use different accounting than annual
-                  // Cannot reliably derive Q4, mark as unavailable
+                  // Still inconsistent even with restated values - mark as unavailable
                   derivedUnavailable = true;
                   value = null;
                 } else {
@@ -1420,8 +1506,34 @@ function buildHistoricalStatements(bankData) {
             }
           }
         } else {
-          // Income statement Q1-Q3: quarterly value (qtrs=1)
-          value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
+          // Income statement Q1-Q3: prefer restated value from 10-K if available
+          //
+          // When companies restate prior quarters (e.g., accounting method changes),
+          // the 10-K contains restated quarterly values that are more accurate than
+          // the original 10-Q values. Check the 10-K first.
+          if (stmtType === 'IS' && annualFiling && ['Q1', 'Q2', 'Q3'].includes(fp)) {
+            // Try to get restated value from 10-K
+            const restatedValue = getRestatedValueFromAnnual(
+              canonicalItem.tag,
+              canonicalItem.version,
+              annualFiling,
+              filing.period, // The quarter-end date (e.g., 20240331 for Q1)
+              negating
+            );
+
+            if (restatedValue !== null) {
+              // Found restated value in 10-K - use it
+              value = restatedValue;
+              itemIsDerived = false; // It's a direct value from 10-K, just restated
+              isRestated = true; // Flag that this is a restated value
+            } else {
+              // No restated value - fall back to original 10-Q value
+              value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
+            }
+          } else {
+            // Balance sheet or no annual filing available - use original filing value
+            value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
+          }
         }
 
         items.push({
@@ -1436,6 +1548,7 @@ function buildHistoricalStatements(bankData) {
           isDerived: itemIsDerived,
           derivedUnavailable: derivedUnavailable,
           isAnnualProxy: isAnnualProxy,  // True if Q4 share count uses annual value as proxy
+          isRestated: isRestated,  // True if value came from restated data in 10-K (not original 10-Q)
         });
       }
 
