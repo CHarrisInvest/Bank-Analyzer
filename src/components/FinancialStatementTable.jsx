@@ -645,6 +645,10 @@ export default function FinancialStatementTable({
     // Note: typeof null === 'object' in JS, so check for null explicitly
     const value = (rawVal !== null && typeof rawVal === 'object') ? rawVal.value : rawVal;
     const derivedUnavailable = (rawVal !== null && typeof rawVal === 'object') ? rawVal.derivedUnavailable : false;
+    // Data quality indicators
+    const isDerived = (rawVal !== null && typeof rawVal === 'object') ? rawVal.isDerived : false;
+    const isRestated = (rawVal !== null && typeof rawVal === 'object') ? rawVal.isRestated : false;
+    const isAnnualProxy = (rawVal !== null && typeof rawVal === 'object') ? rawVal.isAnnualProxy : false;
     const isPinned = pinnedPeriods.has(period.key);
     const annotationKey = `${item.tag}-${period.key}`;
     const hasAnnotation = !!annotations[annotationKey];
@@ -701,6 +705,13 @@ export default function FinancialStatementTable({
       displayValue = formatValue(value);
     }
 
+    // Build tooltip text for data quality indicators
+    const indicatorTitles = [];
+    if (isDerived) indicatorTitles.push('Derived: Q4 calculated as Annual - Q1 - Q2 - Q3');
+    if (isRestated) indicatorTitles.push('Restated: Value from 10-K (accounting adjustment applied)');
+    if (isAnnualProxy) indicatorTitles.push('Annual Proxy: Q4 uses annual weighted average (shares cannot be derived)');
+    const indicatorTitle = indicatorTitles.join('\n');
+
     return (
       <td
         key={period.key}
@@ -719,6 +730,14 @@ export default function FinancialStatementTable({
       >
         <div className="cell-content">
           {displayValue}
+          {/* Data quality indicators */}
+          {(isDerived || isRestated || isAnnualProxy) && (
+            <span className="data-quality-indicators" title={indicatorTitle}>
+              {isDerived && <span className="indicator indicator-derived" title="Derived (Q4 = Annual - Q1 - Q2 - Q3)">D</span>}
+              {isRestated && <span className="indicator indicator-restated" title="Restated value from 10-K">R</span>}
+              {isAnnualProxy && <span className="indicator indicator-proxy" title="Uses annual weighted average as proxy">~</span>}
+            </span>
+          )}
           {hasAnnotation && <span className="annotation-indicator" title={annotations[annotationKey]}>📝</span>}
         </div>
         {changeEl && <div className="change-row">{changeEl}</div>}
@@ -1004,6 +1023,20 @@ export default function FinancialStatementTable({
         <span>Enter Pin</span>
         <span>N Note</span>
         <span>Double-click Edit note</span>
+        {isIncomeStatement && viewMode === 'quarterly' && (
+          <>
+            <span className="hint-separator">|</span>
+            <span className="indicator-legend">
+              <span className="indicator indicator-derived">D</span> Derived
+            </span>
+            <span className="indicator-legend">
+              <span className="indicator indicator-restated">R</span> Restated
+            </span>
+            <span className="indicator-legend">
+              <span className="indicator indicator-proxy">~</span> Annual Proxy
+            </span>
+          </>
+        )}
       </div>
 
       {/* Table */}
