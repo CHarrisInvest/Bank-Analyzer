@@ -945,8 +945,40 @@ function buildHistoricalStatements(bankData) {
       return fpB - fpA;
     });
 
+  // Dynamic tag equivalences discovered from same label + line number across filings
+  // This supplements the manual TAG_EQUIVALENTS with auto-detected equivalences
+  const dynamicTagEquivalents = {};
+
+  /**
+   * Add a dynamic equivalence between two tags (bidirectional)
+   */
+  const addDynamicEquivalence = (tag1, tag2) => {
+    if (tag1 === tag2) return;
+    if (!dynamicTagEquivalents[tag1]) dynamicTagEquivalents[tag1] = [];
+    if (!dynamicTagEquivalents[tag2]) dynamicTagEquivalents[tag2] = [];
+    if (!dynamicTagEquivalents[tag1].includes(tag2)) dynamicTagEquivalents[tag1].push(tag2);
+    if (!dynamicTagEquivalents[tag2].includes(tag1)) dynamicTagEquivalents[tag2].push(tag1);
+  };
+
+  /**
+   * Get all equivalent tags (from both manual and dynamic mappings)
+   */
+  const getAllEquivalentTags = (tag) => {
+    const equivalents = new Set();
+    // Add manual equivalents
+    if (TAG_EQUIVALENTS[tag]) {
+      TAG_EQUIVALENTS[tag].forEach(t => equivalents.add(t));
+    }
+    // Add dynamically discovered equivalents
+    if (dynamicTagEquivalents[tag]) {
+      dynamicTagEquivalents[tag].forEach(t => equivalents.add(t));
+    }
+    return Array.from(equivalents);
+  };
+
   /**
    * Build canonical presentation structure from most recent filing
+   * Also discovers dynamic tag equivalences based on same label + line number
    */
   const buildCanonicalItems = (filings, stmtType) => {
     // Find most recent filing with presentation data
@@ -965,20 +997,62 @@ function buildHistoricalStatements(bankData) {
     const canonicalItems = [...canonicalPres].sort((a, b) => a.line - b.line);
     const tagSet = new Set(canonicalItems.map(item => item.tag));
 
+    // Build lookup by normalized label + line for auto-detection of equivalences
+    // Normalize label: lowercase, trim whitespace
+    const labelLineToTag = new Map();
+    for (const item of canonicalItems) {
+      const key = `${(item.label || '').toLowerCase().trim()}|${item.line}`;
+      labelLineToTag.set(key, item.tag);
+    }
+
+    // Helper to check if a tag or any of its equivalents are already in the set
+    const hasTagOrEquivalent = (tag) => {
+      if (tagSet.has(tag)) return true;
+      // Check manual equivalents
+      if (TAG_EQUIVALENTS[tag]) {
+        for (const equivTag of TAG_EQUIVALENTS[tag]) {
+          if (tagSet.has(equivTag)) return true;
+        }
+      }
+      // Check dynamic equivalents
+      if (dynamicTagEquivalents[tag]) {
+        for (const equivTag of dynamicTagEquivalents[tag]) {
+          if (tagSet.has(equivTag)) return true;
+        }
+      }
+      return false;
+    };
+
     // Check older filings for any items not in the canonical list
     // Preserve their original line numbers so they appear in proper position
+    // Skip items that are equivalents of already-included items to avoid duplicate rows
+    // Auto-detect equivalences based on same label + line number
     for (const filing of filings.slice(1)) {
       const pres = presentationByFiling[filing.adsh];
       if (!pres || !pres[stmtType]) continue;
 
       for (const item of pres[stmtType]) {
-        if (!tagSet.has(item.tag)) {
+        // Check for automatic equivalence: same label + line number = same concept
+        const key = `${(item.label || '').toLowerCase().trim()}|${item.line}`;
+        const existingTag = labelLineToTag.get(key);
+
+        if (existingTag && existingTag !== item.tag) {
+          // Found a tag with same label+line but different name - they're equivalent
+          addDynamicEquivalence(existingTag, item.tag);
+          // Skip adding this item since we have an equivalent
+          continue;
+        }
+
+        // Skip if this tag OR any equivalent is already in the canonical list
+        if (!hasTagOrEquivalent(item.tag)) {
           canonicalItems.push({
             ...item,
             // Keep original line number so item appears in its proper position
             fromOlderFiling: true,
           });
           tagSet.add(item.tag);
+          // Add to lookup for future equivalence detection
+          labelLineToTag.set(key, item.tag);
         }
       }
     }
@@ -998,7 +1072,15 @@ function buildHistoricalStatements(bankData) {
    */
   const getValueForFiling = (tag, version, filing, targetQtrs, negating) => {
     const conceptData = concepts[tag];
-    if (!conceptData) return null;
+    if (!conceptData) {
+      // If primary tag has no data, try equivalent tags (both manual and dynamic)
+      const equivalents = getAllEquivalentTags(tag);
+      for (const equivTag of equivalents) {
+        const equivResult = getValueForFiling(equivTag, version, filing, targetQtrs, negating);
+        if (equivResult !== null) return equivResult;
+      }
+      return null;
+    }
 
     // Per SEC docs: PRE references NUM via adsh + tag + version
     // Also filter by ddate to get current period (not comparative period)
@@ -1021,6 +1103,15 @@ function buildHistoricalStatements(bankData) {
       match = conceptData.find(d =>
         d.adsh === filing.adsh && d.qtrs === targetQtrs
       );
+    }
+
+    // If still no match, try equivalent tags (both manual and dynamic)
+    if (!match) {
+      const equivalents = getAllEquivalentTags(tag);
+      for (const equivTag of equivalents) {
+        const equivResult = getValueForFiling(equivTag, version, filing, targetQtrs, negating);
+        if (equivResult !== null) return equivResult;
+      }
     }
 
     if (!match) return null;
@@ -1196,21 +1287,10 @@ function buildHistoricalStatements(bankData) {
           const annualValue = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
 
           if (annualValue !== null && priorQuarters) {
-            // Helper to get value with fallback to equivalent tags
-            const getValueWithEquivalents = (tag, version, quarterFiling, qtrs, neg) => {
-              let val = getValueForFiling(tag, version, quarterFiling, qtrs, neg);
-              if (val === null && TAG_EQUIVALENTS[tag]) {
-                for (const equivTag of TAG_EQUIVALENTS[tag]) {
-                  val = getValueForFiling(equivTag, null, quarterFiling, qtrs, neg);
-                  if (val !== null) break;
-                }
-              }
-              return val;
-            };
-
-            const q1Value = priorQuarters.Q1 ? getValueWithEquivalents(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating) : null;
-            const q2Value = priorQuarters.Q2 ? getValueWithEquivalents(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating) : null;
-            const q3Value = priorQuarters.Q3 ? getValueWithEquivalents(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating) : null;
+            // getValueForFiling already handles equivalent tag lookup (both manual and dynamic)
+            const q1Value = priorQuarters.Q1 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating) : null;
+            const q2Value = priorQuarters.Q2 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating) : null;
+            const q3Value = priorQuarters.Q3 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating) : null;
 
             // Only derive if we have all three prior quarters
             if (q1Value !== null && q2Value !== null && q3Value !== null) {
