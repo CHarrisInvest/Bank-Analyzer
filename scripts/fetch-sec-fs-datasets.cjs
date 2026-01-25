@@ -97,12 +97,26 @@ const CONFIG = {
 // Tag equivalence mappings - companies sometimes change tags between periods
 // When deriving Q4, if the primary tag doesn't have a value, try these equivalents
 const TAG_EQUIVALENTS = {
-  'InterestExpense': ['InterestExpenseOperating', 'InterestExpenseDeposits'],
+  // Interest income/expense equivalences
+  'InterestExpense': ['InterestExpenseOperating', 'InterestExpenseDeposits', 'InterestExpenseBorrowings'],
   'InterestExpenseOperating': ['InterestExpense', 'InterestExpenseDeposits'],
   'InterestIncome': ['InterestIncomeOperating', 'InterestAndDividendIncomeOperating'],
   'InterestIncomeOperating': ['InterestIncome', 'InterestAndDividendIncomeOperating'],
-  'ProvisionForLoanLeaseAndOtherLosses': ['ProvisionForLoanLossesExpensed', 'ProvisionForCreditLosses'],
-  'ProvisionForCreditLosses': ['ProvisionForLoanLeaseAndOtherLosses', 'ProvisionForLoanLossesExpensed'],
+  'InterestAndDividendIncomeOperating': ['InterestIncome', 'InterestIncomeOperating'],
+  // Provision for credit losses equivalences (multiple XBRL tags used by different banks)
+  'ProvisionForLoanLeaseAndOtherLosses': ['ProvisionForLoanLossesExpensed', 'ProvisionForCreditLosses', 'ProvisionForLoanAndLeaseLosses', 'CreditLossExpense'],
+  'ProvisionForCreditLosses': ['ProvisionForLoanLeaseAndOtherLosses', 'ProvisionForLoanLossesExpensed', 'ProvisionForLoanAndLeaseLosses', 'CreditLossExpense'],
+  'ProvisionForLoanAndLeaseLosses': ['ProvisionForCreditLosses', 'ProvisionForLoanLeaseAndOtherLosses', 'ProvisionForLoanLossesExpensed'],
+  'CreditLossExpense': ['ProvisionForCreditLosses', 'ProvisionForLoanLeaseAndOtherLosses', 'ProvisionForLoanAndLeaseLosses'],
+  // Net income equivalences
+  'NetIncomeLoss': ['ProfitLoss', 'NetIncomeLossAvailableToCommonStockholdersBasic'],
+  'ProfitLoss': ['NetIncomeLoss'],
+  // Noninterest expense equivalences
+  'NoninterestExpense': ['OperatingExpenses', 'OtherNoninterestExpense'],
+  'OperatingExpenses': ['NoninterestExpense'],
+  // Share count equivalences (weighted averages can substitute for outstanding when needed)
+  'CommonStockSharesOutstanding': ['WeightedAverageNumberOfSharesOutstandingBasic', 'WeightedAverageNumberOfShareOutstandingBasicAndDiluted'],
+  'WeightedAverageNumberOfSharesOutstandingBasic': ['CommonStockSharesOutstanding', 'WeightedAverageNumberOfShareOutstandingBasicAndDiluted'],
 };
 
 // Directories
@@ -1730,10 +1744,11 @@ function calculateBankMetrics(bankData) {
   const noninterestExpense = getTTMFromStatements('NoninterestExpense', ['OperatingExpenses']) ||
                              getTTMValue(concepts['NoninterestExpense']) ||
                              getTTMValue(concepts['OperatingExpenses']);
-  const provisionForCreditLosses = getTTMFromStatements('ProvisionForLoanLeaseAndOtherLosses', ['ProvisionForLoanAndLeaseLosses', 'ProvisionForCreditLosses']) ||
+  const provisionForCreditLosses = getTTMFromStatements('ProvisionForLoanLeaseAndOtherLosses', ['ProvisionForLoanAndLeaseLosses', 'ProvisionForCreditLosses', 'CreditLossExpense']) ||
                                     getTTMValue(concepts['ProvisionForLoanLeaseAndOtherLosses']) ||
                                     getTTMValue(concepts['ProvisionForLoanAndLeaseLosses']) ||
-                                    getTTMValue(concepts['ProvisionForCreditLosses']);
+                                    getTTMValue(concepts['ProvisionForCreditLosses']) ||
+                                    getTTMValue(concepts['CreditLossExpense']);
   const preTaxIncome = getTTMFromStatements('IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest', ['IncomeLossFromContinuingOperationsBeforeIncomeTaxes']) ||
                        getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest']) ||
                        getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxes']);
