@@ -1714,12 +1714,7 @@ function calculateBankMetrics(bankData) {
                  getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
   const preferredStock = getLatestPointInTime(concepts['PreferredStockValue']) ||
                          getLatestPointInTime(concepts['PreferredStockValueOutstanding']);
-  // Share count: prefer point-in-time outstanding, fall back to weighted averages
-  // Note: WeightedAverage values are period averages, but close enough for BVPS calculation
-  const sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']) ||
-                     getLatestPointInTime(concepts['WeightedAverageNumberOfSharesOutstandingBasic']) ||
-                     getLatestPointInTime(concepts['WeightedAverageNumberOfShareOutstandingBasicAndDiluted']) ||
-                     getLatestPointInTime(concepts['CommonStockSharesIssued']);
+  const sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']);
 
   // Income Statement (TTM) - Use historical statements which have correct Q4 derivation
   const netIncome = getTTMFromStatements('NetIncomeLoss', ['ProfitLoss', 'NetIncomeLossAvailableToCommonStockholdersBasic']) ||
@@ -1766,9 +1761,6 @@ function calculateBankMetrics(bankData) {
   const eps = getTTMFromStatements('EarningsPerShareBasic', ['EarningsPerShareDiluted']) ||
               getTTMValue(concepts['EarningsPerShareBasic']) ||
               getTTMValue(concepts['EarningsPerShareDiluted']);
-  // Diluted EPS (for rawData audit trail - typically close to basic EPS for banks)
-  const epsDiluted = getTTMFromStatements('EarningsPerShareDiluted') ||
-                     getTTMValue(concepts['EarningsPerShareDiluted']);
   const dps = getTTMFromStatements('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
@@ -1857,8 +1849,7 @@ function calculateBankMetrics(bankData) {
       NetIncomeLoss: netIncome,
       NetIncomeLossAvailableToCommonStockholdersBasic: netIncomeToCommonDirect,
       PreferredStockDividends: preferredDividends,
-      EarningsPerShareBasic: eps,
-      EarningsPerShareDiluted: epsDiluted
+      EarningsPerShareBasic: eps
     },
     dividends: {
       CommonStockDividendsPerShareDeclared: dps
