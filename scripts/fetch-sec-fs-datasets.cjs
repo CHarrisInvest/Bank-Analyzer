@@ -1069,14 +1069,21 @@ function buildHistoricalStatements(bankData) {
    * - Comparative period (e.g., Dec 31, 2024 for year-end comparison)
    *
    * We must filter by ddate (filing.period) to get the current period value.
+   *
+   * @param {Set} visited - Tags already tried (prevents infinite recursion with bidirectional equivalences)
    */
-  const getValueForFiling = (tag, version, filing, targetQtrs, negating) => {
+  const getValueForFiling = (tag, version, filing, targetQtrs, negating, visited = null) => {
+    // Prevent infinite recursion from bidirectional equivalences
+    if (!visited) visited = new Set();
+    if (visited.has(tag)) return null;
+    visited.add(tag);
+
     const conceptData = concepts[tag];
     if (!conceptData) {
       // If primary tag has no data, try equivalent tags (both manual and dynamic)
       const equivalents = getAllEquivalentTags(tag);
       for (const equivTag of equivalents) {
-        const equivResult = getValueForFiling(equivTag, version, filing, targetQtrs, negating);
+        const equivResult = getValueForFiling(equivTag, version, filing, targetQtrs, negating, visited);
         if (equivResult !== null) return equivResult;
       }
       return null;
@@ -1109,7 +1116,7 @@ function buildHistoricalStatements(bankData) {
     if (!match) {
       const equivalents = getAllEquivalentTags(tag);
       for (const equivTag of equivalents) {
-        const equivResult = getValueForFiling(equivTag, version, filing, targetQtrs, negating);
+        const equivResult = getValueForFiling(equivTag, version, filing, targetQtrs, negating, visited);
         if (equivResult !== null) return equivResult;
       }
     }
