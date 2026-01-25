@@ -1094,19 +1094,20 @@ function buildHistoricalStatements(bankData) {
     let match = conceptData.find(d =>
       d.adsh === filing.adsh && d.qtrs === targetQtrs && d.ddate === filing.period && d.version === version
     );
-    // Fallback: try without version (still require ddate match)
-    if (!match && version) {
+    // Fallback 1: try without version match (still require ddate match)
+    if (!match) {
       match = conceptData.find(d =>
         d.adsh === filing.adsh && d.qtrs === targetQtrs && d.ddate === filing.period
       );
     }
-    // Final fallback: if no ddate match, try without ddate (for backwards compatibility)
+    // Fallback 2: try without ddate match (version mismatch across years)
     if (!match) {
       match = conceptData.find(d =>
         d.adsh === filing.adsh && d.qtrs === targetQtrs && d.version === version
       );
     }
-    if (!match && version) {
+    // Fallback 3: try with just adsh + qtrs (most permissive)
+    if (!match) {
       match = conceptData.find(d =>
         d.adsh === filing.adsh && d.qtrs === targetQtrs
       );
