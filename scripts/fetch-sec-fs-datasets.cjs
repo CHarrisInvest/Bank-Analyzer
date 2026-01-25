@@ -1342,26 +1342,31 @@ function buildHistoricalStatements(bankData) {
           // Balance sheet: always point-in-time (qtrs=0)
           value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 0, negating);
         } else if (fp === 'Q4' && isDerived && !isShareCount) {
-          // Income statement Q4: derive from annual - Q1 - Q2 - Q3
-          // Works for revenue, expenses, net income, AND per-share values (EPS)
-          const annualValue = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
+          // Income statement Q4: first try direct Q4 value (some companies report Q4 separately in 10-K)
+          // then derive from annual - Q1 - Q2 - Q3 if no direct value
+          value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
 
-          if (annualValue !== null && priorQuarters) {
-            // getValueForFiling already handles equivalent tag lookup (both manual and dynamic)
-            const q1Value = priorQuarters.Q1 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating) : null;
-            const q2Value = priorQuarters.Q2 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating) : null;
-            const q3Value = priorQuarters.Q3 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating) : null;
+          if (value === null) {
+            // No direct Q4 value - derive from annual - Q1 - Q2 - Q3
+            const annualValue = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
 
-            // Only derive if we have all three prior quarters
-            if (q1Value !== null && q2Value !== null && q3Value !== null) {
-              value = annualValue - q1Value - q2Value - q3Value;
-              itemIsDerived = true;
+            if (annualValue !== null && priorQuarters) {
+              // getValueForFiling already handles equivalent tag lookup (both manual and dynamic)
+              const q1Value = priorQuarters.Q1 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating) : null;
+              const q2Value = priorQuarters.Q2 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating) : null;
+              const q3Value = priorQuarters.Q3 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating) : null;
+
+              // Only derive if we have all three prior quarters
+              if (q1Value !== null && q2Value !== null && q3Value !== null) {
+                value = annualValue - q1Value - q2Value - q3Value;
+                itemIsDerived = true;
+              } else {
+                // Cannot derive - missing prior quarter data
+                derivedUnavailable = true;
+              }
             } else {
-              // Cannot derive - missing prior quarter data
               derivedUnavailable = true;
             }
-          } else {
-            derivedUnavailable = true;
           }
         } else if (fp === 'Q4' && isShareCount) {
           // Q4 share counts: use quarterly value if available, otherwise use annual as proxy
