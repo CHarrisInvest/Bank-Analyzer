@@ -146,10 +146,12 @@
         "form": "10-Q+10-Q+10-Q+10-K"
       },
       "PreTaxIncome": {
-        "value": -2076000,
-        "date": "20250930",
-        "method": "sum-4Q-statements",
-        "form": "10-Q+10-Q+10-Q+10-K"
+        "value": 2387000,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 1668000,
+        "fiscalYear": "2024"
       },
       "NetIncomeLoss": {
         "value": -2166000,
@@ -9867,11 +9869,11 @@
               "line": 39,
               "indent": 0,
               "negating": false,
-              "value": -705000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {

@@ -128,10 +128,12 @@
         "form": "10-Q+10-Q+10-Q+10-K"
       },
       "ProvisionForCreditLosses": {
-        "value": 1567000,
-        "date": "20250930",
-        "method": "sum-4Q-statements",
-        "form": "10-Q+10-Q+10-Q+10-K"
+        "value": 1280000,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 558000,
+        "fiscalYear": "2024"
       },
       "PreTaxIncome": {
         "value": 19926000,
@@ -9479,11 +9481,11 @@
               "line": 21,
               "indent": 0,
               "negating": false,
-              "value": -130000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
@@ -9505,11 +9507,11 @@
               "line": 22,
               "indent": 0,
               "negating": false,
-              "value": -130000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {

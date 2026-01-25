@@ -146,24 +146,30 @@
         "form": "10-Q+10-Q+10-Q+10-K"
       },
       "PreTaxIncome": {
-        "value": 65651000,
-        "date": "20250930",
-        "method": "sum-4Q-statements",
-        "form": "10-Q+10-Q+10-Q+10-K"
+        "value": 12937000,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": -10514000,
+        "fiscalYear": "2024"
       },
       "NetIncomeLoss": {
-        "value": 50425000,
-        "date": "20250930",
-        "method": "sum-4Q-statements",
-        "form": "10-Q+10-Q+10-Q+10-K"
+        "value": 9176000,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": -8671000,
+        "fiscalYear": "2024"
       },
       "NetIncomeLossAvailableToCommonStockholdersBasic": null,
       "PreferredStockDividends": null,
       "EarningsPerShareBasic": {
-        "value": 1.9200000000000002,
-        "date": "20250930",
-        "method": "sum-4Q-statements",
-        "form": "10-Q+10-Q+10-Q+10-K"
+        "value": 0.41,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": -0.48000000000000004,
+        "fiscalYear": "2024"
       }
     },
     "dividends": {
@@ -176,18 +182,18 @@
     },
     "averages": {
       "Assets": {
-        "average": 5303472200,
-        "ending": 5330573000,
-        "endingDate": "20250930",
-        "startingDate": "20241231",
+        "average": 4299720400,
+        "ending": 4358623000,
+        "endingDate": "20240930",
+        "startingDate": "20240331",
         "method": "5-point-avg",
         "periodCount": 5
       },
       "Equity": {
-        "average": 517779000,
-        "ending": 550688000,
-        "endingDate": "20250930",
-        "startingDate": "20241231",
+        "average": 378530000,
+        "ending": 386486000,
+        "endingDate": "20240930",
+        "startingDate": "20240630",
         "method": "5-point-avg",
         "periodCount": 5
       }
@@ -11503,11 +11509,11 @@
               "line": 42,
               "indent": 0,
               "negating": false,
-              "value": -292000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
@@ -11516,11 +11522,11 @@
               "line": 43,
               "indent": 0,
               "negating": false,
-              "value": -225000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
@@ -11529,11 +11535,11 @@
               "line": 44,
               "indent": 0,
               "negating": false,
-              "value": -67000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
@@ -11542,11 +11548,11 @@
               "line": 46,
               "indent": 0,
               "negating": false,
-              "value": -0.04999999999999999,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
@@ -11555,11 +11561,11 @@
               "line": 47,
               "indent": 0,
               "negating": false,
-              "value": -0.06,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
@@ -13739,11 +13745,11 @@
               "line": 42,
               "indent": 0,
               "negating": false,
-              "value": -17819000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
@@ -13752,11 +13758,11 @@
               "line": 43,
               "indent": 0,
               "negating": false,
-              "value": -3064000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
@@ -13765,11 +13771,11 @@
               "line": 44,
               "indent": 0,
               "negating": false,
-              "value": -14755000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
@@ -13778,11 +13784,11 @@
               "line": 46,
               "indent": 0,
               "negating": false,
-              "value": -0.73,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
@@ -13791,11 +13797,11 @@
               "line": 47,
               "indent": 0,
               "negating": false,
-              "value": -0.7200000000000001,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
