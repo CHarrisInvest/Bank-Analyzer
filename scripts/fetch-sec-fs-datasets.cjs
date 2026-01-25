@@ -1478,6 +1478,54 @@ function buildHistoricalStatements(bankData) {
 function calculateBankMetrics(bankData) {
   const concepts = bankData.concepts;
 
+  // Build historical statements FIRST - these have correctly derived Q4 values
+  const historicalStatements = buildHistoricalStatements(bankData);
+
+  /**
+   * Get TTM value from historical quarterly statements
+   * Sums the 4 most recent quarters for a given tag
+   * This uses the already-derived Q4 values from buildHistoricalStatements
+   */
+  const getTTMFromStatements = (tag, alternativeTags = []) => {
+    const quarterly = historicalStatements.historicalIncomeStatement?.quarterly || [];
+    if (quarterly.length < 4) return null;
+
+    // Get the 4 most recent quarters
+    const recentQuarters = quarterly.slice(0, 4);
+
+    // Find values for this tag across the 4 quarters
+    const allTags = [tag, ...alternativeTags];
+    let values = [];
+    let latestDate = null;
+
+    for (const stmt of recentQuarters) {
+      let value = null;
+      for (const t of allTags) {
+        const item = stmt.items?.find(i => i.tag === t && i.hasValue);
+        if (item) {
+          value = item.value;
+          break;
+        }
+      }
+      if (value === null) {
+        // Missing a quarter - can't calculate proper TTM
+        return null;
+      }
+      values.push(value);
+      if (!latestDate) latestDate = stmt.ddate;
+    }
+
+    if (values.length !== 4) return null;
+
+    const ttmValue = values.reduce((sum, v) => sum + v, 0);
+    return {
+      value: ttmValue,
+      date: latestDate,
+      method: 'sum-4Q-statements',
+      form: recentQuarters.map(q => q.form).join('+'),
+    };
+  };
+
   // Balance Sheet - Assets
   const assets = getLatestPointInTime(concepts['Assets']);
   const cashAndCashEquivalents = getLatestPointInTime(concepts['CashAndCashEquivalentsAtCarryingValue']) ||
@@ -1497,10 +1545,10 @@ function calculateBankMetrics(bankData) {
                          getLatestPointInTime(concepts['PreferredStockValueOutstanding']);
   const sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']);
 
-  // Income Statement (TTM) - Calculate first to get TTM date for averaging alignment
-  const netIncome = getTTMValue(concepts['NetIncomeLoss']) ||
-                    getTTMValue(concepts['ProfitLoss']) ||
-                    getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
+  // Income Statement (TTM) - Use historical statements which have correct Q4 derivation
+  const netIncome = getTTMFromStatements('NetIncomeLoss', ['ProfitLoss', 'NetIncomeLossAvailableToCommonStockholdersBasic']) ||
+                    getTTMValue(concepts['NetIncomeLoss']) ||
+                    getTTMValue(concepts['ProfitLoss']);
 
   // Get TTM end date to align averaging period with income period
   const ttmEndDate = netIncome?.date || null;
@@ -1510,27 +1558,39 @@ function calculateBankMetrics(bankData) {
   const avgEquity = getAveragePointInTime(concepts['StockholdersEquity'], ttmEndDate) ||
                     getAveragePointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest'], ttmEndDate);
 
-  // Income Statement (TTM) - remaining items
-  const interestIncome = getTTMValue(concepts['InterestIncome']) ||
+  // Income Statement (TTM) - remaining items, prefer historical statements
+  const interestIncome = getTTMFromStatements('InterestIncome', ['InterestAndDividendIncomeOperating', 'InterestIncomeOperating']) ||
+                         getTTMValue(concepts['InterestIncome']) ||
                          getTTMValue(concepts['InterestAndDividendIncomeOperating']);
-  const interestExpense = getTTMValue(concepts['InterestExpense']);
-  const netInterestIncome = getTTMValue(concepts['InterestIncomeExpenseNet']) ||
+  const interestExpense = getTTMFromStatements('InterestExpense', ['InterestExpenseOperating']) ||
+                          getTTMFromStatements('InterestExpenseOperating', ['InterestExpense']) ||
+                          getTTMValue(concepts['InterestExpense']);
+  const netInterestIncome = getTTMFromStatements('InterestIncomeExpenseNet', ['NetInterestIncome']) ||
+                            getTTMValue(concepts['InterestIncomeExpenseNet']) ||
                             getTTMValue(concepts['NetInterestIncome']);
-  const noninterestIncome = getTTMValue(concepts['NoninterestIncome']);
-  const noninterestExpense = getTTMValue(concepts['NoninterestExpense']) ||
+  const noninterestIncome = getTTMFromStatements('NoninterestIncome') ||
+                            getTTMValue(concepts['NoninterestIncome']);
+  const noninterestExpense = getTTMFromStatements('NoninterestExpense', ['OperatingExpenses']) ||
+                             getTTMValue(concepts['NoninterestExpense']) ||
                              getTTMValue(concepts['OperatingExpenses']);
-  const provisionForCreditLosses = getTTMValue(concepts['ProvisionForLoanLeaseAndOtherLosses']) ||
+  const provisionForCreditLosses = getTTMFromStatements('ProvisionForLoanLeaseAndOtherLosses', ['ProvisionForLoanAndLeaseLosses', 'ProvisionForCreditLosses']) ||
+                                    getTTMValue(concepts['ProvisionForLoanLeaseAndOtherLosses']) ||
                                     getTTMValue(concepts['ProvisionForLoanAndLeaseLosses']) ||
                                     getTTMValue(concepts['ProvisionForCreditLosses']);
-  const preTaxIncome = getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest']) ||
+  const preTaxIncome = getTTMFromStatements('IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest', ['IncomeLossFromContinuingOperationsBeforeIncomeTaxes']) ||
+                       getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest']) ||
                        getTTMValue(concepts['IncomeLossFromContinuingOperationsBeforeIncomeTaxes']);
   // netIncome already calculated above for TTM date alignment
-  const netIncomeToCommonDirect = getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
-  const preferredDividends = getTTMValue(concepts['PreferredStockDividendsAndOtherAdjustments']) ||
+  const netIncomeToCommonDirect = getTTMFromStatements('NetIncomeLossAvailableToCommonStockholdersBasic') ||
+                                  getTTMValue(concepts['NetIncomeLossAvailableToCommonStockholdersBasic']);
+  const preferredDividends = getTTMFromStatements('PreferredStockDividendsAndOtherAdjustments', ['DividendsPreferredStock']) ||
+                              getTTMValue(concepts['PreferredStockDividendsAndOtherAdjustments']) ||
                               getTTMValue(concepts['DividendsPreferredStock']);
-  const eps = getTTMValue(concepts['EarningsPerShareBasic']) ||
+  const eps = getTTMFromStatements('EarningsPerShareBasic', ['EarningsPerShareDiluted']) ||
+              getTTMValue(concepts['EarningsPerShareBasic']) ||
               getTTMValue(concepts['EarningsPerShareDiluted']);
-  const dps = getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
+  const dps = getTTMFromStatements('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
+              getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
 
   // Extract values
@@ -1592,8 +1652,7 @@ function calculateBankMetrics(bankData) {
   const dataDate = assets?.ddate || equity?.ddate || netIncome?.date;
   const formattedDate = dataDate ? `${dataDate.slice(0,4)}-${dataDate.slice(4,6)}-${dataDate.slice(6,8)}` : null;
 
-  // Build historical statements with "as reported" presentation
-  const historicalStatements = buildHistoricalStatements(bankData);
+  // historicalStatements already built at start of function for TTM calculations
 
   // Build raw data for audit trail
   const rawData = {
