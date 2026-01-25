@@ -111,49 +111,63 @@
     "incomeStatement": {
       "InterestIncome": null,
       "InterestExpense": {
-        "value": 10890000,
-        "date": "20240630",
-        "method": "sum-4Q",
-        "form": "10-Q"
+        "value": 9190000,
+        "date": "20231231",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 6668000,
+        "fiscalYear": "2023"
       },
       "NetInterestIncome": {
-        "value": 36452000,
-        "date": "20250930",
-        "method": "sum-4Q",
-        "form": "10-Q"
+        "value": 36049000,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 9874000,
+        "fiscalYear": "2024"
       },
       "NoninterestIncome": {
-        "value": 2624000,
-        "date": "20250930",
-        "method": "sum-4Q",
-        "form": "10-Q"
+        "value": 1325000,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": -545000,
+        "fiscalYear": "2024"
       },
       "NoninterestExpense": {
-        "value": 23284000,
-        "date": "20250930",
-        "method": "sum-4Q",
-        "form": "10-Q"
+        "value": 22539000,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 7246000,
+        "fiscalYear": "2024"
       },
       "ProvisionForCreditLosses": null,
       "PreTaxIncome": {
-        "value": 17045000,
-        "date": "20250930",
-        "method": "sum-4Q",
-        "form": "10-Q"
+        "value": 15364000,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 1805000,
+        "fiscalYear": "2024"
       },
       "NetIncomeLoss": {
-        "value": 12488000,
-        "date": "20250930",
-        "method": "sum-4Q",
-        "form": "10-Q"
+        "value": 10796000,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 1025000,
+        "fiscalYear": "2024"
       },
       "NetIncomeLossAvailableToCommonStockholdersBasic": null,
       "PreferredStockDividends": null,
       "EarningsPerShareBasic": {
-        "value": 1.2599999999999998,
-        "date": "20250930",
-        "method": "sum-4Q",
-        "form": "10-Q"
+        "value": 0.7800000000000001,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": -0.1299999999999999,
+        "fiscalYear": "2024"
       }
     },
     "dividends": {
@@ -161,18 +175,18 @@
     },
     "averages": {
       "Assets": {
-        "average": 912658600,
-        "ending": 909386000,
-        "endingDate": "20250930",
-        "startingDate": "20241231",
+        "average": 890584800,
+        "ending": 892709000,
+        "endingDate": "20240930",
+        "startingDate": "20231231",
         "method": "5-point-avg",
         "periodCount": 5
       },
       "Equity": {
-        "average": 196467600,
-        "ending": 190210000,
-        "endingDate": "20250930",
-        "startingDate": "20250331",
+        "average": 207176800,
+        "ending": 209734000,
+        "endingDate": "20240930",
+        "startingDate": "20240630",
         "method": "5-point-avg",
         "periodCount": 5
       }

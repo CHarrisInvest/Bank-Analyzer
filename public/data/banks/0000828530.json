@@ -63,35 +63,36 @@
     "incomeStatement": {
       "InterestIncome": {
         "value": 0,
-        "date": "20250930",
-        "method": "sum-4Q",
-        "form": "10-Q"
+        "date": "20240630",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 0,
+        "fiscalYear": "2024"
       },
       "InterestExpense": null,
       "NetInterestIncome": null,
       "NoninterestIncome": null,
       "NoninterestExpense": {
         "value": 0,
-        "date": "20250930",
-        "method": "sum-4Q",
-        "form": "10-Q"
+        "date": "20240630",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 0,
+        "fiscalYear": "2024"
       },
       "ProvisionForCreditLosses": null,
       "PreTaxIncome": null,
       "NetIncomeLoss": {
         "value": 0,
-        "date": "20250930",
-        "method": "sum-4Q",
-        "form": "10-Q"
+        "date": "20240630",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 0,
+        "fiscalYear": "2024"
       },
       "NetIncomeLossAvailableToCommonStockholdersBasic": null,
       "PreferredStockDividends": null,
-      "EarningsPerShareBasic": {
-        "value": 0,
-        "date": "20250930",
-        "method": "sum-4Q",
-        "form": "10-Q"
-      }
+      "EarningsPerShareBasic": null
     },
     "dividends": {
       "CommonStockDividendsPerShareDeclared": null
@@ -101,8 +102,8 @@
       "Equity": {
         "average": -24000,
         "ending": -24000,
-        "endingDate": "20250930",
-        "startingDate": "20241231",
+        "endingDate": "20240630",
+        "startingDate": "20240630",
         "method": "5-point-avg",
         "periodCount": 5
       }
