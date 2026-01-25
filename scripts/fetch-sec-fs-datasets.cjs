@@ -816,7 +816,7 @@ function getAveragePointInTime(conceptData, asOfDate = null) {
  * Get TTM (Trailing Twelve Months) value with Q4 derivation support
  *
  * Rules (in priority order):
- * 1. Sum-4Q: If 4+ quarterly values (qtrs=1) available, sum the 4 most recent
+ * 1. Sum-4Q: If 4 CONSECUTIVE quarterly values (qtrs=1) available, sum them
  * 2. Q4-Derived: If we have annual (qtrs=4) + Q1+Q2+Q3 for same fiscal year,
  *    derive Q4 = annual - Q1 - Q2 - Q3, then sum all 4 quarters
  *
@@ -835,16 +835,47 @@ function getTTMValue(conceptData) {
   const quarterlyValues = sorted.filter(d => d.qtrs === 1);
   const annualValues = sorted.filter(d => d.qtrs === 4);
 
-  // Rule 1: Sum-4Q - If 4+ quarterly values available, sum the top 4
+  /**
+   * Helper to check if 4 quarters are consecutive
+   * Returns true if quarters form a valid TTM period (e.g., Q3,Q2,Q1,Q4 or Q4,Q3,Q2,Q1)
+   */
+  const areConsecutiveQuarters = (quarters) => {
+    if (quarters.length !== 4) return false;
+
+    // Convert each quarter to a numeric period (fy * 4 + quarter number)
+    const toPeriodNum = (q) => {
+      const fy = parseInt(q.fy) || 0;
+      const fpNum = parseInt(q.fp?.replace('Q', '')) || 0;
+      // Q4 belongs to the fiscal year, Q1-Q3 are within the year
+      return fy * 4 + fpNum;
+    };
+
+    const periodNums = quarters.map(toPeriodNum).sort((a, b) => b - a);
+
+    // Check that each period is exactly 1 apart (consecutive)
+    for (let i = 0; i < periodNums.length - 1; i++) {
+      if (periodNums[i] - periodNums[i + 1] !== 1) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  // Rule 1: Sum-4Q - If 4+ quarterly values available AND they're consecutive, sum them
   if (quarterlyValues.length >= 4) {
     const topQuarters = quarterlyValues.slice(0, 4);
-    const ttmValue = topQuarters.reduce((sum, q) => sum + q.value, 0);
-    return {
-      value: ttmValue,
-      date: topQuarters[0].ddate,
-      method: 'sum-4Q',
-      form: [...new Set(topQuarters.map(q => q.form))].join('+'),
-    };
+
+    // Verify quarters are consecutive (no gaps like missing Q4)
+    if (areConsecutiveQuarters(topQuarters)) {
+      const ttmValue = topQuarters.reduce((sum, q) => sum + q.value, 0);
+      return {
+        value: ttmValue,
+        date: topQuarters[0].ddate,
+        method: 'sum-4Q',
+        form: [...new Set(topQuarters.map(q => q.form))].join('+'),
+      };
+    }
+    // If not consecutive, fall through to Q4-derived method
   }
 
   // Rule 2: Q4-Derived - Try to derive Q4 from annual - Q1 - Q2 - Q3
@@ -877,7 +908,27 @@ function getTTMValue(conceptData) {
 
         const derivedQ4 = annualValue - q1Value - q2Value - q3Value;
 
-        // Sum all 4 quarters (3 reported + 1 derived)
+        // Now we need to find the most recent TTM that includes this derived Q4
+        // Get the next fiscal year's Q1-Q3 if available
+        const nextFY = String(parseInt(fy) + 1);
+        const nextFYQuarters = quartersByFY.get(nextFY);
+
+        // Check if we can build TTM with next year's quarters + derived Q4
+        if (nextFYQuarters && nextFYQuarters.Q1 && nextFYQuarters.Q2 && nextFYQuarters.Q3) {
+          // TTM = next year Q1 + Q2 + Q3 + this year derived Q4
+          const ttmValue = nextFYQuarters.Q1.value + nextFYQuarters.Q2.value +
+                          nextFYQuarters.Q3.value + derivedQ4;
+          return {
+            value: ttmValue,
+            date: nextFYQuarters.Q3.ddate,
+            method: 'sum-4Q-derived',
+            form: '10-Q+10-Q+10-Q+10-K(derived)',
+            derivedQ4: derivedQ4,
+            fiscalYear: fy,
+          };
+        }
+
+        // Otherwise, use the same fiscal year (TTM ending at fiscal year end)
         const ttmValue = q1Value + q2Value + q3Value + derivedQ4;
 
         return {
