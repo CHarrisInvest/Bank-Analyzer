@@ -1342,32 +1342,67 @@ function buildHistoricalStatements(bankData) {
           // Balance sheet: always point-in-time (qtrs=0)
           value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 0, negating);
         } else if (fp === 'Q4' && isDerived && !isShareCount) {
-          // Income statement Q4: derive from annual - Q1 - Q2 - Q3
-          // This is more reliable than trying to find direct Q4 values in the 10-K,
-          // which can accidentally pick up comparative period data
-          const annualValue = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
+          // Income statement Q4: Try direct Q4 value first, then derivation
+          //
+          // IMPORTANT: Companies may restate prior quarters in their 10-K without amending
+          // original 10-Q filings (e.g., Ally's EV tax credit accounting change in 2024).
+          // When this happens, derivation (Annual - Q1 - Q2 - Q3) produces wrong results
+          // because the 10-Q values use the old accounting method while the 10-K uses the new one.
+          //
+          // Strategy:
+          // 1. First try direct Q4 value from 10-K (qtrs=1, matching ddate)
+          // 2. If no direct Q4, try derivation with validation
+          // 3. If derivation produces inconsistent result (wrong sign), mark as unavailable
 
-          if (annualValue !== null && priorQuarters) {
-            // getValueForFiling already handles equivalent tag lookup (both manual and dynamic)
-            const q1Value = priorQuarters.Q1 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating) : null;
-            const q2Value = priorQuarters.Q2 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating) : null;
-            const q3Value = priorQuarters.Q3 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating) : null;
+          // First, try to get direct Q4 value from 10-K
+          // getValueForFiling filters by ddate=filing.period to avoid comparative periods
+          const directQ4Value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
 
-            // Only derive if we have all three prior quarters
-            if (q1Value !== null && q2Value !== null && q3Value !== null) {
-              value = annualValue - q1Value - q2Value - q3Value;
-              itemIsDerived = true;
-            } else {
-              // Cannot derive - try direct Q4 value as fallback
-              value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
-              if (value === null) {
+          if (directQ4Value !== null) {
+            // Direct Q4 value available - use it (most reliable when restatements occur)
+            value = directQ4Value;
+            itemIsDerived = false;
+          } else {
+            // No direct Q4 value - try derivation
+            const annualValue = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 4, negating);
+
+            if (annualValue !== null && priorQuarters) {
+              const q1Value = priorQuarters.Q1 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating) : null;
+              const q2Value = priorQuarters.Q2 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating) : null;
+              const q3Value = priorQuarters.Q3 ? getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating) : null;
+
+              if (q1Value !== null && q2Value !== null && q3Value !== null) {
+                const derivedQ4 = annualValue - q1Value - q2Value - q3Value;
+
+                // Validate derivation: check for restatement inconsistency
+                // If Q1+Q2+Q3 already exceeds the annual (or is very close), the 10-Qs
+                // likely use a different accounting method than the 10-K
+                const expectedQ4 = annualValue / 4; // Rough estimate of typical quarter
+                const priorSum = q1Value + q2Value + q3Value;
+
+                // Detect inconsistency: derived Q4 has opposite sign from expected,
+                // OR prior quarters sum exceeds annual (meaning derived Q4 would be negative
+                // when annual is positive, indicating restatement)
+                const signMismatch = (annualValue > 0 && derivedQ4 < 0) || (annualValue < 0 && derivedQ4 > 0);
+                const priorExceedsAnnual = (annualValue > 0 && priorSum > annualValue * 1.1) ||
+                                          (annualValue < 0 && priorSum < annualValue * 1.1);
+
+                if (signMismatch || priorExceedsAnnual) {
+                  // Restatement detected - prior quarters use different accounting than annual
+                  // Cannot reliably derive Q4, mark as unavailable
+                  derivedUnavailable = true;
+                  value = null;
+                } else {
+                  // Derivation looks reasonable
+                  value = derivedQ4;
+                  itemIsDerived = true;
+                }
+              } else {
+                // Cannot derive - missing prior quarters
                 derivedUnavailable = true;
               }
-            }
-          } else {
-            // No annual value - try direct Q4 value as fallback
-            value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
-            if (value === null) {
+            } else {
+              // No annual value available
               derivedUnavailable = true;
             }
           }
