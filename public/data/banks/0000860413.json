@@ -128,12 +128,10 @@
         "form": "10-Q+10-Q+10-Q+10-K"
       },
       "ProvisionForCreditLosses": {
-        "value": -9000000,
-        "date": "20230930",
-        "method": "sum-4Q-derived",
-        "form": "10-Q+10-Q+10-Q+10-K(derived)",
-        "derivedQ4": -35800000,
-        "fiscalYear": "2023"
+        "value": 53400000,
+        "date": "20250930",
+        "method": "sum-4Q-statements",
+        "form": "10-Q+10-Q+10-Q+10-K"
       },
       "PreTaxIncome": {
         "value": 319200000,
@@ -11035,16 +11033,6 @@
               "hasValue": true
             },
             {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for (reversal of) credit losses",
-              "line": 27,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision for credit losses",
               "line": 28,
@@ -11449,16 +11437,6 @@
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Provision for credit losses",
-              "line": 27,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for (reversal of) credit losses",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -11871,16 +11849,6 @@
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Provision for credit losses",
-              "line": 27,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for (reversal of) credit losses",
               "line": 27,
               "indent": 0,
               "negating": false,
@@ -12364,20 +12332,6 @@
               "value": 0,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 17,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -12999,20 +12953,6 @@
               "isRestated": false
             },
             {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 17,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after (reduction of) provision for credit losses",
               "line": 18,
@@ -13628,20 +13568,6 @@
               "isRestated": false
             },
             {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 17,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
               "label": "Net interest income after provision for credit losses",
               "line": 18,
@@ -14248,25 +14174,11 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 33700000,
               "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 17,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -14874,20 +14786,6 @@
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Provision for Loan, Lease, and Other Losses",
-              "line": 17,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
               "line": 17,
               "indent": 0,
               "negating": false,
@@ -15506,20 +15404,6 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 17,
-              "indent": 0,
-              "negating": false,
               "value": 9000000,
               "uom": "USD",
               "hasValue": true,
@@ -16132,20 +16016,6 @@
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Provision for Loan, Lease, and Other Losses",
-              "line": 17,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
               "line": 17,
               "indent": 0,
               "negating": false,
@@ -16764,20 +16634,6 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for (reversal of) credit losses",
-              "line": 17,
-              "indent": 0,
-              "negating": false,
               "value": 5400000,
               "uom": "USD",
               "hasValue": true,
@@ -17390,20 +17246,6 @@
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
               "label": "Provision for Loan, Lease, and Other Losses",
-              "line": 17,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "(Reduction of) provision for credit losses",
               "line": 17,
               "indent": 0,
               "negating": false,
@@ -18022,20 +17864,6 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for (reduction of) credit losses",
-              "line": 17,
-              "indent": 0,
-              "negating": false,
               "value": 11700000,
               "uom": "USD",
               "hasValue": true,
@@ -18651,20 +18479,6 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for credit losses",
-              "line": 17,
-              "indent": 0,
-              "negating": false,
               "value": 15200000,
               "uom": "USD",
               "hasValue": true,
@@ -19163,12 +18977,6 @@
             "indent": 0
           },
           {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision for (reversal of) credit losses",
-            "line": 27,
-            "indent": 0
-          },
-          {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
             "label": "Net interest income after provision for credit losses",
             "line": 28,
@@ -19413,12 +19221,6 @@
           {
             "tag": "ProvisionForLoanLeaseAndOtherLosses",
             "label": "Provision for Loan, Lease, and Other Losses",
-            "line": 17,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision for credit losses",
             "line": 17,
             "indent": 0
           },

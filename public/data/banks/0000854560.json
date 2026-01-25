@@ -7490,16 +7490,6 @@
               "hasValue": true
             },
             {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (Credit) for Credit Losses on Loans",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "ProvisionCreditForUnfundedCommitments",
               "label": "Provision (Credit) for Unfunded Commitments",
               "line": 14,
@@ -7922,16 +7912,6 @@
               "hasValue": true
             },
             {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (Credit) for Credit Losses on Loans",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "ProvisionCreditForUnfundedCommitments",
               "label": "Provision (Credit) for Unfunded Commitments",
               "line": 14,
@@ -8352,16 +8332,6 @@
               "value": null,
               "uom": "USD",
               "hasValue": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (Credit) for Credit Losses on Loans",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": 3000000,
-              "uom": "USD",
-              "hasValue": true
             },
             {
               "tag": "ProvisionCreditForUnfundedCommitments",
@@ -9411,9 +9381,9 @@
               "line": 13,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 0,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -15190,12 +15160,6 @@
           {
             "tag": "ProvisionForLoanLossesExpensed",
             "label": "Provision for Credit Losses on Loans",
-            "line": 13,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision (Credit) for Credit Losses on Loans",
             "line": 13,
             "indent": 0
           },

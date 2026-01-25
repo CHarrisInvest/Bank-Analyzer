@@ -134,10 +134,12 @@
         "form": "10-K+10-Q+10-Q+10-Q"
       },
       "NoninterestExpense": {
-        "value": -21398000,
-        "date": "20250930",
-        "method": "sum-4Q-statements",
-        "form": "10-K+10-Q+10-Q+10-Q"
+        "value": 19995000,
+        "date": "20230630",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 5732000,
+        "fiscalYear": "2023"
       },
       "ProvisionForCreditLosses": {
         "value": 402000,
@@ -7297,16 +7299,6 @@
               "hasValue": true
             },
             {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "RecoveryForCreditLossesunfundedCommitments",
               "label": "Recovery for credit losses-unfunded commitments",
               "line": 14,
@@ -7495,16 +7487,6 @@
               "value": 438000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 32,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             },
             {
               "tag": "FederalDepositInsuranceCorporationPremiumExpense",
@@ -7719,16 +7701,6 @@
               "hasValue": true
             },
             {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "RecoveryForCreditLossesunfundedCommitments",
               "label": "Recovery of credit losses-unfunded commitments",
               "line": 14,
@@ -7917,16 +7889,6 @@
               "value": 402000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 32,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             },
             {
               "tag": "FederalDepositInsuranceCorporationPremiumExpense",
@@ -8141,16 +8103,6 @@
               "hasValue": false
             },
             {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": 381000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
               "tag": "RecoveryForCreditLossesunfundedCommitments",
               "label": "Recovery for credit losses-unfunded commitments",
               "line": 14,
@@ -8337,16 +8289,6 @@
               "indent": 0,
               "negating": false,
               "value": 366000,
-              "uom": "USD",
-              "hasValue": true
-            },
-            {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 32,
-              "indent": 0,
-              "negating": false,
-              "value": 19294000,
               "uom": "USD",
               "hasValue": true
             },
@@ -8602,20 +8544,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -8956,20 +8884,6 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": -5352000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
@@ -9229,20 +9143,6 @@
               "value": 120000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -9585,20 +9485,6 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": -5239000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
@@ -9858,20 +9744,6 @@
               "value": 70000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -10214,20 +10086,6 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": -5398000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
@@ -10487,20 +10345,6 @@
               "value": 209000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -10843,20 +10687,6 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": -5409000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
@@ -11110,20 +10940,6 @@
             {
               "tag": "ProvisionForOtherCreditLosses",
               "label": "Provision for credit losses-loans",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
               "line": 13,
               "indent": 0,
               "negating": false,
@@ -11472,30 +11288,16 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": -35580000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
               "indent": 0,
               "negating": true,
-              "value": 35580000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -11745,20 +11547,6 @@
               "value": 49000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -12101,28 +11889,14 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": 5055000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
               "indent": 0,
               "negating": true,
-              "value": -5055000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -12374,20 +12148,6 @@
               "value": -74000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -12730,28 +12490,14 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": 5108000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
               "indent": 0,
               "negating": true,
-              "value": -5108000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -13003,20 +12749,6 @@
               "value": 384000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -13359,28 +13091,14 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": 5020000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
               "indent": 0,
               "negating": true,
-              "value": -5020000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -13626,20 +13344,6 @@
             {
               "tag": "ProvisionForOtherCreditLosses",
               "label": "Provision for credit losses-loans",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
               "line": 13,
               "indent": 0,
               "negating": false,
@@ -13988,30 +13692,16 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": 5031000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
               "indent": 0,
               "negating": true,
-              "value": -5031000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -14267,20 +13957,6 @@
               "isRestated": false
             },
             {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision (credit) for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": -81000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "RecoveryForCreditLossesunfundedCommitments",
               "label": "(Recovery of) provision for credit losses-unfunded commitments",
               "line": 14,
@@ -14314,9 +13990,9 @@
               "line": 15,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": -81000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -14617,28 +14293,14 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": 4886000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
               "indent": 0,
               "negating": true,
-              "value": -4886000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -14896,20 +14558,6 @@
               "isRestated": false
             },
             {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": 195000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "RecoveryForCreditLossesunfundedCommitments",
               "label": "(Recovery of) provision for credit losses-unfunded commitments",
               "line": 14,
@@ -14943,9 +14591,9 @@
               "line": 15,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 195000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -15246,28 +14894,14 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": 4796000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
               "indent": 0,
               "negating": true,
-              "value": -4796000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -15519,20 +15153,6 @@
               "value": null,
               "uom": "USD",
               "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "ProvisionForLoanAndLeaseLosses",
-              "label": "Provision for loan losses",
-              "line": 13,
-              "indent": 0,
-              "negating": false,
-              "value": 317000,
-              "uom": "USD",
-              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -15875,28 +15495,14 @@
               "isRestated": false
             },
             {
-              "tag": "NoninterestExpense",
-              "label": "Total other expenses",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": 4581000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "NonoperatingIncomeExpense",
               "label": "Total other expenses",
               "line": 36,
               "indent": 0,
               "negating": true,
-              "value": -4581000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -16066,12 +15672,6 @@
             "indent": 0
           },
           {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision for loan losses",
-            "line": 13,
-            "indent": 0
-          },
-          {
             "tag": "RecoveryForCreditLossesunfundedCommitments",
             "label": "Recovery for credit losses-unfunded commitments",
             "line": 14,
@@ -16182,12 +15782,6 @@
           {
             "tag": "BusinessDevelopment",
             "label": "Marketing and business development",
-            "line": 32,
-            "indent": 0
-          },
-          {
-            "tag": "NoninterestExpense",
-            "label": "Total other expenses",
             "line": 32,
             "indent": 0
           },
@@ -16310,12 +15904,6 @@
           {
             "tag": "ProvisionForOtherCreditLosses",
             "label": "Provision for credit losses-loans",
-            "line": 13,
-            "indent": 0
-          },
-          {
-            "tag": "ProvisionForLoanAndLeaseLosses",
-            "label": "Provision (credit) for loan losses",
             "line": 13,
             "indent": 0
           },
@@ -16460,12 +16048,6 @@
           {
             "tag": "OtherNoninterestExpense",
             "label": "Other expenses",
-            "line": 35,
-            "indent": 0
-          },
-          {
-            "tag": "NoninterestExpense",
-            "label": "Total other expenses",
             "line": 35,
             "indent": 0
           },
