@@ -965,14 +965,28 @@ function buildHistoricalStatements(bankData) {
     const canonicalItems = [...canonicalPres].sort((a, b) => a.line - b.line);
     const tagSet = new Set(canonicalItems.map(item => item.tag));
 
+    // Helper to check if a tag or any of its equivalents are already in the set
+    const hasTagOrEquivalent = (tag) => {
+      if (tagSet.has(tag)) return true;
+      // Check if any equivalent tag is already present
+      if (TAG_EQUIVALENTS[tag]) {
+        for (const equivTag of TAG_EQUIVALENTS[tag]) {
+          if (tagSet.has(equivTag)) return true;
+        }
+      }
+      return false;
+    };
+
     // Check older filings for any items not in the canonical list
     // Preserve their original line numbers so they appear in proper position
+    // Skip items that are equivalents of already-included items to avoid duplicate rows
     for (const filing of filings.slice(1)) {
       const pres = presentationByFiling[filing.adsh];
       if (!pres || !pres[stmtType]) continue;
 
       for (const item of pres[stmtType]) {
-        if (!tagSet.has(item.tag)) {
+        // Skip if this tag OR any equivalent is already in the canonical list
+        if (!hasTagOrEquivalent(item.tag)) {
           canonicalItems.push({
             ...item,
             // Keep original line number so item appears in its proper position
@@ -998,7 +1012,16 @@ function buildHistoricalStatements(bankData) {
    */
   const getValueForFiling = (tag, version, filing, targetQtrs, negating) => {
     const conceptData = concepts[tag];
-    if (!conceptData) return null;
+    if (!conceptData) {
+      // If primary tag has no data, try equivalent tags
+      if (TAG_EQUIVALENTS[tag]) {
+        for (const equivTag of TAG_EQUIVALENTS[tag]) {
+          const equivResult = getValueForFiling(equivTag, version, filing, targetQtrs, negating);
+          if (equivResult !== null) return equivResult;
+        }
+      }
+      return null;
+    }
 
     // Per SEC docs: PRE references NUM via adsh + tag + version
     // Also filter by ddate to get current period (not comparative period)
@@ -1021,6 +1044,14 @@ function buildHistoricalStatements(bankData) {
       match = conceptData.find(d =>
         d.adsh === filing.adsh && d.qtrs === targetQtrs
       );
+    }
+
+    // If still no match, try equivalent tags
+    if (!match && TAG_EQUIVALENTS[tag]) {
+      for (const equivTag of TAG_EQUIVALENTS[tag]) {
+        const equivResult = getValueForFiling(equivTag, version, filing, targetQtrs, negating);
+        if (equivResult !== null) return equivResult;
+      }
     }
 
     if (!match) return null;
