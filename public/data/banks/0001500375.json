@@ -6758,16 +6758,6 @@
               "hasValue": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net interest income",
               "line": 12,
@@ -7160,16 +7150,6 @@
               "hasValue": true
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "InterestIncomeExpenseNet",
               "label": "Net Interest Income",
               "line": 12,
@@ -7554,16 +7534,6 @@
             {
               "tag": "InterestExpenseOperating",
               "label": "Total interest expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
               "line": 11,
               "indent": 0,
               "negating": false,
@@ -8007,19 +7977,6 @@
               "isAnnualProxy": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
               "tag": "ProvisionForLoanLossesExpensed",
               "label": "PROVISION FOR (RECOVERY OF) CREDIT LOSSES",
               "line": 12,
@@ -8072,19 +8029,6 @@
               "isAnnualProxy": false
             },
             {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
-              "label": "Loss on sale of real estate",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Income on bank owned life insurance",
               "line": 17,
@@ -8103,9 +8047,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 0,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -8116,9 +8060,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 0,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -8553,19 +8497,6 @@
               "isAnnualProxy": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
-              "isAnnualProxy": false
-            },
-            {
               "tag": "ProvisionForLoanLossesExpensed",
               "label": "PROVISION FOR (RECOVERY OF) CREDIT LOSSES",
               "line": 12,
@@ -8610,24 +8541,11 @@
               "line": 16,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 254000,
               "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
-              "label": "Loss on sale of real estate",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false,
               "isAnnualProxy": false
             },
             {
@@ -8662,11 +8580,11 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 254000,
               "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false,
               "isAnnualProxy": false
             },
             {
@@ -8792,11 +8710,11 @@
               "line": 28,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 42000,
               "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false,
               "isAnnualProxy": false
             },
             {
@@ -9099,19 +9017,6 @@
               "isAnnualProxy": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
               "tag": "ProvisionForLoanLossesExpensed",
               "label": "Provision for (recovery of) credit losses",
               "line": 12,
@@ -9164,19 +9069,6 @@
               "isAnnualProxy": false
             },
             {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
-              "label": "Loss on sale of real estate",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Income on Bank-Owned Life Insurance",
               "line": 17,
@@ -9208,9 +9100,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 0,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -9645,19 +9537,6 @@
               "isAnnualProxy": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
               "tag": "ProvisionForLoanLossesExpensed",
               "label": "PROVISION FOR (RECOVERY OF) CREDIT LOSSES",
               "line": 12,
@@ -9710,19 +9589,6 @@
               "isAnnualProxy": false
             },
             {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
-              "label": "Loss on sale of real estate",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Income on Bank-Owned Life Insurance",
               "line": 17,
@@ -9754,9 +9620,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": -6000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -9884,9 +9750,9 @@
               "line": 28,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 191000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -10191,19 +10057,6 @@
               "isAnnualProxy": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
               "tag": "ProvisionForLoanLossesExpensed",
               "label": "RECOVERY OF CREDIT LOSSES",
               "line": 12,
@@ -10248,22 +10101,9 @@
               "line": 16,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": -254000,
               "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
-              "label": "Loss on sale of real estate",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -10300,9 +10140,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": -254000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -10716,11 +10556,11 @@
               "line": 10,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 3460000,
               "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false,
               "isAnnualProxy": false
             },
             {
@@ -10734,19 +10574,6 @@
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
               "isAnnualProxy": false
             },
             {
@@ -10794,24 +10621,11 @@
               "line": 16,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 415000,
               "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
-              "label": "Gain on sale of fixed assets",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false,
               "isAnnualProxy": false
             },
             {
@@ -10833,11 +10647,11 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": -26000,
               "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false,
               "isAnnualProxy": false
             },
             {
@@ -10846,11 +10660,11 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 415000,
               "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false,
               "isAnnualProxy": false
             },
             {
@@ -11262,9 +11076,9 @@
               "line": 10,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 3486000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -11276,19 +11090,6 @@
               "indent": 0,
               "negating": false,
               "value": 4404000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": 3486000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11348,19 +11149,6 @@
               "isAnnualProxy": false
             },
             {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
-              "label": "Loss on sale of real estate",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
               "tag": "BankOwnedLifeInsuranceIncome",
               "label": "Income on bank owned life insurance",
               "line": 17,
@@ -11379,9 +11167,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 26000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -11808,9 +11596,9 @@
               "line": 10,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 3177000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -11822,19 +11610,6 @@
               "indent": 0,
               "negating": false,
               "value": 4903000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": 3177000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -11886,19 +11661,6 @@
               "line": 16,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
-              "label": "Loss on sale of real estate",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
               "value": -381000,
               "uom": "USD",
               "hasValue": true,
@@ -11925,9 +11687,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": -381000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -11938,9 +11700,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": -381000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -12354,9 +12116,9 @@
               "line": 10,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 2790000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -12368,19 +12130,6 @@
               "indent": 0,
               "negating": false,
               "value": 5284000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total interest expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": 2790000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -12432,19 +12181,6 @@
               "line": 16,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
-              "label": "Loss on sale of real estate and fixed assets",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
               "value": -34000,
               "uom": "USD",
               "hasValue": true,
@@ -12471,9 +12207,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": -34000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -12484,9 +12220,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": -34000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -12921,19 +12657,6 @@
               "isAnnualProxy": false
             },
             {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
-              "isAnnualProxy": false
-            },
-            {
               "tag": "ProvisionForLoanLossesExpensed",
               "label": "PROVISION FOR LOAN LOSSES",
               "line": 12,
@@ -12975,19 +12698,6 @@
             {
               "tag": "DebtAndEquitySecuritiesRealizedGainLoss",
               "label": "Loss on sale of real estate",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
-              "label": "Gain (loss) on sale of real estate and fixed assets",
               "line": 16,
               "indent": 0,
               "negating": false,
@@ -13446,9 +13156,9 @@
               "line": 10,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 1540000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -13460,19 +13170,6 @@
               "indent": 0,
               "negating": false,
               "value": 5473000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": 1540000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -13524,19 +13221,6 @@
               "line": 16,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
-              "label": "Gain/(Loss) on Sale of Real Estate and Fixed Assets",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
               "value": 4000,
               "uom": "USD",
               "hasValue": true,
@@ -13563,9 +13247,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 4000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -13576,9 +13260,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 4000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -13667,9 +13351,9 @@
               "line": 25,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 82000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -13992,9 +13676,9 @@
               "line": 10,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 764000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -14006,19 +13690,6 @@
               "indent": 0,
               "negating": false,
               "value": 5324000,
-              "uom": "USD",
-              "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "InterestExpense",
-              "label": "Total Interest Expense",
-              "line": 11,
-              "indent": 0,
-              "negating": false,
-              "value": 764000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
@@ -14066,19 +13737,6 @@
             },
             {
               "tag": "DebtAndEquitySecuritiesRealizedGainLoss",
-              "label": "Loss on sale of real estate",
-              "line": 16,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false
-            },
-            {
-              "tag": "GainLossOnSaleOfPropertyPlantEquipment",
               "label": "Loss on sale of real estate",
               "line": 16,
               "indent": 0,
@@ -14213,9 +13871,9 @@
               "line": 25,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": 85000,
               "uom": "USD",
-              "hasValue": false,
+              "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false
@@ -14475,12 +14133,6 @@
             "indent": 0
           },
           {
-            "tag": "InterestExpense",
-            "label": "Total Interest Expense",
-            "line": 11,
-            "indent": 0
-          },
-          {
             "tag": "InterestIncomeExpenseNet",
             "label": "Net interest income",
             "line": 12,
@@ -14717,12 +14369,6 @@
             "indent": 0
           },
           {
-            "tag": "InterestExpense",
-            "label": "Total interest expense",
-            "line": 11,
-            "indent": 0
-          },
-          {
             "tag": "ProvisionForLoanLossesExpensed",
             "label": "PROVISION FOR (RECOVERY OF) CREDIT LOSSES",
             "line": 12,
@@ -14742,12 +14388,6 @@
           },
           {
             "tag": "DebtAndEquitySecuritiesRealizedGainLoss",
-            "label": "Loss on sale of real estate",
-            "line": 16,
-            "indent": 0
-          },
-          {
-            "tag": "GainLossOnSaleOfPropertyPlantEquipment",
             "label": "Loss on sale of real estate",
             "line": 16,
             "indent": 0
