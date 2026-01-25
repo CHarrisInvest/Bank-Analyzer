@@ -845,7 +845,8 @@ function getTTMValue(conceptData) {
     // Convert each quarter to a numeric period (fy * 4 + quarter number)
     const toPeriodNum = (q) => {
       const fy = parseInt(q.fy) || 0;
-      const fpNum = parseInt(q.fp?.replace('Q', '')) || 0;
+      // Handle 10-K 'FY' as Q4 (10-K quarterly values have fp='FY' not 'Q4')
+      const fpNum = q.fp === 'FY' ? 4 : (parseInt(q.fp?.replace('Q', '')) || 0);
       // Q4 belongs to the fiscal year, Q1-Q3 are within the year
       return fy * 4 + fpNum;
     };
