@@ -246,9 +246,9 @@ function OverviewTab({ bank, formatCurrency, formatPercent, formatNumber }) {
             <dt>Net Interest Income</dt>
             <dd>{formatCurrency(bank.ttmNetInterestIncome)}</dd>
             <dt>EPS</dt>
-            <dd>{bank.ttmEps !== null ? '$' + bank.ttmEps.toFixed(2) : '-'}</dd>
+            <dd>{bank.ttmEps != null ? '$' + bank.ttmEps.toFixed(2) : '-'}</dd>
             <dt>Dividend Per Share</dt>
-            <dd>{bank.ttmDividendPerShare !== null ? '$' + bank.ttmDividendPerShare.toFixed(2) : '-'}</dd>
+            <dd>{bank.ttmDividendPerShare != null ? '$' + bank.ttmDividendPerShare.toFixed(2) : '-'}</dd>
           </dl>
         </div>
 
@@ -263,7 +263,7 @@ function OverviewTab({ bank, formatCurrency, formatPercent, formatNumber }) {
             <dt>Efficiency Ratio</dt>
             <dd>{formatPercent(bank.efficiencyRatio)}</dd>
             <dt>Book Value Per Share</dt>
-            <dd>{bank.bvps !== null ? '$' + bank.bvps.toFixed(2) : '-'}</dd>
+            <dd>{bank.bvps != null ? '$' + bank.bvps.toFixed(2) : '-'}</dd>
           </dl>
         </div>
       </div>
@@ -342,7 +342,7 @@ function RatiosTab({ bank, formatCurrency, formatPercent, formatNumber }) {
               Book Value Per Share
               <Link to="/metrics/book-value-per-share" className="info-link">?</Link>
             </dt>
-            <dd>{bank.bvps !== null ? '$' + bank.bvps.toFixed(2) : '-'}</dd>
+            <dd>{bank.bvps != null ? '$' + bank.bvps.toFixed(2) : '-'}</dd>
             <dt>
               Price to Net Income (P/E)
               <Link to="/metrics/price-to-earnings" className="info-link">?</Link>
@@ -352,7 +352,7 @@ function RatiosTab({ bank, formatCurrency, formatPercent, formatNumber }) {
               Graham Number
               <Link to="/valuation/graham-number" className="info-link">?</Link>
             </dt>
-            <dd>{bank.grahamNum !== null ? '$' + bank.grahamNum.toFixed(2) : '-'}</dd>
+            <dd>{bank.grahamNum != null ? '$' + bank.grahamNum.toFixed(2) : '-'}</dd>
           </dl>
         </div>
 
@@ -361,9 +361,9 @@ function RatiosTab({ bank, formatCurrency, formatPercent, formatNumber }) {
           <h3>Per Share Data</h3>
           <dl className="info-list">
             <dt>Earnings Per Share (TTM)</dt>
-            <dd>{bank.ttmEps !== null ? '$' + bank.ttmEps.toFixed(2) : '-'}</dd>
+            <dd>{bank.ttmEps != null ? '$' + bank.ttmEps.toFixed(2) : '-'}</dd>
             <dt>Dividend Per Share (TTM)</dt>
-            <dd>{bank.ttmDividendPerShare !== null ? '$' + bank.ttmDividendPerShare.toFixed(2) : '-'}</dd>
+            <dd>{bank.ttmDividendPerShare != null ? '$' + bank.ttmDividendPerShare.toFixed(2) : '-'}</dd>
             <dt>
               Dividend Payout Ratio
               <Link to="/metrics/dividend-payout-ratio" className="info-link">?</Link>
@@ -601,7 +601,7 @@ function IncomeStatementTab({ bank, rawData, rawDataLoading, formatCurrency, for
               <tr><td>Non-Interest Income</td><td>{formatCurrency(bank.ttmNoninterestIncome)}</td></tr>
               <tr><td>Non-Interest Expense</td><td>{formatCurrency(bank.ttmNoninterestExpense)}</td></tr>
               <tr><td>Net Income</td><td>{formatCurrency(bank.ttmNetIncome)}</td></tr>
-              <tr><td>Earnings Per Share</td><td>{bank.ttmEps !== null ? '$' + bank.ttmEps.toFixed(2) : '-'}</td></tr>
+              <tr><td>Earnings Per Share</td><td>{bank.ttmEps != null ? '$' + bank.ttmEps.toFixed(2) : '-'}</td></tr>
             </tbody>
           </table>
         </div>
