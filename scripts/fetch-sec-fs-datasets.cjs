@@ -1481,22 +1481,18 @@ function buildHistoricalStatements(bankData) {
               if (q1Value !== null && q2Value !== null && q3Value !== null) {
                 const derivedQ4 = annualValue - q1Value - q2Value - q3Value;
 
-                // Validate derivation: check for any remaining inconsistency
-                // (Should be rare if we successfully got restated values)
-                const priorSum = q1Value + q2Value + q3Value;
-                const signMismatch = (annualValue > 0 && derivedQ4 < 0) || (annualValue < 0 && derivedQ4 > 0);
-                const priorExceedsAnnual = (annualValue > 0 && priorSum > annualValue * 1.1) ||
-                                          (annualValue < 0 && priorSum < annualValue * 1.1);
-
-                if (signMismatch || priorExceedsAnnual) {
-                  // Still inconsistent even with restated values - mark as unavailable
-                  derivedUnavailable = true;
-                  value = null;
-                } else {
-                  // Derivation looks reasonable
-                  value = derivedQ4;
-                  itemIsDerived = true;
-                }
+                // Q4 = Annual - Q1 - Q2 - Q3 is mathematically correct when inputs are valid.
+                //
+                // Previously had validation checks (signMismatch, priorExceedsAnnual) that
+                // rejected derivations when Q4's sign differed from annual or when Q1-Q3
+                // sum diverged significantly from annual. These were removed because:
+                // 1. Restated Q1-Q3 values from 10-K are already preferred (getRestatedValueFromAnnual)
+                // 2. The checks caused false positives for banks with legitimate mixed results
+                //    (e.g., profitable Q1-Q3 but large Q4 loss causing annual loss, like AMTB 2024)
+                //
+                // Derived Q4 values are clearly marked in the UI so users can assess validity.
+                value = derivedQ4;
+                itemIsDerived = true;
               } else {
                 // Cannot derive - missing prior quarters
                 derivedUnavailable = true;
