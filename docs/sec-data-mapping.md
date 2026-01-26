@@ -74,15 +74,32 @@ BankSift uses the **SEC Financial Statement Data Sets** to fetch financial data.
 
 ### Dividend Concepts (TTM)
 
+Only **common stock** dividend tags are used to avoid double counting with preferred dividends.
+
+**Per-Share Tags (Prioritized):**
 | XBRL Concept | Unit | Used For |
 |--------------|------|----------|
 | `CommonStockDividendsPerShareDeclared` | USD/shares | TTM DPS (primary) |
 | `CommonStockDividendsPerShareCashPaid` | USD/shares | Fallback for DPS |
-| `PaymentsOfDividendsCommonStock` | USD | Total dividends for DPS calc |
-| `DividendsCommonStock` | USD | Fallback total dividends |
-| `DividendsCommonStockCash` | USD | Fallback total dividends |
 
-**DPS Calculation:** First tries per-share tags. If unavailable, calculates DPS from total common dividends divided by shares outstanding.
+**Total Common Dividends (for DPS derivation when per-share unavailable):**
+| XBRL Concept | Unit | Source |
+|--------------|------|--------|
+| `PaymentsOfDividendsCommonStock` | USD | Cash Flow Statement |
+| `DividendsCommonStock` | USD | Equity Statement |
+| `DividendsCommonStockCash` | USD | Equity Statement |
+| `CommonStockDividendsPaid` | USD | Cash Flow Statement |
+| `DividendsPaidOnCommonStock` | USD | Cash Flow Statement |
+| `CashDividendsPaidToCommonStockholders` | USD | Cash Flow Statement |
+
+**DPS Calculation Priority:**
+1. Per-share tags from Income Statement (getTTMFromStatements)
+2. Per-share tags from raw SEC data (getTTMValue)
+3. Derived: Total common dividends ÷ shares outstanding
+
+**Statement Processing:** The script processes Cash Flow (CF) and Equity (EQ) statements to extract dividend data, but these statements are not shown on detail pages (only BS and IS are displayed).
+
+**Note:** Some banks report dividend data only in notes or supplementary schedules rather than on the face of the primary financial statements. The SEC Financial Statement Data Sets only capture data from primary statements as rendered, so banks that report dividends differently may have missing DPS data.
 
 ---
 

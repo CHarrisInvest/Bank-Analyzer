@@ -444,8 +444,9 @@ async function processPresentation(extractDir, bankAdshs) {
   for (const row of preData) {
     const { adsh, stmt, report, tag, version, line, plabel, negating, inpth } = row;
 
-    // Only process Balance Sheet (BS) and Income Statement (IS)
-    if (!['BS', 'IS'].includes(stmt)) continue;
+    // Process Balance Sheet (BS), Income Statement (IS), Cash Flow (CF), and Equity (EQ)
+    // CF and EQ are used for dividend data extraction but not shown on detail pages
+    if (!['BS', 'IS', 'CF', 'EQ'].includes(stmt)) continue;
 
     // CRITICAL: inpth=1 means "in parenthetical" - these are parenthetical disclosures
     // like "Common stock, par value per share" that should NOT be in the main statement
@@ -457,7 +458,7 @@ async function processPresentation(extractDir, bankAdshs) {
     }
 
     if (!rawPresentations.has(adsh)) {
-      rawPresentations.set(adsh, { BS: new Map(), IS: new Map() });
+      rawPresentations.set(adsh, { BS: new Map(), IS: new Map(), CF: new Map(), EQ: new Map() });
     }
 
     const stmtData = rawPresentations.get(adsh);
@@ -485,10 +486,10 @@ async function processPresentation(extractDir, bankAdshs) {
   const presentations = new Map();
 
   for (const [adsh, stmts] of rawPresentations) {
-    presentations.set(adsh, { BS: [], IS: [] });
+    presentations.set(adsh, { BS: [], IS: [], CF: [], EQ: [] });
     const result = presentations.get(adsh);
 
-    for (const stmtType of ['BS', 'IS']) {
+    for (const stmtType of ['BS', 'IS', 'CF', 'EQ']) {
       const reportMap = stmts[stmtType];
       if (reportMap.size === 0) continue;
 
@@ -517,6 +518,18 @@ async function processPresentation(extractDir, bankAdshs) {
           if (tags.has('InterestExpense')) score += 50;
           if (tags.has('NoninterestIncome')) score += 25;
           if (tags.has('NoninterestExpense')) score += 25;
+        } else if (stmtType === 'CF') {
+          // Cash Flow Statement - look for key totals and dividend payments
+          if (tags.has('NetCashProvidedByUsedInOperatingActivities')) score += 100;
+          if (tags.has('NetCashProvidedByUsedInFinancingActivities')) score += 50;
+          if (tags.has('PaymentsOfDividendsCommonStock')) score += 50;
+          if (tags.has('PaymentsOfDividends')) score += 25;
+        } else if (stmtType === 'EQ') {
+          // Equity Statement - look for dividends and stock data
+          if (tags.has('StockholdersEquity')) score += 100;
+          if (tags.has('DividendsCommonStock')) score += 50;
+          if (tags.has('CommonStockDividendsPerShareDeclared')) score += 50;
+          if (tags.has('RetainedEarningsAccumulatedDeficit')) score += 25;
         }
 
         // Prefer lower report numbers (typically report 1 or 2 is the main statement)
@@ -1757,14 +1770,19 @@ function calculateBankMetrics(bankData) {
   const eps = getTTMFromStatements('EarningsPerShareBasic', ['EarningsPerShareDiluted']) ||
               getTTMValue(concepts['EarningsPerShareBasic']) ||
               getTTMValue(concepts['EarningsPerShareDiluted']);
+  // DPS: Common stock dividends per share - prioritize per-share data over derived
   const dps = getTTMFromStatements('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
   // Fallback: Total common dividends paid (for calculating DPS when per-share tags unavailable)
+  // Only use tags explicitly for COMMON stock to avoid including preferred dividends
   const totalCommonDividends = getTTMFromStatements('PaymentsOfDividendsCommonStock', ['DividendsCommonStock', 'DividendsCommonStockCash']) ||
                                getTTMValue(concepts['PaymentsOfDividendsCommonStock']) ||
                                getTTMValue(concepts['DividendsCommonStock']) ||
-                               getTTMValue(concepts['DividendsCommonStockCash']);
+                               getTTMValue(concepts['DividendsCommonStockCash']) ||
+                               getTTMValue(concepts['CommonStockDividendsPaid']) ||
+                               getTTMValue(concepts['DividendsPaidOnCommonStock']) ||
+                               getTTMValue(concepts['CashDividendsPaidToCommonStockholders']);
 
   // Extract values
   const totalAssets = assets?.value;
