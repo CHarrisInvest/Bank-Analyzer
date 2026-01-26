@@ -1759,12 +1759,19 @@ function calculateBankMetrics(bankData) {
               getTTMValue(concepts['EarningsPerShareDiluted']);
   const dps = getTTMFromStatements('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
-              getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
+              getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']) ||
+              getTTMValue(concepts['DividendsPerShareDeclared']) ||
+              getTTMValue(concepts['DividendsPerShareCashPaid']);
   // Fallback: Total common dividends paid (for calculating DPS when per-share tags unavailable)
+  // Try multiple tag variations as banks use different XBRL elements
   const totalCommonDividends = getTTMFromStatements('PaymentsOfDividendsCommonStock', ['DividendsCommonStock', 'DividendsCommonStockCash']) ||
                                getTTMValue(concepts['PaymentsOfDividendsCommonStock']) ||
                                getTTMValue(concepts['DividendsCommonStock']) ||
-                               getTTMValue(concepts['DividendsCommonStockCash']);
+                               getTTMValue(concepts['DividendsCommonStockCash']) ||
+                               getTTMValue(concepts['PaymentsOfDividends']) ||
+                               getTTMValue(concepts['DividendsPaid']) ||
+                               getTTMValue(concepts['CashDividendsPaidToCommonStockholders']) ||
+                               getTTMValue(concepts['DividendsPaidCommonStock']);
 
   // Extract values
   const totalAssets = assets?.value;

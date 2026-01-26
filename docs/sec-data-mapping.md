@@ -78,11 +78,19 @@ BankSift uses the **SEC Financial Statement Data Sets** to fetch financial data.
 |--------------|------|----------|
 | `CommonStockDividendsPerShareDeclared` | USD/shares | TTM DPS (primary) |
 | `CommonStockDividendsPerShareCashPaid` | USD/shares | Fallback for DPS |
+| `DividendsPerShareDeclared` | USD/shares | Generic per-share fallback |
+| `DividendsPerShareCashPaid` | USD/shares | Generic per-share fallback |
 | `PaymentsOfDividendsCommonStock` | USD | Total dividends for DPS calc |
 | `DividendsCommonStock` | USD | Fallback total dividends |
 | `DividendsCommonStockCash` | USD | Fallback total dividends |
+| `PaymentsOfDividends` | USD | Generic total dividends fallback |
+| `DividendsPaid` | USD | Generic total dividends fallback |
+| `CashDividendsPaidToCommonStockholders` | USD | Alternative total dividends |
+| `DividendsPaidCommonStock` | USD | Alternative total dividends |
 
 **DPS Calculation:** First tries per-share tags. If unavailable, calculates DPS from total common dividends divided by shares outstanding.
+
+**Note:** Some banks report dividend data only in notes or supplementary schedules rather than on the face of the primary financial statements. The SEC Financial Statement Data Sets only capture data from primary statements as rendered, so banks that report dividends differently may have missing DPS data.
 
 ---
 
