@@ -1760,6 +1760,11 @@ function calculateBankMetrics(bankData) {
   const dps = getTTMFromStatements('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
+  // Fallback: Total common dividends paid (for calculating DPS when per-share tags unavailable)
+  const totalCommonDividends = getTTMFromStatements('PaymentsOfDividendsCommonStock', ['DividendsCommonStock', 'DividendsCommonStockCash']) ||
+                               getTTMValue(concepts['PaymentsOfDividendsCommonStock']) ||
+                               getTTMValue(concepts['DividendsCommonStock']) ||
+                               getTTMValue(concepts['DividendsCommonStockCash']);
 
   // Extract values
   const totalAssets = assets?.value;
@@ -1773,7 +1778,11 @@ function calculateBankMetrics(bankData) {
   const ttmNonintExpense = noninterestExpense?.value;
   const ttmNetIncome = netIncome?.value;
   const ttmEps = eps?.value;
-  const ttmDps = dps?.value;
+  // DPS: prefer per-share tags, fallback to total dividends / shares outstanding
+  let ttmDps = dps?.value ?? null;
+  if (ttmDps === null && totalCommonDividends?.value && sharesOutstanding) {
+    ttmDps = totalCommonDividends.value / sharesOutstanding;
+  }
 
   // NI to Common: use direct value, or derive from Net Income minus Preferred Dividends
   let ttmNetIncomeToCommon = netIncomeToCommonDirect?.value ?? null;
