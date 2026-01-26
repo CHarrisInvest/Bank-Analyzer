@@ -128,12 +128,10 @@
         "form": "10-Q+10-Q+10-Q+10-K"
       },
       "NoninterestIncome": {
-        "value": 16027000,
-        "date": "20240930",
-        "method": "sum-4Q-derived",
-        "form": "10-Q+10-Q+10-Q+10-K(derived)",
-        "derivedQ4": -25049000,
-        "fiscalYear": "2024"
+        "value": -8902000,
+        "date": "20250930",
+        "method": "sum-4Q-statements",
+        "form": "10-Q+10-Q+10-Q+10-K"
       },
       "NoninterestExpense": {
         "value": 235366000,
@@ -11514,11 +11512,11 @@
               "line": 24,
               "indent": 0,
               "negating": false,
-              "value": null,
+              "value": -23266000,
               "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": true,
+              "hasValue": true,
+              "isDerived": true,
+              "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
             },
