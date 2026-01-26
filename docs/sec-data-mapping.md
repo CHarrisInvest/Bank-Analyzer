@@ -90,6 +90,7 @@ Only **common stock** dividend tags are used to avoid double counting with prefe
 | `DividendsCommonStockCash` | USD | Equity Statement |
 | `CommonStockDividendsPaid` | USD | Cash Flow Statement |
 | `DividendsPaidOnCommonStock` | USD | Cash Flow Statement |
+| `CashDividendsPaidToCommonStockholders` | USD | Cash Flow Statement |
 
 **DPS Calculation Priority:**
 1. Per-share tags from Income Statement (getTTMFromStatements)

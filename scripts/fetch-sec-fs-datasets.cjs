@@ -1781,7 +1781,8 @@ function calculateBankMetrics(bankData) {
                                getTTMValue(concepts['DividendsCommonStock']) ||
                                getTTMValue(concepts['DividendsCommonStockCash']) ||
                                getTTMValue(concepts['CommonStockDividendsPaid']) ||
-                               getTTMValue(concepts['DividendsPaidOnCommonStock']);
+                               getTTMValue(concepts['DividendsPaidOnCommonStock']) ||
+                               getTTMValue(concepts['CashDividendsPaidToCommonStockholders']);
 
   // Extract values
   const totalAssets = assets?.value;
