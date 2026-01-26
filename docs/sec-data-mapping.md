@@ -76,8 +76,13 @@ BankSift uses the **SEC Financial Statement Data Sets** to fetch financial data.
 
 | XBRL Concept | Unit | Used For |
 |--------------|------|----------|
-| `CommonStockDividendsPerShareDeclared` | USD/shares | TTM DPS |
-| `CommonStockDividendsPerShareCashPaid` | USD/shares | Fallback |
+| `CommonStockDividendsPerShareDeclared` | USD/shares | TTM DPS (primary) |
+| `CommonStockDividendsPerShareCashPaid` | USD/shares | Fallback for DPS |
+| `PaymentsOfDividendsCommonStock` | USD | Total dividends for DPS calc |
+| `DividendsCommonStock` | USD | Fallback total dividends |
+| `DividendsCommonStockCash` | USD | Fallback total dividends |
+
+**DPS Calculation:** First tries per-share tags. If unavailable, calculates DPS from total common dividends divided by shares outstanding.
 
 ---
 
