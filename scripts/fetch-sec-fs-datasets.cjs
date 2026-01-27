@@ -1537,11 +1537,28 @@ function buildHistoricalStatements(bankData) {
                 if (q2Value === null) {
                   q2Value = getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 1, negating);
                 }
+                // CF fallback: derive Q2 from YTD if direct quarterly not available
+                if (q2Value === null && stmtType === 'CF' && priorQuarters.Q1) {
+                  const ytdQ2 = getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 2, negating);
+                  const q1ForDerivation = q1Value !== null ? q1Value :
+                    getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q1, 1, negating);
+                  if (ytdQ2 !== null && q1ForDerivation !== null) {
+                    q2Value = ytdQ2 - q1ForDerivation;
+                  }
+                }
               }
               if (priorQuarters.Q3) {
                 q3Value = getRestatedValueFromAnnual(canonicalItem.tag, canonicalItem.version, filing, priorQuarters.Q3.period, negating);
                 if (q3Value === null) {
                   q3Value = getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 1, negating);
+                }
+                // CF fallback: derive Q3 from YTD if direct quarterly not available
+                if (q3Value === null && stmtType === 'CF' && priorQuarters.Q2) {
+                  const ytdQ3 = getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q3, 3, negating);
+                  const ytdQ2 = getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarters.Q2, 2, negating);
+                  if (ytdQ3 !== null && ytdQ2 !== null) {
+                    q3Value = ytdQ3 - ytdQ2;
+                  }
                 }
               }
 
