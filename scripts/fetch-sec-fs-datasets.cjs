@@ -1603,6 +1603,11 @@ function buildHistoricalStatements(bankData) {
   const quarterlyBS = buildQuarterlyStatements('BS');
   const annualIS = buildAnnualStatements('IS');
   const quarterlyIS = buildQuarterlyStatements('IS');
+  // Build CF and EQ for dividend data extraction (not shown on detail pages)
+  const annualCF = buildAnnualStatements('CF');
+  const quarterlyCF = buildQuarterlyStatements('CF');
+  const annualEQ = buildAnnualStatements('EQ');
+  const quarterlyEQ = buildQuarterlyStatements('EQ');
 
   // Create unified period lists
   const annualPeriods = annualBS.statements.map(bs => ({
@@ -1648,6 +1653,15 @@ function buildHistoricalStatements(bankData) {
         annual: annualPeriods,
         quarterly: quarterlyPeriods,
       },
+    },
+    // CF and EQ for dividend data extraction (internal use only, not saved to detail pages)
+    historicalCashFlow: {
+      annual: annualCF.statements,
+      quarterly: quarterlyCF.statements,
+    },
+    historicalEquity: {
+      annual: annualEQ.statements,
+      quarterly: quarterlyEQ.statements,
     },
   };
 }
@@ -1706,6 +1720,80 @@ function calculateBankMetrics(bankData) {
     };
   };
 
+  /**
+   * Get TTM value from historical Equity Statement (for per-share dividend data)
+   */
+  const getTTMFromEquity = (tag, alternativeTags = []) => {
+    const quarterly = historicalStatements.historicalEquity?.quarterly || [];
+    if (quarterly.length < 4) return null;
+
+    const recentQuarters = quarterly.slice(0, 4);
+    const allTags = [tag, ...alternativeTags];
+    let values = [];
+    let latestDate = null;
+
+    for (const stmt of recentQuarters) {
+      let value = null;
+      for (const t of allTags) {
+        const item = stmt.items?.find(i => i.tag === t && i.hasValue);
+        if (item) {
+          value = item.value;
+          break;
+        }
+      }
+      if (value === null) return null;
+      values.push(value);
+      if (!latestDate) latestDate = stmt.ddate;
+    }
+
+    if (values.length !== 4) return null;
+
+    const ttmValue = values.reduce((sum, v) => sum + v, 0);
+    return {
+      value: ttmValue,
+      date: latestDate,
+      method: 'sum-4Q-equity',
+      form: recentQuarters.map(q => q.form).join('+'),
+    };
+  };
+
+  /**
+   * Get TTM value from historical Cash Flow Statement (for total dividend payments)
+   */
+  const getTTMFromCashFlow = (tag, alternativeTags = []) => {
+    const quarterly = historicalStatements.historicalCashFlow?.quarterly || [];
+    if (quarterly.length < 4) return null;
+
+    const recentQuarters = quarterly.slice(0, 4);
+    const allTags = [tag, ...alternativeTags];
+    let values = [];
+    let latestDate = null;
+
+    for (const stmt of recentQuarters) {
+      let value = null;
+      for (const t of allTags) {
+        const item = stmt.items?.find(i => i.tag === t && i.hasValue);
+        if (item) {
+          value = item.value;
+          break;
+        }
+      }
+      if (value === null) return null;
+      values.push(value);
+      if (!latestDate) latestDate = stmt.ddate;
+    }
+
+    if (values.length !== 4) return null;
+
+    const ttmValue = values.reduce((sum, v) => sum + v, 0);
+    return {
+      value: ttmValue,
+      date: latestDate,
+      method: 'sum-4Q-cashflow',
+      form: recentQuarters.map(q => q.form).join('+'),
+    };
+  };
+
   // Balance Sheet - Assets
   const assets = getLatestPointInTime(concepts['Assets']);
   const cashAndCashEquivalents = getLatestPointInTime(concepts['CashAndCashEquivalentsAtCarryingValue']) ||
@@ -1723,7 +1811,9 @@ function calculateBankMetrics(bankData) {
                  getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
   const preferredStock = getLatestPointInTime(concepts['PreferredStockValue']) ||
                          getLatestPointInTime(concepts['PreferredStockValueOutstanding']);
-  const sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']);
+  // Shares outstanding - CommonStockSharesOutstanding or EntityCommonStockSharesOutstanding (company-level)
+  const sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']) ||
+                     getLatestPointInTime(concepts['EntityCommonStockSharesOutstanding']);
 
   // Income Statement (TTM) - Use historical statements which have correct Q4 derivation
   const netIncome = getTTMFromStatements('NetIncomeLoss', ['ProfitLoss', 'NetIncomeLossAvailableToCommonStockholdersBasic']) ||
@@ -1771,17 +1861,19 @@ function calculateBankMetrics(bankData) {
               getTTMValue(concepts['EarningsPerShareBasic']) ||
               getTTMValue(concepts['EarningsPerShareDiluted']);
   // DPS: Common stock dividends per share - prioritize per-share data over derived
-  const dps = getTTMFromStatements('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
+  // Priority: 1) Equity Statement, 2) Income Statement, 3) Raw concepts, 4) Derived from total/shares
+  const dps = getTTMFromEquity('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
+              getTTMFromStatements('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
   // Fallback: Total common dividends paid (for calculating DPS when per-share tags unavailable)
+  // Priority: 1) Cash Flow Statement, 2) Equity Statement, 3) Raw concepts
   // Only use tags explicitly for COMMON stock to avoid including preferred dividends
-  const totalCommonDividends = getTTMFromStatements('PaymentsOfDividendsCommonStock', ['DividendsCommonStock', 'DividendsCommonStockCash']) ||
+  const totalCommonDividends = getTTMFromCashFlow('PaymentsOfDividendsCommonStock', ['DividendsCommonStockCash']) ||
+                               getTTMFromEquity('DividendsCommonStock', ['DividendsCommonStockCash']) ||
                                getTTMValue(concepts['PaymentsOfDividendsCommonStock']) ||
                                getTTMValue(concepts['DividendsCommonStock']) ||
                                getTTMValue(concepts['DividendsCommonStockCash']) ||
-                               getTTMValue(concepts['CommonStockDividendsPaid']) ||
-                               getTTMValue(concepts['DividendsPaidOnCommonStock']) ||
                                getTTMValue(concepts['CashDividendsPaidToCommonStockholders']);
 
   // Extract values
@@ -1809,9 +1901,26 @@ function calculateBankMetrics(bankData) {
       const lower = tag.toLowerCase();
       return lower.includes('dividend') || lower.includes('dps');
     });
+    const allShareTags = Object.keys(concepts).filter(tag => {
+      const lower = tag.toLowerCase();
+      return lower.includes('sharesoutstanding') || lower.includes('sharesissued') ||
+             (lower.includes('shares') && lower.includes('common'));
+    });
 
     console.log(`\n  === DIVIDEND DIAGNOSTIC: ${bankData.ticker} (CIK: ${bankData.cik}) ===`);
     console.log(`  Shares Outstanding: ${sharesOutstanding || 'MISSING'}`);
+
+    // Show share-related tags
+    if (allShareTags.length > 0) {
+      console.log(`  Share-related tags found (${allShareTags.length}):`);
+      for (const tag of allShareTags.slice(0, 10)) {
+        const vals = concepts[tag];
+        const recent = vals.sort((a, b) => b.ddate.localeCompare(a.ddate))[0];
+        console.log(`    - ${tag}: value=${recent?.value}, date=${recent?.ddate}`);
+      }
+    } else {
+      console.log(`  NO share-related tags found in concepts!`);
+    }
 
     if (allDividendTags.length > 0) {
       console.log(`  Dividend-related tags found in concepts (${allDividendTags.length}):`);

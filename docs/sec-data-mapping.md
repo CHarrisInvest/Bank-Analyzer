@@ -88,16 +88,19 @@ Only **common stock** dividend tags are used to avoid double counting with prefe
 | `PaymentsOfDividendsCommonStock` | USD | Cash Flow Statement |
 | `DividendsCommonStock` | USD | Equity Statement |
 | `DividendsCommonStockCash` | USD | Equity Statement |
-| `CommonStockDividendsPaid` | USD | Cash Flow Statement |
-| `DividendsPaidOnCommonStock` | USD | Cash Flow Statement |
 | `CashDividendsPaidToCommonStockholders` | USD | Cash Flow Statement |
 
 **DPS Calculation Priority:**
-1. Per-share tags from Income Statement (getTTMFromStatements)
-2. Per-share tags from raw SEC data (getTTMValue)
-3. Derived: Total common dividends ÷ shares outstanding
+1. Per-share tags from Equity Statement (getTTMFromEquity) - quarterly values summed for TTM
+2. Per-share tags from Income Statement (getTTMFromStatements)
+3. Per-share tags from raw SEC concepts (getTTMValue)
+4. Derived: Total common dividends (from CF/EQ) ÷ shares outstanding
 
-**Statement Processing:** The script processes Cash Flow (CF) and Equity (EQ) statements to extract dividend data, but these statements are not shown on detail pages (only BS and IS are displayed).
+**Historical Statement Processing:**
+- The script builds historical quarterly Cash Flow (CF) and Equity (EQ) statements from SEC data
+- These are used internally for TTM dividend calculations
+- CF and EQ statements are NOT displayed on detail pages (only BS and IS are shown)
+- Quarterly dividend values are summed across 4 quarters to calculate TTM DPS
 
 **Note:** Some banks report dividend data only in notes or supplementary schedules rather than on the face of the primary financial statements. The SEC Financial Statement Data Sets only capture data from primary statements as rendered, so banks that report dividends differently may have missing DPS data.
 
