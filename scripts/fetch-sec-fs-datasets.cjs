@@ -1802,6 +1802,49 @@ function calculateBankMetrics(bankData) {
     ttmDps = totalCommonDividends.value / sharesOutstanding;
   }
 
+  // Diagnostic: Log dividend-related tags for banks missing DPS (major banks only)
+  const majorBanks = ['BAC', 'WFC', 'C', 'PNC', 'TFC', 'BK', 'CFG', 'MTB', 'USB', 'SCHW'];
+  if (ttmDps === null && bankData.ticker && majorBanks.includes(bankData.ticker)) {
+    const allDividendTags = Object.keys(concepts).filter(tag => {
+      const lower = tag.toLowerCase();
+      return lower.includes('dividend') || lower.includes('dps');
+    });
+
+    console.log(`\n  === DIVIDEND DIAGNOSTIC: ${bankData.ticker} (CIK: ${bankData.cik}) ===`);
+    console.log(`  Shares Outstanding: ${sharesOutstanding || 'MISSING'}`);
+
+    if (allDividendTags.length > 0) {
+      console.log(`  Dividend-related tags found in concepts (${allDividendTags.length}):`);
+      for (const tag of allDividendTags.slice(0, 15)) {
+        const vals = concepts[tag];
+        const recent = vals.sort((a, b) => b.ddate.localeCompare(a.ddate))[0];
+        console.log(`    - ${tag}: value=${recent?.value}, qtrs=${recent?.qtrs}, date=${recent?.ddate}`);
+      }
+      if (allDividendTags.length > 15) console.log(`    ... and ${allDividendTags.length - 15} more`);
+    } else {
+      console.log(`  NO dividend-related tags found in concepts!`);
+    }
+
+    // Check CF and EQ presentations
+    const recentFiling = bankData.submissions?.sort((a, b) => b.filed.localeCompare(a.filed))[0];
+    if (recentFiling) {
+      const pres = bankData.presentationByFiling[recentFiling.adsh];
+      if (pres) {
+        const cfTags = pres.CF?.map(i => i.tag) || [];
+        const eqTags = pres.EQ?.map(i => i.tag) || [];
+        const cfDivTags = cfTags.filter(t => t.toLowerCase().includes('dividend'));
+        const eqDivTags = eqTags.filter(t => t.toLowerCase().includes('dividend'));
+        console.log(`  CF statement tags: ${cfTags.length} total, ${cfDivTags.length} dividend-related`);
+        if (cfDivTags.length > 0) console.log(`    CF dividend tags: ${cfDivTags.join(', ')}`);
+        console.log(`  EQ statement tags: ${eqTags.length} total, ${eqDivTags.length} dividend-related`);
+        if (eqDivTags.length > 0) console.log(`    EQ dividend tags: ${eqDivTags.join(', ')}`);
+      } else {
+        console.log(`  No presentation data for most recent filing`);
+      }
+    }
+    console.log(`  =========================================\n`);
+  }
+
   // NI to Common: use direct value, or derive from Net Income minus Preferred Dividends
   let ttmNetIncomeToCommon = netIncomeToCommonDirect?.value ?? null;
   if (ttmNetIncomeToCommon === null && ttmNetIncome !== null && preferredDividends?.value != null) {
