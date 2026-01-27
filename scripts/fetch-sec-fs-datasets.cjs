@@ -1015,6 +1015,120 @@ function getTTMValue(conceptData) {
 }
 
 /**
+ * Get TTM value for dividend-related tags (more flexible than getTTMValue)
+ *
+ * Dividends can be paid quarterly, semi-annually, annually, or as special dividends.
+ * This function sums whatever dividend values exist for the 4 most recent quarters,
+ * treating missing quarters as $0 (not as missing data).
+ *
+ * Strategy:
+ * 1. If we have quarterly data (qtrs=1), sum the 4 most recent quarters by ddate
+ *    - Require at least 2 quarters to avoid treating single quarter as TTM
+ * 2. ONLY if NO quarterly data exists, use the most recent annual value (qtrs=4)
+ */
+function getDividendTTMValue(conceptData) {
+  if (!conceptData || conceptData.length === 0) return null;
+
+  const sorted = [...conceptData]
+    .filter(d => d.form === '10-K' || d.form === '10-Q')
+    .sort((a, b) => b.ddate.localeCompare(a.ddate));
+
+  if (sorted.length === 0) return null;
+
+  const quarterlyValues = sorted.filter(d => d.qtrs === 1);
+  const annualValues = sorted.filter(d => d.qtrs === 4);
+
+  /**
+   * Derive fiscal quarter from ddate (period end date)
+   */
+  const getQuarterFromDdate = (ddate) => {
+    if (!ddate || ddate.length !== 8) return null;
+    const year = parseInt(ddate.substring(0, 4));
+    const month = parseInt(ddate.substring(4, 6));
+    const quarter = Math.ceil(month / 3);
+    return { year, quarter };
+  };
+
+  const toPeriodNum = (yearQuarter) => {
+    if (!yearQuarter) return 0;
+    return yearQuarter.year * 4 + yearQuarter.quarter;
+  };
+
+  // Strategy 1: Sum quarterly values (for banks with non-consecutive dividend payments)
+  if (quarterlyValues.length >= 1) {
+    // Deduplicate by ddate - keep most recent filing's value for each period
+    const byDdate = new Map();
+    for (const q of quarterlyValues) {
+      if (!byDdate.has(q.ddate)) {
+        const qInfo = getQuarterFromDdate(q.ddate);
+        byDdate.set(q.ddate, {
+          ...q,
+          periodNum: toPeriodNum(qInfo),
+          derivedQuarter: qInfo,
+        });
+      }
+    }
+
+    // Sort by period (most recent first)
+    const uniqueQuarters = Array.from(byDdate.values())
+      .sort((a, b) => b.periodNum - a.periodNum);
+
+    if (uniqueQuarters.length >= 2) {
+      // Get the 4 most recent periods that SHOULD exist
+      const mostRecentPeriod = uniqueQuarters[0].periodNum;
+      const targetPeriods = [mostRecentPeriod, mostRecentPeriod - 1, mostRecentPeriod - 2, mostRecentPeriod - 3];
+
+      // Build a map of period -> value
+      const periodValues = new Map();
+      for (const q of uniqueQuarters) {
+        if (!periodValues.has(q.periodNum)) {
+          periodValues.set(q.periodNum, q.value);
+        }
+      }
+
+      // Sum the 4 target periods, using 0 for missing quarters (dividends can skip quarters)
+      let ttmValue = 0;
+      let foundCount = 0;
+      for (const period of targetPeriods) {
+        if (periodValues.has(period)) {
+          ttmValue += periodValues.get(period);
+          foundCount++;
+        }
+        // Missing quarter = $0 dividend for that period (acceptable for dividend data)
+      }
+
+      // Require at least 2 quarters to avoid treating single quarter as TTM
+      if (foundCount >= 2) {
+        return {
+          value: ttmValue,
+          date: uniqueQuarters[0].ddate,
+          method: `sum-${foundCount}Q-dividend`,
+          form: [...new Set(uniqueQuarters.slice(0, foundCount).map(q => q.form))].join('+'),
+          quartersFound: foundCount,
+        };
+      }
+    }
+
+    // If we have quarterly values but couldn't build a valid TTM, don't fall back to annual
+    // This prevents using stale annual data when quarterly data exists but is incomplete
+    return null;
+  }
+
+  // Strategy 2: ONLY use annual if NO quarterly data exists at all
+  if (annualValues.length > 0) {
+    const mostRecent = annualValues[0];
+    return {
+      value: mostRecent.value,
+      date: mostRecent.ddate,
+      method: 'annual-dividend',
+      form: mostRecent.form,
+    };
+  }
+
+  return null;
+}
+
+/**
  * Build historical financial statements with presentation structure
  * This creates the "as reported on the face" data structure
  *
@@ -1817,30 +1931,62 @@ function calculateBankMetrics(bankData) {
 
   /**
    * Get TTM value from historical Equity Statement (for per-share dividend data)
+   * If Q4 value is null, attempts to derive from Annual - Q1 - Q2 - Q3
    */
   const getTTMFromEquity = (tag, alternativeTags = []) => {
     const quarterly = historicalStatements.historicalEquity?.quarterly || [];
+    const annual = historicalStatements.historicalEquity?.annual || [];
     if (quarterly.length < 4) return null;
 
     const recentQuarters = quarterly.slice(0, 4);
     const allTags = [tag, ...alternativeTags];
     let values = [];
     let latestDate = null;
+    let q4Index = -1;
+    let q4FY = null;
 
-    for (const stmt of recentQuarters) {
+    for (let i = 0; i < recentQuarters.length; i++) {
+      const stmt = recentQuarters[i];
       let value = null;
       for (const t of allTags) {
-        const item = stmt.items?.find(i => i.tag === t && i.hasValue);
+        const item = stmt.items?.find(it => it.tag === t && it.hasValue);
         if (item) {
           value = item.value;
           break;
         }
       }
-      if (value === null) return null;
+      // Track Q4 position for potential derivation
+      if (stmt.fp === 'Q4' && value === null) {
+        q4Index = i;
+        q4FY = stmt.fy;
+      }
       values.push(value);
       if (!latestDate) latestDate = stmt.ddate;
     }
 
+    // If Q4 is null but others have values, try to derive Q4 from annual
+    if (q4Index !== -1 && values.filter(v => v !== null).length === 3 && q4FY) {
+      // Find annual statement for same fiscal year
+      const annualStmt = annual.find(a => a.fy === q4FY);
+      if (annualStmt) {
+        let annualValue = null;
+        for (const t of allTags) {
+          const item = annualStmt.items?.find(it => it.tag === t && it.hasValue);
+          if (item) {
+            annualValue = item.value;
+            break;
+          }
+        }
+        if (annualValue !== null) {
+          // Q4 = Annual - Q1 - Q2 - Q3
+          const q1q2q3Sum = values.filter(v => v !== null).reduce((sum, v) => sum + v, 0);
+          values[q4Index] = annualValue - q1q2q3Sum;
+        }
+      }
+    }
+
+    // Check if all 4 quarters now have values
+    if (values.some(v => v === null)) return null;
     if (values.length !== 4) return null;
 
     const ttmValue = values.reduce((sum, v) => sum + v, 0);
@@ -1854,30 +2000,62 @@ function calculateBankMetrics(bankData) {
 
   /**
    * Get TTM value from historical Cash Flow Statement (for total dividend payments)
+   * If Q4 value is null, attempts to derive from Annual - Q1 - Q2 - Q3
    */
   const getTTMFromCashFlow = (tag, alternativeTags = []) => {
     const quarterly = historicalStatements.historicalCashFlow?.quarterly || [];
+    const annual = historicalStatements.historicalCashFlow?.annual || [];
     if (quarterly.length < 4) return null;
 
     const recentQuarters = quarterly.slice(0, 4);
     const allTags = [tag, ...alternativeTags];
     let values = [];
     let latestDate = null;
+    let q4Index = -1;
+    let q4FY = null;
 
-    for (const stmt of recentQuarters) {
+    for (let i = 0; i < recentQuarters.length; i++) {
+      const stmt = recentQuarters[i];
       let value = null;
       for (const t of allTags) {
-        const item = stmt.items?.find(i => i.tag === t && i.hasValue);
+        const item = stmt.items?.find(it => it.tag === t && it.hasValue);
         if (item) {
           value = item.value;
           break;
         }
       }
-      if (value === null) return null;
+      // Track Q4 position for potential derivation
+      if (stmt.fp === 'Q4' && value === null) {
+        q4Index = i;
+        q4FY = stmt.fy;
+      }
       values.push(value);
       if (!latestDate) latestDate = stmt.ddate;
     }
 
+    // If Q4 is null but others have values, try to derive Q4 from annual
+    if (q4Index !== -1 && values.filter(v => v !== null).length === 3 && q4FY) {
+      // Find annual statement for same fiscal year
+      const annualStmt = annual.find(a => a.fy === q4FY);
+      if (annualStmt) {
+        let annualValue = null;
+        for (const t of allTags) {
+          const item = annualStmt.items?.find(it => it.tag === t && it.hasValue);
+          if (item) {
+            annualValue = item.value;
+            break;
+          }
+        }
+        if (annualValue !== null) {
+          // Q4 = Annual - Q1 - Q2 - Q3
+          const q1q2q3Sum = values.filter(v => v !== null).reduce((sum, v) => sum + v, 0);
+          values[q4Index] = annualValue - q1q2q3Sum;
+        }
+      }
+    }
+
+    // Check if all 4 quarters now have values
+    if (values.some(v => v === null)) return null;
     if (values.length !== 4) return null;
 
     const ttmValue = values.reduce((sum, v) => sum + v, 0);
@@ -1976,7 +2154,10 @@ function calculateBankMetrics(bankData) {
   const dps = getTTMFromEquity('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
               getTTMFromStatements('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
-              getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
+              getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']) ||
+              // Flexible dividend TTM for banks with non-consecutive quarterly dividends (annual/semi-annual payers)
+              getDividendTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
+              getDividendTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
   // Fallback: Total common dividends paid (for calculating DPS when per-share tags unavailable)
   // Priority: 1) Cash Flow Statement, 2) Equity Statement, 3) Raw concepts
   // Only use tags explicitly for COMMON stock to avoid including preferred dividends
@@ -1985,7 +2166,12 @@ function calculateBankMetrics(bankData) {
                                getTTMValue(concepts['PaymentsOfDividendsCommonStock']) ||
                                getTTMValue(concepts['DividendsCommonStock']) ||
                                getTTMValue(concepts['DividendsCommonStockCash']) ||
-                               getTTMValue(concepts['CashDividendsPaidToCommonStockholders']);
+                               getTTMValue(concepts['CashDividendsPaidToCommonStockholders']) ||
+                               // Flexible dividend TTM for banks with non-consecutive quarterly dividends
+                               getDividendTTMValue(concepts['PaymentsOfDividendsCommonStock']) ||
+                               getDividendTTMValue(concepts['DividendsCommonStock']) ||
+                               getDividendTTMValue(concepts['DividendsCommonStockCash']) ||
+                               getDividendTTMValue(concepts['CashDividendsPaidToCommonStockholders']);
 
   // Extract values
   const totalAssets = assets?.value;
