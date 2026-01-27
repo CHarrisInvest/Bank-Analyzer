@@ -1817,30 +1817,62 @@ function calculateBankMetrics(bankData) {
 
   /**
    * Get TTM value from historical Equity Statement (for per-share dividend data)
+   * If Q4 value is null, attempts to derive from Annual - Q1 - Q2 - Q3
    */
   const getTTMFromEquity = (tag, alternativeTags = []) => {
     const quarterly = historicalStatements.historicalEquity?.quarterly || [];
+    const annual = historicalStatements.historicalEquity?.annual || [];
     if (quarterly.length < 4) return null;
 
     const recentQuarters = quarterly.slice(0, 4);
     const allTags = [tag, ...alternativeTags];
     let values = [];
     let latestDate = null;
+    let q4Index = -1;
+    let q4FY = null;
 
-    for (const stmt of recentQuarters) {
+    for (let i = 0; i < recentQuarters.length; i++) {
+      const stmt = recentQuarters[i];
       let value = null;
       for (const t of allTags) {
-        const item = stmt.items?.find(i => i.tag === t && i.hasValue);
+        const item = stmt.items?.find(it => it.tag === t && it.hasValue);
         if (item) {
           value = item.value;
           break;
         }
       }
-      if (value === null) return null;
+      // Track Q4 position for potential derivation
+      if (stmt.fp === 'Q4' && value === null) {
+        q4Index = i;
+        q4FY = stmt.fy;
+      }
       values.push(value);
       if (!latestDate) latestDate = stmt.ddate;
     }
 
+    // If Q4 is null but others have values, try to derive Q4 from annual
+    if (q4Index !== -1 && values.filter(v => v !== null).length === 3 && q4FY) {
+      // Find annual statement for same fiscal year
+      const annualStmt = annual.find(a => a.fy === q4FY);
+      if (annualStmt) {
+        let annualValue = null;
+        for (const t of allTags) {
+          const item = annualStmt.items?.find(it => it.tag === t && it.hasValue);
+          if (item) {
+            annualValue = item.value;
+            break;
+          }
+        }
+        if (annualValue !== null) {
+          // Q4 = Annual - Q1 - Q2 - Q3
+          const q1q2q3Sum = values.filter(v => v !== null).reduce((sum, v) => sum + v, 0);
+          values[q4Index] = annualValue - q1q2q3Sum;
+        }
+      }
+    }
+
+    // Check if all 4 quarters now have values
+    if (values.some(v => v === null)) return null;
     if (values.length !== 4) return null;
 
     const ttmValue = values.reduce((sum, v) => sum + v, 0);
@@ -1854,30 +1886,62 @@ function calculateBankMetrics(bankData) {
 
   /**
    * Get TTM value from historical Cash Flow Statement (for total dividend payments)
+   * If Q4 value is null, attempts to derive from Annual - Q1 - Q2 - Q3
    */
   const getTTMFromCashFlow = (tag, alternativeTags = []) => {
     const quarterly = historicalStatements.historicalCashFlow?.quarterly || [];
+    const annual = historicalStatements.historicalCashFlow?.annual || [];
     if (quarterly.length < 4) return null;
 
     const recentQuarters = quarterly.slice(0, 4);
     const allTags = [tag, ...alternativeTags];
     let values = [];
     let latestDate = null;
+    let q4Index = -1;
+    let q4FY = null;
 
-    for (const stmt of recentQuarters) {
+    for (let i = 0; i < recentQuarters.length; i++) {
+      const stmt = recentQuarters[i];
       let value = null;
       for (const t of allTags) {
-        const item = stmt.items?.find(i => i.tag === t && i.hasValue);
+        const item = stmt.items?.find(it => it.tag === t && it.hasValue);
         if (item) {
           value = item.value;
           break;
         }
       }
-      if (value === null) return null;
+      // Track Q4 position for potential derivation
+      if (stmt.fp === 'Q4' && value === null) {
+        q4Index = i;
+        q4FY = stmt.fy;
+      }
       values.push(value);
       if (!latestDate) latestDate = stmt.ddate;
     }
 
+    // If Q4 is null but others have values, try to derive Q4 from annual
+    if (q4Index !== -1 && values.filter(v => v !== null).length === 3 && q4FY) {
+      // Find annual statement for same fiscal year
+      const annualStmt = annual.find(a => a.fy === q4FY);
+      if (annualStmt) {
+        let annualValue = null;
+        for (const t of allTags) {
+          const item = annualStmt.items?.find(it => it.tag === t && it.hasValue);
+          if (item) {
+            annualValue = item.value;
+            break;
+          }
+        }
+        if (annualValue !== null) {
+          // Q4 = Annual - Q1 - Q2 - Q3
+          const q1q2q3Sum = values.filter(v => v !== null).reduce((sum, v) => sum + v, 0);
+          values[q4Index] = annualValue - q1q2q3Sum;
+        }
+      }
+    }
+
+    // Check if all 4 quarters now have values
+    if (values.some(v => v === null)) return null;
     if (values.length !== 4) return null;
 
     const ttmValue = values.reduce((sum, v) => sum + v, 0);
