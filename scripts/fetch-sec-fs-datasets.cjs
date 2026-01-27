@@ -1015,6 +1015,116 @@ function getTTMValue(conceptData) {
 }
 
 /**
+ * Get TTM value for dividend-related tags (more flexible than getTTMValue)
+ *
+ * Dividends can be paid quarterly, semi-annually, annually, or as special dividends.
+ * This function sums whatever dividend values exist for the 4 most recent quarters,
+ * treating missing quarters as $0 (not as missing data).
+ *
+ * Strategy:
+ * 1. If we have quarterly data (qtrs=1), sum the 4 most recent quarters by ddate
+ * 2. If quarterly data is insufficient, use the most recent annual value (qtrs=4)
+ * 3. For per-share values, also try to use annual directly
+ */
+function getDividendTTMValue(conceptData) {
+  if (!conceptData || conceptData.length === 0) return null;
+
+  const sorted = [...conceptData]
+    .filter(d => d.form === '10-K' || d.form === '10-Q')
+    .sort((a, b) => b.ddate.localeCompare(a.ddate));
+
+  if (sorted.length === 0) return null;
+
+  const quarterlyValues = sorted.filter(d => d.qtrs === 1);
+  const annualValues = sorted.filter(d => d.qtrs === 4);
+
+  /**
+   * Derive fiscal quarter from ddate (period end date)
+   */
+  const getQuarterFromDdate = (ddate) => {
+    if (!ddate || ddate.length !== 8) return null;
+    const year = parseInt(ddate.substring(0, 4));
+    const month = parseInt(ddate.substring(4, 6));
+    const quarter = Math.ceil(month / 3);
+    return { year, quarter };
+  };
+
+  const toPeriodNum = (yearQuarter) => {
+    if (!yearQuarter) return 0;
+    return yearQuarter.year * 4 + yearQuarter.quarter;
+  };
+
+  // Strategy 1: Sum 4 most recent quarters (even if non-consecutive or some are $0)
+  if (quarterlyValues.length >= 1) {
+    // Deduplicate by ddate - keep most recent filing's value for each period
+    const byDdate = new Map();
+    for (const q of quarterlyValues) {
+      if (!byDdate.has(q.ddate)) {
+        const qInfo = getQuarterFromDdate(q.ddate);
+        byDdate.set(q.ddate, {
+          ...q,
+          periodNum: toPeriodNum(qInfo),
+          derivedQuarter: qInfo,
+        });
+      }
+    }
+
+    // Sort by period (most recent first)
+    const uniqueQuarters = Array.from(byDdate.values())
+      .sort((a, b) => b.periodNum - a.periodNum);
+
+    if (uniqueQuarters.length >= 1) {
+      // Get the 4 most recent periods that SHOULD exist
+      const mostRecentPeriod = uniqueQuarters[0].periodNum;
+      const targetPeriods = [mostRecentPeriod, mostRecentPeriod - 1, mostRecentPeriod - 2, mostRecentPeriod - 3];
+
+      // Build a map of period -> value
+      const periodValues = new Map();
+      for (const q of uniqueQuarters) {
+        if (!periodValues.has(q.periodNum)) {
+          periodValues.set(q.periodNum, q.value);
+        }
+      }
+
+      // Sum the 4 target periods, using 0 for missing quarters (dividends can skip quarters)
+      let ttmValue = 0;
+      let foundCount = 0;
+      for (const period of targetPeriods) {
+        if (periodValues.has(period)) {
+          ttmValue += periodValues.get(period);
+          foundCount++;
+        }
+        // Missing quarter = $0 dividend for that period (acceptable for dividend data)
+      }
+
+      // Only return if we found at least 1 quarter of data
+      if (foundCount >= 1) {
+        return {
+          value: ttmValue,
+          date: uniqueQuarters[0].ddate,
+          method: `sum-${foundCount}Q-dividend`,
+          form: [...new Set(uniqueQuarters.slice(0, foundCount).map(q => q.form))].join('+'),
+          quartersFound: foundCount,
+        };
+      }
+    }
+  }
+
+  // Strategy 2: Use most recent annual value directly
+  if (annualValues.length > 0) {
+    const mostRecent = annualValues[0];
+    return {
+      value: mostRecent.value,
+      date: mostRecent.ddate,
+      method: 'annual-dividend',
+      form: mostRecent.form,
+    };
+  }
+
+  return null;
+}
+
+/**
  * Build historical financial statements with presentation structure
  * This creates the "as reported on the face" data structure
  *
@@ -2040,7 +2150,10 @@ function calculateBankMetrics(bankData) {
   const dps = getTTMFromEquity('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
               getTTMFromStatements('CommonStockDividendsPerShareDeclared', ['CommonStockDividendsPerShareCashPaid']) ||
               getTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
-              getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
+              getTTMValue(concepts['CommonStockDividendsPerShareCashPaid']) ||
+              // Flexible dividend TTM for banks with non-consecutive quarterly dividends (annual/semi-annual payers)
+              getDividendTTMValue(concepts['CommonStockDividendsPerShareDeclared']) ||
+              getDividendTTMValue(concepts['CommonStockDividendsPerShareCashPaid']);
   // Fallback: Total common dividends paid (for calculating DPS when per-share tags unavailable)
   // Priority: 1) Cash Flow Statement, 2) Equity Statement, 3) Raw concepts
   // Only use tags explicitly for COMMON stock to avoid including preferred dividends
@@ -2049,7 +2162,12 @@ function calculateBankMetrics(bankData) {
                                getTTMValue(concepts['PaymentsOfDividendsCommonStock']) ||
                                getTTMValue(concepts['DividendsCommonStock']) ||
                                getTTMValue(concepts['DividendsCommonStockCash']) ||
-                               getTTMValue(concepts['CashDividendsPaidToCommonStockholders']);
+                               getTTMValue(concepts['CashDividendsPaidToCommonStockholders']) ||
+                               // Flexible dividend TTM for banks with non-consecutive quarterly dividends
+                               getDividendTTMValue(concepts['PaymentsOfDividendsCommonStock']) ||
+                               getDividendTTMValue(concepts['DividendsCommonStock']) ||
+                               getDividendTTMValue(concepts['DividendsCommonStockCash']) ||
+                               getDividendTTMValue(concepts['CashDividendsPaidToCommonStockholders']);
 
   // Extract values
   const totalAssets = assets?.value;
