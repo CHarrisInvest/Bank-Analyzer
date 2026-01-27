@@ -2007,7 +2007,7 @@ function calculateBankMetrics(bankData) {
   }
 
   // Diagnostic: Log dividend-related tags for banks missing DPS (major banks only)
-  const majorBanks = ['BAC', 'WFC', 'C', 'PNC', 'TFC', 'BK', 'CFG', 'MTB', 'USB', 'SCHW'];
+  const majorBanks = ['BAC', 'WFC', 'C', 'PNC', 'TFC', 'BK', 'CFG', 'MTB', 'USB', 'SCHW', 'AMTB'];
   if (ttmDps === null && bankData.ticker && majorBanks.includes(bankData.ticker)) {
     const allDividendTags = Object.keys(concepts).filter(tag => {
       const lower = tag.toLowerCase();
