@@ -2015,6 +2015,40 @@ function calculateBankMetrics(bankData) {
       console.log(`    ${tag}: ${data.length} total, ${quarterlyData.length} quarterly (qtrs=1)`);
     }
 
+    // Debug: Show why getTTMValue fails for CommonStockDividendsPerShareDeclared
+    const dpsData = concepts['CommonStockDividendsPerShareDeclared'] || [];
+    if (dpsData.length > 0) {
+      const sorted = [...dpsData]
+        .filter(d => d.form === '10-K' || d.form === '10-Q')
+        .sort((a, b) => b.ddate.localeCompare(a.ddate));
+      const quarterlyVals = sorted.filter(d => d.qtrs === 1);
+      console.log(`  === getTTMValue Debug for CommonStockDividendsPerShareDeclared ===`);
+      console.log(`    After form filter: ${sorted.length}, after qtrs=1 filter: ${quarterlyVals.length}`);
+      if (quarterlyVals.length >= 4) {
+        const top4 = quarterlyVals.slice(0, 4);
+        console.log(`    Top 4 quarterly values:`);
+        for (const q of top4) {
+          console.log(`      ddate=${q.ddate}, fy=${q.fy}, fp=${q.fp}, value=${q.value}, form=${q.form}`);
+        }
+        // Check consecutive logic
+        const toPeriodNum = (q) => {
+          const fy = parseInt(q.fy) || 0;
+          const fpNum = q.fp === 'FY' ? 4 : (parseInt(q.fp?.replace('Q', '')) || 0);
+          return fy * 4 + fpNum;
+        };
+        const periodNums = top4.map(toPeriodNum).sort((a, b) => b - a);
+        console.log(`    Period numbers (should be consecutive): ${periodNums.join(', ')}`);
+        let isConsecutive = true;
+        for (let i = 0; i < periodNums.length - 1; i++) {
+          if (periodNums[i] - periodNums[i + 1] !== 1) {
+            isConsecutive = false;
+            console.log(`    GAP: ${periodNums[i]} to ${periodNums[i+1]} (diff=${periodNums[i] - periodNums[i+1]})`);
+          }
+        }
+        console.log(`    Are consecutive: ${isConsecutive}`);
+      }
+    }
+
     console.log(`  =========================================\n`);
   }
 
