@@ -1023,8 +1023,8 @@ function getTTMValue(conceptData) {
  *
  * Strategy:
  * 1. If we have quarterly data (qtrs=1), sum the 4 most recent quarters by ddate
- * 2. If quarterly data is insufficient, use the most recent annual value (qtrs=4)
- * 3. For per-share values, also try to use annual directly
+ *    - Require at least 2 quarters to avoid treating single quarter as TTM
+ * 2. ONLY if NO quarterly data exists, use the most recent annual value (qtrs=4)
  */
 function getDividendTTMValue(conceptData) {
   if (!conceptData || conceptData.length === 0) return null;
@@ -1054,7 +1054,7 @@ function getDividendTTMValue(conceptData) {
     return yearQuarter.year * 4 + yearQuarter.quarter;
   };
 
-  // Strategy 1: Sum 4 most recent quarters (even if non-consecutive or some are $0)
+  // Strategy 1: Sum quarterly values (for banks with non-consecutive dividend payments)
   if (quarterlyValues.length >= 1) {
     // Deduplicate by ddate - keep most recent filing's value for each period
     const byDdate = new Map();
@@ -1073,7 +1073,7 @@ function getDividendTTMValue(conceptData) {
     const uniqueQuarters = Array.from(byDdate.values())
       .sort((a, b) => b.periodNum - a.periodNum);
 
-    if (uniqueQuarters.length >= 1) {
+    if (uniqueQuarters.length >= 2) {
       // Get the 4 most recent periods that SHOULD exist
       const mostRecentPeriod = uniqueQuarters[0].periodNum;
       const targetPeriods = [mostRecentPeriod, mostRecentPeriod - 1, mostRecentPeriod - 2, mostRecentPeriod - 3];
@@ -1097,8 +1097,8 @@ function getDividendTTMValue(conceptData) {
         // Missing quarter = $0 dividend for that period (acceptable for dividend data)
       }
 
-      // Only return if we found at least 1 quarter of data
-      if (foundCount >= 1) {
+      // Require at least 2 quarters to avoid treating single quarter as TTM
+      if (foundCount >= 2) {
         return {
           value: ttmValue,
           date: uniqueQuarters[0].ddate,
@@ -1108,9 +1108,13 @@ function getDividendTTMValue(conceptData) {
         };
       }
     }
+
+    // If we have quarterly values but couldn't build a valid TTM, don't fall back to annual
+    // This prevents using stale annual data when quarterly data exists but is incomplete
+    return null;
   }
 
-  // Strategy 2: Use most recent annual value directly
+  // Strategy 2: ONLY use annual if NO quarterly data exists at all
   if (annualValues.length > 0) {
     const mostRecent = annualValues[0];
     return {
