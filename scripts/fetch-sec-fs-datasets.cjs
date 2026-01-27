@@ -1092,6 +1092,12 @@ function getDividendTTMValue(conceptData) {
         return null;
       }
 
+      // Detect annual payer pattern: all values are in the same fiscal quarter (Q1, Q2, Q3, or Q4)
+      // This distinguishes true annual payers from data issues with YTD derivation
+      const quarterNumbers = uniqueQuarters.map(q => q.derivedQuarter?.quarter).filter(q => q);
+      const uniqueQuarterNumbers = [...new Set(quarterNumbers)];
+      const isAnnualPayer = uniqueQuarterNumbers.length === 1 && uniqueQuarters.length >= 2;
+
       // Get the 4 periods ending with the most recent dividend quarter
       const targetPeriods = [mostRecentPeriod, mostRecentPeriod - 1, mostRecentPeriod - 2, mostRecentPeriod - 3];
 
@@ -1114,14 +1120,18 @@ function getDividendTTMValue(conceptData) {
         // Missing quarter = $0 dividend for that period (acceptable for dividend data)
       }
 
-      // Return as long as we found at least 1 quarter (for annual payers)
-      if (foundCount >= 1) {
+      // For annual payers: allow single quarter (they only pay once per year)
+      // For others: require at least 2 quarters to avoid masking YTD derivation issues
+      const minQuartersRequired = isAnnualPayer ? 1 : 2;
+
+      if (foundCount >= minQuartersRequired) {
         return {
           value: ttmValue,
           date: mostRecentQuarter.ddate,
-          method: `sum-${foundCount}Q-dividend`,
+          method: isAnnualPayer ? 'annual-payer-dividend' : `sum-${foundCount}Q-dividend`,
           form: [...new Set(uniqueQuarters.slice(0, foundCount).map(q => q.form))].join('+'),
           quartersFound: foundCount,
+          isAnnualPayer,
         };
       }
     }
