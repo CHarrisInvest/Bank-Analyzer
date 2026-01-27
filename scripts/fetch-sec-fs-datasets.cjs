@@ -1383,13 +1383,16 @@ function buildHistoricalStatements(bankData) {
       const fy = k.fy;
       // Only add Q4 if fiscal year >= minQuarterYear
       if (parseInt(fy) >= CONFIG.minQuarterYear) {
+        // IS and CF are period statements - Q4 values need derivation (Annual - Q1 - Q2 - Q3)
+        // BS and EQ are point-in-time - Q4 values come directly from 10-K
+        const isPeriodStatement = stmtType === 'IS' || stmtType === 'CF';
         allQuarters.push({
           fy: fy,
           fp: 'Q4',
           filing: k,
           form: '10-K',
-          isDerived: stmtType === 'IS', // I/S Q4 is derived, B/S is direct
-          // For I/S derivation, we need Q1-Q3 values
+          isDerived: isPeriodStatement,
+          // For period statement derivation, we need Q1-Q3 values
           priorQuarters: quartersByYear.get(fy) || { Q1: null, Q2: null, Q3: null },
           annualFiling: k, // The 10-K itself
         });
@@ -1811,9 +1814,25 @@ function calculateBankMetrics(bankData) {
                  getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
   const preferredStock = getLatestPointInTime(concepts['PreferredStockValue']) ||
                          getLatestPointInTime(concepts['PreferredStockValueOutstanding']);
-  // Shares outstanding - CommonStockSharesOutstanding or EntityCommonStockSharesOutstanding (company-level)
-  const sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']) ||
-                     getLatestPointInTime(concepts['EntityCommonStockSharesOutstanding']);
+
+  // Shares outstanding - try direct tags first, then derive from issued - treasury
+  let sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']) ||
+                   getLatestPointInTime(concepts['EntityCommonStockSharesOutstanding']);
+
+  // Fallback: Calculate shares outstanding from issued - treasury
+  if (!sharesData) {
+    const sharesIssued = getLatestPointInTime(concepts['CommonStockSharesIssued']);
+    const treasuryShares = getLatestPointInTime(concepts['TreasuryStockCommonShares']) ||
+                           getLatestPointInTime(concepts['TreasuryStockCommonAndPreferredShares']);
+    if (sharesIssued?.value) {
+      const treasuryValue = treasuryShares?.value || 0;
+      sharesData = {
+        value: sharesIssued.value - treasuryValue,
+        date: sharesIssued.date,
+        derived: true,
+      };
+    }
+  }
 
   // Income Statement (TTM) - Use historical statements which have correct Q4 derivation
   const netIncome = getTTMFromStatements('NetIncomeLoss', ['ProfitLoss', 'NetIncomeLossAvailableToCommonStockholdersBasic']) ||
@@ -1908,7 +1927,15 @@ function calculateBankMetrics(bankData) {
     });
 
     console.log(`\n  === DIVIDEND DIAGNOSTIC: ${bankData.ticker} (CIK: ${bankData.cik}) ===`);
-    console.log(`  Shares Outstanding: ${sharesOutstanding || 'MISSING'}`);
+    console.log(`  Shares Outstanding: ${sharesOutstanding ? sharesOutstanding + (sharesData?.derived ? ' (derived from issued-treasury)' : '') : 'MISSING'}`);
+    console.log(`  DPS from getTTMFromEquity: ${dps ? dps.value + ' (' + dps.method + ')' : 'null'}`);
+    console.log(`  Total Common Dividends: ${totalCommonDividends ? totalCommonDividends.value + ' (' + totalCommonDividends.method + ')' : 'null'}`);
+
+    // Check historical EQ/CF statement counts
+    const eqQuarterly = historicalStatements.historicalEquity?.quarterly || [];
+    const cfQuarterly = historicalStatements.historicalCashFlow?.quarterly || [];
+    console.log(`  Historical EQ quarters: ${eqQuarterly.length}`);
+    console.log(`  Historical CF quarters: ${cfQuarterly.length}`);
 
     // Show share-related tags
     if (allShareTags.length > 0) {
