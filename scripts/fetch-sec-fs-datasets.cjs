@@ -1021,9 +1021,14 @@ function getTTMValue(conceptData) {
  * This function sums whatever dividend values exist for the 4 most recent quarters,
  * treating missing quarters as $0 (not as missing data).
  *
+ * Key requirement: The MOST RECENT quarter must have a value. This ensures we're not
+ * reporting stale data for companies that stopped paying dividends or have data issues.
+ * Annual payers and new dividend payers will still be captured as long as their most
+ * recent quarter has a dividend value.
+ *
  * Strategy:
  * 1. If we have quarterly data (qtrs=1), sum the 4 most recent quarters by ddate
- *    - Require at least 2 quarters to avoid treating single quarter as TTM
+ *    - REQUIRE the most recent quarter to have a value (validates data is current)
  * 2. ONLY if NO quarterly data exists, use the most recent annual value (qtrs=4)
  */
 function getDividendTTMValue(conceptData) {
@@ -1073,9 +1078,27 @@ function getDividendTTMValue(conceptData) {
     const uniqueQuarters = Array.from(byDdate.values())
       .sort((a, b) => b.periodNum - a.periodNum);
 
-    if (uniqueQuarters.length >= 2) {
-      // Get the 4 most recent periods that SHOULD exist
-      const mostRecentPeriod = uniqueQuarters[0].periodNum;
+    if (uniqueQuarters.length >= 1) {
+      const mostRecentQuarter = uniqueQuarters[0];
+      const mostRecentPeriod = mostRecentQuarter.periodNum;
+
+      // Staleness check: most recent dividend should be within last 5 quarters
+      // This catches companies that stopped paying dividends
+      const now = new Date();
+      const currentPeriod = toPeriodNum({ year: now.getFullYear(), quarter: Math.ceil((now.getMonth() + 1) / 3) });
+      const quartersSinceLastDividend = currentPeriod - mostRecentPeriod;
+      if (quartersSinceLastDividend > 5) {
+        // Data is too old - company may have stopped paying dividends
+        return null;
+      }
+
+      // Detect annual payer pattern: all values are in the same fiscal quarter (Q1, Q2, Q3, or Q4)
+      // This distinguishes true annual payers from data issues with YTD derivation
+      const quarterNumbers = uniqueQuarters.map(q => q.derivedQuarter?.quarter).filter(q => q);
+      const uniqueQuarterNumbers = [...new Set(quarterNumbers)];
+      const isAnnualPayer = uniqueQuarterNumbers.length === 1 && uniqueQuarters.length >= 2;
+
+      // Get the 4 periods ending with the most recent dividend quarter
       const targetPeriods = [mostRecentPeriod, mostRecentPeriod - 1, mostRecentPeriod - 2, mostRecentPeriod - 3];
 
       // Build a map of period -> value
@@ -1097,14 +1120,18 @@ function getDividendTTMValue(conceptData) {
         // Missing quarter = $0 dividend for that period (acceptable for dividend data)
       }
 
-      // Require at least 2 quarters to avoid treating single quarter as TTM
-      if (foundCount >= 2) {
+      // For annual payers: allow single quarter (they only pay once per year)
+      // For others: require at least 2 quarters to avoid masking YTD derivation issues
+      const minQuartersRequired = isAnnualPayer ? 1 : 2;
+
+      if (foundCount >= minQuartersRequired) {
         return {
           value: ttmValue,
-          date: uniqueQuarters[0].ddate,
-          method: `sum-${foundCount}Q-dividend`,
+          date: mostRecentQuarter.ddate,
+          method: isAnnualPayer ? 'annual-payer-dividend' : `sum-${foundCount}Q-dividend`,
           form: [...new Set(uniqueQuarters.slice(0, foundCount).map(q => q.form))].join('+'),
           quartersFound: foundCount,
+          isAnnualPayer,
         };
       }
     }
