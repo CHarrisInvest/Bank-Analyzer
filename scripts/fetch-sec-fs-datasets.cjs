@@ -1405,7 +1405,17 @@ function buildHistoricalStatements(bankData) {
 
     // Add Q1-Q3 from 10-Qs
     // Include the 10-K filing reference for checking restated values
+    // Include prior quarter filing reference for CF YTD-to-quarterly derivation
     for (const q of quarterly10Qs) {
+      const fyQuarters = quartersByYear.get(q.fy) || { Q1: null, Q2: null, Q3: null };
+      // For Q2, we need Q1 filing to derive quarterly from YTD
+      // For Q3, we need Q2 filing to derive quarterly from YTD
+      let priorQuarterFiling = null;
+      if (q.fp === 'Q2') {
+        priorQuarterFiling = fyQuarters.Q1;
+      } else if (q.fp === 'Q3') {
+        priorQuarterFiling = fyQuarters.Q2;
+      }
       allQuarters.push({
         fy: q.fy,
         fp: q.fp,
@@ -1414,6 +1424,8 @@ function buildHistoricalStatements(bankData) {
         isDerived: false,
         // Reference to 10-K for this fiscal year (for restated I/S values)
         annualFiling: annualByYear.get(q.fy) || null,
+        // Reference to prior quarter filing (for CF YTD-to-quarterly derivation)
+        priorQuarterFiling: priorQuarterFiling,
       });
     }
 
@@ -1449,7 +1461,7 @@ function buildHistoricalStatements(bankData) {
 
     const statements = [];
     for (const quarter of allQuarters) {
-      const { fy, fp, filing, form, isDerived, priorQuarters, annualFiling } = quarter;
+      const { fy, fp, filing, form, isDerived, priorQuarters, annualFiling, priorQuarterFiling } = quarter;
       const periodKey = `${fp} ${fy}`;
       const periodLabel = isDerived ? `${fp} ${fy} (derived)` : periodKey;
 
@@ -1595,8 +1607,32 @@ function buildHistoricalStatements(bankData) {
               // No restated value - fall back to original 10-Q value
               value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
             }
+          } else if (stmtType === 'CF' && ['Q2', 'Q3'].includes(fp) && !isShareCount) {
+            // Cash Flow Q2/Q3: Try direct quarterly value, then derive from YTD
+            //
+            // Many companies report CF as cumulative YTD values:
+            // - Q1: 3 months (qtrs=1)
+            // - Q2: 6 months (qtrs=2) - need to subtract Q1 to get Q2 quarterly
+            // - Q3: 9 months (qtrs=3) - need to subtract YTD-Q2 to get Q3 quarterly
+            value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
+
+            if (value === null && priorQuarterFiling) {
+              // No direct quarterly value - try to derive from YTD
+              const currentQtrs = fp === 'Q2' ? 2 : 3;  // YTD quarters for current period
+              const priorQtrs = fp === 'Q2' ? 1 : 2;    // YTD quarters for prior period
+
+              // Get YTD value from current filing
+              const currentYTD = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, currentQtrs, negating);
+              // Get prior period value (Q1 quarterly for Q2, or YTD-Q2 for Q3)
+              const priorValue = getValueForFiling(canonicalItem.tag, canonicalItem.version, priorQuarterFiling, priorQtrs, negating);
+
+              if (currentYTD !== null && priorValue !== null) {
+                value = currentYTD - priorValue;
+                itemIsDerived = true;
+              }
+            }
           } else {
-            // Balance sheet or no annual filing available - use original filing value
+            // Balance sheet, EQ, or Q1 - use original filing value
             value = getValueForFiling(canonicalItem.tag, canonicalItem.version, filing, 1, negating);
           }
         }
