@@ -2875,16 +2875,34 @@ body {
   box-shadow: var(--shadow-md);
 }
 
+.feature-icon-link {
+  display: block;
+  margin-bottom: var(--spacing-4);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-fast);
+}
+
+.feature-icon-link:hover {
+  transform: scale(1.1);
+}
+
+.feature-icon-link:hover .feature-icon {
+  background: var(--color-primary-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .feature-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 56px;
   height: 56px;
-  margin-bottom: var(--spacing-4);
   background: var(--color-primary);
   border-radius: var(--radius-lg);
   color: var(--color-white);
+  cursor: pointer;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .feature-icon-svg {
