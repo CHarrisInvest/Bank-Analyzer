@@ -1383,13 +1383,16 @@ function buildHistoricalStatements(bankData) {
       const fy = k.fy;
       // Only add Q4 if fiscal year >= minQuarterYear
       if (parseInt(fy) >= CONFIG.minQuarterYear) {
+        // IS and CF are period statements - Q4 values need derivation (Annual - Q1 - Q2 - Q3)
+        // BS and EQ are point-in-time - Q4 values come directly from 10-K
+        const isPeriodStatement = stmtType === 'IS' || stmtType === 'CF';
         allQuarters.push({
           fy: fy,
           fp: 'Q4',
           filing: k,
           form: '10-K',
-          isDerived: stmtType === 'IS', // I/S Q4 is derived, B/S is direct
-          // For I/S derivation, we need Q1-Q3 values
+          isDerived: isPeriodStatement,
+          // For period statement derivation, we need Q1-Q3 values
           priorQuarters: quartersByYear.get(fy) || { Q1: null, Q2: null, Q3: null },
           annualFiling: k, // The 10-K itself
         });
