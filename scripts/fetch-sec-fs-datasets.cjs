@@ -1723,7 +1723,12 @@ function calculateBankMetrics(bankData) {
                  getLatestPointInTime(concepts['StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest']);
   const preferredStock = getLatestPointInTime(concepts['PreferredStockValue']) ||
                          getLatestPointInTime(concepts['PreferredStockValueOutstanding']);
-  const sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']);
+  // Shares outstanding - try multiple tag variations
+  const sharesData = getLatestPointInTime(concepts['CommonStockSharesOutstanding']) ||
+                     getLatestPointInTime(concepts['EntityCommonStockSharesOutstanding']) ||
+                     getLatestPointInTime(concepts['CommonStockSharesIssued']) ||
+                     getLatestPointInTime(concepts['WeightedAverageNumberOfSharesOutstandingBasic']) ||
+                     getLatestPointInTime(concepts['WeightedAverageNumberOfDilutedSharesOutstanding']);
 
   // Income Statement (TTM) - Use historical statements which have correct Q4 derivation
   const netIncome = getTTMFromStatements('NetIncomeLoss', ['ProfitLoss', 'NetIncomeLossAvailableToCommonStockholdersBasic']) ||
@@ -1809,9 +1814,26 @@ function calculateBankMetrics(bankData) {
       const lower = tag.toLowerCase();
       return lower.includes('dividend') || lower.includes('dps');
     });
+    const allShareTags = Object.keys(concepts).filter(tag => {
+      const lower = tag.toLowerCase();
+      return lower.includes('sharesoutstanding') || lower.includes('sharesissued') ||
+             (lower.includes('shares') && lower.includes('common'));
+    });
 
     console.log(`\n  === DIVIDEND DIAGNOSTIC: ${bankData.ticker} (CIK: ${bankData.cik}) ===`);
     console.log(`  Shares Outstanding: ${sharesOutstanding || 'MISSING'}`);
+
+    // Show share-related tags
+    if (allShareTags.length > 0) {
+      console.log(`  Share-related tags found (${allShareTags.length}):`);
+      for (const tag of allShareTags.slice(0, 10)) {
+        const vals = concepts[tag];
+        const recent = vals.sort((a, b) => b.ddate.localeCompare(a.ddate))[0];
+        console.log(`    - ${tag}: value=${recent?.value}, date=${recent?.ddate}`);
+      }
+    } else {
+      console.log(`  NO share-related tags found in concepts!`);
+    }
 
     if (allDividendTags.length > 0) {
       console.log(`  Dividend-related tags found in concepts (${allDividendTags.length}):`);
