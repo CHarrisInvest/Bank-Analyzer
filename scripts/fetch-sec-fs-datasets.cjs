@@ -1978,6 +1978,43 @@ function calculateBankMetrics(bankData) {
         console.log(`  No presentation data for most recent filing`);
       }
     }
+
+    // Debug: Show actual values in quarterly statements for dividend tags
+    const divTagsToCheck = ['DividendsCommonStock', 'DividendsCommonStockCash', 'PaymentsOfDividendsCommonStock',
+                            'CommonStockDividendsPerShareDeclared', 'CommonStockDividendsPerShareCashPaid'];
+    console.log(`  === EQ Quarterly Statement Values (first 4 quarters) ===`);
+    const eqQtrs = historicalStatements.historicalEquity?.quarterly?.slice(0, 4) || [];
+    for (let i = 0; i < eqQtrs.length; i++) {
+      const stmt = eqQtrs[i];
+      const divItems = stmt.items?.filter(item => divTagsToCheck.includes(item.tag)) || [];
+      const period = `${stmt.fp || 'FY'} ${stmt.fy}`;
+      if (divItems.length > 0) {
+        console.log(`    ${period} (${stmt.form}): ${divItems.map(d => `${d.tag}=${d.value}`).join(', ')}`);
+      } else {
+        console.log(`    ${period} (${stmt.form}): NO dividend items found`);
+      }
+    }
+    console.log(`  === CF Quarterly Statement Values (first 4 quarters) ===`);
+    const cfQtrs = historicalStatements.historicalCashFlow?.quarterly?.slice(0, 4) || [];
+    for (let i = 0; i < cfQtrs.length; i++) {
+      const stmt = cfQtrs[i];
+      const divItems = stmt.items?.filter(item => divTagsToCheck.includes(item.tag)) || [];
+      const period = `${stmt.fp || 'FY'} ${stmt.fy}`;
+      if (divItems.length > 0) {
+        console.log(`    ${period} (${stmt.form}): ${divItems.map(d => `${d.tag}=${d.value}`).join(', ')}`);
+      } else {
+        console.log(`    ${period} (${stmt.form}): NO dividend items found`);
+      }
+    }
+
+    // Debug: Show count of data points for key dividend concepts
+    console.log(`  === Concept Data Point Counts ===`);
+    for (const tag of divTagsToCheck) {
+      const data = concepts[tag] || [];
+      const quarterlyData = data.filter(d => d.qtrs === 1);
+      console.log(`    ${tag}: ${data.length} total, ${quarterlyData.length} quarterly (qtrs=1)`);
+    }
+
     console.log(`  =========================================\n`);
   }
 
