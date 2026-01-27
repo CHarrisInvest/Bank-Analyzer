@@ -180,9 +180,11 @@ function Home() {
         <h2>What You Can Do</h2>
         <div className="features-grid">
           <div className="feature-card">
-            <div className="feature-icon">
-              <SearchIcon />
-            </div>
+            <Link to="/search" className="feature-icon-link">
+              <div className="feature-icon">
+                <SearchIcon />
+              </div>
+            </Link>
             <h3>Bank Search</h3>
             <p>
               Quickly find any publicly traded bank by ticker symbol, name, state,
@@ -192,9 +194,11 @@ function Home() {
           </div>
 
           <div className="feature-card">
-            <div className="feature-icon">
-              <ScreenerIcon />
-            </div>
+            <Link to="/screener" className="feature-icon-link">
+              <div className="feature-icon">
+                <ScreenerIcon />
+              </div>
+            </Link>
             <h3>Bank Screener <em>"The Sifter"</em></h3>
             <p>
               Filter banks by financial metrics like ROE, efficiency ratio,
@@ -204,9 +208,11 @@ function Home() {
           </div>
 
           <div className="feature-card">
-            <div className="feature-icon">
-              <MetricsIcon />
-            </div>
+            <Link to="/metrics" className="feature-icon-link">
+              <div className="feature-icon">
+                <MetricsIcon />
+              </div>
+            </Link>
             <h3>Financial Analysis</h3>
             <p>
               View detailed balance sheets, income statements, and calculated
@@ -216,9 +222,11 @@ function Home() {
           </div>
 
           <div className="feature-card">
-            <div className="feature-icon">
-              <ValuationIcon />
-            </div>
+            <Link to="/valuation" className="feature-icon-link">
+              <div className="feature-icon">
+                <ValuationIcon />
+              </div>
+            </Link>
             <h3>Valuation Tools</h3>
             <p>
               Apply various valuation methodologies including Graham Number,
