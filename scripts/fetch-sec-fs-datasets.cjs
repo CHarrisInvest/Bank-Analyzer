@@ -2006,9 +2006,15 @@ function calculateBankMetrics(bankData) {
     ttmDps = Math.abs(totalCommonDividends.value) / sharesOutstanding;
   }
 
-  // Diagnostic: Log dividend-related tags for banks missing DPS (major banks only)
-  const majorBanks = ['BAC', 'WFC', 'C', 'PNC', 'TFC', 'BK', 'CFG', 'MTB', 'USB', 'SCHW', 'AMTB'];
-  if (ttmDps === null && bankData.ticker && majorBanks.includes(bankData.ticker)) {
+  // Diagnostic: Log dividend-related tags for banks that have common stock dividend data but null DPS
+  // Check for common stock dividend tags that we should be able to use
+  const commonDividendTags = [
+    'CommonStockDividendsPerShareDeclared', 'CommonStockDividendsPerShareCashPaid',
+    'PaymentsOfDividendsCommonStock', 'DividendsCommonStock', 'DividendsCommonStockCash',
+    'CashDividendsPaidToCommonStockholders'
+  ];
+  const hasCommonDividendData = commonDividendTags.some(tag => concepts[tag]?.length > 0);
+  if (ttmDps === null && bankData.ticker && hasCommonDividendData) {
     const allDividendTags = Object.keys(concepts).filter(tag => {
       const lower = tag.toLowerCase();
       return lower.includes('dividend') || lower.includes('dps');
