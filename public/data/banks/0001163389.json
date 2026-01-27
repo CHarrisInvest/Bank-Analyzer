@@ -103,7 +103,14 @@
         "method": "sum-4Q-statements",
         "form": "10-Q+10-Q+10-Q+10-K"
       },
-      "InterestExpense": null,
+      "InterestExpense": {
+        "value": 9116000,
+        "date": "20231231",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 3100000,
+        "fiscalYear": "2023"
+      },
       "NetInterestIncome": {
         "value": 31901000,
         "date": "20250930",
@@ -122,7 +129,14 @@
         "method": "sum-4Q-statements",
         "form": "10-Q+10-Q+10-Q+10-K"
       },
-      "ProvisionForCreditLosses": null,
+      "ProvisionForCreditLosses": {
+        "value": 27370000,
+        "date": "20231231",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 13267000,
+        "fiscalYear": "2023"
+      },
       "PreTaxIncome": {
         "value": 12460000,
         "date": "20250930",
@@ -137,7 +151,14 @@
       },
       "NetIncomeLossAvailableToCommonStockholdersBasic": null,
       "PreferredStockDividends": null,
-      "EarningsPerShareBasic": null
+      "EarningsPerShareBasic": {
+        "value": 0.41999999999999993,
+        "date": "20250930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 0.10999999999999996,
+        "fiscalYear": "2024"
+      }
     },
     "dividends": {
       "CommonStockDividendsPerShareDeclared": null

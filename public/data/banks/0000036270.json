@@ -130,7 +130,14 @@
         "method": "sum-4Q-statements",
         "form": "10-Q+10-Q+10-Q+10-K"
       },
-      "ProvisionForCreditLosses": null,
+      "ProvisionForCreditLosses": {
+        "value": 645000000,
+        "date": "20231231",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 225000000,
+        "fiscalYear": "2023"
+      },
       "PreTaxIncome": {
         "value": 3603000000,
         "date": "20250930",
@@ -158,7 +165,14 @@
       }
     },
     "dividends": {
-      "CommonStockDividendsPerShareDeclared": null
+      "CommonStockDividendsPerShareDeclared": {
+        "value": 5.55,
+        "date": "20250930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 1.3499999999999996,
+        "fiscalYear": "2024"
+      }
     },
     "averages": {
       "Assets": {

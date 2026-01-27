@@ -130,7 +130,14 @@
         "method": "sum-4Q-statements",
         "form": "10-Q+10-Q+10-Q+10-K"
       },
-      "ProvisionForCreditLosses": null,
+      "ProvisionForCreditLosses": {
+        "value": 64718000,
+        "date": "20240930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 9808000,
+        "fiscalYear": "2023"
+      },
       "PreTaxIncome": {
         "value": 451741000,
         "date": "20250930",

@@ -139,7 +139,14 @@
         "method": "sum-4Q-statements",
         "form": "10-Q+10-Q+10-Q+10-K"
       },
-      "ProvisionForCreditLosses": null,
+      "ProvisionForCreditLosses": {
+        "value": 3008000,
+        "date": "20250930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 3407000,
+        "fiscalYear": "2024"
+      },
       "PreTaxIncome": {
         "value": -6790000,
         "date": "20250930",
@@ -160,7 +167,7 @@
       },
       "PreferredStockDividends": {
         "value": 2156000,
-        "date": "20240930",
+        "date": "20250930",
         "method": "sum-4Q-derived",
         "form": "10-Q+10-Q+10-Q+10-K(derived)",
         "derivedQ4": 539000,
@@ -176,7 +183,7 @@
     "dividends": {
       "CommonStockDividendsPerShareDeclared": {
         "value": 0.4000000000000001,
-        "date": "20240930",
+        "date": "20250930",
         "method": "sum-4Q-derived",
         "form": "10-Q+10-Q+10-Q+10-K(derived)",
         "derivedQ4": 0.10000000000000003,

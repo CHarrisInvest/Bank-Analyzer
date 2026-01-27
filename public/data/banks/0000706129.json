@@ -147,14 +147,21 @@
         "form": "10-Q+10-Q+10-Q+10-K"
       },
       "NetIncomeLoss": {
-        "value": 28544000,
-        "date": "20240930",
+        "value": -188285000,
+        "date": "20250930",
         "method": "sum-4Q-derived",
         "form": "10-Q+10-Q+10-Q+10-K(derived)",
-        "derivedQ4": -17767000,
+        "derivedQ4": -10882000,
         "fiscalYear": "2024"
       },
-      "NetIncomeLossAvailableToCommonStockholdersBasic": null,
+      "NetIncomeLossAvailableToCommonStockholdersBasic": {
+        "value": -188285000,
+        "date": "20250930",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": -10882000,
+        "fiscalYear": "2024"
+      },
       "PreferredStockDividends": null,
       "EarningsPerShareBasic": {
         "value": -3.920000000000001,
@@ -166,27 +173,27 @@
     "dividends": {
       "CommonStockDividendsPerShareDeclared": {
         "value": 0.6399999999999999,
-        "date": "20231231",
+        "date": "20250930",
         "method": "sum-4Q-derived",
         "form": "10-Q+10-Q+10-Q+10-K(derived)",
-        "derivedQ4": 0.16999999999999996,
-        "fiscalYear": "2023"
+        "derivedQ4": 0.15999999999999995,
+        "fiscalYear": "2024"
       }
     },
     "averages": {
       "Assets": {
-        "average": 7915332200,
-        "ending": 7927457000,
-        "endingDate": "20240930",
-        "startingDate": "20231231",
+        "average": 7519095600,
+        "ending": 6712497000,
+        "endingDate": "20250930",
+        "startingDate": "20241231",
         "method": "5-point-avg",
         "periodCount": 5
       },
       "Equity": {
-        "average": 737927800,
-        "ending": 754822000,
-        "endingDate": "20240930",
-        "startingDate": "20240630",
+        "average": 758919400,
+        "ending": 660771000,
+        "endingDate": "20250930",
+        "startingDate": "20250331",
         "method": "5-point-avg",
         "periodCount": 5
       }
