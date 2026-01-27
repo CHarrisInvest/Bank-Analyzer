@@ -2002,7 +2002,8 @@ function calculateBankMetrics(bankData) {
   // DPS: prefer per-share tags, fallback to total dividends / shares outstanding
   let ttmDps = dps?.value ?? null;
   if (ttmDps === null && totalCommonDividends?.value && sharesOutstanding) {
-    ttmDps = totalCommonDividends.value / sharesOutstanding;
+    // Use absolute value since PaymentsOfDividendsCommonStock is negative (cash outflow)
+    ttmDps = Math.abs(totalCommonDividends.value) / sharesOutstanding;
   }
 
   // Diagnostic: Log dividend-related tags for banks missing DPS (major banks only)
