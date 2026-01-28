@@ -204,6 +204,23 @@ async function generatePages() {
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": `${SITE_URL}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Bank Screener",
+              "item": `${SITE_URL}/screener`
+            }
+          ]
+        },
+        {
           "@type": "WebApplication",
           "name": "BankSift Bank Stock Screener",
           "alternateName": ["Bank Screener", "Bank Equity Screener", "Bank Filter", "The Sifter"],

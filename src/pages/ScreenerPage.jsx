@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Screener from '../components/Screener.jsx';
 import SEO from '../components/SEO.jsx';
 
@@ -7,9 +8,28 @@ import SEO from '../components/SEO.jsx';
  * Wraps the Screener component for use with React Router
  */
 function ScreenerPage({ banks, loading }) {
+  const [showInfo, setShowInfo] = useState(false);
+
   const screenerSchema = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://banksift.org"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Bank Screener",
+            "item": "https://banksift.org/screener"
+          }
+        ]
+      },
       {
         "@type": "WebApplication",
         "name": "BankSift Bank Stock Screener",
@@ -84,6 +104,26 @@ function ScreenerPage({ banks, loading }) {
       <div className="page-header screener-page-header">
         <h1>Bank Screener <em>"The Sifter"</em></h1>
         <p>Filter and analyze publicly traded banks by financial metrics.</p>
+        <button
+          className="info-toggle"
+          onClick={() => setShowInfo(!showInfo)}
+          aria-expanded={showInfo}
+        >
+          {showInfo ? 'Hide details' : 'About this screener'}
+        </button>
+        {showInfo && (
+          <div className="screener-info">
+            <p>
+              Screen and filter 300+ US bank stocks using 25+ financial metrics including ROE, ROAA,
+              efficiency ratio, price-to-book, and Graham Number. Our free bank equity screener updates
+              daily from SEC EDGAR filings, helping value investors identify undervalued bank stocks.
+            </p>
+            <p>
+              <Link to="/screener/guide">View the Screener Guide</Link> for detailed instructions on
+              using filters and interpreting results.
+            </p>
+          </div>
+        )}
       </div>
       <Screener banks={banks} loading={loading} />
     </div>

@@ -5106,6 +5106,56 @@ body {
   padding: var(--spacing-4);
 }
 
+/* Screener info toggle */
+.screener-page .info-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  margin-top: var(--spacing-2);
+  padding: var(--spacing-1) var(--spacing-2);
+  background: transparent;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.screener-page .info-toggle:hover {
+  background: var(--color-gray-50);
+  border-color: var(--color-gray-400);
+  color: var(--color-gray-700);
+}
+
+.screener-page .screener-info {
+  margin-top: var(--spacing-3);
+  padding: var(--spacing-3) var(--spacing-4);
+  background: var(--color-gray-50);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+.screener-page .screener-info p {
+  margin: 0;
+}
+
+.screener-page .screener-info p + p {
+  margin-top: var(--spacing-2);
+}
+
+.screener-page .screener-info a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.screener-page .screener-info a:hover {
+  text-decoration: underline;
+}
+
 /* --------------------------------------------------------------------------
    Glossary Page Styles
    -------------------------------------------------------------------------- */
