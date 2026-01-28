@@ -161,6 +161,22 @@ function escapeHtml(text) {
 }
 
 /**
+ * Create breadcrumb schema for a page
+ * @param {Array} items - Array of {name, path} objects representing the breadcrumb trail
+ */
+function createBreadcrumbSchema(items) {
+  return {
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.path ? `${SITE_URL}${item.path}` : SITE_URL
+    }))
+  };
+}
+
+/**
  * Generate all static pages
  */
 async function generatePages() {
@@ -320,6 +336,22 @@ async function generatePages() {
     title: 'Bank Screener Guide - BankSift',
     description: 'Learn how to use the BankSift bank screener effectively. Tutorial on filtering banks by financial metrics, understanding results, and finding undervalued bank stocks.',
     canonical: `${SITE_URL}/screener/guide`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "Bank Screener", path: "/screener" },
+          { name: "Guide", path: "/screener/guide" }
+        ]),
+        {
+          "@type": "Article",
+          "headline": "Bank Screener Guide",
+          "description": "Learn how to use the BankSift bank screener effectively.",
+          "author": { "@type": "Organization", "name": "BankSift" }
+        }
+      ]
+    },
     content: `
       <h1>Bank Screener Guide</h1>
       <p>Learn how to effectively use the BankSift bank screener to find investment opportunities.</p>
@@ -335,6 +367,15 @@ async function generatePages() {
     title: 'Bank Search - BankSift',
     description: 'Search for specific banks by name, ticker symbol, or CIK number. Access detailed financial metrics and analysis for any publicly traded US bank.',
     canonical: `${SITE_URL}/search`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "Bank Search", path: "/search" }
+        ])
+      ]
+    },
     content: `
       <h1>Bank Search</h1>
       <p>Search for publicly traded US banks by name, ticker, or CIK number.</p>
@@ -348,6 +389,15 @@ async function generatePages() {
     title: 'Bank Financial Metrics Guide - BankSift',
     description: 'Comprehensive guide to bank financial metrics including ROE, ROAA, efficiency ratio, net interest margin, and more. Learn how to analyze bank stocks.',
     canonical: `${SITE_URL}/metrics`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "Financial Metrics", path: "/metrics" }
+        ])
+      ]
+    },
     content: `
       <h1>Bank Financial Metrics</h1>
       <p>Learn about the key financial metrics used to analyze bank stocks.</p>
@@ -368,6 +418,15 @@ async function generatePages() {
     title: 'Bank Valuation Methods Guide - BankSift',
     description: 'Learn how to value bank stocks using Graham Number, margin of safety, P/E ratio, P/B ratio, and other proven valuation methods for bank investing.',
     canonical: `${SITE_URL}/valuation`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "Valuation Methods", path: "/valuation" }
+        ])
+      ]
+    },
     content: `
       <h1>Bank Valuation Methods</h1>
       <p>Learn proven methods for valuing bank stocks and finding investment opportunities.</p>
@@ -391,6 +450,15 @@ async function generatePages() {
     title: 'Bank Financial Terms Glossary - BankSift',
     description: 'Glossary of bank financial terms and definitions. Understand ROE, ROAA, efficiency ratio, Graham Number, and other key banking metrics.',
     canonical: `${SITE_URL}/glossary`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "Glossary", path: "/glossary" }
+        ])
+      ]
+    },
     content: `
       <h1>Financial Terms Glossary</h1>
       <p>Definitions and explanations of key bank financial terms and metrics.</p>
@@ -404,6 +472,15 @@ async function generatePages() {
     title: 'Privacy Policy - BankSift',
     description: 'BankSift privacy policy. Learn how we handle your data and protect your privacy.',
     canonical: `${SITE_URL}/privacy`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "Privacy Policy", path: "/privacy" }
+        ])
+      ]
+    },
     content: `<h1>Privacy Policy</h1><p>BankSift privacy policy and data handling practices.</p>`
   }));
   count++;
@@ -414,6 +491,15 @@ async function generatePages() {
     title: 'Terms of Service - BankSift',
     description: 'BankSift terms of service and usage conditions.',
     canonical: `${SITE_URL}/terms`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "Terms of Service", path: "/terms" }
+        ])
+      ]
+    },
     content: `<h1>Terms of Service</h1><p>BankSift terms and conditions of use.</p>`
   }));
   count++;
@@ -436,18 +522,27 @@ async function generatePages() {
       type: 'article',
       schema: {
         "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": metric.name,
-        "description": metric.shortDescription,
-        "author": {
-          "@type": "Organization",
-          "name": "BankSift"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "BankSift",
-          "url": SITE_URL
-        }
+        "@graph": [
+          createBreadcrumbSchema([
+            { name: "Home", path: "" },
+            { name: "Financial Metrics", path: "/metrics" },
+            { name: metric.name, path: path }
+          ]),
+          {
+            "@type": "Article",
+            "headline": metric.name,
+            "description": metric.shortDescription,
+            "author": {
+              "@type": "Organization",
+              "name": "BankSift"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "BankSift",
+              "url": SITE_URL
+            }
+          }
+        ]
       },
       content: `
         <article>
@@ -484,13 +579,22 @@ async function generatePages() {
       type: 'article',
       schema: {
         "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": valuation.name,
-        "description": valuation.shortDescription,
-        "author": {
-          "@type": "Organization",
-          "name": "BankSift"
-        }
+        "@graph": [
+          createBreadcrumbSchema([
+            { name: "Home", path: "" },
+            { name: "Valuation Methods", path: "/valuation" },
+            { name: valuation.name, path: path }
+          ]),
+          {
+            "@type": "Article",
+            "headline": valuation.name,
+            "description": valuation.shortDescription,
+            "author": {
+              "@type": "Organization",
+              "name": "BankSift"
+            }
+          }
+        ]
       },
       content: `
         <article>
@@ -536,14 +640,23 @@ async function generatePages() {
       type: 'article',
       schema: {
         "@context": "https://schema.org",
-        "@type": "FinancialProduct",
-        "name": bankName,
-        "description": `Financial analysis for ${bankName}`,
-        "provider": {
-          "@type": "Corporation",
-          "name": bankName,
-          "tickerSymbol": bank.ticker || undefined
-        }
+        "@graph": [
+          createBreadcrumbSchema([
+            { name: "Home", path: "" },
+            { name: "Bank Screener", path: "/screener" },
+            { name: bankName, path: path }
+          ]),
+          {
+            "@type": "FinancialProduct",
+            "name": bankName,
+            "description": `Financial analysis for ${bankName}`,
+            "provider": {
+              "@type": "Corporation",
+              "name": bankName,
+              "tickerSymbol": bank.ticker || undefined
+            }
+          }
+        ]
       },
       content: `
         <article>
