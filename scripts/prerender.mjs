@@ -113,13 +113,22 @@ function createPage({ path, title, description, canonical, type = 'website', sch
     html = html.replace('</head>', `${schemaScript}\n  </head>`);
   }
 
-  // Add SEO content for crawlers (hidden but indexable)
+  // Add SEO content as visible fallback content inside the root div
+  // This content is visible to crawlers and users before React hydrates
+  // React will replace this content when it mounts
   if (content) {
     const seoContent = `
-    <div id="seo-content" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
-      ${content}
-    </div>`;
-    html = html.replace('<div id="root">', `${seoContent}\n    <div id="root">`);
+      <main id="seo-content" class="seo-fallback">
+        ${content}
+        <noscript>
+          <p>This site works best with JavaScript enabled. Enable JavaScript for the full interactive experience.</p>
+        </noscript>
+      </main>`;
+    // Replace the loading fallback with actual content
+    html = html.replace(
+      /<div id="loading-fallback"[\s\S]*?<\/div>\s*<\/div>/,
+      seoContent
+    );
   }
 
   return html;

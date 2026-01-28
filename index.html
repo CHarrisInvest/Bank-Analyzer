@@ -98,6 +98,28 @@
     }
     </script>
 
+    <!-- SEO fallback content styles - visible before React hydrates -->
+    <style>
+      .seo-fallback {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        font-family: system-ui, -apple-system, sans-serif;
+        color: #1a365d;
+        line-height: 1.6;
+      }
+      .seo-fallback h1 { font-size: 2rem; margin-bottom: 1rem; }
+      .seo-fallback h2 { font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #2c5282; }
+      .seo-fallback p { margin-bottom: 1rem; color: #4a5568; }
+      .seo-fallback ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+      .seo-fallback li { margin-bottom: 0.5rem; }
+      .seo-fallback dl { margin-left: 1rem; }
+      .seo-fallback dt { font-weight: 600; margin-top: 0.5rem; }
+      .seo-fallback dd { margin-left: 1rem; color: #4a5568; }
+      .seo-fallback code { background: #edf2f7; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem; }
+      .seo-fallback article { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    </style>
+
     <!-- Google Analytics 4 - Loaded asynchronously -->
     <!-- Measurement ID is injected at build time via environment variable -->
     <script id="ga4-loader">
@@ -125,9 +147,24 @@
   </head>
   <body>
     <noscript>
-      <div style="padding: 20px; text-align: center; font-family: sans-serif;">
-        <h1>JavaScript Required</h1>
-        <p>Please enable JavaScript to use BankSift.</p>
+      <div style="padding: 20px; max-width: 800px; margin: 0 auto; font-family: sans-serif;">
+        <h1>BankSift - Bank Investment Tools</h1>
+        <p>Sift through the noise. Screen and analyze 300+ publicly traded banks using comprehensive financial metrics from SEC filings.</p>
+        <h2>Features</h2>
+        <ul>
+          <li><strong>Bank Screener</strong> - Filter banks by 25+ metrics including ROE, ROAA, efficiency ratio, and Graham Number</li>
+          <li><strong>Bank Search</strong> - Find banks by name, ticker symbol, or CIK number</li>
+          <li><strong>Financial Metrics Guide</strong> - Learn about key bank analysis metrics</li>
+          <li><strong>Valuation Methods</strong> - Understand how to value bank stocks</li>
+        </ul>
+        <p>Please enable JavaScript for the full interactive experience, or browse our content pages:</p>
+        <ul>
+          <li><a href="/screener">Bank Screener</a></li>
+          <li><a href="/search">Bank Search</a></li>
+          <li><a href="/metrics">Financial Metrics</a></li>
+          <li><a href="/valuation">Valuation Methods</a></li>
+          <li><a href="/glossary">Glossary</a></li>
+        </ul>
       </div>
     </noscript>
     <div id="root">
