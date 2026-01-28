@@ -4935,6 +4935,167 @@ body {
   margin-bottom: 0;
 }
 
+/* Strategy card expanded styles */
+.strategy-card .strategy-goal {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-700);
+  margin-bottom: var(--spacing-4);
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.strategy-card .strategy-filters {
+  margin-bottom: var(--spacing-4);
+}
+
+.strategy-card .strategy-filters h4 {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  margin-bottom: var(--spacing-2);
+}
+
+.strategy-card .strategy-filters ul {
+  margin-bottom: var(--spacing-3);
+}
+
+.strategy-card .strategy-rationale {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-4);
+  margin-top: var(--spacing-3);
+}
+
+.strategy-card .strategy-rationale h4 {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-2);
+}
+
+.strategy-card .strategy-rationale p {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-2);
+}
+
+.strategy-card .strategy-rationale p:last-child {
+  margin-bottom: 0;
+}
+
+/* Feature items */
+.feature-item {
+  margin-bottom: var(--spacing-4);
+  padding-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.feature-item h3 {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-800);
+  margin-bottom: var(--spacing-2);
+}
+
+.feature-item p {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Metrics reference grid */
+.metrics-category {
+  margin-bottom: var(--spacing-6);
+}
+
+.metrics-category h3 {
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-3);
+  padding-bottom: var(--spacing-2);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.metric-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-4);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.metric-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.metric-card h4 {
+  font-size: var(--font-size-sm);
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.metric-card h4 a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.metric-card h4 a:hover {
+  color: var(--color-accent);
+}
+
+.metric-abbrev {
+  font-weight: normal;
+  color: var(--color-gray-500);
+}
+
+.metric-description {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-600);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-2);
+}
+
+.metric-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+}
+
+.metric-range {
+  color: var(--color-gray-600);
+}
+
+.metric-interpretation {
+  font-style: italic;
+}
+
+.metric-usage {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  margin-top: var(--spacing-2);
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments for metrics grid */
+@media (max-width: 640px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .guide-cta {
   display: flex;
   gap: var(--spacing-4);
