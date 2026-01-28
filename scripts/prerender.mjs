@@ -333,8 +333,8 @@ async function generatePages() {
   // Screener Guide
   writePage('/screener/guide', createPage({
     path: '/screener/guide',
-    title: 'Bank Screener Guide - BankSift',
-    description: 'Learn how to use the BankSift bank screener effectively. Tutorial on filtering banks by financial metrics, understanding results, and finding undervalued bank stocks.',
+    title: 'How to Screen Bank Stocks: Complete Guide | BankSift',
+    description: 'Learn how to screen and analyze bank stocks using ROE, P/B ratio, efficiency ratio, and Graham Number. Step-by-step tutorial for finding undervalued bank stocks with the BankSift screener.',
     canonical: `${SITE_URL}/screener/guide`,
     schema: {
       "@context": "https://schema.org",
@@ -345,18 +345,55 @@ async function generatePages() {
           { name: "Guide", path: "/screener/guide" }
         ]),
         {
-          "@type": "Article",
-          "headline": "Bank Screener Guide",
-          "description": "Learn how to use the BankSift bank screener effectively.",
-          "author": { "@type": "Organization", "name": "BankSift" }
+          "@type": "HowTo",
+          "name": "How to Screen Bank Stocks",
+          "description": "Step-by-step guide to using the BankSift bank stock screener to find investment opportunities.",
+          "step": [
+            { "@type": "HowToStep", "name": "Set Your Criteria", "text": "Use the filters panel to set minimum and maximum values for metrics like ROE, P/B ratio, and efficiency ratio." },
+            { "@type": "HowToStep", "name": "Review Results", "text": "Examine the filtered results table. Click column headers to sort by any metric." },
+            { "@type": "HowToStep", "name": "Analyze Banks", "text": "Click on any ticker to view detailed financial analysis for that bank." },
+            { "@type": "HowToStep", "name": "Export Data", "text": "Use the Export CSV button to download your filtered results for further analysis." }
+          ]
         }
       ]
     },
     content: `
       <h1>Bank Screener Guide</h1>
-      <p>Learn how to effectively use the BankSift bank screener to find investment opportunities.</p>
-      <h2>Getting Started</h2>
-      <p>The screener allows you to filter banks by various financial metrics to find those that match your investment criteria.</p>
+      <p>Learn how to use the BankSift screener to find bank stock investment opportunities.</p>
+
+      <h2>How to Use the Screener</h2>
+      <ol>
+        <li><strong>Set Your Filter Criteria:</strong> Use the filters panel to set minimum and maximum values for metrics like ROE, P/B ratio, and efficiency ratio.</li>
+        <li><strong>Review and Sort Results:</strong> Examine the filtered results table. Click column headers to sort by any metric.</li>
+        <li><strong>Analyze Individual Banks:</strong> Click any ticker symbol to view detailed financial analysis for that bank.</li>
+        <li><strong>Export Your Results:</strong> Click Export CSV to download your filtered results for further analysis.</li>
+      </ol>
+
+      <h2>Screener Features</h2>
+      <ul>
+        <li><strong>Export to CSV:</strong> Download filtered results with all visible columns</li>
+        <li><strong>Column Customization:</strong> Show/hide columns, drag to reorder</li>
+        <li><strong>Smart Column Display:</strong> Filtered columns auto-display in results</li>
+        <li><strong>Keyboard Navigation:</strong> Arrow keys, Page Up/Down, Home/End</li>
+      </ul>
+
+      <h2>Key Metrics</h2>
+      <ul>
+        <li><strong>ROE (Return on Equity):</strong> Profitability measure, typically 8-15% for banks</li>
+        <li><strong>P/B (Price to Book):</strong> Valuation metric, below 1.0 may indicate undervaluation</li>
+        <li><strong>Efficiency Ratio:</strong> Operating efficiency, lower is better (under 60% is good)</li>
+        <li><strong>Graham Number:</strong> Value investing intrinsic value estimate</li>
+      </ul>
+
+      <h2>Screening Strategies</h2>
+      <h3>Value Screening</h3>
+      <p>Find undervalued banks: P/B 0.5-1.0, ROE above 8%, Graham MoS above 20%</p>
+
+      <h3>Quality Screening</h3>
+      <p>Find well-managed banks: ROE above 12%, Efficiency below 60%, Equity/Assets above 10%</p>
+
+      <h3>Dividend Income Screening</h3>
+      <p>Find dividend-paying banks: Payout 20-50%, ROE above 10%, Assets above $1B</p>
     `
   }));
   count++;
