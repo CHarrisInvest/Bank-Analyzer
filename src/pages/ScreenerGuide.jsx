@@ -3,6 +3,112 @@ import { Link, useLocation } from 'react-router-dom';
 import NavigationLink from '../components/NavigationLink.jsx';
 import SEO from '../components/SEO.jsx';
 
+/**
+ * SVG Category Icon Components - Outlined/Stroked Style
+ * Same icons used on the Metrics Index page for visual consistency
+ */
+
+function ProfitabilityIcon() {
+  return (
+    <svg
+      className="feature-icon-svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+      <polyline points="17 6 23 6 23 12" />
+    </svg>
+  );
+}
+
+function ValuationTagIcon() {
+  return (
+    <svg
+      className="feature-icon-svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+      <line x1="7" y1="7" x2="7.01" y2="7" />
+    </svg>
+  );
+}
+
+function CapitalIcon() {
+  return (
+    <svg
+      className="feature-icon-svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    </svg>
+  );
+}
+
+function PerShareIcon() {
+  return (
+    <svg
+      className="feature-icon-svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+      <path d="M22 12A10 10 0 0 0 12 2v10z" />
+    </svg>
+  );
+}
+
+function ValueInvestingIcon() {
+  return (
+    <svg
+      className="feature-icon-svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    </svg>
+  );
+}
+
+// Map guide category names to icon components
+const GUIDE_CATEGORY_ICONS = {
+  'Profitability': ProfitabilityIcon,
+  'Valuation': ValuationTagIcon,
+  'Capital': CapitalIcon,
+  'Per-Share': PerShareIcon,
+};
+
 // FAQ content for structured data and display
 const FAQ_ITEMS = [
   {
@@ -354,9 +460,20 @@ function ScreenerGuide() {
           </p>
 
           {/* Group metrics by category */}
-          {['Profitability', 'Valuation', 'Capital', 'Per-Share'].map(category => (
+          {['Profitability', 'Valuation', 'Capital', 'Per-Share'].map(category => {
+            const IconComponent = GUIDE_CATEGORY_ICONS[category];
+            return (
             <div key={category} className="metrics-category">
-              <h3>{category} Metrics</h3>
+              <div className="guide-category-header">
+                {IconComponent && (
+                  <span className="guide-category-icon feature-icon-link" aria-hidden="true">
+                    <span className="feature-icon feature-icon-sm">
+                      <IconComponent />
+                    </span>
+                  </span>
+                )}
+                <h3>{category} Metrics</h3>
+              </div>
               <div className="metrics-grid">
                 {METRICS_REFERENCE.filter(m => m.category === category).map(metric => (
                   <div key={metric.slug} className="metric-card">
@@ -378,11 +495,19 @@ function ScreenerGuide() {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
 
           {/* Valuation Methods */}
           <div className="metrics-category">
-            <h3>Value Investing Metrics</h3>
+            <div className="guide-category-header">
+              <span className="guide-category-icon feature-icon-link" aria-hidden="true">
+                <span className="feature-icon feature-icon-sm">
+                  <ValueInvestingIcon />
+                </span>
+              </span>
+              <h3>Value Investing Metrics</h3>
+            </div>
             <div className="metrics-grid">
               {VALUATION_REFERENCE.map(method => (
                 <div key={method.slug} className="metric-card">
