@@ -420,11 +420,11 @@ async function generatePages() {
   }));
   count++;
 
-  // Metrics index
+  // Metrics index - optimized for "bank financial metrics", "bank ratios", "bank analysis metrics"
   writePage('/metrics', createPage({
     path: '/metrics',
-    title: 'Bank Financial Metrics Guide - BankSift',
-    description: 'Comprehensive guide to bank financial metrics including ROE, ROAA, efficiency ratio, net interest margin, and more. Learn how to analyze bank stocks.',
+    title: 'Bank Financial Metrics Explained | ROE, ROAA, Efficiency Ratio Guide - BankSift',
+    description: 'Free guide to bank stock financial metrics. Learn ROE, ROAA, efficiency ratio, P/B ratio, net interest margin, and 10+ ratios used to analyze publicly traded US banks.',
     canonical: `${SITE_URL}/metrics`,
     schema: {
       "@context": "https://schema.org",
@@ -432,19 +432,121 @@ async function generatePages() {
         createBreadcrumbSchema([
           { name: "Home", path: "" },
           { name: "Financial Metrics", path: "/metrics" }
-        ])
+        ]),
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What financial metrics are important for analyzing banks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Key financial metrics for analyzing banks include Return on Equity (ROE), Return on Average Assets (ROAA), Net Interest Margin (NIM), Efficiency Ratio, Equity to Assets ratio, and Price to Book (P/B) ratio. These metrics measure profitability, operational efficiency, capital strength, and valuation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you measure bank profitability?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Bank profitability is measured primarily through Return on Equity (ROE), Return on Average Assets (ROAA), and Net Interest Margin (NIM). ROE shows how effectively a bank generates profit from shareholder equity (good: above 10%). ROAA measures profit relative to total assets (good: above 1.0%). NIM measures the spread between interest earned and paid (good: above 3.5%)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a good ROE for a bank?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A good Return on Equity (ROE) for banks is typically 10% to 15%. ROE above 10-12% indicates strong profitability and efficient capital use. Top-performing banks may exceed 15%. ROE below 6-8% may indicate weak profitability or operational challenges."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What efficiency ratio is good for banks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "An efficiency ratio below 55% is considered excellent for banks. Ratios between 50-60% indicate well-managed operations. Ratios above 65-70% may suggest cost control challenges. The efficiency ratio measures operating expenses as a percentage of total revenue."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "name": "Bank Financial Metric Categories",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Profitability Ratios", "url": `${SITE_URL}/metrics#profitability` },
+            { "@type": "ListItem", "position": 2, "name": "Efficiency Ratios", "url": `${SITE_URL}/metrics#efficiency` },
+            { "@type": "ListItem", "position": 3, "name": "Capital & Leverage Ratios", "url": `${SITE_URL}/metrics#capital` },
+            { "@type": "ListItem", "position": 4, "name": "Valuation Metrics", "url": `${SITE_URL}/metrics#valuation` },
+            { "@type": "ListItem", "position": 5, "name": "Per Share Metrics", "url": `${SITE_URL}/metrics#per-share` }
+          ]
+        }
       ]
     },
     content: `
-      <h1>Bank Financial Metrics</h1>
-      <p>Learn about the key financial metrics used to analyze bank stocks.</p>
-      <h2>Profitability Metrics</h2>
+      <h1>Bank Financial Metrics &amp; Ratios</h1>
+      <p>Understanding financial metrics is essential for analyzing banks effectively. Banks operate differently from most companies — they earn money primarily by borrowing (deposits) and lending at higher rates. The ratios below are specifically relevant to evaluating bank performance, risk, and value.</p>
+
+      <h2>Where to Start</h2>
+      <p>If you are new to bank analysis, these four core metrics provide a well-rounded view of any bank:</p>
       <ul>
-        <li>Return on Equity (ROE)</li>
-        <li>Return on Average Assets (ROAA)</li>
-        <li>Net Interest Margin</li>
-        <li>Efficiency Ratio</li>
+        <li><a href="${SITE_URL}/metrics/roe">ROE (Return on Equity)</a> — Is the bank profitable?</li>
+        <li><a href="${SITE_URL}/metrics/efficiency-ratio">Efficiency Ratio</a> — Is it well-managed?</li>
+        <li><a href="${SITE_URL}/metrics/price-to-book">Price to Book</a> — Is the stock fairly valued?</li>
+        <li><a href="${SITE_URL}/metrics/equity-to-assets">Equity to Assets</a> — Is the bank financially strong?</li>
       </ul>
+      <p>For a practical walkthrough, see the <a href="${SITE_URL}/screener/guide">Screener Guide</a>.</p>
+
+      <h2>Profitability Ratios</h2>
+      <p>Profitability is the foundation of bank analysis. These ratios measure how effectively a bank converts its resources into earnings.</p>
+      <ul>
+        <li><a href="${SITE_URL}/metrics/roe">Return on Equity (ROE)</a> — Measures profit from shareholder equity. Typical: 8%–15%.</li>
+        <li><a href="${SITE_URL}/metrics/roaa">Return on Average Assets (ROAA)</a> — Measures asset utilization efficiency. Typical: 0.8%–1.5%.</li>
+        <li><a href="${SITE_URL}/metrics/net-interest-margin">Net Interest Margin (NIM)</a> — Measures lending spread profitability. Typical: 3.0%–4.0%.</li>
+      </ul>
+
+      <h2>Efficiency Ratios</h2>
+      <p>Efficiency ratios reveal how well a bank manages its operations and funding sources.</p>
+      <ul>
+        <li><a href="${SITE_URL}/metrics/efficiency-ratio">Efficiency Ratio</a> — Operating cost management. Typical: 50%–60%.</li>
+        <li><a href="${SITE_URL}/metrics/deposits-to-assets">Deposits to Assets</a> — Deposit funding stability. Typical: 70%–90%.</li>
+        <li><a href="${SITE_URL}/metrics/loans-to-deposits">Loans to Deposits</a> — Lending vs. liquidity balance. Typical: 70%–90%.</li>
+      </ul>
+
+      <h2>Capital &amp; Leverage Ratios</h2>
+      <p>Capital ratios measure a bank's financial strength and its ability to absorb unexpected losses.</p>
+      <ul>
+        <li><a href="${SITE_URL}/metrics/equity-to-assets">Equity to Assets</a> — Capital cushion strength. Typical: 8%–12%.</li>
+        <li><a href="${SITE_URL}/metrics/loans-to-assets">Loans to Assets</a> — Loan concentration level. Typical: 60%–75%.</li>
+      </ul>
+
+      <h2>Valuation Metrics</h2>
+      <p>Banks are valued differently from most companies. Price to Book is the primary valuation metric because bank assets are mostly financial instruments carried near fair value.</p>
+      <ul>
+        <li><a href="${SITE_URL}/metrics/book-value-per-share">Book Value Per Share (BVPS)</a> — Net asset value per share.</li>
+        <li><a href="${SITE_URL}/metrics/price-to-earnings">Price to Earnings (P/E)</a> — Earnings valuation multiple. Typical: 8x–15x.</li>
+        <li><a href="${SITE_URL}/metrics/price-to-book">Price to Book (P/B)</a> — Price vs. book value. Typical: 0.8x–2.0x.</li>
+      </ul>
+
+      <h2>Per Share Metrics</h2>
+      <p>Per-share metrics translate total bank performance into figures relevant to individual shareholders.</p>
+      <ul>
+        <li><a href="${SITE_URL}/metrics/earnings-per-share">Earnings Per Share (EPS)</a> — Per-share profitability.</li>
+        <li><a href="${SITE_URL}/metrics/dividend-payout-ratio">Dividend Payout Ratio</a> — Dividend sustainability. Typical: 25%–50%.</li>
+      </ul>
+
+      <h2>Quick Reference</h2>
+      <table>
+        <thead><tr><th>Metric</th><th>Generally Favorable</th><th>Potential Concern</th><th>What It Measures</th></tr></thead>
+        <tbody>
+          <tr><td>ROE</td><td>&gt; 10%</td><td>&lt; 6%</td><td>Profit from shareholder equity</td></tr>
+          <tr><td>ROAA</td><td>&gt; 1.0%</td><td>&lt; 0.7%</td><td>Asset utilization efficiency</td></tr>
+          <tr><td>NIM</td><td>&gt; 3.5%</td><td>&lt; 2.5%</td><td>Lending spread profitability</td></tr>
+          <tr><td>Efficiency Ratio</td><td>&lt; 55%</td><td>&gt; 70%</td><td>Operating cost management</td></tr>
+          <tr><td>P/B Ratio</td><td>&lt; 1.0x</td><td>&gt; 2.0x</td><td>Price vs. book value</td></tr>
+          <tr><td>P/E Ratio</td><td>Low vs. peers</td><td>Very high</td><td>Earnings valuation multiple</td></tr>
+        </tbody>
+      </table>
     `
   }));
   count++;

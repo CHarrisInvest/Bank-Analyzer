@@ -1,10 +1,81 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { METRICS } from '../data/content/metrics.js';
 import { trackMetricViewed } from '../analytics/events.js';
 import BackButton from '../components/BackButton.jsx';
 import NavigationLink from '../components/NavigationLink.jsx';
 import SEO from '../components/SEO.jsx';
+
+/**
+ * Share Button Component
+ * Supports native Web Share API with copy-to-clipboard fallback
+ */
+function ShareButton({ url, title }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = useCallback(async () => {
+    const shareUrl = `https://banksift.org${url}`;
+
+    // Try native share API first (mobile + supported desktop browsers)
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, url: shareUrl });
+        return;
+      } catch (err) {
+        // User cancelled share dialog
+        if (err.name === 'AbortError') return;
+        // Fall through to clipboard copy
+      }
+    }
+
+    // Copy link fallback
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback for older browsers without clipboard API
+      const textArea = document.createElement('textarea');
+      textArea.value = shareUrl;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-9999px';
+      textArea.setAttribute('readonly', '');
+      document.body.appendChild(textArea);
+      textArea.select();
+      try { document.execCommand('copy'); } catch { /* ignore */ }
+      document.body.removeChild(textArea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  }, [url, title]);
+
+  return (
+    <button
+      className="share-button"
+      onClick={handleShare}
+      title={copied ? 'Link copied!' : 'Share this metric'}
+      aria-label={copied ? 'Link copied to clipboard' : 'Share this metric'}
+    >
+      {copied ? (
+        <>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          Copied!
+        </>
+      ) : (
+        <>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+            <polyline points="16 6 12 2 8 6" />
+            <line x1="12" y1="2" x2="12" y2="15" />
+          </svg>
+          Share
+        </>
+      )}
+    </button>
+  );
+}
 
 /**
  * Metric Detail Page
@@ -86,7 +157,10 @@ function MetricDetail() {
 
       <article className="metric-article">
         <header className="metric-header">
-          <h1>{metric.name}</h1>
+          <div className="metric-header-row">
+            <h1>{metric.name}</h1>
+            <ShareButton url={`/metrics/${slug}`} title={`${metric.name} - Bank Financial Metric`} />
+          </div>
           <p className="metric-category">{metric.categoryLabel}</p>
         </header>
 
