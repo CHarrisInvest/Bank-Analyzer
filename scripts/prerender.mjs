@@ -210,94 +210,14 @@ async function generatePages() {
   count++;
 
   // Screener page - optimized for "bank screener", "bank stock screener", "bank equity screener" keywords
+  // Note: Schema (BreadcrumbList, WebApplication, FAQPage) is provided at runtime by ScreenerPage.jsx via Helmet.
+  // Do NOT add schema here to avoid duplicate structured data in the rendered HTML.
   writePage('/screener', createPage({
     path: '/screener',
     title: 'Free Bank Stock Screener | Filter Bank Stocks by 25+ Metrics - BankSift',
     description: 'Free bank stock screener to filter and analyze 300+ US bank stocks. Screen bank equities by ROE, P/B ratio, Graham Number, efficiency ratio & 20+ metrics. Updated daily from SEC filings.',
     canonical: `${SITE_URL}/screener`,
     type: 'website',
-    schema: {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": `${SITE_URL}`
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Bank Screener",
-              "item": `${SITE_URL}/screener`
-            }
-          ]
-        },
-        {
-          "@type": "WebApplication",
-          "name": "BankSift Bank Stock Screener",
-          "alternateName": ["Bank Screener", "Bank Equity Screener", "Bank Filter", "The Sifter"],
-          "url": `${SITE_URL}/screener`,
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "Any",
-          "browserRequirements": "Requires JavaScript",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          },
-          "featureList": [
-            "Screen 300+ publicly traded US bank stocks",
-            "Filter banks by 25+ financial metrics",
-            "Graham Number valuation calculations",
-            "Daily updates from SEC EDGAR filings",
-            "Free bank stock screener - no registration required",
-            "Export and sort bank screening results"
-          ],
-          "description": "Free online bank stock screener for filtering and analyzing publicly traded US banks by financial metrics including ROE, ROAA, efficiency ratio, and Graham Number."
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is a bank stock screener?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "A bank stock screener is a tool that filters publicly traded bank stocks based on financial metrics like ROE, P/B ratio, and efficiency ratio. It helps investors find bank stocks that match their investment criteria."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do I screen for undervalued bank stocks?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Use the bank screener to filter by Price to Book ratio below 1.0, Graham Number above current price, and ROE above 10%. These metrics help identify potentially undervalued bank stocks with good fundamentals."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What metrics should I use to screen bank stocks?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Key metrics for screening bank stocks include Return on Equity (ROE), Return on Assets (ROAA), Efficiency Ratio, Net Interest Margin, Price to Book ratio, and the Graham Number for value investing."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is this bank screener free to use?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, BankSift's bank stock screener is completely free. No registration required. Data is updated daily from SEC filings."
-              }
-            }
-          ]
-        }
-      ]
-    },
     content: `
       <h1>Free Bank Stock Screener</h1>
       <p>Screen and filter 300+ publicly traded US bank stocks using comprehensive financial metrics. Our free bank equity screener helps value investors find undervalued bank stocks.</p>
@@ -331,32 +251,13 @@ async function generatePages() {
   count++;
 
   // Screener Guide
+  // Note: Schema (BreadcrumbList, FAQPage) is provided at runtime by ScreenerGuide.jsx via Helmet.
+  // Do NOT add schema here to avoid duplicate structured data in the rendered HTML.
   writePage('/screener/guide', createPage({
     path: '/screener/guide',
     title: 'How to Screen Bank Stocks: Complete Guide | BankSift',
     description: 'Learn how to screen and analyze bank stocks using ROE, P/B ratio, efficiency ratio, and Graham Number. Step-by-step tutorial for finding undervalued bank stocks with the BankSift screener.',
     canonical: `${SITE_URL}/screener/guide`,
-    schema: {
-      "@context": "https://schema.org",
-      "@graph": [
-        createBreadcrumbSchema([
-          { name: "Home", path: "" },
-          { name: "Bank Screener", path: "/screener" },
-          { name: "Guide", path: "/screener/guide" }
-        ]),
-        {
-          "@type": "HowTo",
-          "name": "How to Screen Bank Stocks",
-          "description": "Step-by-step guide to using the BankSift bank stock screener to find investment opportunities.",
-          "step": [
-            { "@type": "HowToStep", "name": "Set Your Criteria", "text": "Use the filters panel to set minimum and maximum values for metrics like ROE, P/B ratio, and efficiency ratio." },
-            { "@type": "HowToStep", "name": "Review Results", "text": "Examine the filtered results table. Click column headers to sort by any metric." },
-            { "@type": "HowToStep", "name": "Analyze Banks", "text": "Click on any ticker to view detailed financial analysis for that bank." },
-            { "@type": "HowToStep", "name": "Export Data", "text": "Use the Export CSV button to download your filtered results for further analysis." }
-          ]
-        }
-      ]
-    },
     content: `
       <h1>Bank Screener Guide</h1>
       <p>Learn how to use the BankSift screener to find bank stock investment opportunities.</p>
@@ -421,68 +322,13 @@ async function generatePages() {
   count++;
 
   // Metrics index - optimized for "bank financial metrics", "bank ratios", "bank analysis metrics"
+  // Note: Schema (BreadcrumbList, FAQPage, ItemList) is provided at runtime by MetricsIndex.jsx via Helmet.
+  // Do NOT add schema here to avoid duplicate structured data in the rendered HTML.
   writePage('/metrics', createPage({
     path: '/metrics',
     title: 'Bank Financial Metrics Explained | ROE, ROAA, Efficiency Ratio Guide - BankSift',
     description: 'Free guide to bank stock financial metrics. Learn ROE, ROAA, efficiency ratio, P/B ratio, net interest margin, and 10+ ratios used to analyze publicly traded US banks.',
     canonical: `${SITE_URL}/metrics`,
-    schema: {
-      "@context": "https://schema.org",
-      "@graph": [
-        createBreadcrumbSchema([
-          { name: "Home", path: "" },
-          { name: "Financial Metrics", path: "/metrics" }
-        ]),
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What financial metrics are important for analyzing banks?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Key financial metrics for analyzing banks include Return on Equity (ROE), Return on Average Assets (ROAA), Net Interest Margin (NIM), Efficiency Ratio, Equity to Assets ratio, and Price to Book (P/B) ratio. These metrics measure profitability, operational efficiency, capital strength, and valuation."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do you measure bank profitability?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Bank profitability is measured primarily through Return on Equity (ROE), Return on Average Assets (ROAA), and Net Interest Margin (NIM). ROE shows how effectively a bank generates profit from shareholder equity (good: above 10%). ROAA measures profit relative to total assets (good: above 1.0%). NIM measures the spread between interest earned and paid (good: above 3.5%)."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is a good ROE for a bank?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "A good Return on Equity (ROE) for banks is typically 10% to 15%. ROE above 10-12% indicates strong profitability and efficient capital use. Top-performing banks may exceed 15%. ROE below 6-8% may indicate weak profitability or operational challenges."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What efficiency ratio is good for banks?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "An efficiency ratio below 55% is considered excellent for banks. Ratios between 50-60% indicate well-managed operations. Ratios above 65-70% may suggest cost control challenges. The efficiency ratio measures operating expenses as a percentage of total revenue."
-              }
-            }
-          ]
-        },
-        {
-          "@type": "ItemList",
-          "name": "Bank Financial Metric Categories",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Profitability Ratios", "url": `${SITE_URL}/metrics#profitability` },
-            { "@type": "ListItem", "position": 2, "name": "Efficiency Ratios", "url": `${SITE_URL}/metrics#efficiency` },
-            { "@type": "ListItem", "position": 3, "name": "Capital & Leverage Ratios", "url": `${SITE_URL}/metrics#capital` },
-            { "@type": "ListItem", "position": 4, "name": "Valuation Metrics", "url": `${SITE_URL}/metrics#valuation` },
-            { "@type": "ListItem", "position": 5, "name": "Per Share Metrics", "url": `${SITE_URL}/metrics#per-share` }
-          ]
-        }
-      ]
-    },
     content: `
       <h1>Bank Financial Metrics &amp; Ratios</h1>
       <p>Understanding financial metrics is essential for analyzing banks effectively. Banks operate differently from most companies — they earn money primarily by borrowing (deposits) and lending at higher rates. The ratios below are specifically relevant to evaluating bank performance, risk, and value.</p>

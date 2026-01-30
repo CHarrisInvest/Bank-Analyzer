@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO.jsx';
 
 /**
  * Terms of Service Page
@@ -10,6 +11,11 @@ function Terms() {
 
   return (
     <div className="page legal-page terms-page">
+      <SEO
+        title="Terms of Service"
+        description="BankSift terms of service and usage conditions."
+        canonical="/terms"
+      />
       <div className="page-header">
         <h1>Terms of Service</h1>
         <p className="last-updated">Last updated: {lastUpdated}</p>

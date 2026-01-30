@@ -4,6 +4,7 @@ import { trackBankViewed, trackBankTabChanged } from '../analytics/events.js';
 import { fetchBankRawData } from '../data/sheets.js';
 import BackButton from '../components/BackButton.jsx';
 import FinancialStatementTable from '../components/FinancialStatementTable.jsx';
+import SEO from '../components/SEO.jsx';
 
 /**
  * Bank Detail Page
@@ -144,8 +145,21 @@ function BankDetail({ banks = [], loading = false }) {
     { id: 'income-statement', label: 'Income Statement' },
   ];
 
+  const bankTicker = bank.ticker ? ` (${bank.ticker})` : '';
+  const metricsSnippet = [
+    bank.metrics?.roe != null ? `ROE: ${bank.metrics.roe.toFixed(2)}%` : null,
+    bank.metrics?.roaa != null ? `ROAA: ${bank.metrics.roaa.toFixed(2)}%` : null,
+    bank.metrics?.efficiencyRatio != null ? `Efficiency: ${bank.metrics.efficiencyRatio.toFixed(1)}%` : null,
+  ].filter(Boolean).join(', ');
+
   return (
     <div className="page bank-detail-page">
+      <SEO
+        title={`${bank.bankName}${bankTicker} - Bank Analysis`}
+        description={`Financial analysis and metrics for ${bank.bankName}${bankTicker}.${metricsSnippet ? ` ${metricsSnippet}.` : ''} View comprehensive SEC filing data and Graham Number valuation.`}
+        canonical={`/bank/${ticker}`}
+        type="article"
+      />
       {/* Back Button */}
       <BackButton />
 
