@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { useLocation } from 'react-router-dom';
 import { useSearchTracking } from '../analytics/useAnalytics.js';
 import NavigationLink from '../components/NavigationLink.jsx';
+import SEO from '../components/SEO.jsx';
 
 // Recent search history configuration
 const RECENT_BANK_SEARCHES_KEY = 'banksift_recentBankSearches';
@@ -184,6 +185,11 @@ function Search({ banks = [], loading = false }) {
 
   return (
     <div className="page search-page">
+      <SEO
+        title="Bank Search"
+        description="Search for specific banks by name, ticker symbol, or CIK number. Access detailed financial metrics and analysis for any publicly traded US bank."
+        canonical="/search"
+      />
       <div className="page-header">
         <h1>Bank Search</h1>
         <p>Find any publicly traded bank by ticker symbol, name, or CIK number.</p>

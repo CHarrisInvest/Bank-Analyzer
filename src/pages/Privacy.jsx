@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO.jsx';
 
 /**
  * Privacy Policy Page
@@ -11,6 +12,11 @@ function Privacy() {
 
   return (
     <div className="page legal-page privacy-page">
+      <SEO
+        title="Privacy Policy"
+        description="BankSift privacy policy. Learn how we handle your data and protect your privacy."
+        canonical="/privacy"
+      />
       <div className="page-header">
         <h1>Privacy Policy</h1>
         <p className="last-updated">Last updated: {lastUpdated}</p>

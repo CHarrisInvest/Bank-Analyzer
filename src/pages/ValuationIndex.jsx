@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { VALUATION_METHODS } from '../data/content/valuations.js';
 import NavigationLink from '../components/NavigationLink.jsx';
+import SEO from '../components/SEO.jsx';
 
 /**
  * Valuation Index Page
@@ -22,6 +23,11 @@ function ValuationIndex() {
 
   return (
     <div className="page valuation-index-page">
+      <SEO
+        title="Bank Valuation Methods Guide"
+        description="Learn how to value bank stocks using Graham Number, margin of safety, P/E ratio, P/B ratio, and other proven valuation methods for bank investing."
+        canonical="/valuation"
+      />
       <div className="page-header">
         <h1>Valuation Methods</h1>
         <p>

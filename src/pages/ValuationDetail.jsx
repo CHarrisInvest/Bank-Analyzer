@@ -4,6 +4,7 @@ import { VALUATION_METHODS } from '../data/content/valuations.js';
 import { trackValuationMethodViewed } from '../analytics/events.js';
 import BackButton from '../components/BackButton.jsx';
 import NavigationLink from '../components/NavigationLink.jsx';
+import SEO from '../components/SEO.jsx';
 
 /**
  * Valuation Method Detail Page
@@ -34,6 +35,12 @@ function ValuationDetail() {
 
   return (
     <div className="page valuation-detail-page">
+      <SEO
+        title={`${method.name} - Bank Valuation Method`}
+        description={`${method.shortDescription} Learn how to use ${method.name} to value bank stocks.`}
+        canonical={`/valuation/${slug}`}
+        type="article"
+      />
       <BackButton />
 
       <nav className="breadcrumb">
