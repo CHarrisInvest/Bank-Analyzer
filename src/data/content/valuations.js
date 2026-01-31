@@ -43,7 +43,8 @@ export const VALUATION_METHODS = [
     type: 'Risk Management Concept',
     shortDescription: 'The discount between intrinsic value and purchase price that provides a buffer against errors.',
     description: 'Margin of Safety is a core principle of value investing that suggests buying securities only when their market price is significantly below their intrinsic value. This gap provides protection against analytical errors, unforeseen events, and market volatility. The concept was central to Benjamin Graham\'s investment philosophy.',
-    formula: 'Margin of Safety = (Intrinsic Value - Current Price) / Intrinsic Value × 100',
+    formula: 'Margin of Safety = (Intrinsic Value - Current Price) / Intrinsic Value',
+    isPercentage: true,
     formulaExplanation: 'Intrinsic Value can be calculated using various methods such as the Graham Number. The margin represents how much cushion exists between your purchase price and estimated fair value.',
     steps: [
       'Estimate the intrinsic value using your preferred method (Graham Number, DCF, etc.).',
@@ -52,7 +53,7 @@ export const VALUATION_METHODS = [
       'Determine if the margin is sufficient for your risk tolerance (typically 20-50%).',
       'Only purchase if the margin of safety meets your criteria.',
     ],
-    example: 'If a bank\'s Graham Number is $60 and the stock trades at $45: Margin of Safety = ($60 - $45) / $60 × 100 = 25%. This 25% margin provides cushion against valuation errors.',
+    example: 'If a bank\'s Graham Number is $60 and the stock trades at $45: Margin of Safety = ($60 - $45) / $60 = 25%. This 25% margin provides cushion against valuation errors.',
     strengths: [
       'Provides explicit risk management framework.',
       'Encourages disciplined, patient investing.',

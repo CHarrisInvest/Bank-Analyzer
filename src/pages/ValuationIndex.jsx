@@ -63,7 +63,9 @@ function ValuationIndex() {
                 <h3>{method.name}</h3>
                 <p className="method-type">{method.type}</p>
                 <p className="method-summary">{method.shortDescription}</p>
-                <span className="method-link">Learn more →</span>
+                <div className="method-card-footer">
+                  <span className="method-learn-badge">Learn more →</span>
+                </div>
               </NavigationLink>
             ))}
           </div>

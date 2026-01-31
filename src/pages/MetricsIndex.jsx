@@ -401,12 +401,14 @@ function MetricsIndex() {
                     <h3>{metric.name}</h3>
                     <p className="metric-formula">{metric.formula}</p>
                     <p className="metric-summary">{metric.shortDescription}</p>
-                    {TYPICAL_RANGE_SHORT[metric.slug] && (
-                      <span className="metric-range-badge">
-                        Typical: {TYPICAL_RANGE_SHORT[metric.slug]}
-                      </span>
-                    )}
-                    <span className="metric-link">Learn more →</span>
+                    <div className="metric-card-footer">
+                      {TYPICAL_RANGE_SHORT[metric.slug] && (
+                        <span className="metric-range-badge">
+                          Typical: {TYPICAL_RANGE_SHORT[metric.slug]}
+                        </span>
+                      )}
+                      <span className="metric-learn-badge">Learn more →</span>
+                    </div>
                   </NavigationLink>
                 ))}
               </div>
