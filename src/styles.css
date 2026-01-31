@@ -5038,17 +5038,13 @@ body {
 }
 
 .formula-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-4);
   background: linear-gradient(135deg, rgba(26, 54, 93, 0.06), rgba(43, 108, 176, 0.1));
   border: 1px solid rgba(43, 108, 176, 0.18);
   border-left: 3px solid var(--color-accent);
   color: var(--color-primary);
   padding: var(--spacing-5);
   border-radius: var(--radius-lg);
-  margin-bottom: var(--spacing-4);
+  margin-bottom: var(--spacing-3);
   overflow-x: auto;
 }
 
@@ -5060,13 +5056,10 @@ body {
 }
 
 .formula-pct-note {
-  flex-shrink: 0;
   font-size: var(--font-size-xs);
   color: var(--color-accent);
-  background: rgba(43, 108, 176, 0.1);
-  padding: var(--spacing-1) var(--spacing-2);
-  border-radius: var(--radius-sm);
-  font-weight: var(--font-weight-medium);
+  font-style: italic;
+  margin-bottom: var(--spacing-2);
 }
 
 .example-box {

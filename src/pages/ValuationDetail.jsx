@@ -65,10 +65,10 @@ function ValuationDetail() {
             <h2>Formula</h2>
             <div className="formula-box">
               <code>{method.formula}</code>
-              {method.isPercentage && (
-                <span className="formula-pct-note">Result expressed as %</span>
-              )}
             </div>
+            {method.isPercentage && (
+              <p className="formula-pct-note">Result is typically expressed as a percentage.</p>
+            )}
             {method.formulaExplanation && (
               <p className="formula-explanation">{method.formulaExplanation}</p>
             )}
