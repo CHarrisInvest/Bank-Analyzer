@@ -384,6 +384,8 @@ export default function FinancialStatementTable({
   // Keyboard navigation state
   const [focusedCell, setFocusedCell] = useState({ row: 0, col: 0 });
   const tableRef = useRef(null);
+  const labelColRef = useRef(null);
+  const [labelColWidth, setLabelColWidth] = useState(280);
 
   // Annotation state (persisted to localStorage)
   const [annotations, setAnnotations] = useState(() => {
@@ -398,6 +400,13 @@ export default function FinancialStatementTable({
 
   // Tooltip state
   const [tooltip, setTooltip] = useState(null);
+
+  // Measure label column width for accurate frozen column positioning
+  useEffect(() => {
+    if (labelColRef.current) {
+      setLabelColWidth(labelColRef.current.offsetWidth);
+    }
+  }, [displayPeriods]);
 
   // Save annotations to localStorage
   useEffect(() => {
@@ -675,7 +684,7 @@ export default function FinancialStatementTable({
     // Determine left position for frozen pinned columns
     const pinnedIndex = [...pinnedPeriods].indexOf(period.key);
     const frozenStyle = isPinned && pinnedIndex >= 0
-      ? { left: `calc(180px + ${pinnedIndex * 100}px)`, zIndex: 2 }
+      ? { left: `${labelColWidth + pinnedIndex * 100}px`, zIndex: 2 }
       : {};
 
     if (derivedUnavailable) {
@@ -859,12 +868,12 @@ export default function FinancialStatementTable({
         <table className="financial-table multi-period" ref={tableRef} onKeyDown={handleKeyDown}>
           <thead>
             <tr>
-              <th className="label-col sticky-col">Item</th>
+              <th className="label-col sticky-col" ref={labelColRef}>Item</th>
               {displayPeriods.map((p, idx) => {
                 const isPinned = pinnedPeriods.has(p.key);
                 const pinnedIndex = [...pinnedPeriods].indexOf(p.key);
                 const frozenStyle = isPinned && pinnedIndex >= 0
-                  ? { left: `calc(180px + ${pinnedIndex * 100}px)`, zIndex: 3 }
+                  ? { left: `${labelColWidth + pinnedIndex * 100}px`, zIndex: 3 }
                   : {};
 
                 return (

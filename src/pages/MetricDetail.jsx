@@ -173,10 +173,10 @@ function MetricDetail() {
           <h2>Formula</h2>
           <div className="formula-box">
             <code>{metric.formula}</code>
-            {metric.isPercentage && (
-              <span className="formula-pct-note">Result expressed as %</span>
-            )}
           </div>
+          {metric.isPercentage && (
+            <p className="formula-pct-note">Result is typically expressed as a percentage.</p>
+          )}
           {metric.formulaExplanation && (
             <p className="formula-explanation">{metric.formulaExplanation}</p>
           )}

@@ -3694,9 +3694,7 @@ body {
   overflow-x: auto;
   margin: 0 calc(-1 * var(--spacing-4));
   padding: 0 var(--spacing-4);
-  /* Smooth scrolling for touch devices */
   -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
 }
 
 .financial-table.multi-period {
@@ -3722,8 +3720,9 @@ body {
 }
 
 .financial-table.multi-period .label-col {
+  width: 280px;
   min-width: 280px;
-  max-width: 350px;
+  max-width: 280px;
 }
 
 .financial-table.multi-period .value-col {
@@ -3761,8 +3760,9 @@ body {
 /* Mobile optimizations */
 @media (max-width: 640px) {
   .financial-table.multi-period .label-col {
-    min-width: 140px;
-    max-width: 180px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
     font-size: var(--font-size-xs);
   }
 
@@ -4105,7 +4105,9 @@ body {
   }
 
   .pin-btn {
-    display: none;
+    font-size: 12px;
+    padding: var(--spacing-1);
+    opacity: 0.5;
   }
 
   .keyboard-hint {
@@ -5036,17 +5038,13 @@ body {
 }
 
 .formula-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-4);
   background: linear-gradient(135deg, rgba(26, 54, 93, 0.06), rgba(43, 108, 176, 0.1));
   border: 1px solid rgba(43, 108, 176, 0.18);
   border-left: 3px solid var(--color-accent);
   color: var(--color-primary);
   padding: var(--spacing-5);
   border-radius: var(--radius-lg);
-  margin-bottom: var(--spacing-4);
+  margin-bottom: var(--spacing-3);
   overflow-x: auto;
 }
 
@@ -5058,13 +5056,10 @@ body {
 }
 
 .formula-pct-note {
-  flex-shrink: 0;
   font-size: var(--font-size-xs);
   color: var(--color-accent);
-  background: rgba(43, 108, 176, 0.1);
-  padding: var(--spacing-1) var(--spacing-2);
-  border-radius: var(--radius-sm);
-  font-weight: var(--font-weight-medium);
+  font-style: italic;
+  margin-bottom: var(--spacing-2);
 }
 
 .example-box {
