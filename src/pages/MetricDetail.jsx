@@ -173,6 +173,9 @@ function MetricDetail() {
           <h2>Formula</h2>
           <div className="formula-box">
             <code>{metric.formula}</code>
+            {metric.isPercentage && (
+              <span className="formula-pct-note">Result expressed as %</span>
+            )}
           </div>
           {metric.formulaExplanation && (
             <p className="formula-explanation">{metric.formulaExplanation}</p>
@@ -218,20 +221,25 @@ function MetricDetail() {
         {metric.relatedMetrics && metric.relatedMetrics.length > 0 && (
           <section className="metric-section">
             <h2>Related Metrics</h2>
-            <div className="related-metrics">
+            <div className="related-metrics-list">
               {metric.relatedMetrics.map(related => {
                 const relatedMetric = METRICS.find(m => m.slug === related);
                 if (!relatedMetric) return null;
+                const description = metric.relatedMetricDescriptions && metric.relatedMetricDescriptions[related];
                 return (
-                  <NavigationLink
-                    key={related}
-                    to={'/metrics/' + related}
-                    state={{ from: 'metrics-detail', returnPath: '/metrics/' + slug }}
-                    className="related-metric-link"
-                    pageTitle={relatedMetric.name}
-                  >
-                    {relatedMetric.name}
-                  </NavigationLink>
+                  <div key={related} className="related-metric-item">
+                    <NavigationLink
+                      to={'/metrics/' + related}
+                      state={{ from: 'metrics-detail', returnPath: '/metrics/' + slug }}
+                      className="related-metric-badge"
+                      pageTitle={relatedMetric.name}
+                    >
+                      {relatedMetric.name}
+                    </NavigationLink>
+                    {description && (
+                      <p className="related-metric-desc">{description}</p>
+                    )}
+                  </div>
                 );
               })}
             </div>

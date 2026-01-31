@@ -4478,7 +4478,8 @@ body {
 
 .metric-card,
 .method-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: var(--spacing-5);
   background: var(--color-white);
   border: 1px solid var(--color-gray-200);
@@ -4522,11 +4523,31 @@ body {
   margin-bottom: var(--spacing-3);
 }
 
-.metric-link,
-.method-link {
-  font-size: var(--font-size-sm);
-  color: var(--color-accent);
+.metric-card-footer,
+.method-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-top: auto;
+  padding-top: var(--spacing-3);
+}
+
+.metric-learn-badge,
+.method-learn-badge {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  color: var(--color-white);
+  background: var(--color-accent);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
   font-weight: var(--font-weight-medium);
+  transition: background var(--transition-fast);
+}
+
+.metric-card:hover .metric-learn-badge,
+.method-card:hover .method-learn-badge {
+  background: var(--color-accent-dark);
 }
 
 .metrics-notes {
@@ -4797,7 +4818,6 @@ body {
   background: rgba(43, 108, 176, 0.08);
   padding: var(--spacing-1) var(--spacing-2);
   border-radius: var(--radius-sm);
-  margin-bottom: var(--spacing-2);
 }
 
 .metric-range-badge .range-label {
@@ -5006,10 +5026,15 @@ body {
   margin-bottom: var(--spacing-2);
 }
 
-.formula-box,
-.example-box {
-  background: var(--color-gray-800);
-  color: var(--color-white);
+.formula-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  background: linear-gradient(135deg, rgba(26, 54, 93, 0.06), rgba(43, 108, 176, 0.1));
+  border: 1px solid rgba(43, 108, 176, 0.18);
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-primary);
   padding: var(--spacing-5);
   border-radius: var(--radius-lg);
   margin-bottom: var(--spacing-4);
@@ -5019,6 +5044,25 @@ body {
 .formula-box code {
   font-family: var(--font-family-mono);
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-dark);
+}
+
+.formula-pct-note {
+  flex-shrink: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-accent);
+  background: rgba(43, 108, 176, 0.1);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.example-box {
+  padding: var(--spacing-5);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-4);
+  overflow-x: auto;
 }
 
 .example-box {
@@ -5091,27 +5135,67 @@ body {
   margin-bottom: 0;
 }
 
-.related-metrics,
+.related-metrics-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.related-metric-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-3);
+}
+
+.related-metric-badge {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  background: rgba(43, 108, 176, 0.1);
+  color: var(--color-accent);
+  border: 1px solid rgba(43, 108, 176, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.related-metric-badge:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.related-metric-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  line-height: 1.5;
+  margin: 0;
+}
+
 .related-methods {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-2);
 }
 
-.related-metric-link,
 .related-method-link {
   padding: var(--spacing-2) var(--spacing-3);
-  background: var(--color-gray-100);
-  color: var(--color-gray-700);
-  border-radius: var(--radius-md);
+  background: rgba(43, 108, 176, 0.1);
+  color: var(--color-accent);
+  border: 1px solid rgba(43, 108, 176, 0.2);
+  border-radius: var(--radius-sm);
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   text-decoration: none;
   transition: all var(--transition-fast);
 }
 
-.related-metric-link:hover,
 .related-method-link:hover {
   background: var(--color-accent);
+  border-color: var(--color-accent);
   color: var(--color-white);
 }
 
