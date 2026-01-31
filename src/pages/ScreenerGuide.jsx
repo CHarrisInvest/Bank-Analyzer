@@ -491,6 +491,16 @@ function ScreenerGuide() {
                       <span className="metric-range"><strong>Typical:</strong> {metric.typicalRange}</span>
                       <span className="metric-interpretation">{metric.interpretation}</span>
                     </div>
+                    <div className="metric-card-footer">
+                      <NavigationLink
+                        to={`/metrics/${metric.slug}`}
+                        state={{ from: 'screener-guide' }}
+                        className="metric-learn-badge"
+                        pageTitle={metric.name}
+                      >
+                        Learn more →
+                      </NavigationLink>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -522,6 +532,16 @@ function ScreenerGuide() {
                   </h4>
                   <p className="metric-description">{method.description}</p>
                   <p className="metric-usage"><strong>Usage:</strong> {method.usage}</p>
+                  <div className="metric-card-footer">
+                    <NavigationLink
+                      to={`/valuation/${method.slug}`}
+                      state={{ from: 'screener-guide' }}
+                      className="metric-learn-badge"
+                      pageTitle={method.name}
+                    >
+                      Learn more →
+                    </NavigationLink>
+                  </div>
                 </div>
               ))}
             </div>
