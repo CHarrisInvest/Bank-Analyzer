@@ -3694,9 +3694,7 @@ body {
   overflow-x: auto;
   margin: 0 calc(-1 * var(--spacing-4));
   padding: 0 var(--spacing-4);
-  /* Smooth scrolling for touch devices */
   -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
 }
 
 .financial-table.multi-period {
@@ -3722,8 +3720,9 @@ body {
 }
 
 .financial-table.multi-period .label-col {
+  width: 280px;
   min-width: 280px;
-  max-width: 350px;
+  max-width: 280px;
 }
 
 .financial-table.multi-period .value-col {
@@ -3761,8 +3760,9 @@ body {
 /* Mobile optimizations */
 @media (max-width: 640px) {
   .financial-table.multi-period .label-col {
-    min-width: 140px;
-    max-width: 180px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
     font-size: var(--font-size-xs);
   }
 
@@ -4105,7 +4105,9 @@ body {
   }
 
   .pin-btn {
-    display: none;
+    font-size: 12px;
+    padding: var(--spacing-1);
+    opacity: 0.5;
   }
 
   .keyboard-hint {
