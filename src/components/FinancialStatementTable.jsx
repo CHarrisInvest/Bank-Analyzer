@@ -401,13 +401,6 @@ export default function FinancialStatementTable({
   // Tooltip state
   const [tooltip, setTooltip] = useState(null);
 
-  // Measure label column width for accurate frozen column positioning
-  useEffect(() => {
-    if (labelColRef.current) {
-      setLabelColWidth(labelColRef.current.offsetWidth);
-    }
-  }, [displayPeriods]);
-
   // Save annotations to localStorage
   useEffect(() => {
     try {
@@ -503,6 +496,13 @@ export default function FinancialStatementTable({
     const unpinned = periods.filter(p => !pinnedPeriods.has(p.key));
     return [...pinned, ...unpinned];
   }, [periods, pinnedPeriods]);
+
+  // Measure label column width for accurate frozen column positioning
+  useEffect(() => {
+    if (labelColRef.current) {
+      setLabelColWidth(labelColRef.current.offsetWidth);
+    }
+  }, [displayPeriods]);
 
   // Handle export
   const handleExport = useCallback(() => {
