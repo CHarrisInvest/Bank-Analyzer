@@ -972,14 +972,14 @@ export default function FinancialStatementTable({
               Annual
             </button>
           </div>
+          <button className="export-btn header-export" onClick={handleExport} title="Export to CSV">
+            ⬇ Export
+          </button>
           {hasMoreQuarters && (
             <button className="expand-btn" onClick={onExpandToggle}>
               {expanded ? 'Show less' : `Show all ${allPeriods.length}`}
             </button>
           )}
-          <button className="export-btn" onClick={handleExport} title="Export to CSV">
-            ⬇ Export
-          </button>
         </div>
       </div>
 

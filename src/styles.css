@@ -3612,6 +3612,10 @@ body {
   flex-shrink: 0;
 }
 
+.statement-header-right .header-export {
+  margin-left: auto;
+}
+
 /* Period Toggle */
 .period-toggle {
   display: flex;
@@ -3679,8 +3683,8 @@ body {
   }
 
   .statement-header-right {
-    justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
   }
 
   .toggle-btn {
