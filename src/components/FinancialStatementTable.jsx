@@ -385,7 +385,6 @@ export default function FinancialStatementTable({
   const [focusedCell, setFocusedCell] = useState({ row: 0, col: 0 });
   const tableRef = useRef(null);
   const labelColRef = useRef(null);
-  const wrapperRef = useRef(null);
   const [labelColWidth, setLabelColWidth] = useState(280);
   const [freezeLabels, setFreezeLabels] = useState(false);
 
@@ -505,30 +504,6 @@ export default function FinancialStatementTable({
       setLabelColWidth(labelColRef.current.offsetWidth);
     }
   }, [displayPeriods]);
-
-  // JS-based scroll transform for frozen labels (iOS Safari fallback)
-  useEffect(() => {
-    if (!freezeLabels || !wrapperRef.current) return;
-
-    const wrapper = wrapperRef.current;
-    let rafId;
-
-    const handleScroll = () => {
-      if (rafId) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        wrapper.style.setProperty('--scroll-x', `${wrapper.scrollLeft}px`);
-      });
-    };
-
-    wrapper.addEventListener('scroll', handleScroll, { passive: true });
-    wrapper.style.setProperty('--scroll-x', `${wrapper.scrollLeft}px`);
-
-    return () => {
-      wrapper.removeEventListener('scroll', handleScroll);
-      if (rafId) cancelAnimationFrame(rafId);
-      wrapper.style.removeProperty('--scroll-x');
-    };
-  }, [freezeLabels]);
 
   // Handle export
   const handleExport = useCallback(() => {
@@ -817,7 +792,7 @@ export default function FinancialStatementTable({
   // Render transposed view (periods as rows, items as columns)
   const renderTransposedTable = () => {
     return (
-      <div className={`financial-table-wrapper${freezeLabels ? ' labels-frozen' : ''}`} ref={wrapperRef}>
+      <div className={`financial-table-wrapper${freezeLabels ? ' labels-frozen' : ''}`}>
         <table className="financial-table multi-period transposed" ref={tableRef} onKeyDown={handleKeyDown}>
           <thead>
             <tr>
@@ -890,7 +865,7 @@ export default function FinancialStatementTable({
     let rowCounter = 0;
 
     return (
-      <div className={`financial-table-wrapper${freezeLabels ? ' labels-frozen' : ''}`} ref={wrapperRef}>
+      <div className={`financial-table-wrapper${freezeLabels ? ' labels-frozen' : ''}`}>
         <table className="financial-table multi-period" ref={tableRef} onKeyDown={handleKeyDown}>
           <thead>
             <tr>
