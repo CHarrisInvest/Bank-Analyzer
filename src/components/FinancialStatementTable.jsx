@@ -385,6 +385,7 @@ export default function FinancialStatementTable({
   const [focusedCell, setFocusedCell] = useState({ row: 0, col: 0 });
   const tableRef = useRef(null);
   const labelColRef = useRef(null);
+  const wrapperRef = useRef(null);
   const [labelColWidth, setLabelColWidth] = useState(280);
   const [freezeLabels, setFreezeLabels] = useState(false);
 
@@ -504,6 +505,32 @@ export default function FinancialStatementTable({
       setLabelColWidth(labelColRef.current.offsetWidth);
     }
   }, [displayPeriods]);
+
+  // Continuous rAF polling for frozen labels (works during iOS momentum scrolling)
+  useEffect(() => {
+    if (!freezeLabels || !wrapperRef.current) return;
+
+    const wrapper = wrapperRef.current;
+    let running = true;
+    let lastScrollLeft = -1;
+
+    const tick = () => {
+      if (!running) return;
+      const scrollLeft = wrapper.scrollLeft;
+      if (scrollLeft !== lastScrollLeft) {
+        wrapper.style.setProperty('--scroll-x', `${scrollLeft}px`);
+        lastScrollLeft = scrollLeft;
+      }
+      requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+
+    return () => {
+      running = false;
+      wrapper.style.removeProperty('--scroll-x');
+    };
+  }, [freezeLabels]);
 
   // Handle export
   const handleExport = useCallback(() => {
@@ -792,7 +819,7 @@ export default function FinancialStatementTable({
   // Render transposed view (periods as rows, items as columns)
   const renderTransposedTable = () => {
     return (
-      <div className={`financial-table-wrapper${freezeLabels ? ' labels-frozen' : ''}`}>
+      <div className={`financial-table-wrapper${freezeLabels ? ' labels-frozen' : ''}`} ref={wrapperRef}>
         <table className="financial-table multi-period transposed" ref={tableRef} onKeyDown={handleKeyDown}>
           <thead>
             <tr>
@@ -865,7 +892,7 @@ export default function FinancialStatementTable({
     let rowCounter = 0;
 
     return (
-      <div className={`financial-table-wrapper${freezeLabels ? ' labels-frozen' : ''}`}>
+      <div className={`financial-table-wrapper${freezeLabels ? ' labels-frozen' : ''}`} ref={wrapperRef}>
         <table className="financial-table multi-period" ref={tableRef} onKeyDown={handleKeyDown}>
           <thead>
             <tr>

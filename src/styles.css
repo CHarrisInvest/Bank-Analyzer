@@ -3784,18 +3784,8 @@ body {
     padding: 0 var(--spacing-3);
   }
 
-  /* Disable sticky labels on mobile by default (Lock Labels re-enables it) */
   .financial-table.multi-period .sticky-col {
-    position: relative;
-    left: auto;
-    box-shadow: none;
-    z-index: auto;
-  }
-
-  .financial-table.multi-period thead th.sticky-col {
-    position: relative;
-    left: auto;
-    z-index: auto;
+    box-shadow: 3px 0 6px -2px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -4410,40 +4400,49 @@ body {
   .freeze-toggle {
     display: flex !important;
   }
+}
 
-  /* Lock Labels re-enables CSS sticky on mobile (pure CSS, no JS) */
-  .labels-frozen .financial-table.multi-period .sticky-col {
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0;
-    z-index: 10;
-    background-color: #ffffff;
-    box-shadow: 3px 0 6px -2px rgba(0, 0, 0, 0.15);
-  }
+/* Lock Labels mode - JS transform with rAF polling for iOS Safari */
+.labels-frozen .financial-table.multi-period .sticky-col {
+  position: relative;
+  left: auto;
+  transform: translateX(var(--scroll-x, 0px));
+  z-index: 20;
+  background-color: #ffffff;
+  box-shadow: 8px 0 0 0 #ffffff, 10px 0 6px -2px rgba(0, 0, 0, 0.15);
+}
 
-  .labels-frozen .financial-table.multi-period thead th.sticky-col {
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0;
-    z-index: 11;
-    background-color: #f7fafc;
-  }
+.labels-frozen .financial-table.multi-period thead th.sticky-col {
+  z-index: 21;
+  background-color: #f7fafc;
+  box-shadow: 8px 0 0 0 #f7fafc, 10px 0 6px -2px rgba(0, 0, 0, 0.15);
+}
 
-  .labels-frozen .financial-table.multi-period tbody tr:nth-child(even) .sticky-col {
-    background-color: #f7fafc;
-  }
+.labels-frozen .financial-table.multi-period tbody tr:nth-child(even) .sticky-col {
+  background-color: #f7fafc;
+  box-shadow: 8px 0 0 0 #f7fafc, 10px 0 6px -2px rgba(0, 0, 0, 0.15);
+}
 
-  .labels-frozen .financial-table.multi-period tbody tr.total-row .sticky-col {
-    background-color: #e2ecf7;
-  }
+.labels-frozen .financial-table.multi-period tbody tr.total-row .sticky-col {
+  background-color: #e2ecf7;
+  box-shadow: 8px 0 0 0 #e2ecf7, 10px 0 6px -2px rgba(0, 0, 0, 0.15);
+}
 
-  .labels-frozen .financial-table.multi-period tbody tr:hover .sticky-col {
-    background-color: #e9f1fc;
-  }
+.labels-frozen .financial-table.multi-period tbody tr:hover .sticky-col {
+  background-color: #e9f1fc;
+  box-shadow: 8px 0 0 0 #e9f1fc, 10px 0 6px -2px rgba(0, 0, 0, 0.15);
+}
 
-  .labels-frozen .financial-table.multi-period tbody tr.total-row:hover .sticky-col {
-    background-color: #deeaf9;
-  }
+.labels-frozen .financial-table.multi-period tbody tr.total-row:hover .sticky-col {
+  background-color: #deeaf9;
+  box-shadow: 8px 0 0 0 #deeaf9, 10px 0 6px -2px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure value cells are positioned so z-index on label cells works reliably */
+.labels-frozen .financial-table.multi-period td:not(.sticky-col),
+.labels-frozen .financial-table.multi-period th:not(.sticky-col) {
+  position: relative;
+  z-index: 1;
 }
 
 /* Keyboard shortcuts hint */
