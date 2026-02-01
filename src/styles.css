@@ -3679,8 +3679,12 @@ body {
   }
 
   .statement-header-right {
-    justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .statement-header-right .header-export {
+    margin-left: auto;
   }
 
   .toggle-btn {
