@@ -118,12 +118,33 @@ function createPage({ path, title, description, canonical, type = 'website', sch
   // React will replace this content when it mounts
   if (content) {
     const seoContent = `
+      <nav id="seo-nav" class="seo-fallback" aria-label="Site navigation">
+        <a href="${SITE_URL}/">BankSift</a> |
+        <a href="${SITE_URL}/search">Bank Search</a> |
+        <a href="${SITE_URL}/screener">Bank Screener</a> |
+        <a href="${SITE_URL}/screener/guide">Screener Guide</a> |
+        <a href="${SITE_URL}/metrics">Metrics &amp; Ratios</a> |
+        <a href="${SITE_URL}/valuation">Valuation Methods</a> |
+        <a href="${SITE_URL}/glossary">Glossary</a>
+      </nav>
       <main id="seo-content" class="seo-fallback">
         ${content}
         <noscript>
           <p>This site works best with JavaScript enabled. Enable JavaScript for the full interactive experience.</p>
         </noscript>
-      </main>`;
+      </main>
+      <footer id="seo-footer" class="seo-fallback">
+        <p>BankSift - Bank Investment Tools. Data sourced from SEC EDGAR filings.</p>
+        <nav aria-label="Footer navigation">
+          <a href="${SITE_URL}/search">Search</a> |
+          <a href="${SITE_URL}/screener">Screener</a> |
+          <a href="${SITE_URL}/metrics">Metrics</a> |
+          <a href="${SITE_URL}/valuation">Valuation</a> |
+          <a href="${SITE_URL}/glossary">Glossary</a> |
+          <a href="${SITE_URL}/privacy">Privacy Policy</a> |
+          <a href="${SITE_URL}/terms">Terms of Service</a>
+        </nav>
+      </footer>`;
     // Replace the loading fallback with actual content
     html = html.replace(
       /<div id="loading-fallback"[\s\S]*?<\/div>\s*<\/div>/,

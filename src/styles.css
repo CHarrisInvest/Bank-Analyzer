@@ -2591,8 +2591,10 @@ body {
   left: 0;
   right: 0;
   z-index: 10000;
-  padding: var(--spacing-5);
-  background: rgba(0, 0, 0, 0.5);
+  padding: var(--spacing-4);
+  /* No dark overlay background - avoids triggering search engine pop-up detection */
+  background: transparent;
+  pointer-events: none;
 }
 
 .cookie-consent-banner {
@@ -2600,8 +2602,10 @@ body {
   margin: 0 auto;
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.15);
   padding: var(--spacing-6);
+  pointer-events: auto;
+  border: 1px solid var(--color-gray-200);
 }
 
 .cookie-consent-content h2 {
