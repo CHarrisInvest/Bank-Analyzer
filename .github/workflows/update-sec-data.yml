@@ -57,6 +57,11 @@ jobs:
           echo "Processing SEC Financial Statement Data Sets..."
           node --expose-gc scripts/fetch-sec-fs-datasets.cjs --verbose
 
+      - name: Update exchange data from SEC EDGAR
+        run: |
+          echo "Refreshing exchange data from SEC EDGAR submissions API..."
+          node scripts/update-exchanges.cjs
+
       # ============================================
       # Commit and Deploy
       # ============================================

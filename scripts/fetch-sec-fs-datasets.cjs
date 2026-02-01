@@ -2691,6 +2691,36 @@ async function main() {
   // Resolve missing tickers via SEC submissions endpoint fallback
   await resolveMissingTickers(bankDataMap, secTickersByCik);
 
+  // Enrich with exchange data from bank-list.json
+  // Each CIK may have multiple entries (common stock + preferred shares).
+  // Prefer the entry matching the bank's ticker, and skip N/A exchanges.
+  if (bankList.length > 0) {
+    // Build CIK -> non-N/A exchange entries
+    const cikExchangeEntries = new Map();
+    for (const bank of bankList) {
+      const cik = bank.cik?.padStart(10, '0');
+      if (!cik || !bank.exchange || bank.exchange === 'N/A') continue;
+      if (!cikExchangeEntries.has(cik)) {
+        cikExchangeEntries.set(cik, []);
+      }
+      cikExchangeEntries.get(cik).push({ ticker: bank.ticker, exchange: bank.exchange, otcTier: bank.otcTier });
+    }
+
+    let exchangeCount = 0;
+    bankDataMap.forEach((bankData, cik) => {
+      const entries = cikExchangeEntries.get(cik);
+      if (entries) {
+        // Prefer entry matching the bank's ticker
+        const tickerMatch = entries.find(e => e.ticker === bankData.ticker);
+        const best = tickerMatch || entries[0];
+        bankData.exchange = best.exchange;
+        if (best.otcTier) bankData.otcTier = best.otcTier;
+        exchangeCount++;
+      }
+    });
+    console.log(`  Enriched ${exchangeCount} banks with exchange data from bank-list.json`);
+  }
+
   // Filter to active filers only (filed within last N days)
   console.log(`\nFiltering to active filers (filed within ${CONFIG.activeFilerThresholdDays} days)...`);
   const now = new Date();
