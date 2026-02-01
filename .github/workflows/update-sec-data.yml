@@ -119,3 +119,24 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify IndexNow (Bing, Yandex)
+        if: success()
+        continue-on-error: true
+        run: |
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "host": "banksift.org",
+              "key": "209cecf4aae383ab7121af6cbfe2248e",
+              "keyLocation": "https://banksift.org/209cecf4aae383ab7121af6cbfe2248e.txt",
+              "urlList": [
+                "https://banksift.org/",
+                "https://banksift.org/screener",
+                "https://banksift.org/screener/guide",
+                "https://banksift.org/search",
+                "https://banksift.org/metrics",
+                "https://banksift.org/valuation",
+                "https://banksift.org/glossary"
+              ]
+            }'
