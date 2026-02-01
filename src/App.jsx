@@ -40,6 +40,7 @@ import ValuationDetail from './pages/ValuationDetail.jsx';
 import Privacy from './pages/Privacy.jsx';
 import Terms from './pages/Terms.jsx';
 import Glossary from './pages/Glossary.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 /**
  * Main Application Component
@@ -134,8 +135,8 @@ function App() {
             <Route path="privacy" element={<Privacy />} />
             <Route path="terms" element={<Terms />} />
 
-            {/* 404 - Redirect to home */}
-            <Route path="*" element={<Home />} />
+            {/* 404 - Proper not found page with noindex */}
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

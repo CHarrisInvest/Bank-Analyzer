@@ -7,5 +7,5 @@ Allow: /
 # Sitemap location
 Sitemap: https://banksift.org/sitemap.xml
 
-# Disallow data files (large JSON files)
-Disallow: /data/*.json
+# Disallow data directory (large JSON data files not intended for indexing)
+Disallow: /data/

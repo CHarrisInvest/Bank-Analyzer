@@ -111,10 +111,12 @@
     </script>
 
     <script>
-      // Immediate diagnostic - runs before any modules load
+      // Log JavaScript errors to console without destroying pre-rendered content
+      // Important: Do NOT replace document.body.innerHTML as that destroys
+      // SEO content needed by search engine crawlers (Bingbot, Googlebot)
       window.onerror = function(msg, url, line) {
-        document.body.innerHTML = '<div style="padding:20px;font-family:sans-serif;"><h1>JavaScript Error</h1><p>' + msg + '</p><p>File: ' + url + '</p><p>Line: ' + line + '</p></div>';
-        return true;
+        console.error('BankSift error:', msg, 'at', url, ':', line);
+        return false;
       };
     </script>
   </head>
