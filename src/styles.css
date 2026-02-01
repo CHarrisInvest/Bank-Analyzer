@@ -4406,11 +4406,41 @@ body {
   transform: translateX(var(--scroll-x, 0px));
   will-change: transform;
   z-index: 10;
-  box-shadow: 2px 0 8px -2px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  box-shadow: 3px 0 6px -2px rgba(0, 0, 0, 0.15);
+}
+
+/* Extend background past cell edge so values disappear behind labels */
+.labels-frozen .financial-table.multi-period .sticky-col::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -10px;
+  bottom: 0;
+  width: 10px;
+  background: inherit;
+  pointer-events: none;
 }
 
 .labels-frozen .financial-table.multi-period thead th.sticky-col {
   z-index: 11;
+  background-color: #f7fafc;
+}
+
+.labels-frozen .financial-table.multi-period tbody tr:nth-child(even) .sticky-col {
+  background-color: #f7fafc;
+}
+
+.labels-frozen .financial-table.multi-period tbody tr.total-row .sticky-col {
+  background-color: #e2ecf7;
+}
+
+.labels-frozen .financial-table.multi-period tbody tr:hover .sticky-col {
+  background-color: #e9f1fc;
+}
+
+.labels-frozen .financial-table.multi-period tbody tr.total-row:hover .sticky-col {
+  background-color: #deeaf9;
 }
 
 /* Keyboard shortcuts hint */

@@ -1002,6 +1002,9 @@ export default function FinancialStatementTable({
               {expanded ? 'Show less' : `Show all ${allPeriods.length}`}
             </button>
           )}
+          <button className="export-btn" onClick={handleExport} title="Export to CSV">
+            ⬇ Export
+          </button>
         </div>
       </div>
 
@@ -1054,9 +1057,6 @@ export default function FinancialStatementTable({
             />
             <span>Lock Labels</span>
           </label>
-          <button className="export-btn" onClick={handleExport} title="Export to CSV">
-            ⬇ Export
-          </button>
         </div>
       </div>
 
