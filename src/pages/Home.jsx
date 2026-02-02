@@ -158,7 +158,7 @@ function Home() {
       <section className="hero-section">
         <div className="hero-content">
           <h1>BankSift</h1>
-          <p className="hero-tagline">Bank Stock Investment Tools</p>
+          <p className="hero-tagline">Bank Investment Tools</p>
           <p className="hero-subtitle">
             Sift through the noise. Screen and analyze publicly traded bank stocks using
             official SEC filing data. Updated daily.
@@ -172,7 +172,7 @@ function Home() {
               Open Screener
             </Link>
             <Link to="/search" className="btn btn-secondary btn-lg">
-              Search Bank Stocks
+              Search Banks
             </Link>
           </div>
         </div>
@@ -188,12 +188,12 @@ function Home() {
                 <SearchIcon />
               </div>
             </Link>
-            <h3>Bank Stock Search</h3>
+            <h3>Bank Search</h3>
             <p>
               Quickly find any publicly traded bank stock by ticker symbol, name,
               or exchange. Access detailed financial profiles instantly.
             </p>
-            <Link to="/search" className="feature-link">Search Bank Stocks →</Link>
+            <Link to="/search" className="feature-link">Search Banks →</Link>
           </div>
 
           <div className="feature-card">
@@ -202,7 +202,7 @@ function Home() {
                 <ScreenerIcon />
               </div>
             </Link>
-            <h3>Bank Stock Screener <em>"The Sifter"</em></h3>
+            <h3>Bank Screener <em>"The Sifter"</em></h3>
             <p>
               Filter bank stocks by financial metrics like ROE, efficiency ratio,
               price-to-book, and more. Find stocks that match your criteria.
