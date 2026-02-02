@@ -65,11 +65,11 @@ function Layout() {
               Data sourced from SEC EDGAR filings. For informational purposes only. 
               Not investment advice. Always conduct your own research before making investment decisions.
             </p>
-            <p className="footer-copyright">
-              &copy; {new Date().getFullYear()} BankSift. All rights reserved.
-            </p>
             <p className="footer-shortcuts-hint">
               Press <kbd>?</kbd> for keyboard shortcuts
+            </p>
+            <p className="footer-copyright">
+              &copy; {new Date().getFullYear()} BankSift. All rights reserved.
             </p>
           </div>
         </div>
