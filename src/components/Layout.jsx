@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import Navigation from './Navigation.jsx';
 import CookieConsent from './CookieConsent.jsx';
+import KeyboardShortcutsModal from './KeyboardShortcutsModal.jsx';
 import { usePageTracking, useScrollTracking, useSessionTracking } from '../analytics/useAnalytics.js';
 
 /**
@@ -28,8 +29,8 @@ function Layout() {
             <div className="footer-section">
               <h3>BankSift</h3>
               <p>
-                Bank Investment Tools. Sift through the noise.
-                Free tools for analyzing publicly traded banks using SEC filing data.
+                Bank Stock Investment Tools. Sift through the noise.
+                Free tools for analyzing publicly traded bank stocks using SEC filing data.
               </p>
             </div>
             
@@ -66,12 +67,14 @@ function Layout() {
             </p>
             <p className="footer-copyright">
               &copy; {new Date().getFullYear()} BankSift. All rights reserved.
+              <span className="footer-shortcuts-hint">Press <kbd>?</kbd> for keyboard shortcuts</span>
             </p>
           </div>
         </div>
       </footer>
 
       <CookieConsent />
+      <KeyboardShortcutsModal />
     </div>
   );
 }

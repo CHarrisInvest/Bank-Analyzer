@@ -157,6 +157,35 @@ export async function fetchBankData(options = {}) {
 }
 
 /**
+ * Fetch bank list data (all tickers including preferred/hybrid securities)
+ * Cached after first fetch to avoid repeated downloads
+ */
+let bankListCache = null;
+
+export async function fetchBankList() {
+  if (bankListCache) return bankListCache;
+
+  try {
+    let url = import.meta.env.BASE_URL + 'data/bank-list.json';
+    if (DATA_CONFIG.cacheBuster) {
+      url += `?t=${Date.now()}`;
+    }
+
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' },
+    });
+
+    if (!response.ok) return null;
+    const data = await response.json();
+    bankListCache = data.banks || [];
+    return bankListCache;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Get unique exchange values from bank data
  * @param {Object[]} banks - Array of bank records
  * @returns {string[]} Unique exchange values

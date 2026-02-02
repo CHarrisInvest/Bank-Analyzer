@@ -2570,6 +2570,22 @@ body {
   color: var(--color-gray-500);
 }
 
+.footer-shortcuts-hint {
+  margin-left: var(--spacing-3);
+  color: var(--color-gray-400);
+}
+
+.footer-shortcuts-hint kbd {
+  display: inline-block;
+  padding: 0 0.3rem;
+  background: var(--color-gray-100);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-sans);
+  color: var(--color-gray-500);
+}
+
 @media (max-width: 768px) {
   .footer-content {
     grid-template-columns: 1fr 1fr;
@@ -2709,6 +2725,145 @@ body {
 }
 
 /* --------------------------------------------------------------------------
+   Keyboard Shortcuts Modal
+   -------------------------------------------------------------------------- */
+.shortcuts-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-5);
+}
+
+.shortcuts-modal {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 560px;
+  width: 100%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.shortcuts-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-5) var(--spacing-6);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.shortcuts-header h2 {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-800);
+  margin: 0;
+}
+
+.shortcuts-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-gray-400);
+  padding: var(--spacing-1);
+  border-radius: var(--radius-sm);
+}
+
+.shortcuts-close:hover {
+  color: var(--color-gray-600);
+  background: var(--color-gray-100);
+}
+
+.shortcuts-body {
+  padding: var(--spacing-5) var(--spacing-6);
+  overflow-y: auto;
+}
+
+.shortcuts-section {
+  margin-bottom: var(--spacing-5);
+}
+
+.shortcuts-section:last-child {
+  margin-bottom: 0;
+}
+
+.shortcuts-section h3 {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-3);
+}
+
+.shortcuts-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.shortcut-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+}
+
+.shortcut-keys {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.shortcut-keys kbd {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-sans);
+  color: var(--color-gray-700);
+  line-height: 1.4;
+  box-shadow: 0 1px 0 var(--color-gray-200);
+}
+
+.shortcut-separator {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+  margin: 0 0.1rem;
+}
+
+.shortcut-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+}
+
+.shortcuts-footer {
+  padding: var(--spacing-3) var(--spacing-6);
+  border-top: 1px solid var(--color-gray-200);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+  text-align: center;
+}
+
+.shortcuts-footer kbd {
+  display: inline-block;
+  padding: 0.1rem 0.35rem;
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-sans);
+  color: var(--color-gray-600);
+  box-shadow: 0 1px 0 var(--color-gray-200);
+}
+
+/* --------------------------------------------------------------------------
    Page Styles - Common
    -------------------------------------------------------------------------- */
 .page {
@@ -2768,6 +2923,14 @@ body {
   max-width: 480px;
   margin: 0 auto var(--spacing-4);
   line-height: 1.7;
+}
+
+.hero-access-note {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: var(--spacing-3);
+  letter-spacing: 0.03em;
+  font-weight: var(--font-weight-medium);
 }
 
 .hero-cta-text {
@@ -3490,6 +3653,58 @@ body {
 .info-link:hover {
   background: var(--color-accent);
   color: var(--color-white);
+}
+
+/* Associated Securities */
+.associated-securities {
+  margin-top: var(--spacing-2);
+}
+
+.associated-securities-note {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  margin-bottom: var(--spacing-4);
+}
+
+.securities-group {
+  margin-bottom: var(--spacing-4);
+}
+
+.securities-group:last-child {
+  margin-bottom: 0;
+}
+
+.securities-group-label {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-600);
+  margin-bottom: var(--spacing-2);
+}
+
+.securities-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.security-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: 0.2rem 0.5rem;
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  color: var(--color-gray-700);
+}
+
+.security-tag-exchange {
+  font-size: 0.65rem;
+  color: var(--color-gray-400);
+  font-family: var(--font-sans);
 }
 
 /* Financial Statements Tables */
@@ -5545,6 +5760,46 @@ body {
   color: var(--color-gray-600);
   line-height: 1.6;
   margin: 0;
+}
+
+/* Guide keyboard shortcuts grid */
+.guide-shortcuts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+
+.guide-shortcuts-group h4 {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-700);
+  margin-bottom: var(--spacing-2);
+}
+
+.guide-shortcuts-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guide-shortcuts-group li {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  padding: 0.2rem 0;
+}
+
+.guide-shortcuts-group kbd {
+  display: inline-block;
+  padding: 0.1rem 0.35rem;
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-sans);
+  color: var(--color-gray-700);
+  box-shadow: 0 1px 0 var(--color-gray-200);
+  margin-right: 0.15rem;
 }
 
 /* Metrics reference grid */

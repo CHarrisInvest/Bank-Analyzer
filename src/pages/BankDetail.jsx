@@ -1,10 +1,24 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import { trackBankViewed, trackBankTabChanged } from '../analytics/events.js';
-import { fetchBankRawData } from '../data/sheets.js';
+import { fetchBankRawData, fetchBankList } from '../data/sheets.js';
 import BackButton from '../components/BackButton.jsx';
 import FinancialStatementTable from '../components/FinancialStatementTable.jsx';
 import SEO from '../components/SEO.jsx';
+
+/**
+ * Classify a security ticker by type based on naming conventions.
+ * NYSE/NASDAQ preferred shares use -P suffix (e.g., BAC-PB, BML-PG).
+ * Warrants use -WT or -WS. Rights use -RT. Units use -UN.
+ */
+function classifySecurityType(ticker) {
+  if (!ticker) return 'Other';
+  if (/-P[A-Z]?$/.test(ticker)) return 'Preferred';
+  if (/-W[TS]?$/.test(ticker)) return 'Warrant';
+  if (/-R[T]?$/.test(ticker)) return 'Rights';
+  if (/-U[N]?$/.test(ticker)) return 'Unit';
+  return 'Other';
+}
 
 /**
  * Bank Detail Page
@@ -18,6 +32,7 @@ function BankDetail({ banks = [], loading = false }) {
   // State for on-demand raw data loading
   const [bankRawData, setBankRawData] = useState(null);
   const [rawDataLoading, setRawDataLoading] = useState(false);
+  const [associatedTickers, setAssociatedTickers] = useState([]);
 
   // Find the bank by ticker
   const bank = useMemo(() => {
@@ -50,6 +65,28 @@ function BankDetail({ banks = [], loading = false }) {
 
     loadBankRawData();
   }, [bank?.cik]);
+
+  // Fetch associated tickers from bank-list.json
+  useEffect(() => {
+    if (!bank?.cik) {
+      setAssociatedTickers([]);
+      return;
+    }
+
+    fetchBankList().then(bankList => {
+      if (!bankList) return;
+      const paddedCik = bank.cik.toString().padStart(10, '0');
+      const associated = bankList
+        .filter(b => b.cik === paddedCik && b.ticker !== bank.ticker)
+        .map(b => ({
+          ticker: b.ticker,
+          type: classifySecurityType(b.ticker),
+          exchange: b.exchange !== 'N/A' ? b.exchange : null,
+        }))
+        .sort((a, b) => a.ticker.localeCompare(b.ticker));
+      setAssociatedTickers(associated);
+    });
+  }, [bank?.cik, bank?.ticker]);
 
   // Track page view
   useEffect(() => {
@@ -194,7 +231,7 @@ function BankDetail({ banks = [], loading = false }) {
       {/* Tab Content */}
       <div className="bank-tab-content">
         {activeTab === 'overview' && (
-          <OverviewTab bank={bank} formatCurrency={formatCurrency} formatPercent={formatPercent} formatNumber={formatNumber} />
+          <OverviewTab bank={bank} associatedTickers={associatedTickers} formatCurrency={formatCurrency} formatPercent={formatPercent} formatNumber={formatNumber} />
         )}
         {activeTab === 'ratios' && (
           <RatiosTab bank={bank} formatCurrency={formatCurrency} formatPercent={formatPercent} formatNumber={formatNumber} />
@@ -213,7 +250,26 @@ function BankDetail({ banks = [], loading = false }) {
 /**
  * Overview Tab - Filer info and key metrics
  */
-function OverviewTab({ bank, formatCurrency, formatPercent, formatNumber }) {
+function OverviewTab({ bank, associatedTickers = [], formatCurrency, formatPercent, formatNumber }) {
+  // Group associated tickers by type
+  const tickersByType = useMemo(() => {
+    const groups = {};
+    for (const t of associatedTickers) {
+      if (!groups[t.type]) groups[t.type] = [];
+      groups[t.type].push(t);
+    }
+    return groups;
+  }, [associatedTickers]);
+
+  const typeLabels = {
+    Preferred: 'Preferred Stock',
+    Warrant: 'Warrants',
+    Rights: 'Rights',
+    Unit: 'Units',
+    Other: 'Other Securities',
+  };
+  const typeOrder = ['Preferred', 'Warrant', 'Rights', 'Unit', 'Other'];
+
   return (
     <div className="tab-overview">
       <div className="overview-grid">
@@ -281,6 +337,31 @@ function OverviewTab({ bank, formatCurrency, formatPercent, formatNumber }) {
           </dl>
         </div>
       </div>
+
+      {/* Associated Securities */}
+      {associatedTickers.length > 0 && (
+        <div className="info-card associated-securities">
+          <h3>Associated Securities</h3>
+          <p className="associated-securities-note">
+            Other securities filed under the same SEC entity (CIK {bank.cik}).
+          </p>
+          {typeOrder.filter(type => tickersByType[type]).map(type => (
+            <div key={type} className="securities-group">
+              <span className="securities-group-label">
+                {typeLabels[type]} ({tickersByType[type].length})
+              </span>
+              <div className="securities-tags">
+                {tickersByType[type].map(t => (
+                  <span key={t.ticker} className="security-tag">
+                    {t.ticker}
+                    {t.exchange && <span className="security-tag-exchange">{t.exchange}</span>}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
