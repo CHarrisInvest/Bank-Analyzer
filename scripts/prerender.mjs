@@ -157,19 +157,38 @@ function createPage({ path, title, description, canonical, type = 'website', sch
 
 /**
  * Write HTML file to dist directory
+ *
+ * Creates both directory/index.html AND flat .html files for each page.
+ * This ensures GitHub Pages can serve the content at clean URLs without
+ * redirects. GitHub Pages clean URLs feature serves "screener.html" at
+ * "/screener" directly (200), avoiding the redirect chain that occurs
+ * when only "screener/index.html" exists (/screener → 301 → /screener/).
  */
 function writePage(path, html) {
-  const filePath = path === '/'
-    ? join(distDir, 'index.html')
-    : join(distDir, path, 'index.html');
+  // Home page: just dist/index.html
+  if (path === '/') {
+    writeFileSync(join(distDir, 'index.html'), html);
+    return join(distDir, 'index.html');
+  }
 
-  const dir = dirname(filePath);
+  // Sub-pages: create both formats
+  // 1. dist/screener/index.html (serves /screener/ with trailing slash)
+  const dirPath = join(distDir, path, 'index.html');
+  const dir = dirname(dirPath);
   if (!existsSync(dir)) {
     mkdirSync(dir, { recursive: true });
   }
+  writeFileSync(dirPath, html);
 
-  writeFileSync(filePath, html);
-  return filePath;
+  // 2. dist/screener.html (serves /screener via GitHub Pages clean URLs, no redirect)
+  const flatPath = join(distDir, `${path}.html`);
+  const flatDir = dirname(flatPath);
+  if (!existsSync(flatDir)) {
+    mkdirSync(flatDir, { recursive: true });
+  }
+  writeFileSync(flatPath, html);
+
+  return dirPath;
 }
 
 function escapeHtml(text) {
