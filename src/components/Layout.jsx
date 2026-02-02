@@ -29,7 +29,7 @@ function Layout() {
             <div className="footer-section">
               <h3>BankSift</h3>
               <p>
-                Bank Stock Investment Tools. Sift through the noise.
+                Bank Investment Tools. Sift through the noise.
                 Free tools for analyzing publicly traded bank stocks using SEC filing data.
               </p>
             </div>
@@ -65,9 +65,11 @@ function Layout() {
               Data sourced from SEC EDGAR filings. For informational purposes only. 
               Not investment advice. Always conduct your own research before making investment decisions.
             </p>
+            <p className="footer-shortcuts-hint">
+              Press <kbd>?</kbd> for keyboard shortcuts
+            </p>
             <p className="footer-copyright">
               &copy; {new Date().getFullYear()} BankSift. All rights reserved.
-              <span className="footer-shortcuts-hint">Press <kbd>?</kbd> for keyboard shortcuts</span>
             </p>
           </div>
         </div>
