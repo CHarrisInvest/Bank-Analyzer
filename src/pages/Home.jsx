@@ -151,17 +151,20 @@ function Home() {
     <div className="page home-page">
       <SEO
         title={null}
-        description="BankSift - Bank Investment Tools. Sift through the noise. Screen and analyze 300+ publicly traded banks using official SEC filing data. Free tools for value investors."
+        description="BankSift - Bank Stock Investment Tools. Sift through the noise. Screen and analyze 300+ publicly traded bank stocks using official SEC filing data. Free tools for value investors."
         canonical="/"
       />
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
           <h1>BankSift</h1>
-          <p className="hero-tagline">Bank Investment Tools</p>
+          <p className="hero-tagline">Bank Stock Investment Tools</p>
           <p className="hero-subtitle">
-            Sift through the noise. Screen and analyze publicly traded banks using
+            Sift through the noise. Screen and analyze publicly traded bank stocks using
             official SEC filing data. Updated daily.
+          </p>
+          <p className="hero-access-note">
+            No account. No sign up. No email required.
           </p>
           <p className="hero-cta-text">Screen. Analyze. Invest.</p>
           <div className="hero-actions">
@@ -169,7 +172,7 @@ function Home() {
               Open Screener
             </Link>
             <Link to="/search" className="btn btn-secondary btn-lg">
-              Search Banks
+              Search Bank Stocks
             </Link>
           </div>
         </div>
@@ -185,12 +188,12 @@ function Home() {
                 <SearchIcon />
               </div>
             </Link>
-            <h3>Bank Search</h3>
+            <h3>Bank Stock Search</h3>
             <p>
-              Quickly find any publicly traded bank by ticker symbol, name, state,
+              Quickly find any publicly traded bank stock by ticker symbol, name,
               or exchange. Access detailed financial profiles instantly.
             </p>
-            <Link to="/search" className="feature-link">Search Banks →</Link>
+            <Link to="/search" className="feature-link">Search Bank Stocks →</Link>
           </div>
 
           <div className="feature-card">
@@ -199,10 +202,10 @@ function Home() {
                 <ScreenerIcon />
               </div>
             </Link>
-            <h3>Bank Screener <em>"The Sifter"</em></h3>
+            <h3>Bank Stock Screener <em>"The Sifter"</em></h3>
             <p>
-              Filter banks by financial metrics like ROE, efficiency ratio,
-              price-to-book, and more. Find banks that match your criteria.
+              Filter bank stocks by financial metrics like ROE, efficiency ratio,
+              price-to-book, and more. Find stocks that match your criteria.
             </p>
             <Link to="/screener" className="feature-link">Open Screener →</Link>
           </div>
@@ -244,7 +247,7 @@ function Home() {
           <div className="data-point">
             <DatabaseIcon />
             <span className="data-value">300+</span>
-            <span className="data-label">Banks Tracked</span>
+            <span className="data-label">Bank Stocks Tracked</span>
           </div>
           <div className="data-point">
             <RefreshIcon />
@@ -273,8 +276,8 @@ function Home() {
             <span className="step-number">1</span>
             <h3>Choose Your Tool</h3>
             <p>
-              Use the Screener for filtering multiple banks by criteria, or
-              Search to find a specific bank quickly.
+              Use the Screener for filtering multiple bank stocks by criteria, or
+              Search to find a specific bank stock quickly.
             </p>
           </div>
           <div className="step-card">
@@ -289,7 +292,7 @@ function Home() {
             <span className="step-number">3</span>
             <h3>Analyze Results</h3>
             <p>
-              Review detailed profiles, compare banks side-by-side, and dive
+              Review detailed stock profiles, compare banks side-by-side, and dive
               into financial statements.
             </p>
           </div>

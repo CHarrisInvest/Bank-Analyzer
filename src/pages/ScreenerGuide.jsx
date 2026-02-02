@@ -435,11 +435,40 @@ function ScreenerGuide() {
           </div>
 
           <div className="feature-item">
-            <h3>Keyboard Navigation</h3>
+            <h3>Keyboard Shortcuts</h3>
             <p>
-              Navigate the results table using arrow keys. Use Page Up/Down to move quickly,
-              and Home/End to jump to the first or last column. Ctrl+Home jumps to the first row.
+              BankSift supports keyboard shortcuts throughout the application. Press <kbd>?</kbd> at
+              any time to see the full list. Here are the key shortcuts:
             </p>
+            <div className="guide-shortcuts-grid">
+              <div className="guide-shortcuts-group">
+                <h4>Global</h4>
+                <ul>
+                  <li><kbd>/</kbd> Focus search input</li>
+                  <li><kbd>?</kbd> Show all keyboard shortcuts</li>
+                  <li><kbd>Esc</kbd> Close dropdown or blur input</li>
+                </ul>
+              </div>
+              <div className="guide-shortcuts-group">
+                <h4>Screener Results Table</h4>
+                <ul>
+                  <li><kbd>&uarr;</kbd> <kbd>&darr;</kbd> Navigate rows</li>
+                  <li><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate columns</li>
+                  <li><kbd>Page Up</kbd> / <kbd>Page Down</kbd> Jump 10 rows</li>
+                  <li><kbd>Home</kbd> / <kbd>End</kbd> First or last column</li>
+                  <li><kbd>Ctrl+Home</kbd> First row and column</li>
+                </ul>
+              </div>
+              <div className="guide-shortcuts-group">
+                <h4>Financial Statement Tables</h4>
+                <ul>
+                  <li><kbd>&uarr;</kbd> <kbd>&darr;</kbd> <kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate cells</li>
+                  <li><kbd>Enter</kbd> Pin or unpin a column</li>
+                  <li><kbd>N</kbd> Add a note to the focused cell</li>
+                  <li><kbd>Home</kbd> / <kbd>End</kbd> First or last column</li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           <div className="feature-item">
