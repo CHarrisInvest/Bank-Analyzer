@@ -29,7 +29,7 @@ function Layout() {
             <div className="footer-section">
               <h3>BankSift</h3>
               <p>
-                Bank Stock Investment Tools. Sift through the noise.
+                Bank Investment Tools. Sift through the noise.
                 Free tools for analyzing publicly traded bank stocks using SEC filing data.
               </p>
             </div>
@@ -67,7 +67,9 @@ function Layout() {
             </p>
             <p className="footer-copyright">
               &copy; {new Date().getFullYear()} BankSift. All rights reserved.
-              <span className="footer-shortcuts-hint">Press <kbd>?</kbd> for keyboard shortcuts</span>
+            </p>
+            <p className="footer-shortcuts-hint">
+              Press <kbd>?</kbd> for keyboard shortcuts
             </p>
           </div>
         </div>
