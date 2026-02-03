@@ -1,7 +1,22 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { METRICS } from '../data/content/metrics.js';
+import { VALUATION_METHODS } from '../data/content/valuations.js';
 import { trackMetricViewed } from '../analytics/events.js';
+
+// Cross-links from metrics to related valuation methods
+const METRIC_TO_VALUATIONS = {
+  'roe': ['roe-pb-framework', 'peer-comparison'],
+  'roaa': ['peer-comparison'],
+  'net-interest-margin': ['peer-comparison'],
+  'efficiency-ratio': ['peer-comparison'],
+  'equity-to-assets': ['roe-pb-framework'],
+  'book-value-per-share': ['graham-number', 'price-to-book-valuation'],
+  'price-to-earnings': ['price-to-earnings-valuation'],
+  'price-to-book': ['price-to-book-valuation', 'roe-pb-framework'],
+  'earnings-per-share': ['graham-number', 'margin-of-safety'],
+  'dividend-payout-ratio': ['dividend-discount-model'],
+};
 import BackButton from '../components/BackButton.jsx';
 import NavigationLink from '../components/NavigationLink.jsx';
 import SEO from '../components/SEO.jsx';
@@ -239,6 +254,31 @@ function MetricDetail() {
                     {description && (
                       <p className="related-metric-desc">{description}</p>
                     )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {METRIC_TO_VALUATIONS[slug] && METRIC_TO_VALUATIONS[slug].length > 0 && (
+          <section className="metric-section">
+            <h2>Related Valuation Methods</h2>
+            <div className="related-metrics-list">
+              {METRIC_TO_VALUATIONS[slug].map(valSlug => {
+                const valMethod = VALUATION_METHODS.find(v => v.slug === valSlug);
+                if (!valMethod) return null;
+                return (
+                  <div key={valSlug} className="related-metric-item">
+                    <NavigationLink
+                      to={'/valuation/' + valSlug}
+                      state={{ from: 'metrics-detail', returnPath: '/metrics/' + slug }}
+                      className="related-metric-badge"
+                      pageTitle={valMethod.name}
+                    >
+                      {valMethod.name}
+                    </NavigationLink>
+                    <p className="related-metric-desc">{valMethod.shortDescription}</p>
                   </div>
                 );
               })}

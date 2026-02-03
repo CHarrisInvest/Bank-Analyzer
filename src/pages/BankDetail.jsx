@@ -184,9 +184,9 @@ function BankDetail({ banks = [], loading = false }) {
 
   const bankTicker = bank.ticker ? ` (${bank.ticker})` : '';
   const metricsSnippet = [
-    bank.metrics?.roe != null ? `ROE: ${bank.metrics.roe.toFixed(2)}%` : null,
-    bank.metrics?.roaa != null ? `ROAA: ${bank.metrics.roaa.toFixed(2)}%` : null,
-    bank.metrics?.efficiencyRatio != null ? `Efficiency: ${bank.metrics.efficiencyRatio.toFixed(1)}%` : null,
+    bank.roe != null ? `ROE: ${bank.roe.toFixed(2)}%` : null,
+    bank.roaa != null ? `ROAA: ${bank.roaa.toFixed(2)}%` : null,
+    bank.efficiencyRatio != null ? `Efficiency: ${bank.efficiencyRatio.toFixed(1)}%` : null,
   ].filter(Boolean).join(', ');
 
   return (

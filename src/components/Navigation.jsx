@@ -18,6 +18,7 @@ function BankIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <path d="M3 21h18" />
       <path d="M3 10h18" />
@@ -42,6 +43,7 @@ function SearchIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <circle cx="11" cy="11" r="8" />
       <path d="M21 21l-4.35-4.35" />
@@ -61,6 +63,7 @@ function ScreenerIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <path d="M3 3v18h18" />
       <path d="M18 17V9" />
@@ -82,6 +85,7 @@ function BookIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
       <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
@@ -101,6 +105,7 @@ function InfoIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <circle cx="12" cy="12" r="10" />
       <path d="M12 16v-4" />
@@ -121,6 +126,7 @@ function ChevronIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <path d="M3 5l3 3 3-3" />
     </svg>
