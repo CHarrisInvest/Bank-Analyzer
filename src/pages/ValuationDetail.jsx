@@ -1,7 +1,19 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { VALUATION_METHODS } from '../data/content/valuations.js';
+import { METRICS } from '../data/content/metrics.js';
 import { trackValuationMethodViewed } from '../analytics/events.js';
+
+// Cross-links from valuation methods to related metrics
+const VALUATION_TO_METRICS = {
+  'graham-number': ['earnings-per-share', 'book-value-per-share', 'price-to-earnings', 'price-to-book'],
+  'margin-of-safety': ['earnings-per-share', 'book-value-per-share'],
+  'price-to-book-valuation': ['price-to-book', 'book-value-per-share', 'equity-to-assets', 'roe'],
+  'price-to-earnings-valuation': ['price-to-earnings', 'earnings-per-share', 'roe'],
+  'roe-pb-framework': ['roe', 'price-to-book', 'equity-to-assets'],
+  'dividend-discount-model': ['dividend-payout-ratio', 'earnings-per-share', 'roe'],
+  'peer-comparison': ['roe', 'roaa', 'efficiency-ratio', 'price-to-book', 'price-to-earnings'],
+};
 import BackButton from '../components/BackButton.jsx';
 import NavigationLink from '../components/NavigationLink.jsx';
 import SEO from '../components/SEO.jsx';
@@ -137,6 +149,29 @@ function ValuationDetail() {
                     pageTitle={relatedMethod.name}
                   >
                     {relatedMethod.name}
+                  </NavigationLink>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {VALUATION_TO_METRICS[slug] && VALUATION_TO_METRICS[slug].length > 0 && (
+          <section className="valuation-section">
+            <h2>Related Metrics</h2>
+            <div className="related-methods">
+              {VALUATION_TO_METRICS[slug].map(metricSlug => {
+                const metric = METRICS.find(m => m.slug === metricSlug);
+                if (!metric) return null;
+                return (
+                  <NavigationLink
+                    key={metricSlug}
+                    to={'/metrics/' + metricSlug}
+                    state={{ from: 'valuation-detail', returnPath: '/valuation/' + slug }}
+                    className="related-method-link"
+                    pageTitle={metric.name}
+                  >
+                    {metric.name}
                   </NavigationLink>
                 );
               })}

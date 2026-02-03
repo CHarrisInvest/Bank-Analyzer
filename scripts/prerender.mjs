@@ -18,6 +18,7 @@ const srcDir = join(__dirname, '..', 'src');
 
 const SITE_URL = 'https://banksift.org';
 const SITE_NAME = 'BankSift';
+const BUILD_DATE = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 
 // Read the built index.html as template
 let template;
@@ -91,6 +92,21 @@ function createPage({ path, title, description, canonical, type = 'website', sch
     /<meta property="og:type" content="[^"]*"/,
     `<meta property="og:type" content="${type}"`
   );
+
+  // Add article:modified_time meta tag for freshness signals
+  const modifiedTimeMeta = `<meta property="article:modified_time" content="${BUILD_DATE}"`;
+  // Insert before og:type or replace existing
+  if (html.includes('article:modified_time')) {
+    html = html.replace(
+      /<meta property="article:modified_time" content="[^"]*"/,
+      modifiedTimeMeta
+    );
+  } else {
+    html = html.replace(
+      /<meta property="og:type"/,
+      `${modifiedTimeMeta} />\n    ${`<meta property="og:type"`}`
+    );
+  }
 
   // Update Twitter tags
   html = html.replace(
@@ -222,6 +238,29 @@ function createBreadcrumbSchema(items) {
 async function generatePages() {
   const { metrics, valuations, banks } = await loadData();
   let count = 0;
+
+  // Cross-link mappings between metrics and valuation methods
+  const METRIC_TO_VALUATIONS = {
+    'roe': ['roe-pb-framework', 'peer-comparison'],
+    'roaa': ['peer-comparison'],
+    'net-interest-margin': ['peer-comparison'],
+    'efficiency-ratio': ['peer-comparison'],
+    'equity-to-assets': ['roe-pb-framework'],
+    'book-value-per-share': ['graham-number', 'price-to-book-valuation'],
+    'price-to-earnings': ['price-to-earnings-valuation'],
+    'price-to-book': ['price-to-book-valuation', 'roe-pb-framework'],
+    'earnings-per-share': ['graham-number', 'margin-of-safety'],
+    'dividend-payout-ratio': ['dividend-discount-model'],
+  };
+  const VALUATION_TO_METRICS = {
+    'graham-number': ['earnings-per-share', 'book-value-per-share', 'price-to-earnings', 'price-to-book'],
+    'margin-of-safety': ['earnings-per-share', 'book-value-per-share'],
+    'price-to-book-valuation': ['price-to-book', 'book-value-per-share', 'equity-to-assets', 'roe'],
+    'price-to-earnings-valuation': ['price-to-earnings', 'earnings-per-share', 'roe'],
+    'roe-pb-framework': ['roe', 'price-to-book', 'equity-to-assets'],
+    'dividend-discount-model': ['dividend-payout-ratio', 'earnings-per-share', 'roe'],
+    'peer-comparison': ['roe', 'roaa', 'efficiency-ratio', 'price-to-book', 'price-to-earnings'],
+  };
 
   console.log('Pre-rendering pages for SEO...\n');
 
@@ -727,6 +766,7 @@ async function generatePages() {
             "@type": "Article",
             "headline": metric.name,
             "description": metric.shortDescription,
+            "dateModified": BUILD_DATE,
             "author": {
               "@type": "Organization",
               "name": "BankSift"
@@ -775,6 +815,16 @@ async function generatePages() {
             }).filter(Boolean).join('\n            ')}
           </ul>
           ` : ''}
+          ${METRIC_TO_VALUATIONS[metric.slug] ? `
+          <h2>Related Valuation Methods</h2>
+          <ul>
+            ${METRIC_TO_VALUATIONS[metric.slug].map(valSlug => {
+              const val = valuations.find(v => v.slug === valSlug);
+              if (!val) return '';
+              return `<li><a href="${SITE_URL}/valuation/${valSlug}">${escapeHtml(val.name)}</a> — ${escapeHtml(val.shortDescription)}</li>`;
+            }).filter(Boolean).join('\n            ')}
+          </ul>
+          ` : ''}
           <h2>Data Source</h2>
           <p>This metric is calculated using data from SEC EDGAR filings. ${escapeHtml(metric.dataSource)}</p>
           <p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to filter 300+ banks by ${escapeHtml(metric.name)} and other metrics.</p>
@@ -811,6 +861,7 @@ async function generatePages() {
             "@type": "Article",
             "headline": valuation.name,
             "description": valuation.shortDescription,
+            "dateModified": BUILD_DATE,
             "author": {
               "@type": "Organization",
               "name": "BankSift"
@@ -858,6 +909,16 @@ async function generatePages() {
               const related = valuations.find(v => v.slug === slug);
               if (!related) return '';
               return `<li><a href="${SITE_URL}/valuation/${slug}">${escapeHtml(related.name)}</a> — ${escapeHtml(related.shortDescription)}</li>`;
+            }).filter(Boolean).join('\n            ')}
+          </ul>
+          ` : ''}
+          ${VALUATION_TO_METRICS[valuation.slug] ? `
+          <h2>Related Metrics</h2>
+          <ul>
+            ${VALUATION_TO_METRICS[valuation.slug].map(metricSlug => {
+              const met = metrics.find(m => m.slug === metricSlug);
+              if (!met) return '';
+              return `<li><a href="${SITE_URL}/metrics/${metricSlug}">${escapeHtml(met.name)}</a> — ${escapeHtml(met.shortDescription)}</li>`;
             }).filter(Boolean).join('\n            ')}
           </ul>
           ` : ''}
@@ -919,6 +980,7 @@ async function generatePages() {
             "@type": "FinancialProduct",
             "name": bankName,
             "description": `Financial analysis for ${bankName}`,
+            "dateModified": BUILD_DATE,
             "provider": {
               "@type": "Corporation",
               "name": bankName,

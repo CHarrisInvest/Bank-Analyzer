@@ -132,6 +132,18 @@ function ValuationIndex() {
             </li>
           </ul>
         </section>
+
+        <div className="metrics-cross-links">
+          <Link to="/metrics" className="btn btn-secondary btn-lg">
+            Metrics & Ratios
+          </Link>
+          <Link to="/screener/guide" className="btn btn-secondary btn-lg">
+            Screener Guide
+          </Link>
+          <Link to="/screener" className="btn btn-primary btn-lg">
+            Open Screener
+          </Link>
+        </div>
       </div>
     </div>
   );
