@@ -252,6 +252,8 @@ async function generatePages() {
       <h1>BankSift</h1>
       <p><strong>Bank Investment Tools</strong> — Sift through the noise.</p>
       <p>Screen and analyze publicly traded bank stocks using official SEC filing data. Compare banks by profitability, efficiency, valuation, and capital strength metrics — all updated daily.</p>
+      <p><strong>No account. No sign up. No email required.</strong></p>
+      <p><em>Screen. Analyze. Invest.</em></p>
       <h2>What You Can Do</h2>
       <ul>
         <li><a href="${SITE_URL}/screener">Bank Stock Screener</a> — Filter 300+ banks by 25+ financial metrics including ROE, ROAA, P/B ratio, efficiency ratio, and Graham Number.</li>
@@ -261,8 +263,18 @@ async function generatePages() {
         <li><a href="${SITE_URL}/glossary">Glossary</a> — Definitions of bank financial terms and SEC filing concepts.</li>
       </ul>
       <h2>Reliable Data You Can Trust</h2>
+      <ul>
+        <li><strong>300+ Bank Stocks Tracked</strong></li>
+        <li><strong>Daily Data Updates</strong></li>
+        <li><strong>SEC Official Source</strong></li>
+      </ul>
       <p>All financial data is sourced directly from the SEC EDGAR database. Our automated systems pull the latest 10-K and 10-Q filings daily, calculating trailing twelve month (TTM) metrics and key financial ratios for over 300 publicly traded US banks.</p>
       <h2>Getting Started</h2>
+      <ol>
+        <li><strong>Choose Your Tool:</strong> Use the <a href="${SITE_URL}/screener">Screener</a> for filtering multiple bank stocks by criteria, or <a href="${SITE_URL}/search">Search</a> to find a specific bank stock quickly.</li>
+        <li><strong>Apply Filters:</strong> Set your preferred ranges for metrics like <a href="${SITE_URL}/metrics/roe">ROE</a>, <a href="${SITE_URL}/metrics/efficiency-ratio">efficiency ratio</a>, <a href="${SITE_URL}/metrics/price-to-book">price multiples</a>, and more.</li>
+        <li><strong>Analyze Results:</strong> Review detailed stock profiles, compare banks side-by-side, and dive into financial statements.</li>
+      </ol>
       <p>New to bank stock analysis? Start with the <a href="${SITE_URL}/screener/guide">Screener Guide</a> to learn how to filter and evaluate bank stocks step by step.</p>
     `
   }));
@@ -480,7 +492,11 @@ async function generatePages() {
     },
     content: `
       <h1>Bank Valuation Methods</h1>
-      <p>Learn proven methods for valuing bank stocks and finding investment opportunities. Each method below explains the formula, step-by-step application, strengths, limitations, and bank-specific considerations.</p>
+      <p>Bank valuation requires specialized approaches due to the unique nature of financial institutions. This guide covers various methodologies used to assess the intrinsic value of bank stocks.</p>
+
+      <h2>Why Bank Valuation is Different</h2>
+      <p>Banks operate differently from typical industrial companies. Their primary business involves borrowing money (deposits) and lending it out at higher rates. This means traditional valuation metrics like EV/EBITDA are not applicable. Instead, bank analysts focus on book value, earnings quality, and regulatory capital measures.</p>
+
       <h2>Intrinsic Value Methods</h2>
       <ul>
         <li><a href="${SITE_URL}/valuation/graham-number">Graham Number</a> — Benjamin Graham's formula for estimating the maximum fair price based on earnings per share and book value per share.</li>
@@ -497,8 +513,24 @@ async function generatePages() {
       <ul>
         <li><a href="${SITE_URL}/valuation/roe-pb-framework">ROE-P/B Valuation Framework</a> — Links the justified Price to Book multiple to a bank's Return on Equity, identifying mispriced bank stocks.</li>
       </ul>
-      <h2>Applying Valuation to Bank Stocks</h2>
-      <p>Banks are valued differently from most companies because their assets are primarily financial instruments. Price to Book is the dominant metric because bank book value represents tangible net worth. Use the <a href="${SITE_URL}/screener">Bank Screener</a> to find banks that meet your valuation criteria across 300+ publicly traded US banks.</p>
+
+      <h2>General Valuation Framework</h2>
+      <ol>
+        <li><strong>Assess Quality:</strong> Evaluate the bank's asset quality, management effectiveness, earnings consistency, and regulatory standing.</li>
+        <li><strong>Analyze Profitability:</strong> Examine return metrics (<a href="${SITE_URL}/metrics/roe">ROE</a>, <a href="${SITE_URL}/metrics/roaa">ROAA</a>), <a href="${SITE_URL}/metrics/efficiency-ratio">efficiency ratios</a>, and <a href="${SITE_URL}/metrics/net-interest-margin">net interest margins</a> relative to peers.</li>
+        <li><strong>Apply Valuation Metrics:</strong> Use appropriate multiples (<a href="${SITE_URL}/metrics/price-to-book">P/B</a>, <a href="${SITE_URL}/metrics/price-to-earnings">P/E</a>) and intrinsic value methods based on the bank's characteristics.</li>
+        <li><strong>Compare to Peers:</strong> Benchmark against similar banks in terms of size, geography, business model, and risk profile.</li>
+      </ol>
+
+      <h2>Important Cautions</h2>
+      <ul>
+        <li><strong>Book Value Adjustments:</strong> Reported book value may not reflect true economic value due to loan loss provisions, held-to-maturity securities, and other accounting treatments.</li>
+        <li><strong>Interest Rate Sensitivity:</strong> Bank valuations are heavily influenced by interest rate expectations. Rising rates generally help net interest margins but can hurt bond portfolios.</li>
+        <li><strong>Credit Cycle Timing:</strong> Bank earnings are cyclical. Valuations should account for where we are in the credit cycle.</li>
+        <li><strong>Regulatory Changes:</strong> Banks operate in a heavily regulated environment. New regulations can significantly impact profitability.</li>
+      </ul>
+
+      <p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to find banks that meet your valuation criteria across 300+ publicly traded US banks.</p>
     `
   }));
   count++;
@@ -520,32 +552,111 @@ async function generatePages() {
     },
     content: `
       <h1>Financial Terms Glossary</h1>
-      <p>Definitions and explanations of key bank financial terms, SEC filing concepts, and analysis metrics used in bank stock investing.</p>
-      <h2>Key Metrics</h2>
-      <ul>
-        <li><strong><a href="${SITE_URL}/metrics/roe">Return on Equity (ROE)</a></strong> — Measures how effectively a bank generates profits from shareholder investments.</li>
-        <li><strong><a href="${SITE_URL}/metrics/roaa">Return on Average Assets (ROAA)</a></strong> — Measures how efficiently a bank uses total assets to generate earnings.</li>
-        <li><strong><a href="${SITE_URL}/metrics/net-interest-margin">Net Interest Margin (NIM)</a></strong> — The spread between interest earned and interest paid.</li>
-        <li><strong><a href="${SITE_URL}/metrics/efficiency-ratio">Efficiency Ratio</a></strong> — Operating cost management, comparing expenses to revenue.</li>
-        <li><strong><a href="${SITE_URL}/metrics/price-to-book">Price to Book (P/B)</a></strong> — Compares stock price to book value per share.</li>
-        <li><strong><a href="${SITE_URL}/metrics/price-to-earnings">Price to Earnings (P/E)</a></strong> — Compares stock price to per-share earnings.</li>
-      </ul>
-      <h2>SEC Filing Terms</h2>
-      <ul>
-        <li><strong>SEC EDGAR</strong> — Electronic Data Gathering system for free public access to corporate filings.</li>
-        <li><strong>10-K Filing</strong> — Annual report with audited financial statements and risk factors.</li>
-        <li><strong>10-Q Filing</strong> — Quarterly report with unaudited financial statements.</li>
-        <li><strong>Trailing Twelve Months (TTM)</strong> — Sum of the last four quarters, providing an up-to-date annual figure.</li>
-        <li><strong>CIK Number</strong> — Central Index Key, a unique SEC identifier for each filing company.</li>
-      </ul>
-      <h2>Valuation Terms</h2>
-      <ul>
-        <li><strong><a href="${SITE_URL}/valuation/graham-number">Graham Number</a></strong> — Intrinsic value estimate based on EPS and book value.</li>
-        <li><strong><a href="${SITE_URL}/valuation/margin-of-safety">Margin of Safety</a></strong> — Discount between intrinsic value and purchase price.</li>
-        <li><strong>Tangible Book Value</strong> — Equity minus intangible assets and goodwill.</li>
-        <li><strong>Net Interest Income</strong> — Interest earned on assets minus interest paid on deposits.</li>
-      </ul>
-      <p>See all <a href="${SITE_URL}/metrics">financial metrics</a> and <a href="${SITE_URL}/valuation">valuation methods</a> for detailed explanations.</p>
+      <p>Comprehensive definitions of financial terms, metrics, and concepts used in bank analysis. Click on any term with a link to learn more.</p>
+
+      <h2>Profitability Metrics</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/metrics/roe">Return on Equity (ROE)</a></dt>
+        <dd>Measures how effectively a bank generates profits from shareholder investments.</dd>
+        <dt><a href="${SITE_URL}/metrics/roaa">Return on Average Assets (ROAA)</a></dt>
+        <dd>Measures how efficiently a bank uses its total assets to generate earnings.</dd>
+        <dt><a href="${SITE_URL}/metrics/net-interest-margin">Net Interest Margin (NIM)</a></dt>
+        <dd>Measures the spread between interest earned and interest paid relative to earning assets.</dd>
+      </dl>
+
+      <h2>Efficiency Metrics</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/metrics/efficiency-ratio">Efficiency Ratio</a></dt>
+        <dd>Measures operating efficiency by comparing expenses to revenue.</dd>
+        <dt><a href="${SITE_URL}/metrics/deposits-to-assets">Deposits to Assets Ratio</a></dt>
+        <dd>Shows what portion of bank assets are funded by customer deposits.</dd>
+        <dt><a href="${SITE_URL}/metrics/loans-to-deposits">Loans to Deposits Ratio</a></dt>
+        <dd>Compares lending activity to deposit funding.</dd>
+      </dl>
+
+      <h2>Capital &amp; Leverage Metrics</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/metrics/equity-to-assets">Equity to Assets Ratio</a></dt>
+        <dd>Measures capital strength by comparing equity to total assets.</dd>
+        <dt><a href="${SITE_URL}/metrics/loans-to-assets">Loans to Assets Ratio</a></dt>
+        <dd>Shows what portion of assets are deployed in loans.</dd>
+      </dl>
+
+      <h2>Valuation Metrics</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/metrics/book-value-per-share">Book Value Per Share (BVPS)</a></dt>
+        <dd>The net asset value attributable to each common share.</dd>
+        <dt><a href="${SITE_URL}/metrics/price-to-earnings">Price to Earnings (P/E) Ratio</a></dt>
+        <dd>Compares stock price to per-share earnings.</dd>
+        <dt><a href="${SITE_URL}/metrics/price-to-book">Price to Book (P/B) Ratio</a></dt>
+        <dd>Compares stock price to book value per share.</dd>
+      </dl>
+
+      <h2>Per-Share Metrics</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/metrics/earnings-per-share">Earnings Per Share (EPS)</a></dt>
+        <dd>Net profit attributable to each common share.</dd>
+        <dt><a href="${SITE_URL}/metrics/dividend-payout-ratio">Dividend Payout Ratio</a></dt>
+        <dd>Percentage of earnings paid out as dividends.</dd>
+      </dl>
+
+      <h2>Valuation Methods</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/valuation/graham-number">Graham Number</a></dt>
+        <dd>A value investing formula for estimating the maximum fair price based on earnings and book value.</dd>
+        <dt><a href="${SITE_URL}/valuation/margin-of-safety">Margin of Safety</a></dt>
+        <dd>The discount between intrinsic value and purchase price that provides a buffer against errors.</dd>
+        <dt><a href="${SITE_URL}/valuation/price-to-book-valuation">Price to Book Valuation</a></dt>
+        <dd>Valuing banks based on the ratio of market price to accounting book value.</dd>
+        <dt><a href="${SITE_URL}/valuation/price-to-earnings-valuation">Price to Earnings Valuation</a></dt>
+        <dd>Valuing banks based on the ratio of market price to per-share earnings.</dd>
+        <dt><a href="${SITE_URL}/valuation/roe-pb-framework">ROE-P/B Valuation Framework</a></dt>
+        <dd>A framework linking justified price-to-book multiple to return on equity.</dd>
+        <dt><a href="${SITE_URL}/valuation/dividend-discount-model">Dividend Discount Model</a></dt>
+        <dd>Values a bank based on the present value of expected future dividends.</dd>
+        <dt><a href="${SITE_URL}/valuation/peer-comparison">Peer Comparison Analysis</a></dt>
+        <dd>Valuing a bank by comparing its metrics and multiples to similar banks.</dd>
+      </dl>
+
+      <h2>SEC Filing &amp; Data Terms</h2>
+      <dl>
+        <dt>SEC EDGAR</dt>
+        <dd>The Electronic Data Gathering, Analysis, and Retrieval system operated by the U.S. Securities and Exchange Commission. It provides free public access to corporate filings including 10-K annual reports and 10-Q quarterly reports.</dd>
+        <dt>10-K Filing</dt>
+        <dd>An annual report required by the SEC that provides a comprehensive summary of a company's financial performance. It includes audited financial statements, management discussion, and risk factors.</dd>
+        <dt>10-Q Filing</dt>
+        <dd>A quarterly report required by the SEC that provides unaudited financial statements and updates on a company's financial condition. Banks file 10-Q reports for Q1, Q2, and Q3 each year.</dd>
+        <dt>Trailing Twelve Months (TTM)</dt>
+        <dd>A financial measurement that sums the last four quarters of data to provide an up-to-date annual figure. TTM smooths out seasonal variations and provides more current data than the last fiscal year.</dd>
+        <dt>SIC Code</dt>
+        <dd>Standard Industrial Classification code used to categorize companies by industry. Banks typically fall under SIC codes 6021 (National Commercial Banks), 6022 (State Commercial Banks), 6035-6036 (Savings Institutions).</dd>
+        <dt>CIK Number</dt>
+        <dd>Central Index Key - a unique identifier assigned by the SEC to each company and individual who files with the SEC. Used to look up filings in the EDGAR database.</dd>
+      </dl>
+
+      <h2>Financial Concepts</h2>
+      <dl>
+        <dt>Tangible Book Value</dt>
+        <dd>Total shareholders' equity minus intangible assets and goodwill. Represents the theoretical value shareholders would receive if all tangible assets were liquidated and all liabilities paid.</dd>
+        <dt>Net Interest Income</dt>
+        <dd>The difference between interest earned on assets (primarily loans) and interest paid on liabilities (primarily deposits). This is typically the largest revenue source for traditional banks.</dd>
+        <dt>Non-Interest Income</dt>
+        <dd>Revenue from sources other than interest, including service charges, fees, trading gains, and investment income. Also called fee income.</dd>
+        <dt>Non-Interest Expense</dt>
+        <dd>Operating expenses excluding interest expense. Includes salaries, occupancy costs, technology, marketing, and other administrative expenses.</dd>
+        <dt>Market Capitalization</dt>
+        <dd>The total market value of a company's outstanding shares, calculated as share price multiplied by shares outstanding. Used to classify companies as small-cap, mid-cap, or large-cap.</dd>
+        <dt>Shares Outstanding</dt>
+        <dd>The total number of shares of a company's stock currently held by all shareholders, including institutional investors and company insiders.</dd>
+        <dt>Intrinsic Value</dt>
+        <dd>The perceived or calculated true value of a company based on fundamental analysis, regardless of its current market price. Different valuation methods may produce different intrinsic values.</dd>
+        <dt>Value Investing</dt>
+        <dd>An investment strategy that involves buying securities that appear underpriced based on fundamental analysis. Popularized by Benjamin Graham and Warren Buffett.</dd>
+      </dl>
+
+      <h2>Using This Glossary</h2>
+      <p>This glossary covers financial metrics and terms commonly used in bank stock analysis. Terms linked to detailed pages include formulas, interpretation guides, and typical ranges for banks. All data on BankSift is sourced from official SEC EDGAR filings.</p>
+      <p><a href="${SITE_URL}/metrics">Explore all metrics</a> | <a href="${SITE_URL}/screener">Use the screener</a></p>
     `
   }));
   count++;
@@ -820,6 +931,16 @@ async function generatePages() {
         <article>
           <h1>${escapeHtml(bankName)}${escapeHtml(ticker)}</h1>
           <p>Comprehensive financial analysis for ${escapeHtml(bankName)}${escapeHtml(ticker)} based on SEC EDGAR filings. Data updated daily from official 10-K and 10-Q reports.</p>
+          <h2>Company Information</h2>
+          <dl>
+            <dt>Legal Name</dt><dd>${escapeHtml(bankName)}</dd>
+            ${bank.ticker ? `<dt>Ticker Symbol</dt><dd>${escapeHtml(bank.ticker)}</dd>` : ''}
+            ${bank.exchange ? `<dt>Exchange</dt><dd>${escapeHtml(bank.exchange)}</dd>` : ''}
+            <dt>CIK Number</dt><dd>${escapeHtml(bank.cik)}</dd>
+            ${bank.sic ? `<dt>SIC Code</dt><dd>${bank.sic}</dd>` : ''}
+            ${bank.sicDescription ? `<dt>Industry</dt><dd>${escapeHtml(bank.sicDescription)}</dd>` : ''}
+            ${bank.sharesOutstanding != null ? `<dt>Shares Outstanding</dt><dd>${bank.sharesOutstanding >= 1e9 ? (bank.sharesOutstanding / 1e9).toFixed(2) + 'B' : (bank.sharesOutstanding / 1e6).toFixed(1) + 'M'}</dd>` : ''}
+          </dl>
           ${bank.roe != null || bank.roaa != null || bank.efficiencyRatio != null ? `
           <h2>Profitability &amp; Efficiency Metrics</h2>
           <dl>
@@ -848,6 +969,23 @@ async function generatePages() {
             ${bank.totalAssets != null ? `<dt>Total Assets</dt><dd>$${(bank.totalAssets / 1e9).toFixed(2)}B</dd>` : ''}
             ${bank.totalDeposits != null ? `<dt>Total Deposits</dt><dd>$${(bank.totalDeposits / 1e9).toFixed(2)}B</dd>` : ''}
             ${bank.totalEquity != null ? `<dt>Total Equity</dt><dd>$${(bank.totalEquity / 1e6).toFixed(1)}M</dd>` : ''}
+          </dl>
+          ` : ''}
+          ${bank.price != null || bank.marketCap != null ? `
+          <h2>Market Data</h2>
+          <dl>
+            ${bank.price != null ? `<dt>Stock Price</dt><dd>$${bank.price.toFixed(2)}</dd>` : ''}
+            ${bank.marketCap != null ? `<dt>Market Capitalization</dt><dd>$${bank.marketCap >= 1e9 ? (bank.marketCap / 1e9).toFixed(2) + 'B' : (bank.marketCap / 1e6).toFixed(1) + 'M'}</dd>` : ''}
+          </dl>
+          ` : ''}
+          ${bank.ttmNetIncome != null || bank.ttmNetInterestIncome != null || bank.ttmEps != null || bank.ttmDividendPerShare != null ? `
+          <h2>TTM Performance</h2>
+          <dl>
+            ${bank.ttmNetIncome != null ? `<dt>Net Income (TTM)</dt><dd>$${Math.abs(bank.ttmNetIncome) >= 1e9 ? (bank.ttmNetIncome / 1e9).toFixed(2) + 'B' : (bank.ttmNetIncome / 1e6).toFixed(1) + 'M'}</dd>` : ''}
+            ${bank.ttmNetInterestIncome != null ? `<dt>Net Interest Income (TTM)</dt><dd>$${Math.abs(bank.ttmNetInterestIncome) >= 1e9 ? (bank.ttmNetInterestIncome / 1e9).toFixed(2) + 'B' : (bank.ttmNetInterestIncome / 1e6).toFixed(1) + 'M'}</dd>` : ''}
+            ${bank.ttmEps != null ? `<dt><a href="${SITE_URL}/metrics/earnings-per-share">Earnings Per Share (TTM)</a></dt><dd>$${bank.ttmEps.toFixed(2)}</dd>` : ''}
+            ${bank.ttmDividendPerShare != null ? `<dt>Dividend Per Share (TTM)</dt><dd>$${bank.ttmDividendPerShare.toFixed(2)}</dd>` : ''}
+            ${bank.dividendPayoutRatio != null ? `<dt><a href="${SITE_URL}/metrics/dividend-payout-ratio">Dividend Payout Ratio</a></dt><dd>${bank.dividendPayoutRatio.toFixed(1)}%</dd>` : ''}
           </dl>
           ` : ''}
           <h2>SEC Filing Data</h2>
