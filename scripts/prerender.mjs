@@ -225,6 +225,19 @@ async function generatePages() {
 
   console.log('Pre-rendering pages for SEO...\n');
 
+  // Build a list of all banks with tickers for use in the Search page,
+  // sorted by total assets so the largest banks appear first
+  const linkedBanks = banks
+    .filter(b => b.ticker && b.totalAssets)
+    .sort((a, b) => b.totalAssets - a.totalAssets);
+
+  function generateBankLinksHtml(bankList) {
+    return bankList.map(b => {
+      const cik = b.cik.replace(/^0+/, '');
+      return `<li><a href="${SITE_URL}/bank/${cik}">${escapeHtml(b.bankName)} (${escapeHtml(b.ticker)})</a></li>`;
+    }).join('\n            ');
+  }
+
   // ============================================
   // STATIC PAGES
   // ============================================
@@ -233,18 +246,36 @@ async function generatePages() {
   writePage('/', createPage({
     path: '/',
     title: 'BankSift - Bank Investment Tools',
-    description: 'Sift through the noise. Screen and analyze 300+ publicly traded banks using comprehensive financial metrics from SEC filings. Free tools for value investors.',
+    description: 'Screen and analyze 300+ publicly traded banks using SEC filing data. Free screener, Graham Number calculator, and 25+ financial metrics for value investors.',
     canonical: SITE_URL,
     content: `
-      <h1>BankSift - Bank Investment Tools</h1>
-      <p>Sift through the noise. Screen and analyze publicly traded banks.</p>
-      <h2>Features</h2>
+      <h1>BankSift</h1>
+      <p><strong>Bank Investment Tools</strong> — Sift through the noise.</p>
+      <p>Screen and analyze publicly traded bank stocks using official SEC filing data. Compare banks by profitability, efficiency, valuation, and capital strength metrics — all updated daily.</p>
+      <p><strong>No account. No sign up. No email required.</strong></p>
+      <p><em>Screen. Analyze. Invest.</em></p>
+      <h2>What You Can Do</h2>
       <ul>
-        <li>Bank Screener - Filter 300+ banks by 25+ metrics</li>
-        <li>Graham Number Calculator</li>
-        <li>Daily SEC data updates</li>
-        <li>Comprehensive metrics education</li>
+        <li><a href="${SITE_URL}/screener">Bank Stock Screener</a> — Filter 300+ banks by 25+ financial metrics including ROE, ROAA, P/B ratio, efficiency ratio, and Graham Number.</li>
+        <li><a href="${SITE_URL}/search">Bank Search</a> — Find any publicly traded bank by name, ticker symbol, or CIK number.</li>
+        <li><a href="${SITE_URL}/metrics">Financial Metrics Guide</a> — Learn how to calculate and interpret key bank analysis ratios.</li>
+        <li><a href="${SITE_URL}/valuation">Valuation Methods</a> — Apply Graham Number, margin of safety, P/B valuation, dividend discount models, and peer comparison analysis.</li>
+        <li><a href="${SITE_URL}/glossary">Glossary</a> — Definitions of bank financial terms and SEC filing concepts.</li>
       </ul>
+      <h2>Reliable Data You Can Trust</h2>
+      <ul>
+        <li><strong>300+ Bank Stocks Tracked</strong></li>
+        <li><strong>Daily Data Updates</strong></li>
+        <li><strong>SEC Official Source</strong></li>
+      </ul>
+      <p>All financial data is sourced directly from the SEC EDGAR database. Our automated systems pull the latest 10-K and 10-Q filings daily, calculating trailing twelve month (TTM) metrics and key financial ratios for over 300 publicly traded US banks.</p>
+      <h2>Getting Started</h2>
+      <ol>
+        <li><strong>Choose Your Tool:</strong> Use the <a href="${SITE_URL}/screener">Screener</a> for filtering multiple bank stocks by criteria, or <a href="${SITE_URL}/search">Search</a> to find a specific bank stock quickly.</li>
+        <li><strong>Apply Filters:</strong> Set your preferred ranges for metrics like <a href="${SITE_URL}/metrics/roe">ROE</a>, <a href="${SITE_URL}/metrics/efficiency-ratio">efficiency ratio</a>, <a href="${SITE_URL}/metrics/price-to-book">price multiples</a>, and more.</li>
+        <li><strong>Analyze Results:</strong> Review detailed stock profiles, compare banks side-by-side, and dive into financial statements.</li>
+      </ol>
+      <p>New to bank stock analysis? Start with the <a href="${SITE_URL}/screener/guide">Screener Guide</a> to learn how to filter and evaluate bank stocks step by step.</p>
     `
   }));
   count++;
@@ -254,8 +285,8 @@ async function generatePages() {
   // Do NOT add schema here to avoid duplicate structured data in the rendered HTML.
   writePage('/screener', createPage({
     path: '/screener',
-    title: 'Free Bank Stock Screener | Filter Bank Stocks by 25+ Metrics - BankSift',
-    description: 'Free bank stock screener to filter and analyze 300+ US bank stocks. Screen bank equities by ROE, P/B ratio, Graham Number, efficiency ratio & 20+ metrics. Updated daily from SEC filings.',
+    title: 'Free Bank Stock Screener | 25+ Metrics - BankSift',
+    description: 'Free bank stock screener to filter 300+ US banks by ROE, P/B, Graham Number, efficiency ratio, and 20+ metrics. Updated daily from SEC filings.',
     canonical: `${SITE_URL}/screener`,
     type: 'website',
     content: `
@@ -296,7 +327,7 @@ async function generatePages() {
   writePage('/screener/guide', createPage({
     path: '/screener/guide',
     title: 'How to Screen Bank Stocks: Complete Guide | BankSift',
-    description: 'Learn how to screen and analyze bank stocks using ROE, P/B ratio, efficiency ratio, and Graham Number. Step-by-step tutorial for finding undervalued bank stocks with the BankSift screener.',
+    description: 'Learn how to screen bank stocks using ROE, P/B ratio, efficiency ratio, and Graham Number. Step-by-step guide to finding undervalued bank stocks.',
     canonical: `${SITE_URL}/screener/guide`,
     content: `
       <h1>Bank Screener Guide</h1>
@@ -342,8 +373,8 @@ async function generatePages() {
   // Search page
   writePage('/search', createPage({
     path: '/search',
-    title: 'Bank Search - BankSift',
-    description: 'Search for specific banks by name, ticker symbol, or CIK number. Access detailed financial metrics and analysis for any publicly traded US bank.',
+    title: 'Search US Bank Stocks by Name or Ticker - BankSift',
+    description: 'Search for US bank stocks by name, ticker symbol, or CIK number. Access financial metrics, SEC filings, and analysis for any publicly traded bank.',
     canonical: `${SITE_URL}/search`,
     schema: {
       "@context": "https://schema.org",
@@ -355,8 +386,15 @@ async function generatePages() {
       ]
     },
     content: `
-      <h1>Bank Search</h1>
-      <p>Search for publicly traded US banks by name, ticker, or CIK number.</p>
+      <h1>Search US Bank Stocks</h1>
+      <p>Find any publicly traded US bank by name, ticker symbol, or CIK number. Access detailed financial profiles with metrics like ROE, ROAA, efficiency ratio, Price to Book, and Graham Number — all sourced from SEC filings and updated daily.</p>
+      <h2>Search by Ticker or Name</h2>
+      <p>Type a ticker symbol (e.g., JPM, BAC, WFC) or bank name to find detailed financial analysis. Each bank profile includes profitability ratios, valuation metrics, capital strength indicators, and balance sheet data.</p>
+      <h2>Browse Banks</h2>
+      <p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to filter and compare 300+ banks by financial criteria, or browse banks directly:</p>
+      <ul>
+        ${generateBankLinksHtml(linkedBanks)}
+      </ul>
     `
   }));
   count++;
@@ -366,8 +404,8 @@ async function generatePages() {
   // Do NOT add schema here to avoid duplicate structured data in the rendered HTML.
   writePage('/metrics', createPage({
     path: '/metrics',
-    title: 'Bank Financial Metrics Explained | ROE, ROAA, Efficiency Ratio Guide - BankSift',
-    description: 'Free guide to bank stock financial metrics. Learn ROE, ROAA, efficiency ratio, P/B ratio, net interest margin, and 10+ ratios used to analyze publicly traded US banks.',
+    title: 'Bank Financial Metrics Guide | ROE, ROAA & More - BankSift',
+    description: 'Guide to bank financial metrics. Learn ROE, ROAA, efficiency ratio, P/B, net interest margin, and more ratios for analyzing bank stocks.',
     canonical: `${SITE_URL}/metrics`,
     content: `
       <h1>Bank Financial Metrics &amp; Ratios</h1>
@@ -454,17 +492,45 @@ async function generatePages() {
     },
     content: `
       <h1>Bank Valuation Methods</h1>
-      <p>Learn proven methods for valuing bank stocks and finding investment opportunities.</p>
-      <h2>Valuation Approaches</h2>
+      <p>Bank valuation requires specialized approaches due to the unique nature of financial institutions. This guide covers various methodologies used to assess the intrinsic value of bank stocks.</p>
+
+      <h2>Why Bank Valuation is Different</h2>
+      <p>Banks operate differently from typical industrial companies. Their primary business involves borrowing money (deposits) and lending it out at higher rates. This means traditional valuation metrics like EV/EBITDA are not applicable. Instead, bank analysts focus on book value, earnings quality, and regulatory capital measures.</p>
+
+      <h2>Intrinsic Value Methods</h2>
       <ul>
-        <li>Graham Number - Benjamin Graham's intrinsic value formula</li>
-        <li>Margin of Safety - Discount to fair value</li>
-        <li>Price to Book Valuation</li>
-        <li>Price to Earnings Valuation</li>
-        <li>ROE-P/B Framework</li>
-        <li>Dividend Discount Model</li>
-        <li>Peer Comparison Analysis</li>
+        <li><a href="${SITE_URL}/valuation/graham-number">Graham Number</a> — Benjamin Graham's formula for estimating the maximum fair price based on earnings per share and book value per share.</li>
+        <li><a href="${SITE_URL}/valuation/margin-of-safety">Margin of Safety</a> — The discount between intrinsic value and purchase price that provides a buffer against analytical errors.</li>
+        <li><a href="${SITE_URL}/valuation/dividend-discount-model">Dividend Discount Model</a> — Values a bank based on the present value of expected future dividend payments.</li>
       </ul>
+      <h2>Relative Valuation Methods</h2>
+      <ul>
+        <li><a href="${SITE_URL}/valuation/price-to-book-valuation">Price to Book Valuation</a> — The primary valuation method for banks, comparing market price to accounting book value.</li>
+        <li><a href="${SITE_URL}/valuation/price-to-earnings-valuation">Price to Earnings Valuation</a> — Compares a bank's stock price to its per-share earnings to assess how the market values earning power.</li>
+        <li><a href="${SITE_URL}/valuation/peer-comparison">Peer Comparison Analysis</a> — Valuing a bank by comparing its metrics and multiples to similar banks.</li>
+      </ul>
+      <h2>Fundamental Frameworks</h2>
+      <ul>
+        <li><a href="${SITE_URL}/valuation/roe-pb-framework">ROE-P/B Valuation Framework</a> — Links the justified Price to Book multiple to a bank's Return on Equity, identifying mispriced bank stocks.</li>
+      </ul>
+
+      <h2>General Valuation Framework</h2>
+      <ol>
+        <li><strong>Assess Quality:</strong> Evaluate the bank's asset quality, management effectiveness, earnings consistency, and regulatory standing.</li>
+        <li><strong>Analyze Profitability:</strong> Examine return metrics (<a href="${SITE_URL}/metrics/roe">ROE</a>, <a href="${SITE_URL}/metrics/roaa">ROAA</a>), <a href="${SITE_URL}/metrics/efficiency-ratio">efficiency ratios</a>, and <a href="${SITE_URL}/metrics/net-interest-margin">net interest margins</a> relative to peers.</li>
+        <li><strong>Apply Valuation Metrics:</strong> Use appropriate multiples (<a href="${SITE_URL}/metrics/price-to-book">P/B</a>, <a href="${SITE_URL}/metrics/price-to-earnings">P/E</a>) and intrinsic value methods based on the bank's characteristics.</li>
+        <li><strong>Compare to Peers:</strong> Benchmark against similar banks in terms of size, geography, business model, and risk profile.</li>
+      </ol>
+
+      <h2>Important Cautions</h2>
+      <ul>
+        <li><strong>Book Value Adjustments:</strong> Reported book value may not reflect true economic value due to loan loss provisions, held-to-maturity securities, and other accounting treatments.</li>
+        <li><strong>Interest Rate Sensitivity:</strong> Bank valuations are heavily influenced by interest rate expectations. Rising rates generally help net interest margins but can hurt bond portfolios.</li>
+        <li><strong>Credit Cycle Timing:</strong> Bank earnings are cyclical. Valuations should account for where we are in the credit cycle.</li>
+        <li><strong>Regulatory Changes:</strong> Banks operate in a heavily regulated environment. New regulations can significantly impact profitability.</li>
+      </ul>
+
+      <p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to find banks that meet your valuation criteria across 300+ publicly traded US banks.</p>
     `
   }));
   count++;
@@ -486,7 +552,111 @@ async function generatePages() {
     },
     content: `
       <h1>Financial Terms Glossary</h1>
-      <p>Definitions and explanations of key bank financial terms and metrics.</p>
+      <p>Comprehensive definitions of financial terms, metrics, and concepts used in bank analysis. Click on any term with a link to learn more.</p>
+
+      <h2>Profitability Metrics</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/metrics/roe">Return on Equity (ROE)</a></dt>
+        <dd>Measures how effectively a bank generates profits from shareholder investments.</dd>
+        <dt><a href="${SITE_URL}/metrics/roaa">Return on Average Assets (ROAA)</a></dt>
+        <dd>Measures how efficiently a bank uses its total assets to generate earnings.</dd>
+        <dt><a href="${SITE_URL}/metrics/net-interest-margin">Net Interest Margin (NIM)</a></dt>
+        <dd>Measures the spread between interest earned and interest paid relative to earning assets.</dd>
+      </dl>
+
+      <h2>Efficiency Metrics</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/metrics/efficiency-ratio">Efficiency Ratio</a></dt>
+        <dd>Measures operating efficiency by comparing expenses to revenue.</dd>
+        <dt><a href="${SITE_URL}/metrics/deposits-to-assets">Deposits to Assets Ratio</a></dt>
+        <dd>Shows what portion of bank assets are funded by customer deposits.</dd>
+        <dt><a href="${SITE_URL}/metrics/loans-to-deposits">Loans to Deposits Ratio</a></dt>
+        <dd>Compares lending activity to deposit funding.</dd>
+      </dl>
+
+      <h2>Capital &amp; Leverage Metrics</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/metrics/equity-to-assets">Equity to Assets Ratio</a></dt>
+        <dd>Measures capital strength by comparing equity to total assets.</dd>
+        <dt><a href="${SITE_URL}/metrics/loans-to-assets">Loans to Assets Ratio</a></dt>
+        <dd>Shows what portion of assets are deployed in loans.</dd>
+      </dl>
+
+      <h2>Valuation Metrics</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/metrics/book-value-per-share">Book Value Per Share (BVPS)</a></dt>
+        <dd>The net asset value attributable to each common share.</dd>
+        <dt><a href="${SITE_URL}/metrics/price-to-earnings">Price to Earnings (P/E) Ratio</a></dt>
+        <dd>Compares stock price to per-share earnings.</dd>
+        <dt><a href="${SITE_URL}/metrics/price-to-book">Price to Book (P/B) Ratio</a></dt>
+        <dd>Compares stock price to book value per share.</dd>
+      </dl>
+
+      <h2>Per-Share Metrics</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/metrics/earnings-per-share">Earnings Per Share (EPS)</a></dt>
+        <dd>Net profit attributable to each common share.</dd>
+        <dt><a href="${SITE_URL}/metrics/dividend-payout-ratio">Dividend Payout Ratio</a></dt>
+        <dd>Percentage of earnings paid out as dividends.</dd>
+      </dl>
+
+      <h2>Valuation Methods</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/valuation/graham-number">Graham Number</a></dt>
+        <dd>A value investing formula for estimating the maximum fair price based on earnings and book value.</dd>
+        <dt><a href="${SITE_URL}/valuation/margin-of-safety">Margin of Safety</a></dt>
+        <dd>The discount between intrinsic value and purchase price that provides a buffer against errors.</dd>
+        <dt><a href="${SITE_URL}/valuation/price-to-book-valuation">Price to Book Valuation</a></dt>
+        <dd>Valuing banks based on the ratio of market price to accounting book value.</dd>
+        <dt><a href="${SITE_URL}/valuation/price-to-earnings-valuation">Price to Earnings Valuation</a></dt>
+        <dd>Valuing banks based on the ratio of market price to per-share earnings.</dd>
+        <dt><a href="${SITE_URL}/valuation/roe-pb-framework">ROE-P/B Valuation Framework</a></dt>
+        <dd>A framework linking justified price-to-book multiple to return on equity.</dd>
+        <dt><a href="${SITE_URL}/valuation/dividend-discount-model">Dividend Discount Model</a></dt>
+        <dd>Values a bank based on the present value of expected future dividends.</dd>
+        <dt><a href="${SITE_URL}/valuation/peer-comparison">Peer Comparison Analysis</a></dt>
+        <dd>Valuing a bank by comparing its metrics and multiples to similar banks.</dd>
+      </dl>
+
+      <h2>SEC Filing &amp; Data Terms</h2>
+      <dl>
+        <dt>SEC EDGAR</dt>
+        <dd>The Electronic Data Gathering, Analysis, and Retrieval system operated by the U.S. Securities and Exchange Commission. It provides free public access to corporate filings including 10-K annual reports and 10-Q quarterly reports.</dd>
+        <dt>10-K Filing</dt>
+        <dd>An annual report required by the SEC that provides a comprehensive summary of a company's financial performance. It includes audited financial statements, management discussion, and risk factors.</dd>
+        <dt>10-Q Filing</dt>
+        <dd>A quarterly report required by the SEC that provides unaudited financial statements and updates on a company's financial condition. Banks file 10-Q reports for Q1, Q2, and Q3 each year.</dd>
+        <dt>Trailing Twelve Months (TTM)</dt>
+        <dd>A financial measurement that sums the last four quarters of data to provide an up-to-date annual figure. TTM smooths out seasonal variations and provides more current data than the last fiscal year.</dd>
+        <dt>SIC Code</dt>
+        <dd>Standard Industrial Classification code used to categorize companies by industry. Banks typically fall under SIC codes 6021 (National Commercial Banks), 6022 (State Commercial Banks), 6035-6036 (Savings Institutions).</dd>
+        <dt>CIK Number</dt>
+        <dd>Central Index Key - a unique identifier assigned by the SEC to each company and individual who files with the SEC. Used to look up filings in the EDGAR database.</dd>
+      </dl>
+
+      <h2>Financial Concepts</h2>
+      <dl>
+        <dt>Tangible Book Value</dt>
+        <dd>Total shareholders' equity minus intangible assets and goodwill. Represents the theoretical value shareholders would receive if all tangible assets were liquidated and all liabilities paid.</dd>
+        <dt>Net Interest Income</dt>
+        <dd>The difference between interest earned on assets (primarily loans) and interest paid on liabilities (primarily deposits). This is typically the largest revenue source for traditional banks.</dd>
+        <dt>Non-Interest Income</dt>
+        <dd>Revenue from sources other than interest, including service charges, fees, trading gains, and investment income. Also called fee income.</dd>
+        <dt>Non-Interest Expense</dt>
+        <dd>Operating expenses excluding interest expense. Includes salaries, occupancy costs, technology, marketing, and other administrative expenses.</dd>
+        <dt>Market Capitalization</dt>
+        <dd>The total market value of a company's outstanding shares, calculated as share price multiplied by shares outstanding. Used to classify companies as small-cap, mid-cap, or large-cap.</dd>
+        <dt>Shares Outstanding</dt>
+        <dd>The total number of shares of a company's stock currently held by all shareholders, including institutional investors and company insiders.</dd>
+        <dt>Intrinsic Value</dt>
+        <dd>The perceived or calculated true value of a company based on fundamental analysis, regardless of its current market price. Different valuation methods may produce different intrinsic values.</dd>
+        <dt>Value Investing</dt>
+        <dd>An investment strategy that involves buying securities that appear underpriced based on fundamental analysis. Popularized by Benjamin Graham and Warren Buffett.</dd>
+      </dl>
+
+      <h2>Using This Glossary</h2>
+      <p>This glossary covers financial metrics and terms commonly used in bank stock analysis. Terms linked to detailed pages include formulas, interpretation guides, and typical ranges for banks. All data on BankSift is sourced from official SEC EDGAR filings.</p>
+      <p><a href="${SITE_URL}/metrics">Explore all metrics</a> | <a href="${SITE_URL}/screener">Use the screener</a></p>
     `
   }));
   count++;
@@ -542,7 +712,7 @@ async function generatePages() {
     writePage(path, createPage({
       path,
       title: `${metric.name} - Bank Metric | BankSift`,
-      description: `${metric.shortDescription} Learn how ${metric.name} is calculated and what values indicate for bank analysis.`,
+      description: `${metric.shortDescription} Learn how ${metric.name} is used in bank stock analysis.`,
       canonical: `${SITE_URL}${path}`,
       type: 'article',
       schema: {
@@ -573,14 +743,41 @@ async function generatePages() {
         <article>
           <h1>${escapeHtml(metric.name)}</h1>
           <p><strong>Category:</strong> ${escapeHtml(metric.categoryLabel)}</p>
+          <h2>Overview</h2>
           <p>${escapeHtml(metric.description)}</p>
           <h2>Formula</h2>
           <p><code>${escapeHtml(metric.formula)}</code></p>
           <p>${escapeHtml(metric.formulaExplanation)}</p>
           <h2>Interpretation</h2>
           <p>${escapeHtml(metric.interpretation)}</p>
-          <h2>Typical Range</h2>
+          <h2>Typical Range for Banks</h2>
           <p>${escapeHtml(metric.typicalRange)}</p>
+          ${metric.goodBad ? `
+          <h3>Generally Favorable</h3>
+          <p>${escapeHtml(metric.goodBad.good)}</p>
+          <h3>Potential Concern</h3>
+          <p>${escapeHtml(metric.goodBad.bad)}</p>
+          ` : ''}
+          ${metric.considerations ? `
+          <h2>Important Considerations</h2>
+          <ul>
+            ${metric.considerations.map(c => `<li>${escapeHtml(c)}</li>`).join('\n            ')}
+          </ul>
+          ` : ''}
+          ${metric.relatedMetrics && metric.relatedMetrics.length > 0 ? `
+          <h2>Related Metrics</h2>
+          <ul>
+            ${metric.relatedMetrics.map(slug => {
+              const related = metrics.find(m => m.slug === slug);
+              if (!related) return '';
+              const desc = metric.relatedMetricDescriptions?.[slug] || related.shortDescription;
+              return `<li><a href="${SITE_URL}/metrics/${slug}">${escapeHtml(related.name)}</a> — ${escapeHtml(desc)}</li>`;
+            }).filter(Boolean).join('\n            ')}
+          </ul>
+          ` : ''}
+          <h2>Data Source</h2>
+          <p>This metric is calculated using data from SEC EDGAR filings. ${escapeHtml(metric.dataSource)}</p>
+          <p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to filter 300+ banks by ${escapeHtml(metric.name)} and other metrics.</p>
         </article>
       `
     }));
@@ -625,12 +822,46 @@ async function generatePages() {
         <article>
           <h1>${escapeHtml(valuation.name)}</h1>
           <p><strong>Type:</strong> ${escapeHtml(valuation.type)}</p>
+          <h2>Overview</h2>
           <p>${escapeHtml(valuation.description)}</p>
           <h2>Formula</h2>
           <p><code>${escapeHtml(valuation.formula)}</code></p>
           <p>${escapeHtml(valuation.formulaExplanation)}</p>
-          <h2>Example</h2>
+          ${valuation.steps ? `
+          <h2>How to Apply</h2>
+          <ol>
+            ${valuation.steps.map(s => `<li>${escapeHtml(s)}</li>`).join('\n            ')}
+          </ol>
+          ` : ''}
+          <h2>Example Calculation</h2>
           <p>${escapeHtml(valuation.example)}</p>
+          ${valuation.strengths ? `
+          <h2>Strengths</h2>
+          <ul>
+            ${valuation.strengths.map(s => `<li>${escapeHtml(s)}</li>`).join('\n            ')}
+          </ul>
+          ` : ''}
+          ${valuation.limitations ? `
+          <h2>Limitations</h2>
+          <ul>
+            ${valuation.limitations.map(l => `<li>${escapeHtml(l)}</li>`).join('\n            ')}
+          </ul>
+          ` : ''}
+          ${valuation.bankSpecific ? `
+          <h2>Bank-Specific Considerations</h2>
+          <p>${escapeHtml(valuation.bankSpecific)}</p>
+          ` : ''}
+          ${valuation.relatedMethods && valuation.relatedMethods.length > 0 ? `
+          <h2>Related Valuation Methods</h2>
+          <ul>
+            ${valuation.relatedMethods.map(slug => {
+              const related = valuations.find(v => v.slug === slug);
+              if (!related) return '';
+              return `<li><a href="${SITE_URL}/valuation/${slug}">${escapeHtml(related.name)}</a> — ${escapeHtml(related.shortDescription)}</li>`;
+            }).filter(Boolean).join('\n            ')}
+          </ul>
+          ` : ''}
+          <p>Apply this method using the <a href="${SITE_URL}/screener">Bank Screener</a> to evaluate 300+ publicly traded US banks.</p>
         </article>
       `
     }));
@@ -648,19 +879,32 @@ async function generatePages() {
     const path = `/bank/${cik}`;
     const bankName = bank.bankName || 'Unknown Bank';
     const ticker = bank.ticker ? ` (${bank.ticker})` : '';
+    const tickerOnly = bank.ticker || '';
 
-    // Build description with available metrics
+    // Build description with available metrics (metrics are at top level of bank object)
     const descParts = [];
-    if (bank.metrics?.roe != null) descParts.push(`ROE: ${bank.metrics.roe.toFixed(2)}%`);
-    if (bank.metrics?.roaa != null) descParts.push(`ROAA: ${bank.metrics.roaa.toFixed(2)}%`);
-    if (bank.metrics?.efficiencyRatio != null) descParts.push(`Efficiency: ${bank.metrics.efficiencyRatio.toFixed(1)}%`);
+    if (bank.roe != null) descParts.push(`ROE: ${bank.roe.toFixed(2)}%`);
+    if (bank.roaa != null) descParts.push(`ROAA: ${bank.roaa.toFixed(2)}%`);
+    if (bank.efficiencyRatio != null) descParts.push(`Efficiency: ${bank.efficiencyRatio.toFixed(1)}%`);
 
     const metricsDesc = descParts.length > 0 ? ` ${descParts.join(', ')}.` : '';
 
+    // Build a concise title that fits within 60 chars where possible
+    let bankTitle;
+    const fullTitle = `${bankName}${ticker} - Bank Analysis | BankSift`;
+    if (fullTitle.length > 60 && tickerOnly) {
+      bankTitle = `${bankName}${ticker} | BankSift`;
+    } else {
+      bankTitle = fullTitle;
+    }
+
+    // Build a description under 155 chars
+    const bankDesc = `${bankName}${ticker} financial analysis.${metricsDesc} SEC filing data updated daily.`;
+
     writePage(path, createPage({
       path,
-      title: `${bankName}${ticker} - Bank Analysis | BankSift`,
-      description: `Financial analysis and metrics for ${bankName}${ticker}.${metricsDesc} View comprehensive SEC filing data and Graham Number valuation.`,
+      title: bankTitle,
+      description: bankDesc.length <= 155 ? bankDesc : `${bankName}${ticker} financial analysis.${metricsDesc}`.substring(0, 152) + '...',
       canonical: `${SITE_URL}${path}`,
       type: 'article',
       schema: {
@@ -686,19 +930,67 @@ async function generatePages() {
       content: `
         <article>
           <h1>${escapeHtml(bankName)}${escapeHtml(ticker)}</h1>
-          <p>Comprehensive financial analysis based on SEC filings.</p>
-          ${bank.metrics ? `
-          <h2>Key Metrics</h2>
+          <p>Comprehensive financial analysis for ${escapeHtml(bankName)}${escapeHtml(ticker)} based on SEC EDGAR filings. Data updated daily from official 10-K and 10-Q reports.</p>
+          <h2>Company Information</h2>
           <dl>
-            ${bank.metrics.roe != null ? `<dt>Return on Equity (ROE)</dt><dd>${bank.metrics.roe.toFixed(2)}%</dd>` : ''}
-            ${bank.metrics.roaa != null ? `<dt>Return on Average Assets (ROAA)</dt><dd>${bank.metrics.roaa.toFixed(2)}%</dd>` : ''}
-            ${bank.metrics.efficiencyRatio != null ? `<dt>Efficiency Ratio</dt><dd>${bank.metrics.efficiencyRatio.toFixed(1)}%</dd>` : ''}
-            ${bank.metrics.bookValuePerShare != null ? `<dt>Book Value Per Share</dt><dd>$${bank.metrics.bookValuePerShare.toFixed(2)}</dd>` : ''}
-            ${bank.metrics.grahamNumber != null ? `<dt>Graham Number</dt><dd>$${bank.metrics.grahamNumber.toFixed(2)}</dd>` : ''}
+            <dt>Legal Name</dt><dd>${escapeHtml(bankName)}</dd>
+            ${bank.ticker ? `<dt>Ticker Symbol</dt><dd>${escapeHtml(bank.ticker)}</dd>` : ''}
+            ${bank.exchange ? `<dt>Exchange</dt><dd>${escapeHtml(bank.exchange)}</dd>` : ''}
+            <dt>CIK Number</dt><dd>${escapeHtml(bank.cik)}</dd>
+            ${bank.sic ? `<dt>SIC Code</dt><dd>${bank.sic}</dd>` : ''}
+            ${bank.sicDescription ? `<dt>Industry</dt><dd>${escapeHtml(bank.sicDescription)}</dd>` : ''}
+            ${bank.sharesOutstanding != null ? `<dt>Shares Outstanding</dt><dd>${bank.sharesOutstanding >= 1e9 ? (bank.sharesOutstanding / 1e9).toFixed(2) + 'B' : (bank.sharesOutstanding / 1e6).toFixed(1) + 'M'}</dd>` : ''}
+          </dl>
+          ${bank.roe != null || bank.roaa != null || bank.efficiencyRatio != null ? `
+          <h2>Profitability &amp; Efficiency Metrics</h2>
+          <dl>
+            ${bank.roe != null ? `<dt><a href="${SITE_URL}/metrics/roe">Return on Equity (ROE)</a></dt><dd>${bank.roe.toFixed(2)}%</dd>` : ''}
+            ${bank.roaa != null ? `<dt><a href="${SITE_URL}/metrics/roaa">Return on Average Assets (ROAA)</a></dt><dd>${bank.roaa.toFixed(2)}%</dd>` : ''}
+            ${bank.efficiencyRatio != null ? `<dt><a href="${SITE_URL}/metrics/efficiency-ratio">Efficiency Ratio</a></dt><dd>${bank.efficiencyRatio.toFixed(1)}%</dd>` : ''}
+            ${bank.depositsToAssets != null ? `<dt><a href="${SITE_URL}/metrics/deposits-to-assets">Deposits to Assets</a></dt><dd>${bank.depositsToAssets.toFixed(1)}%</dd>` : ''}
+            ${bank.loansToDeposits != null ? `<dt><a href="${SITE_URL}/metrics/loans-to-deposits">Loans to Deposits</a></dt><dd>${bank.loansToDeposits.toFixed(1)}%</dd>` : ''}
           </dl>
           ` : ''}
-          <h2>SEC Data</h2>
-          <p>Data sourced from SEC EDGAR financial statement filings.</p>
+          ${bank.bvps != null || bank.priceToBook != null || bank.pni != null ? `
+          <h2>Valuation Metrics</h2>
+          <dl>
+            ${bank.bvps != null ? `<dt><a href="${SITE_URL}/metrics/book-value-per-share">Book Value Per Share (BVPS)</a></dt><dd>$${bank.bvps.toFixed(2)}</dd>` : ''}
+            ${bank.priceToBook != null ? `<dt><a href="${SITE_URL}/metrics/price-to-book">Price to Book (P/B)</a></dt><dd>${bank.priceToBook.toFixed(2)}x</dd>` : ''}
+            ${bank.pni != null ? `<dt><a href="${SITE_URL}/metrics/price-to-earnings">Price to Earnings (P/E)</a></dt><dd>${bank.pni.toFixed(2)}x</dd>` : ''}
+            ${bank.grahamNum != null ? `<dt><a href="${SITE_URL}/valuation/graham-number">Graham Number</a></dt><dd>$${bank.grahamNum.toFixed(2)}</dd>` : ''}
+            ${bank.grahamMoSPct != null ? `<dt><a href="${SITE_URL}/valuation/margin-of-safety">Graham Margin of Safety</a></dt><dd>${bank.grahamMoSPct.toFixed(1)}%</dd>` : ''}
+          </dl>
+          ` : ''}
+          ${bank.equityToAssets != null || bank.loansToAssets != null ? `
+          <h2>Capital &amp; Balance Sheet</h2>
+          <dl>
+            ${bank.equityToAssets != null ? `<dt><a href="${SITE_URL}/metrics/equity-to-assets">Equity to Assets</a></dt><dd>${bank.equityToAssets.toFixed(2)}%</dd>` : ''}
+            ${bank.loansToAssets != null ? `<dt><a href="${SITE_URL}/metrics/loans-to-assets">Loans to Assets</a></dt><dd>${bank.loansToAssets.toFixed(1)}%</dd>` : ''}
+            ${bank.totalAssets != null ? `<dt>Total Assets</dt><dd>$${(bank.totalAssets / 1e9).toFixed(2)}B</dd>` : ''}
+            ${bank.totalDeposits != null ? `<dt>Total Deposits</dt><dd>$${(bank.totalDeposits / 1e9).toFixed(2)}B</dd>` : ''}
+            ${bank.totalEquity != null ? `<dt>Total Equity</dt><dd>$${(bank.totalEquity / 1e6).toFixed(1)}M</dd>` : ''}
+          </dl>
+          ` : ''}
+          ${bank.price != null || bank.marketCap != null ? `
+          <h2>Market Data</h2>
+          <dl>
+            ${bank.price != null ? `<dt>Stock Price</dt><dd>$${bank.price.toFixed(2)}</dd>` : ''}
+            ${bank.marketCap != null ? `<dt>Market Capitalization</dt><dd>$${bank.marketCap >= 1e9 ? (bank.marketCap / 1e9).toFixed(2) + 'B' : (bank.marketCap / 1e6).toFixed(1) + 'M'}</dd>` : ''}
+          </dl>
+          ` : ''}
+          ${bank.ttmNetIncome != null || bank.ttmNetInterestIncome != null || bank.ttmEps != null || bank.ttmDividendPerShare != null ? `
+          <h2>TTM Performance</h2>
+          <dl>
+            ${bank.ttmNetIncome != null ? `<dt>Net Income (TTM)</dt><dd>$${Math.abs(bank.ttmNetIncome) >= 1e9 ? (bank.ttmNetIncome / 1e9).toFixed(2) + 'B' : (bank.ttmNetIncome / 1e6).toFixed(1) + 'M'}</dd>` : ''}
+            ${bank.ttmNetInterestIncome != null ? `<dt>Net Interest Income (TTM)</dt><dd>$${Math.abs(bank.ttmNetInterestIncome) >= 1e9 ? (bank.ttmNetInterestIncome / 1e9).toFixed(2) + 'B' : (bank.ttmNetInterestIncome / 1e6).toFixed(1) + 'M'}</dd>` : ''}
+            ${bank.ttmEps != null ? `<dt><a href="${SITE_URL}/metrics/earnings-per-share">Earnings Per Share (TTM)</a></dt><dd>$${bank.ttmEps.toFixed(2)}</dd>` : ''}
+            ${bank.ttmDividendPerShare != null ? `<dt>Dividend Per Share (TTM)</dt><dd>$${bank.ttmDividendPerShare.toFixed(2)}</dd>` : ''}
+            ${bank.dividendPayoutRatio != null ? `<dt><a href="${SITE_URL}/metrics/dividend-payout-ratio">Dividend Payout Ratio</a></dt><dd>${bank.dividendPayoutRatio.toFixed(1)}%</dd>` : ''}
+          </dl>
+          ` : ''}
+          <h2>SEC Filing Data</h2>
+          <p>All financial data for ${escapeHtml(bankName)} is sourced directly from SEC EDGAR filings including 10-K annual reports and 10-Q quarterly statements. Metrics are calculated using trailing twelve month (TTM) methodology${bank.dataDate ? ` with data through ${bank.dataDate}` : ''}.</p>
+          <p><a href="${SITE_URL}/screener">Compare ${escapeHtml(bankName)} with 300+ other banks</a> using the BankSift screener, or learn about the <a href="${SITE_URL}/metrics">financial metrics</a> and <a href="${SITE_URL}/valuation">valuation methods</a> used in this analysis.</p>
         </article>
       `
     }));
