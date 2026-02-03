@@ -3,23 +3,47 @@ import { useParams, Link } from 'react-router-dom';
 import { METRICS } from '../data/content/metrics.js';
 import { VALUATION_METHODS } from '../data/content/valuations.js';
 import { trackMetricViewed } from '../analytics/events.js';
-
-// Cross-links from metrics to related valuation methods
-const METRIC_TO_VALUATIONS = {
-  'roe': ['roe-pb-framework', 'peer-comparison'],
-  'roaa': ['peer-comparison'],
-  'net-interest-margin': ['peer-comparison'],
-  'efficiency-ratio': ['peer-comparison'],
-  'equity-to-assets': ['roe-pb-framework'],
-  'book-value-per-share': ['graham-number', 'price-to-book-valuation'],
-  'price-to-earnings': ['price-to-earnings-valuation'],
-  'price-to-book': ['price-to-book-valuation', 'roe-pb-framework'],
-  'earnings-per-share': ['graham-number', 'margin-of-safety'],
-  'dividend-payout-ratio': ['dividend-discount-model'],
-};
 import BackButton from '../components/BackButton.jsx';
 import NavigationLink from '../components/NavigationLink.jsx';
 import SEO from '../components/SEO.jsx';
+
+// Cross-links from metrics to related valuation methods
+const METRIC_TO_VALUATIONS = {
+  'roe': ['roe-pb-framework'],
+  'equity-to-assets': ['roe-pb-framework'],
+  'price-to-book': ['price-to-book-valuation', 'roe-pb-framework'],
+  'book-value-per-share': ['graham-number', 'price-to-book-valuation'],
+  'price-to-earnings': ['price-to-earnings-valuation'],
+  'earnings-per-share': ['graham-number', 'margin-of-safety'],
+  'dividend-payout-ratio': ['dividend-discount-model'],
+};
+
+const METRIC_TO_VALUATION_DESCRIPTIONS = {
+  'roe': {
+    'roe-pb-framework': 'ROE is one of two axes in this framework — it determines the justified P/B multiple a bank deserves.',
+  },
+  'equity-to-assets': {
+    'roe-pb-framework': 'Capital ratios affect leverage, a key driver of ROE and the justified P/B calculated by this framework.',
+  },
+  'price-to-book': {
+    'price-to-book-valuation': 'P/B is the core metric in this valuation approach for determining bank stock fair value.',
+    'roe-pb-framework': 'This framework calculates the P/B multiple a bank deserves based on its profitability.',
+  },
+  'book-value-per-share': {
+    'graham-number': 'Book value per share is one of two direct inputs in the Graham Number formula.',
+    'price-to-book-valuation': 'BVPS is the fundamental input that P/B multiples are applied to when valuing banks.',
+  },
+  'price-to-earnings': {
+    'price-to-earnings-valuation': 'P/E is the core metric in this valuation approach for assessing bank earnings value.',
+  },
+  'earnings-per-share': {
+    'graham-number': 'EPS is one of two direct inputs in the Graham Number formula.',
+    'margin-of-safety': 'EPS feeds the intrinsic value estimate used to calculate the margin between price and fair value.',
+  },
+  'dividend-payout-ratio': {
+    'dividend-discount-model': 'The payout ratio determines what portion of earnings flows to shareholders as dividends in the DDM.',
+  },
+};
 
 /**
  * Share Button Component
@@ -268,6 +292,7 @@ function MetricDetail() {
               {METRIC_TO_VALUATIONS[slug].map(valSlug => {
                 const valMethod = VALUATION_METHODS.find(v => v.slug === valSlug);
                 if (!valMethod) return null;
+                const desc = METRIC_TO_VALUATION_DESCRIPTIONS[slug]?.[valSlug];
                 return (
                   <div key={valSlug} className="related-metric-item">
                     <NavigationLink
@@ -278,7 +303,7 @@ function MetricDetail() {
                     >
                       {valMethod.name}
                     </NavigationLink>
-                    <p className="related-metric-desc">{valMethod.shortDescription}</p>
+                    {desc && <p className="related-metric-desc">{desc}</p>}
                   </div>
                 );
               })}
