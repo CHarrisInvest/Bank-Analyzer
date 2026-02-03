@@ -241,25 +241,22 @@ async function generatePages() {
 
   // Cross-link mappings between metrics and valuation methods
   const METRIC_TO_VALUATIONS = {
-    'roe': ['roe-pb-framework', 'peer-comparison'],
-    'roaa': ['peer-comparison'],
-    'net-interest-margin': ['peer-comparison'],
-    'efficiency-ratio': ['peer-comparison'],
+    'roe': ['roe-pb-framework'],
     'equity-to-assets': ['roe-pb-framework'],
+    'price-to-book': ['price-to-book-valuation', 'roe-pb-framework'],
     'book-value-per-share': ['graham-number', 'price-to-book-valuation'],
     'price-to-earnings': ['price-to-earnings-valuation'],
-    'price-to-book': ['price-to-book-valuation', 'roe-pb-framework'],
     'earnings-per-share': ['graham-number', 'margin-of-safety'],
     'dividend-payout-ratio': ['dividend-discount-model'],
   };
   const VALUATION_TO_METRICS = {
-    'graham-number': ['earnings-per-share', 'book-value-per-share', 'price-to-earnings', 'price-to-book'],
+    'graham-number': ['earnings-per-share', 'book-value-per-share'],
     'margin-of-safety': ['earnings-per-share', 'book-value-per-share'],
-    'price-to-book-valuation': ['price-to-book', 'book-value-per-share', 'equity-to-assets', 'roe'],
-    'price-to-earnings-valuation': ['price-to-earnings', 'earnings-per-share', 'roe'],
+    'price-to-book-valuation': ['price-to-book', 'book-value-per-share', 'roe'],
+    'price-to-earnings-valuation': ['price-to-earnings', 'earnings-per-share'],
     'roe-pb-framework': ['roe', 'price-to-book', 'equity-to-assets'],
     'dividend-discount-model': ['dividend-payout-ratio', 'earnings-per-share', 'roe'],
-    'peer-comparison': ['roe', 'roaa', 'efficiency-ratio', 'price-to-book', 'price-to-earnings'],
+    'peer-comparison': ['roe', 'efficiency-ratio', 'price-to-book'],
   };
 
   console.log('Pre-rendering pages for SEO...\n');
