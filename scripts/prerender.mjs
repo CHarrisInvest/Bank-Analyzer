@@ -225,12 +225,11 @@ async function generatePages() {
 
   console.log('Pre-rendering pages for SEO...\n');
 
-  // Build a curated list of bank links for use in static pages (Search, Screener)
-  // Select top banks by total assets that have tickers, capped at 50
+  // Build a list of all banks with tickers for use in the Search page,
+  // sorted by total assets so the largest banks appear first
   const linkedBanks = banks
     .filter(b => b.ticker && b.totalAssets)
-    .sort((a, b) => b.totalAssets - a.totalAssets)
-    .slice(0, 50);
+    .sort((a, b) => b.totalAssets - a.totalAssets);
 
   function generateBankLinksHtml(bankList) {
     return bankList.map(b => {
@@ -384,7 +383,6 @@ async function generatePages() {
       <ul>
         ${generateBankLinksHtml(linkedBanks)}
       </ul>
-      <p>View all 300+ banks using the <a href="${SITE_URL}/screener">full screener</a>.</p>
     `
   }));
   count++;
