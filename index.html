@@ -91,6 +91,11 @@
       .seo-fallback dd { margin-left: 1rem; color: #4a5568; }
       .seo-fallback code { background: #edf2f7; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem; }
       .seo-fallback article { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+      /* Flicker prevention: hide React root until app is mounted, show SEO content */
+      body:not(.react-ready) #root { display: none; }
+      /* Once React mounts, hide the pre-rendered SEO content */
+      body.react-ready #seo-root { display: none !important; }
     </style>
 
     <!-- Google Analytics 4 - Loaded asynchronously -->
@@ -142,13 +147,18 @@
         </ul>
       </div>
     </noscript>
-    <div id="root">
-      <!-- Loading fallback - will be replaced by React -->
+    <!-- Pre-rendered SEO content: lives OUTSIDE #root so React never destroys it.
+         Prerender.mjs replaces #loading-fallback with page-specific content at build time.
+         Visible to all crawlers (Bingbot, Googlebot, Internet Archive) without JS.
+         Hidden via CSS once React mounts (body.react-ready). -->
+    <div id="seo-root">
       <div id="loading-fallback" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; background: #f7fafc;">
         <p style="font-size: 18px; color: #1a365d;">Loading BankSift...</p>
         <p id="loading-status" style="font-size: 14px; color: #718096; margin-top: 10px;"></p>
       </div>
     </div>
+    <!-- React app root - starts empty, hidden until React mounts to prevent flicker -->
+    <div id="root"></div>
     <script>
       // Show timeout message if app doesn't load within 10 seconds
       setTimeout(function() {

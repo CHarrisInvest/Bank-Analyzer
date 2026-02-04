@@ -161,9 +161,10 @@ function createPage({ path, title, description, canonical, type = 'website', sch
           <a href="${SITE_URL}/terms">Terms of Service</a>
         </nav>
       </footer>`;
-    // Replace the loading fallback with actual content
+    // Replace the loading fallback inside #seo-root with actual page content.
+    // Only match the loading-fallback div itself (not the parent #seo-root closing tag).
     html = html.replace(
-      /<div id="loading-fallback"[\s\S]*?<\/div>\s*<\/div>/,
+      /<div id="loading-fallback"[\s\S]*?<\/div>(?=\s*<\/div>)/,
       seoContent
     );
   }
