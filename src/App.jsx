@@ -51,6 +51,17 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Transition from pre-rendered SEO content to React app.
+  // Adds 'react-ready' class to body which triggers CSS visibility swap:
+  // - #root becomes visible (was display:none)
+  // - #seo-root becomes hidden (was visible with pre-rendered content)
+  // Then removes #seo-root from DOM entirely to prevent duplicate content.
+  useEffect(() => {
+    document.body.classList.add('react-ready');
+    const seoRoot = document.getElementById('seo-root');
+    if (seoRoot) seoRoot.remove();
+  }, []);
+
   // Initialize Google Analytics on mount
   useEffect(() => {
     initializeGA4();
