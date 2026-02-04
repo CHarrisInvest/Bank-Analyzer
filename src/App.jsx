@@ -52,14 +52,18 @@ function App() {
   const [error, setError] = useState(null);
 
   // Transition from pre-rendered SEO content to React app.
-  // Adds 'react-ready' class to body which triggers CSS visibility swap:
-  // - #root becomes visible (was display:none)
-  // - #seo-root becomes hidden (was visible with pre-rendered content)
-  // Then removes #seo-root from DOM entirely to prevent duplicate content.
+  // Only swap when React Router matched a valid route (not the catch-all NotFound).
+  // When the URL is rewritten by archives/caches (Internet Archive, Google Cache),
+  // React Router can't match routes and renders NotFound. In that case, the
+  // pre-rendered static HTML in #seo-root is the correct content to display.
   useEffect(() => {
-    document.body.classList.add('react-ready');
-    const seoRoot = document.getElementById('seo-root');
-    if (seoRoot) seoRoot.remove();
+    const root = document.getElementById('root');
+    const renderedNotFound = root && root.querySelector('.not-found-page');
+    if (!renderedNotFound) {
+      document.body.classList.add('react-ready');
+      const seoRoot = document.getElementById('seo-root');
+      if (seoRoot) seoRoot.remove();
+    }
   }, []);
 
   // Initialize Google Analytics on mount
