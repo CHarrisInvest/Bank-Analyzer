@@ -124,7 +124,7 @@ function createPage({ path, title, description, canonical, type = 'website', sch
 
   // Add page-specific JSON-LD schema if provided
   if (schema) {
-    const schemaScript = `<script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n    </script>`;
+    const schemaScript = `<script type="application/ld+json" data-page-schema="true">\n${JSON.stringify(schema, null, 2)}\n    </script>`;
     // Insert before the closing </head>
     html = html.replace('</head>', `${schemaScript}\n  </head>`);
   }
@@ -283,7 +283,7 @@ async function generatePages() {
     path: '/',
     title: 'BankSift - Bank Investment Tools',
     description: 'Screen and analyze 300+ publicly traded banks using SEC filing data. Free screener, Graham Number calculator, and 25+ financial metrics for value investors.',
-    canonical: SITE_URL,
+    canonical: `${SITE_URL}/`,
     content: `
       <h1>BankSift</h1>
       <p><strong>Bank Investment Tools</strong> — Sift through the noise.</p>

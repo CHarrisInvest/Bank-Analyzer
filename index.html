@@ -136,6 +136,35 @@
         return false;
       };
     </script>
+    <script>
+      // Bridge pre-rendered head tags with react-helmet-async.
+      // Without this, Helmet creates NEW meta/canonical/og tags alongside the
+      // pre-rendered ones (which lack data-rh), producing duplicates that
+      // confuse Bing's crawler and prevent indexation.
+      // By adding data-rh="true", Helmet recognizes these as managed tags and
+      // replaces them in-place instead of duplicating.
+      (function() {
+        var s = [
+          'meta[name="description"]',
+          'link[rel="canonical"]',
+          'meta[property="og:type"]',
+          'meta[property="og:url"]',
+          'meta[property="og:title"]',
+          'meta[property="og:description"]',
+          'meta[property="og:image"]',
+          'meta[property="og:site_name"]',
+          'meta[name="twitter:card"]',
+          'meta[name="twitter:title"]',
+          'meta[name="twitter:description"]',
+          'meta[name="twitter:image"]',
+          'script[data-page-schema]'
+        ];
+        var tags = document.querySelectorAll(s.join(','));
+        for (var i = 0; i < tags.length; i++) {
+          tags[i].setAttribute('data-rh', 'true');
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>
