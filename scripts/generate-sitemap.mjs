@@ -63,14 +63,14 @@ async function generateSitemap() {
     });
   }
 
-  // Bank pages
+  // Bank pages (only banks with tickers - matches React routing)
   const banksPath = join(dataDir, 'banks.json');
   if (existsSync(banksPath)) {
     const banks = JSON.parse(readFileSync(banksPath, 'utf-8'));
     for (const bank of banks) {
-      const cik = bank.cik.replace(/^0+/, '');
+      if (!bank.ticker) continue; // Skip banks without tickers
       urls.push({
-        loc: `${SITE_URL}/bank/${cik}`,
+        loc: `${SITE_URL}/bank/${encodeURIComponent(bank.ticker)}`,
         lastmod: TODAY,
         changefreq: 'daily',
         priority: '0.7'

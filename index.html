@@ -94,8 +94,20 @@
 
       /* Flicker prevention: hide React root until app is mounted, show SEO content */
       body:not(.react-ready) #root { display: none; }
-      /* Once React mounts, hide the pre-rendered SEO content */
-      body.react-ready #seo-root { display: none !important; }
+      /* Once React mounts, visually hide pre-rendered SEO content.
+         Uses clip technique instead of display:none so content remains in the DOM
+         and accessible to search engine crawlers that render JavaScript. */
+      body.react-ready #seo-root {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
     </style>
 
     <!-- Google Analytics 4 - Loaded asynchronously -->
