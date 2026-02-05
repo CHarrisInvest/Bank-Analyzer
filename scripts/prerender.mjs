@@ -124,7 +124,7 @@ function createPage({ path, title, description, canonical, type = 'website', sch
 
   // Add page-specific JSON-LD schema if provided
   if (schema) {
-    const schemaScript = `<script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n    </script>`;
+    const schemaScript = `<script type="application/ld+json" data-page-schema="true">\n${JSON.stringify(schema, null, 2)}\n    </script>`;
     // Insert before the closing </head>
     html = html.replace('</head>', `${schemaScript}\n  </head>`);
   }
@@ -270,8 +270,7 @@ async function generatePages() {
 
   function generateBankLinksHtml(bankList) {
     return bankList.map(b => {
-      const cik = b.cik.replace(/^0+/, '');
-      return `<li><a href="${SITE_URL}/bank/${cik}">${escapeHtml(b.bankName)} (${escapeHtml(b.ticker)})</a></li>`;
+      return `<li><a href="${SITE_URL}/bank/${encodeURIComponent(b.ticker)}">${escapeHtml(b.bankName)} (${escapeHtml(b.ticker)})</a></li>`;
     }).join('\n            ');
   }
 
@@ -284,7 +283,7 @@ async function generatePages() {
     path: '/',
     title: 'BankSift - Bank Investment Tools',
     description: 'Screen and analyze 300+ publicly traded banks using SEC filing data. Free screener, Graham Number calculator, and 25+ financial metrics for value investors.',
-    canonical: SITE_URL,
+    canonical: `${SITE_URL}/`,
     content: `
       <h1>BankSift</h1>
       <p><strong>Bank Investment Tools</strong> — Sift through the noise.</p>
@@ -933,12 +932,19 @@ async function generatePages() {
   // ============================================
 
   let bankCount = 0;
+  let bankSkipped = 0;
   for (const bank of banks) {
-    const cik = bank.cik.replace(/^0+/, ''); // Remove leading zeros for URL
-    const path = `/bank/${cik}`;
+    // Use ticker for URL (matches React Router's bank/:ticker route)
+    // Skip banks without tickers - they can't be looked up in the SPA
+    if (!bank.ticker) {
+      bankSkipped++;
+      continue;
+    }
+    const cik = bank.cik.replace(/^0+/, '');
+    const path = `/bank/${bank.ticker}`;
     const bankName = bank.bankName || 'Unknown Bank';
-    const ticker = bank.ticker ? ` (${bank.ticker})` : '';
-    const tickerOnly = bank.ticker || '';
+    const ticker = ` (${bank.ticker})`;
+    const tickerOnly = bank.ticker;
 
     // Build description with available metrics (metrics are at top level of bank object)
     const descParts = [];
@@ -1054,6 +1060,26 @@ async function generatePages() {
         </article>
       `
     }));
+    // Also generate a CIK-based redirect page for backward compatibility
+    // (old CIK URLs may be in Bing's crawl queue or external links)
+    const cikPath = `/bank/${cik}`;
+    if (cikPath !== path) {
+      const redirectHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Redirecting to ${escapeHtml(bankName)}</title>
+<link rel="canonical" href="${SITE_URL}${path}">
+<meta http-equiv="refresh" content="0;url=${SITE_URL}${path}">
+<meta name="robots" content="noindex, follow">
+</head>
+<body>
+<p>This page has moved to <a href="${SITE_URL}${path}">${escapeHtml(bankName)}${escapeHtml(ticker)}</a>.</p>
+</body>
+</html>`;
+      writePage(cikPath, redirectHtml);
+    }
+
     bankCount++;
 
     // Progress indicator for large number of banks
@@ -1061,7 +1087,7 @@ async function generatePages() {
       process.stdout.write(`  Processing banks: ${bankCount}/${banks.length}\r`);
     }
   }
-  console.log(`✓ Generated ${bankCount} bank pages        `);
+  console.log(`✓ Generated ${bankCount} bank pages (skipped ${bankSkipped} without tickers)`);
 
   // ============================================
   // SUMMARY

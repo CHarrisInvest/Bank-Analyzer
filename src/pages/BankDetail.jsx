@@ -34,9 +34,16 @@ function BankDetail({ banks = [], loading = false }) {
   const [rawDataLoading, setRawDataLoading] = useState(false);
   const [associatedTickers, setAssociatedTickers] = useState([]);
 
-  // Find the bank by ticker
+  // Find the bank by ticker, with CIK fallback for backward-compatible URLs
   const bank = useMemo(() => {
-    return banks.find(b => b.ticker?.toUpperCase() === ticker?.toUpperCase());
+    // Primary lookup: by ticker symbol (e.g., /bank/JPM)
+    const byTicker = banks.find(b => b.ticker?.toUpperCase() === ticker?.toUpperCase());
+    if (byTicker) return byTicker;
+    // Fallback: by CIK number (e.g., /bank/19617 from old URLs)
+    return banks.find(b => {
+      const cik = b.cik?.replace(/^0+/, '');
+      return cik === ticker;
+    });
   }, [banks, ticker]);
 
   // Fetch raw data for this bank on-demand
@@ -165,7 +172,7 @@ function BankDetail({ banks = [], loading = false }) {
 
   if (!bank) {
     return (
-      <div className="page bank-detail-page">
+      <div className="page bank-detail-page not-found-page">
         <div className="not-found">
           <h1>Bank Not Found</h1>
           <p>No bank found with ticker symbol "{ticker}".</p>
@@ -194,7 +201,7 @@ function BankDetail({ banks = [], loading = false }) {
       <SEO
         title={`${bank.bankName}${bankTicker} - Bank Analysis`}
         description={`Financial analysis and metrics for ${bank.bankName}${bankTicker}.${metricsSnippet ? ` ${metricsSnippet}.` : ''} View comprehensive SEC filing data and Graham Number valuation.`}
-        canonical={`/bank/${ticker}`}
+        canonical={`/bank/${bank.ticker || ticker}`}
         type="article"
       />
       {/* Back Button */}

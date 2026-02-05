@@ -52,19 +52,24 @@ function App() {
   const [error, setError] = useState(null);
 
   // Transition from pre-rendered SEO content to React app.
+  // Wait until bank data has loaded so React shows real content (not a loading spinner).
+  // This prevents Bingbot from seeing an empty/loading state when it renders JS.
   // Only swap when React Router matched a valid route (not the catch-all NotFound).
   // When the URL is rewritten by archives/caches (Internet Archive, Google Cache),
   // React Router can't match routes and renders NotFound. In that case, the
   // pre-rendered static HTML in #seo-root is the correct content to display.
   useEffect(() => {
+    if (loading) return; // Wait for data before hiding pre-rendered content
+
     const root = document.getElementById('root');
-    const renderedNotFound = root && root.querySelector('.not-found-page');
+    const renderedNotFound = root && root.querySelector('.not-found-page, .not-found');
     if (!renderedNotFound) {
       document.body.classList.add('react-ready');
-      const seoRoot = document.getElementById('seo-root');
-      if (seoRoot) seoRoot.remove();
+      // Keep #seo-root in DOM (hidden via CSS) for crawler compatibility.
+      // Crawlers that render JS can still find the pre-rendered content in the DOM
+      // even if it's visually hidden, providing a safety net.
     }
-  }, []);
+  }, [loading]);
 
   // Initialize Google Analytics on mount
   useEffect(() => {
