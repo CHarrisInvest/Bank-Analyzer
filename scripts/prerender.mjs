@@ -281,30 +281,80 @@ async function generatePages() {
   // Home page (already exists, but ensure proper tags)
   writePage('/', createPage({
     path: '/',
-    title: 'BankSift - Bank Investment Tools',
-    description: 'Screen and analyze 300+ publicly traded banks using SEC filing data. Free screener, Graham Number calculator, and 25+ financial metrics for value investors.',
+    title: 'BankSift - Free Bank Stock Screener & Analysis Tools',
+    description: 'Free bank stock screener and analysis platform. Screen and compare 300+ US bank stocks by ROE, P/B ratio, efficiency ratio, Graham Number, and 25+ financial metrics. SEC filing data updated daily. No sign up required.',
     canonical: `${SITE_URL}/`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is BankSift?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BankSift is a free online bank stock analysis platform that lets investors screen, compare, and analyze over 300 publicly traded US bank stocks. It provides financial metrics like ROE, P/B ratio, efficiency ratio, and Graham Number, all sourced directly from SEC EDGAR filings and updated daily."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which financial metrics can I track with BankSift?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BankSift tracks 25+ bank financial metrics including Return on Equity (ROE), Return on Average Assets (ROAA), Net Interest Margin (NIM), Efficiency Ratio, Price to Book (P/B), Price to Earnings (P/E), Earnings Per Share (EPS), Book Value Per Share (BVPS), Equity to Assets, Loans to Deposits, Deposits to Assets, Dividend Payout Ratio, and Graham Number. These cover profitability, efficiency, capital strength, and valuation categories."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I compare bank stocks efficiently?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the BankSift Bank Screener to filter and compare 300+ US bank stocks side-by-side. Set minimum and maximum ranges for key metrics like ROE, P/B ratio, and efficiency ratio to find banks that meet your investment criteria. Results can be sorted by any metric and exported to CSV for further analysis."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is BankSift free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, BankSift is completely free to use. No account, sign up, or email is required. All tools including the bank stock screener, search, financial metrics guides, and valuation methods are available at no cost."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does BankSift get its data?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "All financial data on BankSift is sourced directly from the SEC EDGAR database, the official repository for US public company filings. The system automatically pulls the latest 10-K and 10-Q filings daily, calculates trailing twelve month (TTM) metrics, and derives key financial ratios for over 300 publicly traded banks."
+              }
+            }
+          ]
+        }
+      ]
+    },
     content: `
       <h1>BankSift</h1>
       <p><strong>Bank Investment Tools</strong> — Sift through the noise.</p>
-      <p>Screen and analyze publicly traded bank stocks using official SEC filing data. Compare banks by profitability, efficiency, valuation, and capital strength metrics — all updated daily.</p>
+      <p>Screen and analyze publicly traded bank stocks using official SEC filing data. Compare banks by profitability, efficiency, valuation, and capital strength metrics — all updated daily. BankSift is a free bank stock screener and financial data dashboard designed for value investors who want to evaluate US bank stocks quickly and thoroughly.</p>
       <p><strong>No account. No sign up. No email required.</strong></p>
       <p><em>Screen. Analyze. Invest.</em></p>
       <h2>What You Can Do</h2>
       <ul>
-        <li><a href="${SITE_URL}/screener">Bank Stock Screener</a> — Filter 300+ banks by 25+ financial metrics including ROE, ROAA, P/B ratio, efficiency ratio, and Graham Number.</li>
-        <li><a href="${SITE_URL}/search">Bank Search</a> — Find any publicly traded bank by name, ticker symbol, or CIK number.</li>
-        <li><a href="${SITE_URL}/metrics">Financial Metrics Guide</a> — Learn how to calculate and interpret key bank analysis ratios.</li>
-        <li><a href="${SITE_URL}/valuation">Valuation Methods</a> — Apply Graham Number, margin of safety, P/B valuation, dividend discount models, and peer comparison analysis.</li>
+        <li><a href="${SITE_URL}/screener">Bank Stock Screener</a> — Filter 300+ banks by 25+ financial metrics including ROE, ROAA, P/B ratio, efficiency ratio, and Graham Number. Rank banks by performance and compare bank profitability metrics side-by-side.</li>
+        <li><a href="${SITE_URL}/search">Bank Search</a> — Find any publicly traded bank by name, ticker symbol, or CIK number. Access detailed financial profiles instantly.</li>
+        <li><a href="${SITE_URL}/metrics">Financial Metrics Guide</a> — Learn how to calculate and interpret key bank financial ratios including ROE, P/B, efficiency ratios, and capital strength indicators.</li>
+        <li><a href="${SITE_URL}/valuation">Valuation Methods</a> — Apply Graham Number, margin of safety, P/B valuation, dividend discount models, and peer comparison analysis to evaluate bank stock fair value.</li>
         <li><a href="${SITE_URL}/glossary">Glossary</a> — Definitions of bank financial terms and SEC filing concepts.</li>
       </ul>
       <h2>Reliable Data You Can Trust</h2>
       <ul>
-        <li><strong>300+ Bank Stocks Tracked</strong></li>
-        <li><strong>Daily Data Updates</strong></li>
-        <li><strong>SEC Official Source</strong></li>
+        <li><strong>300+ Bank Stocks Tracked</strong> — Comprehensive coverage of publicly traded US bank stocks</li>
+        <li><strong>Daily Data Updates</strong> — Financial data refreshed daily from the latest SEC filings</li>
+        <li><strong>SEC Official Source</strong> — All data sourced directly from the SEC EDGAR database</li>
       </ul>
-      <p>All financial data is sourced directly from the SEC EDGAR database. Our automated systems pull the latest 10-K and 10-Q filings daily, calculating trailing twelve month (TTM) metrics and key financial ratios for over 300 publicly traded US banks.</p>
+      <p>All financial data is sourced directly from the SEC EDGAR database. Our automated systems pull the latest 10-K and 10-Q filings daily, calculating trailing twelve month (TTM) metrics and key financial ratios for over 300 publicly traded US banks. Track bank KPIs and compare bank performance metrics with confidence.</p>
       <h2>Getting Started</h2>
       <ol>
         <li><strong>Choose Your Tool:</strong> Use the <a href="${SITE_URL}/screener">Screener</a> for filtering multiple bank stocks by criteria, or <a href="${SITE_URL}/search">Search</a> to find a specific bank stock quickly.</li>
@@ -312,6 +362,14 @@ async function generatePages() {
         <li><strong>Analyze Results:</strong> Review detailed stock profiles, compare banks side-by-side, and dive into financial statements.</li>
       </ol>
       <p>New to bank stock analysis? Start with the <a href="${SITE_URL}/screener/guide">Screener Guide</a> to learn how to filter and evaluate bank stocks step by step.</p>
+
+      <h3>Frequently Asked Questions</h3>
+      <h4>What is BankSift?</h4>
+      <p>BankSift is a free online bank stock analysis platform that lets investors screen, compare, and analyze over 300 publicly traded US bank stocks using financial metrics sourced from SEC EDGAR filings and updated daily.</p>
+      <h4>Which financial metrics can I track with BankSift?</h4>
+      <p>BankSift tracks 25+ bank financial metrics including ROE, ROAA, NIM, Efficiency Ratio, P/B, P/E, EPS, BVPS, Equity to Assets, Loans to Deposits, Deposits to Assets, Dividend Payout Ratio, and Graham Number.</p>
+      <h4>How can I compare bank stocks efficiently?</h4>
+      <p>Use the BankSift Bank Screener to filter and compare 300+ US bank stocks side-by-side. Set ranges for key metrics to find banks that meet your investment criteria, sort results, and export to CSV.</p>
     `
   }));
   count++;
@@ -321,29 +379,30 @@ async function generatePages() {
   // Do NOT add schema here to avoid duplicate structured data in the rendered HTML.
   writePage('/screener', createPage({
     path: '/screener',
-    title: 'Free Bank Stock Screener | 25+ Metrics - BankSift',
-    description: 'Free bank stock screener to filter 300+ US banks by ROE, P/B, Graham Number, efficiency ratio, and 20+ metrics. Updated daily from SEC filings.',
+    title: 'Free Bank Stock Screener | Filter & Compare Bank Stocks by 25+ Metrics - BankSift',
+    description: 'Free online bank stock screener to filter, rank, and compare 300+ US bank stocks. Screen by ROE, P/B ratio, Graham Number, efficiency ratio, and 20+ financial metrics. Updated daily from SEC filings. No registration required.',
     canonical: `${SITE_URL}/screener`,
     type: 'website',
     content: `
       <h1>Free Bank Stock Screener</h1>
-      <p>Screen and filter 300+ publicly traded US bank stocks using comprehensive financial metrics. Our free bank equity screener helps value investors find undervalued bank stocks.</p>
+      <p>Screen and filter 300+ publicly traded US bank stocks using comprehensive financial metrics. Our free bank equity screener helps value investors find undervalued bank stocks, rank banks by performance, and compare bank profitability metrics side-by-side.</p>
 
       <h2>Bank Screening Filters</h2>
-      <p>Use our bank stock filter to screen banks by:</p>
+      <p>Use our bank stock filter to screen and rank banks by:</p>
       <ul>
         <li><strong>Profitability:</strong> Return on Equity (ROE), Return on Assets (ROAA), Net Interest Margin</li>
         <li><strong>Valuation:</strong> Price to Book (P/B), Price to Earnings (P/E), Graham Number</li>
         <li><strong>Efficiency:</strong> Efficiency Ratio, Operating Leverage</li>
-        <li><strong>Safety:</strong> Capital Ratios, Non-Performing Assets</li>
+        <li><strong>Safety:</strong> Capital Ratios, Equity to Assets</li>
+        <li><strong>Per Share:</strong> Earnings Per Share (EPS), Book Value Per Share (BVPS), Dividend Payout Ratio</li>
       </ul>
 
       <h2>Why Use a Bank Stock Screener?</h2>
-      <p>Bank stocks require specialized analysis due to their unique financial structures. Our bank screener provides metrics specifically designed for bank analysis, unlike generic stock screeners.</p>
+      <p>Bank stocks require specialized analysis due to their unique financial structures. Our bank screener provides metrics specifically designed for bank analysis, unlike generic stock screeners. Filter banks by profitability metrics, compare bank valuations, and screen banks for investment using the same ratios professional analysts rely on.</p>
 
       <h2>Frequently Asked Questions</h2>
       <h3>What is a bank stock screener?</h3>
-      <p>A bank stock screener is a tool that filters publicly traded bank stocks based on financial metrics like ROE, P/B ratio, and efficiency ratio. It helps investors find bank stocks that match their investment criteria.</p>
+      <p>A bank stock screener is a financial screening tool that filters publicly traded bank stocks based on financial metrics like ROE, P/B ratio, and efficiency ratio. It helps investors find bank stocks that match their investment criteria.</p>
 
       <h3>How do I screen for undervalued bank stocks?</h3>
       <p>Use the bank screener to filter by Price to Book ratio below 1.0, Graham Number above current price, and ROE above 10%. These metrics help identify potentially undervalued bank stocks with good fundamentals.</p>
@@ -353,6 +412,15 @@ async function generatePages() {
 
       <h3>Is this bank screener free?</h3>
       <p>Yes, BankSift's bank stock screener is completely free with no registration required. Data is updated daily from SEC filings.</p>
+
+      <h3>How do I filter banks by financial metrics?</h3>
+      <p>Use the filter panel to set minimum and maximum values for any metric. For example, set ROE minimum to 10% and P/B maximum to 1.0x to find profitable banks trading below book value. Filtered columns automatically appear in your results table.</p>
+
+      <h3>Which metrics are most important when ranking banks?</h3>
+      <p>The most important metrics for ranking banks are Return on Equity (ROE) for profitability, Efficiency Ratio for operational management, Price to Book (P/B) for valuation, and Equity to Assets for capital strength.</p>
+
+      <h3>Can I compare multiple banks at once using BankSift?</h3>
+      <p>Yes. The screener displays all banks matching your filter criteria in a sortable table. You can compare banks side-by-side across 25+ metrics, customize which columns are visible, and export your filtered results to CSV.</p>
     `
   }));
   count++;
@@ -409,8 +477,8 @@ async function generatePages() {
   // Search page
   writePage('/search', createPage({
     path: '/search',
-    title: 'Search US Bank Stocks by Name or Ticker - BankSift',
-    description: 'Search for US bank stocks by name, ticker symbol, or CIK number. Access financial metrics, SEC filings, and analysis for any publicly traded bank.',
+    title: 'Search US Bank Stocks by Ticker or Name - BankSift',
+    description: 'Search and find any publicly traded US bank by ticker symbol, name, or CIK number. Access detailed financial metrics including ROE, efficiency ratio, P/B ratio, and more. Look up bank stock performance data sourced from SEC filings.',
     canonical: `${SITE_URL}/search`,
     schema: {
       "@context": "https://schema.org",
@@ -418,19 +486,64 @@ async function generatePages() {
         createBreadcrumbSchema([
           { name: "Home", path: "" },
           { name: "Bank Search", path: "/search" }
-        ])
+        ]),
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I search for a bank by ticker?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Type the ticker symbol (such as JPM, BAC, or WFC) into the search bar. The search returns instant results as you type, matching ticker symbols that start with your query. Exact ticker matches are displayed first, followed by partial matches sorted alphabetically."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which metrics are displayed in the search results?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Search results display each bank's ticker symbol, exchange, full name, total assets, Return on Equity (ROE), and efficiency ratio. Click any result to access the full financial profile including 25+ metrics, balance sheet data, income statements, and valuation calculations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I track multiple banks using this tool?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The search tool saves your recent searches for quick access. You can also use the Bank Screener to filter and compare multiple banks simultaneously across 25+ financial metrics, with options to sort, customize columns, and export results to CSV."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I find a bank by CIK number?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Enter the bank's CIK (Central Index Key) number in the search bar. CIK is a unique identifier assigned by the SEC to each filing entity. The search matches CIK numbers that start with your query, making it easy to look up banks using their SEC identifier."
+              }
+            }
+          ]
+        }
       ]
     },
     content: `
       <h1>Search US Bank Stocks</h1>
-      <p>Find any publicly traded US bank by name, ticker symbol, or CIK number. Access detailed financial profiles with metrics like ROE, ROAA, efficiency ratio, Price to Book, and Graham Number — all sourced from SEC filings and updated daily.</p>
+      <p>Find any publicly traded US bank by name, ticker symbol, or CIK number. Access detailed financial profiles with metrics like ROE, ROAA, efficiency ratio, Price to Book, and Graham Number — all sourced from SEC filings and updated daily. Use this bank stock lookup tool to track bank stock performance and find bank valuation metrics instantly.</p>
       <h2>Search by Ticker or Name</h2>
-      <p>Type a ticker symbol (e.g., JPM, BAC, WFC) or bank name to find detailed financial analysis. Each bank profile includes profitability ratios, valuation metrics, capital strength indicators, and balance sheet data.</p>
+      <p>Type a ticker symbol (e.g., JPM, BAC, WFC) or bank name to find detailed financial analysis. Each bank profile includes profitability ratios, valuation metrics, capital strength indicators, and balance sheet data. Search US bank financial ratios and look up bank efficiency and profitability in seconds.</p>
       <h2>Browse Banks</h2>
       <p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to filter and compare 300+ banks by financial criteria, or browse banks directly:</p>
       <ul>
         ${generateBankLinksHtml(linkedBanks)}
       </ul>
+
+      <h3>Frequently Asked Questions</h3>
+      <h4>How do I search for a bank by ticker?</h4>
+      <p>Type the ticker symbol into the search bar. The search returns instant results as you type, matching ticker symbols that start with your query. Exact ticker matches are displayed first.</p>
+      <h4>Which metrics are displayed in the search results?</h4>
+      <p>Search results display each bank's ticker symbol, exchange, full name, total assets, Return on Equity (ROE), and efficiency ratio. Click any result to access the full financial profile.</p>
+      <h4>Can I track multiple banks using this tool?</h4>
+      <p>The search tool saves your recent searches for quick access. You can also use the Bank Screener to filter and compare multiple banks simultaneously across 25+ financial metrics.</p>
     `
   }));
   count++;
@@ -440,8 +553,8 @@ async function generatePages() {
   // Do NOT add schema here to avoid duplicate structured data in the rendered HTML.
   writePage('/metrics', createPage({
     path: '/metrics',
-    title: 'Bank Financial Metrics Guide | ROE, ROAA & More - BankSift',
-    description: 'Guide to bank financial metrics. Learn ROE, ROAA, efficiency ratio, P/B, net interest margin, and more ratios for analyzing bank stocks.',
+    title: 'Bank Financial Metrics Explained | ROE, ROAA, Efficiency Ratio Guide - BankSift',
+    description: 'Free guide to bank financial ratios and metrics. Learn how to calculate and interpret ROE, ROAA, efficiency ratio, P/B ratio, net interest margin, and 10+ key ratios used to analyze and compare US bank stocks.',
     canonical: `${SITE_URL}/metrics`,
     content: `
       <h1>Bank Financial Metrics &amp; Ratios</h1>
@@ -514,8 +627,8 @@ async function generatePages() {
   // Valuation index
   writePage('/valuation', createPage({
     path: '/valuation',
-    title: 'Bank Valuation Methods Guide - BankSift',
-    description: 'Learn how to value bank stocks using Graham Number, margin of safety, P/E ratio, P/B ratio, and other proven valuation methods for bank investing.',
+    title: 'Bank Valuation Methods Guide | P/B, Graham Number, P/E & More - BankSift',
+    description: 'Learn how to value bank stocks using Graham Number, margin of safety, P/B ratio, P/E ratio, dividend discount model, and peer comparison analysis. Free guide to bank stock valuation techniques for investors.',
     canonical: `${SITE_URL}/valuation`,
     schema: {
       "@context": "https://schema.org",
@@ -523,25 +636,70 @@ async function generatePages() {
         createBreadcrumbSchema([
           { name: "Home", path: "" },
           { name: "Valuation Methods", path: "/valuation" }
-        ])
+        ]),
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I value bank stocks using P/B ratio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Price to Book (P/B) ratio is the primary valuation metric for banks because bank assets are mostly financial instruments carried near fair value. A P/B below 1.0 may indicate undervaluation if fundamentals are solid (ROE above 8%). Compare P/B across similar banks and consider the bank's ROE — higher ROE banks deserve higher P/B multiples."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the Graham Number in bank valuation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Graham Number is a value investing formula created by Benjamin Graham that estimates the maximum fair price for a stock. It is calculated as the square root of (22.5 × Earnings Per Share × Book Value Per Share). For banks, the Graham Number provides a conservative intrinsic value estimate."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which valuation methods are best for banks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The best valuation methods for banks include Price to Book (P/B) valuation as the primary approach, complemented by Price to Earnings (P/E) for earnings power assessment. The Graham Number and margin of safety calculations help identify undervalued banks. The Dividend Discount Model works well for dividend-paying banks. Peer comparison analysis benchmarks against similar institutions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is bank valuation different from other companies?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Banks operate fundamentally differently from industrial companies. Their primary business is borrowing money (deposits) and lending it at higher rates. Traditional valuation metrics like EV/EBITDA are not applicable because debt is an operating asset for banks. Instead, analysts focus on book value, earnings quality, regulatory capital ratios, and interest rate sensitivity."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I use margin of safety when investing in bank stocks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Margin of safety is the discount between a bank stock's estimated intrinsic value and its current market price. Calculate intrinsic value using the Graham Number or other methods, then compare it to the stock price. A margin of safety of 20% or more provides a buffer against analytical errors."
+              }
+            }
+          ]
+        }
       ]
     },
     content: `
       <h1>Bank Valuation Methods</h1>
-      <p>Bank valuation requires specialized approaches due to the unique nature of financial institutions. This guide covers various methodologies used to assess the intrinsic value of bank stocks.</p>
+      <p>Bank valuation requires specialized approaches due to the unique nature of financial institutions. This guide covers various methodologies used to assess the intrinsic value of bank stocks, helping investors evaluate banks using P/B ratio, Graham Number, P/E ratio, and other proven bank stock valuation techniques.</p>
 
       <h2>Why Bank Valuation is Different</h2>
-      <p>Banks operate differently from typical industrial companies. Their primary business involves borrowing money (deposits) and lending it out at higher rates. This means traditional valuation metrics like EV/EBITDA are not applicable. Instead, bank analysts focus on book value, earnings quality, and regulatory capital measures.</p>
+      <p>Banks operate differently from typical industrial companies. Their primary business involves borrowing money (deposits) and lending it out at higher rates. This means traditional valuation metrics like EV/EBITDA are not applicable. Instead, bank analysts focus on book value, earnings quality, and regulatory capital measures. Understanding these differences is essential for anyone seeking to compare bank valuations and evaluate banks using P/E and P/B ratios.</p>
 
       <h2>Intrinsic Value Methods</h2>
       <ul>
-        <li><a href="${SITE_URL}/valuation/graham-number">Graham Number</a> — Benjamin Graham's formula for estimating the maximum fair price based on earnings per share and book value per share.</li>
+        <li><a href="${SITE_URL}/valuation/graham-number">Graham Number</a> — Benjamin Graham's formula for estimating the maximum fair price based on earnings per share and book value per share. A foundational tool for bank stock valuation.</li>
         <li><a href="${SITE_URL}/valuation/margin-of-safety">Margin of Safety</a> — The discount between intrinsic value and purchase price that provides a buffer against analytical errors.</li>
         <li><a href="${SITE_URL}/valuation/dividend-discount-model">Dividend Discount Model</a> — Values a bank based on the present value of expected future dividend payments.</li>
       </ul>
       <h2>Relative Valuation Methods</h2>
       <ul>
-        <li><a href="${SITE_URL}/valuation/price-to-book-valuation">Price to Book Valuation</a> — The primary valuation method for banks, comparing market price to accounting book value.</li>
+        <li><a href="${SITE_URL}/valuation/price-to-book-valuation">Price to Book Valuation</a> — The primary valuation method for banks, comparing market price to accounting book value. Essential for bank stock pricing analysis.</li>
         <li><a href="${SITE_URL}/valuation/price-to-earnings-valuation">Price to Earnings Valuation</a> — Compares a bank's stock price to its per-share earnings to assess how the market values earning power.</li>
         <li><a href="${SITE_URL}/valuation/peer-comparison">Peer Comparison Analysis</a> — Valuing a bank by comparing its metrics and multiples to similar banks.</li>
       </ul>
@@ -565,6 +723,14 @@ async function generatePages() {
         <li><strong>Credit Cycle Timing:</strong> Bank earnings are cyclical. Valuations should account for where we are in the credit cycle.</li>
         <li><strong>Regulatory Changes:</strong> Banks operate in a heavily regulated environment. New regulations can significantly impact profitability.</li>
       </ul>
+
+      <h3>Frequently Asked Questions</h3>
+      <h4>How do I value bank stocks using P/B ratio?</h4>
+      <p>Price to Book (P/B) ratio is the primary valuation metric for banks. A P/B below 1.0 may indicate undervaluation if fundamentals are solid. Compare P/B across similar banks and consider the bank's ROE — higher ROE banks deserve higher P/B multiples.</p>
+      <h4>What is the Graham Number in bank valuation?</h4>
+      <p>The Graham Number estimates the maximum fair price for a stock, calculated as the square root of (22.5 × EPS × BVPS). When a bank's stock price is below its Graham Number, it may be undervalued.</p>
+      <h4>Which valuation methods are best for banks?</h4>
+      <p>The best methods include P/B valuation as the primary approach, P/E for earnings power, Graham Number for intrinsic value, Dividend Discount Model for dividend-paying banks, and peer comparison analysis for relative benchmarking.</p>
 
       <p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to find banks that meet your valuation criteria across 300+ publicly traded US banks.</p>
     `
@@ -747,8 +913,8 @@ async function generatePages() {
 
     writePage(path, createPage({
       path,
-      title: `${metric.name} - Bank Metric | BankSift`,
-      description: `${metric.shortDescription} Learn how ${metric.name} is used in bank stock analysis.`,
+      title: `${metric.name} Explained | Bank Financial Ratio Guide - BankSift`,
+      description: `${metric.shortDescription} Learn how ${metric.name} is calculated for banks, typical ranges, what values indicate strength or concern, and how to use it in US bank stock analysis.`,
       canonical: `${SITE_URL}${path}`,
       type: 'article',
       schema: {
@@ -842,8 +1008,8 @@ async function generatePages() {
 
     writePage(path, createPage({
       path,
-      title: `${valuation.name} - Bank Valuation Method | BankSift`,
-      description: `${valuation.shortDescription} Learn how to use ${valuation.name} to value bank stocks.`,
+      title: `${valuation.name} Explained | Bank Valuation Method Guide - BankSift`,
+      description: `${valuation.shortDescription} Learn how to calculate and apply ${valuation.name} to value US bank stocks, with formula, examples, strengths, and limitations.`,
       canonical: `${SITE_URL}${path}`,
       type: 'article',
       schema: {

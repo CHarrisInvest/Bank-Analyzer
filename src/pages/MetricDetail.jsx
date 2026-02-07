@@ -128,35 +128,60 @@ function MetricDetail() {
   // Generate FAQ schema for AI search optimization
   const faqSchema = useMemo(() => {
     if (!metric) return null;
+    const faqEntries = [
+      {
+        '@type': 'Question',
+        'name': `What is ${metric.name}?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': metric.description
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': `How is ${metric.name} calculated for banks?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': `The formula is: ${metric.formula}. ${metric.formulaExplanation || ''} This metric is calculated using data from SEC EDGAR filings, including 10-K and 10-Q reports.`
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': `What is a good ${metric.name} for US banks?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': metric.typicalRange + (metric.goodBad ? ` ${metric.goodBad.good}` : '') + ' Always compare within peer groups of similar-sized banks for meaningful benchmarking.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': `Why does ${metric.name} matter for bank investors?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': metric.interpretation + (metric.considerations && metric.considerations.length > 0 ? ` Key consideration: ${metric.considerations[0]}` : '')
+        }
+      }
+    ];
+    // Add a related metrics question if the metric has related metrics
+    if (metric.relatedMetrics && metric.relatedMetrics.length > 0) {
+      const relatedNames = metric.relatedMetrics
+        .map(slug => METRICS.find(m => m.slug === slug))
+        .filter(Boolean)
+        .map(m => m.name)
+        .join(', ');
+      faqEntries.push({
+        '@type': 'Question',
+        'name': `What metrics are related to ${metric.name}?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': `${metric.name} is commonly analyzed alongside ${relatedNames}. Together, these metrics provide a more complete picture of a bank's financial health and help investors make informed comparisons.`
+        }
+      });
+    }
     return {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      'mainEntity': [
-        {
-          '@type': 'Question',
-          'name': `What is ${metric.name}?`,
-          'acceptedAnswer': {
-            '@type': 'Answer',
-            'text': metric.description
-          }
-        },
-        {
-          '@type': 'Question',
-          'name': `How is ${metric.name} calculated?`,
-          'acceptedAnswer': {
-            '@type': 'Answer',
-            'text': `${metric.formula}. ${metric.formulaExplanation || ''}`
-          }
-        },
-        {
-          '@type': 'Question',
-          'name': `What is a good ${metric.name} for banks?`,
-          'acceptedAnswer': {
-            '@type': 'Answer',
-            'text': metric.typicalRange + (metric.goodBad ? ` ${metric.goodBad.good}` : '')
-          }
-        }
-      ]
+      'mainEntity': faqEntries
     };
   }, [metric]);
 
@@ -181,8 +206,8 @@ function MetricDetail() {
   return (
     <div className="page metric-detail-page">
       <SEO
-        title={`${metric.name} - Bank Financial Metric Explained`}
-        description={`${metric.shortDescription} Learn how ${metric.name} is calculated, what values are good for banks, and how to use it in your analysis.`}
+        title={`${metric.name} Explained | Bank Financial Ratio Guide`}
+        description={`${metric.shortDescription} Learn how ${metric.name} is calculated for banks, typical ranges, what values indicate strength or concern, and how to use it in US bank stock analysis.`}
         canonical={`/metrics/${slug}`}
         schema={faqSchema}
       />

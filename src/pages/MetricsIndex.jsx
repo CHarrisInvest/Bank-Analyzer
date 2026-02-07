@@ -210,6 +210,30 @@ function MetricsIndex() {
               'text': 'An efficiency ratio below 55% is considered excellent for banks, meaning the bank spends less than 55 cents to generate each dollar of revenue. Ratios between 50-60% indicate well-managed operations. Ratios above 65-70% may suggest cost control challenges. The efficiency ratio measures operating expenses as a percentage of total revenue.',
             },
           },
+          {
+            '@type': 'Question',
+            'name': 'How do I compare banks using financial ratios?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'To compare banks effectively, evaluate them across multiple metric categories: profitability (ROE, ROAA, NIM), efficiency (efficiency ratio), capital strength (equity to assets), and valuation (P/B, P/E). Always compare within peer groups of similar-sized banks, as community banks and large money-center banks have different typical ranges. Use the BankSift screener to filter and rank banks across all these metrics simultaneously.',
+            },
+          },
+          {
+            '@type': 'Question',
+            'name': 'What is Net Interest Margin and why does it matter for banks?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Net Interest Margin (NIM) measures the difference between interest income earned on loans and investments versus interest paid on deposits and borrowings, expressed as a percentage of average earning assets. A healthy NIM (typically 3.0% to 4.0% for US banks) indicates the bank is earning a good spread on its lending activities, which is the primary revenue driver for most banks.',
+            },
+          },
+          {
+            '@type': 'Question',
+            'name': 'What is the difference between ROE and ROAA for banks?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'ROE (Return on Equity) measures how effectively a bank generates profit from shareholder equity, with a good benchmark being above 10%. ROAA (Return on Average Assets) measures how efficiently a bank uses its total assets to generate earnings, with a good benchmark being above 1.0%. ROE is influenced by leverage — a bank can boost ROE by using more debt — while ROAA provides a leverage-neutral view of operating performance.',
+            },
+          },
         ],
       },
       {
@@ -264,7 +288,7 @@ function MetricsIndex() {
     <div className="page metrics-index-page">
       <SEO
         title="Bank Financial Metrics Explained | ROE, ROAA, Efficiency Ratio Guide"
-        description="Free guide to bank stock financial metrics. Learn ROE, ROAA, efficiency ratio, P/B ratio, net interest margin, and 10+ ratios used to analyze publicly traded US banks."
+        description="Free guide to bank financial ratios and metrics. Learn how to calculate and interpret ROE, ROAA, efficiency ratio, P/B ratio, net interest margin, and 10+ key ratios used to analyze and compare US bank stocks."
         canonical="/metrics"
         schema={pageSchema}
       />
