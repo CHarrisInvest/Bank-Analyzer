@@ -185,6 +185,7 @@ function ValuationDetail() {
         title={`${method.name} Explained | Bank Valuation Method Guide`}
         description={`${method.shortDescription} Learn how to calculate and apply ${method.name} to value US bank stocks, with formula, examples, strengths, and limitations.`}
         canonical={`/valuation/${slug}`}
+        image="https://banksift.org/og-valuation.png"
         type="article"
         schema={valuationFaqSchema}
       />

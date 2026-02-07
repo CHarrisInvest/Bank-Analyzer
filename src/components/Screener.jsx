@@ -6,6 +6,119 @@ import { getUniqueExchanges } from '../data/sheets.js';
 import { trackFiltersReset, trackSearchPerformed, trackExchangeFiltered } from '../analytics/events.js';
 
 /**
+ * URL param mapping for shareable screener filter links.
+ * Maps internal filter keys to compact URL parameter names.
+ */
+const FILTER_PARAM_MAP = {
+  searchQuery: 'q',
+  exchanges: 'ex',
+  marketCap: 'mc',
+  totalAssets: 'ta',
+  totalDeposits: 'td',
+  cashAndCashEquivalents: 'cash',
+  loans: 'loans',
+  totalLiabilities: 'tl',
+  totalEquity: 'te',
+  pni: 'pe',
+  roe: 'roe',
+  roaa: 'roaa',
+  equityToAssets: 'ea',
+  depositsToAssets: 'da',
+  efficiencyRatio: 'eff',
+  bvps: 'bvps',
+  ttmDividend: 'div',
+  dividendPayoutRatio: 'dpr',
+  grahamMoS: 'gmos',
+  ttmNetIncome: 'ni',
+  ttmNetInterestIncome: 'nii',
+  ttmEps: 'eps',
+  sharesOutstanding: 'so',
+};
+
+// Reverse map: URL param -> filter key
+const PARAM_FILTER_MAP = Object.fromEntries(
+  Object.entries(FILTER_PARAM_MAP).map(([k, v]) => [v, k])
+);
+
+// Range filter keys (exclude searchQuery, exchanges, grahamMoS which are handled specially)
+const RANGE_FILTER_ENTRIES = Object.entries(FILTER_PARAM_MAP).filter(
+  ([key]) => key !== 'searchQuery' && key !== 'exchanges' && key !== 'grahamMoS'
+);
+
+/**
+ * Serialize filter state to URLSearchParams
+ */
+function filtersToParams(filters) {
+  const params = new URLSearchParams();
+
+  if (filters.searchQuery?.trim()) {
+    params.set('q', filters.searchQuery.trim());
+  }
+
+  if (filters.exchanges?.length > 0) {
+    params.set('ex', filters.exchanges.join(','));
+  }
+
+  for (const [key, param] of RANGE_FILTER_ENTRIES) {
+    const f = filters[key];
+    if (f?.min !== '' && f?.min !== undefined) params.set(`${param}_min`, String(f.min));
+    if (f?.max !== '' && f?.max !== undefined) params.set(`${param}_max`, String(f.max));
+  }
+
+  if (filters.grahamMoS !== '' && filters.grahamMoS !== undefined) {
+    params.set('gmos', String(filters.grahamMoS));
+  }
+
+  return params;
+}
+
+/**
+ * Deserialize URLSearchParams to filter state
+ */
+function paramsToFilters(searchParams) {
+  const filters = { ...DEFAULT_FILTERS };
+
+  const q = searchParams.get('q');
+  if (q) filters.searchQuery = q;
+
+  const ex = searchParams.get('ex');
+  if (ex) filters.exchanges = ex.split(',').filter(Boolean);
+
+  for (const [key, param] of RANGE_FILTER_ENTRIES) {
+    const min = searchParams.get(`${param}_min`);
+    const max = searchParams.get(`${param}_max`);
+    if (min !== null && !isNaN(parseFloat(min))) {
+      filters[key] = { ...filters[key], min: parseFloat(min) };
+    }
+    if (max !== null && !isNaN(parseFloat(max))) {
+      filters[key] = { ...filters[key], max: parseFloat(max) };
+    }
+  }
+
+  const gmos = searchParams.get('gmos');
+  if (gmos !== null && !isNaN(parseFloat(gmos))) {
+    filters.grahamMoS = parseFloat(gmos);
+  }
+
+  return filters;
+}
+
+/**
+ * Check if URL has any screener filter params
+ */
+function hasFilterParams(searchParams) {
+  const allParamNames = new Set(['q', 'ex', 'gmos']);
+  for (const [, param] of RANGE_FILTER_ENTRIES) {
+    allParamNames.add(`${param}_min`);
+    allParamNames.add(`${param}_max`);
+  }
+  for (const key of searchParams.keys()) {
+    if (allParamNames.has(key)) return true;
+  }
+  return false;
+}
+
+/**
  * Clean up bank name for display
  * - Remove state abbreviations in slashes (e.g., "/PA/", "/DE/", "/MN")
  * - Convert all letters to uppercase for consistency
@@ -126,8 +239,12 @@ function Screener({ banks, loading }) {
   const location = useLocation();
   const incomingState = location.state || {};
 
-  // Initialize filters from location state (when returning via back button) or defaults
+  // Initialize filters: URL params > location state > defaults
   const [filters, setFilters] = useState(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (hasFilterParams(searchParams)) {
+      return paramsToFilters(searchParams);
+    }
     if (incomingState.filters) {
       return { ...DEFAULT_FILTERS, ...incomingState.filters };
     }
@@ -159,6 +276,23 @@ function Screener({ banks, loading }) {
       });
     }
   }, [incomingState.restoreScroll, incomingState.scrollY]);
+
+  // Sync filter state to URL params (debounced to avoid thrashing on keystrokes)
+  const urlUpdateTimeout = useRef(null);
+  useEffect(() => {
+    if (urlUpdateTimeout.current) clearTimeout(urlUpdateTimeout.current);
+    urlUpdateTimeout.current = setTimeout(() => {
+      const params = filtersToParams(filters);
+      const search = params.toString();
+      const newUrl = search
+        ? `${location.pathname}?${search}`
+        : location.pathname;
+      window.history.replaceState(null, '', newUrl);
+    }, 300);
+    return () => {
+      if (urlUpdateTimeout.current) clearTimeout(urlUpdateTimeout.current);
+    };
+  }, [filters, location.pathname]);
 
   /**
    * Get unique exchanges from the data
@@ -378,8 +512,9 @@ function Screener({ banks, loading }) {
    */
   const handleReset = useCallback(() => {
     setFilters(DEFAULT_FILTERS);
+    window.history.replaceState(null, '', location.pathname);
     trackFiltersReset();
-  }, []);
+  }, [location.pathname]);
 
   /**
    * Toggle filters layout between side and top
@@ -412,6 +547,20 @@ function Screener({ banks, loading }) {
       </section>
     </div>
   );
+}
+
+/**
+ * Build a screener URL with filter params pre-applied.
+ * Accepts a partial filter object (same shape as preset filters in Filters.jsx).
+ */
+export function buildScreenerUrl(presetFilters) {
+  const filters = { ...DEFAULT_FILTERS };
+  Object.keys(presetFilters).forEach((key) => {
+    filters[key] = presetFilters[key];
+  });
+  const params = filtersToParams(filters);
+  const search = params.toString();
+  return search ? `/screener?${search}` : '/screener';
 }
 
 export default Screener;

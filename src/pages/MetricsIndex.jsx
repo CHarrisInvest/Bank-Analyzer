@@ -290,6 +290,7 @@ function MetricsIndex() {
         title="Bank Financial Metrics Explained | ROE, ROAA, Efficiency Ratio Guide"
         description="Free guide to bank financial ratios and metrics. Learn how to calculate and interpret ROE, ROAA, efficiency ratio, P/B ratio, net interest margin, and 10+ key ratios used to analyze and compare US bank stocks."
         canonical="/metrics"
+        image="https://banksift.org/og-metrics.png"
         schema={pageSchema}
       />
 

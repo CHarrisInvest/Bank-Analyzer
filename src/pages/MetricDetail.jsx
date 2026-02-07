@@ -209,6 +209,7 @@ function MetricDetail() {
         title={`${metric.name} Explained | Bank Financial Ratio Guide`}
         description={`${metric.shortDescription} Learn how ${metric.name} is calculated for banks, typical ranges, what values indicate strength or concern, and how to use it in US bank stock analysis.`}
         canonical={`/metrics/${slug}`}
+        image="https://banksift.org/og-metrics.png"
         schema={faqSchema}
       />
       <BackButton />

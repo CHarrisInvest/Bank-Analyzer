@@ -85,6 +85,7 @@ function ValuationIndex() {
         title="Bank Valuation Methods Guide | P/B, Graham Number, P/E & More"
         description="Learn how to value bank stocks using Graham Number, margin of safety, P/B ratio, P/E ratio, dividend discount model, and peer comparison analysis. Free guide to bank stock valuation techniques for investors."
         canonical="/valuation"
+        image="https://banksift.org/og-valuation.png"
         schema={valuationSchema}
       />
       <div className="page-header">

@@ -1683,6 +1683,34 @@ body {
   border-radius: 2px;
 }
 
+/* Ticker cell with favorite star */
+.ticker-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1px;
+  color: var(--color-gray-300);
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+
+.favorite-btn:hover {
+  color: #d69e2e;
+}
+
+.favorite-btn.favorited {
+  color: #d69e2e;
+}
+
 /* Alternating row colors for better readability */
 .results-table tbody tr:nth-child(even) {
   background-color: var(--color-gray-25, #fafafa);
@@ -2977,6 +3005,11 @@ body {
 .btn-lg {
   padding: var(--spacing-4) var(--spacing-6);
   font-size: var(--font-size-base);
+}
+
+.btn-sm {
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--font-size-sm);
 }
 
 .btn-primary {
@@ -5737,6 +5770,12 @@ body {
   margin-bottom: 0;
 }
 
+.strategy-card .strategy-apply {
+  margin-top: var(--spacing-4);
+  padding-top: var(--spacing-3);
+  border-top: 1px solid var(--color-gray-200);
+}
+
 /* Feature items */
 .feature-item {
   margin-bottom: var(--spacing-4);
@@ -6308,4 +6347,174 @@ body {
   color: var(--color-gray-600);
   line-height: 1.6;
   background: var(--color-gray-50);
+}
+
+/* ==========================================================================
+   Back to Top Button
+   ========================================================================== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s, background 0.2s;
+  z-index: 100;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: var(--color-primary-light);
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  /* Hide non-essential UI elements */
+  .app-nav,
+  .app-footer,
+  .back-to-top,
+  .cookie-consent,
+  .keyboard-shortcuts-modal,
+  .btn,
+  .filters,
+  .filters-header,
+  .screener-page-header button,
+  .info-toggle,
+  .search-controls,
+  .glossary-filters,
+  .glossary-cta,
+  .guide-cta,
+  .breadcrumb,
+  .back-button,
+  .metric-card-footer,
+  .share-btn,
+  .tab-nav,
+  #seo-root {
+    display: none !important;
+  }
+
+  /* Reset layout for print */
+  body, .app-layout, .main-content {
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: black;
+  }
+
+  .main-content {
+    max-width: 100%;
+  }
+
+  .page {
+    padding: 0;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4 {
+    color: black;
+    page-break-after: avoid;
+  }
+
+  h1 { font-size: 20pt; }
+  h2 { font-size: 16pt; margin-top: 16pt; }
+  h3 { font-size: 13pt; }
+
+  p, li, dt, dd, td, th {
+    font-size: 10pt;
+    color: #333;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    page-break-inside: auto;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 4px 6px;
+    font-size: 9pt;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+
+  /* Links: show URL after link text */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #666;
+  }
+
+  /* Internal links: don't show URL */
+  a[href^="/"]::after {
+    content: none;
+  }
+
+  /* Bank detail page: show all metric sections */
+  .bank-detail-page .metric-group,
+  .bank-detail-page .overview-section {
+    page-break-inside: avoid;
+  }
+
+  /* Definition lists */
+  dl {
+    page-break-inside: avoid;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  /* Cards and sections */
+  .strategy-card,
+  .metric-card,
+  .guide-section {
+    page-break-inside: avoid;
+    border: 1px solid #ddd;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  /* Page header */
+  .page-header {
+    border-bottom: 2px solid #333;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+
+  /* Footer for print */
+  @page {
+    margin: 1.5cm;
+  }
 }

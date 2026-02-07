@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { formatNumber } from '../utils/csv.js';
 import { sendPageView } from '../analytics/gtag.js';
+import { useFavorites } from '../hooks/useFavorites.js';
 
 /**
  * Column group definitions for visual grouping headers
@@ -673,6 +674,7 @@ const FILTER_TO_COLUMN_MAP = {
 
 function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
   const navigate = useNavigate();
+  const [, toggleFavorite, isFavorite] = useFavorites();
   const [sortConfig, setSortConfig] = useState({
     key: 'marketCap',
     direction: 'desc',
@@ -1246,14 +1248,28 @@ function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
                       });
                     };
 
+                    const fav = isFavorite(bank.ticker);
                     displayContent = (
-                      <a
-                        href={`/bank/${bank.ticker}`}
-                        className="ticker-link"
-                        onClick={handleTickerClick}
-                      >
-                        {tickerContent}
-                      </a>
+                      <span className="ticker-cell">
+                        <button
+                          type="button"
+                          className={`favorite-btn ${fav ? 'favorited' : ''}`}
+                          onClick={(e) => { e.stopPropagation(); toggleFavorite(bank.ticker); }}
+                          aria-label={fav ? `Remove ${bank.ticker} from favorites` : `Add ${bank.ticker} to favorites`}
+                          title={fav ? 'Remove from favorites' : 'Add to favorites'}
+                        >
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill={fav ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                          </svg>
+                        </button>
+                        <a
+                          href={`/bank/${bank.ticker}`}
+                          className="ticker-link"
+                          onClick={handleTickerClick}
+                        >
+                          {tickerContent}
+                        </a>
+                      </span>
                     );
                   } else if (column.key === 'bankName' && searchQuery && typeof formatted === 'string') {
                     displayContent = highlightMatch(formatted, searchQuery, true);

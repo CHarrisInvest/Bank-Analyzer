@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSearchTracking } from '../analytics/useAnalytics.js';
+import { useFavorites } from '../hooks/useFavorites.js';
 import NavigationLink from '../components/NavigationLink.jsx';
 import SEO from '../components/SEO.jsx';
 
@@ -17,6 +18,7 @@ function Search({ banks = [], loading = false }) {
   const location = useLocation();
   const incomingState = location.state || {};
   const inputRef = useRef(null);
+  const [, toggleFavorite, isFavorite] = useFavorites();
 
   // Initialize state from location state (when returning via back button) or defaults
   const [query, setQuery] = useState(incomingState.searchQuery || '');
@@ -249,6 +251,7 @@ function Search({ banks = [], loading = false }) {
         title="Search US Bank Stocks by Ticker or Name"
         description="Search and find any publicly traded US bank by ticker symbol, name, or CIK number. Access detailed financial metrics including ROE, efficiency ratio, P/B ratio, and more. Look up bank stock performance data sourced from SEC filings."
         canonical="/search"
+        image="https://banksift.org/og-search.png"
         schema={searchSchema}
       />
       <div className="page-header">
@@ -369,7 +372,15 @@ function Search({ banks = [], loading = false }) {
                     pageTitle={bank.ticker}
                   >
                     <div className="bank-result-header">
-                      <span className="bank-ticker">{bank.ticker}</span>
+                      <span className="ticker-cell">
+                        <button
+                          type="button"
+                          className={`favorite-btn ${isFavorite(bank.ticker) ? 'favorited' : ''}`}
+                          onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFavorite(bank.ticker); }}
+                          aria-label={isFavorite(bank.ticker) ? 'Remove from favorites' : 'Add to favorites'}
+                        >★</button>
+                        <span className="bank-ticker">{bank.ticker}</span>
+                      </span>
                       <span className="bank-exchange">{bank.exchange}</span>
                     </div>
                     <div className="bank-name">{bank.bankName}</div>

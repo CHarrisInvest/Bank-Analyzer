@@ -1156,6 +1156,21 @@ async function generatePages() {
               "name": bankName,
               "tickerSymbol": bank.ticker || undefined
             }
+          },
+          {
+            "@type": "Dataset",
+            "name": `${bankName} (${bank.ticker}) Financial Data`,
+            "description": `Financial metrics and SEC filing data for ${bankName}. Includes profitability ratios, valuation metrics, capital strength indicators, and balance sheet data.`,
+            "url": `${SITE_URL}${path}`,
+            "license": "https://www.sec.gov/privacy#security",
+            "creator": { "@type": "Organization", "name": "BankSift" },
+            "dateModified": BUILD_DATE,
+            "variableMeasured": [
+              ...(bank.roe != null ? [{ "@type": "PropertyValue", "name": "ROE", "value": `${bank.roe.toFixed(2)}%` }] : []),
+              ...(bank.roaa != null ? [{ "@type": "PropertyValue", "name": "ROAA", "value": `${bank.roaa.toFixed(2)}%` }] : []),
+              ...(bank.efficiencyRatio != null ? [{ "@type": "PropertyValue", "name": "Efficiency Ratio", "value": `${bank.efficiencyRatio.toFixed(1)}%` }] : []),
+              ...(bank.priceToBook != null ? [{ "@type": "PropertyValue", "name": "P/B Ratio", "value": `${bank.priceToBook.toFixed(2)}x` }] : []),
+            ]
           }
         ]
       },

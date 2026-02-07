@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import Navigation from './Navigation.jsx';
+import BackToTop from './BackToTop.jsx';
 import CookieConsent from './CookieConsent.jsx';
 import KeyboardShortcutsModal from './KeyboardShortcutsModal.jsx';
 import { usePageTracking, useScrollTracking, useSessionTracking } from '../analytics/useAnalytics.js';
@@ -75,6 +76,7 @@ function Layout() {
         </div>
       </footer>
 
+      <BackToTop />
       <CookieConsent />
       <KeyboardShortcutsModal />
     </div>

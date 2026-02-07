@@ -123,6 +123,7 @@ function ScreenerPage({ banks, loading }) {
         title="Free Bank Stock Screener | Filter & Compare Bank Stocks by 25+ Metrics - BankSift"
         description="Free online bank stock screener to filter, rank, and compare 300+ US bank stocks. Screen by ROE, P/B ratio, Graham Number, efficiency ratio, and 20+ financial metrics. Updated daily from SEC filings. No registration required."
         canonical="/screener"
+        image="https://banksift.org/og-screener.png"
         schema={screenerSchema}
       />
       <div className="page-header screener-page-header">
