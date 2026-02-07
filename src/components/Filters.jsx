@@ -606,7 +606,7 @@ function Filters({
     const allFilterKeys = [
       'exchanges', 'marketCap', 'totalAssets', 'totalDeposits', 'totalEquity',
       'totalLiabilities', 'cashAndCashEquivalents', 'loans',
-      'pni', 'roe', 'roaa', 'efficiencyRatio', 'equityToAssets', 'depositsToAssets',
+      'priceToBook', 'pni', 'roe', 'roaa', 'efficiencyRatio', 'equityToAssets', 'depositsToAssets',
       'ttmEps', 'bvps', 'ttmDividend', 'dividendPayoutRatio',
       'grahamMoS', 'ttmNetIncome', 'ttmNetInterestIncome', 'sharesOutstanding'
     ];
@@ -842,8 +842,17 @@ function Filters({
         <FilterSection
           title="Valuation & Performance"
           defaultOpen={false}
-          badge={countActiveFilters(['pni', 'roe', 'roaa', 'efficiencyRatio', 'equityToAssets', 'depositsToAssets']) || null}
+          badge={countActiveFilters(['priceToBook', 'pni', 'roe', 'roaa', 'efficiencyRatio', 'equityToAssets', 'depositsToAssets']) || null}
         >
+          <RangeFilter
+            label="Price to Book (P/B)"
+            minValue={filters.priceToBook?.min ?? ''}
+            maxValue={filters.priceToBook?.max ?? ''}
+            minPlaceholder="Min"
+            maxPlaceholder="Max"
+            onChange={handleRangeChange('priceToBook')}
+            unit="x"
+          />
           <RangeFilter
             label="P/E Ratio"
             minValue={filters.pni?.min ?? ''}
