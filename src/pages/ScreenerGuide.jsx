@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import NavigationLink from '../components/NavigationLink.jsx';
 import SEO from '../components/SEO.jsx';
+import { buildScreenerUrl } from '../components/Screener.jsx';
 
 /**
  * SVG Category Icon Components - Outlined/Stroked Style
@@ -317,6 +318,7 @@ function ScreenerGuide() {
         title="How to Screen Bank Stocks: Complete Guide | BankSift"
         description="Learn how to screen and analyze bank stocks using ROE, P/B ratio, efficiency ratio, and Graham Number. Step-by-step tutorial for finding undervalued bank stocks with the BankSift screener."
         canonical="/screener/guide"
+        image="https://banksift.org/og-guide.png"
         schema={guideSchema}
       />
       <div className="page-header">
@@ -613,6 +615,14 @@ function ScreenerGuide() {
                 The solid ROE confirms the business is fundamentally sound.
               </p>
             </div>
+            <div className="strategy-apply">
+              <Link
+                to={buildScreenerUrl({ roe: { min: 8, max: '' }, grahamMoS: 20 })}
+                className="btn btn-primary btn-sm"
+              >
+                Apply in Screener
+              </Link>
+            </div>
           </div>
 
           <div className="strategy-card">
@@ -643,6 +653,14 @@ function ScreenerGuide() {
                 conservative capital positions. These tend to be well-managed institutions that
                 can weather economic downturns.
               </p>
+            </div>
+            <div className="strategy-apply">
+              <Link
+                to={buildScreenerUrl({ roe: { min: 12, max: '' }, efficiencyRatio: { min: '', max: 60 }, equityToAssets: { min: 10, max: '' } })}
+                className="btn btn-primary btn-sm"
+              >
+                Apply in Screener
+              </Link>
             </div>
           </div>
 
@@ -675,6 +693,14 @@ function ScreenerGuide() {
                 as earnings increase, while the profitability requirement indicates the dividend
                 is well-covered by earnings.
               </p>
+            </div>
+            <div className="strategy-apply">
+              <Link
+                to={buildScreenerUrl({ dividendPayoutRatio: { min: 20, max: 50 }, roe: { min: 10, max: '' }, totalAssets: { min: 1000, max: '' } })}
+                className="btn btn-primary btn-sm"
+              >
+                Apply in Screener
+              </Link>
             </div>
           </div>
         </section>

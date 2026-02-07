@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { VALUATION_METHODS } from '../data/content/valuations.js';
 import { METRICS } from '../data/content/metrics.js';
@@ -94,6 +94,73 @@ function ValuationDetail() {
 
   const method = VALUATION_METHODS.find(m => m.slug === slug);
 
+  // Generate FAQ schema for valuation detail pages
+  const valuationFaqSchema = useMemo(() => {
+    if (!method) return null;
+    const faqEntries = [
+      {
+        '@type': 'Question',
+        'name': `What is ${method.name}?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': method.description
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': `How do I apply ${method.name} to bank stocks?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': method.steps ? method.steps.join(' ') : method.description
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': `What are the strengths of using ${method.name}?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': method.strengths ? method.strengths.join(' ') : `${method.name} is a widely used approach for evaluating bank stock value.`
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': `What are the limitations of ${method.name}?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': method.limitations ? method.limitations.join(' ') : `Like all valuation methods, ${method.name} should be used alongside other approaches for a complete analysis.`
+        }
+      }
+    ];
+    // Add formula question if available
+    if (method.formula) {
+      faqEntries.push({
+        '@type': 'Question',
+        'name': `What is the formula for ${method.name}?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': `The formula is: ${method.formula}. ${method.formulaExplanation || ''}`
+        }
+      });
+    }
+    return {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://banksift.org' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Valuation Methods', 'item': 'https://banksift.org/valuation' },
+            { '@type': 'ListItem', 'position': 3, 'name': method.name, 'item': `https://banksift.org/valuation/${slug}` }
+          ]
+        },
+        {
+          '@type': 'FAQPage',
+          'mainEntity': faqEntries
+        }
+      ]
+    };
+  }, [method, slug]);
+
   useEffect(() => {
     if (method) {
       trackValuationMethodViewed(slug);
@@ -115,10 +182,12 @@ function ValuationDetail() {
   return (
     <div className="page valuation-detail-page">
       <SEO
-        title={`${method.name} - Bank Valuation Method`}
-        description={`${method.shortDescription} Learn how to use ${method.name} to value bank stocks.`}
+        title={`${method.name} Explained | Bank Valuation Method Guide`}
+        description={`${method.shortDescription} Learn how to calculate and apply ${method.name} to value US bank stocks, with formula, examples, strengths, and limitations.`}
         canonical={`/valuation/${slug}`}
+        image="https://banksift.org/og-valuation.png"
         type="article"
+        schema={valuationFaqSchema}
       />
       <BackButton />
 

@@ -87,6 +87,30 @@ function ScreenerPage({ banks, loading }) {
               "@type": "Answer",
               "text": "Yes, BankSift's bank stock screener is completely free. No registration required. Data is updated daily from SEC filings."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I filter banks by financial metrics?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use the filter panel to set minimum and maximum values for any metric. For example, set ROE minimum to 10% and P/B maximum to 1.0x to find profitable banks trading below book value. Filtered columns automatically appear in your results table. You can combine multiple filters to narrow your search and sort results by any column."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which metrics are most important when ranking banks?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The most important metrics for ranking banks are Return on Equity (ROE) for profitability, Efficiency Ratio for operational management, Price to Book (P/B) for valuation, and Equity to Assets for capital strength. For value investors, the Graham Number and margin of safety percentage help identify potentially undervalued bank stocks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I compare multiple banks at once using BankSift?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The screener displays all banks matching your filter criteria in a sortable table. You can compare banks side-by-side across 25+ metrics, customize which columns are visible, reorder columns by dragging, and export your filtered results to CSV for further analysis in a spreadsheet."
+            }
           }
         ]
       }
@@ -96,9 +120,10 @@ function ScreenerPage({ banks, loading }) {
   return (
     <div className="page screener-page">
       <SEO
-        title="Free Bank Stock Screener | Filter Bank Stocks by 25+ Metrics - BankSift"
-        description="Free bank stock screener to filter and analyze 300+ US bank stocks. Screen bank equities by ROE, P/B ratio, Graham Number, efficiency ratio & 20+ metrics. Updated daily from SEC filings."
+        title="Free Bank Stock Screener | Filter & Compare Bank Stocks by 25+ Metrics - BankSift"
+        description="Free online bank stock screener to filter, rank, and compare 300+ US bank stocks. Screen by ROE, P/B ratio, Graham Number, efficiency ratio, and 20+ financial metrics. Updated daily from SEC filings. No registration required."
         canonical="/screener"
+        image="https://banksift.org/og-screener.png"
         schema={screenerSchema}
       />
       <div className="page-header screener-page-header">

@@ -202,6 +202,7 @@ function BankDetail({ banks = [], loading = false }) {
         title={`${bank.bankName}${bankTicker} - Bank Analysis`}
         description={`Financial analysis and metrics for ${bank.bankName}${bankTicker}.${metricsSnippet ? ` ${metricsSnippet}.` : ''} View comprehensive SEC filing data and Graham Number valuation.`}
         canonical={`/bank/${bank.ticker || ticker}`}
+        image="https://banksift.org/og-bank.png"
         type="article"
       />
       {/* Back Button */}
