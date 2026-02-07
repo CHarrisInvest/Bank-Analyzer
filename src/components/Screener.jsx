@@ -19,6 +19,7 @@ const FILTER_PARAM_MAP = {
   loans: 'loans',
   totalLiabilities: 'tl',
   totalEquity: 'te',
+  priceToBook: 'pb',
   pni: 'pe',
   roe: 'roe',
   roaa: 'roaa',
@@ -180,6 +181,7 @@ const DEFAULT_FILTERS = {
   totalEquity: { min: '', max: '' },
 
   // Valuation
+  priceToBook: { min: '', max: '' },
   pni: { min: '', max: '' },
 
   // Profitability
@@ -388,6 +390,9 @@ function Screener({ banks, loading }) {
       // ========================================================================
       // VALUATION
       // ========================================================================
+
+      // Price to Book filter
+      if (!applyRangeFilter(bank.priceToBook, filters.priceToBook)) return false;
 
       // P/NI (P/E) filter
       if (!applyRangeFilter(bank.pni, filters.pni)) return false;

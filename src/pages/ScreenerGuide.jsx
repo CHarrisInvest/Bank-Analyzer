@@ -617,7 +617,7 @@ function ScreenerGuide() {
             </div>
             <div className="strategy-apply">
               <Link
-                to={buildScreenerUrl({ roe: { min: 8, max: '' }, grahamMoS: 20 })}
+                to={buildScreenerUrl({ priceToBook: { min: 0.5, max: 1 }, roe: { min: 8, max: '' }, grahamMoS: 20 })}
                 className="btn btn-primary btn-sm"
               >
                 Apply in Screener
