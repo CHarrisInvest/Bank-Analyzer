@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { VALUATION_METHODS } from '../data/content/valuations.js';
 import { METRICS } from '../data/content/metrics.js';
@@ -94,72 +94,9 @@ function ValuationDetail() {
 
   const method = VALUATION_METHODS.find(m => m.slug === slug);
 
-  // Generate FAQ schema for valuation detail pages
-  const valuationFaqSchema = useMemo(() => {
-    if (!method) return null;
-    const faqEntries = [
-      {
-        '@type': 'Question',
-        'name': `What is ${method.name}?`,
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': method.description
-        }
-      },
-      {
-        '@type': 'Question',
-        'name': `How do I apply ${method.name} to bank stocks?`,
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': method.steps ? method.steps.join(' ') : method.description
-        }
-      },
-      {
-        '@type': 'Question',
-        'name': `What are the strengths of using ${method.name}?`,
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': method.strengths ? method.strengths.join(' ') : `${method.name} is a widely used approach for evaluating bank stock value.`
-        }
-      },
-      {
-        '@type': 'Question',
-        'name': `What are the limitations of ${method.name}?`,
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': method.limitations ? method.limitations.join(' ') : `Like all valuation methods, ${method.name} should be used alongside other approaches for a complete analysis.`
-        }
-      }
-    ];
-    // Add formula question if available
-    if (method.formula) {
-      faqEntries.push({
-        '@type': 'Question',
-        'name': `What is the formula for ${method.name}?`,
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': `The formula is: ${method.formula}. ${method.formulaExplanation || ''}`
-        }
-      });
-    }
-    return {
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'BreadcrumbList',
-          'itemListElement': [
-            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://banksift.org' },
-            { '@type': 'ListItem', 'position': 2, 'name': 'Valuation Methods', 'item': 'https://banksift.org/valuation' },
-            { '@type': 'ListItem', 'position': 3, 'name': method.name, 'item': `https://banksift.org/valuation/${slug}` }
-          ]
-        },
-        {
-          '@type': 'FAQPage',
-          'mainEntity': faqEntries
-        }
-      ]
-    };
-  }, [method, slug]);
+  // Note: Schema (BreadcrumbList, FAQPage) is provided by the prerender script
+  // (scripts/prerender.mjs) in the static HTML for immediate crawler access.
+  // Do NOT add a schema here to avoid duplicates.
 
   useEffect(() => {
     if (method) {
@@ -187,7 +124,6 @@ function ValuationDetail() {
         canonical={`/valuation/${slug}`}
         image="https://banksift.org/og-valuation.png"
         type="article"
-        schema={valuationFaqSchema}
       />
       <BackButton />
 

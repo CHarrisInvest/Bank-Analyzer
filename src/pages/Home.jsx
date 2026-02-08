@@ -154,56 +154,9 @@ function ShieldIcon() {
  * Landing page with overview and quick links to main features
  */
 function Home() {
-  const homeSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is BankSift?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "BankSift is a free online bank stock analysis platform that lets investors screen, compare, and analyze over 300 publicly traded US bank stocks. It provides financial metrics like ROE, P/B ratio, efficiency ratio, and Graham Number, all sourced directly from SEC EDGAR filings and updated daily."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Which financial metrics can I track with BankSift?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "BankSift tracks 25+ bank financial metrics including Return on Equity (ROE), Return on Average Assets (ROAA), Net Interest Margin (NIM), Efficiency Ratio, Price to Book (P/B), Price to Earnings (P/E), Earnings Per Share (EPS), Book Value Per Share (BVPS), Equity to Assets, Loans to Deposits, Deposits to Assets, Dividend Payout Ratio, and Graham Number. These cover profitability, efficiency, capital strength, and valuation categories."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How can I compare bank stocks efficiently?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Use the BankSift Bank Screener to filter and compare 300+ US bank stocks side-by-side. Set minimum and maximum ranges for key metrics like ROE, P/B ratio, and efficiency ratio to find banks that meet your investment criteria. Results can be sorted by any metric and exported to CSV for further analysis."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is BankSift free to use?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, BankSift is completely free to use. No account, sign up, or email is required. All tools including the bank stock screener, search, financial metrics guides, and valuation methods are available at no cost."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where does BankSift get its data?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "All financial data on BankSift is sourced directly from the SEC EDGAR database, the official repository for US public company filings. The system automatically pulls the latest 10-K and 10-Q filings daily, calculates trailing twelve month (TTM) metrics, and derives key financial ratios for over 300 publicly traded banks."
-            }
-          }
-        ]
-      }
-    ]
-  };
+  // Note: FAQPage schema is provided by the prerender script (scripts/prerender.mjs)
+  // in the static HTML so it is immediately available to all crawlers without
+  // requiring JavaScript execution. Do NOT add a schema here to avoid duplicates.
 
   return (
     <div className="page home-page">
@@ -211,7 +164,6 @@ function Home() {
         title={null}
         description="Free bank stock screener and analysis platform. Screen and compare 300+ US bank stocks by ROE, P/B ratio, efficiency ratio, Graham Number, and 25+ financial metrics. SEC filing data updated daily. No sign up required."
         canonical="/"
-        schema={homeSchema}
       />
       {/* Hero Section */}
       <section className="hero-section">

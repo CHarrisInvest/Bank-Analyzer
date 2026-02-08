@@ -269,39 +269,9 @@ function ScreenerGuide() {
   const location = useLocation();
   const incomingState = location.state || {};
 
-  // Generate comprehensive schema for SEO
-  const guideSchema = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'BreadcrumbList',
-        'itemListElement': [
-          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://banksift.org' },
-          { '@type': 'ListItem', 'position': 2, 'name': 'Bank Screener', 'item': 'https://banksift.org/screener' },
-          { '@type': 'ListItem', 'position': 3, 'name': 'Guide', 'item': 'https://banksift.org/screener/guide' },
-        ],
-      },
-      {
-        '@type': 'HowTo',
-        'name': 'How to Screen Bank Stocks',
-        'description': 'Step-by-step guide to using the BankSift bank stock screener to find investment opportunities.',
-        'step': [
-          { '@type': 'HowToStep', 'name': 'Set Your Criteria', 'text': 'Use the filters panel to set minimum and maximum values for metrics like ROE, P/B ratio, and efficiency ratio.' },
-          { '@type': 'HowToStep', 'name': 'Review Results', 'text': 'Examine the filtered results table. Click column headers to sort by any metric.' },
-          { '@type': 'HowToStep', 'name': 'Analyze Banks', 'text': 'Click on any ticker to view detailed financial analysis for that bank.' },
-          { '@type': 'HowToStep', 'name': 'Export Data', 'text': 'Use the Export CSV button to download your filtered results for further analysis.' },
-        ],
-      },
-      {
-        '@type': 'FAQPage',
-        'mainEntity': FAQ_ITEMS.map(item => ({
-          '@type': 'Question',
-          'name': item.question,
-          'acceptedAnswer': { '@type': 'Answer', 'text': item.answer },
-        })),
-      },
-    ],
-  };
+  // Note: Schema (BreadcrumbList, HowTo, FAQPage) is provided by the prerender script
+  // (scripts/prerender.mjs) in the static HTML for immediate crawler access.
+  // Do NOT add a schema here to avoid duplicates.
 
   // Restore scroll position when returning via back button
   useEffect(() => {
@@ -319,7 +289,6 @@ function ScreenerGuide() {
         description="Learn how to screen and analyze bank stocks using ROE, P/B ratio, efficiency ratio, and Graham Number. Step-by-step tutorial for finding undervalued bank stocks with the BankSift screener."
         canonical="/screener/guide"
         image="https://banksift.org/og-guide.png"
-        schema={guideSchema}
       />
       <div className="page-header">
         <h1>Bank Screener Guide</h1>
