@@ -154,82 +154,9 @@ function Glossary() {
     });
   }, [allTerms, searchQuery, selectedCategory]);
 
-  // Generate JSON-LD schema for the glossary
-  const glossarySchema = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'DefinedTermSet',
-        'name': 'BankSift Financial Glossary',
-        'description': 'Comprehensive glossary of financial terms for bank stock analysis and value investing',
-        'hasDefinedTerm': allTerms.slice(0, 50).map(t => ({
-          '@type': 'DefinedTerm',
-          'name': t.term,
-          'description': t.definition,
-        })),
-      },
-      {
-        '@type': 'BreadcrumbList',
-        'itemListElement': [
-          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://banksift.org' },
-          { '@type': 'ListItem', 'position': 2, 'name': 'Glossary', 'item': 'https://banksift.org/glossary' },
-        ],
-      },
-      {
-        '@type': 'FAQPage',
-        'mainEntity': [
-          {
-            '@type': 'Question',
-            'name': 'What is Return on Equity (ROE)?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'Return on Equity (ROE) measures how effectively a bank generates profits from shareholder equity. It is calculated as Net Income divided by Average Shareholders\' Equity. For US banks, an ROE above 10% is generally considered good, while below 6% may indicate challenges.',
-            },
-          },
-          {
-            '@type': 'Question',
-            'name': 'What is the Efficiency Ratio in banking?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'The Efficiency Ratio measures a bank\'s operating expenses as a percentage of its total revenue. A lower ratio indicates better cost management. For banks, an efficiency ratio below 55% is considered excellent, while above 70% may suggest operational challenges.',
-            },
-          },
-          {
-            '@type': 'Question',
-            'name': 'What is the Graham Number?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'The Graham Number is a value investing formula developed by Benjamin Graham that estimates the maximum fair price for a stock. It is calculated as the square root of (22.5 × Earnings Per Share × Book Value Per Share). When a bank\'s stock price is below its Graham Number, it may be undervalued.',
-            },
-          },
-          {
-            '@type': 'Question',
-            'name': 'What is a 10-K filing?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'A 10-K filing is an annual report required by the SEC that provides a comprehensive summary of a company\'s financial performance. It includes audited financial statements, management discussion and analysis, and risk factors. Banks file 10-K reports annually, and BankSift uses this data to calculate financial metrics.',
-            },
-          },
-          {
-            '@type': 'Question',
-            'name': 'What does TTM mean in financial metrics?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'TTM stands for Trailing Twelve Months. It is a financial measurement that sums the last four quarters of data to provide an up-to-date annual figure. TTM smooths out seasonal variations and provides more current data than the last fiscal year. BankSift calculates all income statement metrics on a TTM basis.',
-            },
-          },
-          {
-            '@type': 'Question',
-            'name': 'What is Price to Book (P/B) ratio for banks?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'The Price to Book (P/B) ratio compares a bank\'s stock price to its book value per share. It is the primary valuation metric for banks because bank assets are mostly financial instruments carried near fair value. A P/B below 1.0 may indicate undervaluation if fundamentals are solid, while above 2.0x is typically considered expensive.',
-            },
-          },
-        ],
-      },
-    ],
-  };
+  // Note: Schema (DefinedTermSet, BreadcrumbList, FAQPage) is provided by the prerender script
+  // (scripts/prerender.mjs) in the static HTML for immediate crawler access.
+  // Do NOT add a schema here to avoid duplicates.
 
   return (
     <div className="page glossary-page">
@@ -238,7 +165,6 @@ function Glossary() {
         description="Comprehensive glossary of financial terms for bank stock analysis. Learn definitions for ROE, efficiency ratio, Graham Number, and other key metrics used in bank valuation."
         canonical="/glossary"
         image="https://banksift.org/og-glossary.png"
-        schema={glossarySchema}
       />
 
       <div className="page-header">
