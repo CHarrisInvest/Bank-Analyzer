@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import Navigation from './Navigation.jsx';
 import BackToTop from './BackToTop.jsx';
@@ -15,6 +15,12 @@ function Layout() {
   usePageTracking();
   useScrollTracking();
   useSessionTracking();
+
+  // Cookie consent re-open trigger (increment to re-open banner)
+  const [cookieSettingsTrigger, setCookieSettingsTrigger] = useState(0);
+  const handleOpenCookieSettings = useCallback(() => {
+    setCookieSettingsTrigger(prev => prev + 1);
+  }, []);
 
   return (
     <div className="app-layout">
@@ -57,6 +63,7 @@ function Layout() {
               <ul className="footer-links">
                 <li><Link to="/privacy">Privacy Policy</Link></li>
                 <li><Link to="/terms">Terms of Service</Link></li>
+                <li><button className="footer-link-btn" onClick={handleOpenCookieSettings}>Cookie Settings</button></li>
               </ul>
             </div>
           </div>
@@ -77,7 +84,7 @@ function Layout() {
       </footer>
 
       <BackToTop />
-      <CookieConsent />
+      <CookieConsent reopenTrigger={cookieSettingsTrigger} />
       <KeyboardShortcutsModal />
     </div>
   );

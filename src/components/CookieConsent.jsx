@@ -12,8 +12,10 @@ import {
 /**
  * Cookie Consent Banner Component
  * Implements GDPR/CCPA compliant consent with Google Consent Mode v2
+ *
+ * @param {number} reopenTrigger - Increment to re-open the banner (e.g., from footer link)
  */
-function CookieConsent() {
+function CookieConsent({ reopenTrigger = 0 }) {
   const [visible, setVisible] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [preferences, setPreferences] = useState({
@@ -21,8 +23,8 @@ function CookieConsent() {
     advertising: false,
   });
 
+  // Auto-show on first visit (no stored consent decision)
   useEffect(() => {
-    // Check if user has already made a consent decision
     if (!hasConsentDecision()) {
       // Small delay to prevent flash on initial load
       const timer = setTimeout(() => setVisible(true), 500);
@@ -30,20 +32,37 @@ function CookieConsent() {
     }
   }, []);
 
+  // Re-open when triggered externally (e.g., footer "Cookie Settings" link)
+  useEffect(() => {
+    if (reopenTrigger > 0) {
+      const stored = getStoredConsent();
+      setPreferences({
+        analytics: stored.analytics || false,
+        advertising: stored.advertising || false,
+      });
+      setShowPreferences(false);
+      setVisible(true);
+    }
+  }, [reopenTrigger]);
+
+  const handleClose = () => {
+    setVisible(false);
+    setShowPreferences(false);
+  };
+
   const handleAcceptAll = () => {
     acceptAllCookies();
-    setVisible(false);
+    handleClose();
   };
 
   const handleRejectAll = () => {
     rejectNonEssential();
-    setVisible(false);
+    handleClose();
   };
 
   const handleSavePreferences = () => {
     setCustomConsent(preferences.analytics, preferences.advertising);
-    setVisible(false);
-    setShowPreferences(false);
+    handleClose();
   };
 
   const handleTogglePreferences = () => {
