@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import { trackBankViewed, trackBankTabChanged } from '../analytics/events.js';
 import { fetchBankRawData, fetchBankList } from '../data/sheets.js';
+import bankKeywords from '../../public/data/bank-keywords.json';
 import BackButton from '../components/BackButton.jsx';
 import FinancialStatementTable from '../components/FinancialStatementTable.jsx';
 import SEO from '../components/SEO.jsx';
@@ -195,12 +196,14 @@ function BankDetail({ banks = [], loading = false }) {
     bank.roaa != null ? `ROAA: ${bank.roaa.toFixed(2)}%` : null,
     bank.efficiencyRatio != null ? `Efficiency: ${bank.efficiencyRatio.toFixed(1)}%` : null,
   ].filter(Boolean).join(', ');
+  const descHint = bankKeywords[bank.ticker]?.descriptionHint;
+  const aliasFragment = descHint ? `, ${descHint},` : '';
 
   return (
     <div className="page bank-detail-page">
       <SEO
         title={`${bank.bankName}${bankTicker} - Bank Analysis`}
-        description={`Financial analysis and metrics for ${bank.bankName}${bankTicker}.${metricsSnippet ? ` ${metricsSnippet}.` : ''} View comprehensive SEC filing data and Graham Number valuation.`}
+        description={`Financial analysis and metrics for ${bank.bankName}${bankTicker}${aliasFragment}.${metricsSnippet ? ` ${metricsSnippet}.` : ''} View comprehensive SEC filing data and Graham Number valuation.`}
         canonical={`/bank/${bank.ticker || ticker}`}
         image="https://banksift.org/og-bank.png"
         type="article"
@@ -297,6 +300,12 @@ function OverviewTab({ bank, associatedTickers = [], formatCurrency, formatPerce
             <dd>{bank.sic}</dd>
             <dt>Industry</dt>
             <dd>{bank.sicDescription}</dd>
+            {bankKeywords[bank.ticker]?.alternateNames?.length > 0 && (
+              <>
+                <dt>Also Known As</dt>
+                <dd>{bankKeywords[bank.ticker].alternateNames.join(', ')}</dd>
+              </>
+            )}
           </dl>
         </div>
 
