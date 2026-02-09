@@ -340,6 +340,14 @@ async function generatePages() {
                 "@type": "Answer",
                 "text": "All financial data on BankSift is sourced directly from the SEC EDGAR database, the official repository for US public company filings. The system automatically pulls the latest 10-K and 10-Q filings daily, calculates trailing twelve month (TTM) metrics, and derives key financial ratios for over 300 publicly traded banks."
               }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I find the best bank stocks to analyze?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the BankSift screener to filter banks by the metrics that matter to your strategy. For example, screen for banks with ROE above 12%, efficiency ratio below 55%, and Price to Book below 1.5x to find well-run banks at reasonable valuations. You can sort results by any metric to rank banks and identify the strongest performers."
+              }
             }
           ]
         }
@@ -361,8 +369,8 @@ async function generatePages() {
       </ul>
       <h2>Reliable Data You Can Trust</h2>
       <ul>
-        <li><strong>300+ Bank Stocks Tracked</strong> — Comprehensive coverage of publicly traded US bank stocks</li>
-        <li><strong>Daily Data Updates</strong> — Financial data refreshed daily from the latest SEC filings</li>
+        <li><strong>300+ Bank Stocks Tracked Today</strong> — Comprehensive coverage of publicly traded US bank stocks</li>
+        <li><strong>Daily Data Updates</strong> — Bank stock data refreshed daily from the latest SEC filings</li>
         <li><strong>SEC Official Source</strong> — All data sourced directly from the SEC EDGAR database</li>
       </ul>
       <p>All financial data is sourced directly from the SEC EDGAR database. Our automated systems pull the latest 10-K and 10-Q filings daily, calculating trailing twelve month (TTM) metrics and key financial ratios for over 300 publicly traded US banks. Track bank KPIs and compare bank performance metrics with confidence.</p>
@@ -385,6 +393,8 @@ async function generatePages() {
       <p>Yes, BankSift is completely free to use. No account, sign up, or email is required. All tools including the bank stock screener, search, financial metrics guides, and valuation methods are available at no cost.</p>
       <h4>Where does BankSift get its data?</h4>
       <p>All financial data on BankSift is sourced directly from the SEC EDGAR database, the official repository for US public company filings. The system automatically pulls the latest 10-K and 10-Q filings daily, calculates trailing twelve month (TTM) metrics, and derives key financial ratios for over 300 publicly traded banks.</p>
+      <h4>How do I find the best bank stocks to analyze?</h4>
+      <p>Use the BankSift screener to filter banks by the metrics that matter to your strategy. For example, screen for banks with ROE above 12%, efficiency ratio below 55%, and Price to Book below 1.5x to find well-run banks at reasonable valuations. Sort results by any metric to rank and compare.</p>
     `
   }));
   count++;
@@ -487,6 +497,14 @@ async function generatePages() {
                 "@type": "Answer",
                 "text": "Yes. The screener displays all banks matching your filter criteria in a sortable table. You can compare banks side-by-side across 25+ metrics, customize which columns are visible, reorder columns by dragging, and export your filtered results to CSV for further analysis in a spreadsheet."
               }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the screener show bank stock prices?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The screener displays the current stock price for every bank alongside financial metrics. You can also view Price to Book, Price to Earnings, and market capitalization to put each bank's share price in context. Price data is updated daily."
+              }
             }
           ]
         }
@@ -530,6 +548,9 @@ async function generatePages() {
 
       <h3>Can I compare multiple banks at once using BankSift?</h3>
       <p>Yes. The screener displays all banks matching your filter criteria in a sortable table. You can compare banks side-by-side across 25+ metrics, customize which columns are visible, and export your filtered results to CSV.</p>
+
+      <h3>Does the screener show bank stock prices?</h3>
+      <p>Yes. The screener displays the current stock price for every bank alongside financial metrics. You can also view Price to Book, Price to Earnings, and market capitalization to put each bank's share price in context. Price data is updated daily.</p>
     `
   }));
   count++;
