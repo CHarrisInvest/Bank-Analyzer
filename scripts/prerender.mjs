@@ -48,7 +48,14 @@ async function loadData() {
     banks = JSON.parse(readFileSync(banksPath, 'utf-8'));
   }
 
-  return { metrics, valuations, banks };
+  // Load bank keywords (alternate names for SEO)
+  let bankKeywords = {};
+  const keywordsPath = join(dataDir, 'bank-keywords.json');
+  if (existsSync(keywordsPath)) {
+    bankKeywords = JSON.parse(readFileSync(keywordsPath, 'utf-8'));
+  }
+
+  return { metrics, valuations, banks, bankKeywords };
 }
 
 /**
@@ -237,7 +244,7 @@ function createBreadcrumbSchema(items) {
  * Generate all static pages
  */
 async function generatePages() {
-  const { metrics, valuations, banks } = await loadData();
+  const { metrics, valuations, banks, bankKeywords } = await loadData();
   let count = 0;
 
   // Cross-link mappings between metrics and valuation methods
@@ -1548,6 +1555,11 @@ async function generatePages() {
     const ticker = ` (${bank.ticker})`;
     const tickerOnly = bank.ticker;
 
+    // Look up alternate names / keywords for this bank
+    const keywordData = bankKeywords[tickerOnly] || null;
+    const alternateNames = keywordData ? keywordData.alternateNames : [];
+    const descHint = keywordData ? keywordData.descriptionHint : null;
+
     // Build description with available metrics (metrics are at top level of bank object)
     const descParts = [];
     if (bank.roe != null) descParts.push(`ROE: ${bank.roe.toFixed(2)}%`);
@@ -1565,13 +1577,22 @@ async function generatePages() {
       bankTitle = fullTitle;
     }
 
-    // Build a description under 155 chars
-    const bankDesc = `${bankName}${ticker} financial analysis.${metricsDesc} SEC filing data updated daily.`;
+    // Build a description under 155 chars, weaving in alternate name when available
+    const aliasFragment = descHint ? `, ${descHint},` : '';
+    const bankDescFull = `${bankName}${ticker}${aliasFragment} financial analysis.${metricsDesc} SEC filing data updated daily.`;
+    // If alias makes it too long, try without the trailing "SEC filing data updated daily."
+    const bankDescShort = `${bankName}${ticker}${aliasFragment} financial analysis.${metricsDesc}`;
+    // If even without the trailing part it's too long, drop the alias
+    const bankDescNoAlias = `${bankName}${ticker} financial analysis.${metricsDesc} SEC filing data updated daily.`;
+    const bankDesc = bankDescFull.length <= 155 ? bankDescFull
+      : bankDescShort.length <= 155 ? bankDescShort
+      : bankDescNoAlias.length <= 155 ? bankDescNoAlias
+      : `${bankName}${ticker} financial analysis.${metricsDesc}`.substring(0, 152) + '...';
 
     writePage(path, createPage({
       path,
       title: bankTitle,
-      description: bankDesc.length <= 155 ? bankDesc : `${bankName}${ticker} financial analysis.${metricsDesc}`.substring(0, 152) + '...',
+      description: bankDesc,
       canonical: `${SITE_URL}${path}`,
       type: 'article',
       schema: {
@@ -1585,11 +1606,13 @@ async function generatePages() {
           {
             "@type": "FinancialProduct",
             "name": bankName,
+            ...(alternateNames.length > 0 ? { "alternateName": alternateNames } : {}),
             "description": `Financial analysis for ${bankName}`,
             "dateModified": BUILD_DATE,
             "provider": {
               "@type": "Corporation",
               "name": bankName,
+              ...(alternateNames.length > 0 ? { "alternateName": alternateNames } : {}),
               "tickerSymbol": bank.ticker || undefined
             }
           },
@@ -1622,6 +1645,7 @@ async function generatePages() {
             <dt>CIK Number</dt><dd>${escapeHtml(bank.cik)}</dd>
             ${bank.sic ? `<dt>SIC Code</dt><dd>${bank.sic}</dd>` : ''}
             ${bank.sicDescription ? `<dt>Industry</dt><dd>${escapeHtml(bank.sicDescription)}</dd>` : ''}
+            ${alternateNames.length > 0 ? `<dt>Also Known As</dt><dd>${alternateNames.map(n => escapeHtml(n)).join(', ')}</dd>` : ''}
             ${bank.sharesOutstanding != null ? `<dt>Shares Outstanding</dt><dd>${bank.sharesOutstanding >= 1e9 ? (bank.sharesOutstanding / 1e9).toFixed(2) + 'B' : (bank.sharesOutstanding / 1e6).toFixed(1) + 'M'}</dd>` : ''}
           </dl>
           ${bank.roe != null || bank.roaa != null || bank.efficiencyRatio != null ? `
