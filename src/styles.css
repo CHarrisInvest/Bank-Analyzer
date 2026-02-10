@@ -1192,6 +1192,42 @@ body {
   margin-bottom: var(--spacing-2);
 }
 
+.watchlist-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-bottom: var(--spacing-3);
+}
+
+.watchlist-toggle:hover {
+  background-color: var(--color-gray-100);
+}
+
+.watchlist-toggle input {
+  accent-color: #d69e2e;
+}
+
+.watchlist-toggle-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+}
+
+.watchlist-toggle input:checked + .watchlist-toggle-label {
+  color: #d69e2e;
+  font-weight: var(--font-weight-medium);
+}
+
+.watchlist-count {
+  color: var(--color-gray-500);
+  font-weight: var(--font-weight-normal);
+}
+
 .exchange-checkbox {
   display: flex;
   align-items: center;
