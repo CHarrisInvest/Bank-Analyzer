@@ -2616,6 +2616,20 @@ body {
   color: var(--color-white);
 }
 
+.footer-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-gray-400);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.footer-link-btn:hover {
+  color: var(--color-white);
+}
+
 .footer-bottom {
   padding-top: var(--spacing-6);
   text-align: center;

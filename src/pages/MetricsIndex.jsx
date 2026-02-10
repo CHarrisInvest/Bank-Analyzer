@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { METRICS } from '../data/content/metrics.js';
 import NavigationLink from '../components/NavigationLink.jsx';
@@ -164,91 +164,9 @@ function MetricsIndex() {
     }
   }, [incomingState.restoreScroll, incomingState.scrollY]);
 
-  // SEO schemas
-  const pageSchema = useMemo(() => ({
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'BreadcrumbList',
-        'itemListElement': [
-          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://banksift.org' },
-          { '@type': 'ListItem', 'position': 2, 'name': 'Financial Metrics', 'item': 'https://banksift.org/metrics' },
-        ],
-      },
-      {
-        '@type': 'FAQPage',
-        'mainEntity': [
-          {
-            '@type': 'Question',
-            'name': 'What financial metrics are important for analyzing banks?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'Key financial metrics for analyzing banks include Return on Equity (ROE), Return on Average Assets (ROAA), Net Interest Margin (NIM), Efficiency Ratio, Equity to Assets ratio, and Price to Book (P/B) ratio. These metrics measure profitability, operational efficiency, capital strength, and valuation.',
-            },
-          },
-          {
-            '@type': 'Question',
-            'name': 'How do you measure bank profitability?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'Bank profitability is measured primarily through Return on Equity (ROE), Return on Average Assets (ROAA), and Net Interest Margin (NIM). ROE shows how effectively a bank generates profit from shareholder equity (good: above 10%). ROAA measures profit relative to total assets (good: above 1.0%). NIM measures the spread between interest earned and paid (good: above 3.5%).',
-            },
-          },
-          {
-            '@type': 'Question',
-            'name': 'What is a good ROE for a bank?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'A good Return on Equity (ROE) for banks is typically 10% to 15%. ROE above 10-12% indicates strong profitability and efficient capital use. Top-performing banks may exceed 15%. ROE below 6-8% may indicate weak profitability or operational challenges. Always compare ROE within peer groups of similar-sized banks.',
-            },
-          },
-          {
-            '@type': 'Question',
-            'name': 'What efficiency ratio is good for banks?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'An efficiency ratio below 55% is considered excellent for banks, meaning the bank spends less than 55 cents to generate each dollar of revenue. Ratios between 50-60% indicate well-managed operations. Ratios above 65-70% may suggest cost control challenges. The efficiency ratio measures operating expenses as a percentage of total revenue.',
-            },
-          },
-          {
-            '@type': 'Question',
-            'name': 'How do I compare banks using financial ratios?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'To compare banks effectively, evaluate them across multiple metric categories: profitability (ROE, ROAA, NIM), efficiency (efficiency ratio), capital strength (equity to assets), and valuation (P/B, P/E). Always compare within peer groups of similar-sized banks, as community banks and large money-center banks have different typical ranges. Use the BankSift screener to filter and rank banks across all these metrics simultaneously.',
-            },
-          },
-          {
-            '@type': 'Question',
-            'name': 'What is Net Interest Margin and why does it matter for banks?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'Net Interest Margin (NIM) measures the difference between interest income earned on loans and investments versus interest paid on deposits and borrowings, expressed as a percentage of average earning assets. A healthy NIM (typically 3.0% to 4.0% for US banks) indicates the bank is earning a good spread on its lending activities, which is the primary revenue driver for most banks.',
-            },
-          },
-          {
-            '@type': 'Question',
-            'name': 'What is the difference between ROE and ROAA for banks?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'ROE (Return on Equity) measures how effectively a bank generates profit from shareholder equity, with a good benchmark being above 10%. ROAA (Return on Average Assets) measures how efficiently a bank uses its total assets to generate earnings, with a good benchmark being above 1.0%. ROE is influenced by leverage — a bank can boost ROE by using more debt — while ROAA provides a leverage-neutral view of operating performance.',
-            },
-          },
-        ],
-      },
-      {
-        '@type': 'ItemList',
-        'name': 'Bank Financial Metric Categories',
-        'itemListElement': [
-          { '@type': 'ListItem', 'position': 1, 'name': 'Profitability Ratios', 'url': 'https://banksift.org/metrics#profitability' },
-          { '@type': 'ListItem', 'position': 2, 'name': 'Efficiency Ratios', 'url': 'https://banksift.org/metrics#efficiency' },
-          { '@type': 'ListItem', 'position': 3, 'name': 'Capital & Leverage Ratios', 'url': 'https://banksift.org/metrics#capital' },
-          { '@type': 'ListItem', 'position': 4, 'name': 'Valuation Metrics', 'url': 'https://banksift.org/metrics#valuation' },
-          { '@type': 'ListItem', 'position': 5, 'name': 'Per Share Metrics', 'url': 'https://banksift.org/metrics#per-share' },
-        ],
-      },
-    ],
-  }), []);
+  // Note: Schema (BreadcrumbList, FAQPage, ItemList) is provided by the prerender script
+  // (scripts/prerender.mjs) in the static HTML for immediate crawler access.
+  // Do NOT add a schema here to avoid duplicates.
 
   // Group metrics by category with expanded descriptions
   const categories = [
@@ -291,7 +209,6 @@ function MetricsIndex() {
         description="Free guide to bank financial ratios and metrics. Learn how to calculate and interpret ROE, ROAA, efficiency ratio, P/B ratio, net interest margin, and 10+ key ratios used to analyze and compare US bank stocks."
         canonical="/metrics"
         image="https://banksift.org/og-metrics.png"
-        schema={pageSchema}
       />
 
       <div className="page-header">

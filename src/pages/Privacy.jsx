@@ -118,10 +118,10 @@ function Privacy() {
           <p>
             When you first visit our site, you will be presented with a cookie consent banner
             that allows you to choose which types of cookies to accept. You can change your
-            preferences at any time by clearing your browser cookies and revisiting the site.
+            preferences at any time using the "Cookie Settings" link in the website footer.
           </p>
           <p>
-            Most web browsers allow you to control cookies through their settings. Note that
+            You can also control cookies through your web browser settings. Note that
             disabling certain cookies may affect the functionality of our website.
           </p>
         </section>
@@ -145,6 +145,14 @@ function Privacy() {
             <li>Google Signals (cross-device tracking) is disabled</li>
             <li>Advertising personalization signals are disabled by default until consent</li>
           </ul>
+          <h3>Google Consent Mode</h3>
+          <p>
+            We use Google Consent Mode v2 to integrate our cookie consent banner with
+            Google Analytics. When you decline analytics cookies, no analytics cookies are
+            set on your device. Limited cookieless data (such as basic page navigation signals)
+            may still be sent to Google for aggregate statistical modeling purposes. This data
+            does not identify you personally and is not used to build an individual profile.
+          </p>
           <p>
             For more information, see{' '}
             <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">

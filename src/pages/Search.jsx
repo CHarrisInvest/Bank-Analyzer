@@ -197,65 +197,9 @@ function Search({ banks = [], loading = false }) {
     return num.toLocaleString();
   };
 
-  const searchSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://banksift.org"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Bank Search",
-            "item": "https://banksift.org/search"
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How do I search for a bank by ticker?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Type the ticker symbol (such as JPM, BAC, or WFC) into the search bar. The search returns instant results as you type, matching ticker symbols that start with your query. Exact ticker matches are displayed first, followed by partial matches sorted alphabetically."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Which metrics are displayed in the search results?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Search results display each bank's ticker symbol, exchange, full name, total assets, Return on Equity (ROE), and efficiency ratio. Click any result to access the full financial profile including 25+ metrics, balance sheet data, income statements, and valuation calculations."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I track multiple banks using this tool?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The search tool saves your recent searches for quick access. You can also use the Bank Screener to filter and compare multiple banks simultaneously across 25+ financial metrics, with options to sort, customize columns, and export results to CSV."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I find a bank by CIK number?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Enter the bank's CIK (Central Index Key) number in the search bar. CIK is a unique identifier assigned by the SEC to each filing entity. The search matches CIK numbers that start with your query, making it easy to look up banks using their SEC identifier."
-            }
-          }
-        ]
-      }
-    ]
-  };
+  // Note: Schema (BreadcrumbList, FAQPage) is provided by the prerender script
+  // (scripts/prerender.mjs) in the static HTML for immediate crawler access.
+  // Do NOT add a schema here to avoid duplicates.
 
   return (
     <div className="page search-page">
@@ -264,7 +208,6 @@ function Search({ banks = [], loading = false }) {
         description="Search and find any publicly traded US bank by ticker symbol, name, or CIK number. Access detailed financial metrics including ROE, efficiency ratio, P/B ratio, and more. Look up bank stock performance data sourced from SEC filings."
         canonical="/search"
         image="https://banksift.org/og-search.png"
-        schema={searchSchema}
       />
       <div className="page-header">
         <h1>Bank Search</h1>

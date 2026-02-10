@@ -48,7 +48,14 @@ async function loadData() {
     banks = JSON.parse(readFileSync(banksPath, 'utf-8'));
   }
 
-  return { metrics, valuations, banks };
+  // Load bank keywords (alternate names for SEO)
+  let bankKeywords = {};
+  const keywordsPath = join(dataDir, 'bank-keywords.json');
+  if (existsSync(keywordsPath)) {
+    bankKeywords = JSON.parse(readFileSync(keywordsPath, 'utf-8'));
+  }
+
+  return { metrics, valuations, banks, bankKeywords };
 }
 
 /**
@@ -237,7 +244,7 @@ function createBreadcrumbSchema(items) {
  * Generate all static pages
  */
 async function generatePages() {
-  const { metrics, valuations, banks } = await loadData();
+  const { metrics, valuations, banks, bankKeywords } = await loadData();
   let count = 0;
 
   // Cross-link mappings between metrics and valuation methods
@@ -279,6 +286,10 @@ async function generatePages() {
   // ============================================
 
   // Home page (already exists, but ensure proper tags)
+  // Note: FAQPage schema is defined here in prerender so it is present in the
+  // initial static HTML, making it immediately available to all crawlers without
+  // requiring JavaScript execution. Home.jsx does NOT include its own schema to
+  // avoid duplicate structured data after React hydration.
   writePage('/', createPage({
     path: '/',
     title: 'BankSift - Free Bank Stock Screener & Analysis Tools',
@@ -329,6 +340,14 @@ async function generatePages() {
                 "@type": "Answer",
                 "text": "All financial data on BankSift is sourced directly from the SEC EDGAR database, the official repository for US public company filings. The system automatically pulls the latest 10-K and 10-Q filings daily, calculates trailing twelve month (TTM) metrics, and derives key financial ratios for over 300 publicly traded banks."
               }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I find the best bank stocks to analyze?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the BankSift screener to filter banks by the metrics that matter to your strategy. For example, screen for banks with ROE above 12%, efficiency ratio below 55%, and Price to Book below 1.5x to find well-run banks at reasonable valuations. You can sort results by any metric to rank banks and identify the strongest performers."
+              }
             }
           ]
         }
@@ -350,8 +369,8 @@ async function generatePages() {
       </ul>
       <h2>Reliable Data You Can Trust</h2>
       <ul>
-        <li><strong>300+ Bank Stocks Tracked</strong> — Comprehensive coverage of publicly traded US bank stocks</li>
-        <li><strong>Daily Data Updates</strong> — Financial data refreshed daily from the latest SEC filings</li>
+        <li><strong>300+ Bank Stocks Tracked Today</strong> — Comprehensive coverage of publicly traded US bank stocks</li>
+        <li><strong>Daily Data Updates</strong> — Bank stock data refreshed daily from the latest SEC filings</li>
         <li><strong>SEC Official Source</strong> — All data sourced directly from the SEC EDGAR database</li>
       </ul>
       <p>All financial data is sourced directly from the SEC EDGAR database. Our automated systems pull the latest 10-K and 10-Q filings daily, calculating trailing twelve month (TTM) metrics and key financial ratios for over 300 publicly traded US banks. Track bank KPIs and compare bank performance metrics with confidence.</p>
@@ -370,19 +389,127 @@ async function generatePages() {
       <p>BankSift tracks 25+ bank financial metrics including ROE, ROAA, NIM, Efficiency Ratio, P/B, P/E, EPS, BVPS, Equity to Assets, Loans to Deposits, Deposits to Assets, Dividend Payout Ratio, and Graham Number.</p>
       <h4>How can I compare bank stocks efficiently?</h4>
       <p>Use the BankSift Bank Screener to filter and compare 300+ US bank stocks side-by-side. Set ranges for key metrics to find banks that meet your investment criteria, sort results, and export to CSV.</p>
+      <h4>Is BankSift free to use?</h4>
+      <p>Yes, BankSift is completely free to use. No account, sign up, or email is required. All tools including the bank stock screener, search, financial metrics guides, and valuation methods are available at no cost.</p>
+      <h4>Where does BankSift get its data?</h4>
+      <p>All financial data on BankSift is sourced directly from the SEC EDGAR database, the official repository for US public company filings. The system automatically pulls the latest 10-K and 10-Q filings daily, calculates trailing twelve month (TTM) metrics, and derives key financial ratios for over 300 publicly traded banks.</p>
+      <h4>How do I find the best bank stocks to analyze?</h4>
+      <p>Use the BankSift screener to filter banks by the metrics that matter to your strategy. For example, screen for banks with ROE above 12%, efficiency ratio below 55%, and Price to Book below 1.5x to find well-run banks at reasonable valuations. Sort results by any metric to rank and compare.</p>
     `
   }));
   count++;
 
   // Screener page - optimized for "bank screener", "bank stock screener", "bank equity screener" keywords
-  // Note: Schema (BreadcrumbList, WebApplication, FAQPage) is provided at runtime by ScreenerPage.jsx via Helmet.
-  // Do NOT add schema here to avoid duplicate structured data in the rendered HTML.
+  // Note: Schema (BreadcrumbList, WebApplication, FAQPage) is defined here in prerender so it is
+  // present in the initial static HTML for immediate crawler access. ScreenerPage.jsx does NOT
+  // include its own schema to avoid duplicate structured data after React hydration.
   writePage('/screener', createPage({
     path: '/screener',
     title: 'Free Bank Stock Screener | Filter & Compare Bank Stocks by 25+ Metrics - BankSift',
     description: 'Free online bank stock screener to filter, rank, and compare 300+ US bank stocks. Screen by ROE, P/B ratio, Graham Number, efficiency ratio, and 20+ financial metrics. Updated daily from SEC filings. No registration required.',
     canonical: `${SITE_URL}/screener`,
     type: 'website',
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "Bank Screener", path: "/screener" }
+        ]),
+        {
+          "@type": "WebApplication",
+          "name": "BankSift Bank Stock Screener",
+          "alternateName": ["Bank Screener", "Bank Equity Screener", "Bank Filter", "The Sifter"],
+          "url": "https://banksift.org/screener",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Screen 300+ publicly traded US bank stocks",
+            "Filter banks by 25+ financial metrics",
+            "Graham Number valuation calculations",
+            "Daily updates from SEC EDGAR filings",
+            "Free bank stock screener - no registration required",
+            "Export and sort bank screening results"
+          ],
+          "description": "Free online bank stock screener for filtering and analyzing publicly traded US banks by financial metrics including ROE, ROAA, efficiency ratio, and Graham Number."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a bank stock screener?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A bank stock screener is a tool that filters publicly traded bank stocks based on financial metrics like ROE, P/B ratio, and efficiency ratio. It helps investors find bank stocks that match their investment criteria."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I screen for undervalued bank stocks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the bank screener to filter by Price to Book ratio below 1.0, Graham Number above current price, and ROE above 10%. These metrics help identify potentially undervalued bank stocks with good fundamentals."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What metrics should I use to screen bank stocks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Key metrics for screening bank stocks include Return on Equity (ROE), Return on Assets (ROAA), Efficiency Ratio, Net Interest Margin, Price to Book ratio, and the Graham Number for value investing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this bank screener free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, BankSift's bank stock screener is completely free. No registration required. Data is updated daily from SEC filings."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I filter banks by financial metrics?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the filter panel to set minimum and maximum values for any metric. For example, set ROE minimum to 10% and P/B maximum to 1.0x to find profitable banks trading below book value. Filtered columns automatically appear in your results table. You can combine multiple filters to narrow your search and sort results by any column."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which metrics are most important when ranking banks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The most important metrics for ranking banks are Return on Equity (ROE) for profitability, Efficiency Ratio for operational management, Price to Book (P/B) for valuation, and Equity to Assets for capital strength. For value investors, the Graham Number and margin of safety percentage help identify potentially undervalued bank stocks."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I compare multiple banks at once using BankSift?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The screener displays all banks matching your filter criteria in a sortable table. You can compare banks side-by-side across 25+ metrics, customize which columns are visible, reorder columns by dragging, and export your filtered results to CSV for further analysis in a spreadsheet."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the screener show bank stock prices?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The screener displays the current stock price for every bank alongside financial metrics. You can also view Price to Book, Price to Earnings, and market capitalization to put each bank's share price in context. Price data is updated daily."
+              }
+            }
+          ]
+        }
+      ]
+    },
     content: `
       <h1>Free Bank Stock Screener</h1>
       <p>Screen and filter 300+ publicly traded US bank stocks using comprehensive financial metrics. Our free bank equity screener helps value investors find undervalued bank stocks, rank banks by performance, and compare bank profitability metrics side-by-side.</p>
@@ -421,18 +548,112 @@ async function generatePages() {
 
       <h3>Can I compare multiple banks at once using BankSift?</h3>
       <p>Yes. The screener displays all banks matching your filter criteria in a sortable table. You can compare banks side-by-side across 25+ metrics, customize which columns are visible, and export your filtered results to CSV.</p>
+
+      <h3>Does the screener show bank stock prices?</h3>
+      <p>Yes. The screener displays the current stock price for every bank alongside financial metrics. You can also view Price to Book, Price to Earnings, and market capitalization to put each bank's share price in context. Price data is updated daily.</p>
     `
   }));
   count++;
 
   // Screener Guide
-  // Note: Schema (BreadcrumbList, FAQPage) is provided at runtime by ScreenerGuide.jsx via Helmet.
-  // Do NOT add schema here to avoid duplicate structured data in the rendered HTML.
+  // Note: Schema (BreadcrumbList, HowTo, FAQPage) is defined here in prerender so it is
+  // present in the initial static HTML for immediate crawler access. ScreenerGuide.jsx does NOT
+  // include its own schema to avoid duplicate structured data after React hydration.
   writePage('/screener/guide', createPage({
     path: '/screener/guide',
     title: 'How to Screen Bank Stocks: Complete Guide | BankSift',
     description: 'Learn how to screen bank stocks using ROE, P/B ratio, efficiency ratio, and Graham Number. Step-by-step guide to finding undervalued bank stocks.',
     canonical: `${SITE_URL}/screener/guide`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "Bank Screener", path: "/screener" },
+          { name: "Guide", path: "/screener/guide" }
+        ]),
+        {
+          "@type": "HowTo",
+          "name": "How to Screen Bank Stocks",
+          "description": "Step-by-step guide to using the BankSift bank stock screener to find investment opportunities.",
+          "step": [
+            { "@type": "HowToStep", "name": "Set Your Criteria", "text": "Use the filters panel to set minimum and maximum values for metrics like ROE, P/B ratio, and efficiency ratio." },
+            { "@type": "HowToStep", "name": "Review Results", "text": "Examine the filtered results table. Click column headers to sort by any metric." },
+            { "@type": "HowToStep", "name": "Analyze Banks", "text": "Click on any ticker to view detailed financial analysis for that bank." },
+            { "@type": "HowToStep", "name": "Export Data", "text": "Use the Export CSV button to download your filtered results for further analysis." }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How often is the bank data updated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BankSift data is refreshed daily at approximately 3 AM UTC. We pull the latest SEC EDGAR filings and recalculate all metrics automatically."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does the financial data come from?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "All financial data comes directly from SEC EDGAR filings, specifically 10-K (annual) and 10-Q (quarterly) reports. This is the same official data source used by professional investors and analysts."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the Graham Number?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Graham Number is a value investing metric developed by Benjamin Graham. It estimates the maximum fair price for a stock using the formula: √(22.5 × EPS × Book Value Per Share). Stocks trading below their Graham Number may be undervalued."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many banks does BankSift track?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BankSift tracks over 300 publicly traded banks that file with the SEC under bank-related SIC codes. This includes national commercial banks, state commercial banks, and savings institutions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does TTM mean?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "TTM stands for Trailing Twelve Months. It represents the sum of the last four quarters of data, providing an up-to-date annual figure that smooths out seasonal variations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is BankSift free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, BankSift is completely free to use. We provide professional-grade bank screening tools without requiring registration or payment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I export screener results?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, click the \"Export CSV\" button above the results table to download your filtered results as a CSV file. The export includes all visible columns in your current column order."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I find undervalued bank stocks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the Value Screening strategy: filter for Price to Book below 1.0, ROE above 8%, and Graham Margin of Safety above 20%. These criteria help identify banks trading below their intrinsic value with solid fundamentals."
+              }
+            }
+          ]
+        }
+      ]
+    },
     content: `
       <h1>Bank Screener Guide</h1>
       <p>Learn how to use the BankSift screener to find bank stock investment opportunities.</p>
@@ -549,13 +770,95 @@ async function generatePages() {
   count++;
 
   // Metrics index - optimized for "bank financial metrics", "bank ratios", "bank analysis metrics"
-  // Note: Schema (BreadcrumbList, FAQPage, ItemList) is provided at runtime by MetricsIndex.jsx via Helmet.
-  // Do NOT add schema here to avoid duplicate structured data in the rendered HTML.
+  // Note: Schema (BreadcrumbList, FAQPage, ItemList) is defined here in prerender so it is
+  // present in the initial static HTML for immediate crawler access. MetricsIndex.jsx does NOT
+  // include its own schema to avoid duplicate structured data after React hydration.
   writePage('/metrics', createPage({
     path: '/metrics',
     title: 'Bank Financial Metrics Explained | ROE, ROAA, Efficiency Ratio Guide - BankSift',
     description: 'Free guide to bank financial ratios and metrics. Learn how to calculate and interpret ROE, ROAA, efficiency ratio, P/B ratio, net interest margin, and 10+ key ratios used to analyze and compare US bank stocks.',
     canonical: `${SITE_URL}/metrics`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "Financial Metrics", path: "/metrics" }
+        ]),
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What financial metrics are important for analyzing banks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Key financial metrics for analyzing banks include Return on Equity (ROE), Return on Average Assets (ROAA), Net Interest Margin (NIM), Efficiency Ratio, Equity to Assets ratio, and Price to Book (P/B) ratio. These metrics measure profitability, operational efficiency, capital strength, and valuation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you measure bank profitability?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Bank profitability is measured primarily through Return on Equity (ROE), Return on Average Assets (ROAA), and Net Interest Margin (NIM). ROE shows how effectively a bank generates profit from shareholder equity (good: above 10%). ROAA measures profit relative to total assets (good: above 1.0%). NIM measures the spread between interest earned and paid (good: above 3.5%)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a good ROE for a bank?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A good Return on Equity (ROE) for banks is typically 10% to 15%. ROE above 10-12% indicates strong profitability and efficient capital use. Top-performing banks may exceed 15%. ROE below 6-8% may indicate weak profitability or operational challenges. Always compare ROE within peer groups of similar-sized banks."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What efficiency ratio is good for banks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "An efficiency ratio below 55% is considered excellent for banks, meaning the bank spends less than 55 cents to generate each dollar of revenue. Ratios between 50-60% indicate well-managed operations. Ratios above 65-70% may suggest cost control challenges. The efficiency ratio measures operating expenses as a percentage of total revenue."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I compare banks using financial ratios?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To compare banks effectively, evaluate them across multiple metric categories: profitability (ROE, ROAA, NIM), efficiency (efficiency ratio), capital strength (equity to assets), and valuation (P/B, P/E). Always compare within peer groups of similar-sized banks, as community banks and large money-center banks have different typical ranges. Use the BankSift screener to filter and rank banks across all these metrics simultaneously."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Net Interest Margin and why does it matter for banks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Net Interest Margin (NIM) measures the difference between interest income earned on loans and investments versus interest paid on deposits and borrowings, expressed as a percentage of average earning assets. A healthy NIM (typically 3.0% to 4.0% for US banks) indicates the bank is earning a good spread on its lending activities, which is the primary revenue driver for most banks."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between ROE and ROAA for banks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ROE (Return on Equity) measures how effectively a bank generates profit from shareholder equity, with a good benchmark being above 10%. ROAA (Return on Average Assets) measures how efficiently a bank uses its total assets to generate earnings, with a good benchmark being above 1.0%. ROE is influenced by leverage — a bank can boost ROE by using more debt — while ROAA provides a leverage-neutral view of operating performance."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "name": "Bank Financial Metric Categories",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Profitability Ratios", "url": "${SITE_URL}/metrics#profitability" },
+            { "@type": "ListItem", "position": 2, "name": "Efficiency Ratios", "url": "${SITE_URL}/metrics#efficiency" },
+            { "@type": "ListItem", "position": 3, "name": "Capital & Leverage Ratios", "url": "${SITE_URL}/metrics#capital" },
+            { "@type": "ListItem", "position": 4, "name": "Valuation Metrics", "url": "${SITE_URL}/metrics#valuation" },
+            { "@type": "ListItem", "position": 5, "name": "Per Share Metrics", "url": "${SITE_URL}/metrics#per-share" }
+          ]
+        }
+      ]
+    },
     content: `
       <h1>Bank Financial Metrics &amp; Ratios</h1>
       <p>Understanding financial metrics is essential for analyzing banks effectively. Banks operate differently from most companies — they earn money primarily by borrowing (deposits) and lending at higher rates. The ratios below are specifically relevant to evaluating bank performance, risk, and value.</p>
@@ -738,6 +1041,9 @@ async function generatePages() {
   count++;
 
   // Glossary
+  // Note: Schema (DefinedTermSet, BreadcrumbList, FAQPage) is defined here in prerender so it is
+  // present in the initial static HTML for immediate crawler access. Glossary.jsx does NOT
+  // include its own schema to avoid duplicate structured data after React hydration.
   writePage('/glossary', createPage({
     path: '/glossary',
     title: 'Bank Financial Terms Glossary - BankSift',
@@ -746,10 +1052,72 @@ async function generatePages() {
     schema: {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "DefinedTermSet",
+          "name": "BankSift Financial Glossary",
+          "description": "Comprehensive glossary of financial terms for bank stock analysis and value investing",
+          "hasDefinedTerm": [
+            ...metrics.map(m => ({ "@type": "DefinedTerm", "name": m.name, "description": m.shortDescription })),
+            ...valuations.map(v => ({ "@type": "DefinedTerm", "name": v.name, "description": v.shortDescription }))
+          ].slice(0, 50)
+        },
         createBreadcrumbSchema([
           { name: "Home", path: "" },
           { name: "Glossary", path: "/glossary" }
-        ])
+        ]),
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Return on Equity (ROE)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Return on Equity (ROE) measures how effectively a bank generates profits from shareholder equity. It is calculated as Net Income divided by Average Shareholders' Equity. For US banks, an ROE above 10% is generally considered good, while below 6% may indicate challenges."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the Efficiency Ratio in banking?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Efficiency Ratio measures a bank's operating expenses as a percentage of its total revenue. A lower ratio indicates better cost management. For banks, an efficiency ratio below 55% is considered excellent, while above 70% may suggest operational challenges."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the Graham Number?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Graham Number is a value investing formula developed by Benjamin Graham that estimates the maximum fair price for a stock. It is calculated as the square root of (22.5 × Earnings Per Share × Book Value Per Share). When a bank's stock price is below its Graham Number, it may be undervalued."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a 10-K filing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A 10-K filing is an annual report required by the SEC that provides a comprehensive summary of a company's financial performance. It includes audited financial statements, management discussion and analysis, and risk factors. Banks file 10-K reports annually, and BankSift uses this data to calculate financial metrics."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does TTM mean in financial metrics?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "TTM stands for Trailing Twelve Months. It is a financial measurement that sums the last four quarters of data to provide an up-to-date annual figure. TTM smooths out seasonal variations and provides more current data than the last fiscal year. BankSift calculates all income statement metrics on a TTM basis."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Price to Book (P/B) ratio for banks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Price to Book (P/B) ratio compares a bank's stock price to its book value per share. It is the primary valuation metric for banks because bank assets are mostly financial instruments carried near fair value. A P/B below 1.0 may indicate undervaluation if fundamentals are solid, while above 2.0x is typically considered expensive."
+              }
+            }
+          ]
+        }
       ]
     },
     content: `
@@ -917,6 +1285,9 @@ async function generatePages() {
       description: `${metric.shortDescription} Learn how ${metric.name} is calculated for banks, typical ranges, what values indicate strength or concern, and how to use it in US bank stock analysis.`,
       canonical: `${SITE_URL}${path}`,
       type: 'article',
+      // Note: FAQPage schema is defined here alongside Article/BreadcrumbList so all structured
+      // data is present in the initial static HTML for immediate crawler access. MetricDetail.jsx
+      // does NOT include its own schema to avoid duplicate structured data after React hydration.
       schema: {
         "@context": "https://schema.org",
         "@graph": [
@@ -939,6 +1310,51 @@ async function generatePages() {
               "name": "BankSift",
               "url": SITE_URL
             }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": `What is ${metric.name}?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": metric.description
+                }
+              },
+              {
+                "@type": "Question",
+                "name": `How is ${metric.name} calculated for banks?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": `The formula is: ${metric.formula}. ${metric.formulaExplanation || ''} This metric is calculated using data from SEC EDGAR filings, including 10-K and 10-Q reports.`
+                }
+              },
+              {
+                "@type": "Question",
+                "name": `What is a good ${metric.name} for US banks?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": metric.typicalRange + (metric.goodBad ? ` ${metric.goodBad.good}` : '') + ' Always compare within peer groups of similar-sized banks for meaningful benchmarking.'
+                }
+              },
+              {
+                "@type": "Question",
+                "name": `Why does ${metric.name} matter for bank investors?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": metric.interpretation + (metric.considerations && metric.considerations.length > 0 ? ` Key consideration: ${metric.considerations[0]}` : '')
+                }
+              },
+              ...(metric.relatedMetrics && metric.relatedMetrics.length > 0 ? [{
+                "@type": "Question",
+                "name": `What metrics are related to ${metric.name}?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": `${metric.name} is commonly analyzed alongside ${metric.relatedMetrics.map(slug => { const r = metrics.find(m => m.slug === slug); return r ? r.name : slug; }).join(', ')}. Together, these metrics provide a more complete picture of a bank's financial health and help investors make informed comparisons.`
+                }
+              }] : [])
+            ]
           }
         ]
       },
@@ -1012,6 +1428,9 @@ async function generatePages() {
       description: `${valuation.shortDescription} Learn how to calculate and apply ${valuation.name} to value US bank stocks, with formula, examples, strengths, and limitations.`,
       canonical: `${SITE_URL}${path}`,
       type: 'article',
+      // Note: FAQPage schema is defined here alongside Article/BreadcrumbList so all structured
+      // data is present in the initial static HTML for immediate crawler access. ValuationDetail.jsx
+      // does NOT include its own schema to avoid duplicate structured data after React hydration.
       schema: {
         "@context": "https://schema.org",
         "@graph": [
@@ -1029,6 +1448,51 @@ async function generatePages() {
               "@type": "Organization",
               "name": "BankSift"
             }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": `What is ${valuation.name}?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": valuation.description
+                }
+              },
+              {
+                "@type": "Question",
+                "name": `How do I apply ${valuation.name} to bank stocks?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": valuation.steps ? valuation.steps.join(' ') : valuation.description
+                }
+              },
+              {
+                "@type": "Question",
+                "name": `What are the strengths of using ${valuation.name}?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": valuation.strengths ? valuation.strengths.join(' ') : `${valuation.name} is a widely used approach for evaluating bank stock value.`
+                }
+              },
+              {
+                "@type": "Question",
+                "name": `What are the limitations of ${valuation.name}?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": valuation.limitations ? valuation.limitations.join(' ') : `Like all valuation methods, ${valuation.name} should be used alongside other approaches for a complete analysis.`
+                }
+              },
+              ...(valuation.formula ? [{
+                "@type": "Question",
+                "name": `What is the formula for ${valuation.name}?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": `The formula is: ${valuation.formula}. ${valuation.formulaExplanation || ''}`
+                }
+              }] : [])
+            ]
           }
         ]
       },
@@ -1112,6 +1576,11 @@ async function generatePages() {
     const ticker = ` (${bank.ticker})`;
     const tickerOnly = bank.ticker;
 
+    // Look up alternate names / keywords for this bank
+    const keywordData = bankKeywords[tickerOnly] || null;
+    const alternateNames = keywordData ? keywordData.alternateNames : [];
+    const descHint = keywordData ? keywordData.descriptionHint : null;
+
     // Build description with available metrics (metrics are at top level of bank object)
     const descParts = [];
     if (bank.roe != null) descParts.push(`ROE: ${bank.roe.toFixed(2)}%`);
@@ -1129,13 +1598,22 @@ async function generatePages() {
       bankTitle = fullTitle;
     }
 
-    // Build a description under 155 chars
-    const bankDesc = `${bankName}${ticker} financial analysis.${metricsDesc} SEC filing data updated daily.`;
+    // Build a description under 155 chars, weaving in alternate name when available
+    const aliasFragment = descHint ? `, ${descHint},` : '';
+    const bankDescFull = `${bankName}${ticker}${aliasFragment} financial analysis.${metricsDesc} SEC filing data updated daily.`;
+    // If alias makes it too long, try without the trailing "SEC filing data updated daily."
+    const bankDescShort = `${bankName}${ticker}${aliasFragment} financial analysis.${metricsDesc}`;
+    // If even without the trailing part it's too long, drop the alias
+    const bankDescNoAlias = `${bankName}${ticker} financial analysis.${metricsDesc} SEC filing data updated daily.`;
+    const bankDesc = bankDescFull.length <= 155 ? bankDescFull
+      : bankDescShort.length <= 155 ? bankDescShort
+      : bankDescNoAlias.length <= 155 ? bankDescNoAlias
+      : `${bankName}${ticker} financial analysis.${metricsDesc}`.substring(0, 152) + '...';
 
     writePage(path, createPage({
       path,
       title: bankTitle,
-      description: bankDesc.length <= 155 ? bankDesc : `${bankName}${ticker} financial analysis.${metricsDesc}`.substring(0, 152) + '...',
+      description: bankDesc,
       canonical: `${SITE_URL}${path}`,
       type: 'article',
       schema: {
@@ -1149,11 +1627,13 @@ async function generatePages() {
           {
             "@type": "FinancialProduct",
             "name": bankName,
+            ...(alternateNames.length > 0 ? { "alternateName": alternateNames } : {}),
             "description": `Financial analysis for ${bankName}`,
             "dateModified": BUILD_DATE,
             "provider": {
               "@type": "Corporation",
               "name": bankName,
+              ...(alternateNames.length > 0 ? { "alternateName": alternateNames } : {}),
               "tickerSymbol": bank.ticker || undefined
             }
           },
@@ -1186,6 +1666,7 @@ async function generatePages() {
             <dt>CIK Number</dt><dd>${escapeHtml(bank.cik)}</dd>
             ${bank.sic ? `<dt>SIC Code</dt><dd>${bank.sic}</dd>` : ''}
             ${bank.sicDescription ? `<dt>Industry</dt><dd>${escapeHtml(bank.sicDescription)}</dd>` : ''}
+            ${alternateNames.length > 0 ? `<dt>Also Known As</dt><dd>${alternateNames.map(n => escapeHtml(n)).join(', ')}</dd>` : ''}
             ${bank.sharesOutstanding != null ? `<dt>Shares Outstanding</dt><dd>${bank.sharesOutstanding >= 1e9 ? (bank.sharesOutstanding / 1e9).toFixed(2) + 'B' : (bank.sharesOutstanding / 1e6).toFixed(1) + 'M'}</dd>` : ''}
           </dl>
           ${bank.roe != null || bank.roaa != null || bank.efficiencyRatio != null ? `
