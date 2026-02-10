@@ -4,6 +4,7 @@ import Filters from './Filters.jsx';
 import ResultsTable from './ResultsTable.jsx';
 import { getUniqueExchanges } from '../data/sheets.js';
 import { trackFiltersReset, trackSearchPerformed, trackExchangeFiltered } from '../analytics/events.js';
+import { useFavorites } from '../hooks/useFavorites.js';
 
 /**
  * URL param mapping for shareable screener filter links.
@@ -11,6 +12,7 @@ import { trackFiltersReset, trackSearchPerformed, trackExchangeFiltered } from '
  */
 const FILTER_PARAM_MAP = {
   searchQuery: 'q',
+  watchlistOnly: 'wl',
   exchanges: 'ex',
   marketCap: 'mc',
   totalAssets: 'ta',
@@ -41,9 +43,9 @@ const PARAM_FILTER_MAP = Object.fromEntries(
   Object.entries(FILTER_PARAM_MAP).map(([k, v]) => [v, k])
 );
 
-// Range filter keys (exclude searchQuery, exchanges, grahamMoS which are handled specially)
+// Range filter keys (exclude searchQuery, exchanges, grahamMoS, watchlistOnly which are handled specially)
 const RANGE_FILTER_ENTRIES = Object.entries(FILTER_PARAM_MAP).filter(
-  ([key]) => key !== 'searchQuery' && key !== 'exchanges' && key !== 'grahamMoS'
+  ([key]) => key !== 'searchQuery' && key !== 'exchanges' && key !== 'grahamMoS' && key !== 'watchlistOnly'
 );
 
 /**
@@ -54,6 +56,10 @@ function filtersToParams(filters) {
 
   if (filters.searchQuery?.trim()) {
     params.set('q', filters.searchQuery.trim());
+  }
+
+  if (filters.watchlistOnly) {
+    params.set('wl', '1');
   }
 
   if (filters.exchanges?.length > 0) {
@@ -82,6 +88,9 @@ function paramsToFilters(searchParams) {
   const q = searchParams.get('q');
   if (q) filters.searchQuery = q;
 
+  const wl = searchParams.get('wl');
+  if (wl === '1') filters.watchlistOnly = true;
+
   const ex = searchParams.get('ex');
   if (ex) filters.exchanges = ex.split(',').filter(Boolean);
 
@@ -108,7 +117,7 @@ function paramsToFilters(searchParams) {
  * Check if URL has any screener filter params
  */
 function hasFilterParams(searchParams) {
-  const allParamNames = new Set(['q', 'ex', 'gmos']);
+  const allParamNames = new Set(['q', 'wl', 'ex', 'gmos']);
   for (const [, param] of RANGE_FILTER_ENTRIES) {
     allParamNames.add(`${param}_min`);
     allParamNames.add(`${param}_max`);
@@ -164,7 +173,8 @@ const DEFAULT_FILTERS = {
   // Search
   searchQuery: '',
 
-  // Quick Filters
+  // General
+  watchlistOnly: false,
   exchanges: [],
 
   // Size & Scale
@@ -240,6 +250,7 @@ function applyRangeFilter(value, filterConfig, multiplier = 1) {
 function Screener({ banks, loading }) {
   const location = useLocation();
   const incomingState = location.state || {};
+  const [favorites] = useFavorites();
 
   // Initialize filters: URL params > location state > defaults
   const [filters, setFilters] = useState(() => {
@@ -348,6 +359,11 @@ function Screener({ banks, loading }) {
       // ========================================================================
       // QUICK FILTERS
       // ========================================================================
+
+      // Watchlist filter
+      if (filters.watchlistOnly && !favorites.has(bank.ticker)) {
+        return false;
+      }
 
       // Exchange filter
       if (filters.exchanges.length > 0 && !filters.exchanges.includes(bank.exchange)) {
@@ -474,7 +490,7 @@ function Screener({ banks, loading }) {
 
       return true;
     });
-  }, [processedBanks, filters]);
+  }, [processedBanks, filters, favorites]);
 
   /**
    * Handle filter changes with analytics tracking
@@ -538,6 +554,7 @@ function Screener({ banks, loading }) {
         <Filters
           filters={filters}
           exchanges={exchanges}
+          favoritesCount={favorites.size}
           onFilterChange={handleFilterChange}
           onReset={handleReset}
           filteredCount={filteredBanks.length}

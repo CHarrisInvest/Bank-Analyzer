@@ -18,11 +18,12 @@ function Search({ banks = [], loading = false }) {
   const location = useLocation();
   const incomingState = location.state || {};
   const inputRef = useRef(null);
-  const [, toggleFavorite, isFavorite] = useFavorites();
+  const [favorites, toggleFavorite, isFavorite] = useFavorites();
 
   // Initialize state from location state (when returning via back button) or defaults
   const [query, setQuery] = useState(incomingState.searchQuery || '');
   const [filterExchange, setFilterExchange] = useState(incomingState.filterExchange || '');
+  const [filterWatchlist, setFilterWatchlist] = useState(incomingState.filterWatchlist || '');
   const trackSearch = useSearchTracking();
 
   // Recent searches state
@@ -45,7 +46,10 @@ function Search({ banks = [], loading = false }) {
     if (incomingState.filterExchange !== undefined) {
       setFilterExchange(incomingState.filterExchange);
     }
-  }, [incomingState.searchQuery, incomingState.filterExchange]);
+    if (incomingState.filterWatchlist !== undefined) {
+      setFilterWatchlist(incomingState.filterWatchlist);
+    }
+  }, [incomingState.searchQuery, incomingState.filterExchange, incomingState.filterWatchlist]);
 
   // Restore scroll position when returning via back button
   useEffect(() => {
@@ -63,13 +67,21 @@ function Search({ banks = [], loading = false }) {
     return Array.from(unique).sort();
   }, [banks]);
 
+  // Determine if watchlist filter is active
+  const watchlistActive = filterWatchlist === 'starred';
+
   // Filter and search banks
   const results = useMemo(() => {
-    if (!query.trim() && !filterExchange) {
+    if (!query.trim() && !filterExchange && !watchlistActive) {
       return [];
     }
 
     let filtered = banks;
+
+    // Filter by watchlist
+    if (watchlistActive) {
+      filtered = filtered.filter(b => isFavorite(b.ticker));
+    }
 
     // Filter by exchange
     if (filterExchange) {
@@ -102,7 +114,7 @@ function Search({ banks = [], loading = false }) {
     });
 
     return filtered.slice(0, 50); // Limit results for performance
-  }, [banks, query, filterExchange]);
+  }, [banks, query, filterExchange, watchlistActive, isFavorite]);
 
   // Track search for analytics
   useEffect(() => {
@@ -267,6 +279,14 @@ function Search({ banks = [], loading = false }) {
         <div className="search-filters">
           <select
             className="filter-select"
+            value={filterWatchlist}
+            onChange={(e) => setFilterWatchlist(e.target.value)}
+          >
+            <option value="">All Banks</option>
+            <option value="starred">Watchlist ({favorites.size})</option>
+          </select>
+          <select
+            className="filter-select"
             value={filterExchange}
             onChange={(e) => setFilterExchange(e.target.value)}
           >
@@ -285,7 +305,7 @@ function Search({ banks = [], loading = false }) {
         </div>
       ) : (
         <div className="search-results">
-          {!query.trim() && !filterExchange ? (
+          {!query.trim() && !filterExchange && !watchlistActive ? (
             <div className="search-prompt">
               <p>Enter a ticker symbol or bank name to search</p>
               <div className="search-examples">
@@ -310,7 +330,7 @@ function Search({ banks = [], loading = false }) {
                   <NavigationLink
                     key={bank.cik || bank.ticker}
                     to={'/bank/' + bank.ticker}
-                    state={{ from: 'search', searchQuery: query, filterExchange: filterExchange }}
+                    state={{ from: 'search', searchQuery: query, filterExchange: filterExchange, filterWatchlist: filterWatchlist }}
                     className="bank-result-card"
                     pageTitle={bank.ticker}
                   >

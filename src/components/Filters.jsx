@@ -512,6 +512,7 @@ function FilterPresets({ onApplyPreset, onSavePreset, currentFilters }) {
 function Filters({
   filters,
   exchanges,
+  favoritesCount,
   onFilterChange,
   onReset,
   filteredCount,
@@ -611,7 +612,8 @@ function Filters({
       'grahamMoS', 'ttmNetIncome', 'ttmNetInterestIncome', 'sharesOutstanding'
     ];
     const searchActive = filters.searchQuery && filters.searchQuery.trim() !== '' ? 1 : 0;
-    return countActiveFilters(allFilterKeys) + (filters.exchanges?.length > 0 ? 1 : 0) + searchActive;
+    const watchlistActive = filters.watchlistOnly ? 1 : 0;
+    return countActiveFilters(allFilterKeys) + (filters.exchanges?.length > 0 ? 1 : 0) + searchActive + watchlistActive;
   }, [filters]);
 
   return (
@@ -754,12 +756,25 @@ function Filters({
           />
 
           <div className="filters-sections">
-        {/* QUICK FILTERS */}
+        {/* GENERAL */}
         <FilterSection
-          title="Exchange"
+          title="General"
           defaultOpen={false}
-          badge={filters.exchanges?.length > 0 ? filters.exchanges.length : null}
+          badge={((filters.watchlistOnly ? 1 : 0) + (filters.exchanges?.length > 0 ? 1 : 0)) || null}
         >
+          <div className="filter-group">
+            <label className="filter-label">Watchlist</label>
+            <label className="watchlist-toggle">
+              <input
+                type="checkbox"
+                checked={filters.watchlistOnly || false}
+                onChange={(e) => onFilterChange({ ...filters, watchlistOnly: e.target.checked })}
+              />
+              <span className="watchlist-toggle-label">
+                Starred only {favoritesCount > 0 && <span className="watchlist-count">({favoritesCount})</span>}
+              </span>
+            </label>
+          </div>
           <ExchangeFilter
             exchanges={exchanges}
             selectedExchanges={filters.exchanges || []}
