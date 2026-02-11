@@ -275,27 +275,27 @@ function Search({ banks = [], loading = false }) {
             </div>
           )}
         </div>
+      </div>
 
-        <div className="search-filters">
-          <select
-            className="filter-select"
-            value={filterWatchlist}
-            onChange={(e) => setFilterWatchlist(e.target.value)}
-          >
-            <option value="">All Banks</option>
-            <option value="starred">Watchlist ({favorites.size})</option>
-          </select>
-          <select
-            className="filter-select"
-            value={filterExchange}
-            onChange={(e) => setFilterExchange(e.target.value)}
-          >
-            <option value="">All Exchanges</option>
-            {exchanges.map(ex => (
-              <option key={ex} value={ex}>{ex}</option>
-            ))}
-          </select>
-        </div>
+      <div className="search-filters">
+        <select
+          className="filter-select"
+          value={filterWatchlist}
+          onChange={(e) => setFilterWatchlist(e.target.value)}
+        >
+          <option value="">All Banks</option>
+          <option value="starred">Watchlist ({favorites.size})</option>
+        </select>
+        <select
+          className="filter-select"
+          value={filterExchange}
+          onChange={(e) => setFilterExchange(e.target.value)}
+        >
+          <option value="">All Exchanges</option>
+          {exchanges.map(ex => (
+            <option key={ex} value={ex}>{ex}</option>
+          ))}
+        </select>
       </div>
 
       {loading ? (
