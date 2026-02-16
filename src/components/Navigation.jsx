@@ -266,11 +266,19 @@ function Navigation() {
                 <BookIcon />
                 <span>FAQ</span>
               </Link>
+              <Link
+                to="/glossary"
+                className={`nav-link ${isActive('/glossary') ? 'nav-link-active' : ''}`}
+                onClick={() => handleNavClick('glossary')}
+              >
+                <BookIcon />
+                <span>Glossary</span>
+              </Link>
             </div>
           </div>
 
-          {/* About Section */}
-          <div className="nav-section">
+          {/* About Section - mobile only */}
+          <div className="nav-section nav-section-mobile-only">
             <span className="nav-section-header">About</span>
             <div className="nav-section-items">
               <Link

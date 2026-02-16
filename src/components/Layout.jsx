@@ -56,9 +56,10 @@ function Layout() {
                 <li><Link to="/metrics">Metrics & Ratios</Link></li>
                 <li><Link to="/valuation">Valuation Methods</Link></li>
                 <li><Link to="/faq">FAQ</Link></li>
+                <li><Link to="/glossary">Glossary</Link></li>
               </ul>
             </div>
-            
+
             <div className="footer-section">
               <h4>Legal</h4>
               <ul className="footer-links">

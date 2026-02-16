@@ -86,12 +86,53 @@ function ValuationIcon() {
   );
 }
 
+function BookIcon() {
+  return (
+    <svg
+      className="resource-icon-svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+    </svg>
+  );
+}
+
+function QuestionIcon() {
+  return (
+    <svg
+      className="resource-icon-svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+      <path d="M12 17h.01" />
+    </svg>
+  );
+}
+
 function GlossaryIcon() {
   return (
     <svg
-      className="feature-icon-svg"
-      width="32"
-      height="32"
+      className="resource-icon-svg"
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -271,19 +312,40 @@ function Home() {
             <Link to="/valuation" className="feature-link">Valuation Methods →</Link>
           </div>
 
-          <div className="feature-card">
-            <Link to="/glossary" className="feature-icon-link">
-              <div className="feature-icon">
+        </div>
+
+        {/* Resource Links */}
+        <div className="resource-links">
+          <h3>Guides & Resources</h3>
+          <ul className="resource-list">
+            <li className="resource-item">
+              <Link to="/screener/guide" className="resource-link">
+                <BookIcon />
+                <div>
+                  <strong>Screener Guide</strong>
+                  <span>Step-by-step walkthrough of BankSift's screening tools, filters, and strategies to find bank stocks that match your criteria.</span>
+                </div>
+              </Link>
+            </li>
+            <li className="resource-item">
+              <Link to="/faq" className="resource-link">
+                <QuestionIcon />
+                <div>
+                  <strong>Bank Investing FAQs</strong>
+                  <span>Answers to common questions about bank stock analysis, financial metrics, valuation methods, and how to use BankSift.</span>
+                </div>
+              </Link>
+            </li>
+            <li className="resource-item">
+              <Link to="/glossary" className="resource-link">
                 <GlossaryIcon />
-              </div>
-            </Link>
-            <h3>Glossary</h3>
-            <p>
-              Look up definitions of financial terms, metrics, and concepts
-              commonly used in bank stock analysis and SEC filings.
-            </p>
-            <Link to="/glossary" className="feature-link">Browse Glossary →</Link>
-          </div>
+                <div>
+                  <strong>Browse Glossary</strong>
+                  <span>Look up definitions of financial terms, metrics, and concepts commonly used in bank stock analysis and SEC filings.</span>
+                </div>
+              </Link>
+            </li>
+          </ul>
         </div>
       </section>
 
