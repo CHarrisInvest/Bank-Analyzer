@@ -263,7 +263,7 @@ function Navigation() {
                 className={`nav-link ${isActive('/faq') ? 'nav-link-active' : ''}`}
                 onClick={() => handleNavClick('faq')}
               >
-                <InfoIcon />
+                <BookIcon />
                 <span>FAQ</span>
               </Link>
             </div>
