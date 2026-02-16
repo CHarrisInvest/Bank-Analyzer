@@ -9,39 +9,74 @@ import SEO from '../components/SEO.jsx';
 
 // Cross-links from metrics to related valuation methods
 const METRIC_TO_VALUATIONS = {
-  'roe': ['roe-pb-framework'],
-  'equity-to-assets': ['roe-pb-framework'],
-  'price-to-book': ['price-to-book-valuation', 'roe-pb-framework'],
-  'book-value-per-share': ['graham-number', 'price-to-book-valuation'],
-  'price-to-earnings': ['price-to-earnings-valuation'],
-  'earnings-per-share': ['graham-number', 'margin-of-safety'],
+  'roe': ['roe-pb-framework', 'peer-comparison', 'dividend-discount-model'],
+  'roaa': ['peer-comparison'],
+  'net-interest-margin': ['peer-comparison', 'dividend-discount-model'],
+  'efficiency-ratio': ['peer-comparison'],
+  'price-to-book': ['price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety', 'graham-number'],
+  'price-to-earnings': ['price-to-earnings-valuation', 'graham-number', 'margin-of-safety'],
+  'earnings-per-share': ['graham-number', 'price-to-earnings-valuation', 'margin-of-safety'],
+  'book-value-per-share': ['graham-number', 'price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety'],
+  'equity-to-assets': ['roe-pb-framework', 'peer-comparison'],
+  'loans-to-deposits': ['peer-comparison'],
+  'deposits-to-assets': ['peer-comparison'],
+  'loans-to-assets': ['peer-comparison'],
   'dividend-payout-ratio': ['dividend-discount-model'],
 };
 
 const METRIC_TO_VALUATION_DESCRIPTIONS = {
   'roe': {
-    'roe-pb-framework': 'ROE is one of two axes in this framework — it determines the justified P/B multiple a bank deserves.',
+    'roe-pb-framework': 'ROE is the central input to the ROE-P/B framework, which derives the justified price-to-book multiple from a bank\'s return on equity relative to its cost of equity and growth rate.',
+    'peer-comparison': 'ROE is one of the most important metrics for comparing bank profitability across a peer group, as it captures both operating performance and leverage in a single figure.',
+    'dividend-discount-model': 'ROE combined with the retention ratio determines the sustainable dividend growth rate, a key input to the dividend discount model.',
   },
-  'equity-to-assets': {
-    'roe-pb-framework': 'Capital ratios affect leverage, a key driver of ROE and the justified P/B calculated by this framework.',
+  'roaa': {
+    'peer-comparison': 'ROAA is the preferred profitability metric for peer comparison because it removes leverage differences, allowing direct comparison of operating performance across banks with different capital structures.',
+  },
+  'net-interest-margin': {
+    'peer-comparison': 'NIM is a core comparison metric in peer analysis, revealing differences in lending profitability, funding costs, and asset mix across banks.',
+    'dividend-discount-model': 'NIM is the primary revenue driver for most banks, making it a key factor in projecting the future earnings that support dividend payments.',
+  },
+  'efficiency-ratio': {
+    'peer-comparison': 'The efficiency ratio is a standard peer comparison metric that reveals differences in cost management and operational productivity across banks.',
   },
   'price-to-book': {
-    'price-to-book-valuation': 'P/B is the core metric in this valuation approach for determining bank stock fair value.',
-    'roe-pb-framework': 'This framework calculates the P/B multiple a bank deserves based on its profitability.',
-  },
-  'book-value-per-share': {
-    'graham-number': 'Book value per share is one of two direct inputs in the Graham Number formula.',
-    'price-to-book-valuation': 'BVPS is the fundamental input that P/B multiples are applied to when valuing banks.',
+    'price-to-book-valuation': 'P/B is the ratio used directly in price-to-book valuation, the most common approach to assessing whether a bank stock is fairly valued.',
+    'roe-pb-framework': 'P/B and ROE are linked through the justified P/B formula, making the current P/B ratio a key input to determining whether a bank trades at, above, or below its fundamental value.',
+    'margin-of-safety': 'P/B relative to the justified P/B multiple helps determine whether a sufficient margin of safety exists between market price and estimated intrinsic value.',
+    'graham-number': 'The Graham Number uses BVPS (the denominator of P/B) as one of its two inputs to estimate a maximum fair price.',
   },
   'price-to-earnings': {
-    'price-to-earnings-valuation': 'P/E is the core metric in this valuation approach for assessing bank earnings value.',
+    'price-to-earnings-valuation': 'P/E is the ratio used directly in price-to-earnings valuation to compare a bank\'s earnings multiple to its peers and historical levels.',
+    'graham-number': 'The Graham Number uses EPS (the denominator of P/E) as one of its two inputs, connecting P/E analysis to Graham\'s intrinsic value framework.',
+    'margin-of-safety': 'P/E levels inform margin of safety assessment by indicating how much the market is paying per dollar of earnings relative to fair value estimates.',
   },
   'earnings-per-share': {
-    'graham-number': 'EPS is one of two direct inputs in the Graham Number formula.',
-    'margin-of-safety': 'EPS feeds the intrinsic value estimate used to calculate the margin between price and fair value.',
+    'graham-number': 'EPS is one of two required inputs to calculate the Graham Number, which estimates a maximum fair price based on a bank\'s earnings power and asset backing.',
+    'price-to-earnings-valuation': 'EPS is the denominator of the P/E ratio, making it an essential input to price-to-earnings valuation methodology.',
+    'margin-of-safety': 'EPS directly informs intrinsic value estimates in the Graham Number and other earnings-based models, and the gap between intrinsic value and market price defines the margin of safety.',
+  },
+  'book-value-per-share': {
+    'graham-number': 'BVPS is one of two required inputs to the Graham Number, representing the asset backing component of Graham\'s dual-input fair value estimate.',
+    'price-to-book-valuation': 'BVPS is the denominator of the P/B ratio, making it the essential per-share input for price-to-book valuation.',
+    'roe-pb-framework': 'BVPS growth over time reflects capital compounding, and the ROE-P/B framework links this growth rate to the justified multiple investors should pay for each dollar of book value.',
+    'margin-of-safety': 'BVPS provides the tangible asset backing per share, and comparing market price to BVPS-derived fair value estimates helps quantify the margin of safety.',
+  },
+  'equity-to-assets': {
+    'roe-pb-framework': 'Equity-to-assets determines the equity multiplier, which links ROAA to ROE and therefore affects the justified P/B multiple through the ROE-P/B framework.',
+    'peer-comparison': 'Equity-to-assets is an important peer comparison metric for assessing relative capital strength and leverage across a group of comparable banks.',
+  },
+  'loans-to-deposits': {
+    'peer-comparison': 'Loans-to-deposits is a standard peer comparison metric for evaluating how aggressively banks in a peer group are deploying their deposit bases into lending.',
+  },
+  'deposits-to-assets': {
+    'peer-comparison': 'Deposits-to-assets is used in peer comparison to evaluate the funding structure and stability of a bank\'s liability base relative to peers.',
+  },
+  'loans-to-assets': {
+    'peer-comparison': 'Loans-to-assets is used in peer comparison to assess differences in asset deployment strategy and credit risk exposure across comparable banks.',
   },
   'dividend-payout-ratio': {
-    'dividend-discount-model': 'The payout ratio determines what portion of earnings flows to shareholders as dividends in the DDM.',
+    'dividend-discount-model': 'The dividend payout ratio directly determines the dividends per share used in the dividend discount model, making it a critical input to DDM-based fair value estimates.',
   },
 };
 
@@ -226,6 +261,41 @@ function MetricDetail() {
           </section>
         )}
 
+        {metric.bankSpecificContext && (
+          <section className="metric-section">
+            <h2>Bank-Specific Context</h2>
+            <p>{metric.bankSpecificContext}</p>
+          </section>
+        )}
+
+        {metric.metricConnections && (
+          <section className="metric-section">
+            <h2>Metric Connections</h2>
+            <p>{metric.metricConnections}</p>
+          </section>
+        )}
+
+        {metric.commonPitfalls && (
+          <section className="metric-section">
+            <h2>Common Pitfalls</h2>
+            <p>{metric.commonPitfalls}</p>
+          </section>
+        )}
+
+        {metric.acrossBankTypes && (
+          <section className="metric-section">
+            <h2>Across Bank Types</h2>
+            <p>{metric.acrossBankTypes}</p>
+          </section>
+        )}
+
+        {metric.whatDrivesMetric && (
+          <section className="metric-section">
+            <h2>What Drives This Metric</h2>
+            <p>{metric.whatDrivesMetric}</p>
+          </section>
+        )}
+
         {metric.relatedMetrics && metric.relatedMetrics.length > 0 && (
           <section className="metric-section">
             <h2>Related Metrics</h2>
@@ -276,6 +346,27 @@ function MetricDetail() {
                   </div>
                 );
               })}
+            </div>
+          </section>
+        )}
+
+        {metric.faqTeasers && metric.faqTeasers.length > 0 && (
+          <section className="metric-section">
+            <h2>Frequently Asked Questions</h2>
+            <div className="faq-teasers-list">
+              {metric.faqTeasers.map((faqTeaser, idx) => (
+                <div key={idx} className="faq-teaser-card">
+                  <h3>{faqTeaser.question}</h3>
+                  <p>{faqTeaser.teaser}</p>
+                  <NavigationLink
+                    to={`/faq/${faqTeaser.faqCluster}/${faqTeaser.faqSlug}`}
+                    className="faq-teaser-link"
+                    pageTitle={faqTeaser.question}
+                  >
+                    Read more →
+                  </NavigationLink>
+                </div>
+              ))}
             </div>
           </section>
         )}

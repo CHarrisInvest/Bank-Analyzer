@@ -145,6 +145,9 @@ function ValuationIndex() {
           <Link to="/screener/guide" className="btn btn-secondary btn-lg">
             Screener Guide
           </Link>
+          <Link to="/faq" className="btn btn-secondary btn-lg">
+            FAQ
+          </Link>
           <Link to="/screener" className="btn btn-primary btn-lg">
             Open Screener
           </Link>

@@ -40,6 +40,9 @@ import ValuationDetail from './pages/ValuationDetail.jsx';
 import Privacy from './pages/Privacy.jsx';
 import Terms from './pages/Terms.jsx';
 import Glossary from './pages/Glossary.jsx';
+import FaqIndex from './pages/FaqIndex.jsx';
+import FaqClusterIndex from './pages/FaqClusterIndex.jsx';
+import FaqDetail from './pages/FaqDetail.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 /**
@@ -147,6 +150,11 @@ function App() {
             {/* Valuation */}
             <Route path="valuation" element={<ValuationIndex />} />
             <Route path="valuation/:slug" element={<ValuationDetail />} />
+
+            {/* FAQ */}
+            <Route path="faq" element={<FaqIndex />} />
+            <Route path="faq/:clusterSlug" element={<FaqClusterIndex />} />
+            <Route path="faq/:clusterSlug/:faqSlug" element={<FaqDetail />} />
 
             {/* Glossary */}
             <Route path="glossary" element={<Glossary />} />

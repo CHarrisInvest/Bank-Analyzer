@@ -55,6 +55,7 @@ function Layout() {
                 <li><Link to="/screener/guide">Screener Guide</Link></li>
                 <li><Link to="/metrics">Metrics & Ratios</Link></li>
                 <li><Link to="/valuation">Valuation Methods</Link></li>
+                <li><Link to="/faq">FAQ</Link></li>
               </ul>
             </div>
             

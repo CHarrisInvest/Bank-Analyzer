@@ -394,6 +394,9 @@ function MetricsIndex() {
           <Link to="/valuation" className="btn btn-secondary btn-lg">
             Valuation Methods
           </Link>
+          <Link to="/faq" className="btn btn-secondary btn-lg">
+            FAQ
+          </Link>
           <Link to="/screener" className="btn btn-primary btn-lg">
             Open Screener
           </Link>

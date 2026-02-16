@@ -41,6 +41,11 @@ async function loadData() {
   const valuationsModule = await import(join(srcDir, 'data', 'content', 'valuations.js'));
   const valuations = valuationsModule.VALUATION_METHODS;
 
+  // Load FAQs
+  const faqsModule = await import(join(srcDir, 'data', 'content', 'faqs.js'));
+  const faqs = faqsModule.FAQS;
+  const faqClusters = faqsModule.FAQ_CLUSTERS;
+
   // Load banks
   let banks = [];
   const banksPath = join(dataDir, 'banks.json');
@@ -55,7 +60,7 @@ async function loadData() {
     bankKeywords = JSON.parse(readFileSync(keywordsPath, 'utf-8'));
   }
 
-  return { metrics, valuations, banks, bankKeywords };
+  return { metrics, valuations, banks, bankKeywords, faqs, faqClusters };
 }
 
 /**
@@ -148,6 +153,7 @@ function createPage({ path, title, description, canonical, type = 'website', sch
         <a href="${SITE_URL}/screener/guide">Screener Guide</a> |
         <a href="${SITE_URL}/metrics">Metrics &amp; Ratios</a> |
         <a href="${SITE_URL}/valuation">Valuation Methods</a> |
+        <a href="${SITE_URL}/faq">FAQ</a> |
         <a href="${SITE_URL}/glossary">Glossary</a>
       </nav>
       <main id="seo-content" class="seo-fallback">
@@ -163,6 +169,7 @@ function createPage({ path, title, description, canonical, type = 'website', sch
           <a href="${SITE_URL}/screener">Screener</a> |
           <a href="${SITE_URL}/metrics">Metrics</a> |
           <a href="${SITE_URL}/valuation">Valuation</a> |
+          <a href="${SITE_URL}/faq">FAQ</a> |
           <a href="${SITE_URL}/glossary">Glossary</a> |
           <a href="${SITE_URL}/privacy">Privacy Policy</a> |
           <a href="${SITE_URL}/terms">Terms of Service</a>
@@ -244,27 +251,33 @@ function createBreadcrumbSchema(items) {
  * Generate all static pages
  */
 async function generatePages() {
-  const { metrics, valuations, banks, bankKeywords } = await loadData();
+  const { metrics, valuations, banks, bankKeywords, faqs, faqClusters } = await loadData();
   let count = 0;
 
   // Cross-link mappings between metrics and valuation methods
   const METRIC_TO_VALUATIONS = {
-    'roe': ['roe-pb-framework'],
-    'equity-to-assets': ['roe-pb-framework'],
-    'price-to-book': ['price-to-book-valuation', 'roe-pb-framework'],
-    'book-value-per-share': ['graham-number', 'price-to-book-valuation'],
-    'price-to-earnings': ['price-to-earnings-valuation'],
-    'earnings-per-share': ['graham-number', 'margin-of-safety'],
+    'roe': ['roe-pb-framework', 'peer-comparison', 'dividend-discount-model'],
+    'roaa': ['peer-comparison'],
+    'net-interest-margin': ['peer-comparison', 'dividend-discount-model'],
+    'efficiency-ratio': ['peer-comparison'],
+    'price-to-book': ['price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety', 'graham-number'],
+    'price-to-earnings': ['price-to-earnings-valuation', 'graham-number', 'margin-of-safety'],
+    'earnings-per-share': ['graham-number', 'price-to-earnings-valuation', 'margin-of-safety'],
+    'book-value-per-share': ['graham-number', 'price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety'],
+    'equity-to-assets': ['roe-pb-framework', 'peer-comparison'],
+    'loans-to-deposits': ['peer-comparison'],
+    'deposits-to-assets': ['peer-comparison'],
+    'loans-to-assets': ['peer-comparison'],
     'dividend-payout-ratio': ['dividend-discount-model'],
   };
   const VALUATION_TO_METRICS = {
-    'graham-number': ['earnings-per-share', 'book-value-per-share'],
-    'margin-of-safety': ['earnings-per-share', 'book-value-per-share'],
-    'price-to-book-valuation': ['price-to-book', 'book-value-per-share', 'roe'],
-    'price-to-earnings-valuation': ['price-to-earnings', 'earnings-per-share'],
-    'roe-pb-framework': ['roe', 'price-to-book', 'equity-to-assets'],
-    'dividend-discount-model': ['dividend-payout-ratio', 'earnings-per-share', 'roe'],
-    'peer-comparison': ['roe', 'efficiency-ratio', 'price-to-book'],
+    'graham-number': ['earnings-per-share', 'book-value-per-share', 'price-to-book', 'price-to-earnings'],
+    'margin-of-safety': ['price-to-book', 'price-to-earnings', 'earnings-per-share', 'book-value-per-share', 'roe'],
+    'price-to-book-valuation': ['price-to-book', 'book-value-per-share', 'roe', 'equity-to-assets'],
+    'price-to-earnings-valuation': ['price-to-earnings', 'earnings-per-share', 'roe', 'price-to-book'],
+    'roe-pb-framework': ['roe', 'price-to-book', 'equity-to-assets', 'dividend-payout-ratio', 'roaa', 'book-value-per-share'],
+    'dividend-discount-model': ['dividend-payout-ratio', 'roe', 'earnings-per-share', 'net-interest-margin'],
+    'peer-comparison': ['roe', 'roaa', 'net-interest-margin', 'efficiency-ratio', 'price-to-book', 'price-to-earnings', 'equity-to-assets', 'loans-to-deposits', 'deposits-to-assets', 'loans-to-assets', 'dividend-payout-ratio'],
   };
 
   console.log('Pre-rendering pages for SEO...\n');
@@ -314,7 +327,7 @@ async function generatePages() {
               "name": "Which financial metrics can I track with BankSift?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "BankSift tracks 25+ bank financial metrics including Return on Equity (ROE), Return on Average Assets (ROAA), Net Interest Margin (NIM), Efficiency Ratio, Price to Book (P/B), Price to Earnings (P/E), Earnings Per Share (EPS), Book Value Per Share (BVPS), Equity to Assets, Loans to Deposits, Deposits to Assets, Dividend Payout Ratio, and Graham Number. These cover profitability, efficiency, capital strength, and valuation categories."
+                "text": "BankSift tracks over 25 metrics across profitability, efficiency, capital strength, valuation, and balance sheet composition for every bank in the dataset. These include ROE, ROAA, NIM, Efficiency Ratio, P/B, P/E, Graham Number, and many more. Learn more in our FAQ guide to the most important bank stock metrics."
               }
             },
             {
@@ -322,7 +335,7 @@ async function generatePages() {
               "name": "How can I compare bank stocks efficiently?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Use the BankSift Bank Screener to filter and compare 300+ US bank stocks side-by-side. Set minimum and maximum ranges for key metrics like ROE, P/B ratio, and efficiency ratio to find banks that meet your investment criteria. Results can be sorted by any metric and exported to CSV for further analysis."
+                "text": "Build a peer group of similarly sized banks using the screener's asset size filter, then compare profitability, efficiency, valuation, and capital metrics across the group by sorting on any column. Read our full guide to comparing bank stocks in the FAQ section."
               }
             },
             {
@@ -346,7 +359,7 @@ async function generatePages() {
               "name": "How do I find the best bank stocks to analyze?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Use the BankSift screener to filter banks by the metrics that matter to your strategy. For example, screen for banks with ROE above 12%, efficiency ratio below 55%, and Price to Book below 1.5x to find well-run banks at reasonable valuations. You can sort results by any metric to rank banks and identify the strongest performers."
+                "text": "Start by defining your investment objective, then set screener filters that match. A quality screen might combine ROE above 10%, Efficiency Ratio below 60%, and Equity to Assets above 8%. See our FAQ for the full screening strategy for finding high-quality banks."
               }
             }
           ]
@@ -366,6 +379,7 @@ async function generatePages() {
         <li><a href="${SITE_URL}/metrics">Financial Metrics Guide</a> — Learn how to calculate and interpret key bank financial ratios including ROE, P/B, efficiency ratios, and capital strength indicators.</li>
         <li><a href="${SITE_URL}/valuation">Valuation Methods</a> — Apply Graham Number, margin of safety, P/B valuation, dividend discount models, and peer comparison analysis to evaluate bank stock fair value.</li>
         <li><a href="${SITE_URL}/glossary">Glossary</a> — Definitions of bank financial terms and SEC filing concepts.</li>
+        <li><a href="${SITE_URL}/faq">FAQ</a> — Answers to common questions about bank stock analysis, screening strategies, and valuation methods.</li>
       </ul>
       <h2>Reliable Data You Can Trust</h2>
       <ul>
@@ -386,15 +400,15 @@ async function generatePages() {
       <h4>What is BankSift?</h4>
       <p>BankSift is a free online bank stock analysis platform that lets investors screen, compare, and analyze over 300 publicly traded US bank stocks using financial metrics sourced from SEC EDGAR filings and updated daily.</p>
       <h4>Which financial metrics can I track with BankSift?</h4>
-      <p>BankSift tracks 25+ bank financial metrics including ROE, ROAA, NIM, Efficiency Ratio, P/B, P/E, EPS, BVPS, Equity to Assets, Loans to Deposits, Deposits to Assets, Dividend Payout Ratio, and Graham Number.</p>
+      <p>BankSift tracks over 25 metrics across profitability, efficiency, capital strength, valuation, and balance sheet composition for every bank in the dataset. These include ROE, ROAA, NIM, Efficiency Ratio, P/B, P/E, Graham Number, and many more. <a href="${SITE_URL}/faq/getting-started/most-important-bank-stock-metrics">Learn which metrics matter most for bank analysis →</a></p>
       <h4>How can I compare bank stocks efficiently?</h4>
-      <p>Use the BankSift Bank Screener to filter and compare 300+ US bank stocks side-by-side. Set ranges for key metrics to find banks that meet your investment criteria, sort results, and export to CSV.</p>
+      <p>Build a peer group of similarly sized banks using the screener's asset size filter, then compare profitability, efficiency, valuation, and capital metrics across the group by sorting on any column. <a href="${SITE_URL}/faq/screening/how-to-compare-bank-stocks">Read our full guide to comparing bank stocks →</a></p>
       <h4>Is BankSift free to use?</h4>
       <p>Yes, BankSift is completely free to use. No account, sign up, or email is required. All tools including the bank stock screener, search, financial metrics guides, and valuation methods are available at no cost.</p>
       <h4>Where does BankSift get its data?</h4>
       <p>All financial data on BankSift is sourced directly from the SEC EDGAR database, the official repository for US public company filings. The system automatically pulls the latest 10-K and 10-Q filings daily, calculates trailing twelve month (TTM) metrics, and derives key financial ratios for over 300 publicly traded banks.</p>
       <h4>How do I find the best bank stocks to analyze?</h4>
-      <p>Use the BankSift screener to filter banks by the metrics that matter to your strategy. For example, screen for banks with ROE above 12%, efficiency ratio below 55%, and Price to Book below 1.5x to find well-run banks at reasonable valuations. Sort results by any metric to rank and compare.</p>
+      <p>Start by defining your investment objective, then set screener filters that match. A quality screen might combine ROE above 10%, Efficiency Ratio below 60%, and Equity to Assets above 8%. <a href="${SITE_URL}/faq/screening/filters-for-high-quality-banks">See the full screening strategy for high-quality banks →</a></p>
     `
   }));
   count++;
@@ -1029,11 +1043,11 @@ async function generatePages() {
 
       <h3>Frequently Asked Questions</h3>
       <h4>How do I value bank stocks using P/B ratio?</h4>
-      <p>Price to Book (P/B) ratio is the primary valuation metric for banks. A P/B below 1.0 may indicate undervaluation if fundamentals are solid. Compare P/B across similar banks and consider the bank's ROE — higher ROE banks deserve higher P/B multiples.</p>
+      <p>P/B is the primary valuation metric for banks because bank assets are mostly financial instruments carried near fair value. A bank earning above its cost of equity should trade above 1.0x book value, while a discount may signal either opportunity or underlying problems. <a href="${SITE_URL}/faq/valuation/what-is-a-good-pb-for-banks">Read more about P/B valuation for banks →</a></p>
       <h4>What is the Graham Number in bank valuation?</h4>
-      <p>The Graham Number estimates the maximum fair price for a stock, calculated as the square root of (22.5 × EPS × BVPS). When a bank's stock price is below its Graham Number, it may be undervalued.</p>
+      <p>The Graham Number estimates a maximum fair price for a stock based on its EPS and BVPS, derived from Benjamin Graham's value investing principles. Banks trading below their Graham Number may warrant further investigation. <a href="${SITE_URL}/faq/valuation/graham-number-for-bank-stocks">Read more about the Graham Number for bank stocks →</a></p>
       <h4>Which valuation methods are best for banks?</h4>
-      <p>The best methods include P/B valuation as the primary approach, P/E for earnings power, Graham Number for intrinsic value, Dividend Discount Model for dividend-paying banks, and peer comparison analysis for relative benchmarking.</p>
+      <p>Bank valuation requires different tools than most industries. Methods built around book value (P/B, P/TBV), earnings-based approaches (P/E, DDM), and frameworks that connect profitability to valuation (ROE-P/B) form the core toolkit. <a href="${SITE_URL}/faq/valuation/why-bank-valuation-is-different">Read more about what makes bank valuation different →</a></p>
 
       <p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to find banks that meet your valuation criteria across 300+ publicly traded US banks.</p>
     `
@@ -1270,6 +1284,175 @@ async function generatePages() {
   count++;
 
   console.log(`✓ Generated ${count} static pages`);
+
+  // ============================================
+  // FAQ PAGES
+  // ============================================
+
+  let faqCount = 0;
+
+  // FAQ Index page
+  const faqClusterListHtml = faqClusters
+    .sort((a, b) => a.order - b.order)
+    .map(cluster => {
+      const clusterFaqs = faqs.filter(f => f.cluster === cluster.slug);
+      return `<h3><a href="${SITE_URL}/faq/${cluster.slug}">${escapeHtml(cluster.name)}</a> (${clusterFaqs.length} questions)</h3>
+      <ul>${clusterFaqs.map(f => `<li><a href="${SITE_URL}/faq/${f.cluster}/${f.slug}">${escapeHtml(f.question)}</a></li>`).join('\n')}</ul>`;
+    }).join('\n');
+
+  writePage('/faq', createPage({
+    path: '/faq',
+    title: 'Bank Stock FAQ | Investment Questions Answered - BankSift',
+    description: 'Answers to common questions about bank stock analysis, metrics, valuation methods, screening strategies, and investment approaches. Free educational resource for bank stock investors.',
+    canonical: `${SITE_URL}/faq`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "FAQPage",
+          "mainEntity": faqs.slice(0, 10).map(f => ({
+            "@type": "Question",
+            "name": f.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": f.shortAnswer
+            }
+          }))
+        },
+        createBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "FAQ", path: "/faq" }
+        ])
+      ]
+    },
+    content: `
+      <h1>Frequently Asked Questions</h1>
+      <p>Educational answers to common questions about bank stock analysis, metrics, valuation methods, and screening strategies.</p>
+      ${faqClusterListHtml}
+    `
+  }));
+  faqCount++;
+
+  // FAQ Cluster Index pages
+  for (const cluster of faqClusters) {
+    const clusterFaqs = faqs.filter(f => f.cluster === cluster.slug);
+    if (clusterFaqs.length === 0) continue;
+
+    const path = `/faq/${cluster.slug}`;
+    const faqListHtml = clusterFaqs.map(f =>
+      `<div><h3><a href="${SITE_URL}/faq/${f.cluster}/${f.slug}">${escapeHtml(f.question)}</a></h3><p>${escapeHtml(f.shortAnswer)}</p></div>`
+    ).join('\n');
+
+    writePage(path, createPage({
+      path,
+      title: `${cluster.name} | Bank Stock FAQ - BankSift`,
+      description: `Answers to questions about ${cluster.name.toLowerCase()}. Learn about bank stock analysis from BankSift's educational FAQ.`,
+      canonical: `${SITE_URL}${path}`,
+      schema: {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "FAQPage",
+            "mainEntity": clusterFaqs.map(f => ({
+              "@type": "Question",
+              "name": f.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": f.shortAnswer
+              }
+            }))
+          },
+          createBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "FAQ", path: "/faq" },
+            { name: cluster.name, path }
+          ])
+        ]
+      },
+      content: `
+        <h1>${escapeHtml(cluster.name)}</h1>
+        <nav><a href="${SITE_URL}/faq">← All FAQ Topics</a></nav>
+        ${faqListHtml}
+      `
+    }));
+    faqCount++;
+  }
+
+  // Individual FAQ Detail pages
+  for (const faq of faqs) {
+    const path = `/faq/${faq.cluster}/${faq.slug}`;
+    const cluster = faqClusters.find(c => c.slug === faq.cluster);
+    const clusterName = cluster ? cluster.name : faq.clusterName;
+
+    // Split fullAnswer into paragraphs
+    const answerHtml = faq.fullAnswer
+      .split('\n\n')
+      .map(p => `<p>${escapeHtml(p)}</p>`)
+      .join('\n');
+
+    // Build related links
+    let relatedHtml = '';
+    if (faq.relatedMetrics && faq.relatedMetrics.length > 0) {
+      const metricLinks = faq.relatedMetrics.map(slug => {
+        const m = metrics.find(met => met.slug === slug);
+        return m ? `<li><a href="${SITE_URL}/metrics/${slug}">${escapeHtml(m.name)}</a></li>` : '';
+      }).filter(Boolean).join('\n');
+      if (metricLinks) relatedHtml += `<h3>Related Metrics</h3><ul>${metricLinks}</ul>`;
+    }
+    if (faq.relatedValuations && faq.relatedValuations.length > 0) {
+      const valLinks = faq.relatedValuations.map(slug => {
+        const v = valuations.find(val => val.slug === slug);
+        return v ? `<li><a href="${SITE_URL}/valuation/${slug}">${escapeHtml(v.name)}</a></li>` : '';
+      }).filter(Boolean).join('\n');
+      if (valLinks) relatedHtml += `<h3>Related Valuation Methods</h3><ul>${valLinks}</ul>`;
+    }
+    if (faq.relatedFaqs && faq.relatedFaqs.length > 0) {
+      const faqLinks = faq.relatedFaqs.map(slug => {
+        const rf = faqs.find(f => f.slug === slug);
+        return rf ? `<li><a href="${SITE_URL}/faq/${rf.cluster}/${rf.slug}">${escapeHtml(rf.question)}</a></li>` : '';
+      }).filter(Boolean).join('\n');
+      if (faqLinks) relatedHtml += `<h3>Related Questions</h3><ul>${faqLinks}</ul>`;
+    }
+
+    writePage(path, createPage({
+      path,
+      title: faq.metaTitle || `${faq.question} | BankSift`,
+      description: faq.metaDescription || faq.shortAnswer,
+      canonical: `${SITE_URL}${path}`,
+      type: 'article',
+      schema: {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.fullAnswer.substring(0, 500)
+            }
+          },
+          createBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "FAQ", path: "/faq" },
+            { name: clusterName, path: `/faq/${faq.cluster}` },
+            { name: faq.question.substring(0, 50), path }
+          ])
+        ]
+      },
+      content: `
+        <nav><a href="${SITE_URL}/faq">FAQ</a> › <a href="${SITE_URL}/faq/${faq.cluster}">${escapeHtml(clusterName)}</a></nav>
+        <article>
+          <h1>${escapeHtml(faq.question)}</h1>
+          ${answerHtml}
+          ${relatedHtml}
+          ${faq.cta ? `<p><a href="${SITE_URL}${faq.cta.target}">${escapeHtml(faq.cta.text)}</a></p>` : ''}
+        </article>
+      `
+    }));
+    faqCount++;
+  }
+
+  console.log(`✓ Generated ${faqCount} FAQ pages`);
 
   // ============================================
   // METRIC PAGES
@@ -1755,10 +1938,11 @@ async function generatePages() {
   // SUMMARY
   // ============================================
 
-  const total = count + metricCount + valuationCount + bankCount;
+  const total = count + faqCount + metricCount + valuationCount + bankCount;
   console.log(`\n✅ Pre-rendering complete!`);
   console.log(`   Total pages: ${total}`);
   console.log(`   - Static pages: ${count}`);
+  console.log(`   - FAQ pages: ${faqCount}`);
   console.log(`   - Metric pages: ${metricCount}`);
   console.log(`   - Valuation pages: ${valuationCount}`);
   console.log(`   - Bank pages: ${bankCount}`);
