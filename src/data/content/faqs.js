@@ -239,7 +239,7 @@ export const FAQS = [
     ],
     "relatedValuations": [
       "price-to-book-valuation",
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "types-of-publicly-traded-banks",
@@ -301,7 +301,7 @@ export const FAQS = [
       "net-interest-margin"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "what-are-community-banks",
@@ -340,7 +340,7 @@ export const FAQS = [
     ],
     "relatedValuations": [
       "price-to-book-valuation",
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "most-important-bank-stock-metrics",
@@ -438,7 +438,7 @@ export const FAQS = [
     ],
     "relatedValuations": [
       "price-to-book-valuation",
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "how-to-start-researching-bank-stocks",
@@ -569,7 +569,7 @@ export const FAQS = [
     ],
     "relatedValuations": [
       "roe-pb-framework",
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "can-roe-be-too-high",
@@ -671,7 +671,7 @@ export const FAQS = [
       "equity-to-assets"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis",
+      "peer-comparison",
       "roe-pb-framework"
     ],
     "relatedFaqs": [
@@ -706,7 +706,7 @@ export const FAQS = [
     ],
     "relatedValuations": [
       "roe-pb-framework",
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "roe-vs-roaa",
@@ -740,7 +740,7 @@ export const FAQS = [
       "loans-to-assets"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "roe-vs-roaa",
@@ -771,7 +771,7 @@ export const FAQS = [
       "loans-to-deposits"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "what-causes-nim-to-change",
@@ -839,7 +839,7 @@ export const FAQS = [
       "deposits-to-assets"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "what-is-a-good-nim-for-banks",
@@ -875,7 +875,7 @@ export const FAQS = [
       "equity-to-assets"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "roe-vs-roaa",
@@ -941,7 +941,7 @@ export const FAQS = [
     ],
     "relatedValuations": [
       "roe-pb-framework",
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "tangible-book-value-vs-book-value",
@@ -1496,7 +1496,7 @@ export const FAQS = [
       "price-to-earnings"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis",
+      "peer-comparison",
       "roe-pb-framework"
     ],
     "relatedFaqs": [
@@ -1529,7 +1529,7 @@ export const FAQS = [
     "relatedValuations": [
       "price-to-book-valuation",
       "roe-pb-framework",
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "why-pb-primary-bank-valuation",
@@ -1566,7 +1566,7 @@ export const FAQS = [
       "graham-number",
       "dividend-discount-model",
       "margin-of-safety",
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "what-is-a-good-pb-for-banks",
@@ -1604,7 +1604,7 @@ export const FAQS = [
     "relatedValuations": [
       "graham-number",
       "price-to-book-valuation",
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "filters-for-undervalued-banks",
@@ -1675,7 +1675,7 @@ export const FAQS = [
       "equity-to-assets"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis",
+      "peer-comparison",
       "roe-pb-framework"
     ],
     "relatedFaqs": [
@@ -1746,7 +1746,7 @@ export const FAQS = [
       "equity-to-assets"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis",
+      "peer-comparison",
       "price-to-book-valuation"
     ],
     "relatedFaqs": [
@@ -1784,7 +1784,7 @@ export const FAQS = [
       "equity-to-assets"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis",
+      "peer-comparison",
       "roe-pb-framework"
     ],
     "relatedFaqs": [
@@ -1855,7 +1855,7 @@ export const FAQS = [
     ],
     "relatedValuations": [
       "roe-pb-framework",
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "what-is-a-good-roe-for-banks",
@@ -1887,7 +1887,7 @@ export const FAQS = [
       "net-interest-margin"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "what-is-a-good-efficiency-ratio",
@@ -1959,7 +1959,7 @@ export const FAQS = [
       "loans-to-deposits"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis",
+      "peer-comparison",
       "roe-pb-framework",
       "price-to-book-valuation"
     ],
@@ -2070,7 +2070,7 @@ export const FAQS = [
       "book-value-per-share"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis",
+      "peer-comparison",
       "graham-number",
       "dividend-discount-model",
       "roe-pb-framework"
@@ -2213,7 +2213,7 @@ export const FAQS = [
       "net-interest-margin"
     ],
     "relatedValuations": [
-      "peer-comparison-analysis"
+      "peer-comparison"
     ],
     "relatedFaqs": [
       "what-is-a-good-efficiency-ratio",
@@ -2448,7 +2448,7 @@ export const FAQS = [
     ],
     "relatedValuations": [
       "price-to-book-valuation",
-      "peer-comparison-analysis",
+      "peer-comparison",
       "roe-pb-framework"
     ],
     "relatedFaqs": [

@@ -153,6 +153,7 @@ function createPage({ path, title, description, canonical, type = 'website', sch
         <a href="${SITE_URL}/screener/guide">Screener Guide</a> |
         <a href="${SITE_URL}/metrics">Metrics &amp; Ratios</a> |
         <a href="${SITE_URL}/valuation">Valuation Methods</a> |
+        <a href="${SITE_URL}/faq">FAQ</a> |
         <a href="${SITE_URL}/glossary">Glossary</a>
       </nav>
       <main id="seo-content" class="seo-fallback">
@@ -168,6 +169,7 @@ function createPage({ path, title, description, canonical, type = 'website', sch
           <a href="${SITE_URL}/screener">Screener</a> |
           <a href="${SITE_URL}/metrics">Metrics</a> |
           <a href="${SITE_URL}/valuation">Valuation</a> |
+          <a href="${SITE_URL}/faq">FAQ</a> |
           <a href="${SITE_URL}/glossary">Glossary</a> |
           <a href="${SITE_URL}/privacy">Privacy Policy</a> |
           <a href="${SITE_URL}/terms">Terms of Service</a>

@@ -53,16 +53,22 @@ function FaqClusterIndex() {
         <h1>{cluster.name}</h1>
       </div>
 
-      <div className="faq-items">
-        {clusterFaqs.map(faq => (
-          <div key={faq.slug} className="faq-card">
-            <Link to={'/faq/' + clusterSlug + '/' + faq.slug} className="faq-card-link">
-              <h2 className="faq-card-question">{faq.question}</h2>
-              <p className="faq-card-teaser">{faq.shortAnswer}</p>
-            </Link>
-          </div>
-        ))}
-      </div>
+      {clusterFaqs.length === 0 ? (
+        <div className="faq-empty-state">
+          <p>Questions for this topic are coming soon. Browse other topics from the <Link to="/faq">FAQ index</Link>.</p>
+        </div>
+      ) : (
+        <div className="faq-items">
+          {clusterFaqs.map(faq => (
+            <div key={faq.slug} className="faq-card">
+              <Link to={'/faq/' + clusterSlug + '/' + faq.slug} className="faq-card-link">
+                <h2 className="faq-card-question">{faq.question}</h2>
+                <p className="faq-card-teaser">{faq.shortAnswer}</p>
+              </Link>
+            </div>
+          ))}
+        </div>
+      )}
 
       <div className="page-navigation">
         {prevCluster ? (

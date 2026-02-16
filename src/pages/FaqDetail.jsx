@@ -13,7 +13,7 @@ import { VALUATION_METHODS } from '../data/content/valuations.js';
 function FaqDetail() {
   const { clusterSlug, faqSlug } = useParams();
 
-  const faq = FAQS.find(f => f.slug === faqSlug);
+  const faq = FAQS.find(f => f.slug === faqSlug && f.cluster === clusterSlug);
   const cluster = FAQ_CLUSTERS.find(c => c.slug === clusterSlug);
 
   // Note: Schema (Question/Answer, BreadcrumbList) is provided by the prerender script
