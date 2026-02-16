@@ -9,47 +9,67 @@ import SEO from '../components/SEO.jsx';
 
 // Cross-links from valuation methods to related metrics
 const VALUATION_TO_METRICS = {
-  'graham-number': ['earnings-per-share', 'book-value-per-share'],
-  'margin-of-safety': ['earnings-per-share', 'book-value-per-share'],
-  'price-to-book-valuation': ['price-to-book', 'book-value-per-share', 'roe'],
-  'price-to-earnings-valuation': ['price-to-earnings', 'earnings-per-share'],
-  'roe-pb-framework': ['roe', 'price-to-book', 'equity-to-assets'],
-  'dividend-discount-model': ['dividend-payout-ratio', 'earnings-per-share', 'roe'],
-  'peer-comparison': ['roe', 'efficiency-ratio', 'price-to-book'],
+  'graham-number': ['earnings-per-share', 'book-value-per-share', 'price-to-book', 'price-to-earnings'],
+  'margin-of-safety': ['price-to-book', 'price-to-earnings', 'earnings-per-share', 'book-value-per-share', 'roe'],
+  'price-to-book-valuation': ['price-to-book', 'book-value-per-share', 'roe', 'equity-to-assets'],
+  'price-to-earnings-valuation': ['price-to-earnings', 'earnings-per-share', 'roe', 'price-to-book'],
+  'roe-pb-framework': ['roe', 'price-to-book', 'equity-to-assets', 'dividend-payout-ratio', 'roaa', 'book-value-per-share'],
+  'dividend-discount-model': ['dividend-payout-ratio', 'roe', 'earnings-per-share', 'net-interest-margin'],
+  'peer-comparison': ['roe', 'roaa', 'net-interest-margin', 'efficiency-ratio', 'price-to-book', 'price-to-earnings', 'equity-to-assets', 'loans-to-deposits', 'deposits-to-assets', 'loans-to-assets', 'dividend-payout-ratio'],
 };
 
 const VALUATION_TO_METRIC_DESCRIPTIONS = {
   'graham-number': {
-    'earnings-per-share': 'EPS is one of two direct inputs in the Graham Number formula.',
-    'book-value-per-share': 'Book value per share is the other direct input in the Graham formula.',
+    'earnings-per-share': 'EPS is one of two required inputs to the Graham Number formula, representing the earnings power component of Graham\'s dual-factor intrinsic value estimate.',
+    'book-value-per-share': 'BVPS is one of two required inputs to the Graham Number formula, representing the asset backing component that reflects the bank\'s tangible and intangible net worth per share.',
+    'price-to-book': 'The Graham Number implicitly caps the acceptable P/B at 1.5x, connecting the Graham framework to price-to-book valuation analysis.',
+    'price-to-earnings': 'The Graham Number implicitly caps the acceptable P/E at 15x, making the current P/E ratio a useful cross-check on whether the Graham Number estimate is reasonable.',
   },
   'margin-of-safety': {
-    'earnings-per-share': 'EPS feeds the intrinsic value estimate used to calculate the safety margin.',
-    'book-value-per-share': 'Book value provides the tangible asset floor for intrinsic value estimation.',
-  },
-  'price-to-book-valuation': {
-    'price-to-book': 'The P/B ratio is the core metric in this valuation approach.',
-    'book-value-per-share': 'BVPS is the fundamental input that P/B multiples are applied to.',
-    'roe': 'Banks with higher ROE typically deserve higher P/B multiples due to superior capital efficiency.',
-  },
-  'price-to-earnings-valuation': {
-    'price-to-earnings': 'The P/E ratio is the core metric in this valuation approach.',
-    'earnings-per-share': 'EPS is the fundamental input that P/E multiples are applied to.',
-  },
-  'roe-pb-framework': {
-    'roe': 'ROE is one of two axes in the framework — it determines the justified P/B multiple.',
-    'price-to-book': 'P/B is the other axis — the framework calculates what P/B a given ROE justifies.',
-    'equity-to-assets': 'Capital ratios affect leverage, which is a key driver of ROE in this framework.',
+    'price-to-book': 'P/B relative to the justified P/B multiple is one of the primary ways to assess margin of safety for bank stocks, with discounts to justified P/B indicating a potential buffer.',
+    'price-to-earnings': 'Comparing the current P/E to historical, peer, and fundamentally justified levels helps quantify the margin of safety from an earnings-multiple perspective.',
+    'earnings-per-share': 'Normalized EPS is a key input to intrinsic value estimates from which margin of safety is derived; using cyclically adjusted EPS produces more reliable safety margins.',
+    'book-value-per-share': 'BVPS anchors the asset-based component of intrinsic value, and the gap between market price and BVPS-derived fair value contributes to the overall margin of safety assessment.',
+    'roe': 'ROE determines the justified P/B multiple and therefore the intrinsic value estimate against which margin of safety is measured; higher sustainable ROE supports a smaller required margin of safety.',
   },
   'dividend-discount-model': {
-    'dividend-payout-ratio': 'The payout ratio determines what portion of earnings flows to shareholders as dividends.',
-    'earnings-per-share': 'EPS multiplied by the payout ratio determines the dividend input for the model.',
-    'roe': 'ROE combined with the retention ratio determines the sustainable dividend growth rate.',
+    'dividend-payout-ratio': 'The payout ratio determines what share of earnings flows to shareholders as dividends, making it the most direct input linking a bank\'s earnings to the DDM\'s dividend projection.',
+    'roe': 'ROE combined with the retention ratio determines the sustainable dividend growth rate, the critical growth input to multi-stage and Gordon Growth Model variants of the DDM.',
+    'earnings-per-share': 'EPS drives the absolute level of dividends per share (EPS multiplied by payout ratio), establishing the starting point for DDM projections.',
+    'net-interest-margin': 'NIM is the primary revenue driver for most banks and therefore the key determinant of the earnings capacity that supports future dividend payments.',
+  },
+  'price-to-book-valuation': {
+    'price-to-book': 'The P/B ratio is the central metric in price-to-book valuation, comparing the market\'s assessment of a bank\'s equity to its accounting book value.',
+    'book-value-per-share': 'BVPS provides the per-share denominator of the P/B ratio and serves as the anchor for determining whether the market price reflects a premium or discount to stated net asset value.',
+    'roe': 'ROE is the primary determinant of what P/B multiple a bank deserves; the justified P/B formula links profitability directly to the appropriate price-to-book level.',
+    'equity-to-assets': 'Equity-to-assets indicates leverage, which affects both ROE and the reliability of book value as a measure of net asset value, directly informing P/B valuation.',
+  },
+  'price-to-earnings-valuation': {
+    'price-to-earnings': 'P/E is the central ratio in this valuation method, comparing the market price to per-share earnings to assess relative value.',
+    'earnings-per-share': 'EPS is the denominator of the P/E ratio and the fundamental per-share measure of profitability that drives earnings-based valuation.',
+    'roe': 'ROE connects P/E to P/B through the identity P/B = P/E multiplied by ROE, ensuring that P/E valuation conclusions are consistent with the bank\'s profitability profile.',
+    'price-to-book': 'P/B and P/E should produce consistent valuation signals; when they diverge, the discrepancy often points to temporary earnings distortion that P/E valuation alone may miss.',
   },
   'peer-comparison': {
-    'roe': 'ROE is a primary profitability benchmark in peer group analysis.',
-    'efficiency-ratio': 'Operating efficiency is a key differentiator when comparing similar banks.',
-    'price-to-book': 'P/B multiples are the primary valuation metric compared across bank peers.',
+    'roe': 'ROE is a primary peer comparison metric, capturing both operating performance and leverage in a single figure that reveals which banks in a peer group generate the strongest returns.',
+    'roaa': 'ROAA is the preferred peer comparison metric for profitability because it removes capital structure differences, allowing direct comparison of operating efficiency.',
+    'net-interest-margin': 'NIM comparison across peers reveals differences in lending profitability, funding costs, and asset mix, identifying banks with structural advantages.',
+    'efficiency-ratio': 'Efficiency ratio comparison highlights differences in cost management and operational productivity, distinguishing well-run banks from those with structural cost challenges.',
+    'price-to-book': 'P/B is the primary valuation metric for peer comparison, with differences in P/B across peers ideally explained by corresponding differences in ROE and growth.',
+    'price-to-earnings': 'P/E comparison across peers provides an earnings-based valuation perspective, complementing P/B analysis and helping identify banks with mispriced earnings.',
+    'equity-to-assets': 'Equity-to-assets comparison reveals differences in capital levels and leverage across the peer group, providing context for interpreting ROE and P/B differences.',
+    'loans-to-deposits': 'Loans-to-deposits comparison shows how aggressively each peer deploys its deposit base into lending, indicating differences in growth strategy and funding risk.',
+    'deposits-to-assets': 'Deposits-to-assets comparison evaluates the funding structure stability across the peer group, identifying banks with stronger or weaker deposit franchises.',
+    'loans-to-assets': 'Loans-to-assets comparison reveals differences in asset deployment strategy and credit risk appetite within the peer group.',
+    'dividend-payout-ratio': 'Payout ratio comparison across peers indicates differences in capital return philosophy, growth reinvestment needs, and management confidence in earnings sustainability.',
+  },
+  'roe-pb-framework': {
+    'roe': 'ROE is the central input to the ROE-P/B framework; the justified P/B multiple rises and falls directly with the bank\'s sustainable return on equity.',
+    'price-to-book': 'The current P/B is compared against the framework\'s justified P/B to determine whether the bank trades at a premium, discount, or fair value relative to its profitability.',
+    'equity-to-assets': 'Equity-to-assets determines the equity multiplier that links ROAA to ROE and therefore affects whether the ROE used in the framework reflects genuine earning power or primarily leverage.',
+    'dividend-payout-ratio': 'The payout ratio determines the retention ratio, which drives the sustainable growth rate (g) used in the justified P/B formula: g = ROE multiplied by (1 minus payout ratio).',
+    'roaa': 'ROAA combined with the equity multiplier produces ROE, making it useful for decomposing whether the ROE input to the framework reflects strong asset productivity or high leverage.',
+    'book-value-per-share': 'BVPS growth rate reflects the compounding effect of retained earnings, and sustained BVPS growth validates the growth rate assumption used in the justified P/B calculation.',
   },
 };
 
@@ -202,6 +222,55 @@ function ValuationDetail() {
           <section className="valuation-section">
             <h2>Bank-Specific Considerations</h2>
             <p>{method.bankSpecific}</p>
+          </section>
+        )}
+
+        {method.whenToUse && (
+          <section className="valuation-section">
+            <h2>When to Use This Method</h2>
+            <p>{method.whenToUse}</p>
+          </section>
+        )}
+
+        {method.methodConnections && (
+          <section className="valuation-section">
+            <h2>Method Connections</h2>
+            <p>{method.methodConnections}</p>
+          </section>
+        )}
+
+        {method.commonMistakes && (
+          <section className="valuation-section">
+            <h2>Common Mistakes</h2>
+            <p>{method.commonMistakes}</p>
+          </section>
+        )}
+
+        {method.acrossBankTypes && (
+          <section className="valuation-section">
+            <h2>Across Bank Types</h2>
+            <p>{method.acrossBankTypes}</p>
+          </section>
+        )}
+
+        {method.faqTeasers && method.faqTeasers.length > 0 && (
+          <section className="valuation-section">
+            <h2>Frequently Asked Questions</h2>
+            <div className="faq-teasers-list">
+              {method.faqTeasers.map((faqTeaser, idx) => (
+                <div key={idx} className="faq-teaser-card">
+                  <h3>{faqTeaser.question}</h3>
+                  <p>{faqTeaser.teaser}</p>
+                  <NavigationLink
+                    to={`/faq/${faqTeaser.faqCluster}/${faqTeaser.faqSlug}`}
+                    className="faq-teaser-link"
+                    pageTitle={faqTeaser.question}
+                  >
+                    Read more →
+                  </NavigationLink>
+                </div>
+              ))}
+            </div>
           </section>
         )}
 

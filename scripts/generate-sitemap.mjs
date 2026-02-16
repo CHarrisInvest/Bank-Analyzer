@@ -63,6 +63,37 @@ async function generateSitemap() {
     });
   }
 
+  // FAQ pages
+  const faqsModule = await import(join(srcDir, 'data', 'content', 'faqs.js'));
+
+  // FAQ index page
+  urls.push({
+    loc: `${SITE_URL}/faq`,
+    lastmod: TODAY,
+    changefreq: 'monthly',
+    priority: '0.8'
+  });
+
+  // FAQ cluster index pages
+  for (const cluster of faqsModule.FAQ_CLUSTERS) {
+    urls.push({
+      loc: `${SITE_URL}/faq/${cluster.slug}`,
+      lastmod: TODAY,
+      changefreq: 'monthly',
+      priority: '0.7'
+    });
+  }
+
+  // Individual FAQ pages
+  for (const faq of faqsModule.FAQS) {
+    urls.push({
+      loc: `${SITE_URL}/faq/${faq.cluster}/${faq.slug}`,
+      lastmod: TODAY,
+      changefreq: 'monthly',
+      priority: '0.7'
+    });
+  }
+
   // Bank pages (only banks with tickers - matches React routing)
   const banksPath = join(dataDir, 'banks.json');
   if (existsSync(banksPath)) {

@@ -740,6 +740,9 @@ function ScreenerGuide() {
           <Link to="/metrics" className="btn btn-secondary btn-lg">
             Explore All Metrics
           </Link>
+          <Link to="/faq" className="btn btn-secondary btn-lg">
+            FAQ
+          </Link>
         </div>
       </div>
     </div>
