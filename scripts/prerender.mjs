@@ -400,15 +400,15 @@ async function generatePages() {
       <h4>What is BankSift?</h4>
       <p>BankSift is a free online bank stock analysis platform that lets investors screen, compare, and analyze over 300 publicly traded US bank stocks using financial metrics sourced from SEC EDGAR filings and updated daily.</p>
       <h4>Which financial metrics can I track with BankSift?</h4>
-      <p>BankSift tracks over 25 metrics across profitability, efficiency, capital strength, valuation, and balance sheet composition for every bank in the dataset. These include ROE, ROAA, NIM, Efficiency Ratio, P/B, P/E, Graham Number, and many more. <a href="${SITE_URL}/faq/getting-started/most-important-bank-stock-metrics">Learn which metrics matter most for bank analysis →</a></p>
+      <p>BankSift tracks over 25 bank-specific metrics across profitability, efficiency, capital strength, and valuation. <a href="${SITE_URL}/faq/getting-started/most-important-bank-stock-metrics">Read more →</a></p>
       <h4>How can I compare bank stocks efficiently?</h4>
-      <p>Build a peer group of similarly sized banks using the screener's asset size filter, then compare profitability, efficiency, valuation, and capital metrics across the group by sorting on any column. <a href="${SITE_URL}/faq/screening/how-to-compare-bank-stocks">Read our full guide to comparing bank stocks →</a></p>
+      <p>Build a peer group of similar banks using the screener, then compare key metrics side-by-side. <a href="${SITE_URL}/faq/screening/how-to-compare-bank-stocks">Read more →</a></p>
       <h4>Is BankSift free to use?</h4>
       <p>Yes, BankSift is completely free to use. No account, sign up, or email is required. All tools including the bank stock screener, search, financial metrics guides, and valuation methods are available at no cost.</p>
       <h4>Where does BankSift get its data?</h4>
       <p>All financial data on BankSift is sourced directly from the SEC EDGAR database, the official repository for US public company filings. The system automatically pulls the latest 10-K and 10-Q filings daily, calculates trailing twelve month (TTM) metrics, and derives key financial ratios for over 300 publicly traded banks.</p>
       <h4>How do I find the best bank stocks to analyze?</h4>
-      <p>Start by defining your investment objective, then set screener filters that match. A quality screen might combine ROE above 10%, Efficiency Ratio below 60%, and Equity to Assets above 8%. <a href="${SITE_URL}/faq/screening/filters-for-high-quality-banks">See the full screening strategy for high-quality banks →</a></p>
+      <p>Define your investment objective, then use screener filters like ROE, efficiency ratio, and capital strength to narrow the field. <a href="${SITE_URL}/faq/screening/filters-for-high-quality-banks">Read more →</a></p>
     `
   }));
   count++;
@@ -1043,11 +1043,11 @@ async function generatePages() {
 
       <h3>Frequently Asked Questions</h3>
       <h4>How do I value bank stocks using P/B ratio?</h4>
-      <p>P/B is the primary valuation metric for banks because bank assets are mostly financial instruments carried near fair value. A bank earning above its cost of equity should trade above 1.0x book value, while a discount may signal either opportunity or underlying problems. <a href="${SITE_URL}/faq/valuation/what-is-a-good-pb-for-banks">Read more about P/B valuation for banks →</a></p>
+      <p>P/B is the primary valuation metric for banks because their assets are mostly financial instruments carried near fair value. <a href="${SITE_URL}/faq/valuation/what-is-a-good-pb-for-banks">Read more →</a></p>
       <h4>What is the Graham Number in bank valuation?</h4>
-      <p>The Graham Number estimates a maximum fair price for a stock based on its EPS and BVPS, derived from Benjamin Graham's value investing principles. Banks trading below their Graham Number may warrant further investigation. <a href="${SITE_URL}/faq/valuation/graham-number-for-bank-stocks">Read more about the Graham Number for bank stocks →</a></p>
+      <p>The Graham Number estimates a maximum fair price for a stock based on its EPS and book value per share. <a href="${SITE_URL}/faq/valuation/graham-number-for-bank-stocks">Read more →</a></p>
       <h4>Which valuation methods are best for banks?</h4>
-      <p>Bank valuation requires different tools than most industries. Methods built around book value (P/B, P/TBV), earnings-based approaches (P/E, DDM), and frameworks that connect profitability to valuation (ROE-P/B) form the core toolkit. <a href="${SITE_URL}/faq/valuation/why-bank-valuation-is-different">Read more about what makes bank valuation different →</a></p>
+      <p>Bank valuation requires specialized approaches built around book value, earnings, and profitability frameworks. <a href="${SITE_URL}/faq/valuation/why-bank-valuation-is-different">Read more →</a></p>
 
       <p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to find banks that meet your valuation criteria across 300+ publicly traded US banks.</p>
     `
@@ -1577,6 +1577,26 @@ async function generatePages() {
             }).filter(Boolean).join('\n            ')}
           </ul>
           ` : ''}
+          ${metric.bankSpecificContext ? `
+          <h2>Bank-Specific Context</h2>
+          <p>${escapeHtml(metric.bankSpecificContext)}</p>
+          ` : ''}
+          ${metric.metricConnections ? `
+          <h2>Metric Connections</h2>
+          <p>${escapeHtml(metric.metricConnections)}</p>
+          ` : ''}
+          ${metric.commonPitfalls ? `
+          <h2>Common Pitfalls</h2>
+          <p>${escapeHtml(metric.commonPitfalls)}</p>
+          ` : ''}
+          ${metric.acrossBankTypes ? `
+          <h2>Across Bank Types</h2>
+          <p>${escapeHtml(metric.acrossBankTypes)}</p>
+          ` : ''}
+          ${metric.whatDrivesMetric ? `
+          <h2>What Drives This Metric</h2>
+          <p>${escapeHtml(metric.whatDrivesMetric)}</p>
+          ` : ''}
           ${METRIC_TO_VALUATIONS[metric.slug] ? `
           <h2>Related Valuation Methods</h2>
           <ul>
@@ -1586,6 +1606,11 @@ async function generatePages() {
               return `<li><a href="${SITE_URL}/valuation/${valSlug}">${escapeHtml(val.name)}</a> — ${escapeHtml(val.shortDescription)}</li>`;
             }).filter(Boolean).join('\n            ')}
           </ul>
+          ` : ''}
+          ${metric.faqTeasers && metric.faqTeasers.length > 0 ? `
+          <h2>Frequently Asked Questions</h2>
+          ${metric.faqTeasers.map(ft => `<h3>${escapeHtml(ft.question)}</h3>
+          <p>${escapeHtml(ft.teaser)} <a href="${SITE_URL}/faq/${ft.faqCluster}/${ft.faqSlug}">Read more →</a></p>`).join('\n          ')}
           ` : ''}
           <h2>Data Source</h2>
           <p>This metric is calculated using data from SEC EDGAR filings. ${escapeHtml(metric.dataSource)}</p>
@@ -1712,6 +1737,22 @@ async function generatePages() {
           <h2>Bank-Specific Considerations</h2>
           <p>${escapeHtml(valuation.bankSpecific)}</p>
           ` : ''}
+          ${valuation.whenToUse ? `
+          <h2>When to Use This Method</h2>
+          <p>${escapeHtml(valuation.whenToUse)}</p>
+          ` : ''}
+          ${valuation.methodConnections ? `
+          <h2>Method Connections</h2>
+          <p>${escapeHtml(valuation.methodConnections)}</p>
+          ` : ''}
+          ${valuation.commonMistakes ? `
+          <h2>Common Mistakes</h2>
+          <p>${escapeHtml(valuation.commonMistakes)}</p>
+          ` : ''}
+          ${valuation.acrossBankTypes ? `
+          <h2>Across Bank Types</h2>
+          <p>${escapeHtml(valuation.acrossBankTypes)}</p>
+          ` : ''}
           ${valuation.relatedMethods && valuation.relatedMethods.length > 0 ? `
           <h2>Related Valuation Methods</h2>
           <ul>
@@ -1731,6 +1772,11 @@ async function generatePages() {
               return `<li><a href="${SITE_URL}/metrics/${metricSlug}">${escapeHtml(met.name)}</a> — ${escapeHtml(met.shortDescription)}</li>`;
             }).filter(Boolean).join('\n            ')}
           </ul>
+          ` : ''}
+          ${valuation.faqTeasers && valuation.faqTeasers.length > 0 ? `
+          <h2>Frequently Asked Questions</h2>
+          ${valuation.faqTeasers.map(ft => `<h3>${escapeHtml(ft.question)}</h3>
+          <p>${escapeHtml(ft.teaser)} <a href="${SITE_URL}/faq/${ft.faqCluster}/${ft.faqSlug}">Read more →</a></p>`).join('\n          ')}
           ` : ''}
           <p>Apply this method using the <a href="${SITE_URL}/screener">Bank Screener</a> to evaluate 300+ publicly traded US banks.</p>
         </article>
