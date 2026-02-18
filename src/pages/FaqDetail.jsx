@@ -138,23 +138,11 @@ function FaqDetail() {
           </section>
         )}
 
-        {faq.relatedGlossaryTerms && faq.relatedGlossaryTerms.length > 0 && (
-          <section className="faq-section">
-            <h2>Related Glossary Terms</h2>
-            <div className="related-metrics-list">
-              {faq.relatedGlossaryTerms.map(term => (
-                <div key={term} className="related-metric-item">
-                  <Link
-                    to="/glossary"
-                    className="related-metric-badge"
-                  >
-                    {term}
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
+        <section className="faq-section faq-glossary-link">
+          <p>
+            See the <Link to="/glossary">glossary</Link> for definitions of bank investing terms used in this article.
+          </p>
+        </section>
 
         {faq.cta && (
           <div className="faq-cta">
