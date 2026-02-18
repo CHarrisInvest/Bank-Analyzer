@@ -1136,9 +1136,9 @@ async function generatePages() {
     },
     content: `
       <h1>Financial Terms Glossary</h1>
-      <p>Comprehensive definitions of financial terms, metrics, and concepts used in bank analysis. Click on any term with a link to learn more.</p>
+      <p>Over 100 definitions of financial terms, metrics, and concepts used in bank analysis. Click on any term with a link to learn more.</p>
 
-      <h2>Profitability Metrics</h2>
+      <h2>Profitability &amp; Efficiency</h2>
       <dl>
         <dt><a href="${SITE_URL}/metrics/roe">Return on Equity (ROE)</a></dt>
         <dd>Measures how effectively a bank generates profits from shareholder investments.</dd>
@@ -1146,27 +1146,87 @@ async function generatePages() {
         <dd>Measures how efficiently a bank uses its total assets to generate earnings.</dd>
         <dt><a href="${SITE_URL}/metrics/net-interest-margin">Net Interest Margin (NIM)</a></dt>
         <dd>Measures the spread between interest earned and interest paid relative to earning assets.</dd>
-      </dl>
-
-      <h2>Efficiency Metrics</h2>
-      <dl>
         <dt><a href="${SITE_URL}/metrics/efficiency-ratio">Efficiency Ratio</a></dt>
         <dd>Measures operating efficiency by comparing expenses to revenue.</dd>
         <dt><a href="${SITE_URL}/metrics/deposits-to-assets">Deposits to Assets Ratio</a></dt>
         <dd>Shows what portion of bank assets are funded by customer deposits.</dd>
         <dt><a href="${SITE_URL}/metrics/loans-to-deposits">Loans to Deposits Ratio</a></dt>
         <dd>Compares lending activity to deposit funding.</dd>
+        <dt>Return on Tangible Common Equity (ROTCE)</dt>
+        <dd>Net income divided by average tangible common equity. A stricter profitability measure than ROE because it excludes goodwill and intangible assets.</dd>
+        <dt>Pre-Provision Net Revenue (PPNR)</dt>
+        <dd>Total revenue minus non-interest expense, before subtracting the provision for credit losses. Isolates core earnings power from credit cycle volatility.</dd>
+        <dt>Operating Leverage</dt>
+        <dd>The rate at which revenue growth exceeds expense growth. Positive operating leverage means improving profitability over time.</dd>
       </dl>
 
-      <h2>Capital &amp; Leverage Metrics</h2>
+      <h2>Capital &amp; Regulatory</h2>
       <dl>
         <dt><a href="${SITE_URL}/metrics/equity-to-assets">Equity to Assets Ratio</a></dt>
         <dd>Measures capital strength by comparing equity to total assets.</dd>
         <dt><a href="${SITE_URL}/metrics/loans-to-assets">Loans to Assets Ratio</a></dt>
         <dd>Shows what portion of assets are deployed in loans.</dd>
+        <dt>Basel Accords</dt>
+        <dd>International banking regulations (Basel I, II, and III) setting minimum capital requirements, leverage limits, and liquidity standards for banks worldwide.</dd>
+        <dt>Basel III / Basel III Endgame</dt>
+        <dd>The current global regulatory framework for bank capital, leverage, and liquidity. Basel III Endgame standardizes how banks calculate risk-weighted assets.</dd>
+        <dt>Common Equity Tier 1 (CET1) Ratio</dt>
+        <dd>Core equity capital divided by risk-weighted assets. The highest-quality form of regulatory capital and the most closely watched capital ratio.</dd>
+        <dt>Tier 1 Capital Ratio</dt>
+        <dd>CET1 plus additional Tier 1 instruments divided by risk-weighted assets. Measures core financial strength from a regulatory perspective.</dd>
+        <dt>Tier 2 Capital</dt>
+        <dd>Supplementary capital including subordinated debt and loan loss reserves that absorbs losses after Tier 1 capital is exhausted.</dd>
+        <dt>Total Capital Ratio</dt>
+        <dd>Total regulatory capital (Tier 1 plus Tier 2) divided by risk-weighted assets. US minimum is 8% for well-capitalized banks.</dd>
+        <dt>Risk-Weighted Assets (RWA)</dt>
+        <dd>Total bank assets adjusted by risk weights assigned to each asset class. The denominator of all risk-based capital ratios.</dd>
+        <dt>Leverage Ratio (Regulatory)</dt>
+        <dd>Tier 1 capital divided by average total consolidated assets, without risk weighting. A non-risk-based backstop to capital ratios.</dd>
+        <dt>Supplementary Leverage Ratio (SLR)</dt>
+        <dd>An enhanced leverage ratio for the largest US banks that includes off-balance-sheet exposures in the denominator.</dd>
+        <dt>Capital Adequacy</dt>
+        <dd>The overall sufficiency of a bank's capital to absorb losses and support ongoing operations.</dd>
+        <dt>Capital Conservation Buffer</dt>
+        <dd>An additional 2.5% of CET1 capital above the regulatory minimum that banks must maintain to avoid restrictions on distributions.</dd>
+        <dt>Stress Testing (CCAR / DFAST)</dt>
+        <dd>Regulatory exercises evaluating whether banks have sufficient capital to withstand severe economic downturns.</dd>
+        <dt>Tangible Common Equity Ratio</dt>
+        <dd>Tangible common equity divided by tangible assets. A conservative capital measure excluding goodwill, intangibles, and preferred equity.</dd>
       </dl>
 
-      <h2>Valuation Metrics</h2>
+      <h2>Credit Quality &amp; Risk</h2>
+      <dl>
+        <dt>Provision for Credit Losses</dt>
+        <dd>An income statement expense representing management's estimate of expected loan losses. Provisions directly reduce reported earnings.</dd>
+        <dt>Non-Performing Loans (NPL)</dt>
+        <dd>Loans 90 or more days past due or on non-accrual status. The NPL ratio is a primary measure of asset quality.</dd>
+        <dt>Non-Performing Assets (NPA)</dt>
+        <dd>Non-performing loans plus other real estate owned and repossessed assets. Provides a broader view of problem assets.</dd>
+        <dt>Net Charge-Off Ratio</dt>
+        <dd>Loans written off minus recoveries, as a percentage of average loans. Measures actual credit loss experience.</dd>
+        <dt>Allowance for Credit Losses (ACL)</dt>
+        <dd>A balance sheet reserve representing expected lifetime losses in the loan portfolio.</dd>
+        <dt>Reserve Coverage Ratio</dt>
+        <dd>Allowance for credit losses divided by non-performing loans. Above 100% means reserves exceed identified problem loans.</dd>
+        <dt>Texas Ratio</dt>
+        <dd>Non-performing assets divided by tangible common equity plus the allowance. Above 100% suggests insufficient reserves and capital.</dd>
+        <dt>OREO (Other Real Estate Owned)</dt>
+        <dd>Real property acquired through foreclosure, carried at fair value on the balance sheet.</dd>
+        <dt>CECL (Current Expected Credit Losses)</dt>
+        <dd>The accounting standard requiring banks to reserve for expected lifetime credit losses at loan origination.</dd>
+        <dt>Credit Cycle</dt>
+        <dd>The recurring pattern of expansion and contraction in lending standards, credit availability, and loan losses.</dd>
+        <dt>Credit Risk</dt>
+        <dd>The risk that borrowers will fail to make required payments. The single largest source of potential loss for banks.</dd>
+        <dt>Interest Rate Risk</dt>
+        <dd>The risk that interest rate changes will negatively affect a bank's earnings or economic value.</dd>
+        <dt>Liquidity Risk</dt>
+        <dd>The risk that a bank cannot meet short-term financial obligations without incurring unacceptable losses.</dd>
+        <dt>Concentration Risk</dt>
+        <dd>Risk from excessive exposure to a single borrower, industry, geography, or asset class.</dd>
+      </dl>
+
+      <h2>Valuation</h2>
       <dl>
         <dt><a href="${SITE_URL}/metrics/book-value-per-share">Book Value Per Share (BVPS)</a></dt>
         <dd>The net asset value attributable to each common share.</dd>
@@ -1174,18 +1234,6 @@ async function generatePages() {
         <dd>Compares stock price to per-share earnings.</dd>
         <dt><a href="${SITE_URL}/metrics/price-to-book">Price to Book (P/B) Ratio</a></dt>
         <dd>Compares stock price to book value per share.</dd>
-      </dl>
-
-      <h2>Per-Share Metrics</h2>
-      <dl>
-        <dt><a href="${SITE_URL}/metrics/earnings-per-share">Earnings Per Share (EPS)</a></dt>
-        <dd>Net profit attributable to each common share.</dd>
-        <dt><a href="${SITE_URL}/metrics/dividend-payout-ratio">Dividend Payout Ratio</a></dt>
-        <dd>Percentage of earnings paid out as dividends.</dd>
-      </dl>
-
-      <h2>Valuation Methods</h2>
-      <dl>
         <dt><a href="${SITE_URL}/valuation/graham-number">Graham Number</a></dt>
         <dd>A value investing formula for estimating the maximum fair price based on earnings and book value.</dd>
         <dt><a href="${SITE_URL}/valuation/margin-of-safety">Margin of Safety</a></dt>
@@ -1200,42 +1248,158 @@ async function generatePages() {
         <dd>Values a bank based on the present value of expected future dividends.</dd>
         <dt><a href="${SITE_URL}/valuation/peer-comparison">Peer Comparison Analysis</a></dt>
         <dd>Valuing a bank by comparing its metrics and multiples to similar banks.</dd>
+        <dt>Tangible Book Value</dt>
+        <dd>Total shareholders' equity minus intangible assets and goodwill.</dd>
+        <dt>Intrinsic Value</dt>
+        <dd>The calculated true value of a company based on fundamental analysis, regardless of market price.</dd>
+        <dt>Market Capitalization</dt>
+        <dd>Total market value of outstanding shares, calculated as share price multiplied by shares outstanding.</dd>
+        <dt>Shares Outstanding</dt>
+        <dd>The total number of shares currently held by all shareholders.</dd>
+        <dt>Price to Tangible Book Value (P/TBV)</dt>
+        <dd>Stock price divided by tangible book value per share. A stricter valuation metric than P/B.</dd>
       </dl>
 
-      <h2>SEC Filing &amp; Data Terms</h2>
+      <h2>Income Statement</h2>
+      <dl>
+        <dt><a href="${SITE_URL}/metrics/earnings-per-share">Earnings Per Share (EPS)</a></dt>
+        <dd>Net profit attributable to each common share.</dd>
+        <dt><a href="${SITE_URL}/metrics/dividend-payout-ratio">Dividend Payout Ratio</a></dt>
+        <dd>Percentage of earnings paid out as dividends.</dd>
+        <dt>Net Interest Income</dt>
+        <dd>Interest earned on assets minus interest paid on liabilities. Typically the largest revenue source for traditional banks.</dd>
+        <dt>Non-Interest Income</dt>
+        <dd>Revenue from sources other than interest, including service charges, fees, and trading gains.</dd>
+        <dt>Non-Interest Expense</dt>
+        <dd>Operating expenses excluding interest expense, including salaries, occupancy, and technology costs.</dd>
+        <dt>Fee Income</dt>
+        <dd>Revenue from service charges, wealth management fees, card interchange, and other non-lending activities.</dd>
+        <dt>Net Interest Spread</dt>
+        <dd>The difference between average yield on interest-bearing assets and average rate on interest-bearing liabilities.</dd>
+        <dt>Mortgage Banking Income</dt>
+        <dd>Revenue from originating, selling, and servicing mortgage loans.</dd>
+        <dt>Interest Expense</dt>
+        <dd>The cost a bank pays for borrowed funds, including interest on deposits and other borrowings.</dd>
+      </dl>
+
+      <h2>Funding &amp; Deposits</h2>
+      <dl>
+        <dt>Core Deposits</dt>
+        <dd>Stable, low-cost deposits from local customers including checking, savings, and small time deposits.</dd>
+        <dt>Non-Interest-Bearing Deposits</dt>
+        <dd>Deposit accounts that pay no interest, representing free funding for the bank.</dd>
+        <dt>Time Deposits / Certificates of Deposit</dt>
+        <dd>Deposits held for a fixed term at a specified interest rate.</dd>
+        <dt>Brokered Deposits</dt>
+        <dd>Deposits placed by third-party brokers, typically more expensive and less stable than core deposits.</dd>
+        <dt>Wholesale Funding</dt>
+        <dd>Non-deposit funding sources such as FHLB advances, federal funds purchased, and subordinated debt.</dd>
+        <dt>Cost of Funds</dt>
+        <dd>The blended interest rate a bank pays on all funding sources. Lower cost of funds supports wider net interest margin.</dd>
+        <dt>Deposit Franchise</dt>
+        <dd>The value of a bank's deposit-gathering network and customer relationships.</dd>
+        <dt>Federal Home Loan Bank (FHLB)</dt>
+        <dd>A government-sponsored enterprise providing wholesale funding to member banks through secured advances.</dd>
+        <dt>Liquidity Coverage Ratio (LCR)</dt>
+        <dd>A Basel III requirement that banks hold enough liquid assets to cover 30-day net cash outflows in a stress scenario.</dd>
+        <dt>Net Stable Funding Ratio (NSFR)</dt>
+        <dd>A Basel III requirement that stable funding sources match the maturity profile of a bank's assets.</dd>
+      </dl>
+
+      <h2>Banking Industry</h2>
+      <dl>
+        <dt>Community Bank</dt>
+        <dd>A locally focused bank typically with less than $10 billion in total assets.</dd>
+        <dt>Regional Bank</dt>
+        <dd>A mid-sized bank operating across multiple states, typically $10–250 billion in assets.</dd>
+        <dt>Money Center Bank</dt>
+        <dd>The largest banks with diversified business lines, typically exceeding $250 billion in assets.</dd>
+        <dt>G-SIB (Global Systemically Important Bank)</dt>
+        <dd>A bank designated as systemically important to the global financial system, subject to additional capital surcharges and supervision.</dd>
+        <dt>Bank Holding Company (BHC)</dt>
+        <dd>A corporation that owns or controls one or more banks, regulated by the Federal Reserve.</dd>
+        <dt>De Novo Bank</dt>
+        <dd>A newly chartered bank, typically in its first three to seven years of operation with suppressed profitability metrics.</dd>
+        <dt>Thrift / Savings Institution</dt>
+        <dd>A financial institution historically focused on residential mortgage lending and savings deposits.</dd>
+        <dt>FDIC (Federal Deposit Insurance Corporation)</dt>
+        <dd>The US agency that insures deposits up to $250,000 per depositor and regulates state-chartered non-Fed-member banks.</dd>
+        <dt>OCC (Office of the Comptroller of the Currency)</dt>
+        <dd>The federal agency that charters, regulates, and supervises national banks and federal savings associations.</dd>
+        <dt>Federal Reserve</dt>
+        <dd>The US central bank that sets monetary policy, supervises bank holding companies, and serves as lender of last resort.</dd>
+        <dt>CAMELS Rating</dt>
+        <dd>A supervisory rating system evaluating Capital, Asset quality, Management, Earnings, Liquidity, and Sensitivity to market risk.</dd>
+        <dt>Dodd-Frank Act</dt>
+        <dd>The 2010 financial reform law establishing enhanced regulatory requirements for large banks including stress testing and the Volcker Rule.</dd>
+        <dt>Volcker Rule</dt>
+        <dd>A Dodd-Frank provision prohibiting banks from proprietary trading and limiting hedge fund and private equity investments.</dd>
+        <dt>Living Will / Resolution Plan</dt>
+        <dd>A document describing a large bank's strategy for orderly resolution in the event of financial distress.</dd>
+      </dl>
+
+      <h2>Investment Analysis</h2>
+      <dl>
+        <dt>Value Investing</dt>
+        <dd>An investment strategy buying securities that appear underpriced based on fundamental analysis.</dd>
+        <dt>Cost of Equity</dt>
+        <dd>The return equity investors require to compensate for risk. A bank earning ROE above cost of equity creates shareholder value.</dd>
+        <dt>Dividend Yield</dt>
+        <dd>Annual dividends per share divided by stock price, measuring the income return on a stock investment.</dd>
+        <dt>DuPont Decomposition</dt>
+        <dd>An analytical framework breaking ROE into its component drivers. For banks: ROE = ROAA × Equity Multiplier.</dd>
+        <dt>Equity Multiplier</dt>
+        <dd>Total assets divided by equity. Measures financial leverage; the inverse of the equity-to-assets ratio.</dd>
+        <dt>Sustainable Growth Rate</dt>
+        <dd>The maximum rate a bank can grow equity without raising external capital: ROE × retention ratio.</dd>
+        <dt>Retention Ratio</dt>
+        <dd>The percentage of net income retained rather than paid as dividends. Equals 1 minus the dividend payout ratio.</dd>
+        <dt>Normalized Earnings</dt>
+        <dd>Earnings adjusted to remove one-time items and unusual provision levels, estimating typical operating earnings.</dd>
+        <dt>Gordon Growth Model</dt>
+        <dd>A dividend discount model: D₁ / (r − g). Commonly used for stable, dividend-paying bank stocks.</dd>
+        <dt>Peer Group</dt>
+        <dd>A set of comparable banks selected for benchmarking based on asset size, geography, and business model.</dd>
+        <dt>Earnings Quality</dt>
+        <dd>An assessment of how sustainable and repeatable a bank's reported earnings are.</dd>
+      </dl>
+
+      <h2>Balance Sheet &amp; Accounting</h2>
+      <dl>
+        <dt>Goodwill</dt>
+        <dd>An intangible asset arising when a bank acquires another institution above the fair value of net tangible assets.</dd>
+        <dt>Fair Value</dt>
+        <dd>The price at which an asset could be sold in an orderly transaction between market participants.</dd>
+        <dt>AOCI (Accumulated Other Comprehensive Income)</dt>
+        <dd>Unrealized gains and losses in equity, primarily from available-for-sale securities. Directly affects book value and CET1.</dd>
+        <dt>Held-to-Maturity Securities</dt>
+        <dd>Debt securities carried at amortized cost because the bank intends to hold them until maturity.</dd>
+        <dt>Available-for-Sale Securities</dt>
+        <dd>Debt securities carried at fair value with unrealized gains and losses recorded in AOCI.</dd>
+        <dt>Mark-to-Market</dt>
+        <dd>An accounting method valuing assets at current market price rather than historical cost.</dd>
+        <dt>Tangible Common Equity (TCE)</dt>
+        <dd>Total equity minus preferred equity, goodwill, and intangible assets. The most conservative equity measure.</dd>
+        <dt>Asset-Liability Management (ALM)</dt>
+        <dd>Managing a bank's balance sheet to control interest rate risk by matching asset and liability repricing characteristics.</dd>
+      </dl>
+
+      <h2>Data Sources</h2>
       <dl>
         <dt>SEC EDGAR</dt>
-        <dd>The Electronic Data Gathering, Analysis, and Retrieval system operated by the U.S. Securities and Exchange Commission. It provides free public access to corporate filings including 10-K annual reports and 10-Q quarterly reports.</dd>
+        <dd>The SEC's Electronic Data Gathering, Analysis, and Retrieval system providing free public access to corporate filings.</dd>
         <dt>10-K Filing</dt>
-        <dd>An annual report required by the SEC that provides a comprehensive summary of a company's financial performance. It includes audited financial statements, management discussion, and risk factors.</dd>
+        <dd>An annual report with audited financial statements, management discussion, and risk factors.</dd>
         <dt>10-Q Filing</dt>
-        <dd>A quarterly report required by the SEC that provides unaudited financial statements and updates on a company's financial condition. Banks file 10-Q reports for Q1, Q2, and Q3 each year.</dd>
+        <dd>A quarterly report with unaudited financial statements and updates on financial condition.</dd>
         <dt>Trailing Twelve Months (TTM)</dt>
-        <dd>A financial measurement that sums the last four quarters of data to provide an up-to-date annual figure. TTM smooths out seasonal variations and provides more current data than the last fiscal year.</dd>
+        <dd>A measurement summing the last four quarters to provide an up-to-date annual figure.</dd>
         <dt>SIC Code</dt>
-        <dd>Standard Industrial Classification code used to categorize companies by industry. Banks typically fall under SIC codes 6021 (National Commercial Banks), 6022 (State Commercial Banks), 6035-6036 (Savings Institutions).</dd>
+        <dd>Standard Industrial Classification code categorizing companies by industry. Banks fall under SIC codes 6021, 6022, 6035-6036.</dd>
         <dt>CIK Number</dt>
-        <dd>Central Index Key - a unique identifier assigned by the SEC to each company and individual who files with the SEC. Used to look up filings in the EDGAR database.</dd>
-      </dl>
-
-      <h2>Financial Concepts</h2>
-      <dl>
-        <dt>Tangible Book Value</dt>
-        <dd>Total shareholders' equity minus intangible assets and goodwill. Represents the theoretical value shareholders would receive if all tangible assets were liquidated and all liabilities paid.</dd>
-        <dt>Net Interest Income</dt>
-        <dd>The difference between interest earned on assets (primarily loans) and interest paid on liabilities (primarily deposits). This is typically the largest revenue source for traditional banks.</dd>
-        <dt>Non-Interest Income</dt>
-        <dd>Revenue from sources other than interest, including service charges, fees, trading gains, and investment income. Also called fee income.</dd>
-        <dt>Non-Interest Expense</dt>
-        <dd>Operating expenses excluding interest expense. Includes salaries, occupancy costs, technology, marketing, and other administrative expenses.</dd>
-        <dt>Market Capitalization</dt>
-        <dd>The total market value of a company's outstanding shares, calculated as share price multiplied by shares outstanding. Used to classify companies as small-cap, mid-cap, or large-cap.</dd>
-        <dt>Shares Outstanding</dt>
-        <dd>The total number of shares of a company's stock currently held by all shareholders, including institutional investors and company insiders.</dd>
-        <dt>Intrinsic Value</dt>
-        <dd>The perceived or calculated true value of a company based on fundamental analysis, regardless of its current market price. Different valuation methods may produce different intrinsic values.</dd>
-        <dt>Value Investing</dt>
-        <dd>An investment strategy that involves buying securities that appear underpriced based on fundamental analysis. Popularized by Benjamin Graham and Warren Buffett.</dd>
+        <dd>Central Index Key — a unique SEC identifier used to look up filings in the EDGAR database.</dd>
+        <dt>Call Report (FFIEC)</dt>
+        <dd>A quarterly regulatory filing containing detailed financial data that every US bank must submit.</dd>
       </dl>
 
       <h2>Using This Glossary</h2>
@@ -1445,6 +1609,7 @@ async function generatePages() {
           <h1>${escapeHtml(faq.question)}</h1>
           ${answerHtml}
           ${relatedHtml}
+          <p>See the <a href="${SITE_URL}/glossary">glossary</a> for definitions of bank investing terms used in this article.</p>
           ${faq.cta ? `<p><a href="${SITE_URL}${faq.cta.target}">${escapeHtml(faq.cta.text)}</a></p>` : ''}
         </article>
       `
