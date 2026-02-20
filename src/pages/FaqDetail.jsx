@@ -11,16 +11,16 @@ import { VALUATION_METHODS } from '../data/content/valuations.js';
  * Renders a single FAQ entry with full answer, related content links, and CTA
  */
 function FaqDetail() {
-  const { clusterSlug, faqSlug } = useParams();
+  const { faqSlug } = useParams();
 
-  const faq = FAQS.find(f => f.slug === faqSlug && f.cluster === clusterSlug);
-  const cluster = FAQ_CLUSTERS.find(c => c.slug === clusterSlug);
+  const faq = FAQS.find(f => f.slug === faqSlug);
+  const cluster = faq ? FAQ_CLUSTERS.find(c => c.slug === faq.cluster) : null;
 
   // Note: Schema (Question/Answer, BreadcrumbList) is provided by the prerender script
   // (scripts/prerender.mjs) in the static HTML for immediate crawler access.
   // Do NOT add a schema here to avoid duplicates.
 
-  if (!faq || !cluster) {
+  if (!faq) {
     return (
       <div className="page faq-detail-page">
         <div className="not-found">
@@ -45,14 +45,18 @@ function FaqDetail() {
       <SEO
         title={faq.metaTitle}
         description={faq.metaDescription}
-        canonical={'/faq/' + clusterSlug + '/' + faqSlug}
+        canonical={'/faq/' + faqSlug}
         type="article"
       />
 
       <nav className="breadcrumb">
         <Link to="/faq">FAQ</Link>
-        <span className="separator">/</span>
-        <Link to={'/faq/' + clusterSlug}>{cluster.name}</Link>
+        {cluster && (
+          <>
+            <span className="separator">/</span>
+            <span>{cluster.name}</span>
+          </>
+        )}
         <span className="separator">/</span>
         <span>{truncatedQuestion}</span>
       </nav>
@@ -79,7 +83,7 @@ function FaqDetail() {
                   <div key={metricSlug} className="related-metric-item">
                     <NavigationLink
                       to={'/metrics/' + metricSlug}
-                      state={{ from: 'faq-detail', returnPath: '/faq/' + clusterSlug + '/' + faqSlug }}
+                      state={{ from: 'faq-detail', returnPath: '/faq/' + faqSlug }}
                       className="related-metric-badge"
                       pageTitle={metric.name}
                     >
@@ -103,7 +107,7 @@ function FaqDetail() {
                   <div key={valSlug} className="related-metric-item">
                     <NavigationLink
                       to={'/valuation/' + valSlug}
-                      state={{ from: 'faq-detail', returnPath: '/faq/' + clusterSlug + '/' + faqSlug }}
+                      state={{ from: 'faq-detail', returnPath: '/faq/' + faqSlug }}
                       className="related-metric-badge"
                       pageTitle={valMethod.name}
                     >
@@ -126,7 +130,7 @@ function FaqDetail() {
                 return (
                   <div key={relatedSlug} className="related-metric-item">
                     <Link
-                      to={'/faq/' + relatedFaq.cluster + '/' + relatedFaq.slug}
+                      to={'/faq/' + relatedFaq.slug}
                       className="related-metric-badge"
                     >
                       {relatedFaq.question}
@@ -155,12 +159,12 @@ function FaqDetail() {
 
       <div className="page-navigation">
         <NavigationLink
-          to={'/faq/' + clusterSlug}
+          to="/faq"
           state={{ from: 'faq-detail' }}
           className="btn btn-secondary"
-          pageTitle={cluster.name}
+          pageTitle="FAQ"
         >
-          &larr; {cluster.name}
+          &larr; All FAQ Topics
         </NavigationLink>
         <NavigationLink
           to="/screener"

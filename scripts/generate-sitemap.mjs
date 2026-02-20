@@ -74,22 +74,10 @@ async function generateSitemap() {
     priority: '0.8'
   });
 
-  // FAQ cluster index pages (only clusters with content)
-  for (const cluster of faqsModule.FAQ_CLUSTERS) {
-    const hasContent = faqsModule.FAQS.some(f => f.cluster === cluster.slug);
-    if (!hasContent) continue;
-    urls.push({
-      loc: `${SITE_URL}/faq/${cluster.slug}`,
-      lastmod: TODAY,
-      changefreq: 'monthly',
-      priority: '0.7'
-    });
-  }
-
   // Individual FAQ pages
   for (const faq of faqsModule.FAQS) {
     urls.push({
-      loc: `${SITE_URL}/faq/${faq.cluster}/${faq.slug}`,
+      loc: `${SITE_URL}/faq/${faq.slug}`,
       lastmod: TODAY,
       changefreq: 'monthly',
       priority: '0.7'

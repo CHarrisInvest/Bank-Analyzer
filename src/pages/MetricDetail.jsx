@@ -359,7 +359,7 @@ function MetricDetail() {
                   <h3>{faqTeaser.question}</h3>
                   <p>{faqTeaser.teaser}</p>
                   <NavigationLink
-                    to={`/faq/${faqTeaser.faqCluster}/${faqTeaser.faqSlug}`}
+                    to={`/faq/${faqTeaser.faqSlug}`}
                     className="faq-teaser-link"
                     pageTitle={faqTeaser.question}
                   >
