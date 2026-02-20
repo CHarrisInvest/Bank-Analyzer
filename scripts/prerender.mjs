@@ -400,15 +400,15 @@ async function generatePages() {
       <h4>What is BankSift?</h4>
       <p>BankSift is a free online bank stock analysis platform that lets investors screen, compare, and analyze over 300 publicly traded US bank stocks using financial metrics sourced from SEC EDGAR filings and updated daily.</p>
       <h4>Which financial metrics can I track with BankSift?</h4>
-      <p>BankSift tracks over 25 bank-specific metrics across profitability, efficiency, capital strength, and valuation. <a href="${SITE_URL}/faq/getting-started/most-important-bank-stock-metrics">Read more →</a></p>
+      <p>BankSift tracks over 25 bank-specific metrics across profitability, efficiency, capital strength, and valuation. <a href="${SITE_URL}/faq/most-important-bank-stock-metrics">Read more →</a></p>
       <h4>How can I compare bank stocks efficiently?</h4>
-      <p>Build a peer group of similar banks using the screener, then compare key metrics side-by-side. <a href="${SITE_URL}/faq/screening/how-to-compare-bank-stocks">Read more →</a></p>
+      <p>Build a peer group of similar banks using the screener, then compare key metrics side-by-side. <a href="${SITE_URL}/faq/how-to-compare-bank-stocks">Read more →</a></p>
       <h4>Is BankSift free to use?</h4>
       <p>Yes, BankSift is completely free to use. No account, sign up, or email is required. All tools including the bank stock screener, search, financial metrics guides, and valuation methods are available at no cost.</p>
       <h4>Where does BankSift get its data?</h4>
       <p>All financial data on BankSift is sourced directly from the SEC EDGAR database, the official repository for US public company filings. The system automatically pulls the latest 10-K and 10-Q filings daily, calculates trailing twelve month (TTM) metrics, and derives key financial ratios for over 300 publicly traded banks.</p>
       <h4>How do I find the best bank stocks to analyze?</h4>
-      <p>Define your investment objective, then use screener filters like ROE, efficiency ratio, and capital strength to narrow the field. <a href="${SITE_URL}/faq/screening/filters-for-high-quality-banks">Read more →</a></p>
+      <p>Define your investment objective, then use screener filters like ROE, efficiency ratio, and capital strength to narrow the field. <a href="${SITE_URL}/faq/filters-for-high-quality-banks">Read more →</a></p>
     `
   }));
   count++;
@@ -1043,11 +1043,11 @@ async function generatePages() {
 
       <h3>Frequently Asked Questions</h3>
       <h4>How do I value bank stocks using P/B ratio?</h4>
-      <p>P/B is the primary valuation metric for banks because their assets are mostly financial instruments carried near fair value. <a href="${SITE_URL}/faq/valuation/what-is-a-good-pb-for-banks">Read more →</a></p>
+      <p>P/B is the primary valuation metric for banks because their assets are mostly financial instruments carried near fair value. <a href="${SITE_URL}/faq/what-is-a-good-pb-for-banks">Read more →</a></p>
       <h4>What is the Graham Number in bank valuation?</h4>
-      <p>The Graham Number estimates a maximum fair price for a stock based on its EPS and book value per share. <a href="${SITE_URL}/faq/valuation/graham-number-for-bank-stocks">Read more →</a></p>
+      <p>The Graham Number estimates a maximum fair price for a stock based on its EPS and book value per share. <a href="${SITE_URL}/faq/graham-number-for-bank-stocks">Read more →</a></p>
       <h4>Which valuation methods are best for banks?</h4>
-      <p>Bank valuation requires specialized approaches built around book value, earnings, and profitability frameworks. <a href="${SITE_URL}/faq/valuation/why-bank-valuation-is-different">Read more →</a></p>
+      <p>Bank valuation requires specialized approaches built around book value, earnings, and profitability frameworks. <a href="${SITE_URL}/faq/why-bank-valuation-is-different">Read more →</a></p>
 
       <p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to find banks that meet your valuation criteria across 300+ publicly traded US banks.</p>
     `
@@ -1460,9 +1460,10 @@ async function generatePages() {
     .sort((a, b) => a.order - b.order)
     .map(cluster => {
       const clusterFaqs = faqs.filter(f => f.cluster === cluster.slug);
-      return `<h3><a href="${SITE_URL}/faq/${cluster.slug}">${escapeHtml(cluster.name)}</a> (${clusterFaqs.length} questions)</h3>
-      <ul>${clusterFaqs.map(f => `<li><a href="${SITE_URL}/faq/${f.cluster}/${f.slug}">${escapeHtml(f.question)}</a></li>`).join('\n')}</ul>`;
-    }).join('\n');
+      if (clusterFaqs.length === 0) return '';
+      return `<h3>${escapeHtml(cluster.name)} (${clusterFaqs.length} questions)</h3>
+      <ul>${clusterFaqs.map(f => `<li><a href="${SITE_URL}/faq/${f.slug}">${escapeHtml(f.question)}</a></li>`).join('\n')}</ul>`;
+    }).filter(Boolean).join('\n');
 
   writePage('/faq', createPage({
     path: '/faq',
@@ -1497,54 +1498,9 @@ async function generatePages() {
   }));
   faqCount++;
 
-  // FAQ Cluster Index pages
-  for (const cluster of faqClusters) {
-    const clusterFaqs = faqs.filter(f => f.cluster === cluster.slug);
-    if (clusterFaqs.length === 0) continue;
-
-    const path = `/faq/${cluster.slug}`;
-    const faqListHtml = clusterFaqs.map(f =>
-      `<div><h3><a href="${SITE_URL}/faq/${f.cluster}/${f.slug}">${escapeHtml(f.question)}</a></h3><p>${escapeHtml(f.shortAnswer)}</p></div>`
-    ).join('\n');
-
-    writePage(path, createPage({
-      path,
-      title: `${cluster.name} | Bank Stock FAQ - BankSift`,
-      description: `Answers to questions about ${cluster.name.toLowerCase()}. Learn about bank stock analysis from BankSift's educational FAQ.`,
-      canonical: `${SITE_URL}${path}`,
-      schema: {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "FAQPage",
-            "mainEntity": clusterFaqs.map(f => ({
-              "@type": "Question",
-              "name": f.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": f.shortAnswer
-              }
-            }))
-          },
-          createBreadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "FAQ", path: "/faq" },
-            { name: cluster.name, path }
-          ])
-        ]
-      },
-      content: `
-        <h1>${escapeHtml(cluster.name)}</h1>
-        <nav><a href="${SITE_URL}/faq">← All FAQ Topics</a></nav>
-        ${faqListHtml}
-      `
-    }));
-    faqCount++;
-  }
-
   // Individual FAQ Detail pages
   for (const faq of faqs) {
-    const path = `/faq/${faq.cluster}/${faq.slug}`;
+    const path = `/faq/${faq.slug}`;
     const cluster = faqClusters.find(c => c.slug === faq.cluster);
     const clusterName = cluster ? cluster.name : faq.clusterName;
 
@@ -1573,7 +1529,7 @@ async function generatePages() {
     if (faq.relatedFaqs && faq.relatedFaqs.length > 0) {
       const faqLinks = faq.relatedFaqs.map(slug => {
         const rf = faqs.find(f => f.slug === slug);
-        return rf ? `<li><a href="${SITE_URL}/faq/${rf.cluster}/${rf.slug}">${escapeHtml(rf.question)}</a></li>` : '';
+        return rf ? `<li><a href="${SITE_URL}/faq/${rf.slug}">${escapeHtml(rf.question)}</a></li>` : '';
       }).filter(Boolean).join('\n');
       if (faqLinks) relatedHtml += `<h3>Related Questions</h3><ul>${faqLinks}</ul>`;
     }
@@ -1598,13 +1554,12 @@ async function generatePages() {
           createBreadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "FAQ", path: "/faq" },
-            { name: clusterName, path: `/faq/${faq.cluster}` },
             { name: faq.question.substring(0, 50), path }
           ])
         ]
       },
       content: `
-        <nav><a href="${SITE_URL}/faq">FAQ</a> › <a href="${SITE_URL}/faq/${faq.cluster}">${escapeHtml(clusterName)}</a></nav>
+        <nav><a href="${SITE_URL}/faq">FAQ</a> › ${escapeHtml(clusterName)}</nav>
         <article>
           <h1>${escapeHtml(faq.question)}</h1>
           ${answerHtml}
@@ -1775,7 +1730,7 @@ async function generatePages() {
           ${metric.faqTeasers && metric.faqTeasers.length > 0 ? `
           <h2>Frequently Asked Questions</h2>
           ${metric.faqTeasers.map(ft => `<h3>${escapeHtml(ft.question)}</h3>
-          <p>${escapeHtml(ft.teaser)} <a href="${SITE_URL}/faq/${ft.faqCluster}/${ft.faqSlug}">Read more →</a></p>`).join('\n          ')}
+          <p>${escapeHtml(ft.teaser)} <a href="${SITE_URL}/faq/${ft.faqSlug}">Read more →</a></p>`).join('\n          ')}
           ` : ''}
           <h2>Data Source</h2>
           <p>This metric is calculated using data from SEC EDGAR filings. ${escapeHtml(metric.dataSource)}</p>
@@ -1941,7 +1896,7 @@ async function generatePages() {
           ${valuation.faqTeasers && valuation.faqTeasers.length > 0 ? `
           <h2>Frequently Asked Questions</h2>
           ${valuation.faqTeasers.map(ft => `<h3>${escapeHtml(ft.question)}</h3>
-          <p>${escapeHtml(ft.teaser)} <a href="${SITE_URL}/faq/${ft.faqCluster}/${ft.faqSlug}">Read more →</a></p>`).join('\n          ')}
+          <p>${escapeHtml(ft.teaser)} <a href="${SITE_URL}/faq/${ft.faqSlug}">Read more →</a></p>`).join('\n          ')}
           ` : ''}
           <p>Apply this method using the <a href="${SITE_URL}/screener">Bank Screener</a> to evaluate 300+ publicly traded US banks.</p>
         </article>

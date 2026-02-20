@@ -29,8 +29,7 @@ function FaqIndex() {
           grounded in publicly available financial data.
         </p>
         <p>
-          Questions are organized by topic. Click any cluster to browse its questions,
-          or select an individual question to read the full answer.
+          Questions are organized by topic. Select any question to read the full answer.
         </p>
       </div>
 
@@ -44,15 +43,13 @@ function FaqIndex() {
           return (
             <section key={cluster.slug} className="faq-cluster-section">
               <div className="faq-cluster-header">
-                <h2>
-                  <Link to={'/faq/' + cluster.slug}>{cluster.name}</Link>
-                </h2>
+                <h2>{cluster.name}</h2>
                 <span className="faq-cluster-count">({questionCount} questions)</span>
               </div>
               <ul className="faq-question-list">
                 {clusterFaqs.map(faq => (
                   <li key={faq.slug}>
-                    <Link to={'/faq/' + cluster.slug + '/' + faq.slug}>
+                    <Link to={'/faq/' + faq.slug}>
                       {faq.question}
                     </Link>
                   </li>
