@@ -10,6 +10,9 @@ import CLUSTER_8_FAQS from '../../../docs/phase-2/cluster8_interest_rates_faqs.j
 import HOW_TO_CALCULATE_ASSET_QUALITY from '../../../docs/phase-2/how_to_calculate_asset_quality.js';
 import HOW_TO_CALCULATE_CAPITAL_VALUATION from '../../../docs/phase-2/how_to_calculate_capital_valuation.js';
 import HOW_TO_CALCULATE_PROFITABILITY_EFFICIENCY from '../../../docs/phase-2/how_to_calculate_profitability_efficiency.js';
+import CLUSTER_2_FAQS from '../../../docs/phase-3/cluster2_financial_statements_faqs.js';
+import CLUSTER_9_FAQS from '../../../docs/phase-3/cluster9_bank_types_faqs.js';
+import CLUSTER_11_FAQS from '../../../docs/phase-3/cluster11_advanced_analysis_faqs.js';
 
 export const FAQ_CLUSTERS = [
   {
@@ -2565,4 +2568,13 @@ export const FAQS = [
 
   // PHASE 2: How to Calculate — Profitability + Efficiency/Funding Metrics (7 FAQs)
   ...HOW_TO_CALCULATE_PROFITABILITY_EFFICIENCY,
+
+  // PHASE 3: Cluster 2 — Understanding Bank Financial Statements (17 standard FAQs)
+  ...CLUSTER_2_FAQS,
+
+  // PHASE 3: Cluster 9 — Understanding Bank Types (10 standard FAQs)
+  ...CLUSTER_9_FAQS,
+
+  // PHASE 3: Cluster 11 — Advanced Bank Analysis (14 standard FAQs)
+  ...CLUSTER_11_FAQS,
 ];
