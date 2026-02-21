@@ -6369,11 +6369,18 @@ body {
   border-radius: var(--radius-lg);
 }
 
+.glossary-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-2);
+}
+
 .glossary-term {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--color-gray-800);
-  margin-bottom: var(--spacing-2);
 }
 
 .glossary-term a {
@@ -6393,7 +6400,7 @@ body {
 
 .glossary-learn-more-btn {
   display: inline-block;
-  margin-top: var(--spacing-3);
+  flex-shrink: 0;
   padding: var(--spacing-1) var(--spacing-3);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
@@ -6402,6 +6409,7 @@ body {
   border: 1px solid rgba(43, 108, 176, 0.2);
   border-radius: var(--radius-sm);
   text-decoration: none;
+  white-space: nowrap;
   transition: all var(--transition-fast);
 }
 
