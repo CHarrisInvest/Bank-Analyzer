@@ -16,6 +16,12 @@ const distDir = join(__dirname, '..', 'dist');
 const dataDir = join(__dirname, '..', 'public', 'data');
 const srcDir = join(__dirname, '..', 'src');
 
+// Phase 2 cross-link map imports
+import { CAPITAL_METRIC_TO_VALUATIONS_ENTRIES } from '../docs/phase-2/phase2_subbatch1_capital_strength_metrics.js';
+import { ASSET_QUALITY_METRIC_TO_VALUATIONS_ENTRIES } from '../docs/phase-2/phase2_subbatch2_asset_quality_metrics.js';
+import { ADDITIONAL_METRIC_TO_VALUATIONS_ENTRIES } from '../docs/phase-2/phase2_subbatch3_additional_metrics.js';
+import { NEW_VALUATION_TO_METRICS_ENTRIES } from '../docs/phase-2/phase2_subbatch4_new_valuations.js';
+
 const SITE_URL = 'https://banksift.org';
 const SITE_NAME = 'BankSift';
 const BUILD_DATE = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
@@ -256,28 +262,36 @@ async function generatePages() {
 
   // Cross-link mappings between metrics and valuation methods
   const METRIC_TO_VALUATIONS = {
-    'roe': ['roe-pb-framework', 'peer-comparison', 'dividend-discount-model'],
-    'roaa': ['peer-comparison'],
-    'net-interest-margin': ['peer-comparison', 'dividend-discount-model'],
-    'efficiency-ratio': ['peer-comparison'],
-    'price-to-book': ['price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety', 'graham-number'],
-    'price-to-earnings': ['price-to-earnings-valuation', 'graham-number', 'margin-of-safety'],
-    'earnings-per-share': ['graham-number', 'price-to-earnings-valuation', 'margin-of-safety'],
-    'book-value-per-share': ['graham-number', 'price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety'],
-    'equity-to-assets': ['roe-pb-framework', 'peer-comparison'],
+    // Phase 1 existing metrics (updated with Phase 2 new valuation links)
+    'roe': ['roe-pb-framework', 'peer-comparison', 'dividend-discount-model', 'dupont-decomposition', 'gordon-growth-model', 'discounted-earnings-model', 'price-to-tangible-book-valuation'],
+    'roaa': ['peer-comparison', 'dupont-decomposition', 'discounted-earnings-model'],
+    'net-interest-margin': ['peer-comparison', 'dividend-discount-model', 'dupont-decomposition', 'discounted-earnings-model'],
+    'efficiency-ratio': ['peer-comparison', 'dupont-decomposition'],
+    'price-to-book': ['price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety', 'graham-number', 'gordon-growth-model', 'price-to-tangible-book-valuation'],
+    'price-to-earnings': ['price-to-earnings-valuation', 'graham-number', 'margin-of-safety', 'gordon-growth-model'],
+    'earnings-per-share': ['graham-number', 'price-to-earnings-valuation', 'margin-of-safety', 'gordon-growth-model', 'discounted-earnings-model'],
+    'book-value-per-share': ['graham-number', 'price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety', 'gordon-growth-model', 'price-to-tangible-book-valuation'],
+    'equity-to-assets': ['roe-pb-framework', 'peer-comparison', 'dupont-decomposition', 'excess-capital-return-model'],
     'loans-to-deposits': ['peer-comparison'],
     'deposits-to-assets': ['peer-comparison'],
     'loans-to-assets': ['peer-comparison'],
-    'dividend-payout-ratio': ['dividend-discount-model'],
+    'dividend-payout-ratio': ['dividend-discount-model', 'gordon-growth-model', 'excess-capital-return-model'],
+    // Phase 2 new metrics
+    ...CAPITAL_METRIC_TO_VALUATIONS_ENTRIES,
+    ...ASSET_QUALITY_METRIC_TO_VALUATIONS_ENTRIES,
+    ...ADDITIONAL_METRIC_TO_VALUATIONS_ENTRIES,
   };
   const VALUATION_TO_METRICS = {
-    'graham-number': ['earnings-per-share', 'book-value-per-share', 'price-to-book', 'price-to-earnings'],
-    'margin-of-safety': ['price-to-book', 'price-to-earnings', 'earnings-per-share', 'book-value-per-share', 'roe'],
-    'price-to-book-valuation': ['price-to-book', 'book-value-per-share', 'roe', 'equity-to-assets'],
+    // Phase 1 existing valuations (updated with Phase 2 new metric links)
+    'graham-number': ['earnings-per-share', 'book-value-per-share', 'price-to-book', 'price-to-earnings', 'tangible-book-value-per-share'],
+    'margin-of-safety': ['price-to-book', 'price-to-earnings', 'earnings-per-share', 'book-value-per-share', 'roe', 'tangible-book-value-per-share'],
+    'price-to-book-valuation': ['price-to-book', 'book-value-per-share', 'roe', 'equity-to-assets', 'non-performing-loans-ratio', 'non-performing-assets-ratio', 'texas-ratio'],
     'price-to-earnings-valuation': ['price-to-earnings', 'earnings-per-share', 'roe', 'price-to-book'],
-    'roe-pb-framework': ['roe', 'price-to-book', 'equity-to-assets', 'dividend-payout-ratio', 'roaa', 'book-value-per-share'],
+    'roe-pb-framework': ['roe', 'price-to-book', 'equity-to-assets', 'dividend-payout-ratio', 'roaa', 'book-value-per-share', 'return-on-tangible-common-equity', 'price-to-tangible-book-value'],
     'dividend-discount-model': ['dividend-payout-ratio', 'roe', 'earnings-per-share', 'net-interest-margin'],
-    'peer-comparison': ['roe', 'roaa', 'net-interest-margin', 'efficiency-ratio', 'price-to-book', 'price-to-earnings', 'equity-to-assets', 'loans-to-deposits', 'deposits-to-assets', 'loans-to-assets', 'dividend-payout-ratio'],
+    'peer-comparison': ['roe', 'roaa', 'net-interest-margin', 'efficiency-ratio', 'price-to-book', 'price-to-earnings', 'equity-to-assets', 'loans-to-deposits', 'deposits-to-assets', 'loans-to-assets', 'dividend-payout-ratio', 'cet1-capital-ratio', 'tier-1-capital-ratio', 'total-capital-ratio', 'tier-1-leverage-ratio', 'supplementary-leverage-ratio', 'tangible-common-equity-ratio', 'risk-weighted-assets-density', 'non-performing-loans-ratio', 'non-performing-assets-ratio', 'net-charge-off-ratio', 'loan-loss-reserve-ratio', 'reserve-coverage-ratio', 'texas-ratio', 'provision-to-average-loans', 'return-on-tangible-common-equity', 'pre-provision-net-revenue', 'net-overhead-ratio', 'price-to-tangible-book-value', 'tangible-book-value-per-share', 'cost-of-funds', 'cost-of-deposits', 'non-interest-income-to-revenue', 'interest-income-to-earning-assets'],
+    // Phase 2 new valuations
+    ...NEW_VALUATION_TO_METRICS_ENTRIES,
   };
 
   console.log('Pre-rendering pages for SEO...\n');
@@ -1732,9 +1746,15 @@ async function generatePages() {
           ${metric.faqTeasers.map(ft => `<h3>${escapeHtml(ft.question)}</h3>
           <p>${escapeHtml(ft.teaser)} <a href="${SITE_URL}/faq/${ft.faqSlug}">Read more →</a></p>`).join('\n          ')}
           ` : ''}
+          ${metric.whereToFindData ? `
+          <h2>Where to Find This Data</h2>
+          <p>${escapeHtml(metric.whereToFindData)}</p>
+          ` : ''}
+          ${metric.dataSource ? `
           <h2>Data Source</h2>
           <p>This metric is calculated using data from SEC EDGAR filings. ${escapeHtml(metric.dataSource)}</p>
-          <p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to filter 300+ banks by ${escapeHtml(metric.name)} and other metrics.</p>
+          ` : ''}
+          ${!metric.isEducationalOnly ? `<p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to filter 300+ banks by ${escapeHtml(metric.name)} and other metrics.</p>` : ''}
         </article>
       `
     }));
