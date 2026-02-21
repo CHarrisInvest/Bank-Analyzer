@@ -3,6 +3,14 @@
  * Educational FAQ content for BankSift
  */
 
+import CLUSTER_4_FAQS from '../../../docs/phase-2/cluster4_efficiency_funding_faqs.js';
+import CLUSTER_5_FAQS from '../../../docs/phase-2/cluster5_capital_asset_quality_faqs.js';
+import CLUSTER_7_FAQS from '../../../docs/phase-2/cluster7_dividends_shareholder_returns_faqs.js';
+import CLUSTER_8_FAQS from '../../../docs/phase-2/cluster8_interest_rates_faqs.js';
+import HOW_TO_CALCULATE_ASSET_QUALITY from '../../../docs/phase-2/how_to_calculate_asset_quality.js';
+import HOW_TO_CALCULATE_CAPITAL_VALUATION from '../../../docs/phase-2/how_to_calculate_capital_valuation.js';
+import HOW_TO_CALCULATE_PROFITABILITY_EFFICIENCY from '../../../docs/phase-2/how_to_calculate_profitability_efficiency.js';
+
 export const FAQ_CLUSTERS = [
   {
     "slug": "getting-started",
@@ -2535,5 +2543,26 @@ export const FAQS = [
     },
     "metaTitle": "How to Calculate Dividend Payout Ratio for a Bank | BankSift",
     "metaDescription": "Step-by-step guide to calculating the dividend payout ratio, including the retention ratio, sustainable growth rate connection, and common timing mistakes."
-  }
+  },
+
+  // PHASE 2: Cluster 4 — Efficiency and Funding (11 standard FAQs)
+  ...CLUSTER_4_FAQS,
+
+  // PHASE 2: Cluster 5 — Capital Strength and Asset Quality (17 standard FAQs)
+  ...CLUSTER_5_FAQS,
+
+  // PHASE 2: Cluster 7 — Bank Dividends and Shareholder Returns (10 standard FAQs)
+  ...CLUSTER_7_FAQS,
+
+  // PHASE 2: Cluster 8 — Interest Rates and Bank Performance (10 standard FAQs)
+  ...CLUSTER_8_FAQS,
+
+  // PHASE 2: How to Calculate — Asset Quality Metrics (7 FAQs)
+  ...HOW_TO_CALCULATE_ASSET_QUALITY,
+
+  // PHASE 2: How to Calculate — Capital Strength + Valuation Metrics (9 FAQs)
+  ...HOW_TO_CALCULATE_CAPITAL_VALUATION,
+
+  // PHASE 2: How to Calculate — Profitability + Efficiency/Funding Metrics (7 FAQs)
+  ...HOW_TO_CALCULATE_PROFITABILITY_EFFICIENCY,
 ];

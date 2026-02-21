@@ -551,6 +551,10 @@ function Glossary() {
         category = 'profitability-efficiency';
       } else if (m.category === 'capital') {
         category = 'capital-regulatory';
+      } else if (m.category === 'asset-quality') {
+        category = 'credit-quality';
+      } else if (m.category === 'balance-sheet') {
+        category = 'balance-sheet-accounting';
       }
       return {
         term: m.name,

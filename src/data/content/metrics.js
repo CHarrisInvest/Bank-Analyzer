@@ -4,6 +4,10 @@
  * All content is original and copyright-free for commercial use
  */
 
+import { CAPITAL_STRENGTH_METRICS } from '../../../docs/phase-2/phase2_subbatch1_capital_strength_metrics.js';
+import { ASSET_QUALITY_METRICS } from '../../../docs/phase-2/phase2_subbatch2_asset_quality_metrics.js';
+import { ADDITIONAL_METRICS } from '../../../docs/phase-2/phase2_subbatch3_additional_metrics.js';
+
 export const METRICS = [
   // PROFITABILITY RATIOS
   {
@@ -401,8 +405,8 @@ export const METRICS = [
   {
     slug: 'loans-to-assets',
     name: 'Loans to Assets Ratio',
-    category: 'capital',
-    categoryLabel: 'Capital Ratio',
+    category: 'balance-sheet',
+    categoryLabel: 'Balance Sheet Ratio',
     formula: 'Loans to Assets = Total Loans / Total Assets',
     isPercentage: true,
     shortDescription: 'Shows what portion of assets are deployed in loans.',
@@ -732,6 +736,15 @@ export const METRICS = [
       }
     ],
   },
+
+  // PHASE 2: CAPITAL STRENGTH RATIOS (7 metrics)
+  ...CAPITAL_STRENGTH_METRICS,
+
+  // PHASE 2: ASSET QUALITY RATIOS (7 metrics)
+  ...ASSET_QUALITY_METRICS,
+
+  // PHASE 2: ADDITIONAL PROFITABILITY, VALUATION & EFFICIENCY/FUNDING METRICS (9 metrics)
+  ...ADDITIONAL_METRICS,
 ];
 
 export default METRICS;

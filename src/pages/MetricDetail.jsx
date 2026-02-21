@@ -7,21 +7,31 @@ import BackButton from '../components/BackButton.jsx';
 import NavigationLink from '../components/NavigationLink.jsx';
 import SEO from '../components/SEO.jsx';
 
+// Phase 2 cross-link map entries
+import { CAPITAL_METRIC_TO_VALUATIONS_ENTRIES } from '../../docs/phase-2/phase2_subbatch1_capital_strength_metrics.js';
+import { ASSET_QUALITY_METRIC_TO_VALUATIONS_ENTRIES } from '../../docs/phase-2/phase2_subbatch2_asset_quality_metrics.js';
+import { ADDITIONAL_METRIC_TO_VALUATIONS_ENTRIES } from '../../docs/phase-2/phase2_subbatch3_additional_metrics.js';
+
 // Cross-links from metrics to related valuation methods
 const METRIC_TO_VALUATIONS = {
-  'roe': ['roe-pb-framework', 'peer-comparison', 'dividend-discount-model'],
-  'roaa': ['peer-comparison'],
-  'net-interest-margin': ['peer-comparison', 'dividend-discount-model'],
-  'efficiency-ratio': ['peer-comparison'],
-  'price-to-book': ['price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety', 'graham-number'],
-  'price-to-earnings': ['price-to-earnings-valuation', 'graham-number', 'margin-of-safety'],
-  'earnings-per-share': ['graham-number', 'price-to-earnings-valuation', 'margin-of-safety'],
-  'book-value-per-share': ['graham-number', 'price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety'],
-  'equity-to-assets': ['roe-pb-framework', 'peer-comparison'],
+  // Phase 1 existing metrics (updated with Phase 2 new valuation links)
+  'roe': ['roe-pb-framework', 'peer-comparison', 'dividend-discount-model', 'dupont-decomposition', 'gordon-growth-model', 'discounted-earnings-model', 'price-to-tangible-book-valuation'],
+  'roaa': ['peer-comparison', 'dupont-decomposition', 'discounted-earnings-model'],
+  'net-interest-margin': ['peer-comparison', 'dividend-discount-model', 'dupont-decomposition', 'discounted-earnings-model'],
+  'efficiency-ratio': ['peer-comparison', 'dupont-decomposition'],
+  'price-to-book': ['price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety', 'graham-number', 'gordon-growth-model', 'price-to-tangible-book-valuation'],
+  'price-to-earnings': ['price-to-earnings-valuation', 'graham-number', 'margin-of-safety', 'gordon-growth-model'],
+  'earnings-per-share': ['graham-number', 'price-to-earnings-valuation', 'margin-of-safety', 'gordon-growth-model', 'discounted-earnings-model'],
+  'book-value-per-share': ['graham-number', 'price-to-book-valuation', 'roe-pb-framework', 'margin-of-safety', 'gordon-growth-model', 'price-to-tangible-book-valuation'],
+  'equity-to-assets': ['roe-pb-framework', 'peer-comparison', 'dupont-decomposition', 'excess-capital-return-model'],
   'loans-to-deposits': ['peer-comparison'],
   'deposits-to-assets': ['peer-comparison'],
   'loans-to-assets': ['peer-comparison'],
-  'dividend-payout-ratio': ['dividend-discount-model'],
+  'dividend-payout-ratio': ['dividend-discount-model', 'gordon-growth-model', 'excess-capital-return-model'],
+  // Phase 2 new metrics
+  ...CAPITAL_METRIC_TO_VALUATIONS_ENTRIES,
+  ...ASSET_QUALITY_METRIC_TO_VALUATIONS_ENTRIES,
+  ...ADDITIONAL_METRIC_TO_VALUATIONS_ENTRIES,
 };
 
 const METRIC_TO_VALUATION_DESCRIPTIONS = {
@@ -371,12 +381,21 @@ function MetricDetail() {
           </section>
         )}
 
-        <section className="metric-section">
-          <h2>Data Source</h2>
-          <p>
-            This metric is calculated using data from SEC EDGAR filings. {metric.dataSource}
-          </p>
-        </section>
+        {metric.whereToFindData && (
+          <section className="metric-section">
+            <h2>Where to Find This Data</h2>
+            <p>{metric.whereToFindData}</p>
+          </section>
+        )}
+
+        {metric.dataSource && (
+          <section className="metric-section">
+            <h2>Data Source</h2>
+            <p>
+              This metric is calculated using data from SEC EDGAR filings. {metric.dataSource}
+            </p>
+          </section>
+        )}
       </article>
 
       <div className="page-navigation">
@@ -388,14 +407,16 @@ function MetricDetail() {
         >
           ← All Metrics
         </NavigationLink>
-        <NavigationLink
-          to="/screener"
-          state={{ from: 'metrics-detail' }}
-          className="btn btn-primary"
-          pageTitle="Screener"
-        >
-          Use in Screener →
-        </NavigationLink>
+        {!metric.isEducationalOnly && (
+          <NavigationLink
+            to="/screener"
+            state={{ from: 'metrics-detail' }}
+            className="btn btn-primary"
+            pageTitle="Screener"
+          >
+            Use in Screener →
+          </NavigationLink>
+        )}
       </div>
     </div>
   );

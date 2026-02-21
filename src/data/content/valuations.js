@@ -4,6 +4,8 @@
  * All content is original and copyright-free for commercial use
  */
 
+import { NEW_VALUATION_METHODS } from '../../../docs/phase-2/phase2_subbatch4_new_valuations.js';
+
 export const VALUATION_METHODS = [
   {
     slug: 'graham-number',
@@ -380,6 +382,9 @@ export const VALUATION_METHODS = [
     ],
     relatedMethods: ['price-to-book-valuation', 'price-to-earnings-valuation', 'roe-pb-framework'],
   },
+
+  // PHASE 2: NEW VALUATION METHODS (5 entries)
+  ...NEW_VALUATION_METHODS,
 ];
 
 export default VALUATION_METHODS;

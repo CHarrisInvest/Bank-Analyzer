@@ -107,13 +107,57 @@ function PerShareIcon() {
   );
 }
 
+function AssetQualityIcon() {
+  return (
+    <svg
+      className="feature-icon-svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+      <line x1="12" y1="9" x2="12" y2="13" />
+      <line x1="12" y1="17" x2="12.01" y2="17" />
+    </svg>
+  );
+}
+
+function BalanceSheetIcon() {
+  return (
+    <svg
+      className="feature-icon-svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2" y="3" width="20" height="18" rx="2" ry="2" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <line x1="12" y1="3" x2="12" y2="21" />
+    </svg>
+  );
+}
+
 // Map category keys to icon components
 const CATEGORY_ICONS = {
   profitability: ProfitabilityIcon,
   efficiency: EfficiencyIcon,
   capital: CapitalIcon,
+  'asset-quality': AssetQualityIcon,
   valuation: ValuationTagIcon,
   'per-share': PerShareIcon,
+  'balance-sheet': BalanceSheetIcon,
 };
 
 // Short typical ranges for card badges
@@ -178,15 +222,21 @@ function MetricsIndex() {
     },
     {
       key: 'efficiency',
-      title: 'Efficiency Ratios',
+      title: 'Efficiency & Funding Ratios',
       description: 'Efficiency ratios reveal how well a bank manages its operations and funding sources. The efficiency ratio is a key benchmark watched by analysts and management alike, showing how much the bank spends to earn each dollar of revenue. Funding ratios indicate the stability and cost of the bank\'s deposit base.',
       metrics: METRICS.filter(m => m.category === 'efficiency'),
     },
     {
       key: 'capital',
-      title: 'Capital & Leverage Ratios',
-      description: 'Capital ratios measure a bank\'s financial strength and its ability to absorb unexpected losses. Regulators require banks to maintain minimum capital levels, but well-managed banks often hold capital well above regulatory minimums. These ratios are essential for assessing risk.',
+      title: 'Capital Strength Ratios',
+      description: 'Capital ratios measure a bank\'s financial strength and its ability to absorb unexpected losses. Regulators require banks to maintain minimum capital levels, but well-managed banks often hold capital well above regulatory minimums. These ratios are essential for assessing risk and regulatory compliance.',
       metrics: METRICS.filter(m => m.category === 'capital'),
+    },
+    {
+      key: 'asset-quality',
+      title: 'Asset Quality Ratios',
+      description: 'Asset quality ratios measure the health of a bank\'s loan portfolio and its exposure to credit losses. Non-performing loan ratios, charge-off rates, and reserve coverage levels reveal the extent of problem assets and management\'s preparedness for potential losses. These metrics are critical for assessing credit risk.',
+      metrics: METRICS.filter(m => m.category === 'asset-quality'),
     },
     {
       key: 'valuation',
@@ -199,6 +249,12 @@ function MetricsIndex() {
       title: 'Per Share Metrics',
       description: 'Per-share metrics translate total bank performance into figures relevant to individual shareholders. Earnings Per Share drives stock valuation, while the Dividend Payout Ratio shows how management balances returning capital to shareholders versus retaining earnings for growth.',
       metrics: METRICS.filter(m => m.category === 'per-share'),
+    },
+    {
+      key: 'balance-sheet',
+      title: 'Balance Sheet Ratios',
+      description: 'Balance sheet ratios examine the composition and structure of a bank\'s assets and liabilities. These metrics provide context for understanding a bank\'s business model, risk profile, and how its resources are deployed between loans, securities, and other assets.',
+      metrics: METRICS.filter(m => m.category === 'balance-sheet'),
     },
   ];
 
