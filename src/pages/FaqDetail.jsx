@@ -123,28 +123,28 @@ function FaqDetail() {
         {faq.relatedFaqs && faq.relatedFaqs.length > 0 && (
           <section className="faq-section">
             <h2>Related Questions</h2>
-            <div className="related-metrics-list">
+            <div className="related-questions-list">
               {faq.relatedFaqs.map(relatedSlug => {
                 const relatedFaq = FAQS.find(f => f.slug === relatedSlug);
                 if (!relatedFaq) return null;
                 return (
-                  <div key={relatedSlug} className="related-metric-item">
-                    <Link
-                      to={'/faq/' + relatedFaq.slug}
-                      className="related-metric-badge"
-                    >
-                      {relatedFaq.question}
-                    </Link>
-                  </div>
+                  <Link
+                    key={relatedSlug}
+                    to={'/faq/' + relatedFaq.slug}
+                    className="related-question-card"
+                  >
+                    {relatedFaq.question}
+                  </Link>
                 );
               })}
             </div>
           </section>
         )}
 
-        <section className="faq-section faq-glossary-link">
+        <section className="faq-glossary-callout">
+          <span className="faq-glossary-callout-icon" aria-hidden="true">📖</span>
           <p>
-            See the <Link to="/glossary">glossary</Link> for definitions of bank investing terms used in this article.
+            See the <Link to="/glossary">Financial Glossary</Link> for definitions of bank investing terms used in this article.
           </p>
         </section>
 

@@ -417,11 +417,6 @@ const ADDITIONAL_TERMS = [
     category: 'investment-analysis',
   },
   {
-    term: 'Gordon Growth Model',
-    definition: 'A dividend discount model that values a stock as D₁ / (r − g), where D₁ is next year\'s expected dividend, r is the required return, and g is the long-term dividend growth rate. Commonly used for stable, dividend-paying bank stocks.',
-    category: 'investment-analysis',
-  },
-  {
     term: 'Peer Group',
     definition: 'A set of comparable banks selected for benchmarking based on similar characteristics such as asset size, geography, business model, and risk profile. Meaningful peer comparison requires careful peer group construction.',
     category: 'investment-analysis',
@@ -678,7 +673,7 @@ function Glossary() {
               <dd className="glossary-definition">
                 {item.definition}
                 {item.link && (
-                  <Link to={item.link} className="glossary-learn-more">
+                  <Link to={item.link} className="glossary-learn-more-btn">
                     Learn more →
                   </Link>
                 )}
