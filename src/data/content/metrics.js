@@ -405,8 +405,8 @@ export const METRICS = [
   {
     slug: 'loans-to-assets',
     name: 'Loans to Assets Ratio',
-    category: 'capital',
-    categoryLabel: 'Capital Ratio',
+    category: 'balance-sheet',
+    categoryLabel: 'Balance Sheet Ratio',
     formula: 'Loans to Assets = Total Loans / Total Assets',
     isPercentage: true,
     shortDescription: 'Shows what portion of assets are deployed in loans.',
