@@ -663,20 +663,22 @@ function Glossary() {
         <dl className="glossary-list">
           {filteredTerms.map((item, index) => (
             <div key={index} className="glossary-item">
-              <dt className="glossary-term">
-                {item.link ? (
-                  <Link to={item.link}>{item.term}</Link>
-                ) : (
-                  item.term
-                )}
-              </dt>
-              <dd className="glossary-definition">
-                {item.definition}
+              <div className="glossary-item-header">
+                <dt className="glossary-term">
+                  {item.link ? (
+                    <Link to={item.link}>{item.term}</Link>
+                  ) : (
+                    item.term
+                  )}
+                </dt>
                 {item.link && (
                   <Link to={item.link} className="glossary-learn-more-btn">
                     Learn more →
                   </Link>
                 )}
+              </div>
+              <dd className="glossary-definition">
+                {item.definition}
               </dd>
             </div>
           ))}
