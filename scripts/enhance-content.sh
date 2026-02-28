@@ -181,8 +181,8 @@ Reminders:
 - For FAQ pages: the page must not feel templated — structure should be dictated by the specific question
 - Treat this page independently — do not carry over patterns from other pages"
 
-    # Run Claude Code and capture output
-    if claude -p "$PROMPT" --allowedTools "Edit,Write,Read" 2>&1 | tee "$LOG_FILE"; then
+    # Run Claude Code and capture output (< /dev/null prevents stdin consumption)
+    if claude -p "$PROMPT" --allowedTools "Edit,Write,Read" < /dev/null 2>&1 | tee "$LOG_FILE"; then
         # Commit changes if any files were modified
         if [ -n "$(git status --porcelain)" ]; then
             # Syntax check the modified source file before committing
