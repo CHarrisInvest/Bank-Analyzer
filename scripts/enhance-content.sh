@@ -95,7 +95,7 @@ fi
 if [ "$PILOT_MODE" = true ]; then
     echo "=== PILOT MODE: Processing first entry of each page type ==="
     PAGES=$(node -e "
-        const m = JSON.parse(require('fs').readFileSync('$MANIFEST_PATH','utf8'));
+        const m = JSON.parse(require('fs').readFileSync('$MANIFEST_PATH','utf8')).pages;
         const first = t => m.find(e => e.pageType === t);
         [first('metric'), first('valuation-method'), first('faq')]
             .filter(Boolean).forEach(e => console.log(JSON.stringify(e)));
@@ -103,14 +103,14 @@ if [ "$PILOT_MODE" = true ]; then
 elif [ -n "$TYPE_FILTER" ]; then
     echo "=== Filtering to page type: $TYPE_FILTER ==="
     PAGES=$(node -e "
-        const m = JSON.parse(require('fs').readFileSync('$MANIFEST_PATH','utf8'));
+        const m = JSON.parse(require('fs').readFileSync('$MANIFEST_PATH','utf8')).pages;
         m.filter(e => e.pageType === '$TYPE_FILTER')
             .forEach(e => console.log(JSON.stringify(e)));
     ")
 else
     echo "=== FULL RUN: Processing all pages ==="
     PAGES=$(node -e "
-        const m = JSON.parse(require('fs').readFileSync('$MANIFEST_PATH','utf8'));
+        const m = JSON.parse(require('fs').readFileSync('$MANIFEST_PATH','utf8')).pages;
         m.forEach(e => console.log(JSON.stringify(e)));
     ")
 fi
