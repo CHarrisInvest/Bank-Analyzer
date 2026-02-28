@@ -12,37 +12,52 @@ export const METRICS = [
     "categoryLabel": "Profitability Ratio",
     "formula": "ROE = Net Income / Average Shareholders' Equity",
     "isPercentage": true,
-    "shortDescription": "Measures how effectively a bank generates profits from shareholder investments.",
-    "description": "Return on Equity (ROE) is one of the most important profitability metrics for evaluating banks. It measures how much profit a bank generates for every dollar of shareholder equity. A higher ROE indicates that the bank is using its equity capital more efficiently to generate earnings.",
-    "formulaExplanation": "Net Income is the trailing twelve month (TTM) profit after all expenses and taxes. Average Shareholders' Equity is calculated using a 5-point average of quarterly balance sheet values, following FFIEC methodology.",
-    "interpretation": "ROE shows how well a bank is converting shareholder capital into profits. Banks with consistently high ROE are generally better at deploying capital and generating returns for shareholders. However, very high ROE can sometimes indicate excessive leverage or risk-taking.",
-    "typicalRange": "Well-managed banks typically achieve ROE between 8% and 15%. Top-performing banks may exceed 15%, while banks below 8% may be underperforming or facing challenges.",
+    "shortDescription": "Measures how much profit a bank generates for each dollar of shareholders' equity, reflecting both operating performance and the effect of leverage.",
+    "description": "Return on Equity (ROE) measures the annual profit a bank earns as a percentage of its shareholders' equity — the capital that belongs to stockholders after subtracting all liabilities from total assets. If a bank has $1 billion in equity and earns $120 million in net income, its ROE is 12%.\n\nROE is one of the most watched profitability metrics in bank analysis because banks are inherently leveraged businesses. A typical bank funds roughly 90% of its assets with deposits and borrowings, with equity making up the remaining 8-12%. This high leverage means small changes in asset-level profitability get magnified into larger swings in ROE. Two banks with the same operating performance can report very different ROEs simply because one holds more capital than the other.\n\nFor investors, ROE answers a fundamental question: how well is this bank turning shareholder capital into earnings? That answer has direct implications for the bank's valuation, dividend capacity, and ability to grow without raising additional capital.",
+    "formulaExplanation": "Net Income is the trailing twelve month (TTM) profit after all expenses, provisions, and taxes. For banks with preferred stock outstanding, net income available to common shareholders (net income minus preferred dividends) should be used. Average Shareholders' Equity is calculated using a 5-point average of quarterly balance sheet values, following FFIEC methodology. The averaging approach smooths out intra-year fluctuations from retained earnings, capital actions, and accumulated other comprehensive income (AOCI) changes.",
+    "interpretation": "ROE shows how well a bank converts shareholder capital into profits. Banks with consistently high ROE are generally better at deploying capital and generating returns for shareholders. A rising ROE trend suggests improving profitability, tighter cost control, or more efficient capital management — or some combination of the three.\n\nHowever, ROE can be misleading in isolation. A very high ROE sometimes reflects dangerously thin capital rather than genuinely strong operations. Experienced bank analysts almost always look at ROE alongside the equity-to-assets ratio or ROAA to separate the operating performance component from the leverage effect.",
+    "typicalRange": "Well-managed banks typically achieve ROE between 8% and 15%. Top-performing banks with strong franchises and efficient operations may sustain ROE above 15%, while banks below 8% may be overcapitalized, facing compressed margins, dealing with elevated credit costs, or simply underperforming operationally. During periods of economic stress, even well-run banks can see ROE dip below these ranges temporarily as provision expense spikes.",
     "goodBad": {
-      "good": "ROE above 10-12% generally indicates strong profitability and efficient capital use.",
-      "bad": "ROE below 6-8% may indicate weak profitability, excess capital, or operational challenges."
+      "good": "ROE above 10-12% generally indicates strong profitability and efficient capital use. Banks consistently delivering ROE in this range are typically earning well above their cost of equity, which means they are creating value for shareholders with each dollar of retained earnings.",
+      "bad": "ROE below 6-8% may indicate weak profitability, excess capital, or operational challenges. When ROE falls below a bank's cost of equity (generally 10-12% for most banks), retained earnings actually destroy value on a per-share basis because the capital earns less than shareholders could earn elsewhere at similar risk."
     },
     "considerations": [
-      "Compare ROE within peer groups of similar-sized banks with similar business models.",
-      "Very high ROE might indicate thin capital buffers or elevated risk levels.",
-      "Declining ROE over time may signal deteriorating profitability or increasing competition.",
-      "Regulatory capital requirements can constrain ROE by requiring banks to hold more equity."
+      "Compare ROE within peer groups of similar-sized banks with similar business models. A community bank's ROE is best compared to other community banks in similar markets, not to money center banks with entirely different revenue mixes and capital structures.",
+      "Very high ROE might indicate thin capital buffers or elevated risk levels. Check the equity-to-assets ratio alongside ROE to determine whether strong returns reflect genuine operating strength or aggressive leverage.",
+      "Declining ROE over time may signal deteriorating profitability, increasing competition, or margin compression from interest rate movements.",
+      "Regulatory capital requirements can constrain ROE by requiring banks to hold more equity. Banks under consent orders or heightened supervisory expectations may be required to maintain capital well above standard minimums.",
+      "ROE should be evaluated over multiple periods rather than a single quarter, since one-time items like securities gains, tax adjustments, or legal settlements can create temporary spikes or dips.",
+      "Banks with significant preferred stock outstanding will show a gap between ROE calculated on total equity versus common equity — use common equity when comparing to peers.",
+      "Share buybacks reduce the equity base and can boost ROE even without improving underlying profitability, so check whether ROE improvement is driven by better earnings or a shrinking denominator."
     ],
     "relatedMetrics": [
       "roaa",
       "efficiency-ratio",
-      "equity-to-assets"
+      "equity-to-assets",
+      "net-interest-margin",
+      "price-to-book",
+      "return-on-tangible-common-equity",
+      "dividend-payout-ratio",
+      "pre-provision-net-revenue",
+      "earnings-per-share"
     ],
     "relatedMetricDescriptions": {
-      "roaa": "Complements ROE by measuring profitability against total assets, removing the effect of leverage.",
-      "efficiency-ratio": "Cost management directly impacts net income, which is the numerator of ROE.",
-      "equity-to-assets": "Capital levels determine leverage — a key component that amplifies or constrains ROE."
+      "roaa": "Complements ROE by measuring profitability against total assets, removing the effect of leverage. The DuPont identity links the two: ROE equals ROAA multiplied by the equity multiplier.",
+      "efficiency-ratio": "Cost management directly impacts net income, which is the numerator of ROE. Banks with lower efficiency ratios keep more of each revenue dollar as profit, supporting higher ROE.",
+      "equity-to-assets": "Capital levels determine leverage — a key component that amplifies or constrains ROE. The equity-to-assets ratio is the inverse of the equity multiplier in the DuPont decomposition.",
+      "net-interest-margin": "NIM is the largest revenue driver for most banks and the primary determinant of the net income that feeds into ROE.",
+      "price-to-book": "P/B is mathematically linked to ROE through the justified P/B framework — banks with higher ROE typically warrant higher price-to-book multiples.",
+      "return-on-tangible-common-equity": "ROTCE strips out goodwill and intangibles from the equity base, providing a complementary profitability view for banks that have completed acquisitions.",
+      "dividend-payout-ratio": "The payout ratio and ROE together determine a bank's sustainable growth rate — higher ROE with lower payout means faster organic capital generation.",
+      "pre-provision-net-revenue": "PPNR captures a bank's core earning power before credit costs, helping isolate whether ROE changes stem from operating performance or credit cycle effects.",
+      "earnings-per-share": "EPS captures the absolute earnings available per share, while ROE measures the rate of return on the equity base that generates those earnings."
     },
-    "dataSource": "Net Income is summed from the four most recent quarterly filings. Equity values are averaged from five consecutive quarterly balance sheets.",
-    "bankSpecificContext": "Banks are among the most leveraged businesses in the economy, typically operating with equity-to-asset ratios of 8-12%. Because of this inherent leverage, ROE for banks reflects both management quality and the degree of leverage employed. Regulatory capital requirements set a floor on equity levels, which in turn caps the maximum ROE a bank can achieve at a given level of asset profitability. A bank earning 1% on assets (ROAA) with a 10:1 asset-to-equity ratio produces a 10% ROE. The same ROAA at a 12:1 ratio produces 12% ROE, but regulators may view the thinner capital cushion with concern. This dynamic makes ROE a useful but incomplete measure of bank performance when viewed in isolation.",
-    "metricConnections": "ROE sits at the center of several important bank analysis relationships. Through the DuPont decomposition, ROE equals ROAA multiplied by the equity multiplier (assets divided by equity), which separates operating performance from leverage. ROE also determines the justified price-to-book ratio through the ROE-P/B framework: justified P/B = (ROE - g) / (r - g), where g is the sustainable growth rate and r is the cost of equity. The algebraic identity P/B = P/E multiplied by ROE connects the two primary bank valuation ratios directly. A bank's sustainable growth rate equals ROE multiplied by the retention ratio (1 minus the dividend payout ratio), linking profitability to capital generation capacity.",
-    "commonPitfalls": "A very high ROE can indicate dangerously thin capital rather than superior management. Comparing ROE across banks without adjusting for differences in leverage is misleading; two banks with identical ROAA can show very different ROEs purely because of capital structure differences. One-time gains from securities sales, tax benefits, or legal settlements can temporarily inflate ROE, making a single quarter's figure unreliable. ROE is also less meaningful during periods of elevated credit losses, when provisions compress net income and distort the ratio. Banks that have recently completed large acquisitions may show depressed ROE due to goodwill diluting the equity base.",
-    "acrossBankTypes": "Money center banks with diversified revenue streams and active capital management programs typically target ROE in the 12-15% range. Well-run community banks focused on relationship lending often achieve 10-13% ROE, though this varies with local economic conditions and loan mix. Banks maintaining excess capital above regulatory minimums, whether by choice or regulatory directive, may show ROE below 8% despite strong underlying operations. De novo (newly chartered) banks almost always show negative or very low ROE in their first 3-5 years as they build their loan portfolios and absorb startup costs.",
-    "whatDrivesMetric": "The numerator, net income, is driven by net interest margin, fee income generation, operating efficiency (as measured by the efficiency ratio), and provision for credit losses. The denominator, average shareholders' equity, is driven by retained earnings accumulation, capital raises or stock issuances, share buybacks, and regulatory capital requirements. Macroeconomic factors including interest rates, credit cycle conditions, and loan demand all influence the numerator indirectly. Management decisions around capital allocation, dividend policy, and growth strategy directly affect both sides of the ratio.",
+    "dataSource": "Net Income is summed from the four most recent quarterly filings (income statement). Equity values are averaged from five consecutive quarterly balance sheets (beginning of the trailing period through the most recent quarter), which produces the 5-point average used in FFIEC call report calculations.",
+    "bankSpecificContext": "Banks are among the most leveraged businesses in the economy, typically operating with equity-to-asset ratios of 8-12%. Because of this inherent leverage, ROE for banks reflects both management quality and the degree of leverage employed. Regulatory capital requirements set a floor on equity levels, which in turn caps the maximum ROE a bank can achieve at a given level of asset profitability. A bank earning 1% on assets (ROAA) with a 10:1 asset-to-equity ratio produces a 10% ROE. The same ROAA at a 12:1 ratio produces 12% ROE, but regulators may view the thinner capital cushion with concern.\n\nThis leverage dynamic makes ROE more variable for banks than for most other industries. Small changes in ROAA get amplified by the equity multiplier, so a bank that sees its ROAA decline from 1.1% to 0.9% might see its ROE drop from 12% to under 9% — a decline that looks far more dramatic at the ROE level than at the asset level. This amplification effect works in both directions, which is why analysts who evaluate banks almost always examine ROE and ROAA together rather than relying on either measure alone.",
+    "metricConnections": "ROE sits at the center of several important bank analysis relationships. Through the DuPont decomposition, ROE equals ROAA multiplied by the equity multiplier (assets divided by equity), which cleanly separates operating performance from leverage. This decomposition is particularly useful for explaining why two banks with similar ROAA can have very different ROEs.\n\nROE also determines the justified price-to-book ratio through the ROE-P/B framework: justified P/B = (ROE - g) / (r - g), where g is the sustainable growth rate and r is the cost of equity. The algebraic identity P/B = P/E × ROE connects the two primary bank valuation ratios directly, meaning any two of these three values imply the third.\n\nA bank's sustainable growth rate — the rate at which it can grow equity without issuing new shares — equals ROE multiplied by the retention ratio (1 minus the dividend payout ratio). This links profitability to capital generation capacity and explains why high-ROE banks have more flexibility to simultaneously pay dividends and fund growth.",
+    "commonPitfalls": "A very high ROE can indicate dangerously thin capital rather than superior management — always check the equity-to-assets ratio alongside ROE. Comparing ROE across banks without adjusting for differences in leverage is misleading; two banks with identical ROAA can show very different ROEs purely because of capital structure differences.\n\nOne-time gains from securities sales, tax benefits, or legal settlements can temporarily inflate ROE, making a single quarter's figure unreliable. ROE is also less meaningful during periods of elevated credit losses, when large provisions compress net income and distort the ratio regardless of the bank's underlying earning power.\n\nBanks that have recently completed large acquisitions may show depressed ROE due to goodwill diluting the equity base — in these cases, Return on Tangible Common Equity (ROTCE) provides a cleaner picture. Conversely, banks that have been aggressively buying back stock may show improving ROE driven more by a shrinking equity base than by earnings growth, which is a less sustainable source of ROE improvement.",
+    "acrossBankTypes": "Money center banks with diversified revenue streams and active capital management programs typically target ROE in the 12-15% range, supported by fee income businesses that require less incremental capital. Well-run community banks focused on relationship lending often achieve 10-13% ROE, though this varies with local economic conditions and loan mix. Community banks in high-growth markets may temporarily sacrifice ROE to fund rapid loan growth.\n\nBanks maintaining excess capital above regulatory minimums, whether by choice or regulatory directive, tend to show ROE below 8% despite strong underlying operations — the excess capital acts as dead weight in the denominator. Mutual savings banks that have recently converted to stock form often carry significant excess capital from the conversion proceeds, producing low ROE for several years until the capital is deployed.\n\nDe novo (newly chartered) banks almost always show negative or very low ROE in their first 3-5 years as they build their loan portfolios and absorb startup costs. Their ROE trajectory during this period is not comparable to established banks.",
+    "whatDrivesMetric": "The numerator, net income, is driven by:\n\n- Net interest margin — the spread between what the bank earns on loans and investments versus what it pays on deposits and borrowings\n\n- Fee income generation from activities like wealth management, mortgage origination, and service charges\n\n- Operating efficiency, as measured by the efficiency ratio — lower costs relative to revenue leave more income for shareholders\n\n- Provision for credit losses, which can swing sharply with economic conditions and consume a large share of pre-provision earnings during downturns\n\nThe denominator, average shareholders' equity, is driven by retained earnings accumulation, capital raises or stock issuances, share buybacks, dividend payments, and regulatory capital requirements. Accumulated other comprehensive income (AOCI) fluctuations — particularly from unrealized gains and losses on available-for-sale securities — can also move the equity base, sometimes significantly during periods of rapid interest rate change.\n\nMacroeconomic factors including interest rates, credit cycle conditions, and loan demand all influence the numerator indirectly. Management decisions around capital allocation, dividend policy, and growth strategy directly affect both sides of the ratio.",
     "faqTeasers": [
       {
         "question": "What is a good ROE for a bank stock?",
@@ -61,6 +76,30 @@ export const METRICS = [
         "teaser": "ROE equals net income divided by average shareholders' equity, but bank-specific nuances around averaging methods and preferred stock adjustments matter",
         "faqSlug": "how-to-calculate-roe",
         "faqCluster": "profitability"
+      },
+      {
+        "question": "Why is ROE more important for banks than for other companies?",
+        "teaser": "Banks operate with far more leverage than most industries, making return on equity a direct reflection of how well management deploys a relatively thin capital base",
+        "faqSlug": "why-roe-important-for-banks",
+        "faqCluster": "profitability"
+      },
+      {
+        "question": "What is the difference between ROE and ROAA for banks?",
+        "teaser": "ROE measures return on shareholders' equity and reflects leverage, while ROAA measures return on total assets and isolates operating performance from capital structure",
+        "faqSlug": "roe-vs-roaa",
+        "faqCluster": "profitability"
+      },
+      {
+        "question": "What is the DuPont decomposition and how does it apply to banks?",
+        "teaser": "DuPont analysis breaks ROE into ROAA multiplied by the equity multiplier, revealing whether a bank's returns are driven by operating strength or by leverage",
+        "faqSlug": "dupont-decomposition-for-banks",
+        "faqCluster": "profitability"
+      },
+      {
+        "question": "What is the relationship between ROE, payout ratio, and dividend growth?",
+        "teaser": "ROE multiplied by the retention ratio determines a bank's sustainable growth rate, connecting profitability directly to dividend growth capacity",
+        "faqSlug": "roe-payout-ratio-dividend-growth",
+        "faqCluster": "dividends"
       }
     ],
     "relatedValuations": [
@@ -75,7 +114,11 @@ export const METRICS = [
     "relatedValuationDescriptions": {
       "roe-pb-framework": "ROE is the central input to the ROE-P/B framework, which derives the justified price-to-book multiple from a bank's return on equity relative to its cost of equity and growth rate.",
       "peer-comparison": "ROE is one of the most important metrics for comparing bank profitability across a peer group, as it captures both operating performance and leverage in a single figure.",
-      "dividend-discount-model": "ROE combined with the retention ratio determines the sustainable dividend growth rate, a key input to the dividend discount model."
+      "dividend-discount-model": "ROE combined with the retention ratio determines the sustainable dividend growth rate, a key input to the dividend discount model.",
+      "dupont-decomposition": "DuPont analysis breaks ROE into ROAA and the equity multiplier, isolating whether a bank's returns are driven by operating performance or by leverage.",
+      "gordon-growth-model": "The Gordon Growth Model uses ROE through the sustainable growth rate (ROE multiplied by the retention ratio) to estimate the long-term dividend growth that drives intrinsic value.",
+      "discounted-earnings-model": "ROE determines how quickly retained earnings compound book value, which directly affects the projected earnings stream in a discounted earnings valuation.",
+      "price-to-tangible-book-valuation": "The P/TBV framework parallels the ROE-P/B relationship but uses ROTCE instead of ROE, making it relevant for banks where goodwill creates a gap between the two return measures."
     }
   },
   {
