@@ -38,11 +38,13 @@ The primary goals of this project are:
 - Fill in missing information in related/linked sections that connect pages to one another
 - Increase time on page and user satisfaction through genuinely valuable, well-structured content
 
+**The finished product must be educational, helpful, engaging, and visually appealing.** Every content decision should be evaluated against these four qualities. Content that is accurate but dense and uninviting fails the test. Content that is scannable but shallow also fails.
+
 **Critical constraint: Word count on every page must only increase, never decrease. Before removing content, assess if it should be refreshed or enhanced instead.**
 
 ---
 
-## 2. Target Audience
+## 2. Target Audience and Progressive Complexity
 
 The audience is anyone interested in banks, bank stocks, and bank investing. Their experience levels vary widely, from complete beginners to experienced bank investors. Content strategy must account for this range:
 
@@ -51,6 +53,22 @@ The audience is anyone interested in banks, bank stocks, and bank investing. The
 - **Advanced topics**: Do not assume the reader knows anything beyond basic metrics (ROE, EPS, P/E, etc.) even for advanced material. The initial sections should still be accessible and written in plain language. Complexity and technical depth should increase as the reader progresses down the page.
 
 For all topic levels, the opening of each page must address the likely search query in plain, direct language before introducing any complexity.
+
+### Progressive Depth — Critical
+
+Every page must start simple and build in complexity as the reader scrolls down. The reader should be drawn in by clear, accessible language at the top and rewarded with deeper insight as they continue.
+
+**For metric and valuation method pages:**
+- The `shortDescription` and the first 1-2 sentences of `description` should be written at a middle school reading level. Plainly explain what this metric or method is in the simplest terms possible. No jargon, no assumed knowledge. A 13-year-old should be able to understand the opening.
+- The middle sections (`interpretation`, `typicalRange`, `goodBad`) can introduce more specific bank investing context and terminology, but should still be clear and well-defined.
+- The lower sections (`bankSpecificContext`, `metricConnections`, `commonPitfalls`, `acrossBankTypes`, `whatDrivesMetric`) can be progressively more advanced, as readers reaching these sections have already absorbed the foundational content above.
+
+**For FAQ pages:**
+- The `shortAnswer` must be plain and immediate — written at a level anyone can understand.
+- The opening of `fullAnswer` should expand on the short answer in accessible language.
+- Depth and complexity can increase further into the `fullAnswer`, but the progression should feel natural, not jarring.
+
+**The goal is engagement through progressive reward.** A beginner gets what they came for at the top and feels invited to keep reading. An experienced investor can skim the basics and find substantive depth further down. Neither audience should feel alienated or talked down to.
 
 ---
 
@@ -68,7 +86,11 @@ This is an educational resource. The voice should be that of a knowledgeable gui
 
 ### Voice Reference
 
-The first few sections of the existing metric pages best represent the target tone and voice. Use these as a baseline reference when establishing the voice for all content. That said, the voice can and should evolve toward being more informative while retaining a human quality — the kind of explanation you'd get from a knowledgeable colleague who genuinely wants you to understand the material.
+The voice starts simple. The opening of every page should be plain enough that someone with zero financial background can follow it. As the page progresses, the voice builds in depth and specificity, but it never becomes academic or abstract. It stays grounded in practical application.
+
+What makes this voice distinct from generic finance education (like Investopedia or a textbook) is its willingness to be direct about what actually matters and why. Instead of presenting five considerations and leaving the reader to figure out which ones are important, this voice says "here's the one that matters most for banks, and here's why." It's focused specifically on banks, not finance in general, and that specificity is the value proposition.
+
+The reader should finish a page feeling like they found exactly what they were looking for and came away understanding something they didn't before. The voice is genuinely helpful rather than performative — it's not trying to sound smart, it's trying to make the reader smarter. It earns trust through clarity, practical relevance, and a willingness to explain things plainly without dumbing them down.
 
 ### What the Voice Is NOT
 
@@ -133,6 +155,7 @@ This is a critical priority. Many existing pages read in a way that is recogniza
 
 ### Structural Patterns to Avoid
 
+- **Em dash overuse**: AI-generated content relies heavily on em dashes (—) as a crutch for parenthetical asides, clarifications, and dramatic pauses. Limit em dashes to no more than 1-2 per field. Use commas, parentheses, periods, or sentence restructuring instead. A page littered with em dashes is a strong AI signal.
 - **Parallel trio openings**: Three consecutive paragraphs or sections that begin with the same grammatical structure (e.g., "First... Second... Third..." or "One key aspect... Another important factor... A final consideration...")
 - **The AI sandwich**: Opening with a broad philosophical statement, filling with generic content, closing with a restated version of the opening
 - **Excessive hedging clusters**: "While it's true that X, it's also important to consider Y, and one should also keep in mind Z" — pick a position or state the facts directly
@@ -148,12 +171,13 @@ This is a critical priority. Many existing pages read in a way that is recogniza
 - Vary sentence length naturally — mix short, punchy sentences with longer explanatory ones
 - Use specific examples and concrete scenarios rather than abstract generalizations
 - Allow some sections to be more conversational and others more technical based on the content
-- Let paragraphs have different lengths — some can be 2 sentences, others 6-7
+- Let paragraphs have different lengths — some can be 2 sentences, others 3-4
 - Use occasional parenthetical asides the way a human writer would (like this)
 - Don't over-explain obvious points; trust the reader's intelligence on simple concepts
 - Use active voice predominantly but don't force it where passive reads more naturally
 - When making a point, make it once clearly rather than restating it three different ways
 - Ground explanations in how things actually work in practice, not just theory
+- **Think about how the text will look on screen**, not in a code editor. Each string field renders as a section on a web page. Short paragraphs, bullet points, and visual variety make content inviting. Dense blocks of text make readers leave.
 
 ---
 
@@ -171,7 +195,7 @@ Metric pages currently have an established structure. **Retain the existing page
 
 #### Enhancement Priorities for Metric Pages
 
-- **Opening section**: Must immediately address what someone searching for this metric would want to know. Plain language. No preamble. Get to the definition and relevance fast.
+- **Opening section**: Must immediately address what someone searching for this metric would want to know. The first 1-2 sentences of `description` must be written at a middle school reading level (see Section 2: Progressive Depth). No jargon, no preamble. Plainly state what this metric measures and why someone would look at it. Then build from there.
 - **Explanation depth**: For basic metrics, build understanding from zero. For advanced metrics, start accessible and layer in complexity as the page progresses.
 - **Practical application**: Every metric page should help the reader understand not just what the metric is, but how it's actually used when evaluating banks. Use generic or historical examples to illustrate — do not pull data from the website's own financial data.
 - **Lists**: Use bullet points for any enumeration of 3 or more items. This includes things like: factors that affect a metric, reasons a metric matters, steps in a calculation, common pitfalls, etc.
@@ -186,7 +210,7 @@ Valuation method pages also currently have an established structure. **Retain th
 
 #### Enhancement Priorities for Valuation Method Pages
 
-- **Opening section**: Address the likely search intent directly. Someone searching for a bank valuation method wants to understand what it is and when to use it.
+- **Opening section**: Address the likely search intent directly. The first 1-2 sentences of `description` must be written at a middle school reading level (see Section 2: Progressive Depth). Plainly state what this method does and when someone would use it. Someone searching for a bank valuation method wants to understand what it is before getting into how it works.
 - **Process explanation**: Walk through how the method works in a logical, step-by-step manner. If there's a calculation involved, make the steps clear without being overly academic.
 - **Strengths and limitations**: Be balanced and specific. Avoid generic statements like "no single method should be used in isolation." Instead, explain the specific situations where this method is most and least useful for bank valuation.
 - **Bank-specific context**: Explain what makes this valuation method particularly relevant or different when applied to banks versus other industries.
@@ -202,7 +226,7 @@ FAQ pages are the most flexible category and should **not follow a rigid, consis
 
 Every FAQ page must follow this pattern at the top:
 
-1. **Immediate quick answer**: Within the first 1-3 sentences, directly answer the question. A reader who just wants the short answer should find it instantly without scrolling. This is non-negotiable for search intent satisfaction.
+1. **Immediate quick answer**: Within the first 1-3 sentences, directly answer the question. Written in the simplest language possible — a reader of any experience level should immediately understand the answer. A reader who just wants the short answer should find it instantly without scrolling. This is non-negotiable for search intent satisfaction.
 2. **Detailed expansion below**: After the quick answer, provide thorough, well-organized detail that adds real value.
 
 #### What "Not Procedurally Generated" Means
@@ -295,6 +319,8 @@ This section maps the abstract content guidance in Sections 5A–5C to the concr
 - Strings in metrics and valuations files use single quotes (`'...'`); strings in the FAQs file use double quotes (`"..."`) — preserve whichever quote style the file uses
 - Escape any apostrophes or quotes that match the string delimiter (e.g., `\'` inside single-quoted strings)
 - Bullet points within string fields should use `\n\n` followed by a dash and space (`- `) for each item, with `\n\n` between items for readability when rendered
+- Subheadings within string fields should use `\n\n` followed by `## ` and the subheading text (e.g., `\n\n## Why This Matters for Community Banks`). These will be rendered as styled subheadings within the content section. See Section 6 for guidance on when to use subheadings.
+- **Note:** The page detail components (`MetricDetail.jsx`, `ValuationDetail.jsx`, `FaqDetail.jsx`) must be updated to parse lines starting with `- ` into actual HTML list elements (`<ul><li>`), and lines starting with `## ` into styled subheadings (`<h4>` or similar). Until these component updates are made, this formatting will not render correctly. The content should still be written with these conventions — the component updates are a separate prerequisite task.
 
 #### Metric Page Fields
 
@@ -343,7 +369,7 @@ This section maps the abstract content guidance in Sections 5A–5C to the concr
 
 | Guidance Concept | Field(s) | Notes |
 |---|---|---|
-| Immediate quick answer | `shortAnswer` | Must directly answer the question in 1-3 sentences — this is the non-negotiable search intent field |
+| Immediate quick answer | `shortAnswer` | Must directly answer the question in 1-3 sentences in the simplest language possible — this is the non-negotiable search intent field |
 | Detailed expansion | `fullAnswer` | The main content body — this is where the bulk of enhancement happens. Use `\n\n` for paragraph breaks. This field should contain all the depth, examples, techniques from the FAQ Content Techniques Toolkit, and any additional considerations |
 | Related metrics linking | `relatedMetrics` | Array of metric slugs — review for completeness and add any that are discussed in the content but not listed |
 | Related valuation methods linking | `relatedValuations` | Array of valuation method slugs — review for completeness |
@@ -358,7 +384,7 @@ This section maps the abstract content guidance in Sections 5A–5C to the concr
 - **Array of strings fields** (like `considerations`, `steps`, `strengths`, `limitations`): You may edit existing items, add new items, or reorder for logical flow. Do not remove items unless replacing with something better per the guidance on existing content.
 - **Array of slugs fields** (like `relatedMetrics`, `relatedFaqs`, `relatedMethods`, `relatedValuations`): Add slugs for pages that are discussed in the content or clearly related. Only add slugs that correspond to actual entries that exist in the data files. Do not remove existing slugs unless they are clearly incorrect.
 - **Description object fields** (like `relatedMetricDescriptions`, `relatedValuationDescriptions`): Fill in any keys that exist in the corresponding slug array but are missing from the descriptions object. Improve existing descriptions if they are thin or generic.
-- **Teaser array fields** (`faqTeasers`): Review for completeness — if the content discusses topics covered by FAQs not currently in the teasers, consider adding them. Each teaser object needs `question`, `teaser`, `faqSlug`, and `faqCluster`.
+- **Teaser array fields** (`faqTeasers`): Review for completeness — if the content discusses topics covered by FAQs not currently in the teasers, consider adding them. Each teaser object needs `question`, `teaser`, `faqSlug`, and `faqCluster`. **Only add teasers with `faqSlug` values that correspond to actual entries in the FAQS array.** Do not invent FAQ slugs that don't exist in the data. The `faqCluster` value must match the `cluster` field of the referenced FAQ entry.
 
 ---
 
@@ -395,14 +421,38 @@ This section maps the abstract content guidance in Sections 5A–5C to the concr
 ### Paragraph and Content Structure
 
 - Prioritize content for web readability while remaining functional on mobile
-- Break up walls of text — no paragraph should exceed 5-6 sentences unless the content genuinely requires it
+- **Break up walls of text aggressively** — this is critical for how content actually renders on the page. No paragraph should exceed 3-4 sentences. What looks reasonable in a code editor becomes a dense, intimidating block of text on a web page. When in doubt, add a paragraph break. Use `\n\n` liberally within string fields to create visual breathing room.
+- Within multi-paragraph string fields (like `description`, `interpretation`, `fullAnswer`, `bankSpecificContext`, etc.), aim for short, focused paragraphs that each make one clear point. A field with 5 short paragraphs is far more readable than 2 long ones containing the same information.
 - Use bullet points for lists of 3 or more items throughout all page types
 - When three or more items are listed consecutively within a sentence, consider breaking them out into a bulleted list instead. This improves scannability and avoids dense, run-on sentences that bury important details. For example, rather than writing "Key factors include credit quality, interest rate sensitivity, capital adequacy, and management effectiveness," present those as individual bullets. Use judgment — not every inline list needs extraction, but when the items carry enough weight to warrant individual attention, bullets help.
 - Bullet points should contain substantive content (at least 1-2 sentences each), not just single words or short phrases, unless the list is a simple enumeration
-- Use subheadings within existing page structure sections where content is dense enough to warrant them
 - Vary paragraph length for natural rhythm — mix 2-sentence paragraphs with longer ones
 - **Component breakout pattern**: Across all page types, where a topic involves multiple components, factors, or key points, consider breaking them out into a bulleted list first, then dedicating a paragraph to each one below. This pattern works well when a single dense paragraph tries to cover too many ideas at once — splitting it into a scannable list followed by focused paragraphs makes the content both easier to digest and more thorough. Use this where it fits naturally; not every section needs this treatment, but it's a strong option when content is complex or multi-faceted.
 - White space is valuable; don't pack everything tightly
+
+### Subheadings Within Content Fields
+
+Use `\n\n## Subheading text` within string fields to create visual anchors that break up long content and help readers scan for what's relevant to them. Subheadings are especially valuable for engagement — they give readers a reason to keep scrolling and make it easy to jump to the part they care about.
+
+**When to use subheadings:**
+
+- **FAQ `fullAnswer` fields** — This is where subheadings add the most value. FAQ pages often cover multiple aspects of a question, and subheadings signal to the reader that there's more useful content below. A reader who got their quick answer at the top might keep scrolling if they see a subheading like "## How This Works Differently for Small Banks" or "## Common Mistakes to Avoid." Use subheadings in `fullAnswer` whenever the content naturally breaks into 2 or more distinct subtopics, which will be most FAQ pages.
+- **Longer metric fields** — Fields like `bankSpecificContext`, `commonPitfalls`, `acrossBankTypes`, and `whatDrivesMetric` can benefit from subheadings when the content covers multiple distinct points. For example, `whatDrivesMetric` might use subheadings to separate numerator drivers, denominator drivers, and macroeconomic factors.
+- **Valuation method fields** — Fields like `bankSpecific`, `commonMistakes`, and `acrossBankTypes` can use subheadings when the content addresses clearly different aspects of the topic.
+
+**When NOT to use subheadings:**
+
+- In short fields (under 3 paragraphs) — a subheading in a short section feels like over-engineering
+- In `shortDescription`, `shortAnswer`, or other brief fields — these should be concise and don't need internal structure
+- When the content flows naturally as a continuous narrative and breaking it up would feel forced
+- Don't add a subheading for every paragraph — use them to mark genuine topic shifts within a field, not as decoration
+
+**Subheading style:**
+
+- Keep subheadings short and specific (3-7 words is ideal)
+- Make them descriptive, not generic. "## How Credit Quality Affects NIM" is useful. "## Additional Considerations" is not.
+- Avoid making every subheading a question — mix declarative statements with occasional questions for variety
+- Subheadings should give the reader a clear idea of what the next few paragraphs will cover
 
 ---
 
@@ -493,6 +543,7 @@ After editing each page's content in place, provide a summary that includes:
 - **Do not add disclaimers, "not financial advice" notices, or legal language** unless they already exist on the page
 - **Do not over-link** — internal links should be helpful, not every mention of every concept needs a link
 - **Do not pad content with filler** — every sentence added should earn its place by providing genuine value to the reader
+- **Do not overuse em dashes** — limit to 1-2 per field maximum. Rewrite sentences to use commas, parentheses, periods, or separate sentences instead
 - **Do not make every FAQ page look the same** — structural variety across FAQ pages is a feature, not a bug
 
 ---
@@ -512,6 +563,8 @@ Before marking a page as complete, verify:
 - [ ] Do paragraphs vary in length?
 - [ ] Do sentences vary in length and structure?
 - [ ] Is the complexity level appropriate for the topic (basic = assume nothing, advanced = start accessible and layer in depth)?
+- [ ] Are the opening 1-2 sentences of the main description field simple enough for a middle school reader to understand?
+- [ ] Does complexity increase progressively down the page, not front-loaded?
 - [ ] Are examples specific and concrete rather than vague?
 - [ ] Are existing examples preserved, improved, or replaced only with good reason?
 - [ ] Is all content evergreen with no time-sensitive language?
@@ -520,6 +573,8 @@ Before marking a page as complete, verify:
 - [ ] Have relationship arrays been reviewed and updated where appropriate?
 - [ ] Are description objects complete for all slugs in their corresponding arrays?
 - [ ] Does the page avoid robotic transitions and formulaic structures?
+- [ ] Are em dashes limited to no more than 1-2 per field?
+- [ ] Are all paragraphs 3-4 sentences or fewer? No walls of text?
 - [ ] For FAQ pages: Does this page feel uniquely structured for its specific question, or does it feel templated?
 - [ ] For FAQ pages: Is the tone consistent between the quick answer and the detailed expansion?
 
@@ -527,7 +582,11 @@ Before marking a page as complete, verify:
 
 ## 11. Summary of Key Principles
 
+**Start simple, build deep.** The first sentences of every page should be understandable by anyone. Complexity increases as the reader progresses. This is how you keep beginners engaged and give experienced readers a reason to keep scrolling.
+
 **Search intent comes first.** Every page exists because someone searched for something. Answer that search immediately, then provide depth.
+
+**The content must be educational, helpful, engaging, and visually appealing.** These four qualities are non-negotiable. Educational means accurate and thorough. Helpful means it answers the reader's actual question. Engaging means the reader wants to keep reading. Visually appealing means short paragraphs, bullet points, and white space that make the page inviting rather than intimidating.
 
 **Human voice over perfection.** A slightly imperfect but genuine-sounding page is better than a polished but obviously AI-generated one. Real writing has personality, varied rhythm, and occasional directness that AI content often lacks.
 
