@@ -6,6 +6,7 @@ import { trackMetricViewed } from '../analytics/events.js';
 import BackButton from '../components/BackButton.jsx';
 import NavigationLink from '../components/NavigationLink.jsx';
 import SEO from '../components/SEO.jsx';
+import { renderFormattedText } from '../utils/renderFormattedText.jsx';
 
 /**
  * Share Button Component
@@ -136,7 +137,7 @@ function MetricDetail() {
 
         <section className="metric-section">
           <h2>Overview</h2>
-          <p>{metric.description}</p>
+          {renderFormattedText(metric.description, 'desc')}
         </section>
 
         <section className="metric-section">
@@ -148,18 +149,18 @@ function MetricDetail() {
             <p className="formula-pct-note">Result is typically expressed as a percentage.</p>
           )}
           {metric.formulaExplanation && (
-            <p className="formula-explanation">{metric.formulaExplanation}</p>
+            <div className="formula-explanation">{renderFormattedText(metric.formulaExplanation, 'fexp')}</div>
           )}
         </section>
 
         <section className="metric-section">
           <h2>Interpretation</h2>
-          <p>{metric.interpretation}</p>
+          {renderFormattedText(metric.interpretation, 'interp')}
 
           {metric.typicalRange && (
             <div className="typical-range">
               <h3>Typical Range for Banks</h3>
-              <p>{metric.typicalRange}</p>
+              {renderFormattedText(metric.typicalRange, 'range')}
             </div>
           )}
 
@@ -167,11 +168,11 @@ function MetricDetail() {
             <div className="good-bad-indicators">
               <div className="indicator good">
                 <span className="indicator-label">Generally Favorable</span>
-                <p>{metric.goodBad.good}</p>
+                {renderFormattedText(metric.goodBad.good, 'good')}
               </div>
               <div className="indicator bad">
                 <span className="indicator-label">Potential Concern</span>
-                <p>{metric.goodBad.bad}</p>
+                {renderFormattedText(metric.goodBad.bad, 'bad')}
               </div>
             </div>
           )}
@@ -191,35 +192,35 @@ function MetricDetail() {
         {metric.bankSpecificContext && (
           <section className="metric-section">
             <h2>Bank-Specific Context</h2>
-            <p>{metric.bankSpecificContext}</p>
+            {renderFormattedText(metric.bankSpecificContext, 'bsc')}
           </section>
         )}
 
         {metric.metricConnections && (
           <section className="metric-section">
             <h2>Metric Connections</h2>
-            <p>{metric.metricConnections}</p>
+            {renderFormattedText(metric.metricConnections, 'mc')}
           </section>
         )}
 
         {metric.commonPitfalls && (
           <section className="metric-section">
             <h2>Common Pitfalls</h2>
-            <p>{metric.commonPitfalls}</p>
+            {renderFormattedText(metric.commonPitfalls, 'cp')}
           </section>
         )}
 
         {metric.acrossBankTypes && (
           <section className="metric-section">
             <h2>Across Bank Types</h2>
-            <p>{metric.acrossBankTypes}</p>
+            {renderFormattedText(metric.acrossBankTypes, 'abt')}
           </section>
         )}
 
         {metric.whatDrivesMetric && (
           <section className="metric-section">
             <h2>What Drives This Metric</h2>
-            <p>{metric.whatDrivesMetric}</p>
+            {renderFormattedText(metric.whatDrivesMetric, 'wdm')}
           </section>
         )}
 
@@ -301,16 +302,14 @@ function MetricDetail() {
         {metric.whereToFindData && (
           <section className="metric-section">
             <h2>Where to Find This Data</h2>
-            <p>{metric.whereToFindData}</p>
+            {renderFormattedText(metric.whereToFindData, 'wtfd')}
           </section>
         )}
 
         {metric.dataSource && (
           <section className="metric-section">
             <h2>Data Source</h2>
-            <p>
-              This metric is calculated using data from SEC EDGAR filings. {metric.dataSource}
-            </p>
+            {renderFormattedText('This metric is calculated using data from SEC EDGAR filings. ' + metric.dataSource, 'ds')}
           </section>
         )}
       </article>

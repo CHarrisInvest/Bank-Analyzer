@@ -6,6 +6,7 @@ import { trackValuationMethodViewed } from '../analytics/events.js';
 import BackButton from '../components/BackButton.jsx';
 import NavigationLink from '../components/NavigationLink.jsx';
 import SEO from '../components/SEO.jsx';
+import { renderFormattedText } from '../utils/renderFormattedText.jsx';
 
 // Cross-links from valuation methods to related metrics
 const VALUATION_TO_METRICS = {
@@ -161,7 +162,7 @@ function ValuationDetail() {
 
         <section className="valuation-section">
           <h2>Overview</h2>
-          <p>{method.description}</p>
+          {renderFormattedText(method.description, 'desc')}
         </section>
 
         {method.formula && (
@@ -174,7 +175,7 @@ function ValuationDetail() {
               <p className="formula-pct-note">Result is typically expressed as a percentage.</p>
             )}
             {method.formulaExplanation && (
-              <p className="formula-explanation">{method.formulaExplanation}</p>
+              <div className="formula-explanation">{renderFormattedText(method.formulaExplanation, 'fexp')}</div>
             )}
           </section>
         )}
@@ -195,7 +196,7 @@ function ValuationDetail() {
           <section className="valuation-section">
             <h2>Example Calculation</h2>
             <div className="example-box">
-              <p>{method.example}</p>
+              {renderFormattedText(method.example, 'ex')}
             </div>
           </section>
         )}
@@ -221,35 +222,35 @@ function ValuationDetail() {
         {method.bankSpecific && (
           <section className="valuation-section">
             <h2>Bank-Specific Considerations</h2>
-            <p>{method.bankSpecific}</p>
+            {renderFormattedText(method.bankSpecific, 'bsc')}
           </section>
         )}
 
         {method.whenToUse && (
           <section className="valuation-section">
             <h2>When to Use This Method</h2>
-            <p>{method.whenToUse}</p>
+            {renderFormattedText(method.whenToUse, 'wtu')}
           </section>
         )}
 
         {method.methodConnections && (
           <section className="valuation-section">
             <h2>Method Connections</h2>
-            <p>{method.methodConnections}</p>
+            {renderFormattedText(method.methodConnections, 'mconn')}
           </section>
         )}
 
         {method.commonMistakes && (
           <section className="valuation-section">
             <h2>Common Mistakes</h2>
-            <p>{method.commonMistakes}</p>
+            {renderFormattedText(method.commonMistakes, 'cm')}
           </section>
         )}
 
         {method.acrossBankTypes && (
           <section className="valuation-section">
             <h2>Across Bank Types</h2>
-            <p>{method.acrossBankTypes}</p>
+            {renderFormattedText(method.acrossBankTypes, 'abt')}
           </section>
         )}
 
