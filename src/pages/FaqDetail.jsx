@@ -5,6 +5,7 @@ import NavigationLink from '../components/NavigationLink.jsx';
 import { FAQS, FAQ_CLUSTERS } from '../data/content/faqs.js';
 import { METRICS } from '../data/content/metrics.js';
 import { VALUATION_METHODS } from '../data/content/valuations.js';
+import { renderFormattedText } from '../utils/renderFormattedText.jsx';
 
 /**
  * FAQ Detail Page
@@ -37,9 +38,6 @@ function FaqDetail() {
     ? faq.question.substring(0, 50) + '...'
     : faq.question;
 
-  // Split fullAnswer into paragraphs
-  const paragraphs = faq.fullAnswer.split('\n\n');
-
   return (
     <div className="page faq-detail-page">
       <SEO
@@ -67,9 +65,7 @@ function FaqDetail() {
         </header>
 
         <section className="faq-section faq-answer">
-          {paragraphs.map((paragraph, idx) => (
-            <p key={idx}>{paragraph}</p>
-          ))}
+          {renderFormattedText(faq.fullAnswer, 'ans')}
         </section>
 
         {faq.relatedMetrics && faq.relatedMetrics.length > 0 && (
