@@ -5575,6 +5575,15 @@ body {
   margin-bottom: var(--spacing-2);
 }
 
+/* Content subheadings from ## markup in text content */
+.content-subheading {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-700);
+  margin-top: var(--spacing-6);
+  margin-bottom: var(--spacing-3);
+}
+
 .typical-range {
   background: var(--color-gray-50);
   padding: var(--spacing-4);

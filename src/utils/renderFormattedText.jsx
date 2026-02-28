@@ -77,7 +77,8 @@ function renderInlineFormulas(text, keyPrefix) {
  * Renders a text string with rich formatting:
  * 1. Splits on \n\n into separate paragraphs
  * 2. Detects lines starting with "- " and groups them into <ul><li> lists
- * 3. Styles inline formulas with a monospace/highlighted treatment
+ * 3. Detects lines starting with "## " and renders them as <h4> subheadings
+ * 4. Styles inline formulas with a monospace/highlighted treatment
  *
  * @param {string} text - The raw text content to format
  * @param {string} keyPrefix - A unique key prefix for React elements
@@ -92,6 +93,16 @@ export function renderFormattedText(text, keyPrefix = 'fmt') {
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i].trim();
     if (!block) continue;
+
+    // Check if this block is a subheading (starts with "## ")
+    if (block.startsWith('## ')) {
+      elements.push(
+        <h4 key={`${keyPrefix}-${i}`} className="content-subheading">
+          {block.slice(3)}
+        </h4>
+      );
+      continue;
+    }
 
     // Check if this block is a list (all non-empty lines start with "- ")
     const lines = block.split('\n');
