@@ -1722,9 +1722,12 @@ async function generatePages() {
           <p><strong>Category:</strong> ${escapeHtml(metric.categoryLabel)}</p>
           <h2>Overview</h2>
           ${renderFormattedTextToHtml(metric.description)}
+          ${metric.formula ? `
           <h2>Formula</h2>
           <p><code>${escapeHtml(metric.formula)}</code></p>
-          ${renderFormattedTextToHtml(metric.formulaExplanation)}
+          ${metric.isPercentage ? '<p class="formula-pct-note">Result is typically expressed as a percentage.</p>' : ''}
+          ${metric.formulaExplanation ? renderFormattedTextToHtml(metric.formulaExplanation) : ''}
+          ` : ''}
           <h2>Interpretation</h2>
           ${renderFormattedTextToHtml(metric.interpretation)}
           <h2>Typical Range for Banks</h2>
@@ -1891,9 +1894,12 @@ async function generatePages() {
           <p><strong>Type:</strong> ${escapeHtml(valuation.type)}</p>
           <h2>Overview</h2>
           ${renderFormattedTextToHtml(valuation.description)}
+          ${valuation.formula ? `
           <h2>Formula</h2>
           <p><code>${escapeHtml(valuation.formula)}</code></p>
-          ${renderFormattedTextToHtml(valuation.formulaExplanation)}
+          ${valuation.isPercentage ? '<p class="formula-pct-note">Result is typically expressed as a percentage.</p>' : ''}
+          ${valuation.formulaExplanation ? renderFormattedTextToHtml(valuation.formulaExplanation) : ''}
+          ` : ''}
           ${valuation.steps ? `
           <h2>How to Apply</h2>
           <ol>
