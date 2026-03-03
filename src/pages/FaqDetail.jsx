@@ -139,9 +139,21 @@ function FaqDetail() {
 
         <section className="faq-glossary-callout">
           <span className="faq-glossary-callout-icon" aria-hidden="true">📖</span>
-          <p>
-            See the <Link to="/glossary">Financial Glossary</Link> for definitions of bank investing terms used in this article.
-          </p>
+          {faq.relatedGlossaryTerms && faq.relatedGlossaryTerms.length > 0 ? (
+            <p>
+              Key terms: {faq.relatedGlossaryTerms.map((term, i) => (
+                <span key={term}>
+                  {i > 0 && ', '}
+                  <Link to="/glossary">{term}</Link>
+                </span>
+              ))}
+              {' — '}see the <Link to="/glossary">Financial Glossary</Link> for full definitions.
+            </p>
+          ) : (
+            <p>
+              See the <Link to="/glossary">Financial Glossary</Link> for definitions of bank investing terms used in this article.
+            </p>
+          )}
         </section>
 
         {faq.cta && (

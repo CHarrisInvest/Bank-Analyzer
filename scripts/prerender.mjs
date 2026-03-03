@@ -1639,7 +1639,9 @@ async function generatePages() {
           <h1>${escapeHtml(faq.question)}</h1>
           ${answerHtml}
           ${relatedHtml}
-          <p>See the <a href="${SITE_URL}/glossary">glossary</a> for definitions of bank investing terms used in this article.</p>
+          ${faq.relatedGlossaryTerms && faq.relatedGlossaryTerms.length > 0
+            ? `<p>Key terms: ${faq.relatedGlossaryTerms.map(term => `<a href="${SITE_URL}/glossary">${escapeHtml(term)}</a>`).join(', ')} — see the <a href="${SITE_URL}/glossary">Financial Glossary</a> for full definitions.</p>`
+            : `<p>See the <a href="${SITE_URL}/glossary">glossary</a> for definitions of bank investing terms used in this article.</p>`}
           ${faq.cta ? `<p><a href="${SITE_URL}${faq.cta.target}">${escapeHtml(faq.cta.text)}</a></p>` : ''}
         </article>
       `
