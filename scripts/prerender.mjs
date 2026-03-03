@@ -233,6 +233,109 @@ function escapeHtml(text) {
 }
 
 /**
+ * Checks if a string segment looks like an inline formula.
+ * Mirrors src/utils/renderFormattedText.jsx isFormula().
+ */
+function isFormula(text) {
+  const hasEquals = /\w\s*=\s*\w/.test(text);
+  const hasMathOp = /\w\s*[×÷]\s*\w/.test(text);
+  const hasArithBetweenTerms = /[A-Z][a-zA-Z]*\s*[+\-*/]\s*[A-Z(]/.test(text);
+  const hasParenFormula = /\(\s*\d+\s*[-+*/×÷]\s*\w/.test(text) || /\w\s*[-+*/×÷]\s*\d+\s*\)/.test(text);
+  return hasEquals || hasMathOp || hasArithBetweenTerms || hasParenFormula;
+}
+
+/**
+ * Wraps inline formulas in <span class="inline-formula"> within a text line.
+ * Mirrors src/utils/renderFormattedText.jsx renderInlineFormulas().
+ */
+function renderInlineFormulasToHtml(text) {
+  const formulaRegex = /(?:[\w/()]+\s*[=×÷]\s*[\w/().\s×÷+\-*/]+)|(?:[\w/()]+\s*[+\-*/]\s*[\w/()]+(?:\s*[+\-*/×÷=]\s*[\w/().\s]+)*)/g;
+  let result = '';
+  let lastIndex = 0;
+  let match;
+  formulaRegex.lastIndex = 0;
+  while ((match = formulaRegex.exec(text)) !== null) {
+    const candidate = match[0].trim();
+    if (!isFormula(candidate) || candidate.length < 5) continue;
+    if (match.index > lastIndex) {
+      result += escapeHtml(text.slice(lastIndex, match.index));
+    }
+    result += `<span class="inline-formula">${escapeHtml(candidate)}</span>`;
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) {
+    result += escapeHtml(text.slice(lastIndex));
+  }
+  return result || escapeHtml(text);
+}
+
+/**
+ * Renders a text string with rich formatting to static HTML.
+ * Mirrors src/utils/renderFormattedText.jsx renderFormattedText().
+ *
+ * 1. Splits on \n\n into separate paragraphs
+ * 2. Detects lines starting with "## " and renders them as <h4> subheadings
+ * 3. Detects lines starting with "- " and groups them into <ul><li> lists
+ * 4. Styles inline formulas with <span class="inline-formula">
+ *
+ * @param {string} text - The raw text content to format
+ * @returns {string} HTML string
+ */
+function renderFormattedTextToHtml(text) {
+  if (!text || typeof text !== 'string') return text || '';
+
+  const blocks = text.split('\n\n');
+  const elements = [];
+
+  for (const rawBlock of blocks) {
+    const block = rawBlock.trim();
+    if (!block) continue;
+
+    // Subheading
+    if (block.startsWith('## ')) {
+      elements.push(`<h4 class="content-subheading">${escapeHtml(block.slice(3))}</h4>`);
+      continue;
+    }
+
+    // Check if block is a bullet list
+    const lines = block.split('\n');
+    const listLines = lines.filter(l => l.trim().startsWith('- '));
+    const nonEmptyLines = lines.filter(l => l.trim().length > 0);
+
+    if (listLines.length > 0 && listLines.length === nonEmptyLines.length) {
+      const items = listLines
+        .map(line => `<li>${renderInlineFormulasToHtml(line.trim().slice(2))}</li>`)
+        .join('\n');
+      elements.push(`<ul class="formatted-list">\n${items}\n</ul>`);
+    } else {
+      elements.push(`<p>${renderInlineFormulasToHtml(block)}</p>`);
+    }
+  }
+
+  return elements.join('\n');
+}
+
+/**
+ * Strips markdown-like formatting from text for use in JSON-LD structured data.
+ * JSON-LD "text" fields should contain clean, readable plain text — not HTML or markdown.
+ *
+ * @param {string} text - The raw text that may contain markdown formatting
+ * @returns {string} Clean plain text
+ */
+function stripMarkdown(text) {
+  if (!text || typeof text !== 'string') return text || '';
+  return text
+    .replace(/^## .*/gm, m => m.slice(3))      // Remove ## heading markers
+    .replace(/^\- /gm, '')                       // Remove - bullet markers at line start
+    .replace(/\*\*([^*]+)\*\*/g, '$1')           // Remove **bold** markers
+    .replace(/\*([^*]+)\*/g, '$1')               // Remove *italic* markers
+    .replace(/\n\n+/g, ' ')                      // Collapse double-newlines to space
+    .replace(/\n/g, ' ')                          // Collapse single newlines to space
+    .replace(/\s{2,}/g, ' ')                      // Collapse multiple spaces
+    .trim();
+}
+
+/**
  * Create breadcrumb schema for a page
  * @param {Array} items - Array of {name, path} objects representing the breadcrumb trail
  */
@@ -1046,8 +1149,8 @@ async function generatePages() {
           "name": "BankSift Financial Glossary",
           "description": "Comprehensive glossary of financial terms for bank stock analysis and value investing",
           "hasDefinedTerm": [
-            ...metrics.map(m => ({ "@type": "DefinedTerm", "name": m.name, "description": m.shortDescription })),
-            ...valuations.map(v => ({ "@type": "DefinedTerm", "name": v.name, "description": v.shortDescription }))
+            ...metrics.map(m => ({ "@type": "DefinedTerm", "name": m.name, "description": stripMarkdown(m.shortDescription) })),
+            ...valuations.map(v => ({ "@type": "DefinedTerm", "name": v.name, "description": stripMarkdown(v.shortDescription) }))
           ].slice(0, 50)
         },
         createBreadcrumbSchema([
@@ -1455,7 +1558,7 @@ async function generatePages() {
             "name": f.question,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": f.shortAnswer
+              "text": stripMarkdown(f.shortAnswer)
             }
           }))
         },
@@ -1479,11 +1582,8 @@ async function generatePages() {
     const cluster = faqClusters.find(c => c.slug === faq.cluster);
     const clusterName = cluster ? cluster.name : faq.clusterName;
 
-    // Split fullAnswer into paragraphs
-    const answerHtml = faq.fullAnswer
-      .split('\n\n')
-      .map(p => `<p>${escapeHtml(p)}</p>`)
-      .join('\n');
+    // Render fullAnswer with formatted text (headings, lists, formulas)
+    const answerHtml = renderFormattedTextToHtml(faq.fullAnswer);
 
     // Build related links
     let relatedHtml = '';
@@ -1523,7 +1623,7 @@ async function generatePages() {
             "name": faq.question,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": faq.fullAnswer.substring(0, 500)
+              "text": stripMarkdown(faq.fullAnswer).substring(0, 500)
             }
           },
           createBreadcrumbSchema([
@@ -1597,7 +1697,7 @@ async function generatePages() {
                 "name": `What is ${metric.name}?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": metric.description
+                  "text": stripMarkdown(metric.description)
                 }
               },
               {
@@ -1605,7 +1705,7 @@ async function generatePages() {
                 "name": `How is ${metric.name} calculated for banks?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": `The formula is: ${metric.formula}. ${metric.formulaExplanation || ''} This metric is calculated using data from SEC EDGAR filings, including 10-K and 10-Q reports.`
+                  "text": stripMarkdown(`The formula is: ${metric.formula || ''}. ${metric.formulaExplanation || ''} This metric is calculated using data from SEC EDGAR filings, including 10-K and 10-Q reports.`)
                 }
               },
               {
@@ -1613,7 +1713,7 @@ async function generatePages() {
                 "name": `What is a good ${metric.name} for US banks?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": metric.typicalRange + (metric.goodBad ? ` ${metric.goodBad.good}` : '') + ' Always compare within peer groups of similar-sized banks for meaningful benchmarking.'
+                  "text": stripMarkdown(metric.typicalRange + (metric.goodBad ? ` ${metric.goodBad.good}` : '') + ' Always compare within peer groups of similar-sized banks for meaningful benchmarking.')
                 }
               },
               {
@@ -1621,7 +1721,7 @@ async function generatePages() {
                 "name": `Why does ${metric.name} matter for bank investors?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": metric.interpretation + (metric.considerations && metric.considerations.length > 0 ? ` Key consideration: ${metric.considerations[0]}` : '')
+                  "text": stripMarkdown(metric.interpretation + (metric.considerations && metric.considerations.length > 0 ? ` Key consideration: ${metric.considerations[0]}` : ''))
                 }
               },
               ...(metric.relatedMetrics && metric.relatedMetrics.length > 0 ? [{
@@ -1641,19 +1741,22 @@ async function generatePages() {
           <h1>${escapeHtml(metric.name)}</h1>
           <p><strong>Category:</strong> ${escapeHtml(metric.categoryLabel)}</p>
           <h2>Overview</h2>
-          <p>${escapeHtml(metric.description)}</p>
+          ${renderFormattedTextToHtml(metric.description)}
+          ${metric.formula ? `
           <h2>Formula</h2>
           <p><code>${escapeHtml(metric.formula)}</code></p>
-          <p>${escapeHtml(metric.formulaExplanation)}</p>
+          ${metric.isPercentage ? '<p class="formula-pct-note">Result is typically expressed as a percentage.</p>' : ''}
+          ${metric.formulaExplanation ? renderFormattedTextToHtml(metric.formulaExplanation) : ''}
+          ` : ''}
           <h2>Interpretation</h2>
-          <p>${escapeHtml(metric.interpretation)}</p>
+          ${renderFormattedTextToHtml(metric.interpretation)}
           <h2>Typical Range for Banks</h2>
-          <p>${escapeHtml(metric.typicalRange)}</p>
+          ${renderFormattedTextToHtml(metric.typicalRange)}
           ${metric.goodBad ? `
           <h3>Generally Favorable</h3>
-          <p>${escapeHtml(metric.goodBad.good)}</p>
+          ${renderFormattedTextToHtml(metric.goodBad.good)}
           <h3>Potential Concern</h3>
-          <p>${escapeHtml(metric.goodBad.bad)}</p>
+          ${renderFormattedTextToHtml(metric.goodBad.bad)}
           ` : ''}
           ${metric.considerations ? `
           <h2>Important Considerations</h2>
@@ -1674,23 +1777,23 @@ async function generatePages() {
           ` : ''}
           ${metric.bankSpecificContext ? `
           <h2>Bank-Specific Context</h2>
-          <p>${escapeHtml(metric.bankSpecificContext)}</p>
+          ${renderFormattedTextToHtml(metric.bankSpecificContext)}
           ` : ''}
           ${metric.metricConnections ? `
           <h2>Metric Connections</h2>
-          <p>${escapeHtml(metric.metricConnections)}</p>
+          ${renderFormattedTextToHtml(metric.metricConnections)}
           ` : ''}
           ${metric.commonPitfalls ? `
           <h2>Common Pitfalls</h2>
-          <p>${escapeHtml(metric.commonPitfalls)}</p>
+          ${renderFormattedTextToHtml(metric.commonPitfalls)}
           ` : ''}
           ${metric.acrossBankTypes ? `
           <h2>Across Bank Types</h2>
-          <p>${escapeHtml(metric.acrossBankTypes)}</p>
+          ${renderFormattedTextToHtml(metric.acrossBankTypes)}
           ` : ''}
           ${metric.whatDrivesMetric ? `
           <h2>What Drives This Metric</h2>
-          <p>${escapeHtml(metric.whatDrivesMetric)}</p>
+          ${renderFormattedTextToHtml(metric.whatDrivesMetric)}
           ` : ''}
           ${metric.relatedValuations && metric.relatedValuations.length > 0 ? `
           <h2>Related Valuation Methods</h2>
@@ -1698,7 +1801,8 @@ async function generatePages() {
             ${metric.relatedValuations.map(valSlug => {
               const val = valuations.find(v => v.slug === valSlug);
               if (!val) return '';
-              return `<li><a href="${SITE_URL}/valuation/${valSlug}">${escapeHtml(val.name)}</a> — ${escapeHtml(val.shortDescription)}</li>`;
+              const desc = metric.relatedValuationDescriptions?.[valSlug] || val.shortDescription;
+              return `<li><a href="${SITE_URL}/valuation/${valSlug}">${escapeHtml(val.name)}</a> — ${escapeHtml(desc)}</li>`;
             }).filter(Boolean).join('\n            ')}
           </ul>
           ` : ''}
@@ -1709,11 +1813,11 @@ async function generatePages() {
           ` : ''}
           ${metric.whereToFindData ? `
           <h2>Where to Find This Data</h2>
-          <p>${escapeHtml(metric.whereToFindData)}</p>
+          ${renderFormattedTextToHtml(metric.whereToFindData)}
           ` : ''}
           ${metric.dataSource ? `
           <h2>Data Source</h2>
-          <p>This metric is calculated using data from SEC EDGAR filings. ${escapeHtml(metric.dataSource)}</p>
+          ${renderFormattedTextToHtml('This metric is calculated using data from SEC EDGAR filings. ' + metric.dataSource)}
           ` : ''}
           ${!metric.isEducationalOnly ? `<p>Use the <a href="${SITE_URL}/screener">Bank Screener</a> to filter 300+ banks by ${escapeHtml(metric.name)} and other metrics.</p>` : ''}
         </article>
@@ -1766,7 +1870,7 @@ async function generatePages() {
                 "name": `What is ${valuation.name}?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": valuation.description
+                  "text": stripMarkdown(valuation.description)
                 }
               },
               {
@@ -1774,7 +1878,7 @@ async function generatePages() {
                 "name": `How do I apply ${valuation.name} to bank stocks?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": valuation.steps ? valuation.steps.join(' ') : valuation.description
+                  "text": stripMarkdown(valuation.steps ? valuation.steps.join(' ') : valuation.description)
                 }
               },
               {
@@ -1782,7 +1886,7 @@ async function generatePages() {
                 "name": `What are the strengths of using ${valuation.name}?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": valuation.strengths ? valuation.strengths.join(' ') : `${valuation.name} is a widely used approach for evaluating bank stock value.`
+                  "text": stripMarkdown(valuation.strengths ? valuation.strengths.join(' ') : `${valuation.name} is a widely used approach for evaluating bank stock value.`)
                 }
               },
               {
@@ -1790,7 +1894,7 @@ async function generatePages() {
                 "name": `What are the limitations of ${valuation.name}?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": valuation.limitations ? valuation.limitations.join(' ') : `Like all valuation methods, ${valuation.name} should be used alongside other approaches for a complete analysis.`
+                  "text": stripMarkdown(valuation.limitations ? valuation.limitations.join(' ') : `Like all valuation methods, ${valuation.name} should be used alongside other approaches for a complete analysis.`)
                 }
               },
               ...(valuation.formula ? [{
@@ -1798,7 +1902,7 @@ async function generatePages() {
                 "name": `What is the formula for ${valuation.name}?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": `The formula is: ${valuation.formula}. ${valuation.formulaExplanation || ''}`
+                  "text": stripMarkdown(`The formula is: ${valuation.formula}. ${valuation.formulaExplanation || ''}`)
                 }
               }] : [])
             ]
@@ -1810,18 +1914,23 @@ async function generatePages() {
           <h1>${escapeHtml(valuation.name)}</h1>
           <p><strong>Type:</strong> ${escapeHtml(valuation.type)}</p>
           <h2>Overview</h2>
-          <p>${escapeHtml(valuation.description)}</p>
+          ${renderFormattedTextToHtml(valuation.description)}
+          ${valuation.formula ? `
           <h2>Formula</h2>
           <p><code>${escapeHtml(valuation.formula)}</code></p>
-          <p>${escapeHtml(valuation.formulaExplanation)}</p>
+          ${valuation.isPercentage ? '<p class="formula-pct-note">Result is typically expressed as a percentage.</p>' : ''}
+          ${valuation.formulaExplanation ? renderFormattedTextToHtml(valuation.formulaExplanation) : ''}
+          ` : ''}
           ${valuation.steps ? `
           <h2>How to Apply</h2>
           <ol>
             ${valuation.steps.map(s => `<li>${escapeHtml(s)}</li>`).join('\n            ')}
           </ol>
           ` : ''}
+          ${valuation.example ? `
           <h2>Example Calculation</h2>
-          <p>${escapeHtml(valuation.example)}</p>
+          ${renderFormattedTextToHtml(valuation.example)}
+          ` : ''}
           ${valuation.strengths ? `
           <h2>Strengths</h2>
           <ul>
@@ -1836,23 +1945,23 @@ async function generatePages() {
           ` : ''}
           ${valuation.bankSpecific ? `
           <h2>Bank-Specific Considerations</h2>
-          <p>${escapeHtml(valuation.bankSpecific)}</p>
+          ${renderFormattedTextToHtml(valuation.bankSpecific)}
           ` : ''}
           ${valuation.whenToUse ? `
           <h2>When to Use This Method</h2>
-          <p>${escapeHtml(valuation.whenToUse)}</p>
+          ${renderFormattedTextToHtml(valuation.whenToUse)}
           ` : ''}
           ${valuation.methodConnections ? `
           <h2>Method Connections</h2>
-          <p>${escapeHtml(valuation.methodConnections)}</p>
+          ${renderFormattedTextToHtml(valuation.methodConnections)}
           ` : ''}
           ${valuation.commonMistakes ? `
           <h2>Common Mistakes</h2>
-          <p>${escapeHtml(valuation.commonMistakes)}</p>
+          ${renderFormattedTextToHtml(valuation.commonMistakes)}
           ` : ''}
           ${valuation.acrossBankTypes ? `
           <h2>Across Bank Types</h2>
-          <p>${escapeHtml(valuation.acrossBankTypes)}</p>
+          ${renderFormattedTextToHtml(valuation.acrossBankTypes)}
           ` : ''}
           ${valuation.relatedMethods && valuation.relatedMethods.length > 0 ? `
           <h2>Related Valuation Methods</h2>
@@ -1860,7 +1969,8 @@ async function generatePages() {
             ${valuation.relatedMethods.map(slug => {
               const related = valuations.find(v => v.slug === slug);
               if (!related) return '';
-              return `<li><a href="${SITE_URL}/valuation/${slug}">${escapeHtml(related.name)}</a> — ${escapeHtml(related.shortDescription)}</li>`;
+              const desc = valuation.relatedMethodDescriptions?.[slug] || related.shortDescription;
+              return `<li><a href="${SITE_URL}/valuation/${slug}">${escapeHtml(related.name)}</a> — ${escapeHtml(desc)}</li>`;
             }).filter(Boolean).join('\n            ')}
           </ul>
           ` : ''}
@@ -1870,7 +1980,8 @@ async function generatePages() {
             ${valuation.relatedMetrics.map(metricSlug => {
               const met = metrics.find(m => m.slug === metricSlug);
               if (!met) return '';
-              return `<li><a href="${SITE_URL}/metrics/${metricSlug}">${escapeHtml(met.name)}</a> — ${escapeHtml(met.shortDescription)}</li>`;
+              const desc = valuation.relatedMetricDescriptions?.[metricSlug] || met.shortDescription;
+              return `<li><a href="${SITE_URL}/metrics/${metricSlug}">${escapeHtml(met.name)}</a> — ${escapeHtml(desc)}</li>`;
             }).filter(Boolean).join('\n            ')}
           </ul>
           ` : ''}
