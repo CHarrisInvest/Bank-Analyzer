@@ -1781,7 +1781,8 @@ async function generatePages() {
             ${metric.relatedValuations.map(valSlug => {
               const val = valuations.find(v => v.slug === valSlug);
               if (!val) return '';
-              return `<li><a href="${SITE_URL}/valuation/${valSlug}">${escapeHtml(val.name)}</a> — ${escapeHtml(val.shortDescription)}</li>`;
+              const desc = metric.relatedValuationDescriptions?.[valSlug] || val.shortDescription;
+              return `<li><a href="${SITE_URL}/valuation/${valSlug}">${escapeHtml(val.name)}</a> — ${escapeHtml(desc)}</li>`;
             }).filter(Boolean).join('\n            ')}
           </ul>
           ` : ''}
@@ -1948,7 +1949,8 @@ async function generatePages() {
             ${valuation.relatedMethods.map(slug => {
               const related = valuations.find(v => v.slug === slug);
               if (!related) return '';
-              return `<li><a href="${SITE_URL}/valuation/${slug}">${escapeHtml(related.name)}</a> — ${escapeHtml(related.shortDescription)}</li>`;
+              const desc = valuation.relatedMethodDescriptions?.[slug] || related.shortDescription;
+              return `<li><a href="${SITE_URL}/valuation/${slug}">${escapeHtml(related.name)}</a> — ${escapeHtml(desc)}</li>`;
             }).filter(Boolean).join('\n            ')}
           </ul>
           ` : ''}
@@ -1958,7 +1960,8 @@ async function generatePages() {
             ${valuation.relatedMetrics.map(metricSlug => {
               const met = metrics.find(m => m.slug === metricSlug);
               if (!met) return '';
-              return `<li><a href="${SITE_URL}/metrics/${metricSlug}">${escapeHtml(met.name)}</a> — ${escapeHtml(met.shortDescription)}</li>`;
+              const desc = valuation.relatedMetricDescriptions?.[metricSlug] || met.shortDescription;
+              return `<li><a href="${SITE_URL}/metrics/${metricSlug}">${escapeHtml(met.name)}</a> — ${escapeHtml(desc)}</li>`;
             }).filter(Boolean).join('\n            ')}
           </ul>
           ` : ''}
