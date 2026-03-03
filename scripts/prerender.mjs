@@ -1637,6 +1637,7 @@ async function generatePages() {
         <nav><a href="${SITE_URL}/faq">FAQ</a> › ${escapeHtml(clusterName)}</nav>
         <article>
           <h1>${escapeHtml(faq.question)}</h1>
+          ${faq.shortAnswer ? `<p class="faq-summary">${escapeHtml(faq.shortAnswer)}</p>` : ''}
           ${answerHtml}
           ${relatedHtml}
           ${faq.relatedGlossaryTerms && faq.relatedGlossaryTerms.length > 0

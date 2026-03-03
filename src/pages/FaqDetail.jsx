@@ -62,6 +62,9 @@ function FaqDetail() {
       <article className="faq-article">
         <header className="faq-header">
           <h1>{faq.question}</h1>
+          {faq.shortAnswer && (
+            <p className="faq-summary">{faq.shortAnswer}</p>
+          )}
         </header>
 
         <section className="faq-section faq-answer">
