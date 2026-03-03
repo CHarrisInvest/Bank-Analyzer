@@ -316,6 +316,26 @@ function renderFormattedTextToHtml(text) {
 }
 
 /**
+ * Strips markdown-like formatting from text for use in JSON-LD structured data.
+ * JSON-LD "text" fields should contain clean, readable plain text — not HTML or markdown.
+ *
+ * @param {string} text - The raw text that may contain markdown formatting
+ * @returns {string} Clean plain text
+ */
+function stripMarkdown(text) {
+  if (!text || typeof text !== 'string') return text || '';
+  return text
+    .replace(/^## .*/gm, m => m.slice(3))      // Remove ## heading markers
+    .replace(/^\- /gm, '')                       // Remove - bullet markers at line start
+    .replace(/\*\*([^*]+)\*\*/g, '$1')           // Remove **bold** markers
+    .replace(/\*([^*]+)\*/g, '$1')               // Remove *italic* markers
+    .replace(/\n\n+/g, ' ')                      // Collapse double-newlines to space
+    .replace(/\n/g, ' ')                          // Collapse single newlines to space
+    .replace(/\s{2,}/g, ' ')                      // Collapse multiple spaces
+    .trim();
+}
+
+/**
  * Create breadcrumb schema for a page
  * @param {Array} items - Array of {name, path} objects representing the breadcrumb trail
  */
@@ -1129,8 +1149,8 @@ async function generatePages() {
           "name": "BankSift Financial Glossary",
           "description": "Comprehensive glossary of financial terms for bank stock analysis and value investing",
           "hasDefinedTerm": [
-            ...metrics.map(m => ({ "@type": "DefinedTerm", "name": m.name, "description": m.shortDescription })),
-            ...valuations.map(v => ({ "@type": "DefinedTerm", "name": v.name, "description": v.shortDescription }))
+            ...metrics.map(m => ({ "@type": "DefinedTerm", "name": m.name, "description": stripMarkdown(m.shortDescription) })),
+            ...valuations.map(v => ({ "@type": "DefinedTerm", "name": v.name, "description": stripMarkdown(v.shortDescription) }))
           ].slice(0, 50)
         },
         createBreadcrumbSchema([
@@ -1538,7 +1558,7 @@ async function generatePages() {
             "name": f.question,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": f.shortAnswer
+              "text": stripMarkdown(f.shortAnswer)
             }
           }))
         },
@@ -1603,7 +1623,7 @@ async function generatePages() {
             "name": faq.question,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": faq.fullAnswer.substring(0, 500)
+              "text": stripMarkdown(faq.fullAnswer).substring(0, 500)
             }
           },
           createBreadcrumbSchema([
@@ -1677,7 +1697,7 @@ async function generatePages() {
                 "name": `What is ${metric.name}?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": metric.description
+                  "text": stripMarkdown(metric.description)
                 }
               },
               {
@@ -1685,7 +1705,7 @@ async function generatePages() {
                 "name": `How is ${metric.name} calculated for banks?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": `The formula is: ${metric.formula}. ${metric.formulaExplanation || ''} This metric is calculated using data from SEC EDGAR filings, including 10-K and 10-Q reports.`
+                  "text": stripMarkdown(`The formula is: ${metric.formula || ''}. ${metric.formulaExplanation || ''} This metric is calculated using data from SEC EDGAR filings, including 10-K and 10-Q reports.`)
                 }
               },
               {
@@ -1693,7 +1713,7 @@ async function generatePages() {
                 "name": `What is a good ${metric.name} for US banks?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": metric.typicalRange + (metric.goodBad ? ` ${metric.goodBad.good}` : '') + ' Always compare within peer groups of similar-sized banks for meaningful benchmarking.'
+                  "text": stripMarkdown(metric.typicalRange + (metric.goodBad ? ` ${metric.goodBad.good}` : '') + ' Always compare within peer groups of similar-sized banks for meaningful benchmarking.')
                 }
               },
               {
@@ -1701,7 +1721,7 @@ async function generatePages() {
                 "name": `Why does ${metric.name} matter for bank investors?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": metric.interpretation + (metric.considerations && metric.considerations.length > 0 ? ` Key consideration: ${metric.considerations[0]}` : '')
+                  "text": stripMarkdown(metric.interpretation + (metric.considerations && metric.considerations.length > 0 ? ` Key consideration: ${metric.considerations[0]}` : ''))
                 }
               },
               ...(metric.relatedMetrics && metric.relatedMetrics.length > 0 ? [{
@@ -1850,7 +1870,7 @@ async function generatePages() {
                 "name": `What is ${valuation.name}?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": valuation.description
+                  "text": stripMarkdown(valuation.description)
                 }
               },
               {
@@ -1858,7 +1878,7 @@ async function generatePages() {
                 "name": `How do I apply ${valuation.name} to bank stocks?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": valuation.steps ? valuation.steps.join(' ') : valuation.description
+                  "text": stripMarkdown(valuation.steps ? valuation.steps.join(' ') : valuation.description)
                 }
               },
               {
@@ -1866,7 +1886,7 @@ async function generatePages() {
                 "name": `What are the strengths of using ${valuation.name}?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": valuation.strengths ? valuation.strengths.join(' ') : `${valuation.name} is a widely used approach for evaluating bank stock value.`
+                  "text": stripMarkdown(valuation.strengths ? valuation.strengths.join(' ') : `${valuation.name} is a widely used approach for evaluating bank stock value.`)
                 }
               },
               {
@@ -1874,7 +1894,7 @@ async function generatePages() {
                 "name": `What are the limitations of ${valuation.name}?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": valuation.limitations ? valuation.limitations.join(' ') : `Like all valuation methods, ${valuation.name} should be used alongside other approaches for a complete analysis.`
+                  "text": stripMarkdown(valuation.limitations ? valuation.limitations.join(' ') : `Like all valuation methods, ${valuation.name} should be used alongside other approaches for a complete analysis.`)
                 }
               },
               ...(valuation.formula ? [{
@@ -1882,7 +1902,7 @@ async function generatePages() {
                 "name": `What is the formula for ${valuation.name}?`,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": `The formula is: ${valuation.formula}. ${valuation.formulaExplanation || ''}`
+                  "text": stripMarkdown(`The formula is: ${valuation.formula}. ${valuation.formulaExplanation || ''}`)
                 }
               }] : [])
             ]
