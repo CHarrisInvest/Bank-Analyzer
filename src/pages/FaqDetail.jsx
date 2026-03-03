@@ -62,6 +62,9 @@ function FaqDetail() {
       <article className="faq-article">
         <header className="faq-header">
           <h1>{faq.question}</h1>
+          {faq.shortAnswer && (
+            <p className="faq-summary">{faq.shortAnswer}</p>
+          )}
         </header>
 
         <section className="faq-section faq-answer">
@@ -139,9 +142,21 @@ function FaqDetail() {
 
         <section className="faq-glossary-callout">
           <span className="faq-glossary-callout-icon" aria-hidden="true">📖</span>
-          <p>
-            See the <Link to="/glossary">Financial Glossary</Link> for definitions of bank investing terms used in this article.
-          </p>
+          {faq.relatedGlossaryTerms && faq.relatedGlossaryTerms.length > 0 ? (
+            <p>
+              Key terms: {faq.relatedGlossaryTerms.map((term, i) => (
+                <span key={term}>
+                  {i > 0 && ', '}
+                  <Link to="/glossary">{term}</Link>
+                </span>
+              ))}
+              {' — '}see the <Link to="/glossary">Financial Glossary</Link> for full definitions.
+            </p>
+          ) : (
+            <p>
+              See the <Link to="/glossary">Financial Glossary</Link> for definitions of bank investing terms used in this article.
+            </p>
+          )}
         </section>
 
         {faq.cta && (

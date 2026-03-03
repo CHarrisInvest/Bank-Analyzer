@@ -34,7 +34,7 @@ function FaqIndex() {
       </div>
 
       <div className="faq-clusters">
-        {FAQ_CLUSTERS.map(cluster => {
+        {[...FAQ_CLUSTERS].sort((a, b) => a.order - b.order).map(cluster => {
           const clusterFaqs = FAQS.filter(faq => faq.cluster === cluster.slug);
           const questionCount = clusterFaqs.length;
 
