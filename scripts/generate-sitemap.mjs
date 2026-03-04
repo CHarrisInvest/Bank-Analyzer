@@ -1,75 +1,107 @@
 /**
  * Generate sitemap.xml with all routes
  *
+ * Uses git commit dates for content-driven pages so lastmod reflects
+ * actual content changes rather than the build date.
+ *
  * Run after prerender: node scripts/generate-sitemap.mjs
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { execSync } from 'child_process';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const publicDir = join(__dirname, '..', 'public');
-const dataDir = join(__dirname, '..', 'public', 'data');
-const srcDir = join(__dirname, '..', 'src');
+const rootDir = join(__dirname, '..');
+const publicDir = join(rootDir, 'public');
+const dataDir = join(publicDir, 'data');
+const srcDir = join(rootDir, 'src');
 
 const SITE_URL = 'https://banksift.org';
 const TODAY = new Date().toISOString().split('T')[0];
 
+/**
+ * Get the date of the last git commit that touched the given file.
+ * Falls back to today's date if git history is unavailable (e.g. shallow clone).
+ */
+function getLastModDate(filePath) {
+  try {
+    const date = execSync(`git log -1 --format=%aI -- "${filePath}"`, {
+      cwd: rootDir,
+      encoding: 'utf-8',
+    }).trim();
+    if (date) return date.split('T')[0];
+  } catch {
+    // git not available or file untracked — fall back to build date
+  }
+  return TODAY;
+}
+
 async function generateSitemap() {
   const urls = [];
 
-  // Static pages with priorities
+  // ── Static pages ────────────────────────────────────────────────
+  // Map each route to its primary source file so lastmod reflects
+  // when the page content was actually changed.
   const staticPages = [
-    { path: '/', priority: '1.0', changefreq: 'weekly' },
-    { path: '/screener', priority: '1.0', changefreq: 'daily' },
-    { path: '/screener/guide', priority: '0.8', changefreq: 'monthly' },
-    { path: '/search', priority: '0.9', changefreq: 'weekly' },
-    { path: '/metrics', priority: '0.9', changefreq: 'monthly' },
-    { path: '/valuation', priority: '0.9', changefreq: 'monthly' },
-    { path: '/glossary', priority: '0.8', changefreq: 'monthly' },
-    { path: '/privacy', priority: '0.3', changefreq: 'yearly' },
-    { path: '/terms', priority: '0.3', changefreq: 'yearly' },
+    { path: '/', priority: '1.0', changefreq: 'weekly', src: 'src/pages/Home.jsx' },
+    { path: '/screener', priority: '1.0', changefreq: 'daily', src: 'src/pages/ScreenerPage.jsx' },
+    { path: '/screener/guide', priority: '0.8', changefreq: 'monthly', src: 'src/pages/ScreenerGuide.jsx' },
+    { path: '/search', priority: '0.9', changefreq: 'weekly', src: 'src/pages/Search.jsx' },
+    { path: '/metrics', priority: '0.9', changefreq: 'monthly', src: 'src/pages/MetricsIndex.jsx' },
+    { path: '/valuation', priority: '0.9', changefreq: 'monthly', src: 'src/pages/ValuationIndex.jsx' },
+    { path: '/glossary', priority: '0.8', changefreq: 'monthly', src: 'src/pages/Glossary.jsx' },
+    { path: '/privacy', priority: '0.3', changefreq: 'yearly', src: 'src/pages/Privacy.jsx' },
+    { path: '/terms', priority: '0.3', changefreq: 'yearly', src: 'src/pages/Terms.jsx' },
   ];
 
   for (const page of staticPages) {
     urls.push({
       loc: `${SITE_URL}${page.path}`,
-      lastmod: TODAY,
+      lastmod: getLastModDate(page.src),
       changefreq: page.changefreq,
       priority: page.priority
     });
   }
 
-  // Metric pages
+  // ── Metric pages ────────────────────────────────────────────────
+  // All metric detail pages derive content from the same data file,
+  // so they share a single lastmod based on when that file changed.
+  const metricsFile = 'src/data/content/metrics.js';
+  const metricsLastmod = getLastModDate(metricsFile);
   const metricsModule = await import(join(srcDir, 'data', 'content', 'metrics.js'));
   for (const metric of metricsModule.METRICS) {
     urls.push({
       loc: `${SITE_URL}/metrics/${metric.slug}`,
-      lastmod: TODAY,
+      lastmod: metricsLastmod,
       changefreq: 'monthly',
       priority: '0.8'
     });
   }
 
-  // Valuation pages
+  // ── Valuation pages ─────────────────────────────────────────────
+  const valuationsFile = 'src/data/content/valuations.js';
+  const valuationsLastmod = getLastModDate(valuationsFile);
   const valuationsModule = await import(join(srcDir, 'data', 'content', 'valuations.js'));
   for (const valuation of valuationsModule.VALUATION_METHODS) {
     urls.push({
       loc: `${SITE_URL}/valuation/${valuation.slug}`,
-      lastmod: TODAY,
+      lastmod: valuationsLastmod,
       changefreq: 'monthly',
       priority: '0.8'
     });
   }
 
-  // FAQ pages
+  // ── FAQ pages ───────────────────────────────────────────────────
+  const faqsFile = 'src/data/content/faqs.js';
+  const faqsLastmod = getLastModDate(faqsFile);
   const faqsModule = await import(join(srcDir, 'data', 'content', 'faqs.js'));
 
   // FAQ index page
   urls.push({
     loc: `${SITE_URL}/faq`,
-    lastmod: TODAY,
+    lastmod: faqsLastmod,
     changefreq: 'monthly',
     priority: '0.8'
   });
@@ -78,13 +110,14 @@ async function generateSitemap() {
   for (const faq of faqsModule.FAQS) {
     urls.push({
       loc: `${SITE_URL}/faq/${faq.slug}`,
-      lastmod: TODAY,
+      lastmod: faqsLastmod,
       changefreq: 'monthly',
       priority: '0.7'
     });
   }
 
-  // Bank pages (only banks with tickers - matches React routing)
+  // ── Bank pages ──────────────────────────────────────────────────
+  // Bank data refreshes regularly from SEC EDGAR, so use build date.
   const banksPath = join(dataDir, 'banks.json');
   if (existsSync(banksPath)) {
     const banks = JSON.parse(readFileSync(banksPath, 'utf-8'));
