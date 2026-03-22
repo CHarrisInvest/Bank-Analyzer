@@ -1203,7 +1203,7 @@ export const FAQS = [
       "target": "/metrics/pre-provision-net-revenue",
       "text": "Learn more about PPNR and its role in bank analysis"
     },
-    "metaTitle": "What Is PPNR? Pre-Provision Revenue | BankSift",
+    "metaTitle": "What Is PPNR? Pre-Provision Net Revenue | BankSift",
     "metaDescription": "Learn what pre-provision net revenue (PPNR) is, how it measures core bank earnings power, and why analysts use it to evaluate profitability through credit cycles."
   },
   {
