@@ -161,48 +161,52 @@ function ValuationDetail() {
         )}
 
         <div className="faq-explore-more">
+          <h2 className="faq-explore-more-heading">Keep Exploring</h2>
 
         {method.faqTeasers && method.faqTeasers.length > 0 && (
-          <section className="valuation-section">
-            <h2>Frequently Asked Questions</h2>
+          <section className="faq-explore-section">
+            <h3 className="faq-explore-label">Frequently Asked Questions</h3>
             <div className="faq-teasers-list">
               {method.faqTeasers.map((faqTeaser, idx) => (
-                <div key={idx} className="faq-teaser-card">
-                  <h3>{faqTeaser.question}</h3>
-                  <p>{faqTeaser.teaser}</p>
-                  <NavigationLink
-                    to={`/faq/${faqTeaser.faqSlug}`}
-                    className="faq-teaser-link"
-                    pageTitle={faqTeaser.question}
-                  >
-                    Read more →
-                  </NavigationLink>
-                </div>
+                <NavigationLink
+                  key={idx}
+                  to={`/faq/${faqTeaser.faqSlug}`}
+                  className="faq-teaser-card"
+                  pageTitle={faqTeaser.question}
+                >
+                  <div className="related-item-card-content">
+                    <span className="related-item-card-name">{faqTeaser.question}</span>
+                    <span className="related-item-card-desc">{faqTeaser.teaser}</span>
+                  </div>
+                  <span className="related-item-card-arrow" aria-hidden="true">&rarr;</span>
+                </NavigationLink>
               ))}
             </div>
           </section>
         )}
 
         {method.relatedMethods && method.relatedMethods.length > 0 && (
-          <section className="valuation-section">
-            <h2>Related Methods</h2>
+          <section className="faq-explore-section">
+            <h3 className="faq-explore-label">Related Methods</h3>
             <div className="related-metrics-list">
               {method.relatedMethods.map(related => {
                 const relatedMethod = VALUATION_METHODS.find(m => m.slug === related);
                 if (!relatedMethod) return null;
                 const desc = method.relatedMethodDescriptions?.[related];
                 return (
-                  <div key={related} className="related-metric-item">
-                    <NavigationLink
-                      to={'/valuation/' + related}
-                      state={{ from: 'valuation-detail', returnPath: '/valuation/' + slug }}
-                      className="related-metric-badge"
-                      pageTitle={relatedMethod.name}
-                    >
-                      {relatedMethod.name}
-                    </NavigationLink>
-                    {desc && <p className="related-metric-desc">{desc}</p>}
-                  </div>
+                  <NavigationLink
+                    key={related}
+                    to={'/valuation/' + related}
+                    state={{ from: 'valuation-detail', returnPath: '/valuation/' + slug }}
+                    className="related-item-card"
+                    pageTitle={relatedMethod.name}
+                  >
+                    <div className="related-item-card-content">
+                      <span className="related-item-card-name">{relatedMethod.name}</span>
+                      {desc && <span className="related-item-card-desc">{desc}</span>}
+                    </div>
+                    <span className="related-item-card-arrow" aria-hidden="true">&rarr;</span>
+                  </NavigationLink>
                 );
               })}
             </div>
@@ -210,25 +214,27 @@ function ValuationDetail() {
         )}
 
         {method.relatedMetrics && method.relatedMetrics.length > 0 && (
-          <section className="valuation-section">
-            <h2>Related Metrics</h2>
+          <section className="faq-explore-section">
+            <h3 className="faq-explore-label">Related Metrics</h3>
             <div className="related-metrics-list">
               {method.relatedMetrics.map(metricSlug => {
                 const metric = METRICS.find(m => m.slug === metricSlug);
                 if (!metric) return null;
                 const desc = method.relatedMetricDescriptions?.[metricSlug];
                 return (
-                  <div key={metricSlug} className="related-metric-item">
-                    <NavigationLink
-                      to={'/metrics/' + metricSlug}
-                      state={{ from: 'valuation-detail', returnPath: '/valuation/' + slug }}
-                      className="related-metric-badge"
-                      pageTitle={metric.name}
-                    >
-                      {metric.name}
-                    </NavigationLink>
-                    {desc && <p className="related-metric-desc">{desc}</p>}
-                  </div>
+                  <NavigationLink
+                    key={metricSlug}
+                    to={'/metrics/' + metricSlug}
+                    state={{ from: 'valuation-detail', returnPath: '/valuation/' + slug }}
+                    className="related-item-card"
+                    pageTitle={metric.name}
+                  >
+                    <div className="related-item-card-content">
+                      <span className="related-item-card-name">{metric.name}</span>
+                      {desc && <span className="related-item-card-desc">{desc}</span>}
+                    </div>
+                    <span className="related-item-card-arrow" aria-hidden="true">&rarr;</span>
+                  </NavigationLink>
                 );
               })}
             </div>
