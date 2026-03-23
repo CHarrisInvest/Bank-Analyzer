@@ -8,6 +8,50 @@ import { VALUATION_METHODS } from '../data/content/valuations.js';
 import { renderFormattedText } from '../utils/renderFormattedText.jsx';
 
 /**
+ * Derive a context-aware CTA button label from the target path.
+ * Instead of a generic "Go to Screener →", the label correlates with the destination.
+ */
+function getCtaButtonLabel(cta) {
+  const { target, type } = cta;
+
+  // Specific metric pages — extract human-readable name from slug
+  if (target.startsWith('/metrics/')) {
+    const slug = target.replace('/metrics/', '');
+    const metric = METRICS.find(m => m.slug === slug);
+    return metric ? metric.shortName || metric.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  }
+
+  // Specific valuation pages
+  if (target.startsWith('/valuation/')) {
+    const slug = target.replace('/valuation/', '');
+    const method = VALUATION_METHODS.find(v => v.slug === slug);
+    return method ? method.shortName || method.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  }
+
+  // Specific FAQ pages
+  if (target.startsWith('/faq/')) {
+    const slug = target.replace('/faq/', '');
+    const linkedFaq = FAQS.find(f => f.slug === slug);
+    if (linkedFaq) {
+      // Use first ~40 chars of the question, trimmed to last full word
+      const q = linkedFaq.question;
+      if (q.length <= 40) return q;
+      return q.substring(0, 40).replace(/\s+\S*$/, '') + '…';
+    }
+  }
+
+  // Top-level pages
+  const topLevel = {
+    '/metrics': 'Bank Metrics',
+    '/valuation': 'Valuation Models',
+    '/glossary': 'Financial Glossary',
+    '/screener': 'Bank Screener',
+    '/search': 'Bank Search',
+  };
+  return topLevel[target] || 'Learn More';
+}
+
+/**
  * FAQ Detail Page
  * Renders a single FAQ entry with full answer, related content links, and CTA
  */
@@ -143,23 +187,29 @@ function FaqDetail() {
             </section>
           )}
 
-          <section className="faq-glossary-callout">
-            <span className="faq-glossary-callout-icon" aria-hidden="true">📖</span>
+          <section className="faq-glossary-card">
+            <div className="faq-glossary-card-header">
+              <span className="faq-glossary-card-icon" aria-hidden="true">📖</span>
+              <span className="faq-glossary-card-title">Key Terms</span>
+            </div>
             {faq.relatedGlossaryTerms && faq.relatedGlossaryTerms.length > 0 ? (
-              <p>
-                Key terms: {faq.relatedGlossaryTerms.map((term, i) => (
-                  <span key={term}>
-                    {i > 0 && ', '}
-                    <Link to="/glossary">{term}</Link>
-                  </span>
+              <div className="faq-glossary-card-terms">
+                {faq.relatedGlossaryTerms.map((term) => (
+                  <Link key={term} to="/glossary" className="faq-glossary-term-badge">
+                    {term}
+                  </Link>
                 ))}
-                {' — '}see the <Link to="/glossary">Financial Glossary</Link> for full definitions.
-              </p>
+              </div>
             ) : (
-              <p>
-                See the <Link to="/glossary">Financial Glossary</Link> for definitions of bank investing terms used in this article.
+              <p className="faq-glossary-card-desc">
+                Explore definitions of bank investing terms used in this article.
               </p>
             )}
+            <div className="faq-glossary-card-footer">
+              <Link to="/glossary" className="btn btn-glossary">
+                View Full Glossary &rarr;
+              </Link>
+            </div>
           </section>
 
           {faq.cta && (
@@ -169,7 +219,7 @@ function FaqDetail() {
                 <p>{faq.cta.text}</p>
               </div>
               <Link to={faq.cta.target} className="btn btn-accent">
-                Go to Screener &rarr;
+                {getCtaButtonLabel(faq.cta)} &rarr;
               </Link>
             </section>
           )}

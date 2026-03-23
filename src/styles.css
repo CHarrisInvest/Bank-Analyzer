@@ -6728,40 +6728,86 @@ body {
   color: var(--color-white);
 }
 
-/* Glossary callout on FAQ detail pages */
-.faq-glossary-callout {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-3);
+/* Glossary card on FAQ detail pages */
+.faq-glossary-card {
   margin-top: var(--spacing-4);
   margin-bottom: var(--spacing-4);
-  padding: var(--spacing-3) var(--spacing-4);
-  background: var(--color-gray-50);
-  border: 1px solid var(--color-gray-200);
-  border-left: 3px solid var(--color-accent);
+  padding: var(--spacing-4) var(--spacing-5);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1px solid #f59e0b33;
   border-radius: var(--radius-md);
 }
 
-.faq-glossary-callout-icon {
-  flex-shrink: 0;
+.faq-glossary-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-3);
+}
+
+.faq-glossary-card-icon {
   font-size: var(--font-size-lg);
 }
 
-.faq-glossary-callout p {
-  margin: 0;
+.faq-glossary-card-title {
   font-size: var(--font-size-sm);
-  color: var(--color-gray-600);
+  font-weight: var(--font-weight-semibold);
+  color: #92400e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.faq-glossary-card-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-3);
+}
+
+.faq-glossary-term-badge {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #f59e0b55;
+  border-radius: 9999px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: #92400e;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.faq-glossary-term-badge:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #d97706;
+  color: #78350f;
+}
+
+.faq-glossary-card-desc {
+  margin: 0 0 var(--spacing-3);
+  font-size: var(--font-size-sm);
+  color: #92400e;
   line-height: 1.5;
 }
 
-.faq-glossary-callout a {
-  color: var(--color-accent);
-  font-weight: var(--font-weight-medium);
-  text-decoration: none;
+.faq-glossary-card-footer {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.faq-glossary-callout a:hover {
-  text-decoration: underline;
+.btn-glossary {
+  background: transparent;
+  color: #92400e;
+  border: 1px solid #d97706;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn-glossary:hover {
+  background: #d97706;
+  color: var(--color-white);
 }
 
 /* ==========================================================================
