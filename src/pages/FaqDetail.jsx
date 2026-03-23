@@ -191,6 +191,9 @@ function FaqDetail() {
             <div className="faq-glossary-card-header">
               <span className="faq-glossary-card-icon" aria-hidden="true">📖</span>
               <span className="faq-glossary-card-title">Key Terms</span>
+              <Link to="/glossary" className="btn btn-glossary">
+                View Financial Glossary &rarr;
+              </Link>
             </div>
             {faq.relatedGlossaryTerms && faq.relatedGlossaryTerms.length > 0 ? (
               <div className="faq-glossary-card-terms">
@@ -205,11 +208,6 @@ function FaqDetail() {
                 Explore definitions of bank investing terms used in this article.
               </p>
             )}
-            <div className="faq-glossary-card-footer">
-              <Link to="/glossary" className="btn btn-glossary">
-                View Full Glossary &rarr;
-              </Link>
-            </div>
           </section>
 
           {faq.cta && (
