@@ -319,7 +319,7 @@ function ScreenerGuide() {
             <div className="application-step">
               <span className="step-number">1</span>
               <div>
-                <h3>Set Your Filter Criteria</h3>
+                <h3>Step 1: Set Your Filter Criteria</h3>
                 <p>
                   The filters panel (on the left side, or top on mobile) contains all available screening criteria.
                   Enter minimum and/or maximum values to narrow your results. Filters are organized into categories:
@@ -344,7 +344,7 @@ function ScreenerGuide() {
             <div className="application-step">
               <span className="step-number">2</span>
               <div>
-                <h3>Review and Sort Results</h3>
+                <h3>Step 2: Review and Sort Results</h3>
                 <p>
                   Banks matching your criteria appear in the results table. Click any column header to sort
                   by that metric. Click again to reverse the sort order, or a third time to remove sorting.
@@ -359,7 +359,7 @@ function ScreenerGuide() {
             <div className="application-step">
               <span className="step-number">3</span>
               <div>
-                <h3>Analyze Individual Banks</h3>
+                <h3>Step 3: Analyze Individual Banks</h3>
                 <p>
                   Click any ticker symbol in the results table to view the detailed bank profile page.
                   This page shows comprehensive financial data, historical trends, and valuation analysis.
@@ -370,7 +370,7 @@ function ScreenerGuide() {
             <div className="application-step">
               <span className="step-number">4</span>
               <div>
-                <h3>Export Your Results</h3>
+                <h3>Step 4: Export Your Results</h3>
                 <p>
                   Click the <strong>Export CSV</strong> button to download your filtered results.
                   The export includes all visible columns in your current column order, perfect for
