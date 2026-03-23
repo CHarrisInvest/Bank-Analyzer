@@ -950,7 +950,7 @@ export const FAQS = [
       "target": "/screener",
       "text": "Compare net interest margins across 300+ banks"
     },
-    "metaTitle": "What Is a Good NIM for a Bank? | BankSift",
+    "metaTitle": "What Is a Good Net Interest Margin (NIM) for a Bank? | BankSift",
     "metaDescription": "Learn what constitutes a good net interest margin for banks by type, how the rate environment affects NIM, and how to benchmark against peers."
   },
   {
@@ -996,7 +996,7 @@ export const FAQS = [
       "target": "/metrics/net-interest-margin",
       "text": "Learn more about net interest margin and how it drives bank profitability"
     },
-    "metaTitle": "What Causes NIM to Change? | BankSift",
+    "metaTitle": "What Causes Net Interest Margin (NIM) to Change? | BankSift",
     "metaDescription": "Understand what drives net interest margin higher or lower, from interest rate dynamics and yield curve shape to deposit competition and loan mix."
   },
   {
@@ -1158,7 +1158,7 @@ export const FAQS = [
       "target": "/metrics/return-on-tangible-common-equity",
       "text": "Learn more about ROTCE and how it compares to ROE"
     },
-    "metaTitle": "What Is ROTCE? Bank Profitability | BankSift",
+    "metaTitle": "What Is ROTCE? Return on Tangible Common Equity | BankSift",
     "metaDescription": "Learn what return on tangible common equity (ROTCE) is, how it differs from ROE, and when it provides a better measure of bank profitability."
   },
   {
@@ -1327,7 +1327,7 @@ export const FAQS = [
       "target": "/valuation/price-to-book-valuation",
       "text": "Learn the P/B valuation framework to assess whether a discount is justified"
     },
-    "metaTitle": "P/B Below 1.0: Is It Undervalued? | BankSift",
+    "metaTitle": "P/B Ratio Below 1.0: Is It Undervalued? | BankSift",
     "metaDescription": "Learn why a bank trading below book value is not automatically undervalued and the key factors that justify or invalidate a sub-1.0 P/B discount."
   },
   {
@@ -2541,7 +2541,7 @@ export const FAQS = [
       "target": "/screener",
       "text": "Screen banks by ROE and related profitability metrics"
     },
-    "metaTitle": "How to Calculate ROE for a Bank Stock | BankSift",
+    "metaTitle": "How to Calculate Return on Equity (ROE) for a Bank | BankSift",
     "metaDescription": "Step-by-step guide to calculating ROE for banks, including the DuPont decomposition, FFIEC averaging methods, and where to find inputs in SEC filings."
   },
   {
@@ -2577,7 +2577,7 @@ export const FAQS = [
       "target": "/screener",
       "text": "Screen banks by ROAA and compare across sizes"
     },
-    "metaTitle": "How to Calculate ROAA for a Bank Stock | BankSift",
+    "metaTitle": "How to Calculate Return on Average Assets (ROAA) for a Bank | BankSift",
     "metaDescription": "Step-by-step guide to calculating ROAA for banks, including averaging methods, annualizing quarterly data, and the ROAA-to-ROE relationship."
   },
   {
@@ -2687,7 +2687,7 @@ export const FAQS = [
       "target": "/screener",
       "text": "Screen banks by Deposits to Assets ratio"
     },
-    "metaTitle": "How to Calculate Deposits to Assets for a Bank | BankSift",
+    "metaTitle": "How to Calculate the Deposits-to-Assets Ratio for a Bank | BankSift",
     "metaDescription": "Step-by-step guide to calculating the deposits-to-assets ratio, including the difference between total and core deposits and where to find data in filings."
   },
   {
@@ -2721,7 +2721,7 @@ export const FAQS = [
       "target": "/screener",
       "text": "Screen banks by Loans to Deposits ratio"
     },
-    "metaTitle": "How to Calculate Loans to Deposits for a Bank | BankSift",
+    "metaTitle": "How to Calculate the Loans-to-Deposits Ratio for a Bank | BankSift",
     "metaDescription": "Step-by-step guide to calculating the loans-to-deposits ratio, including net vs gross loans, the relationship to other balance sheet ratios, and filing sources."
   },
   {
@@ -2754,7 +2754,7 @@ export const FAQS = [
       "target": "/screener",
       "text": "Screen banks by Loans to Assets ratio"
     },
-    "metaTitle": "How to Calculate Loans to Assets for a Bank | BankSift",
+    "metaTitle": "How to Calculate the Loans-to-Assets Ratio for a Bank | BankSift",
     "metaDescription": "Step-by-step guide to calculating the loans-to-assets ratio, including net vs gross loans, average vs period-end assets, and what the ratio reveals."
   },
   {
@@ -2791,7 +2791,7 @@ export const FAQS = [
       "target": "/screener",
       "text": "Screen banks by Equity to Assets ratio"
     },
-    "metaTitle": "How to Calculate Equity to Assets for a Bank | BankSift",
+    "metaTitle": "How to Calculate the Equity-to-Assets Ratio for a Bank | BankSift",
     "metaDescription": "Step-by-step guide to calculating equity to assets, including the equity multiplier, the DuPont connection to ROE, and the impact of AOCI on results."
   },
   {
@@ -3227,7 +3227,7 @@ export const FAQS = [
       "target": "/screener",
       "text": "Identify banks with elevated loans-to-deposits ratios using the screener"
     },
-    "metaTitle": "What Happens When Loans-to-Deposits Is Too High? | BankSift",
+    "metaTitle": "What Happens When the Loans-to-Deposits Ratio Is Too High? | BankSift",
     "metaDescription": "Understand the risks of a high loans-to-deposits ratio for banks, including increased funding costs, liquidity risk, and regulatory concerns."
   },
   {
@@ -3267,7 +3267,7 @@ export const FAQS = [
       "target": "/screener",
       "text": "Compare loans-to-deposits ratios across banks to spot under-lenders and active lenders"
     },
-    "metaTitle": "What Happens When Loans-to-Deposits Is Too Low? | BankSift",
+    "metaTitle": "What Happens When the Loans-to-Deposits Ratio Is Too Low? | BankSift",
     "metaDescription": "Learn why a low loans-to-deposits ratio can signal underutilized deposits, weaker profitability, and what to investigate when a bank is under-lending."
   },
   {
@@ -3544,7 +3544,7 @@ export const FAQS = [
       "target": "/metrics/tangible-common-equity-ratio",
       "text": "Learn more about the TCE ratio and how to calculate it"
     },
-    "metaTitle": "What Is the TCE Ratio for Banks? | BankSift",
+    "metaTitle": "What Is the Tangible Common Equity (TCE) Ratio for Banks? | BankSift",
     "metaDescription": "Learn what the tangible common equity (TCE) ratio measures, why bank analysts prefer it over simpler capital metrics, and what typical ranges look like."
   },
   {
@@ -5021,7 +5021,7 @@ export const FAQS = [
       "target": "/metrics/non-performing-assets-ratio",
       "text": "Learn more about the NPA ratio and how it captures the full scope of problem assets"
     },
-    "metaTitle": "How to Calculate the NPA Ratio for Banks | BankSift",
+    "metaTitle": "How to Calculate the Non-Performing Assets (NPA) Ratio for Banks | BankSift",
     "metaDescription": "Step-by-step guide to calculating the non-performing assets ratio, including what counts as NPA, how it differs from the NPL ratio, and where to find the data."
   },
   {
@@ -5256,7 +5256,7 @@ export const FAQS = [
       "target": "/metrics/tangible-common-equity-ratio",
       "text": "Learn more about the TCE ratio and why bank analysts prefer it"
     },
-    "metaTitle": "How to Calculate the TCE Ratio for Banks | BankSift",
+    "metaTitle": "How to Calculate the Tangible Common Equity (TCE) Ratio for Banks | BankSift",
     "metaDescription": "Step-by-step guide to calculating the tangible common equity ratio for banks, including what to subtract, a worked example, and how it compares to equity-to-assets and CET1."
   },
   {
@@ -5500,7 +5500,7 @@ export const FAQS = [
       "target": "/metrics/risk-weighted-assets-density",
       "text": "Learn more about RWA density and what it reveals about bank asset risk profiles"
     },
-    "metaTitle": "How to Calculate RWA Density for Banks | BankSift",
+    "metaTitle": "How to Calculate Risk-Weighted Assets (RWA) Density for Banks | BankSift",
     "metaDescription": "Step-by-step guide to calculating risk-weighted assets density, including what it reveals about a bank's asset risk profile and how it connects to capital ratios."
   },
   {
@@ -5628,7 +5628,7 @@ export const FAQS = [
       "target": "/metrics/return-on-tangible-common-equity",
       "text": "Learn more about ROTCE and why bank analysts use it alongside ROE"
     },
-    "metaTitle": "How to Calculate ROTCE for Banks | BankSift",
+    "metaTitle": "How to Calculate Return on Tangible Common Equity (ROTCE) for Banks | BankSift",
     "metaDescription": "Step-by-step guide to calculating return on tangible common equity (ROTCE) for banks, including the formula, a worked example, and common mistakes to avoid."
   },
   {
@@ -5669,7 +5669,7 @@ export const FAQS = [
       "target": "/metrics/pre-provision-net-revenue",
       "text": "Learn more about PPNR and why analysts use it to assess bank earnings power"
     },
-    "metaTitle": "How to Calculate PPNR for Banks | BankSift",
+    "metaTitle": "How to Calculate Pre-Provision Net Revenue (PPNR) for Banks | BankSift",
     "metaDescription": "Step-by-step guide to calculating pre-provision net revenue (PPNR) for banks, including the formula, a worked example, and how to annualize and adjust the figure."
   },
   {
@@ -7287,7 +7287,7 @@ export const FAQS = [
       "target": "/metrics/tangible-book-value-per-share",
       "text": "Learn how tangible book value per share incorporates AOCI and what it means for valuation"
     },
-    "metaTitle": "What Is AOCI for Banks? | BankSift",
+    "metaTitle": "What Is Accumulated Other Comprehensive Income (AOCI) for Banks? | BankSift",
     "metaDescription": "Learn what accumulated other comprehensive income (AOCI) is, how unrealized securities losses affect bank equity, and why it matters for valuation and capital."
   },
   {
