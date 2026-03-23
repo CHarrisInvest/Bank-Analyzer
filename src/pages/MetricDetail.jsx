@@ -118,13 +118,14 @@ function MetricDetail() {
         canonical={`/metrics/${slug}`}
         image="https://banksift.org/og-metrics.png"
       />
-      <BackButton />
-
-      <nav className="breadcrumb">
-        <Link to="/metrics">Metrics & Ratios</Link>
-        <span className="separator">/</span>
-        <span>{metric.name}</span>
-      </nav>
+      <div className="detail-nav-row">
+        <BackButton />
+        <nav className="breadcrumb">
+          <Link to="/metrics">Metrics & Ratios</Link>
+          <span className="separator">/</span>
+          <span>{metric.name}</span>
+        </nav>
+      </div>
 
       <article className="metric-article">
         <header className="metric-header">
