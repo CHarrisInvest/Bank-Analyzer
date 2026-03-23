@@ -271,7 +271,7 @@ function MetricsIndex() {
         <h1>Bank Financial Metrics & Ratios</h1>
         <p>
           Understanding financial metrics is essential for analyzing banks effectively.
-          Banks operate differently from most companies — they earn money primarily by
+          Banks operate differently from most companies. They earn money primarily by
           borrowing (deposits) and lending at higher rates. This means standard corporate
           metrics do not always apply. The ratios below are specifically relevant to
           evaluating bank performance, risk, and value.
