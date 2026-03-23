@@ -224,6 +224,8 @@ function MetricDetail() {
           </section>
         )}
 
+        <div className="faq-explore-more">
+
         {metric.relatedMetrics && metric.relatedMetrics.length > 0 && (
           <section className="metric-section">
             <h2>Related Metrics</h2>
@@ -298,6 +300,8 @@ function MetricDetail() {
             </div>
           </section>
         )}
+
+        </div>
 
         {metric.whereToFindData && (
           <section className="metric-section">

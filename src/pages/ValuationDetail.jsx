@@ -160,6 +160,8 @@ function ValuationDetail() {
           </section>
         )}
 
+        <div className="faq-explore-more">
+
         {method.faqTeasers && method.faqTeasers.length > 0 && (
           <section className="valuation-section">
             <h2>Frequently Asked Questions</h2>
@@ -232,6 +234,8 @@ function ValuationDetail() {
             </div>
           </section>
         )}
+
+        </div>
       </article>
 
       <div className="page-navigation">

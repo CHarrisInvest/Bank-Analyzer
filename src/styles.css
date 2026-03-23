@@ -5682,6 +5682,78 @@ body {
   margin: 0;
 }
 
+/* Compact card layout for related items on metric/valuation detail pages */
+.metric-section .related-metrics-list,
+.valuation-section .related-metrics-list {
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.metric-section .related-metric-item,
+.valuation-section .related-metric-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-2) var(--spacing-3);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.metric-section .related-metric-item:hover,
+.valuation-section .related-metric-item:hover {
+  background: rgba(43, 108, 176, 0.04);
+  border-color: var(--color-accent);
+  border-left-color: var(--color-accent);
+}
+
+/* FAQ teaser cards on metric/valuation detail pages */
+.faq-teasers-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.faq-teaser-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-3) var(--spacing-4);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.faq-teaser-card:hover {
+  background: rgba(43, 108, 176, 0.04);
+  border-color: var(--color-accent);
+  border-left-color: var(--color-accent);
+}
+
+.faq-teaser-card h3 {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-800);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.faq-teaser-card p {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-600);
+  line-height: 1.5;
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.faq-teaser-link {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.faq-teaser-link:hover {
+  color: var(--color-primary);
+}
+
 .related-methods {
   display: flex;
   flex-wrap: wrap;
