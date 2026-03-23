@@ -71,108 +71,116 @@ function FaqDetail() {
           {renderFormattedText(faq.fullAnswer, 'ans')}
         </section>
 
-        {faq.relatedMetrics && faq.relatedMetrics.length > 0 && (
-          <section className="faq-section">
-            <h2>Related Metrics</h2>
-            <div className="related-metrics-list">
-              {faq.relatedMetrics.map(metricSlug => {
-                const metric = METRICS.find(m => m.slug === metricSlug);
-                if (!metric) return null;
-                return (
-                  <div key={metricSlug} className="related-metric-item">
-                    <NavigationLink
-                      to={'/metrics/' + metricSlug}
-                      state={{ from: 'faq-detail', returnPath: '/faq/' + faqSlug }}
-                      className="related-metric-badge"
-                      pageTitle={metric.name}
-                    >
-                      {metric.name}
-                    </NavigationLink>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        )}
+        <div className="faq-explore-more">
+          <h2 className="faq-explore-more-heading">Keep Exploring</h2>
 
-        {faq.relatedValuations && faq.relatedValuations.length > 0 && (
-          <section className="faq-section">
-            <h2>Related Valuation Methods</h2>
-            <div className="related-metrics-list">
-              {faq.relatedValuations.map(valSlug => {
-                const valMethod = VALUATION_METHODS.find(v => v.slug === valSlug);
-                if (!valMethod) return null;
-                return (
-                  <div key={valSlug} className="related-metric-item">
-                    <NavigationLink
-                      to={'/valuation/' + valSlug}
-                      state={{ from: 'faq-detail', returnPath: '/faq/' + faqSlug }}
-                      className="related-metric-badge"
-                      pageTitle={valMethod.name}
-                    >
-                      {valMethod.name}
-                    </NavigationLink>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        )}
-
-        {faq.relatedFaqs && faq.relatedFaqs.length > 0 && (
-          <section className="faq-section">
-            <h2>Related Questions</h2>
-            <div className="related-questions-list">
-              {faq.relatedFaqs.map(relatedSlug => {
-                const relatedFaq = FAQS.find(f => f.slug === relatedSlug);
-                if (!relatedFaq) return null;
-                return (
-                  <Link
-                    key={relatedSlug}
-                    to={'/faq/' + relatedFaq.slug}
-                    className="related-question-card"
-                  >
-                    {relatedFaq.question}
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        )}
-
-        <section className="faq-glossary-callout">
-          <span className="faq-glossary-callout-icon" aria-hidden="true">📖</span>
-          {faq.relatedGlossaryTerms && faq.relatedGlossaryTerms.length > 0 ? (
-            <p>
-              Key terms: {faq.relatedGlossaryTerms.map((term, i) => (
-                <span key={term}>
-                  {i > 0 && ', '}
-                  <Link to="/glossary">{term}</Link>
-                </span>
-              ))}
-              {' — '}see the <Link to="/glossary">Financial Glossary</Link> for full definitions.
-            </p>
-          ) : (
-            <p>
-              See the <Link to="/glossary">Financial Glossary</Link> for definitions of bank investing terms used in this article.
-            </p>
+          {faq.relatedMetrics && faq.relatedMetrics.length > 0 && (
+            <section className="faq-explore-section">
+              <h3 className="faq-explore-label">Related Metrics</h3>
+              <div className="related-metrics-list">
+                {faq.relatedMetrics.map(metricSlug => {
+                  const metric = METRICS.find(m => m.slug === metricSlug);
+                  if (!metric) return null;
+                  return (
+                    <div key={metricSlug} className="related-metric-item">
+                      <NavigationLink
+                        to={'/metrics/' + metricSlug}
+                        state={{ from: 'faq-detail', returnPath: '/faq/' + faqSlug }}
+                        className="related-metric-badge"
+                        pageTitle={metric.name}
+                      >
+                        {metric.name}
+                      </NavigationLink>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
           )}
-        </section>
 
-        {faq.cta && (
-          <div className="faq-cta">
-            <Link to={faq.cta.target} className="btn btn-primary">
-              {faq.cta.text}
-            </Link>
-          </div>
-        )}
+          {faq.relatedValuations && faq.relatedValuations.length > 0 && (
+            <section className="faq-explore-section">
+              <h3 className="faq-explore-label">Valuation Methods</h3>
+              <div className="related-metrics-list">
+                {faq.relatedValuations.map(valSlug => {
+                  const valMethod = VALUATION_METHODS.find(v => v.slug === valSlug);
+                  if (!valMethod) return null;
+                  return (
+                    <div key={valSlug} className="related-metric-item">
+                      <NavigationLink
+                        to={'/valuation/' + valSlug}
+                        state={{ from: 'faq-detail', returnPath: '/faq/' + faqSlug }}
+                        className="related-metric-badge"
+                        pageTitle={valMethod.name}
+                      >
+                        {valMethod.name}
+                      </NavigationLink>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          {faq.relatedFaqs && faq.relatedFaqs.length > 0 && (
+            <section className="faq-explore-section">
+              <h3 className="faq-explore-label">Related Questions</h3>
+              <div className="related-questions-list">
+                {faq.relatedFaqs.map(relatedSlug => {
+                  const relatedFaq = FAQS.find(f => f.slug === relatedSlug);
+                  if (!relatedFaq) return null;
+                  return (
+                    <Link
+                      key={relatedSlug}
+                      to={'/faq/' + relatedFaq.slug}
+                      className="related-question-card"
+                    >
+                      {relatedFaq.question}
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          <section className="faq-glossary-callout">
+            <span className="faq-glossary-callout-icon" aria-hidden="true">📖</span>
+            {faq.relatedGlossaryTerms && faq.relatedGlossaryTerms.length > 0 ? (
+              <p>
+                Key terms: {faq.relatedGlossaryTerms.map((term, i) => (
+                  <span key={term}>
+                    {i > 0 && ', '}
+                    <Link to="/glossary">{term}</Link>
+                  </span>
+                ))}
+                {' — '}see the <Link to="/glossary">Financial Glossary</Link> for full definitions.
+              </p>
+            ) : (
+              <p>
+                See the <Link to="/glossary">Financial Glossary</Link> for definitions of bank investing terms used in this article.
+              </p>
+            )}
+          </section>
+
+          {faq.cta && (
+            <section className="faq-cta-callout">
+              <div className="faq-cta-callout-content">
+                <span className="faq-cta-callout-icon" aria-hidden="true">📊</span>
+                <p>{faq.cta.text}</p>
+              </div>
+              <Link to={faq.cta.target} className="btn btn-accent">
+                Go to Screener &rarr;
+              </Link>
+            </section>
+          )}
+        </div>
       </article>
 
       <div className="page-navigation">
         <NavigationLink
           to="/faq"
           state={{ from: 'faq-detail' }}
-          className="btn btn-secondary"
+          className="btn btn-nav"
           pageTitle="FAQ"
         >
           &larr; All FAQ Topics
@@ -180,7 +188,7 @@ function FaqDetail() {
         <NavigationLink
           to="/screener"
           state={{ from: 'faq-detail' }}
-          className="btn btn-primary"
+          className="btn btn-nav btn-nav-primary"
           pageTitle="Screener"
         >
           Open Screener &rarr;
