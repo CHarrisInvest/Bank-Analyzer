@@ -225,29 +225,32 @@ function MetricDetail() {
         )}
 
         <div className="faq-explore-more">
+          <h2 className="faq-explore-more-heading">Keep Exploring</h2>
 
         {metric.relatedMetrics && metric.relatedMetrics.length > 0 && (
-          <section className="metric-section">
-            <h2>Related Metrics</h2>
+          <section className="faq-explore-section">
+            <h3 className="faq-explore-label">Related Metrics</h3>
             <div className="related-metrics-list">
               {metric.relatedMetrics.map(related => {
                 const relatedMetric = METRICS.find(m => m.slug === related);
                 if (!relatedMetric) return null;
                 const description = metric.relatedMetricDescriptions && metric.relatedMetricDescriptions[related];
                 return (
-                  <div key={related} className="related-metric-item">
-                    <NavigationLink
-                      to={'/metrics/' + related}
-                      state={{ from: 'metrics-detail', returnPath: '/metrics/' + slug }}
-                      className="related-metric-badge"
-                      pageTitle={relatedMetric.name}
-                    >
-                      {relatedMetric.name}
-                    </NavigationLink>
-                    {description && (
-                      <p className="related-metric-desc">{description}</p>
-                    )}
-                  </div>
+                  <NavigationLink
+                    key={related}
+                    to={'/metrics/' + related}
+                    state={{ from: 'metrics-detail', returnPath: '/metrics/' + slug }}
+                    className="related-item-card"
+                    pageTitle={relatedMetric.name}
+                  >
+                    <div className="related-item-card-content">
+                      <span className="related-item-card-name">{relatedMetric.name}</span>
+                      {description && (
+                        <span className="related-item-card-desc">{description}</span>
+                      )}
+                    </div>
+                    <span className="related-item-card-arrow" aria-hidden="true">&rarr;</span>
+                  </NavigationLink>
                 );
               })}
             </div>
@@ -255,25 +258,27 @@ function MetricDetail() {
         )}
 
         {metric.relatedValuations && metric.relatedValuations.length > 0 && (
-          <section className="metric-section">
-            <h2>Related Valuation Methods</h2>
+          <section className="faq-explore-section">
+            <h3 className="faq-explore-label">Valuation Methods</h3>
             <div className="related-metrics-list">
               {metric.relatedValuations.map(valSlug => {
                 const valMethod = VALUATION_METHODS.find(v => v.slug === valSlug);
                 if (!valMethod) return null;
                 const desc = metric.relatedValuationDescriptions?.[valSlug];
                 return (
-                  <div key={valSlug} className="related-metric-item">
-                    <NavigationLink
-                      to={'/valuation/' + valSlug}
-                      state={{ from: 'metrics-detail', returnPath: '/metrics/' + slug }}
-                      className="related-metric-badge"
-                      pageTitle={valMethod.name}
-                    >
-                      {valMethod.name}
-                    </NavigationLink>
-                    {desc && <p className="related-metric-desc">{desc}</p>}
-                  </div>
+                  <NavigationLink
+                    key={valSlug}
+                    to={'/valuation/' + valSlug}
+                    state={{ from: 'metrics-detail', returnPath: '/metrics/' + slug }}
+                    className="related-item-card"
+                    pageTitle={valMethod.name}
+                  >
+                    <div className="related-item-card-content">
+                      <span className="related-item-card-name">{valMethod.name}</span>
+                      {desc && <span className="related-item-card-desc">{desc}</span>}
+                    </div>
+                    <span className="related-item-card-arrow" aria-hidden="true">&rarr;</span>
+                  </NavigationLink>
                 );
               })}
             </div>
@@ -281,21 +286,22 @@ function MetricDetail() {
         )}
 
         {metric.faqTeasers && metric.faqTeasers.length > 0 && (
-          <section className="metric-section">
-            <h2>Frequently Asked Questions</h2>
+          <section className="faq-explore-section">
+            <h3 className="faq-explore-label">Frequently Asked Questions</h3>
             <div className="faq-teasers-list">
               {metric.faqTeasers.map((faqTeaser, idx) => (
-                <div key={idx} className="faq-teaser-card">
-                  <h3>{faqTeaser.question}</h3>
-                  <p>{faqTeaser.teaser}</p>
-                  <NavigationLink
-                    to={`/faq/${faqTeaser.faqSlug}`}
-                    className="faq-teaser-link"
-                    pageTitle={faqTeaser.question}
-                  >
-                    Read more →
-                  </NavigationLink>
-                </div>
+                <NavigationLink
+                  key={idx}
+                  to={`/faq/${faqTeaser.faqSlug}`}
+                  className="faq-teaser-card"
+                  pageTitle={faqTeaser.question}
+                >
+                  <div className="related-item-card-content">
+                    <span className="related-item-card-name">{faqTeaser.question}</span>
+                    <span className="related-item-card-desc">{faqTeaser.teaser}</span>
+                  </div>
+                  <span className="related-item-card-arrow" aria-hidden="true">&rarr;</span>
+                </NavigationLink>
               ))}
             </div>
           </section>
