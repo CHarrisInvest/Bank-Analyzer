@@ -52,13 +52,14 @@ function ValuationDetail() {
         image="https://banksift.org/og-valuation.png"
         type="article"
       />
-      <BackButton />
-
-      <nav className="breadcrumb">
-        <Link to="/valuation">Valuation Methods</Link>
-        <span className="separator">/</span>
-        <span>{method.name}</span>
-      </nav>
+      <div className="detail-nav-row">
+        <BackButton />
+        <nav className="breadcrumb">
+          <Link to="/valuation">Valuation Methods</Link>
+          <span className="separator">/</span>
+          <span>{method.name}</span>
+        </nav>
+      </div>
 
       <article className="valuation-article">
         <header className="valuation-header">
