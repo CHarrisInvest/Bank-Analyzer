@@ -6728,40 +6728,87 @@ body {
   color: var(--color-white);
 }
 
-/* Glossary callout on FAQ detail pages */
-.faq-glossary-callout {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-3);
+/* Glossary card on FAQ detail pages */
+.faq-glossary-card {
   margin-top: var(--spacing-4);
   margin-bottom: var(--spacing-4);
-  padding: var(--spacing-3) var(--spacing-4);
-  background: var(--color-gray-50);
+  padding: var(--spacing-4) var(--spacing-5);
+  background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
   border: 1px solid var(--color-gray-200);
-  border-left: 3px solid var(--color-accent);
+  border-left: 3px solid var(--color-primary);
   border-radius: var(--radius-md);
 }
 
-.faq-glossary-callout-icon {
-  flex-shrink: 0;
+.faq-glossary-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-3);
+}
+
+.faq-glossary-card-icon {
   font-size: var(--font-size-lg);
 }
 
-.faq-glossary-callout p {
-  margin: 0;
+.faq-glossary-card-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.faq-glossary-card-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-3);
+}
+
+.faq-glossary-term-badge {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: 9999px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.faq-glossary-term-badge:hover {
+  background: var(--color-gray-50);
+  border-color: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.faq-glossary-card-desc {
+  margin: 0 0 var(--spacing-3);
   font-size: var(--font-size-sm);
   color: var(--color-gray-600);
   line-height: 1.5;
 }
 
-.faq-glossary-callout a {
-  color: var(--color-accent);
-  font-weight: var(--font-weight-medium);
-  text-decoration: none;
+.faq-glossary-card-footer {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.faq-glossary-callout a:hover {
-  text-decoration: underline;
+.btn-glossary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn-glossary:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
 }
 
 /* ==========================================================================
