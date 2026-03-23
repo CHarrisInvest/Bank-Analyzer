@@ -187,7 +187,7 @@ function ValuationDetail() {
 
         {method.relatedMethods && method.relatedMethods.length > 0 && (
           <section className="faq-explore-section">
-            <h3 className="faq-explore-label">Related Methods</h3>
+            <h3 className="faq-explore-label">Related Valuation Methods</h3>
             <div className="related-metrics-list">
               {method.relatedMethods.map(related => {
                 const relatedMethod = VALUATION_METHODS.find(m => m.slug === related);

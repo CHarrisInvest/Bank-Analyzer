@@ -259,7 +259,7 @@ function MetricDetail() {
 
         {metric.relatedValuations && metric.relatedValuations.length > 0 && (
           <section className="faq-explore-section">
-            <h3 className="faq-explore-label">Valuation Methods</h3>
+            <h3 className="faq-explore-label">Related Valuation Methods</h3>
             <div className="related-metrics-list">
               {metric.relatedValuations.map(valSlug => {
                 const valMethod = VALUATION_METHODS.find(v => v.slug === valSlug);
