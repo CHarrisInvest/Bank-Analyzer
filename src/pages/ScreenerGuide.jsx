@@ -121,10 +121,6 @@ const FAQ_ITEMS = [
     answer: 'All financial data comes directly from SEC EDGAR filings, specifically 10-K (annual) and 10-Q (quarterly) reports. This is the same official data source used by professional investors and analysts.',
   },
   {
-    question: 'What is the Graham Number?',
-    answer: 'The Graham Number is a value investing metric developed by Benjamin Graham. It estimates the maximum fair price for a stock using the formula: √(22.5 × EPS × Book Value Per Share). Stocks trading below their Graham Number may be undervalued.',
-  },
-  {
     question: 'How many banks does BankSift track?',
     answer: 'BankSift tracks over 300 publicly traded banks that file with the SEC under bank-related SIC codes. This includes national commercial banks, state commercial banks, and savings institutions.',
   },
@@ -143,6 +139,7 @@ const FAQ_ITEMS = [
   {
     question: 'How do I find undervalued bank stocks?',
     answer: 'Use the Value Screening strategy: filter for Price to Book below 1.0, ROE above 8%, and Graham Margin of Safety above 20%. These criteria help identify banks trading below their intrinsic value with solid fundamentals.',
+    link: '/faq/filters-for-undervalued-banks',
   },
 ];
 
@@ -748,7 +745,14 @@ function ScreenerGuide() {
             {FAQ_ITEMS.map((item, index) => (
               <details key={index} className="faq-item">
                 <summary className="faq-question">{item.question}</summary>
-                <p className="faq-answer">{item.answer}</p>
+                <div className="faq-answer">
+                  <p>{item.answer}</p>
+                  {item.link && (
+                    <Link to={item.link} className="faq-learn-more">
+                      Learn more →
+                    </Link>
+                  )}
+                </div>
               </details>
             ))}
           </div>

@@ -696,14 +696,6 @@ async function generatePages() {
             },
             {
               "@type": "Question",
-              "name": "What is the Graham Number?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The Graham Number is a value investing metric developed by Benjamin Graham. It estimates the maximum fair price for a stock using the formula: √(22.5 × EPS × Book Value Per Share). Stocks trading below their Graham Number may be undervalued."
-              }
-            },
-            {
-              "@type": "Question",
               "name": "How many banks does BankSift track?",
               "acceptedAnswer": {
                 "@type": "Answer",

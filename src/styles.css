@@ -6713,6 +6713,21 @@ body {
   margin-bottom: 0;
 }
 
+.faq-learn-more {
+  display: inline-block;
+  margin-top: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.faq-learn-more:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 /* Related Questions - card layout for FAQ detail pages */
 .related-questions-list {
   display: flex;
