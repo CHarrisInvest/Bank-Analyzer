@@ -2816,7 +2816,10 @@ export const METRICS = [
     ],
     "relatedValuations": [
       "peer-comparison"
-    ]
+    ],
+    "relatedValuationDescriptions": {
+      "peer-comparison": "Cost of deposits is a standard metric in peer analysis, revealing which banks have the strongest deposit franchises. Banks with lower deposit costs enjoy a structural funding advantage that widens during rising rate environments and directly supports wider margins."
+    }
   },
   {
     "slug": "non-interest-income-to-revenue",
