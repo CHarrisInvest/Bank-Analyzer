@@ -1035,6 +1035,33 @@ export const INSIGHT_CATEGORIES = [
         }
       }
     ]
+  },
+  {
+    slug: 'bank-earnings-analysis',
+    name: 'Bank Earnings Analysis',
+    shortDescription: 'How to read bank quarterly reports, interpret earnings quality, and separate sustainable results from noise.',
+    icon: 'earnings',
+    order: 8,
+    metaTitle: 'Bank Earnings Analysis Guide for Investors | BankSift Insights',
+    metaDescription: 'Learn how to read bank quarterly earnings reports, evaluate provision trends, identify one-time items, interpret management commentary, and compare results against estimates.',
+    hubContent: 'Bank earnings reports contain more noise than most other industries. A single quarter\'s results can be distorted by provision expense swings, securities gains or losses, one-time charges, and accounting adjustments that have nothing to do with the bank\'s underlying business performance. Separating signal from noise is the central skill of bank earnings analysis.\n\nFor investors, the goal is not just knowing whether a bank beat or missed the consensus estimate. It\'s understanding whether the core business is getting stronger or weaker, whether management is building or spending reserves, and whether the earnings power trajectory justifies the current stock price.\n\n## Reading Quarterly Reports\n\nBank earnings releases follow a predictable structure, but the important information is not always in the headline numbers. The press release typically leads with EPS, net income, and ROE. The supplemental data tables that follow contain the real detail: net interest margin trends, fee income breakdowns, provision expense, asset quality metrics, and capital ratios.\n\nLearning to navigate these supplements efficiently is worth the effort. The same data that drives analyst models and stock price reactions is sitting in public documents, available the moment the bank reports.\n\n[[article:reading-quarterly-reports]]\n\n## Provision Trends\n\nProvision for credit losses is the single most volatile line item in bank earnings. It represents the expense the bank recognizes to build or replenish its loan loss reserves. In good times, provisions are low and may even be negative (reserve releases that boost earnings). In bad times, provisions spike and can consume most or all of a bank\'s pre-provision earnings.\n\nUnderstanding what\'s driving provision expense, whether it\'s actual loan deterioration, changes in the economic forecast under CECL accounting, or portfolio growth requiring additional reserves, is essential for assessing earnings quality.\n\n[[article:provision-trends]]\n\n## One-Time Items\n\nBank earnings frequently include items that won\'t recur: securities gains or losses from portfolio repositioning, merger-related charges, branch closure costs, legal settlements, gains on asset sales, or tax adjustments. These items can make a mediocre quarter look strong or a solid quarter look weak.\n\nAnalysts and management teams typically highlight "adjusted" or "core" earnings that exclude these items. Reviewing both the reported and adjusted figures, and understanding what was excluded and why, gives a clearer picture of the bank\'s run-rate earning power.\n\n[[article:one-time-items]]\n\n## Management Commentary\n\nThe earnings call and investor presentation provide context that the numbers alone cannot. Management discusses the outlook for loan growth, deposit trends, margin expectations, and credit quality. The tone and specificity of this commentary often signal how confident management is in the forward trajectory.\n\nExperienced bank investors pay as much attention to what management says (and doesn\'t say) as to the reported numbers.\n\n[[article:management-commentary]]\n\n## Estimate Comparisons\n\nBank stocks react to earnings relative to expectations. A bank can report record earnings and see its stock decline if analysts expected even more. Understanding where consensus estimates sit before the report, and which line items drove the beat or miss, helps investors interpret post-earnings price moves and decide whether the reaction is justified.\n\n[[article:estimate-comparisons]]\n\n## Building an Earnings Framework\n\nThe most useful approach to bank earnings analysis is building a simple mental framework: start with pre-provision net revenue (PPNR) to assess core operating performance, then layer in provision expense to understand credit costs, then adjust for one-time items to arrive at normalized earnings. Tracking this framework quarter over quarter reveals whether the bank\'s fundamental trajectory is improving, stable, or deteriorating, regardless of the noise in any single quarter\'s reported numbers.',
+    relatedMetrics: ['earnings-per-share', 'roe', 'roaa', 'efficiency-ratio', 'pre-provision-net-revenue', 'net-interest-margin', 'provision-to-average-loans'],
+    relatedMetricDescriptions: {
+      'earnings-per-share': 'The headline metric for quarterly earnings, though often distorted by non-recurring items',
+      'roe': 'Return on equity measures how effectively the bank converts capital into earnings',
+      'roaa': 'Return on assets normalizes for leverage differences when comparing bank profitability',
+      'efficiency-ratio': 'Shows operating cost discipline independent of credit and tax effects',
+      'pre-provision-net-revenue': 'The best measure of core operating performance before credit costs',
+      'net-interest-margin': 'NIM trends drive the largest component of bank revenue',
+      'provision-to-average-loans': 'Connects provision expense to the loan portfolio that generates it'
+    },
+    relatedValuations: ['price-to-earnings-valuation', 'roe-pb-framework'],
+    relatedValuationDescriptions: {
+      'price-to-earnings-valuation': 'Earnings quality directly affects whether reported P/E multiples are meaningful',
+      'roe-pb-framework': 'Sustainable ROE derived from normalized earnings is the key input to justified P/B analysis'
+    },
+    relatedFaqSlugs: ['what-is-ppnr', 'what-is-provision-for-credit-losses', 'what-is-allowance-for-credit-losses'],
+    articles: []
   }
 ];
 
