@@ -323,7 +323,130 @@ export const INSIGHT_CATEGORIES = [
       'excess-capital-return-model': 'Excess capital above regulatory minimums is a key input to capital return valuations'
     },
     relatedFaqSlugs: ['what-is-tier-1-capital-ratio', 'how-to-calculate-total-capital-ratio', 'what-happens-below-minimum-capital'],
-    articles: []
+    articles: [
+      {
+        slug: 'bank-regulators-overview',
+        title: 'US Bank Regulators: Who Oversees What',
+        shortDescription: 'A guide to the OCC, Federal Reserve, FDIC, and state regulators and how their jurisdictions are divided.',
+        order: 1,
+        metaTitle: 'US Bank Regulators Overview: OCC, Fed, FDIC | BankSift Insights',
+        metaDescription: 'Understand which federal and state agencies regulate US banks, how oversight responsibilities are divided by charter type, and what each regulator focuses on.',
+        content: 'The US bank regulatory system splits oversight across multiple agencies based on how a bank is chartered and organized. This structure is unusual internationally (most countries have a single bank regulator) and can be confusing, but the basic division is straightforward once you know the rules.\n\n## The Federal Regulators\n\nThe Office of the Comptroller of the Currency (OCC) charters and supervises national banks, which include the word "National" or the abbreviation "N.A." in their names. National banks tend to be larger institutions, though some community banks also hold national charters.\n\nThe Federal Reserve supervises state-chartered banks that have elected to become members of the Federal Reserve System. More importantly, the Fed oversees all bank holding companies regardless of the subsidiary bank\'s charter type. If you own stock in a bank holding company (which is the entity listed on stock exchanges), the Fed is the holding company\'s primary regulator.\n\nThe FDIC supervises state-chartered banks that are not Federal Reserve members. The FDIC also administers the deposit insurance fund that insures deposits up to $250,000 per depositor per bank, giving it a financial interest in the health of every insured institution.\n\n## State Regulators\n\nEvery state has a banking department that charters and examines state-chartered banks operating within its borders. State regulators work alongside the bank\'s federal supervisor, and their examination schedules are typically coordinated to avoid duplicating the burden on the bank.\n\n## Why This Matters for Investors\n\nThe regulatory structure affects investors in practical ways. Enforcement actions, examination findings, and supervisory ratings vary across agencies. A bank under an OCC consent order faces different procedural steps than one under an FDIC consent order, though the practical impact (restrictions on growth, dividends, or acquisitions) is similar.\n\nWhen researching a bank, identify its primary federal regulator from its charter type (usually noted in the 10-K). Enforcement actions are public and searchable through each agency\'s website. A bank with a clean regulatory record across all its supervisors carries less risk than one with outstanding issues.',
+        relatedMetrics: ['cet1-capital-ratio', 'tier-1-capital-ratio'],
+        relatedMetricDescriptions: {
+          'cet1-capital-ratio': 'Capital ratios are the primary metrics regulators use to assess bank safety',
+          'tier-1-capital-ratio': 'Tier 1 capital adequacy is a core focus of regulatory examinations'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['what-is-tier-1-capital-ratio', 'what-happens-below-minimum-capital'],
+        relatedArticleSlugs: ['basel-capital-rules', 'dodd-frank-impact'],
+        relatedArticleDescriptions: {
+          'basel-capital-rules': 'Capital rules are the primary regulatory framework these agencies enforce',
+          'dodd-frank-impact': 'Dodd-Frank reshaped the authority and responsibilities of federal bank regulators'
+        }
+      },
+      {
+        slug: 'basel-capital-rules',
+        title: 'Basel III Capital Rules for Banks',
+        shortDescription: 'How minimum capital ratios work, what the buffers mean, and why capital levels matter to bank stock investors.',
+        order: 2,
+        metaTitle: 'Basel III Capital Rules for US Banks | BankSift Insights',
+        metaDescription: 'Learn how Basel III capital requirements work for US banks, including CET1, Tier 1, and total capital minimums, conservation buffers, and how capital levels affect dividends and buybacks.',
+        content: 'Basel III is the international capital framework that sets minimum amounts of capital banks must hold relative to the risks on their balance sheets. US regulators adopted Basel III with some modifications, and the rules now govern capital adequacy for all US banks.\n\n## The Three Capital Ratios\n\nBasel III defines three progressively broader measures of capital, each with its own minimum:\n\n- Common Equity Tier 1 (CET1): the highest quality capital, consisting primarily of common stock and retained earnings. Minimum: 4.5% of risk-weighted assets.\n- Tier 1 capital: CET1 plus additional instruments like non-cumulative perpetual preferred stock. Minimum: 6.0% of risk-weighted assets.\n- Total capital: Tier 1 plus Tier 2 capital, which includes subordinated debt and certain loan loss reserves. Minimum: 8.0% of risk-weighted assets.\n\nRisk-weighted assets adjust the bank\'s total assets for risk. Cash and government securities carry low or zero risk weights. Residential mortgages carry moderate weights. Commercial loans carry higher weights. The risk-weighting system means a bank with a conservative asset mix needs less capital than one with a riskier portfolio to meet the same ratio requirements.\n\n## The Capital Conservation Buffer\n\nOn top of the minimums, banks must maintain a capital conservation buffer of 2.5% of risk-weighted assets, bringing the effective CET1 minimum to 7.0%. Banks that dip into the buffer face automatic restrictions on dividends, share buybacks, and discretionary bonus payments. The restrictions get progressively tighter as the bank moves deeper into the buffer zone.\n\nThe largest banks face an additional surcharge (the G-SIB surcharge) that can add 1.0% to 4.5% on top of the buffer, depending on the bank\'s systemic importance score.\n\n## Why Capital Ratios Matter to Investors\n\nCapital ratios determine how much profit a bank can return to shareholders versus how much it must retain. A bank with a CET1 ratio of 12% when its effective minimum (including buffers) is 7% has 5 percentage points of excess capital. That excess can fund dividends, buybacks, acquisitions, or organic growth.\n\nA bank operating near its minimum has no room for capital return and may even need to raise capital by issuing new shares, which dilutes existing shareholders. This is why investors pay close attention to capital ratios and why banks with strong capital positions typically trade at higher valuations.\n\nCompare a bank\'s capital ratios to both the regulatory minimums and its peer group. A bank running at 9% CET1 is well above the 7% effective minimum but may look thin compared to peers averaging 11%. Context matters as much as absolute levels.',
+        relatedMetrics: ['cet1-capital-ratio', 'tier-1-capital-ratio', 'total-capital-ratio', 'risk-weighted-assets-density', 'tier-1-leverage-ratio'],
+        relatedMetricDescriptions: {
+          'cet1-capital-ratio': 'The most important Basel III capital measure and primary constraint on capital return',
+          'tier-1-capital-ratio': 'Broader capital measure including additional Tier 1 instruments beyond common equity',
+          'total-capital-ratio': 'The most inclusive capital ratio including subordinated debt',
+          'risk-weighted-assets-density': 'Determines the denominator used in all Basel III capital ratio calculations',
+          'tier-1-leverage-ratio': 'Non-risk-weighted backstop ratio that prevents excessive leverage regardless of asset risk'
+        },
+        relatedValuations: ['excess-capital-return-model'],
+        relatedValuationDescriptions: {
+          'excess-capital-return-model': 'Excess capital above regulatory minimums directly feeds into capital return valuations'
+        },
+        relatedFaqSlugs: ['what-is-tier-1-capital-ratio', 'how-to-calculate-total-capital-ratio', 'what-happens-below-minimum-capital'],
+        relatedArticleSlugs: ['bank-regulators-overview', 'stress-testing-ccar-dfast'],
+        relatedArticleDescriptions: {
+          'bank-regulators-overview': 'Federal regulators enforce Basel III capital requirements through examinations',
+          'stress-testing-ccar-dfast': 'Stress tests evaluate whether capital ratios remain adequate under severe scenarios'
+        }
+      },
+      {
+        slug: 'stress-testing-ccar-dfast',
+        title: 'Bank Stress Testing: CCAR and DFAST',
+        shortDescription: 'How the Federal Reserve tests whether large banks can survive severe economic downturns.',
+        order: 3,
+        metaTitle: 'Bank Stress Testing: CCAR & DFAST Explained | BankSift Insights',
+        metaDescription: 'Understand how CCAR and DFAST stress tests work, what scenarios the Fed uses, how results affect dividends and buybacks, and what the results mean for bank stock investors.',
+        content: 'Stress testing is the Federal Reserve\'s way of checking whether large banks have enough capital to keep operating through a severe recession. The results directly determine how much capital these banks can return to shareholders, making stress tests one of the most consequential annual events for large bank stock investors.\n\n## How the Tests Work\n\nThe Fed designs a hypothetical severe economic scenario each year, typically involving a deep recession with sharply rising unemployment, falling house prices, declining GDP, and volatile financial markets. Banks must project their losses, revenues, and capital ratios over a nine-quarter horizon under this scenario using their own internal models.\n\nThe key output is the stressed capital ratio: what the bank\'s CET1 ratio would fall to at the trough of the hypothetical downturn. If the stressed ratio stays above the regulatory minimum, the bank passes. The distance between the stressed ratio and the minimum determines how much capital the bank can distribute.\n\n## CCAR vs. DFAST\n\nThe Dodd-Frank Act Stress Tests (DFAST) are the quantitative projections. Banks run the Fed\'s scenario through their models and report the results. The Comprehensive Capital Analysis and Review (CCAR) layer adds a qualitative assessment of the bank\'s capital planning process: does the bank have good governance, sound risk management, and credible internal controls around its capital planning?\n\nIn practice, the quantitative results now drive the outcome for most banks. The Fed uses stress test losses to calculate each bank\'s stress capital buffer (SCB), which replaces the fixed 2.5% conservation buffer for the largest banks. A bank that shows larger losses under stress gets a higher SCB and must hold more capital, leaving less room for distributions.\n\n## Reading the Results\n\nStress test results are published annually and contain useful information for investors. Look at:\n\n- The bank\'s minimum CET1 ratio under stress. Higher is better. A bank whose CET1 falls to 8% under stress has a comfortable cushion above the 4.5% minimum. One that falls to 5.5% is cutting it closer.\n- Projected loan losses by category. These reveal where the Fed sees the most risk on the bank\'s balance sheet. High projected losses on commercial real estate or credit cards tell you something about the bank\'s risk concentrations.\n- The resulting stress capital buffer. A lower SCB means the bank has more room to pay dividends and repurchase stock.\n\n## Why Smaller Banks Should Care Too\n\nFormal CCAR and DFAST requirements apply to banks with $100 billion or more in assets. But regulators expect all banks to conduct some form of internal stress testing, and examiners evaluate capital adequacy at community and regional banks through the normal examination process. The principles are the same even if the formal framework differs: can the bank absorb severe losses and keep operating?',
+        relatedMetrics: ['cet1-capital-ratio', 'tier-1-capital-ratio', 'non-performing-loans-ratio'],
+        relatedMetricDescriptions: {
+          'cet1-capital-ratio': 'The CET1 ratio under stress is the central output of stress test projections',
+          'tier-1-capital-ratio': 'Tier 1 capital adequacy under stress is reported alongside CET1 results',
+          'non-performing-loans-ratio': 'Stressed loan loss projections reflect expectations about asset quality deterioration'
+        },
+        relatedValuations: ['excess-capital-return-model'],
+        relatedValuationDescriptions: {
+          'excess-capital-return-model': 'Stress test results determine the effective capital floor for capital return calculations'
+        },
+        relatedFaqSlugs: ['what-is-tier-1-capital-ratio', 'what-happens-below-minimum-capital'],
+        relatedArticleSlugs: ['basel-capital-rules', 'dodd-frank-impact'],
+        relatedArticleDescriptions: {
+          'basel-capital-rules': 'Stress tests evaluate whether Basel III capital ratios hold up under severe conditions',
+          'dodd-frank-impact': 'Dodd-Frank mandated the stress testing framework for large banks'
+        }
+      },
+      {
+        slug: 'dodd-frank-impact',
+        title: 'Dodd-Frank\'s Impact on Bank Investing',
+        shortDescription: 'How the post-crisis regulatory overhaul reshaped bank profitability, risk-taking, and capital allocation.',
+        order: 4,
+        metaTitle: 'Dodd-Frank Act Impact on Banks & Investors | BankSift Insights',
+        metaDescription: 'Understand how the Dodd-Frank Act changed bank regulation, including the Volcker Rule, enhanced prudential standards, and the 2018 rollback, and what it means for bank stock investors.',
+        content: 'The Dodd-Frank Wall Street Reform and Consumer Protection Act, signed into law in 2010, was the most significant overhaul of financial regulation since the 1930s. It responded to the failures exposed by the 2008 financial crisis and fundamentally changed how banks operate, how much capital they hold, and what activities they can pursue.\n\n## Key Provisions Affecting Banks\n\nThe Volcker Rule prohibited banks from proprietary trading, meaning they can no longer use their own capital to make speculative bets in securities and derivatives markets. This primarily affected the largest banks that had significant trading operations. The revenue impact was meaningful but concentrated: most community and regional banks had little or no proprietary trading to begin with.\n\nEnhanced prudential standards imposed heightened supervision on banks above certain asset thresholds, including mandatory stress testing, risk committee requirements, and more stringent capital and liquidity rules. These standards created a regulatory cliff where crossing an asset threshold triggered substantially more oversight and compliance costs.\n\nThe Consumer Financial Protection Bureau (CFPB) took over consumer protection enforcement from existing regulators, creating a single agency focused on consumer lending practices, fee disclosures, and fair lending compliance.\n\nThe orderly liquidation authority gave the FDIC new tools to wind down failing large financial institutions without the ad hoc bailout approach used during the 2008 crisis.\n\n## The 2018 Rollback\n\nThe Economic Growth, Regulatory Relief, and Consumer Protection Act of 2018 significantly modified Dodd-Frank for smaller banks. The most important change raised the threshold for enhanced prudential standards from $50 billion to $250 billion in total assets. This meant that banks between $50 billion and $250 billion were no longer subject to mandatory stress testing, enhanced liquidity requirements, or the same level of Fed supervision that had applied since 2010.\n\nFor investors in regional bank stocks, this was a meaningful positive. Reduced compliance costs improved efficiency ratios, and fewer constraints on capital return allowed for larger dividends and buyback programs.\n\n## What This Means for Investors Today\n\nDodd-Frank\'s legacy is a banking system that holds substantially more capital, takes less proprietary risk, and faces more intensive supervision than before the crisis. For bank stock investors, the practical effects include:\n\n- Lower but more stable returns on equity compared to the pre-crisis era\n- More predictable capital return programs, especially at the largest banks where stress tests govern distributions\n- Higher compliance costs that weigh on efficiency ratios, particularly at mid-size banks near regulatory thresholds\n- Reduced tail risk from the extreme leverage and risk-taking that characterized the pre-crisis banking system\n\nThe tradeoff between safety and profitability is the core tension. Banks are safer, which supports higher valuation multiples. But they are also less profitable than they were in the years leading up to the crisis, partly because the riskiest and most profitable activities have been curtailed.',
+        relatedMetrics: ['efficiency-ratio', 'roe', 'cet1-capital-ratio'],
+        relatedMetricDescriptions: {
+          'efficiency-ratio': 'Dodd-Frank compliance costs directly affect bank efficiency ratios',
+          'roe': 'Higher capital requirements have structurally reduced bank ROE compared to the pre-crisis era',
+          'cet1-capital-ratio': 'Dodd-Frank and Basel III together drove CET1 ratios well above pre-crisis levels'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['what-is-tier-1-capital-ratio', 'what-happens-below-minimum-capital'],
+        relatedArticleSlugs: ['bank-regulators-overview', 'stress-testing-ccar-dfast', 'liquidity-requirements'],
+        relatedArticleDescriptions: {
+          'bank-regulators-overview': 'Dodd-Frank redistributed regulatory authority and created the CFPB',
+          'stress-testing-ccar-dfast': 'Dodd-Frank mandated the stress testing programs for large banks',
+          'liquidity-requirements': 'Post-crisis liquidity rules were implemented as part of the broader Dodd-Frank framework'
+        }
+      },
+      {
+        slug: 'liquidity-requirements',
+        title: 'Bank Liquidity Requirements: LCR and NSFR',
+        shortDescription: 'How liquidity rules force banks to hold liquid assets and maintain stable funding, and the cost to profitability.',
+        order: 5,
+        metaTitle: 'Bank Liquidity Requirements: LCR & NSFR | BankSift Insights',
+        metaDescription: 'Learn how the Liquidity Coverage Ratio and Net Stable Funding Ratio work, which banks they apply to, and how liquidity requirements affect bank profitability and investment portfolios.',
+        content: 'After the 2008 crisis showed that banks could fail not just from insolvency but from an inability to meet short-term obligations, regulators introduced formal liquidity requirements. The two main standards are the Liquidity Coverage Ratio (LCR) and the Net Stable Funding Ratio (NSFR).\n\n## Liquidity Coverage Ratio\n\nThe LCR requires banks to hold enough high-quality liquid assets (HQLA) to cover projected net cash outflows over a 30-day stress period. The ratio must be at least 100%, meaning the bank has enough liquid assets to survive a month of severe funding stress without needing to sell illiquid assets or borrow at distressed rates.\n\nHigh-quality liquid assets include cash, central bank reserves, and government securities. These earn relatively low yields compared to loans, so maintaining a large HQLA buffer comes at a direct cost to profitability. A bank required to hold $2 billion in Treasury securities earning 4% instead of deploying that capital into loans earning 6% sacrifices $40 million in annual pre-tax income.\n\nThe full LCR requirement applies to banks with $250 billion or more in assets. A modified (less stringent) version applies to banks between $100 billion and $250 billion.\n\n## Net Stable Funding Ratio\n\nThe NSFR takes a longer view than the LCR. It compares the bank\'s available stable funding (equity, long-term debt, stable deposits) against its required stable funding (determined by the liquidity characteristics of its assets and off-balance-sheet exposures) over a one-year horizon. The ratio must also be at least 100%.\n\nThe NSFR discourages banks from funding long-term illiquid assets with short-term volatile funding. A bank that funds 30-year mortgages primarily with overnight wholesale borrowings would show a weak NSFR because the funding could evaporate far faster than the assets could be liquidated.\n\n## Impact on Bank Business Models\n\nLiquidity requirements have pushed banks toward more conservative funding structures. Banks now hold larger securities portfolios, rely more heavily on core deposits (which receive favorable treatment in the calculations), and have reduced their dependence on wholesale funding sources like federal funds purchased and repurchase agreements.\n\nFor investors, the practical effects show up in several metrics:\n\n- Larger investment securities portfolios relative to total assets\n- Lower loans-to-assets ratios at the largest banks as liquid assets crowd out lending capacity\n- Greater emphasis on deposit gathering, especially stable retail deposits\n- Modestly lower net interest margins at banks holding excess liquidity\n\n## What to Watch\n\nCompare a bank\'s deposits-to-assets ratio and loans-to-deposits ratio against peers. Banks with strong core deposit franchises naturally meet liquidity requirements more easily, giving them a competitive advantage. Those reliant on wholesale or brokered funding face higher compliance costs and more constrained balance sheets.',
+        relatedMetrics: ['deposits-to-assets', 'loans-to-deposits', 'loans-to-assets', 'net-interest-margin'],
+        relatedMetricDescriptions: {
+          'deposits-to-assets': 'Core deposit funding receives favorable treatment under liquidity rules',
+          'loans-to-deposits': 'Liquidity requirements constrain how aggressively banks can lend relative to their deposit base',
+          'loans-to-assets': 'HQLA requirements reduce the portion of assets that can be deployed into loans',
+          'net-interest-margin': 'Holding low-yielding liquid assets instead of loans compresses NIM'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['what-is-deposits-to-assets-ratio', 'wholesale-funding-vs-core-deposits', 'healthy-loans-to-deposits-ratio'],
+        relatedArticleSlugs: ['basel-capital-rules', 'dodd-frank-impact'],
+        relatedArticleDescriptions: {
+          'basel-capital-rules': 'Liquidity requirements complement capital rules as the two pillars of post-crisis prudential regulation',
+          'dodd-frank-impact': 'Liquidity standards were implemented as part of the broader post-crisis regulatory framework'
+        }
+      }
+    ]
   }
 ];
 
