@@ -1061,7 +1061,61 @@ export const INSIGHT_CATEGORIES = [
       'roe-pb-framework': 'Sustainable ROE derived from normalized earnings is the key input to justified P/B analysis'
     },
     relatedFaqSlugs: ['what-is-ppnr', 'what-is-provision-for-credit-losses', 'what-is-allowance-for-credit-losses'],
-    articles: []
+    articles: [
+      {
+        slug: 'reading-quarterly-reports',
+        title: 'Reading Bank Quarterly Earnings Reports',
+        shortDescription: 'How to navigate a bank earnings release and find the numbers that actually matter.',
+        order: 1,
+        metaTitle: 'How to Read Bank Quarterly Earnings Reports | BankSift Insights',
+        metaDescription: 'Learn how to navigate bank quarterly earnings releases, find the key data tables, and focus on the metrics that reveal true operating performance.',
+        content: 'Bank earnings releases are denser than most industries. A typical release runs 8 to 15 pages and includes a press release narrative, summary financial tables, and detailed supplemental schedules. Knowing where to look saves time and reduces the risk of being misled by headline numbers that don\'t reflect underlying performance.\n\n## The Structure\n\nThe first page usually highlights EPS, net income, ROE, and ROAA. These are the numbers that hit the newswires and drive the initial stock reaction. They\'re useful as a starting point but often misleading because they include one-time items, provision swings, and tax effects that obscure core operating trends.\n\nThe income statement summary follows, typically showing net interest income, provision expense, non-interest income, non-interest expense, and pre-tax income. This is where you start seeing the components. Net interest income minus provision expense gives you a rough sense of lending profitability. Non-interest income shows fee revenue. Non-interest expense shows the cost base.\n\nThe supplemental schedules are where the real analysis happens. These include average balance sheet data with yields and rates (showing NIM and its components), asset quality tables (NPLs, charge-offs, reserves), capital ratios, and loan and deposit composition details.\n\n## Where to Focus\n\nStart with pre-provision net revenue (PPNR), which equals net interest income plus non-interest income minus non-interest expense. PPNR strips out credit costs and taxes to show how the core business performed. A bank with rising PPNR is generating more operating income from its business, regardless of what provision expense did in the quarter.\n\nNext, look at the net interest margin trend. Compare this quarter\'s NIM to the prior quarter and the year-ago quarter. The direction and magnitude of the change tell you whether the bank\'s spread income is expanding or compressing and how fast.\n\nThen check asset quality. The non-performing loan ratio, net charge-off ratio, and reserve coverage ratio together tell you whether credit quality is stable, improving, or deteriorating. A single quarter can be noisy, so look at the trajectory over three to four quarters.\n\n## Common Traps\n\nDon\'t anchor on EPS without understanding what\'s in it. A bank that beats EPS estimates because of a securities gain or a reserve release hasn\'t necessarily outperformed. Similarly, a bank that misses because of a large provision build may actually be demonstrating prudent risk management by reserving early.\n\nWatch for changes in the share count. Banks that are actively buying back stock will show EPS growth even if net income is flat. That\'s real value creation for shareholders, but it\'s important to recognize the source.\n\nFinally, compare linked-quarter (sequential) trends, not just year-over-year. Year-over-year comparisons can be distorted by unusual items in the prior year\'s base period. Sequential trends show momentum more clearly.',
+        relatedMetrics: ['earnings-per-share', 'pre-provision-net-revenue', 'net-interest-margin', 'roe', 'roaa'],
+        relatedMetricDescriptions: {
+          'earnings-per-share': 'The headline earnings metric that appears first in every earnings release',
+          'pre-provision-net-revenue': 'The best single measure of core operating performance in a bank earnings report',
+          'net-interest-margin': 'NIM trends are the most closely watched spread metric each quarter',
+          'roe': 'Return on equity summarizes overall profitability relative to capital',
+          'roaa': 'Return on assets normalizes for capital structure differences across banks'
+        },
+        relatedValuations: ['price-to-earnings-valuation'],
+        relatedValuationDescriptions: {
+          'price-to-earnings-valuation': 'Earnings quality assessment determines whether reported P/E is a reliable valuation metric'
+        },
+        relatedFaqSlugs: ['what-is-ppnr', 'what-is-provision-for-credit-losses'],
+        relatedArticleSlugs: ['provision-trends', 'one-time-items', 'management-commentary'],
+        relatedArticleDescriptions: {
+          'provision-trends': 'Provision expense is the most volatile line item requiring careful interpretation',
+          'one-time-items': 'Identifying non-recurring items is essential for assessing core earnings',
+          'management-commentary': 'The earnings call provides context that the numbers alone cannot'
+        }
+      },
+      {
+        slug: 'provision-trends',
+        title: 'Understanding Provision Expense Trends',
+        shortDescription: 'How to interpret the most volatile line item in bank earnings and what it signals about credit quality.',
+        order: 2,
+        metaTitle: 'Bank Provision Expense Trends Explained | BankSift Insights',
+        metaDescription: 'Learn how provision for credit losses works, what drives provision expense higher or lower, the impact of CECL accounting, and how to separate signal from noise in provision trends.',
+        content: 'Provision for credit losses is the expense a bank records to build or replenish its allowance for credit losses (the reserve held against expected future loan losses). It flows through the income statement and directly reduces earnings. In any given quarter, provision expense can be the difference between a strong earnings report and a weak one.\n\n## How Provisions Work\n\nWhen a bank originates a loan, it estimates the expected lifetime losses on that loan under the Current Expected Credit Loss (CECL) accounting standard and sets aside a reserve. As the loan ages and conditions change, the bank adjusts the reserve up or down. If credit conditions worsen, the bank increases the reserve by recording additional provision expense. If conditions improve, the bank may release reserves, recording negative provision that boosts earnings.\n\nActual loan charge-offs (loans written off as uncollectible) reduce the reserve balance. The provision expense replenishes it. In a stable environment, provision expense roughly equals net charge-offs, keeping the reserve level steady. When charge-offs accelerate, provisions must exceed charge-offs to maintain adequate reserves.\n\n## What Drives Provision Expense\n\nFour factors determine provision levels:\n\nActual credit deterioration. Rising delinquencies, higher classified loans, and increasing charge-offs all require additional reserves. This is the most straightforward driver and the one most directly tied to loan portfolio health.\n\nEconomic forecast changes under CECL. The CECL standard requires banks to reserve based on expected lifetime losses using forward-looking economic scenarios. When the economic outlook darkens (rising unemployment projections, falling GDP forecasts), provision expense increases even if the bank hasn\'t experienced any actual loan losses yet. This makes CECL provisions front-loaded and sometimes disconnected from current asset quality.\n\nLoan portfolio growth. A growing loan book requires additional reserves simply because there are more loans to reserve against. Provision expense driven by growth is fundamentally different from provision driven by deterioration, though the income statement treats them identically.\n\nPortfolio mix changes. Shifting from lower-risk categories (residential mortgages) to higher-risk categories (unsecured consumer or CRE construction) requires higher reserve rates and increases provision expense.\n\n## Reading the Signal\n\nThe key analytical question each quarter is: why did provision change? The bank\'s earnings release and call usually explain the drivers. Provision increases driven by loan growth or forecast changes are less concerning than increases driven by specific credit deterioration.\n\nCompare provision expense to net charge-offs. If provisions consistently exceed charge-offs, the bank is building reserves, which either reflects growing credit concerns or conservative management. If charge-offs consistently exceed provisions, the bank is drawing down reserves, which may indicate improving conditions or inadequate reserving.\n\nTrack the reserve ratio (allowance for credit losses divided by total loans) over time. A stable or rising ratio during economic expansion suggests management is building a cushion. A falling ratio may mean the bank is releasing reserves to boost earnings, which can come back to bite if credit turns.',
+        relatedMetrics: ['provision-to-average-loans', 'loan-loss-reserve-ratio', 'net-charge-off-ratio', 'reserve-coverage-ratio', 'non-performing-loans-ratio'],
+        relatedMetricDescriptions: {
+          'provision-to-average-loans': 'Normalizes provision expense against the loan portfolio that generates it',
+          'loan-loss-reserve-ratio': 'The stock of reserves relative to total loans, built up through provision expense',
+          'net-charge-off-ratio': 'Actual realized losses that the provision expense must replenish',
+          'reserve-coverage-ratio': 'Measures whether the reserve adequately covers existing problem loans',
+          'non-performing-loans-ratio': 'NPL trends are a leading indicator of future provision needs'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['what-is-provision-for-credit-losses', 'what-is-allowance-for-credit-losses', 'how-banks-report-loan-losses'],
+        relatedArticleSlugs: ['reading-quarterly-reports', 'one-time-items'],
+        relatedArticleDescriptions: {
+          'reading-quarterly-reports': 'Provision is one of the key line items to focus on when reading earnings releases',
+          'one-time-items': 'Large provision builds or releases can function as one-time items distorting core earnings'
+        }
+      }
+    ]
   }
 ];
 
