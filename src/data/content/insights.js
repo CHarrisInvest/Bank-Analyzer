@@ -916,7 +916,125 @@ export const INSIGHT_CATEGORIES = [
       'roe-pb-framework': 'Fee income improves ROE by generating revenue without proportional capital requirements'
     },
     relatedFaqSlugs: ['what-is-non-interest-income-ratio', 'what-is-non-interest-income', 'interest-income-vs-fee-income', 'how-to-calculate-non-interest-income-ratio'],
-    articles: []
+    articles: [
+      {
+        slug: 'wealth-management-fees',
+        title: 'Wealth Management Fee Income at Banks',
+        shortDescription: 'How trust departments and advisory services generate recurring fee revenue tied to assets under management.',
+        order: 1,
+        metaTitle: 'Wealth Management Fees at Banks | BankSift Insights',
+        metaDescription: 'Learn how bank wealth management and trust operations generate fee income, why AUM-based revenue is valuable, and how to evaluate this business line as an investor.',
+        content: 'Many community and regional banks operate wealth management divisions that manage money for individuals, families, and institutions. These operations generate fees based on a percentage of assets under management (AUM) or assets under administration, typically 0.5% to 1.5% annually depending on account size and service level.\n\n## Why Wealth Management Fees Are Valuable\n\nAUM-based fees have characteristics that banks prize. They recur predictably because clients rarely move wealth management relationships on short notice. Transferring accounts between firms involves paperwork, tax implications, and relationship disruption. The stickiness gives the bank a reliable revenue stream that doesn\'t depend on interest rates or credit conditions.\n\nWealth management also requires minimal balance sheet capital. The bank is managing client assets, not deploying its own. A dollar of wealth management revenue generates a higher return on equity than a dollar of net interest income because it doesn\'t require the bank to hold regulatory capital against it.\n\nThe revenue does fluctuate with market levels. When stock and bond markets decline, AUM drops and fee revenue falls proportionally. But the relationship survives the downturn, and fees recover when markets do.\n\n## Scale and Competitive Position\n\nWealth management economics favor scale. A bank trust department with $500 million in AUM needs nearly the same infrastructure (investment professionals, compliance systems, technology platforms) as one with $2 billion. The larger operation earns meaningfully more revenue per dollar of operating cost.\n\nCommunity banks with small trust departments sometimes struggle with profitability in this line. If the trust operation manages less than $300 million to $500 million, the overhead may consume most of the fee revenue. Banks in this position either need to grow the business through referrals and acquisition or consider whether a partnership with a third-party provider would be more efficient.\n\n## What to Look For\n\nIn the bank\'s non-interest income disclosures, look for line items labeled trust fees, wealth management revenue, or investment management fees. Track the trend in AUM and fee revenue over several periods. Growing AUM through net new client flows (not just market appreciation) indicates the bank is actively building the franchise.\n\nAlso check whether the bank has acquired wealth management firms or books of business. Acquisitions can accelerate growth but come with integration risk and the possibility that key advisors leave, taking client relationships with them.',
+        relatedMetrics: ['non-interest-income-to-revenue', 'efficiency-ratio', 'roe'],
+        relatedMetricDescriptions: {
+          'non-interest-income-to-revenue': 'Wealth management fees directly increase the non-interest income ratio',
+          'efficiency-ratio': 'Wealth management operations carry their own cost structure that affects overall efficiency',
+          'roe': 'Fee revenue that requires no balance sheet capital improves return on equity'
+        },
+        relatedValuations: ['price-to-earnings-valuation'],
+        relatedValuationDescriptions: {
+          'price-to-earnings-valuation': 'Stable wealth management revenue supports higher earnings multiples'
+        },
+        relatedFaqSlugs: ['what-is-non-interest-income', 'interest-income-vs-fee-income'],
+        relatedArticleSlugs: ['mortgage-banking-income', 'insurance-other-fees'],
+        relatedArticleDescriptions: {
+          'mortgage-banking-income': 'Mortgage banking provides a contrast as cyclical fee income versus recurring wealth fees',
+          'insurance-other-fees': 'Insurance and other fee businesses share the capital-light, recurring revenue model'
+        }
+      },
+      {
+        slug: 'mortgage-banking-income',
+        title: 'Mortgage Banking Income',
+        shortDescription: 'How gain-on-sale and servicing revenue work, why this income is volatile, and how to evaluate it properly.',
+        order: 2,
+        metaTitle: 'Mortgage Banking Income at Banks | BankSift Insights',
+        metaDescription: 'Understand how banks earn mortgage banking income through origination, gain-on-sale, and servicing fees, and why the cyclical nature of this revenue stream requires careful evaluation.',
+        content: 'Mortgage banking generates revenue by originating residential mortgages and selling them to investors, government-sponsored enterprises (Fannie Mae, Freddie Mac), or government agencies (Ginnie Mae). The bank earns a gain on the sale and may retain the servicing rights, collecting a fee for administering the loan on behalf of the investor.\n\n## How the Revenue Works\n\nGain-on-sale income is the difference between what the bank receives from selling the loan and what it cost to originate. This margin, typically 1% to 3% of the loan amount, depends on market conditions, competition, and the bank\'s origination efficiency. During refinancing booms, volume surges and margins often widen because capacity is scarce. During rising rate environments, volume drops sharply and margins compress.\n\nServicing income is more stable. The servicer collects a fee (typically 0.25% of the outstanding loan balance annually) for processing payments, managing escrow accounts, and handling delinquencies. Servicing revenue declines gradually as loans pay down or refinance, but it doesn\'t swing as violently as gain-on-sale income.\n\nMortgage servicing rights (MSRs) are an asset on the bank\'s balance sheet. Their value rises when rates increase (because prepayments slow and the servicing stream lasts longer) and falls when rates decrease. This creates a natural hedge: when gain-on-sale income drops because rising rates kill refinancing volume, MSR values increase, partially offsetting the decline.\n\n## The Volatility Problem\n\nMortgage banking income can swing from contributing 15% to 20% of total revenue during a refinancing wave to near zero in a rising rate environment. This volatility makes it difficult to value banks with significant mortgage operations. Capitalizing peak mortgage banking earnings at a normal multiple overstates the bank\'s sustainable earning power.\n\nSome analysts strip mortgage banking income out entirely and value it separately, applying a lower multiple to this volatile stream. Others use a normalized assumption based on average mortgage volumes over a full rate cycle.\n\n## Evaluating a Bank\'s Mortgage Operation\n\nLook at the trend in origination volume and gain-on-sale margins over several rate environments. A bank that maintains reasonable volume even in rising rate periods (through purchase business rather than refinancing) has a more durable franchise. One that only thrives during refi booms is running a cyclical business dressed up as a banking operation.\n\nAlso assess the cost structure. Mortgage banking requires loan officers, underwriters, processors, and technology. These costs are relatively fixed, so when volume drops, the operation can quickly swing from profitable to loss-making. Banks that have flexible cost structures or can redeploy mortgage staff into other roles manage the cyclicality better.',
+        relatedMetrics: ['non-interest-income-to-revenue', 'efficiency-ratio'],
+        relatedMetricDescriptions: {
+          'non-interest-income-to-revenue': 'Mortgage banking can cause large swings in the non-interest income ratio between periods',
+          'efficiency-ratio': 'Fixed costs in mortgage operations can worsen efficiency ratios when volume drops'
+        },
+        relatedValuations: ['price-to-earnings-valuation'],
+        relatedValuationDescriptions: {
+          'price-to-earnings-valuation': 'Cyclical mortgage banking income should be normalized before applying a P/E multiple'
+        },
+        relatedFaqSlugs: ['interest-income-vs-fee-income', 'what-is-non-interest-income'],
+        relatedArticleSlugs: ['wealth-management-fees', 'service-charges'],
+        relatedArticleDescriptions: {
+          'wealth-management-fees': 'Wealth management provides stable recurring fees that contrast with mortgage banking volatility',
+          'service-charges': 'Service charges offer another comparison point as a more stable fee income category'
+        }
+      },
+      {
+        slug: 'service-charges',
+        title: 'Service Charges and Account Fees',
+        shortDescription: 'How banks earn fees from deposit accounts and why this traditional revenue source faces growing pressure.',
+        order: 3,
+        metaTitle: 'Bank Service Charges & Account Fees | BankSift Insights',
+        metaDescription: 'Learn how banks generate service charge revenue from deposit accounts, the impact of overdraft fee reforms, and how competitive pressure is reshaping this income category.',
+        content: 'Service charges on deposit accounts have been a reliable fee income source for decades. They include monthly maintenance fees, overdraft and insufficient funds fees, ATM surcharges, wire transfer fees, and various transaction-based charges. For many community banks, service charges represent the second-largest non-interest income category after gains on loan sales.\n\n## The Components\n\nOverdraft fees have historically been the largest single component of service charge revenue. Banks typically charge $25 to $35 per overdraft occurrence. For banks with large retail customer bases, overdraft income alone can generate tens of millions in annual revenue. However, this is the category under the most pressure.\n\nMonthly maintenance fees apply to accounts that don\'t meet minimum balance or activity requirements. These fees encourage customers to maintain higher balances (which benefit the bank as low-cost funding) or pay a fee that compensates for the account\'s operating cost.\n\nATM and debit card fees include surcharges for non-customer ATM use and foreign transaction fees. These are individually small but aggregate to meaningful revenue for banks with large ATM networks.\n\n## Regulatory and Competitive Pressure\n\nOverdraft fee income has faced significant headwinds. The Consumer Financial Protection Bureau has scrutinized overdraft practices, and several large banks have voluntarily eliminated or dramatically reduced overdraft fees. Capital One, Ally, and Citigroup were among the first to drop overdraft charges entirely. Others have capped the number of daily overdraft fees or reduced the per-occurrence amount.\n\nDigital banks and fintechs have also pressured traditional fee structures by offering fee-free accounts as a competitive differentiator. Customers who might have tolerated monthly maintenance fees and occasional overdraft charges now have alternatives that cost nothing.\n\n## The Revenue Trend\n\nService charge income has been declining as a percentage of total revenue at most banks. The combination of regulatory pressure, competitive dynamics, and consumer preferences is structural, not cyclical. Banks relying heavily on service charges for fee income need to find replacement revenue sources or accept lower overall non-interest income.\n\nSome banks have partially offset the decline by introducing new fee products: early direct deposit access, premium account tiers with additional features, or enhanced digital banking packages. Whether these innovations fully replace lost overdraft revenue varies by institution.\n\n## What to Assess\n\nTrack service charge income as a percentage of total non-interest income and total revenue over several years. A declining trend is normal, but the pace matters. A bank losing 10% of service charge revenue annually without replacing it faces a meaningful earnings headwind. Compare the bank\'s service charge trends to peers to understand whether the decline is industry-wide or reflects specific competitive or regulatory pressure on that institution.',
+        relatedMetrics: ['non-interest-income-to-revenue'],
+        relatedMetricDescriptions: {
+          'non-interest-income-to-revenue': 'Declining service charges reduce the overall non-interest income ratio unless offset by other fee sources'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['what-is-non-interest-income', 'what-are-non-interest-expenses'],
+        relatedArticleSlugs: ['interchange-fees', 'wealth-management-fees'],
+        relatedArticleDescriptions: {
+          'interchange-fees': 'Interchange revenue has been growing and partially offsets declining service charges',
+          'wealth-management-fees': 'Wealth management offers a higher-value replacement for declining account-based fees'
+        }
+      },
+      {
+        slug: 'interchange-fees',
+        title: 'Interchange and Card Fee Revenue',
+        shortDescription: 'How debit and credit card transactions generate fee income and why the Durbin Amendment creates a size-based divide.',
+        order: 4,
+        metaTitle: 'Bank Interchange & Card Fee Revenue | BankSift Insights',
+        metaDescription: 'Understand how banks earn interchange fees from card transactions, the impact of the Durbin Amendment on banks above $10 billion in assets, and the growth trends in electronic payments.',
+        content: 'Every time a customer swipes a debit or credit card, the bank that issued the card receives a small fee from the merchant\'s bank. This interchange fee, typically 1% to 3% of the transaction for credit cards and a fixed amount plus percentage for debit cards, generates significant revenue for banks with large retail customer bases.\n\n## How Interchange Works\n\nThe fee flow involves four parties: the cardholder, the issuing bank (the cardholder\'s bank), the acquiring bank (the merchant\'s bank), and the card network (Visa, Mastercard). The card network sets the interchange rate schedule. The issuing bank receives the interchange fee. The acquiring bank charges the merchant a fee that covers the interchange payment plus its own margin.\n\nFor the issuing bank, interchange revenue grows with the number of active cardholders and the volume of transactions per card. The secular shift from cash and checks to electronic payments has been a steady tailwind, with card transaction volumes growing faster than GDP for over a decade.\n\n## The Durbin Amendment Divide\n\nThe Durbin Amendment to the Dodd-Frank Act capped debit card interchange fees for banks with $10 billion or more in assets. The cap reduced per-transaction revenue from roughly 44 cents to about 21-24 cents for covered banks. Banks below the $10 billion threshold are exempt and continue to receive the higher, uncapped interchange rate.\n\nThis creates a meaningful earnings advantage for community banks. A bank just below $10 billion in assets may earn 50% to 100% more per debit transaction than a bank just above the threshold. For banks approaching the $10 billion mark through organic growth or acquisitions, the Durbin cliff is a real consideration in capital planning and deal evaluation.\n\nThe revenue impact is not trivial. A community bank with 100,000 active debit card holders generating an average of 20 transactions per month earns meaningfully more in aggregate interchange than a comparable bank above the Durbin threshold.\n\n## Growth Trends\n\nCard-based fee income has been one of the faster-growing non-interest income categories, driven by increasing card penetration, growing transaction volumes, and the expansion of contactless and mobile payments. Banks investing in card programs, reward features, and digital payment integration are positioned to capture more of this growth.\n\n## What Investors Should Monitor\n\nTrack card and interchange fee revenue in the non-interest income disclosures. Growing interchange income indicates an expanding and active customer base. Flat or declining trends may signal customer attrition or competitive pressure from fintech payment apps.\n\nFor banks approaching $10 billion in assets, model the Durbin impact explicitly. The interchange revenue reduction can amount to $10 million to $30 million annually depending on the bank\'s card volume, and this hit arrives the moment the bank crosses the threshold.',
+        relatedMetrics: ['non-interest-income-to-revenue', 'efficiency-ratio'],
+        relatedMetricDescriptions: {
+          'non-interest-income-to-revenue': 'Growing interchange fees contribute to a higher non-interest income ratio',
+          'efficiency-ratio': 'The Durbin Amendment revenue loss worsens efficiency ratios for banks crossing the $10B threshold'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['what-is-non-interest-income', 'how-to-calculate-non-interest-income-ratio'],
+        relatedArticleSlugs: ['service-charges', 'insurance-other-fees'],
+        relatedArticleDescriptions: {
+          'service-charges': 'Interchange growth partially offsets the secular decline in service charge revenue',
+          'insurance-other-fees': 'Both interchange and insurance represent fee businesses that diversify revenue'
+        }
+      },
+      {
+        slug: 'insurance-other-fees',
+        title: 'Insurance and Other Fee Businesses',
+        shortDescription: 'How banks generate revenue from insurance agencies, corporate trust, payment processing, and other specialized services.',
+        order: 5,
+        metaTitle: 'Bank Insurance & Other Fee Revenue | BankSift Insights',
+        metaDescription: 'Learn how banks earn non-interest income from insurance agencies, corporate trust services, payment processing, and other specialized fee businesses beyond traditional banking.',
+        content: 'Beyond wealth management, mortgage banking, service charges, and interchange, many banks operate specialized fee businesses that contribute to non-interest income. These operations vary widely across institutions but share a common characteristic: they generate revenue without requiring balance sheet capital.\n\n## Insurance Agency Operations\n\nSome banks own insurance agencies that sell property and casualty, life, health, and employee benefit products. The bank earns commissions on policies sold and renewal premiums on existing policies. Insurance revenue is largely recurring (policies renew annually) and uncorrelated with interest rates or credit conditions.\n\nBank-owned insurance agencies benefit from the built-in customer base. Business banking clients need commercial insurance. Mortgage borrowers need homeowners insurance. Wealth management clients need life insurance and estate planning products. The cross-selling opportunity is natural, though execution varies.\n\nInsurance operations are most common at community and regional banks in the Southeast and Midwest, where bank-owned agencies have been a traditional business model for decades. In other regions, banks more often partner with independent agencies rather than operating their own.\n\n## Corporate Trust and Custody\n\nLarger banks may provide corporate trust services (acting as trustee for bond issuances, managing escrow accounts) and custody services (safekeeping securities for institutional clients). These businesses generate steady fees tied to the number and size of accounts under administration.\n\nCorporate trust relationships are extremely sticky. Changing a bond trustee mid-stream is complex and expensive, so once a bank wins a trust engagement, the revenue persists for the life of the bond issuance, often 10 to 30 years.\n\n## Payment Processing and Treasury Management\n\nTreasury management services (cash management, lockbox processing, ACH origination, positive pay fraud prevention) generate recurring fees from commercial clients. These services are deeply embedded in clients\' daily operations, making them difficult for competitors to displace.\n\nBanks investing in modern treasury management platforms can grow this revenue by offering more sophisticated services to larger clients. The investment required is significant, but the recurring revenue and client retention benefits make treasury management one of the more attractive fee businesses for mid-size banks.\n\n## Evaluating These Businesses\n\nThe "other non-interest income" line in bank financials often bundles several of these businesses together, making it hard to assess individual contributors. Look for supplemental disclosures in earnings presentations or the 10-K that break out insurance commissions, trust fees, and other categories separately.\n\nThe key question is whether these fee businesses are growing, stable, or declining. A bank that acquired an insurance agency five years ago and has grown the book through cross-selling is building franchise value. One where insurance revenue has been flat or declining may be running off a legacy book without reinvesting.\n\nAlso consider the operating leverage. Fee businesses with high fixed costs and declining revenue consume management attention and drag on efficiency ratios. At some point, a bank may be better off selling an underperforming fee business and redeploying the proceeds.',
+        relatedMetrics: ['non-interest-income-to-revenue', 'efficiency-ratio', 'roe'],
+        relatedMetricDescriptions: {
+          'non-interest-income-to-revenue': 'Specialized fee businesses diversify the non-interest income base beyond banking products',
+          'efficiency-ratio': 'Fee business overhead affects the overall efficiency ratio, positively or negatively depending on scale',
+          'roe': 'Capital-light fee businesses improve ROE when they generate adequate margins'
+        },
+        relatedValuations: ['price-to-earnings-valuation'],
+        relatedValuationDescriptions: {
+          'price-to-earnings-valuation': 'Diverse, recurring fee businesses support higher P/E multiples'
+        },
+        relatedFaqSlugs: ['what-is-non-interest-income', 'what-are-non-interest-expenses'],
+        relatedArticleSlugs: ['wealth-management-fees', 'interchange-fees'],
+        relatedArticleDescriptions: {
+          'wealth-management-fees': 'Wealth management shares the recurring, capital-light revenue model',
+          'interchange-fees': 'Both interchange and insurance represent fee diversification beyond traditional banking'
+        }
+      }
+    ]
   }
 ];
 
