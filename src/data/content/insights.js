@@ -763,7 +763,60 @@ export const INSIGHT_CATEGORIES = [
       'price-to-tangible-book-valuation': 'Banks trading below tangible book during crises may represent value or value traps depending on asset quality'
     },
     relatedFaqSlugs: ['credit-cycle-and-bank-stocks', 'what-is-fdic-deposit-insurance'],
-    articles: []
+    articles: [
+      {
+        slug: 'sl-crisis',
+        title: 'The Savings & Loan Crisis',
+        shortDescription: 'How deregulation, interest rate spikes, and reckless lending destroyed over 1,000 thrift institutions.',
+        order: 1,
+        metaTitle: 'The S&L Crisis Explained for Bank Investors | BankSift Insights',
+        metaDescription: 'Learn what caused the savings and loan crisis, how over 1,000 thrifts failed, the taxpayer cost, and the lasting lessons for bank stock investors.',
+        content: 'The savings and loan crisis was the largest wave of bank failures in the United States since the Great Depression. Between 1986 and 1995, more than 1,000 savings and loan associations (thrifts) failed, costing taxpayers an estimated $132 billion and wiping out shareholders across the industry.\n\n## What Caused It\n\nThrifts traditionally took in savings deposits and made long-term fixed-rate residential mortgages. This model worked when interest rates were stable but became a trap when rates spiked in the late 1970s and early 1980s. Thrifts were paying double-digit rates on deposits while earning 6% to 8% on their existing mortgage portfolios. The negative spread bled capital.\n\nCongress responded with deregulation intended to let thrifts diversify and grow their way out of trouble. The Depository Institutions Deregulation and Monetary Control Act of 1980 and the Garn-St Germain Act of 1982 allowed thrifts to make commercial real estate loans, invest in junk bonds, and expand into new business lines. Deposit insurance limits were raised to $100,000, reducing depositor discipline.\n\nMany thrifts used this new freedom to pursue aggressive growth in areas they didn\'t understand. Commercial real estate lending exploded, often with poor underwriting. Some institutions engaged in outright fraud. By the mid-1980s, hundreds of thrifts were insolvent but continued operating as "zombie" institutions, taking ever-larger risks in attempts to gamble their way back to health.\n\n## How It Ended\n\nThe Financial Institutions Reform, Recovery, and Enforcement Act of 1989 (FIRREA) created the Resolution Trust Corporation (RTC) to take over and liquidate failed thrifts. The RTC ultimately resolved 747 institutions, selling off loan portfolios, real estate holdings, and other assets over several years. The Office of Thrift Supervision replaced the Federal Home Loan Bank Board as the primary thrift regulator.\n\n## Lessons for Today\'s Investors\n\nThe S&L crisis established several principles that remain relevant. First, a mismatch between asset duration and liability duration (long-term fixed-rate loans funded by short-term deposits) creates structural vulnerability that no amount of growth can solve. Second, rapid expansion into unfamiliar lending categories is a red flag, especially when funded by rate-sensitive deposits. Third, regulatory forbearance (allowing insolvent institutions to keep operating) makes the eventual cleanup more expensive, not less.\n\nThe Texas Ratio, now a standard bank health metric, was developed during this period specifically to identify thrifts and banks at risk of failure by comparing non-performing assets and delinquent loans to tangible equity and loan loss reserves.',
+        relatedMetrics: ['texas-ratio', 'equity-to-assets', 'non-performing-assets-ratio'],
+        relatedMetricDescriptions: {
+          'texas-ratio': 'Developed during the S&L crisis to predict bank failures',
+          'equity-to-assets': 'Thin equity was a defining characteristic of failed thrifts',
+          'non-performing-assets-ratio': 'Rising NPAs were an early warning sign across the thrift industry'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['credit-cycle-and-bank-stocks'],
+        relatedArticleSlugs: ['financial-crisis-2008', 'early-warning-signs'],
+        relatedArticleDescriptions: {
+          'financial-crisis-2008': 'The 2008 crisis echoed many S&L dynamics at a much larger scale',
+          'early-warning-signs': 'The S&L crisis demonstrated warning signs that recur in every banking crisis'
+        }
+      },
+      {
+        slug: 'financial-crisis-2008',
+        title: 'The 2008 Financial Crisis',
+        shortDescription: 'How the housing bubble, toxic securitization, and excessive leverage nearly collapsed the global banking system.',
+        order: 2,
+        metaTitle: 'The 2008 Financial Crisis & Bank Failures | BankSift Insights',
+        metaDescription: 'Understand how the 2008 financial crisis unfolded, why banks failed, how mortgage securitization amplified losses, and what bank stock investors can learn from the experience.',
+        content: 'The 2008 financial crisis was the most severe banking disruption since the 1930s. It destroyed some of the oldest and largest financial institutions in the world, triggered a global recession, and fundamentally reshaped bank regulation. For bank stock investors, it remains the most important case study in how quickly things can go wrong and how to recognize the conditions that precede a systemic breakdown.\n\n## The Setup\n\nThe crisis built on several reinforcing dynamics. Housing prices had risen steadily for a decade, and lenders loosened underwriting standards to keep origination volumes growing. Subprime mortgages, interest-only loans, and no-documentation loans became common. These loans were packaged into mortgage-backed securities (MBS) and collateralized debt obligations (CDOs), then sold to investors worldwide. Rating agencies assigned investment-grade ratings to securities that turned out to be far riskier than advertised.\n\nBanks and investment firms held large positions in these securities, often funded with short-term borrowings at high leverage ratios. When housing prices began declining in 2006 and 2007, the losses cascaded through the system.\n\n## The Collapse\n\nBear Stearns failed in March 2008 and was acquired by JPMorgan Chase with Federal Reserve assistance. Lehman Brothers filed for bankruptcy in September 2008, triggering a global panic. Washington Mutual, the largest thrift in the country, failed and was seized by the FDIC. Wachovia was acquired by Wells Fargo under duress. AIG required a $182 billion government bailout to prevent its credit default swap obligations from bringing down its counterparties.\n\nThe government responded with the Troubled Asset Relief Program (TARP), which injected $245 billion into banks through preferred stock purchases, and the FDIC\'s Temporary Liquidity Guarantee Program, which backstopped bank debt issuance. These interventions stabilized the system but couldn\'t prevent the deep recession that followed.\n\nMore than 400 banks failed between 2008 and 2012. Bank stocks fell 60% to 90% from their peaks, and many never recovered.\n\n## What Separated Survivors from Failures\n\nBanks that survived the crisis shared common characteristics: lower leverage, more conservative loan underwriting, limited exposure to exotic mortgage products, and stronger deposit franchises. Banks that failed or required rescue were typically characterized by aggressive growth, heavy reliance on wholesale funding, concentrated exposure to housing and construction, and thin capital buffers.\n\nThe distinction was visible in the data before the crisis hit. Banks with CRE concentrations above regulatory guidance thresholds, rapid loan growth rates exceeding 15% to 20% annually, and rising non-performing loan ratios were disproportionately represented among failures.\n\n## The Lasting Impact\n\nThe 2008 crisis produced Dodd-Frank, Basel III, and the stress testing framework that now governs large bank capital planning. Bank capital ratios roughly doubled from pre-crisis levels. Proprietary trading was restricted. Regulatory oversight intensified across the system.\n\nFor investors, the core lesson is that leverage and asset quality matter more than earnings growth during good times. A bank generating 18% ROE through aggressive lending and thin capital is a very different proposition from one earning 12% ROE with conservative underwriting and strong reserves. The first type produces spectacular returns until it doesn\'t. The second compounds more slowly but survives.',
+        relatedMetrics: ['equity-to-assets', 'tangible-common-equity-ratio', 'non-performing-loans-ratio', 'reserve-coverage-ratio', 'texas-ratio'],
+        relatedMetricDescriptions: {
+          'equity-to-assets': 'Pre-crisis leverage levels proved inadequate when asset values fell sharply',
+          'tangible-common-equity-ratio': 'Tangible capital was the real measure of loss-absorbing capacity during the crisis',
+          'non-performing-loans-ratio': 'NPL ratios were rising well before the acute phase of the crisis',
+          'reserve-coverage-ratio': 'Banks with strong reserves relative to NPLs had more runway to absorb losses',
+          'texas-ratio': 'Texas Ratios above 100% accurately predicted many of the eventual bank failures'
+        },
+        relatedValuations: ['price-to-tangible-book-valuation'],
+        relatedValuationDescriptions: {
+          'price-to-tangible-book-valuation': 'Post-crisis bank stock recovery was driven by tangible book value rebuilding'
+        },
+        relatedFaqSlugs: ['credit-cycle-and-bank-stocks', 'what-is-fdic-deposit-insurance'],
+        relatedArticleSlugs: ['sl-crisis', 'regional-bank-turmoil-2023', 'early-warning-signs', 'crisis-regulatory-responses'],
+        relatedArticleDescriptions: {
+          'sl-crisis': 'The S&L crisis foreshadowed many of the 2008 dynamics at a smaller scale',
+          'regional-bank-turmoil-2023': 'The 2023 episode demonstrated that post-2008 reforms didn\'t eliminate all failure modes',
+          'early-warning-signs': 'Warning signs visible before 2008 are the same ones investors should monitor today',
+          'crisis-regulatory-responses': 'The 2008 crisis produced the most sweeping regulatory reforms since the 1930s'
+        }
+      }
+    ]
   }
 ];
 
