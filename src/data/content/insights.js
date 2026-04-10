@@ -595,6 +595,33 @@ export const INSIGHT_CATEGORIES = [
         }
       }
     ]
+  },
+  {
+    slug: 'loan-portfolio-analysis',
+    name: 'Loan Portfolio Analysis',
+    shortDescription: 'How to evaluate a bank\'s lending mix, credit concentrations, and the risk profile of its loan book.',
+    icon: 'loan',
+    order: 5,
+    metaTitle: 'Loan Portfolio Analysis for Bank Investors | BankSift Insights',
+    metaDescription: 'Learn how to analyze bank loan portfolios, evaluate CRE concentration risk, compare C&I and consumer lending, and assess geographic diversification across the loan book.',
+    hubContent: 'A bank\'s loan portfolio is its largest asset and primary source of both revenue and risk. Loans typically make up 60% to 75% of total assets at community and regional banks, and the composition of that portfolio determines how the bank performs across credit cycles. A bank concentrated in one loan type or one geography carries different risks than one with a diversified book, even if their headline metrics look similar today.\n\nFor investors, loan portfolio analysis answers two questions. First, where is this bank making its bets? Second, how exposed is the bank if conditions deteriorate in a specific sector or market?\n\n## Commercial Real Estate Lending\n\nCommercial real estate (CRE) is the largest loan category at many community and regional banks, often representing 30% to 50% of total loans. CRE includes loans secured by office buildings, retail centers, multifamily apartment complexes, industrial warehouses, and hotels. Each property type carries different risk characteristics.\n\nRegulators pay close attention to CRE concentrations. Federal guidance flags banks where CRE loans exceed 300% of total capital or where construction and land development loans exceed 100% of capital. Exceeding these thresholds doesn\'t prohibit the lending, but it triggers enhanced regulatory scrutiny and expectations for stronger risk management practices.\n\n[[article:cre-concentration]]\n\n## Commercial and Industrial Lending\n\nCommercial and industrial (C&I) loans fund business operations: working capital lines, equipment purchases, and general corporate purposes. Unlike CRE loans, C&I credits are typically secured by business assets (inventory, receivables, equipment) rather than real property, and they tend to have shorter maturities and variable rates.\n\nC&I lending is generally considered less risky than CRE from a concentration standpoint because the borrower base is more diversified. A bank with a large C&I book is lending to dozens or hundreds of different businesses across multiple industries, reducing the impact of any single borrower or sector downturn.\n\n[[article:ci-lending]]\n\n## Residential Mortgage Lending\n\nResidential mortgages, both those held on the bank\'s balance sheet and those originated for sale, represent a significant business line for many banks. The risk profile depends heavily on whether the bank retains the loans or sells them. Retained mortgages carry interest rate risk (especially fixed-rate loans funded with short-term deposits) and credit risk. Sold mortgages generate fee income with minimal ongoing balance sheet risk.\n\nThe mix between portfolio and sold production tells you something about the bank\'s risk appetite and business model.\n\n[[article:residential-mortgage]]\n\n## Consumer Lending\n\nConsumer loans include auto loans, credit cards, personal loans, home equity lines, and student lending. Most community and regional banks have relatively modest consumer portfolios, with the exception of home equity products. Consumer credit tends to behave differently from commercial credit through the cycle: losses are more predictable and granular, but they accelerate faster during recessions as unemployment rises.\n\n[[article:consumer-loans]]\n\n## Geographic Concentration\n\nBeyond loan type, geographic concentration matters. A bank whose entire loan book is in one metropolitan area or one state faces correlated risk if the local economy weakens. Diversification across multiple markets provides a natural hedge, though it also adds operational complexity.\n\n[[article:geographic-concentration]]\n\n## What Investors Should Analyze\n\nStart with the loan composition table in the 10-K or call report. Calculate each major category as a percentage of total loans and compare against peers. Look for outsized concentrations in any single category, particularly CRE. Then examine the trend: is the bank growing certain categories faster than others, and does that shift make sense given market conditions?\n\nPair the composition analysis with asset quality metrics. A bank with heavy CRE concentration but pristine non-performing loan ratios may be managing the risk well. One with the same concentration and rising delinquencies is a different story. The portfolio mix tells you where to look for trouble; the asset quality metrics tell you whether trouble has arrived.',
+    relatedMetrics: ['non-performing-loans-ratio', 'non-performing-assets-ratio', 'net-charge-off-ratio', 'loan-loss-reserve-ratio', 'reserve-coverage-ratio', 'loans-to-assets', 'loans-to-deposits', 'provision-to-average-loans'],
+    relatedMetricDescriptions: {
+      'non-performing-loans-ratio': 'Primary measure of credit deterioration in the loan portfolio',
+      'non-performing-assets-ratio': 'Broadens the view to include foreclosed assets alongside non-performing loans',
+      'net-charge-off-ratio': 'Shows realized losses from the loan portfolio as a percentage of average loans',
+      'loan-loss-reserve-ratio': 'Indicates how much the bank has reserved against potential future loan losses',
+      'reserve-coverage-ratio': 'Measures the adequacy of reserves relative to existing problem loans',
+      'loans-to-assets': 'Shows how much of the balance sheet is deployed into lending',
+      'loans-to-deposits': 'Measures how fully the bank\'s deposit base funds its loan portfolio',
+      'provision-to-average-loans': 'Current period expense for building loan loss reserves'
+    },
+    relatedValuations: ['price-to-book-valuation'],
+    relatedValuationDescriptions: {
+      'price-to-book-valuation': 'Loan portfolio quality directly affects whether book value is trustworthy as a valuation anchor'
+    },
+    relatedFaqSlugs: ['how-to-evaluate-loan-credit-quality', 'evaluating-loan-portfolio-composition', 'evaluating-cre-exposure', 'loan-demand-and-bank-performance'],
+    articles: []
   }
 ];
 
