@@ -447,6 +447,31 @@ export const INSIGHT_CATEGORIES = [
         }
       }
     ]
+  },
+  {
+    slug: 'deposit-analysis',
+    name: 'Deposit Analysis & Franchise Value',
+    shortDescription: 'How deposit quality drives bank profitability, funding stability, and long-term franchise value.',
+    icon: 'deposit',
+    order: 4,
+    metaTitle: 'Deposit Analysis & Bank Franchise Value | BankSift Insights',
+    metaDescription: 'Learn how to analyze bank deposit quality, understand core vs brokered deposits, measure deposit betas, evaluate franchise value, and assess uninsured deposit risk.',
+    hubContent: 'Deposits are the raw material of banking. A bank\'s ability to gather low-cost, stable deposits determines its funding advantage, shapes its net interest margin, and ultimately drives its franchise value. Two banks can hold identical loan portfolios but produce very different returns depending on what they pay for the deposits funding those loans.\n\nFor investors, deposit analysis answers a fundamental question: does this bank have a durable funding advantage, or is it renting its deposit base at rates that could spike when conditions change?\n\n## Deposit Composition\n\nNot all deposits are equal. Non-interest-bearing checking accounts cost the bank nothing in interest expense and tend to be the stickiest (customers rarely move their primary checking account). Interest-bearing checking and savings accounts cost more but still represent relatively cheap, stable funding. Money market accounts are rate-sensitive and will move if a competitor offers a better yield. Certificates of deposit lock in a rate for a fixed term but reprice entirely at maturity.\n\nThe mix matters. A bank funded 40% by non-interest-bearing deposits has a structural cost advantage over one where non-interest-bearing accounts make up only 15%. That advantage compounds over time and across rate cycles.\n\n[[article:deposit-composition]]\n\n## Core vs. Brokered Deposits\n\nCore deposits are gathered through the bank\'s branch network and customer relationships. They represent a genuine franchise, meaning they stay because of the banking relationship, not because of the rate. Brokered deposits are sourced through third-party brokers and rate-listing services. They go wherever the highest rate is, making them expensive and unreliable during stress.\n\nRegulators treat these two categories very differently. Banks heavily dependent on brokered deposits face restrictions if they become less than well-capitalized, and examiners view brokered funding as a risk factor during examinations.\n\n[[article:core-vs-brokered-deposits]]\n\n## Deposit Betas\n\nDeposit beta measures how much of a market rate increase gets passed through to depositors. If the Fed raises rates by 100 basis points and a bank raises its average deposit rate by 40 basis points, its deposit beta is 40%. Lower betas mean the bank keeps more of the rate increase as margin. Higher betas mean the benefit flows through to depositors.\n\nDeposit betas vary significantly across banks and across rate cycles. Banks with strong retail franchises and high proportions of non-interest-bearing deposits typically show lower betas. Banks competing for deposits in rate-sensitive markets or relying on wholesale funding show higher betas.\n\n[[article:deposit-betas]]\n\n## Franchise Value\n\nA bank\'s deposit franchise value represents the present value of the funding cost advantage its deposit base provides over market-rate funding. Banks with large, stable, low-cost deposit bases are worth more than their tangible book value because those deposits generate an economic benefit that doesn\'t appear directly on the balance sheet.\n\nThis concept explains why some banks trade at persistent premiums to tangible book value and why acquirers pay premiums above book value in M&A transactions. The deposit franchise is the hidden asset.\n\n[[article:deposit-franchise-value]]\n\n## Uninsured Deposits\n\nDeposits above the $250,000 FDIC insurance limit are uninsured, meaning depositors bear the risk of loss if the bank fails. Uninsured deposits are inherently less stable because large depositors have both the sophistication and the motivation to move their money at the first sign of trouble.\n\nThe regional bank stress of 2023 demonstrated this vividly. Banks with high concentrations of uninsured deposits experienced rapid deposit outflows when confidence eroded, while banks with primarily insured deposit bases remained stable.\n\n[[article:uninsured-deposits]]\n\n## What Investors Should Examine\n\nWhen evaluating a bank\'s deposit franchise, look at the ratio of non-interest-bearing deposits to total deposits (higher is better), the cost of deposits relative to peers, the trend in deposit costs across rate cycles, the percentage of deposits that are uninsured, and any reliance on brokered or wholesale funding. Banks that score well across these measures tend to produce more stable earnings, trade at higher multiples, and command larger premiums in acquisition scenarios.',
+    relatedMetrics: ['cost-of-deposits', 'cost-of-funds', 'deposits-to-assets', 'loans-to-deposits', 'net-interest-margin'],
+    relatedMetricDescriptions: {
+      'cost-of-deposits': 'The most direct measure of a bank\'s deposit pricing and franchise quality',
+      'cost-of-funds': 'Total funding cost reflects the combined impact of deposit and wholesale funding',
+      'deposits-to-assets': 'Higher deposit funding ratios generally indicate a stronger franchise',
+      'loans-to-deposits': 'Shows how fully the bank deploys its deposit base into lending',
+      'net-interest-margin': 'Deposit costs are the largest single driver of net interest margin'
+    },
+    relatedValuations: ['price-to-book-valuation', 'price-to-tangible-book-valuation'],
+    relatedValuationDescriptions: {
+      'price-to-book-valuation': 'Deposit franchise value explains why some banks persistently trade above book value',
+      'price-to-tangible-book-valuation': 'Core deposit intangibles are a component of the premium over tangible book'
+    },
+    relatedFaqSlugs: ['evaluating-deposit-franchise', 'what-is-core-deposit-premium', 'wholesale-funding-vs-core-deposits', 'what-is-fdic-deposit-insurance', 'cost-of-funds-vs-cost-of-deposits'],
+    articles: []
   }
 ];
 
