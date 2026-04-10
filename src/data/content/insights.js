@@ -471,7 +471,130 @@ export const INSIGHT_CATEGORIES = [
       'price-to-tangible-book-valuation': 'Core deposit intangibles are a component of the premium over tangible book'
     },
     relatedFaqSlugs: ['evaluating-deposit-franchise', 'what-is-core-deposit-premium', 'wholesale-funding-vs-core-deposits', 'what-is-fdic-deposit-insurance', 'cost-of-funds-vs-cost-of-deposits'],
-    articles: []
+    articles: [
+      {
+        slug: 'deposit-composition',
+        title: 'Bank Deposit Composition',
+        shortDescription: 'How the mix of checking, savings, money market, and CD accounts shapes a bank\'s cost structure.',
+        order: 1,
+        metaTitle: 'Bank Deposit Composition Analysis | BankSift Insights',
+        metaDescription: 'Learn how to analyze a bank\'s deposit mix across non-interest-bearing, savings, money market, and CD accounts, and why composition drives funding costs and profitability.',
+        content: 'A bank\'s deposit composition tells you what kind of funding base it has built and how vulnerable that base is to rate competition. The four main categories behave differently in terms of cost, stability, and rate sensitivity.\n\n## The Four Deposit Types\n\nNon-interest-bearing (NIB) deposits are checking accounts that pay no interest. They cost the bank nothing in interest expense, making them the most valuable deposit type. These accounts are sticky because they\'re tied to operating needs: businesses use them for payroll and vendor payments, consumers use them for daily spending. Moving a primary checking account is enough of a hassle that most customers don\'t bother unless something goes seriously wrong.\n\nInterest-bearing checking and savings accounts pay modest rates. The cost is low relative to wholesale alternatives, and these accounts are moderately sticky. Customers may compare rates occasionally but tend to stay put if the bank\'s rate is in a reasonable range.\n\nMoney market accounts pay higher rates and attract rate-conscious depositors. These accounts are more mobile. When a competitor offers a materially better rate, money market balances tend to shift. Banks competing for these accounts face ongoing pricing pressure.\n\nCertificates of deposit (CDs) lock in a rate for a fixed term, typically three months to five years. The rate is usually the highest among deposit types. CDs are predictable while they\'re outstanding but reprice entirely at maturity. A bank with a large CD book faces significant repricing risk as those CDs mature in a changing rate environment.\n\n## Why the Mix Matters\n\nA bank where NIB deposits make up 35% to 40% of total deposits has a fundamentally different cost structure than one where NIB accounts represent 15% to 20%. The first bank can afford to price loans more competitively or earn wider margins because its funding base includes a large zero-cost component.\n\nDuring rising rate cycles, the difference becomes more pronounced. NIB balances don\'t reprice at all. Savings accounts reprice slowly. Money market and CD accounts reprice quickly and sometimes aggressively. A bank with a heavier weighting toward the cheaper, stickier categories experiences less margin compression as rates rise.\n\n## Where to Find This Data\n\nBanks disclose their deposit composition in the 10-K and 10-Q, typically in a note to the financial statements. Look for the breakdown by type and the average rate paid on each category. Compare the mix over several periods to see whether the composition is stable or shifting toward more expensive funding sources. A steady migration from NIB into rate-bearing categories is a warning sign about franchise quality.',
+        relatedMetrics: ['cost-of-deposits', 'deposits-to-assets', 'net-interest-margin'],
+        relatedMetricDescriptions: {
+          'cost-of-deposits': 'Deposit composition is the primary driver of overall cost of deposits',
+          'deposits-to-assets': 'Total deposit levels relative to assets show the bank\'s funding structure',
+          'net-interest-margin': 'The deposit mix directly determines the funding cost side of net interest margin'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['evaluating-deposit-franchise', 'cost-of-funds-vs-cost-of-deposits'],
+        relatedArticleSlugs: ['core-vs-brokered-deposits', 'deposit-betas'],
+        relatedArticleDescriptions: {
+          'core-vs-brokered-deposits': 'The core vs. brokered distinction adds another layer to deposit quality analysis',
+          'deposit-betas': 'Deposit composition determines how quickly overall funding costs respond to rate changes'
+        }
+      },
+      {
+        slug: 'core-vs-brokered-deposits',
+        title: 'Core vs. Brokered Deposits',
+        shortDescription: 'The difference between relationship-driven deposits and rate-driven deposits, and why regulators care.',
+        order: 2,
+        metaTitle: 'Core vs. Brokered Deposits for Banks | BankSift Insights',
+        metaDescription: 'Understand the difference between core and brokered deposits, why core deposits are more valuable, how regulators treat brokered funding, and what it means for bank stability.',
+        content: 'Core deposits come from the bank\'s own customers through its branch network, online platform, and relationship banking. Brokered deposits come through third-party intermediaries who shop for the highest rate on behalf of their clients. The distinction matters because core deposits represent a genuine franchise while brokered deposits are rented funding.\n\n## Why Core Deposits Are More Valuable\n\nCore deposits are sticky. A small business that has its checking account, payroll service, and line of credit at a local bank is unlikely to move those deposits over a quarter-point rate difference. The switching costs, both financial and logistical, keep the money in place. That stability gives the bank reliable funding it can plan around.\n\nCore deposits are also cheaper on average. Many core accounts pay no interest at all, and interest-bearing core accounts typically pay below wholesale market rates because the customer values the relationship and convenience, not just the yield.\n\nBrokered deposits have neither advantage. They go wherever the best rate is. When a bank\'s CD rate falls below a competitor\'s, the broker moves the money. During periods of stress, brokered funding can evaporate quickly as brokers pull their allocations from banks perceived as risky.\n\n## Regulatory Treatment\n\nRegulators view brokered deposits as a risk factor. Banks that are not well-capitalized face restrictions on accepting brokered deposits, which can create a dangerous feedback loop: a weakening bank loses access to brokered funding precisely when it needs deposits most.\n\nThe FDIC has refined the definition of brokered deposits several times. Some deposit arrangements that might seem brokered, like deposits gathered through fintech partnerships or listing services, receive different treatment depending on the specifics. The details matter for banks near the line.\n\n## What to Look For\n\nBanks disclose brokered deposit levels in their call reports and sometimes in their 10-K filings. A bank where brokered deposits exceed 15% to 20% of total deposits is relying heavily on non-relationship funding. Compare this to the bank\'s core deposit growth trends. A bank with shrinking core deposits and growing brokered deposits is substituting expensive, flighty funding for the stable kind, which is a deteriorating franchise signal.\n\nAlso check whether the bank uses reciprocal deposit arrangements (like the IntraFi network) to help customers get FDIC insurance on large balances. These are sometimes classified differently than traditional brokered deposits and can represent a legitimate deposit-gathering strategy rather than a sign of weakness.',
+        relatedMetrics: ['cost-of-deposits', 'cost-of-funds', 'deposits-to-assets'],
+        relatedMetricDescriptions: {
+          'cost-of-deposits': 'Heavy reliance on brokered deposits pushes up the average cost of deposits',
+          'cost-of-funds': 'Brokered funding typically costs more than core deposit alternatives',
+          'deposits-to-assets': 'The composition of deposits matters as much as the overall deposit ratio'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['wholesale-funding-vs-core-deposits', 'evaluating-deposit-franchise', 'what-is-fdic-deposit-insurance'],
+        relatedArticleSlugs: ['deposit-composition', 'uninsured-deposits', 'deposit-franchise-value'],
+        relatedArticleDescriptions: {
+          'deposit-composition': 'Core vs. brokered is one dimension of the broader deposit composition picture',
+          'uninsured-deposits': 'Brokered deposits and uninsured deposits both represent funding stability risks',
+          'deposit-franchise-value': 'A strong core deposit base is the foundation of deposit franchise value'
+        }
+      },
+      {
+        slug: 'deposit-betas',
+        title: 'Understanding Deposit Betas',
+        shortDescription: 'How to measure and interpret the rate at which banks pass interest rate increases through to depositors.',
+        order: 3,
+        metaTitle: 'Deposit Betas Explained for Bank Investors | BankSift Insights',
+        metaDescription: 'Learn what deposit betas are, how they\'re calculated, why they vary across banks and rate cycles, and how to use them to evaluate bank earnings sensitivity.',
+        content: 'Deposit beta is the percentage of a market rate increase that a bank passes through to its depositors. If the federal funds rate rises 100 basis points and a bank\'s average deposit cost rises 35 basis points, its deposit beta is 35%. The lower the beta, the more of the rate increase the bank keeps as margin.\n\n## Why Betas Vary\n\nDeposit betas are not uniform. They differ by deposit type, by bank, and by where you are in the rate cycle.\n\nBy type, non-interest-bearing deposits have a beta of zero by definition (they pay no interest regardless of where rates go). Savings accounts have low betas, often 15% to 25%. Money market accounts run higher, typically 40% to 60%. CDs have the highest betas, frequently 70% to 90%, because they reprice entirely at maturity and customers shop rates actively.\n\nBy bank, institutions with strong retail franchises and loyal customer bases show lower overall betas than banks competing primarily on rate. A community bank in a small town with limited competition may maintain a 30% cumulative beta through an entire tightening cycle. A bank in a competitive metropolitan market or one reliant on online deposit gathering might see betas of 50% or higher.\n\nBy cycle timing, betas tend to start low and accelerate. In the early stages of a rising rate cycle, banks delay passing increases through to depositors. As the cycle matures and competition for deposits intensifies, betas rise. The cumulative beta at the end of a cycle is often much higher than the initial beta suggested.\n\n## How to Track Betas\n\nBanks don\'t report deposit betas directly, but you can estimate them. Compare the change in the bank\'s average cost of deposits (from the income statement or quarterly supplement) against the change in the federal funds rate or another benchmark over the same period. Do this cumulatively from the start of the rate cycle, not just quarter to quarter, to get the full picture.\n\nManagement teams often discuss deposit betas on earnings calls, and their commentary is worth tracking. Early-cycle statements like "we expect betas to remain low" frequently prove optimistic as the cycle progresses.\n\n## Connecting Betas to Valuation\n\nDeposit betas directly affect net interest income forecasts. A bank with a 30% cumulative beta retains 70 cents of every dollar of rate increase as additional margin. One with a 55% beta retains only 45 cents. Over a 300-basis-point rate cycle, that difference compounds into a substantial earnings gap.\n\nWhen building an earnings model for a bank, the deposit beta assumption is one of the most sensitive inputs. Small changes in the assumed beta produce large swings in projected net interest income, which is why analysts spend significant time debating this single variable.',
+        relatedMetrics: ['cost-of-deposits', 'net-interest-margin', 'cost-of-funds'],
+        relatedMetricDescriptions: {
+          'cost-of-deposits': 'Deposit beta is the rate of change in cost of deposits relative to market rate changes',
+          'net-interest-margin': 'Deposit betas determine how much of a rate increase flows through to NIM',
+          'cost-of-funds': 'Overall funding betas combine deposit betas with wholesale funding repricing'
+        },
+        relatedValuations: ['discounted-earnings-model'],
+        relatedValuationDescriptions: {
+          'discounted-earnings-model': 'Deposit beta assumptions are critical inputs to earnings-based bank valuations'
+        },
+        relatedFaqSlugs: ['what-causes-nim-to-change', 'rising-rates-and-nim', 'cost-of-funds-vs-cost-of-deposits'],
+        relatedArticleSlugs: ['deposit-composition', 'deposit-franchise-value'],
+        relatedArticleDescriptions: {
+          'deposit-composition': 'The deposit mix determines the bank\'s blended deposit beta',
+          'deposit-franchise-value': 'Low deposit betas are a key indicator of high franchise value'
+        }
+      },
+      {
+        slug: 'deposit-franchise-value',
+        title: 'Deposit Franchise Value',
+        shortDescription: 'The hidden asset that explains why some banks persistently trade above tangible book value.',
+        order: 4,
+        metaTitle: 'Deposit Franchise Value for Bank Investors | BankSift Insights',
+        metaDescription: 'Understand what deposit franchise value is, how it\'s estimated, why it doesn\'t appear on the balance sheet, and how it drives bank stock valuations and M&A premiums.',
+        content: 'Deposit franchise value is the economic worth of a bank\'s ability to fund itself below market rates through its deposit relationships. It doesn\'t show up as a line item on the balance sheet, but it\'s the primary reason some banks consistently trade at premiums to tangible book value while others trade at or below.\n\n## The Concept\n\nConsider a bank with $5 billion in deposits at an average cost of 1.5% when wholesale funding of similar maturity costs 4.0%. The bank saves 250 basis points on $5 billion, or $125 million per year in funding costs compared to a bank that had to borrow at market rates. If you capitalize that annual savings at a reasonable multiple, the deposit franchise is worth well over $1 billion, none of which appears on the balance sheet.\n\nThis is why acquirers pay premiums above tangible book value in bank M&A. They\'re buying not just the reported net assets but the right to that ongoing funding advantage.\n\n## What Makes a Franchise Valuable\n\nFour factors determine deposit franchise value:\n\nThe proportion of non-interest-bearing deposits. NIB accounts cost nothing and tend to be the stickiest. A bank where 35% of deposits pay no interest has a much more valuable franchise than one at 15%.\n\nDeposit stability through rate cycles. Banks that retain deposits without having to chase rates demonstrate genuine relationship value. Those that hemorrhage deposits every time a competitor offers 25 extra basis points have a weak franchise.\n\nThe longevity and depth of customer relationships. Banks with customers who hold checking accounts, savings accounts, loans, and other products are far harder to displace than those with single-product relationships.\n\nGeographic and demographic factors. Banks in growing, affluent markets with limited competition have structurally better deposit-gathering environments than those in declining or saturated markets.\n\n## How It Connects to Valuation\n\nDeposit franchise value explains persistent P/TBV premiums. A bank trading at 1.8x tangible book when a peer trades at 1.1x isn\'t necessarily overvalued. The premium reflects the market\'s assessment that the first bank\'s deposit franchise generates more economic value than its tangible assets alone would suggest.\n\nWhen evaluating whether a bank\'s stock price is justified, back into the implied franchise value. If a bank has tangible book value of $30 per share and trades at $48, the market is ascribing $18 per share, or roughly $600 million on a base of 33 million shares, to franchise value. Is that reasonable given the bank\'s deposit cost advantage, its stability, and its growth market? That\'s the question worth answering.',
+        relatedMetrics: ['cost-of-deposits', 'price-to-tangible-book-value', 'price-to-book', 'net-interest-margin'],
+        relatedMetricDescriptions: {
+          'cost-of-deposits': 'The spread between deposit costs and market funding rates measures franchise value',
+          'price-to-tangible-book-value': 'P/TBV premiums above 1.0x largely reflect deposit franchise value',
+          'price-to-book': 'Book value multiples incorporate the market\'s assessment of franchise quality',
+          'net-interest-margin': 'A strong deposit franchise supports above-peer net interest margins'
+        },
+        relatedValuations: ['price-to-tangible-book-valuation', 'price-to-book-valuation'],
+        relatedValuationDescriptions: {
+          'price-to-tangible-book-valuation': 'Franchise value is the primary driver of premiums to tangible book',
+          'price-to-book-valuation': 'Understanding franchise value helps assess whether P/B multiples are justified'
+        },
+        relatedFaqSlugs: ['evaluating-deposit-franchise', 'what-is-core-deposit-premium', 'why-pb-primary-bank-valuation'],
+        relatedArticleSlugs: ['deposit-composition', 'deposit-betas', 'core-vs-brokered-deposits'],
+        relatedArticleDescriptions: {
+          'deposit-composition': 'Deposit mix is the foundation of franchise value assessment',
+          'deposit-betas': 'Low betas are a quantitative indicator of high franchise value',
+          'core-vs-brokered-deposits': 'Franchise value resides in core relationship deposits, not brokered funding'
+        }
+      },
+      {
+        slug: 'uninsured-deposits',
+        title: 'Uninsured Deposit Risk',
+        shortDescription: 'Why deposits above the FDIC insurance limit create stability risk and how to assess a bank\'s exposure.',
+        order: 5,
+        metaTitle: 'Uninsured Deposit Risk in Banking | BankSift Insights',
+        metaDescription: 'Learn what uninsured deposits are, why high concentrations create run risk, how the 2023 banking stress demonstrated the danger, and how to evaluate a bank\'s exposure.',
+        content: 'Deposits above the $250,000 FDIC insurance limit are uninsured. If a bank fails, uninsured depositors may not recover their full balance. This creates a natural incentive for large depositors to flee at the first sign of trouble, which is exactly what happened during the regional bank stress of 2023.\n\n## Why Uninsured Deposits Are Less Stable\n\nInsured depositors have no reason to withdraw their money during a bank crisis because the FDIC guarantees their balance up to $250,000. Uninsured depositors face real loss risk, so they monitor their bank\'s health more closely and act faster when concerns arise.\n\nThe speed of modern banking amplifies this dynamic. A depositor can move millions of dollars through a wire transfer or online portal in minutes. Social media can spread fear about a bank\'s condition in hours. The combination means that a bank with concentrated uninsured deposits can experience a deposit run faster than at any point in banking history.\n\n## The 2023 Experience\n\nSilicon Valley Bank held roughly 94% of its deposits in uninsured accounts, concentrated among venture capital-backed technology companies that communicated actively with each other. When concerns about the bank\'s bond portfolio losses surfaced, depositors pulled $42 billion in a single day. Signature Bank, with similarly high uninsured deposit concentrations, failed shortly after.\n\nFirst Republic Bank faced a slower but equally fatal version of the same dynamic. Its wealth management clients held large uninsured balances and withdrew steadily over several weeks despite the bank\'s efforts to shore up confidence.\n\n## How to Assess Exposure\n\nBanks disclose estimated uninsured deposits in their call reports (Schedule RC-O) and sometimes in their 10-K filings. The ratio of uninsured deposits to total deposits is the key figure. The banking industry average runs roughly 35% to 45%, but the range is wide.\n\nA bank with uninsured deposits above 50% of total deposits carries elevated run risk. Above 60% to 70%, the concentration becomes a material vulnerability. Consider the depositor profile alongside the percentage: uninsured deposits from thousands of small business operating accounts are more diversified and stable than the same dollar amount concentrated among a few dozen institutional or corporate depositors.\n\n## Mitigating Factors\n\nSome banks manage uninsured deposit risk through reciprocal deposit networks (like IntraFi) that spread large deposits across multiple banks so each portion stays under the insurance limit. This reduces the reported uninsured percentage without losing the customer.\n\nOthers maintain collateralized deposits, particularly from municipal and government entities, where the deposits are secured by pledged securities rather than FDIC insurance. These are technically uninsured but backed by collateral, making them more stable than unsecured uninsured deposits.\n\nWhen evaluating a bank, distinguish between the reported uninsured percentage and the effective exposure after accounting for these mitigating structures.',
+        relatedMetrics: ['deposits-to-assets', 'loans-to-deposits'],
+        relatedMetricDescriptions: {
+          'deposits-to-assets': 'Total deposit funding levels provide context for uninsured deposit analysis',
+          'loans-to-deposits': 'Banks with high LTD ratios and high uninsured deposits face compounded liquidity risk'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['what-is-fdic-deposit-insurance', 'evaluating-deposit-franchise', 'wholesale-funding-vs-core-deposits'],
+        relatedArticleSlugs: ['core-vs-brokered-deposits', 'deposit-composition'],
+        relatedArticleDescriptions: {
+          'core-vs-brokered-deposits': 'Uninsured status is a separate risk dimension from the core vs. brokered distinction',
+          'deposit-composition': 'The type of uninsured deposits matters as much as the total amount'
+        }
+      }
+    ]
   }
 ];
 
