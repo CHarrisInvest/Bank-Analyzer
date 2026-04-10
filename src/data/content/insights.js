@@ -815,6 +815,83 @@ export const INSIGHT_CATEGORIES = [
           'early-warning-signs': 'Warning signs visible before 2008 are the same ones investors should monitor today',
           'crisis-regulatory-responses': 'The 2008 crisis produced the most sweeping regulatory reforms since the 1930s'
         }
+      },
+      {
+        slug: 'regional-bank-turmoil-2023',
+        title: 'The 2023 Regional Bank Turmoil',
+        shortDescription: 'How interest rate risk and uninsured deposit concentration brought down Silicon Valley Bank, Signature Bank, and First Republic.',
+        order: 3,
+        metaTitle: '2023 Regional Bank Failures Explained | BankSift Insights',
+        metaDescription: 'Understand what caused the 2023 regional bank failures, how interest rate risk and deposit runs played out at SVB, Signature, and First Republic, and the lessons for investors.',
+        content: 'The failures of Silicon Valley Bank (SVB), Signature Bank, and First Republic Bank in the spring of 2023 demonstrated that the post-2008 regulatory framework had not eliminated all paths to bank failure. These were not subprime lending blowups or fraud cases. They were well-known institutions undone by a combination of interest rate risk, deposit concentration, and the unprecedented speed of modern bank runs.\n\n## What Happened at SVB\n\nSilicon Valley Bank had grown rapidly during the technology boom of 2020-2021, taking in massive deposits from venture capital firms and their portfolio companies. Rather than lending these deposits out, SVB invested heavily in long-duration Treasury and agency mortgage-backed securities when rates were near historic lows.\n\nWhen the Federal Reserve began raising rates aggressively in 2022, the market value of those securities fell sharply. SVB\'s held-to-maturity portfolio carried unrealized losses exceeding $15 billion by late 2022, an amount larger than the bank\'s total equity. The losses were unrealized (not recognized in earnings or capital ratios under accounting rules), but they were real.\n\nWhen SVB attempted to raise capital in March 2023, it had to disclose realized losses from selling part of its securities portfolio. The announcement triggered panic among its depositor base, which was extraordinarily concentrated: roughly 94% of deposits were uninsured, held by a tightly networked community of tech companies and venture funds. Depositors withdrew $42 billion in a single day. The FDIC seized SVB the following morning.\n\n## Signature and First Republic\n\nSignature Bank faced a similar dynamic. It had concentrated deposit relationships with cryptocurrency firms and real estate investors, and uninsured deposits exceeded 90% of its total. When contagion fears spread from SVB, Signature experienced its own rapid deposit outflows and was closed by regulators within days.\n\nFirst Republic\'s failure unfolded more slowly but followed the same pattern. The bank served high-net-worth clients with large uninsured deposit balances and held a portfolio of low-rate residential mortgages that had lost significant value. Despite receiving a $30 billion deposit infusion from a consortium of large banks, First Republic could not stem the outflow. It was seized by the FDIC and sold to JPMorgan Chase in May 2023.\n\n## Why It Happened So Fast\n\nThe 2023 failures were the fastest bank runs in history. Digital banking meant depositors could move millions with a few clicks rather than standing in line at a branch. Social media amplified fear in real time, with Twitter threads and group chats among SVB\'s depositor community spreading panic within hours.\n\nThe speed overwhelmed traditional crisis management tools. By the time management could issue reassuring statements or regulators could assess the situation, the deposits were already gone.\n\n## Lessons for Investors\n\nThe 2023 episode reinforced several principles. Unrealized losses are real losses if the bank is forced to sell. Uninsured deposit concentration creates run risk that can be fatal regardless of the bank\'s underlying solvency. And interest rate risk can destroy a bank as quickly as credit risk, something the banking industry had not experienced at this scale in decades.\n\nFor screening purposes, the key metrics are the ratio of uninsured deposits to total deposits, the size of unrealized securities losses relative to equity, and the overall duration gap of the balance sheet. Banks that score poorly on all three carry the same structural vulnerabilities that brought down SVB.',
+        relatedMetrics: ['equity-to-assets', 'tangible-common-equity-ratio', 'deposits-to-assets'],
+        relatedMetricDescriptions: {
+          'equity-to-assets': 'Unrealized losses that exceed equity render the bank economically insolvent even if accounting rules mask it',
+          'tangible-common-equity-ratio': 'Tangible capital adjusted for unrealized losses was the real measure of SVB\'s condition',
+          'deposits-to-assets': 'Rapid deposit growth without corresponding loan deployment led to excess securities purchases'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['what-is-fdic-deposit-insurance', 'what-is-interest-rate-risk'],
+        relatedArticleSlugs: ['financial-crisis-2008', 'early-warning-signs', 'sl-crisis'],
+        relatedArticleDescriptions: {
+          'financial-crisis-2008': 'The 2008 and 2023 crises had different triggers but shared the theme of concentrated risk',
+          'early-warning-signs': 'SVB exhibited multiple classic warning signs well before the failure',
+          'sl-crisis': 'The S&L crisis was also driven by interest rate mismatches, though at a different scale'
+        }
+      },
+      {
+        slug: 'early-warning-signs',
+        title: 'Early Warning Signs of Bank Failure',
+        shortDescription: 'The quantitative and qualitative signals that precede bank failures, drawn from patterns across multiple crises.',
+        order: 4,
+        metaTitle: 'Early Warning Signs of Bank Failure | BankSift Insights',
+        metaDescription: 'Learn the common warning signs that precede bank failures, including rapid growth, funding instability, concentration risk, and deteriorating asset quality metrics.',
+        content: 'Bank failures don\'t happen without warning. In virtually every case, the deterioration is visible in publicly available data months or years before the actual failure. The challenge is not finding the signals but taking them seriously when the bank\'s stock price and earnings still look healthy.\n\n## Quantitative Warning Signs\n\nRapid asset growth is the single most reliable predictor of future problems. Banks that grow loans 15% to 20% or more annually for several consecutive years are almost certainly loosening underwriting standards, entering unfamiliar markets, or both. Growth at that pace requires either finding borrowers that competitors passed on (which should concern you) or competing so aggressively on price and terms that margins don\'t compensate for risk.\n\nDeclining capital ratios during a period of growth mean the bank is leveraging up. If total assets are growing faster than equity, the bank is taking on more risk per dollar of capital. This is particularly concerning when combined with rapid loan growth.\n\nRising classified and criticized assets, even if non-performing loans haven\'t spiked yet, indicate credit quality is migrating in the wrong direction. Banks report classified asset totals in their call reports. A steady increase over several quarters means the loan portfolio is deteriorating, even if charge-offs remain low.\n\nFunding shifts from core deposits to brokered deposits, wholesale borrowings, or Federal Home Loan Bank advances suggest the bank can\'t fund its growth organically. Replacing stable, low-cost funding with expensive, volatile sources is a classic late-cycle red flag.\n\n## Qualitative Warning Signs\n\nManagement turnover, particularly in credit administration, risk management, or the CFO role, can signal internal disagreements about risk-taking. When the chief credit officer leaves during a period of aggressive growth, it may mean someone pushed back and lost.\n\nRegulatory actions provide direct signals. Consent orders, cease-and-desist orders, and memoranda of understanding are public documents. They mean the regulator has identified problems serious enough to require formal corrective action. Banks under enforcement orders face constraints on growth, dividends, and acquisitions.\n\nEarnings quality that relies increasingly on non-recurring items, reserve releases, or securities gains rather than core operating income suggests the underlying business is weaker than reported earnings indicate.\n\n## Putting the Signals Together\n\nNo single metric condemns a bank. The danger is in combinations. A bank with rapid growth, rising CRE concentration, increasing reliance on non-core funding, and a management team dismissing risk concerns on earnings calls is exhibiting a pattern that has preceded failures in every major banking crisis.\n\nThe BankSift screener can help identify banks with concerning metric combinations. Filter for high asset growth, above-peer loan concentrations, thin capital ratios, and deteriorating asset quality to build a watchlist. Then monitor those banks quarterly for further deterioration.',
+        relatedMetrics: ['texas-ratio', 'non-performing-loans-ratio', 'non-performing-assets-ratio', 'reserve-coverage-ratio', 'equity-to-assets', 'net-charge-off-ratio'],
+        relatedMetricDescriptions: {
+          'texas-ratio': 'A Texas Ratio approaching or exceeding 100% has historically predicted bank failures',
+          'non-performing-loans-ratio': 'Steadily rising NPLs signal credit deterioration before charge-offs are recognized',
+          'non-performing-assets-ratio': 'NPAs capture the full picture including foreclosed assets',
+          'reserve-coverage-ratio': 'Falling reserve coverage as NPLs rise indicates the bank is underprovisioning',
+          'equity-to-assets': 'Declining equity ratios during growth mean leverage is increasing',
+          'net-charge-off-ratio': 'Accelerating charge-offs confirm that earlier NPL increases are becoming permanent losses'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['credit-cycle-and-bank-stocks', 'red-flags-screening-bank-stocks'],
+        relatedArticleSlugs: ['sl-crisis', 'financial-crisis-2008', 'regional-bank-turmoil-2023'],
+        relatedArticleDescriptions: {
+          'sl-crisis': 'The S&L crisis exhibited nearly every warning sign in the playbook',
+          'financial-crisis-2008': 'Pre-2008 warning signs were visible years before the crisis peaked',
+          'regional-bank-turmoil-2023': 'SVB\'s warning signs included rapid growth, deposit concentration, and massive rate exposure'
+        }
+      },
+      {
+        slug: 'crisis-regulatory-responses',
+        title: 'Regulatory Responses to Banking Crises',
+        shortDescription: 'How each major crisis reshaped the rules governing banks and what that means for investors going forward.',
+        order: 5,
+        metaTitle: 'Regulatory Responses to Banking Crises | BankSift Insights',
+        metaDescription: 'Learn how regulators responded to the S&L crisis, 2008 financial crisis, and 2023 bank failures with new rules, and how these changes affect bank profitability and investor returns.',
+        content: 'Every major banking crisis produces a wave of regulatory reform. The reforms follow a consistent pattern: identify what went wrong, write rules to prevent it from happening again, and impose costs on the industry that reduce profitability but increase stability. For investors, understanding these cycles helps anticipate how the regulatory environment will evolve after the next disruption.\n\n## After the S&L Crisis\n\nThe Financial Institutions Reform, Recovery, and Enforcement Act of 1989 (FIRREA) was the primary legislative response. It abolished the Federal Home Loan Bank Board (seen as too cozy with the thrift industry) and created the Office of Thrift Supervision. It established the Resolution Trust Corporation to liquidate failed thrifts. It raised capital requirements for thrifts and restricted their investment activities, particularly in commercial real estate and junk bonds.\n\nThe practical effect was a smaller, more conservative thrift industry. Many surviving thrifts eventually converted to commercial bank charters or were acquired. The distinct thrift business model that had existed since the 1930s was largely eliminated.\n\n## After 2008\n\nThe Dodd-Frank Act of 2010 was far more expansive. It created the Consumer Financial Protection Bureau, established the Financial Stability Oversight Council, mandated stress testing for large banks, implemented the Volcker Rule restricting proprietary trading, and gave regulators orderly liquidation authority for failing systemically important institutions.\n\nBasel III capital requirements roughly doubled the amount of common equity banks had to hold. Liquidity requirements (LCR and NSFR) forced banks to maintain larger buffers of liquid assets. The combination made banks significantly safer but also structurally less profitable. Pre-crisis ROE levels of 15% to 20% gave way to post-crisis norms of 10% to 13%, partly because the denominator (equity) grew much larger.\n\nFor investors, the post-2008 framework created a more predictable banking industry. Capital return programs became formalized through the stress testing process. Balance sheets became more conservative. The tradeoff was lower peak returns in exchange for fewer catastrophic losses.\n\n## After 2023\n\nThe 2023 failures prompted proposals to strengthen interest rate risk supervision, tighten liquidity requirements for banks in the $100 billion to $250 billion asset range, and address the speed of digital bank runs. Regulators proposed requiring more banks to reflect unrealized securities losses in their regulatory capital, closing the accounting gap that allowed SVB to report adequate capital ratios even as its economic solvency deteriorated.\n\nThe debate over these proposals continues, and the final rules may differ substantially from the initial proposals. But the direction is consistent with the historical pattern: crises expand the regulatory perimeter and increase compliance costs.\n\n## The Pattern for Investors\n\nRegulatory reform cycles follow a predictable arc. Immediately after a crisis, rules tighten aggressively. Over the following decade, industry lobbying and political shifts lead to gradual relaxation (as happened with the 2018 rollback of some Dodd-Frank provisions). The relaxed environment eventually contributes to the conditions for the next crisis, and the cycle repeats.\n\nInvestors can position around this cycle. In the tightening phase, banks with already-strong capital and compliance infrastructure benefit relative to those that must catch up. In the relaxation phase, smaller banks freed from burdensome requirements may see improved profitability. The key is recognizing where you are in the cycle and which banks are best positioned for the current regulatory direction.',
+        relatedMetrics: ['cet1-capital-ratio', 'tier-1-capital-ratio', 'efficiency-ratio'],
+        relatedMetricDescriptions: {
+          'cet1-capital-ratio': 'Each crisis has produced higher minimum capital requirements',
+          'tier-1-capital-ratio': 'Post-crisis Tier 1 requirements have ratcheted up over successive reform cycles',
+          'efficiency-ratio': 'Regulatory compliance costs directly impact bank efficiency ratios'
+        },
+        relatedValuations: ['excess-capital-return-model'],
+        relatedValuationDescriptions: {
+          'excess-capital-return-model': 'Regulatory minimums set the floor for capital return calculations, and crises raise that floor'
+        },
+        relatedFaqSlugs: ['what-is-tier-1-capital-ratio', 'what-happens-below-minimum-capital', 'credit-cycle-and-bank-stocks'],
+        relatedArticleSlugs: ['sl-crisis', 'financial-crisis-2008', 'regional-bank-turmoil-2023'],
+        relatedArticleDescriptions: {
+          'sl-crisis': 'The S&L crisis produced FIRREA and the elimination of the distinct thrift regulatory framework',
+          'financial-crisis-2008': 'The 2008 crisis produced Dodd-Frank and Basel III, the most sweeping reforms in decades',
+          'regional-bank-turmoil-2023': 'The 2023 failures prompted proposals to extend enhanced rules to mid-size banks'
+        }
       }
     ]
   }
