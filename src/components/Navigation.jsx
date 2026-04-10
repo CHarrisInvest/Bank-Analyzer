@@ -243,6 +243,14 @@ function Navigation() {
                 <span>Screener Guide</span>
               </Link>
               <Link
+                to="/insights"
+                className={`nav-link ${isActive('/insights') ? 'nav-link-active' : ''}`}
+                onClick={() => handleNavClick('insights')}
+              >
+                <BookIcon />
+                <span>Insights</span>
+              </Link>
+              <Link
                 to="/metrics"
                 className={`nav-link ${isActive('/metrics') ? 'nav-link-active' : ''}`}
                 onClick={() => handleNavClick('metrics')}

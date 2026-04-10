@@ -152,6 +152,21 @@ export function trackValuationMethodViewed(methodSlug) {
   });
 }
 
+/**
+ * Track when an insight page is viewed
+ * @param {string} insightSlug - Insight or category identifier
+ * @param {string} level - Page level: 'index', 'hub', or 'article'
+ */
+export function trackInsightViewed(insightSlug, level = 'article') {
+  if (!canTrack()) return;
+
+  sendEvent('insight_viewed', {
+    insight_slug: insightSlug,
+    insight_level: level,
+    event_category: 'education',
+  });
+}
+
 // =============================================================================
 // ENGAGEMENT EVENTS
 // =============================================================================

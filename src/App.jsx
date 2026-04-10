@@ -42,6 +42,9 @@ import Terms from './pages/Terms.jsx';
 import Glossary from './pages/Glossary.jsx';
 import FaqIndex from './pages/FaqIndex.jsx';
 import FaqDetail from './pages/FaqDetail.jsx';
+import InsightsIndex from './pages/InsightsIndex.jsx';
+import InsightHub from './pages/InsightHub.jsx';
+import InsightArticle from './pages/InsightArticle.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 /**
@@ -153,6 +156,11 @@ function App() {
             {/* FAQ */}
             <Route path="faq" element={<FaqIndex />} />
             <Route path="faq/:faqSlug" element={<FaqDetail />} />
+
+            {/* Insights */}
+            <Route path="insights" element={<InsightsIndex />} />
+            <Route path="insights/:categorySlug" element={<InsightHub />} />
+            <Route path="insights/:categorySlug/:articleSlug" element={<InsightArticle />} />
 
             {/* Glossary */}
             <Route path="glossary" element={<Glossary />} />

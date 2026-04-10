@@ -53,6 +53,7 @@ function Layout() {
               <h4>Learn</h4>
               <ul className="footer-links">
                 <li><Link to="/screener/guide">Screener Guide</Link></li>
+                <li><Link to="/insights">Insights</Link></li>
                 <li><Link to="/metrics">Metrics & Ratios</Link></li>
                 <li><Link to="/valuation">Valuation Methods</Link></li>
                 <li><Link to="/faq">FAQ</Link></li>

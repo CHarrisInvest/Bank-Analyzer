@@ -328,6 +328,15 @@ function Home() {
               </Link>
             </li>
             <li className="resource-item">
+              <Link to="/insights" className="resource-link">
+                <BookIcon />
+                <div>
+                  <strong>Banking Insights</strong>
+                  <span>Educational guides on interest rate risk, M&A, regulation, deposit analysis, and other banking topics for stock investors.</span>
+                </div>
+              </Link>
+            </li>
+            <li className="resource-item">
               <Link to="/faq" className="resource-link">
                 <QuestionIcon />
                 <div>

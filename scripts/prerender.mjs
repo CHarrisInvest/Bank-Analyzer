@@ -61,7 +61,11 @@ async function loadData() {
     bankKeywords = JSON.parse(readFileSync(keywordsPath, 'utf-8'));
   }
 
-  return { metrics, valuations, banks, bankKeywords, faqs, faqClusters };
+  // Load insights
+  const insightsModule = await import(join(srcDir, 'data', 'content', 'insights.js'));
+  const insightCategories = insightsModule.INSIGHT_CATEGORIES;
+
+  return { metrics, valuations, banks, bankKeywords, faqs, faqClusters, insightCategories };
 }
 
 /**
@@ -154,6 +158,7 @@ function createPage({ path, title, description, canonical, type = 'website', sch
         <a href="${SITE_URL}/screener/guide">Screener Guide</a> |
         <a href="${SITE_URL}/metrics">Metrics &amp; Ratios</a> |
         <a href="${SITE_URL}/valuation">Valuation Methods</a> |
+        <a href="${SITE_URL}/insights">Insights</a> |
         <a href="${SITE_URL}/faq">FAQ</a> |
         <a href="${SITE_URL}/glossary">Glossary</a>
       </nav>
@@ -170,6 +175,7 @@ function createPage({ path, title, description, canonical, type = 'website', sch
           <a href="${SITE_URL}/screener">Screener</a> |
           <a href="${SITE_URL}/metrics">Metrics</a> |
           <a href="${SITE_URL}/valuation">Valuation</a> |
+          <a href="${SITE_URL}/insights">Insights</a> |
           <a href="${SITE_URL}/faq">FAQ</a> |
           <a href="${SITE_URL}/glossary">Glossary</a> |
           <a href="${SITE_URL}/privacy">Privacy Policy</a> |
@@ -355,7 +361,7 @@ function createBreadcrumbSchema(items) {
  * Generate all static pages
  */
 async function generatePages() {
-  const { metrics, valuations, banks, bankKeywords, faqs, faqClusters } = await loadData();
+  const { metrics, valuations, banks, bankKeywords, faqs, faqClusters, insightCategories } = await loadData();
   let count = 0;
 
   console.log('Pre-rendering pages for SEO...\n');
@@ -1994,6 +2000,176 @@ async function generatePages() {
   console.log(`✓ Generated ${valuationCount} valuation pages`);
 
   // ============================================
+  // INSIGHT PAGES
+  // ============================================
+
+  let insightCount = 0;
+
+  // Helper: process hub content for static HTML, replacing [[article:slug]] markers
+  function renderHubContentToHtml(hubContent, articles, categorySlug) {
+    if (!hubContent) return '';
+    const parts = hubContent.split(/\n\n\[\[article:([^\]]+)\]\]/);
+    const htmlParts = [];
+    for (let i = 0; i < parts.length; i++) {
+      if (i % 2 === 0) {
+        const text = parts[i].trim();
+        if (text) htmlParts.push(renderFormattedTextToHtml(text));
+      } else {
+        const slug = parts[i].trim();
+        const article = articles.find(a => a.slug === slug);
+        if (article) {
+          htmlParts.push(`<a href="${SITE_URL}/insights/${categorySlug}/${slug}" class="insight-inline-card"><strong>${escapeHtml(article.title)}</strong> — ${escapeHtml(article.shortDescription)} →</a>`);
+        }
+      }
+    }
+    return htmlParts.join('\n');
+  }
+
+  // Insights index page
+  const insightCategoryListHtml = insightCategories
+    .sort((a, b) => a.order - b.order)
+    .map(cat => {
+      const articleLinks = cat.articles.map(a =>
+        `<li><a href="${SITE_URL}/insights/${cat.slug}/${a.slug}">${escapeHtml(a.title)}</a></li>`
+      ).join('\n');
+      return `<h3><a href="${SITE_URL}/insights/${cat.slug}">${escapeHtml(cat.name)}</a></h3>
+      <p>${escapeHtml(cat.shortDescription)}</p>
+      <ul>${articleLinks}</ul>`;
+    }).join('\n');
+
+  writePage('/insights', createPage({
+    path: '/insights',
+    title: 'Bank Investing Insights | Interest Rates, M&A, Regulation & More - BankSift',
+    description: 'Educational guides on banking topics that matter for bank stock investors. Covers interest rate risk, mergers and acquisitions, regulation, deposit analysis, loan portfolios, and more.',
+    canonical: `${SITE_URL}/insights`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "Insights", path: "/insights" }
+        ])
+      ]
+    },
+    content: `
+      <h1>Banking Insights</h1>
+      <p>Educational guides on the banking topics that matter most when analyzing bank stocks.</p>
+      ${insightCategoryListHtml}
+    `
+  }));
+  insightCount++;
+
+  // Insight hub pages
+  for (const category of insightCategories) {
+    const hubPath = `/insights/${category.slug}`;
+    writePage(hubPath, createPage({
+      path: hubPath,
+      title: category.metaTitle,
+      description: category.metaDescription,
+      canonical: `${SITE_URL}${hubPath}`,
+      type: 'article',
+      schema: {
+        "@context": "https://schema.org",
+        "@graph": [
+          createBreadcrumbSchema([
+            { name: "Home", path: "" },
+            { name: "Insights", path: "/insights" },
+            { name: category.name, path: hubPath }
+          ]),
+          {
+            "@type": "Article",
+            "headline": category.name,
+            "description": category.shortDescription,
+            "dateModified": BUILD_DATE,
+            "author": { "@type": "Organization", "name": "BankSift" }
+          }
+        ]
+      },
+      content: `
+        <article>
+          <h1>${escapeHtml(category.name)}</h1>
+          ${renderHubContentToHtml(category.hubContent, category.articles, category.slug)}
+          ${category.relatedMetrics && category.relatedMetrics.length > 0 ? `
+          <h2>Related Metrics</h2>
+          <ul>
+            ${category.relatedMetrics.map(ms => {
+              const met = metrics.find(m => m.slug === ms);
+              if (!met) return '';
+              const desc = category.relatedMetricDescriptions?.[ms] || met.shortDescription;
+              return `<li><a href="${SITE_URL}/metrics/${ms}">${escapeHtml(met.name)}</a> — ${escapeHtml(desc)}</li>`;
+            }).filter(Boolean).join('\n            ')}
+          </ul>
+          ` : ''}
+          <p><a href="${SITE_URL}/insights">← All Insights</a> | <a href="${SITE_URL}/screener">Use Screener →</a></p>
+        </article>
+      `
+    }));
+    insightCount++;
+
+    // Insight article pages
+    for (const article of category.articles) {
+      const articlePath = `/insights/${category.slug}/${article.slug}`;
+      writePage(articlePath, createPage({
+        path: articlePath,
+        title: article.metaTitle,
+        description: article.metaDescription,
+        canonical: `${SITE_URL}${articlePath}`,
+        type: 'article',
+        schema: {
+          "@context": "https://schema.org",
+          "@graph": [
+            createBreadcrumbSchema([
+              { name: "Home", path: "" },
+              { name: "Insights", path: "/insights" },
+              { name: category.name, path: `/insights/${category.slug}` },
+              { name: article.title, path: articlePath }
+            ]),
+            {
+              "@type": "Article",
+              "headline": article.title,
+              "description": article.shortDescription,
+              "dateModified": BUILD_DATE,
+              "author": { "@type": "Organization", "name": "BankSift" }
+            }
+          ]
+        },
+        content: `
+          <article>
+            <h1>${escapeHtml(article.title)}</h1>
+            ${renderFormattedTextToHtml(article.content)}
+            ${article.relatedArticleSlugs && article.relatedArticleSlugs.length > 0 ? `
+            <h2>Related Articles</h2>
+            <ul>
+              ${article.relatedArticleSlugs.map(rs => {
+                const allArticles = insightCategories.flatMap(c => c.articles.map(a => ({ ...a, categorySlug: c.slug })));
+                const rel = allArticles.find(a => a.slug === rs);
+                if (!rel) return '';
+                const desc = article.relatedArticleDescriptions?.[rs] || rel.shortDescription;
+                return `<li><a href="${SITE_URL}/insights/${rel.categorySlug}/${rs}">${escapeHtml(rel.title)}</a> — ${escapeHtml(desc)}</li>`;
+              }).filter(Boolean).join('\n              ')}
+            </ul>
+            ` : ''}
+            ${article.relatedMetrics && article.relatedMetrics.length > 0 ? `
+            <h2>Related Metrics</h2>
+            <ul>
+              ${article.relatedMetrics.map(ms => {
+                const met = metrics.find(m => m.slug === ms);
+                if (!met) return '';
+                const desc = article.relatedMetricDescriptions?.[ms] || met.shortDescription;
+                return `<li><a href="${SITE_URL}/metrics/${ms}">${escapeHtml(met.name)}</a> — ${escapeHtml(desc)}</li>`;
+              }).filter(Boolean).join('\n              ')}
+            </ul>
+            ` : ''}
+            <p><a href="${SITE_URL}/insights/${category.slug}">← ${escapeHtml(category.name)}</a> | <a href="${SITE_URL}/screener">Use Screener →</a></p>
+          </article>
+        `
+      }));
+      insightCount++;
+    }
+  }
+  console.log(`✓ Generated ${insightCount} insight pages`);
+
+  // ============================================
   // BANK DETAIL PAGES
   // ============================================
 
@@ -2191,13 +2367,14 @@ async function generatePages() {
   // SUMMARY
   // ============================================
 
-  const total = count + faqCount + metricCount + valuationCount + bankCount;
+  const total = count + faqCount + metricCount + valuationCount + insightCount + bankCount;
   console.log(`\n✅ Pre-rendering complete!`);
   console.log(`   Total pages: ${total}`);
   console.log(`   - Static pages: ${count}`);
   console.log(`   - FAQ pages: ${faqCount}`);
   console.log(`   - Metric pages: ${metricCount}`);
   console.log(`   - Valuation pages: ${valuationCount}`);
+  console.log(`   - Insight pages: ${insightCount}`);
   console.log(`   - Bank pages: ${bankCount}`);
 }
 
