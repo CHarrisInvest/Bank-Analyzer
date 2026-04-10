@@ -621,7 +621,124 @@ export const INSIGHT_CATEGORIES = [
       'price-to-book-valuation': 'Loan portfolio quality directly affects whether book value is trustworthy as a valuation anchor'
     },
     relatedFaqSlugs: ['how-to-evaluate-loan-credit-quality', 'evaluating-loan-portfolio-composition', 'evaluating-cre-exposure', 'loan-demand-and-bank-performance'],
-    articles: []
+    articles: [
+      {
+        slug: 'cre-concentration',
+        title: 'CRE Concentration Risk in Banks',
+        shortDescription: 'Why commercial real estate lending concentrations draw regulatory scrutiny and how investors should evaluate them.',
+        order: 1,
+        metaTitle: 'CRE Concentration Risk in Banks | BankSift Insights',
+        metaDescription: 'Learn how to evaluate commercial real estate concentration risk in bank loan portfolios, including regulatory thresholds, property type differences, and warning signs.',
+        content: 'Commercial real estate loans are the dominant asset class at many community and regional banks. CRE typically includes loans secured by income-producing properties (office, retail, multifamily, industrial, hotel) and construction and land development loans. When CRE represents too large a share of the loan book, a downturn in property values or rental income can threaten the entire bank.\n\n## Regulatory Concentration Thresholds\n\nFederal regulators established guidance flagging two CRE concentration levels:\n\n- Total CRE loans exceeding 300% of the bank\'s total risk-based capital\n- Construction and land development loans exceeding 100% of total risk-based capital\n\nBanks above these thresholds aren\'t prohibited from lending more, but examiners expect them to demonstrate stronger risk management: dedicated CRE expertise, portfolio stress testing, more granular reporting, and active monitoring of property market conditions. Banks that exceed the thresholds without these controls face criticism during examinations.\n\n## Property Type Matters\n\nNot all CRE is equal. Multifamily lending (apartment buildings) has historically been the lowest-risk CRE category because housing demand is relatively stable and diversified across many tenants. Office and retail have been among the riskier categories, with office particularly challenged as remote work has reduced space demand in many markets.\n\nHotel and hospitality CRE is the most volatile. Revenue is highly cyclical and can collapse during recessions or disruptions (as the pandemic demonstrated). Construction and land development loans carry the additional risk that the project may not be completed or may be finished into a weak market.\n\nWhen a bank reports 40% of its loans in CRE, dig into the sub-categories. A bank concentrated in multifamily in a growing market carries different risk than one concentrated in suburban office or speculative land development.\n\n## What to Watch For\n\nRising CRE as a percentage of total loans over several quarters signals the bank is leaning further into this asset class, either because it\'s growing CRE faster than other categories or because other categories are shrinking. Either way, the concentration is increasing.\n\nWatch the maturity profile. CRE loans originated during low-rate periods may face refinancing challenges as they mature into higher rates, particularly if property values or rental income have declined since origination. A bank with a large wall of CRE maturities in the next 12 to 24 months faces elevated refinancing risk.\n\nAlso compare the bank\'s CRE non-performing loan ratio to its overall NPL ratio. If CRE NPLs are rising faster than the overall book, credit stress is emerging in that specific portfolio.',
+        relatedMetrics: ['non-performing-loans-ratio', 'net-charge-off-ratio', 'loan-loss-reserve-ratio', 'provision-to-average-loans'],
+        relatedMetricDescriptions: {
+          'non-performing-loans-ratio': 'CRE-specific NPL trends reveal credit stress before it hits the overall ratio',
+          'net-charge-off-ratio': 'CRE charge-offs tend to be lumpy and large when they occur',
+          'loan-loss-reserve-ratio': 'Banks with heavy CRE should hold higher reserves relative to total loans',
+          'provision-to-average-loans': 'Rising provisions may signal management recognizing CRE credit deterioration'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['evaluating-cre-exposure', 'how-to-evaluate-loan-credit-quality', 'evaluating-loan-portfolio-composition'],
+        relatedArticleSlugs: ['ci-lending', 'geographic-concentration'],
+        relatedArticleDescriptions: {
+          'ci-lending': 'C&I lending provides natural diversification away from CRE concentration',
+          'geographic-concentration': 'CRE risk compounds when concentrated in a single geographic market'
+        }
+      },
+      {
+        slug: 'ci-lending',
+        title: 'C&I Lending at Banks',
+        shortDescription: 'How commercial and industrial loans work, why they diversify a bank\'s portfolio, and what to watch.',
+        order: 2,
+        metaTitle: 'Commercial & Industrial (C&I) Lending at Banks | BankSift Insights',
+        metaDescription: 'Understand how C&I lending works at banks, how it differs from CRE lending, why it provides portfolio diversification, and what investors should monitor.',
+        content: 'Commercial and industrial loans fund the operating needs of businesses: working capital lines of credit, equipment financing, accounts receivable facilities, and term loans for general corporate purposes. C&I lending is secured by business assets rather than real property, and the credit decision is based on the borrower\'s cash flow and business fundamentals rather than collateral value alone.\n\n## How C&I Differs from CRE\n\nC&I loans typically carry shorter maturities and variable interest rates, which means they reprice faster and carry less interest rate risk than long-duration CRE or residential mortgage loans. A revolving line of credit might have a one-year commitment period with a floating rate tied to prime or SOFR. A term loan might run three to five years with quarterly rate resets.\n\nThe borrower base is also more granular. A bank\'s C&I portfolio might include hundreds of businesses across manufacturing, professional services, healthcare, technology, distribution, and other sectors. No single borrower or industry typically dominates, which provides natural diversification that CRE portfolios often lack.\n\n## What Drives C&I Credit Quality\n\nC&I credit performance tracks the business cycle. During expansions, businesses generate strong cash flow and repay loans reliably. During recessions, revenue declines stress borrowers\' ability to service debt, and defaults rise. The relationship is more direct and immediate than in CRE, where property values and rental income may hold up initially even as the broader economy weakens.\n\nLine utilization is a useful leading indicator. When businesses draw more heavily on their revolving credit lines, it can signal cash flow pressure. Banks report average line utilization in their quarterly supplements, and a sustained increase deserves attention.\n\n## Evaluating a Bank\'s C&I Book\n\nLook at C&I as a percentage of total loans and how it has trended. Banks actively growing C&I often have experienced commercial lenders and relationship banking models that generate deposits alongside the loans. A commercial client with a line of credit typically maintains its operating accounts at the same bank, making C&I lending a deposit-gathering strategy as well.\n\nIndustry diversification within the C&I book matters. A bank where 30% of C&I loans go to a single industry (oil and gas, agriculture, or healthcare, for example) has a concentration that undermines the diversification benefit. The 10-K may provide sector-level detail, and the call report breaks out certain categories.\n\nC&I classified and criticized loan trends are worth monitoring alongside overall asset quality metrics. Classified C&I loans that are migrating from "special mention" to "substandard" indicate active credit deterioration in the commercial book.',
+        relatedMetrics: ['non-performing-loans-ratio', 'net-charge-off-ratio', 'loans-to-deposits'],
+        relatedMetricDescriptions: {
+          'non-performing-loans-ratio': 'C&I NPL trends track business cycle conditions across the borrower base',
+          'net-charge-off-ratio': 'C&I charge-offs tend to be more evenly distributed than lumpy CRE losses',
+          'loans-to-deposits': 'C&I relationships often bring deposits alongside the loan, improving the ratio\'s quality'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['how-to-evaluate-loan-credit-quality', 'loan-demand-and-bank-performance'],
+        relatedArticleSlugs: ['cre-concentration', 'consumer-loans'],
+        relatedArticleDescriptions: {
+          'cre-concentration': 'C&I lending provides portfolio diversification away from CRE exposure',
+          'consumer-loans': 'Consumer and C&I loans behave differently through economic cycles'
+        }
+      },
+      {
+        slug: 'residential-mortgage',
+        title: 'Residential Mortgage Lending at Banks',
+        shortDescription: 'How banks approach mortgage lending, the difference between portfolio and sold loans, and the risk implications.',
+        order: 3,
+        metaTitle: 'Residential Mortgage Lending at Banks | BankSift Insights',
+        metaDescription: 'Learn how banks handle residential mortgage lending, the difference between portfolio loans and sold production, interest rate risk from mortgage retention, and fee income from mortgage banking.',
+        content: 'Residential mortgage lending at banks falls into two distinct models: originating loans to hold on the balance sheet (portfolio lending) and originating loans to sell to investors or agencies (mortgage banking). Many banks do both, but the mix between portfolio and sold production has meaningful implications for risk and profitability.\n\n## Portfolio vs. Sold Production\n\nWhen a bank retains a mortgage on its balance sheet, it earns interest income over the life of the loan but assumes the credit risk and interest rate risk. A 30-year fixed-rate mortgage funded with deposits that reprice every few years creates a duration mismatch that can squeeze earnings if rates rise sharply.\n\nWhen a bank originates a mortgage and sells it (typically to Fannie Mae, Freddie Mac, or Ginnie Mae), it earns an origination fee and a gain on sale at closing. The loan leaves the balance sheet, eliminating ongoing credit and rate risk. The bank may retain the servicing rights, earning a small ongoing fee for collecting payments and managing the loan.\n\nBanks focused on gain-on-sale mortgage banking generate lumpy revenue that is highly sensitive to rate cycles. Refinancing booms (when rates fall) produce surges in volume and fee income. Rising rate environments cut refinancing activity sharply, and purchase volume alone rarely compensates.\n\n## Interest Rate Risk Considerations\n\nBanks that hold large fixed-rate mortgage portfolios carry significant interest rate risk. When rates rise, the value of those mortgages falls (because the fixed coupons are below market), and if the bank had to sell them, it would realize losses. This is exactly what happened to Silicon Valley Bank and several other institutions during the 2022-2023 rate increase cycle.\n\nAdjustable-rate mortgages (ARMs) carry less rate risk because they reprice periodically. Some banks focus their portfolio lending on ARMs or shorter-duration products specifically to manage this exposure.\n\n## What to Evaluate\n\nCheck the bank\'s mortgage-related disclosures for the split between portfolio and sold production. A bank that holds most of its originations has different risk characteristics than one running a gain-on-sale model.\n\nFor portfolio lenders, look at the percentage of residential mortgages in the overall loan mix and whether those loans are fixed or adjustable rate. Compare this against the bank\'s duration gap and rate sensitivity disclosures to understand how mortgage holdings affect overall rate exposure.\n\nFor mortgage banking operations, track gain-on-sale margins and origination volume trends. These businesses can swing from highly profitable to breakeven quickly as rates change, and the revenue contribution can be volatile enough to distort quarterly earnings.',
+        relatedMetrics: ['net-interest-margin', 'non-interest-income-to-revenue', 'loans-to-assets'],
+        relatedMetricDescriptions: {
+          'net-interest-margin': 'Retained mortgages contribute to NIM but carry duration mismatch risk',
+          'non-interest-income-to-revenue': 'Mortgage banking fee income shows up in the non-interest income ratio',
+          'loans-to-assets': 'Large portfolio mortgage books increase the loans-to-assets ratio and rate exposure'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['how-to-evaluate-loan-credit-quality', 'interest-income-vs-fee-income'],
+        relatedArticleSlugs: ['cre-concentration', 'consumer-loans'],
+        relatedArticleDescriptions: {
+          'cre-concentration': 'Residential mortgages and CRE are the two main real estate lending categories',
+          'consumer-loans': 'Home equity products bridge residential mortgage and consumer lending'
+        }
+      },
+      {
+        slug: 'consumer-loans',
+        title: 'Consumer Lending at Banks',
+        shortDescription: 'How auto loans, credit cards, home equity, and personal loans fit into a bank\'s overall portfolio.',
+        order: 4,
+        metaTitle: 'Consumer Lending at Banks | BankSift Insights',
+        metaDescription: 'Understand how consumer loan products like auto loans, credit cards, home equity lines, and personal loans contribute to bank revenue and how credit performance differs from commercial lending.',
+        content: 'Consumer loans encompass the credit products banks offer to individual borrowers: auto loans, credit cards, home equity lines of credit (HELOCs), home equity term loans, personal installment loans, and student lending. At most community and regional banks, consumer loans represent a smaller share of total loans than CRE or C&I, but they play a specific role in diversification and customer relationship depth.\n\n## Product Characteristics\n\nAuto loans are secured by the vehicle and typically carry terms of three to seven years. They\'re relatively straightforward to underwrite using credit scores, income verification, and loan-to-value ratios. Credit losses are manageable because the collateral (the car) retains some value, though depreciation means recovery rates decline with loan age.\n\nCredit cards are unsecured revolving credit. They carry the highest yields of any consumer product (often 15% to 25% APR) but also the highest loss rates. Most community and regional banks have limited credit card portfolios; the economics favor scale, which is why the largest issuers dominate this market.\n\nHome equity products (HELOCs and term loans) are secured by the borrower\'s residence, subordinate to the first mortgage. They carry moderate risk: the collateral is real property, but the bank\'s position is junior. In a housing downturn, the first mortgage gets paid before the home equity lender sees any recovery.\n\nPersonal loans are unsecured installment credit with fixed terms, typically used for debt consolidation, home improvements, or large purchases. Loss rates fall between auto loans and credit cards.\n\n## How Consumer Credit Behaves Through Cycles\n\nConsumer credit losses track unemployment closely. When people lose jobs, they stop paying their auto loans, credit cards, and personal loans in fairly predictable patterns. The losses are granular (spread across thousands of small balances) and tend to rise smoothly during downturns rather than arriving in large chunks the way a single CRE default might.\n\nThis predictability has a silver lining: banks can model consumer credit losses with reasonable accuracy, and provisions tend to build gradually rather than in sudden jumps. The flip side is that consumer losses accelerate quickly once unemployment starts rising and don\'t stabilize until the job market recovers.\n\n## What Investors Should Consider\n\nFor banks where consumer loans exceed 15% to 20% of total loans, it\'s worth examining the product mix, average credit scores, and vintage performance (how loans originated in each year are performing). Delinquency trends in consumer portfolios, particularly 30-day and 60-day past-due rates, are useful early warning indicators because they lead charge-offs by several months.\n\nAlso assess whether consumer lending is a strategic priority or a legacy book. Banks investing in digital consumer platforms and competitive product pricing are building franchise value. Those with declining consumer balances and no reinvestment are running off a book without replacing it.',
+        relatedMetrics: ['non-performing-loans-ratio', 'net-charge-off-ratio', 'provision-to-average-loans'],
+        relatedMetricDescriptions: {
+          'non-performing-loans-ratio': 'Consumer NPLs track unemployment and provide early cycle warning signals',
+          'net-charge-off-ratio': 'Consumer charge-offs are more granular and predictable than commercial losses',
+          'provision-to-average-loans': 'Provision trends reflect management\'s view of evolving consumer credit conditions'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['how-to-evaluate-loan-credit-quality', 'how-banks-report-loan-losses'],
+        relatedArticleSlugs: ['ci-lending', 'residential-mortgage'],
+        relatedArticleDescriptions: {
+          'ci-lending': 'C&I and consumer loans behave differently through business cycles',
+          'residential-mortgage': 'Home equity products bridge the consumer and residential mortgage categories'
+        }
+      },
+      {
+        slug: 'geographic-concentration',
+        title: 'Geographic Concentration in Bank Lending',
+        shortDescription: 'Why lending in a single market creates correlated risk and how diversification affects bank stability.',
+        order: 5,
+        metaTitle: 'Geographic Concentration Risk in Bank Lending | BankSift Insights',
+        metaDescription: 'Understand how geographic concentration in a bank\'s loan portfolio creates correlated risk, how to assess a bank\'s market exposure, and why diversification matters for stability.',
+        content: 'Most community banks and many regional banks lend primarily within a defined geographic area: a single metro area, a cluster of rural counties, or one state. That focus builds deep market knowledge and customer relationships but creates concentration risk. When the local economy stumbles, the bank\'s entire loan book is exposed to the same downturn.\n\n## How Geographic Risk Works\n\nA bank in a market dominated by a single industry (energy, agriculture, tourism, military) faces outsized risk if that industry contracts. When oil prices collapsed in 2014-2016, banks concentrated in Texas, Oklahoma, and North Dakota experienced sharp increases in loan losses even though banks in other markets were performing well. The loans were to different borrowers in different sectors (drilling companies, service providers, real estate developers building for oil workers), but they were all exposed to the same underlying economic driver.\n\nEven in diversified metro markets, geographic concentration creates correlated risk through the real estate cycle. A bank with all its CRE loans in one city faces the possibility that office vacancy, retail closures, and apartment oversupply all hit the same loan portfolio simultaneously during a local downturn.\n\n## Assessing Geographic Exposure\n\nBanks with a single branch network are easy to evaluate geographically: their market is their footprint. Multi-state or multi-market banks require more analysis. The 10-K typically describes the bank\'s primary markets, and the call report provides some geographic loan breakdowns.\n\nFor CRE-heavy banks, consider where the collateral is located, not just where the loans are booked. A bank in a gateway city might book participations in CRE loans across multiple states, providing geographic diversification that isn\'t obvious from its branch map.\n\nCompare the bank\'s loan portfolio growth to economic indicators in its primary market. A bank growing loans 15% annually in a market where employment and population are flat is either taking share or loosening standards. Both scenarios warrant scrutiny.\n\n## Diversification Through Growth\n\nSome banks diversify geographically by expanding into new markets through branch openings, acquisitions, or specialty lending platforms that originate loans nationally. Each approach involves tradeoffs.\n\nBranch expansion is slow and expensive but builds a genuine deposit-funded franchise in the new market. Acquisitions provide immediate market entry but come with integration risk and a premium price. National specialty lending (like SBA loans, healthcare lending, or fund finance) diversifies the loan book geographically but may not bring deposit relationships.\n\n## The Investor Perspective\n\nGeographic concentration isn\'t automatically bad. A bank in a strong, growing, diversified economy with deep market knowledge and relationships can thrive with a focused footprint. The risk is concentrated exposure to a weak or one-dimensional economy.\n\nWhen evaluating geographic risk, assess the underlying market: Is the population growing or shrinking? Is the employment base diversified across industries? Is the real estate market balanced or showing signs of excess? A bank in a growing, diversified market can afford more geographic concentration than one in a market dependent on a single employer or industry.',
+        relatedMetrics: ['non-performing-loans-ratio', 'non-performing-assets-ratio', 'loans-to-assets'],
+        relatedMetricDescriptions: {
+          'non-performing-loans-ratio': 'Geographic stress shows up as correlated NPL increases across loan categories',
+          'non-performing-assets-ratio': 'Includes foreclosed real estate, which concentrates in the bank\'s geographic footprint',
+          'loans-to-assets': 'Banks with high loan concentrations in weak markets face amplified geographic risk'
+        },
+        relatedValuations: [],
+        relatedValuationDescriptions: {},
+        relatedFaqSlugs: ['evaluating-loan-portfolio-composition', 'how-to-evaluate-loan-credit-quality'],
+        relatedArticleSlugs: ['cre-concentration', 'ci-lending'],
+        relatedArticleDescriptions: {
+          'cre-concentration': 'CRE concentration compounds geographic risk when both the loans and collateral are in one market',
+          'ci-lending': 'C&I lending tied to local businesses shares the same geographic exposure as the broader economy'
+        }
+      }
+    ]
   }
 ];
 
