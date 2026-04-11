@@ -52,6 +52,7 @@ async function generateSitemap() {
     { path: '/metrics', priority: '0.9', changefreq: 'monthly', src: 'src/pages/MetricsIndex.jsx' },
     { path: '/valuation', priority: '0.9', changefreq: 'monthly', src: 'src/pages/ValuationIndex.jsx' },
     { path: '/glossary', priority: '0.8', changefreq: 'monthly', src: 'src/pages/Glossary.jsx' },
+    { path: '/insights', priority: '0.9', changefreq: 'monthly', src: 'src/pages/InsightsIndex.jsx' },
     { path: '/privacy', priority: '0.3', changefreq: 'yearly', src: 'src/pages/Privacy.jsx' },
     { path: '/terms', priority: '0.3', changefreq: 'yearly', src: 'src/pages/Terms.jsx' },
   ];
@@ -114,6 +115,29 @@ async function generateSitemap() {
       changefreq: 'monthly',
       priority: '0.7'
     });
+  }
+
+  // ── Insight pages ───────────────────────────────────────────────
+  const insightsFile = 'src/data/content/insights.js';
+  const insightsLastmod = getLastModDate(insightsFile);
+  const insightsModule = await import(join(srcDir, 'data', 'content', 'insights.js'));
+  for (const category of insightsModule.INSIGHT_CATEGORIES) {
+    // Hub page
+    urls.push({
+      loc: `${SITE_URL}/insights/${category.slug}`,
+      lastmod: insightsLastmod,
+      changefreq: 'monthly',
+      priority: '0.8'
+    });
+    // Article pages
+    for (const article of category.articles) {
+      urls.push({
+        loc: `${SITE_URL}/insights/${category.slug}/${article.slug}`,
+        lastmod: insightsLastmod,
+        changefreq: 'monthly',
+        priority: '0.7'
+      });
+    }
   }
 
   // ── Bank pages ──────────────────────────────────────────────────
