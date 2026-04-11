@@ -53,7 +53,7 @@ const CONFIG = {
 
   // Maximum days since last filing to be considered an active filer
   // Banks with no 10-Q or 10-K filed within this threshold are excluded
-  activeFilerThresholdDays: 150,
+  activeFilerThresholdDays: 240,
 
   // Financial institution SIC codes
   financialInstitutionSicCodes: [
