@@ -11,6 +11,7 @@ import { VALUATION_METHODS } from '../data/content/valuations.js';
 const METRIC_CATEGORY_OVERRIDES = {
   'earnings-per-share': 'income-statement',
   'dividend-payout-ratio': 'income-statement',
+  'cost-of-funds': 'funding-deposits',
 };
 
 /**
@@ -33,16 +34,6 @@ const ADDITIONAL_TERMS = [
   // =============================================
   // Profitability & Efficiency
   // =============================================
-  {
-    term: 'Return on Tangible Common Equity (ROTCE)',
-    definition: 'Net income divided by average tangible common equity. A stricter profitability measure than ROE because it excludes goodwill and intangible assets from the equity base, revealing the return generated on hard capital.',
-    category: 'profitability-efficiency',
-  },
-  {
-    term: 'Pre-Provision Net Revenue (PPNR)',
-    definition: 'Total revenue minus non-interest expense, before subtracting the provision for credit losses. PPNR isolates a bank\'s core earnings power from credit cycle volatility and is a key input in stress testing.',
-    category: 'profitability-efficiency',
-  },
   {
     term: 'Operating Leverage',
     definition: 'The rate at which revenue growth exceeds expense growth. Positive operating leverage means a bank is growing revenue faster than costs, improving profitability over time.',
@@ -68,18 +59,8 @@ const ADDITIONAL_TERMS = [
     category: 'capital-regulatory',
   },
   {
-    term: 'Tier 1 Capital Ratio',
-    definition: 'The ratio of a bank\'s Tier 1 capital (CET1 plus additional Tier 1 instruments such as non-cumulative preferred stock) to risk-weighted assets. It measures a bank\'s core financial strength from a regulatory perspective.',
-    category: 'capital-regulatory',
-  },
-  {
     term: 'Tier 2 Capital',
     definition: 'Supplementary capital that includes subordinated debt, loan loss reserves (up to a limit), and other instruments that absorb losses after Tier 1 capital is exhausted. It provides an additional buffer beyond core equity.',
-    category: 'capital-regulatory',
-  },
-  {
-    term: 'Total Capital Ratio',
-    definition: 'The ratio of a bank\'s total regulatory capital (Tier 1 plus Tier 2) to risk-weighted assets. US bank regulators require a minimum total capital ratio of 8%, with well-capitalized banks typically holding 10% or more.',
     category: 'capital-regulatory',
   },
   {
@@ -90,11 +71,6 @@ const ADDITIONAL_TERMS = [
   {
     term: 'Leverage Ratio (Regulatory)',
     definition: 'Tier 1 capital divided by average total consolidated assets, without risk weighting. It provides a simple, non-risk-based backstop to risk-weighted capital ratios. The US minimum is 4% for well-capitalized banks.',
-    category: 'capital-regulatory',
-  },
-  {
-    term: 'Supplementary Leverage Ratio (SLR)',
-    definition: 'An enhanced leverage ratio for the largest US banks that includes off-balance-sheet exposures (such as derivatives and loan commitments) in the denominator. Required for banks with $250 billion or more in total assets.',
     category: 'capital-regulatory',
   },
   {
@@ -137,23 +113,8 @@ const ADDITIONAL_TERMS = [
     category: 'credit-quality',
   },
   {
-    term: 'Net Charge-Off Ratio',
-    definition: 'Loans written off as uncollectible minus recoveries on previously charged-off loans, expressed as a percentage of average loans. It measures the actual credit loss experience over a period.',
-    category: 'credit-quality',
-  },
-  {
     term: 'Allowance for Credit Losses (ACL)',
     definition: 'A balance sheet reserve that represents management\'s estimate of expected lifetime losses in the loan portfolio. Funded through the provision for credit losses on the income statement.',
-    category: 'credit-quality',
-  },
-  {
-    term: 'Reserve Coverage Ratio',
-    definition: 'The allowance for credit losses divided by non-performing loans. A ratio above 100% means the bank has reserved more than enough to cover its currently identified problem loans.',
-    category: 'credit-quality',
-  },
-  {
-    term: 'Texas Ratio',
-    definition: 'Non-performing assets plus loans 90 days past due, divided by tangible common equity plus the allowance for loan losses. A ratio above 100% suggests a bank may not have enough reserves and capital to absorb problem loans. Historically used as a distress indicator.',
     category: 'credit-quality',
   },
   {
@@ -213,11 +174,6 @@ const ADDITIONAL_TERMS = [
   {
     term: 'Shares Outstanding',
     definition: 'The total number of shares of a company\'s stock currently held by all shareholders, including institutional investors and company insiders.',
-    category: 'valuation',
-  },
-  {
-    term: 'Price to Tangible Book Value (P/TBV)',
-    definition: 'Stock price divided by tangible book value per share. A stricter valuation metric than P/B because it excludes goodwill and intangible assets, providing a clearer picture of what investors are paying for hard assets.',
     category: 'valuation',
   },
 
@@ -286,11 +242,6 @@ const ADDITIONAL_TERMS = [
   {
     term: 'Wholesale Funding',
     definition: 'Non-deposit funding sources such as Federal Home Loan Bank advances, federal funds purchased, repurchase agreements, and subordinated debt. Higher reliance on wholesale funding can indicate deposit franchise weakness.',
-    category: 'funding-deposits',
-  },
-  {
-    term: 'Cost of Funds',
-    definition: 'The blended interest rate a bank pays on all of its funding sources, including deposits and borrowings. A lower cost of funds directly supports wider net interest margin and higher profitability.',
     category: 'funding-deposits',
   },
   {
