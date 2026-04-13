@@ -4,83 +4,83 @@
   "rawData": {
     "balanceSheet": {
       "Assets": {
-        "value": 1587144000,
-        "ddate": "20250930",
+        "value": 1595721000,
+        "ddate": "20251231",
         "qtrs": 0,
-        "form": "10-Q",
+        "form": "10-K",
         "fy": "2025",
-        "fp": "Q3",
-        "filed": "20251113",
-        "period": "20250930",
+        "fp": "FY",
+        "filed": "20260309",
+        "period": "20251231",
         "uom": "USD",
-        "adsh": "0001493152-25-022301",
+        "adsh": "0001493152-26-009243",
         "version": "us-gaap/2025"
       },
       "CashAndCashEquivalents": {
-        "value": 52788000,
-        "ddate": "20250930",
+        "value": 49639000,
+        "ddate": "20251231",
         "qtrs": 0,
-        "form": "10-Q",
+        "form": "10-K",
         "fy": "2025",
-        "fp": "Q3",
-        "filed": "20251113",
-        "period": "20250930",
+        "fp": "FY",
+        "filed": "20260309",
+        "period": "20251231",
         "uom": "USD",
-        "adsh": "0001493152-25-022301",
+        "adsh": "0001493152-26-009243",
         "version": "us-gaap/2025"
       },
       "LoansAndLeasesReceivable": null,
       "Liabilities": {
-        "value": 1433160000,
-        "ddate": "20250930",
+        "value": 1437950000,
+        "ddate": "20251231",
         "qtrs": 0,
-        "form": "10-Q",
+        "form": "10-K",
         "fy": "2025",
-        "fp": "Q3",
-        "filed": "20251113",
-        "period": "20250930",
+        "fp": "FY",
+        "filed": "20260309",
+        "period": "20251231",
         "uom": "USD",
-        "adsh": "0001493152-25-022301",
+        "adsh": "0001493152-26-009243",
         "version": "us-gaap/2025"
       },
       "Deposits": {
-        "value": 1253006000,
-        "ddate": "20250930",
+        "value": 1303923000,
+        "ddate": "20251231",
         "qtrs": 0,
-        "form": "10-Q",
+        "form": "10-K",
         "fy": "2025",
-        "fp": "Q3",
-        "filed": "20251113",
-        "period": "20250930",
+        "fp": "FY",
+        "filed": "20260309",
+        "period": "20251231",
         "uom": "USD",
-        "adsh": "0001493152-25-022301",
+        "adsh": "0001493152-26-009243",
         "version": "us-gaap/2025"
       },
       "StockholdersEquity": {
-        "value": 153984000,
-        "ddate": "20250930",
+        "value": 157771000,
+        "ddate": "20251231",
         "qtrs": 0,
-        "form": "10-Q",
+        "form": "10-K",
         "fy": "2025",
-        "fp": "Q3",
-        "filed": "20251113",
-        "period": "20250930",
+        "fp": "FY",
+        "filed": "20260309",
+        "period": "20251231",
         "uom": "USD",
-        "adsh": "0001493152-25-022301",
+        "adsh": "0001493152-26-009243",
         "version": "us-gaap/2025"
       },
       "PreferredStockValue": null,
       "CommonStockSharesOutstanding": {
-        "value": 2375518,
-        "ddate": "20250930",
+        "value": 2375138,
+        "ddate": "20251231",
         "qtrs": 0,
-        "form": "10-Q",
+        "form": "10-K",
         "fy": "2025",
-        "fp": "Q3",
-        "filed": "20251113",
-        "period": "20250930",
+        "fp": "FY",
+        "filed": "20260309",
+        "period": "20251231",
         "uom": "shares",
-        "adsh": "0001493152-25-022301",
+        "adsh": "0001493152-26-009243",
         "version": "us-gaap/2025"
       }
     },
@@ -109,25 +109,747 @@
     },
     "averages": {
       "Assets": {
-        "average": 1557163750,
-        "ending": 1587144000,
-        "endingDate": "20250930",
+        "average": 1564875200,
+        "ending": 1595721000,
+        "endingDate": "20251231",
         "startingDate": "20241231",
-        "method": "4-point-avg",
-        "periodCount": 4
+        "method": "5-point-avg",
+        "periodCount": 5
       },
       "Equity": {
-        "average": 148253600,
-        "ending": 153984000,
-        "endingDate": "20250930",
-        "startingDate": "20241231",
+        "average": 151169000,
+        "ending": 157771000,
+        "endingDate": "20251231",
+        "startingDate": "20250331",
         "method": "5-point-avg",
         "periodCount": 5
       }
     },
     "historicalBalanceSheet": {
-      "annual": [],
+      "annual": [
+        {
+          "period": "FY 2025",
+          "label": "FY 2025",
+          "form": "10-K",
+          "fy": "2025",
+          "fp": "FY",
+          "filed": "20260309",
+          "ddate": "20251231",
+          "adsh": "0001493152-26-009243",
+          "items": [
+            {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and due from banks",
+              "line": 2,
+              "indent": 0,
+              "negating": false,
+              "value": 46193000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 3446000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "CashAndCashEquivalentsAtCarryingValue",
+              "label": "Cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 49639000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
+              "label": "Debt securities available-for-sale, at fair value (amortized cost $162,742 and $158,009, respectively)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 154207000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LoansReceivableHeldForSaleAmount",
+              "label": "Federal Home Loan Bank stock, at cost",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 3572000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "ServicingAssetAtFairValueAmount",
+              "label": "Mortgage loans held for sale",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 12688000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LoansReceivableNet",
+              "label": "Loans, net of allowance for credit losses of $14,992 and $14,444, respectively",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1300302000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Bank-owned life insurance",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 20844000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "OtherRealEstateAndForeclosedAssets",
+              "label": "Foreclosed assets, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 101000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Bank premises and equipment, net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 24330000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "IntangibleAssetsNetIncludingGoodwill",
+              "label": "Goodwill and other intangibles",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 8678000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 8222000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "OtherAssets",
+              "label": "Other assets",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 13138000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "Assets",
+              "label": "Total assets",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 1595721000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "NoninterestBearingDepositLiabilities",
+              "label": "Noninterest-bearing",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 167062000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestBearingDepositLiabilities",
+              "label": "Interest-bearing",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 1136861000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "Deposits",
+              "label": "Total deposits",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 1303923000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 77917000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Securities sold under agreements to repurchase",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 23105000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "DividendsPayableCurrent",
+              "label": "Dividends payable",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 607000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "AccruedLiabilitiesAndOtherLiabilities",
+              "label": "Accrued interest payable and other liabilities",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 22539000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "JuniorSubordinatedNotes",
+              "label": "Subordinated debt, net of debt issuance costs of $146 and $166, respectively",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 9859000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "Liabilities",
+              "label": "Total liabilities",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 1437950000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Stockholders equity: Common stock, $1 par value; 5,000,000 shares authorized; 2,375,138 and 2,394,193 shares issued and outstanding, respectively",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 2375000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "AdditionalPaidInCapital",
+              "label": "Additional paid-in-capital",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 20426000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "RetainedEarningsAccumulatedDeficit",
+              "label": "Retained earnings",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 141073000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+              "label": "Accumulated other comprehensive loss",
+              "line": 30,
+              "indent": 0,
+              "negating": false,
+              "value": -6103000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "StockholdersEquity",
+              "label": "Total stockholders equity",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": 157771000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LiabilitiesAndStockholdersEquity",
+              "label": "Total liabilities and stockholders equity",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 1595721000,
+              "uom": "USD",
+              "hasValue": true
+            }
+          ]
+        }
+      ],
       "quarterly": [
+        {
+          "period": "Q4 2025",
+          "label": "Q4 2025",
+          "form": "10-K",
+          "fy": "2025",
+          "fp": "Q4",
+          "filed": "20260309",
+          "ddate": "20251231",
+          "adsh": "0001493152-26-009243",
+          "isDerived": false,
+          "items": [
+            {
+              "tag": "CashAndDueFromBanks",
+              "label": "Cash and due from banks",
+              "line": 2,
+              "indent": 0,
+              "negating": false,
+              "value": 46193000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "FederalFundsSold",
+              "label": "Federal funds sold",
+              "line": 3,
+              "indent": 0,
+              "negating": false,
+              "value": 3446000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "CashAndCashEquivalentsAtCarryingValue",
+              "label": "Cash and cash equivalents",
+              "line": 4,
+              "indent": 0,
+              "negating": false,
+              "value": 49639000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
+              "label": "Debt securities available-for-sale, at fair value (amortized cost $162,742 and $158,009, respectively)",
+              "line": 5,
+              "indent": 0,
+              "negating": false,
+              "value": 154207000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "FederalHomeLoanBankStock",
+              "label": "Federal Home Loan Bank stock, at cost",
+              "line": 6,
+              "indent": 0,
+              "negating": false,
+              "value": 3572000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "MortgagesHeldForSaleFairValueDisclosure",
+              "label": "Mortgage loans held for sale",
+              "line": 7,
+              "indent": 0,
+              "negating": false,
+              "value": 12688000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "LoansReceivableNet",
+              "label": "Loans, net of allowance for credit losses of $14,992 and $14,444, respectively",
+              "line": 8,
+              "indent": 0,
+              "negating": false,
+              "value": 1300302000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "BankOwnedLifeInsurance",
+              "label": "Bank-owned life insurance",
+              "line": 9,
+              "indent": 0,
+              "negating": false,
+              "value": 20844000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "OtherRealEstateAndForeclosedAssets",
+              "label": "Foreclosed assets, net",
+              "line": 10,
+              "indent": 0,
+              "negating": false,
+              "value": 101000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "PropertyPlantAndEquipmentNet",
+              "label": "Bank premises and equipment, net",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 24330000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "IntangibleAssetsNetIncludingGoodwill",
+              "label": "Goodwill and other intangibles",
+              "line": 12,
+              "indent": 0,
+              "negating": false,
+              "value": 8678000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestReceivable",
+              "label": "Accrued interest receivable",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 8222000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "OtherAssets",
+              "label": "Other assets",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 13138000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "Assets",
+              "label": "Total assets",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 1595721000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "NoninterestBearingDepositLiabilities",
+              "label": "Noninterest-bearing",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 167062000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestBearingDepositLiabilities",
+              "label": "Interest-bearing",
+              "line": 19,
+              "indent": 0,
+              "negating": false,
+              "value": 1136861000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "Deposits",
+              "label": "Total deposits",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 1303923000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "FederalHomeLoanBankAdvancesLongTerm",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 77917000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Securities sold under agreements to repurchase",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 23105000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "DividendsPayableCurrent",
+              "label": "Dividends payable",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 607000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "AccruedLiabilitiesAndOtherLiabilities",
+              "label": "Accrued interest payable and other liabilities",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 22539000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "JuniorSubordinatedNotes",
+              "label": "Subordinated debt, net of debt issuance costs of $146 and $166, respectively",
+              "line": 25,
+              "indent": 0,
+              "negating": false,
+              "value": 9859000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "Liabilities",
+              "label": "Total liabilities",
+              "line": 26,
+              "indent": 0,
+              "negating": false,
+              "value": 1437950000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "CommonStockValue",
+              "label": "Stockholders equity: Common stock, $1 par value; 5,000,000 shares authorized; 2,375,138 and 2,394,193 shares issued and outstanding, respectively",
+              "line": 28,
+              "indent": 0,
+              "negating": false,
+              "value": 2375000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "AdditionalPaidInCapital",
+              "label": "Additional paid-in-capital",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 20426000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "RetainedEarningsAccumulatedDeficit",
+              "label": "Retained earnings",
+              "line": 30,
+              "indent": 0,
+              "negating": false,
+              "value": 141073000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+              "label": "Accumulated other comprehensive loss",
+              "line": 31,
+              "indent": 0,
+              "negating": false,
+              "value": -6103000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "StockholdersEquity",
+              "label": "Total stockholders equity",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 157771000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "LiabilitiesAndStockholdersEquity",
+              "label": "Total liabilities and stockholders equity",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 1595721000,
+              "uom": "USD",
+              "hasValue": true,
+              "isDerived": false,
+              "derivedUnavailable": false,
+              "isAnnualProxy": false,
+              "isRestated": false
+            }
+          ]
+        },
         {
           "period": "Q3 2025",
           "label": "Q3 2025",
@@ -968,7 +1690,182 @@
         }
       ],
       "canonicalItems": {
-        "annual": [],
+        "annual": [
+          {
+            "tag": "CashAndDueFromBanks",
+            "label": "Cash and due from banks",
+            "line": 2,
+            "indent": 0
+          },
+          {
+            "tag": "FederalFundsSold",
+            "label": "Federal funds sold",
+            "line": 3,
+            "indent": 0
+          },
+          {
+            "tag": "CashAndCashEquivalentsAtCarryingValue",
+            "label": "Cash and cash equivalents",
+            "line": 4,
+            "indent": 0
+          },
+          {
+            "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
+            "label": "Debt securities available-for-sale, at fair value (amortized cost $162,742 and $158,009, respectively)",
+            "line": 5,
+            "indent": 0
+          },
+          {
+            "tag": "LoansReceivableHeldForSaleAmount",
+            "label": "Federal Home Loan Bank stock, at cost",
+            "line": 6,
+            "indent": 0
+          },
+          {
+            "tag": "ServicingAssetAtFairValueAmount",
+            "label": "Mortgage loans held for sale",
+            "line": 7,
+            "indent": 0
+          },
+          {
+            "tag": "LoansReceivableNet",
+            "label": "Loans, net of allowance for credit losses of $14,992 and $14,444, respectively",
+            "line": 8,
+            "indent": 0
+          },
+          {
+            "tag": "BankOwnedLifeInsurance",
+            "label": "Bank-owned life insurance",
+            "line": 9,
+            "indent": 0
+          },
+          {
+            "tag": "OtherRealEstateAndForeclosedAssets",
+            "label": "Foreclosed assets, net",
+            "line": 10,
+            "indent": 0
+          },
+          {
+            "tag": "PropertyPlantAndEquipmentNet",
+            "label": "Bank premises and equipment, net",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "IntangibleAssetsNetIncludingGoodwill",
+            "label": "Goodwill and other intangibles",
+            "line": 12,
+            "indent": 0
+          },
+          {
+            "tag": "InterestReceivable",
+            "label": "Accrued interest receivable",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "OtherAssets",
+            "label": "Other assets",
+            "line": 14,
+            "indent": 0
+          },
+          {
+            "tag": "Assets",
+            "label": "Total assets",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "NoninterestBearingDepositLiabilities",
+            "label": "Noninterest-bearing",
+            "line": 18,
+            "indent": 0
+          },
+          {
+            "tag": "InterestBearingDepositLiabilities",
+            "label": "Interest-bearing",
+            "line": 19,
+            "indent": 0
+          },
+          {
+            "tag": "Deposits",
+            "label": "Total deposits",
+            "line": 20,
+            "indent": 0
+          },
+          {
+            "tag": "FederalHomeLoanBankAdvancesLongTerm",
+            "label": "Federal Home Loan Bank advances and other borrowings",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+            "label": "Securities sold under agreements to repurchase",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "DividendsPayableCurrent",
+            "label": "Dividends payable",
+            "line": 23,
+            "indent": 0
+          },
+          {
+            "tag": "AccruedLiabilitiesAndOtherLiabilities",
+            "label": "Accrued interest payable and other liabilities",
+            "line": 24,
+            "indent": 0
+          },
+          {
+            "tag": "JuniorSubordinatedNotes",
+            "label": "Subordinated debt, net of debt issuance costs of $146 and $166, respectively",
+            "line": 25,
+            "indent": 0
+          },
+          {
+            "tag": "Liabilities",
+            "label": "Total liabilities",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "CommonStockValue",
+            "label": "Stockholders equity: Common stock, $1 par value; 5,000,000 shares authorized; 2,375,138 and 2,394,193 shares issued and outstanding, respectively",
+            "line": 27,
+            "indent": 0
+          },
+          {
+            "tag": "AdditionalPaidInCapital",
+            "label": "Additional paid-in-capital",
+            "line": 28,
+            "indent": 0
+          },
+          {
+            "tag": "RetainedEarningsAccumulatedDeficit",
+            "label": "Retained earnings",
+            "line": 29,
+            "indent": 0
+          },
+          {
+            "tag": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+            "label": "Accumulated other comprehensive loss",
+            "line": 30,
+            "indent": 0
+          },
+          {
+            "tag": "StockholdersEquity",
+            "label": "Total stockholders equity",
+            "line": 31,
+            "indent": 0
+          },
+          {
+            "tag": "LiabilitiesAndStockholdersEquity",
+            "label": "Total liabilities and stockholders equity",
+            "line": 32,
+            "indent": 0
+          }
+        ],
         "quarterly": [
           {
             "tag": "CashAndDueFromBanks",
@@ -1147,8 +2044,26 @@
         ]
       },
       "periods": {
-        "annual": [],
+        "annual": [
+          {
+            "key": "FY 2025",
+            "label": "FY 2025",
+            "form": "10-K",
+            "fy": "2025",
+            "fp": "FY",
+            "filed": "20260309"
+          }
+        ],
         "quarterly": [
+          {
+            "key": "Q4 2025",
+            "label": "Q4 2025",
+            "form": "10-K",
+            "fy": "2025",
+            "fp": "Q4",
+            "filed": "20260309",
+            "isDerived": false
+          },
           {
             "key": "Q3 2025",
             "label": "Q3 2025",
@@ -1171,8 +2086,682 @@
       }
     },
     "historicalIncomeStatement": {
-      "annual": [],
+      "annual": [
+        {
+          "period": "FY 2025",
+          "label": "FY 2025",
+          "form": "10-K",
+          "fy": "2025",
+          "fp": "FY",
+          "filed": "20260309",
+          "ddate": "20251231",
+          "adsh": "0001493152-26-009243",
+          "items": [
+            {
+              "tag": "InterestAndFeeIncomeLoansAndLeasesHeldForSale",
+              "label": "Loans, including fees",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": 75231000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Taxable",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": 2607000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Tax-exempt",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": 1533000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestAndFeeIncomeLoansAndLeasesHeldInPortfolio",
+              "label": "Mortgage loans held for sale, including fees",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": 1344000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "DividendIncomeOperating",
+              "label": "Dividends",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": 324000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestIncomeDepositsWithFinancialInstitutions",
+              "label": "Other",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": 989000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestAndDividendIncomeOperating",
+              "label": "Total interest income",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": 82028000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestExpenseTimeDeposits",
+              "label": "Deposits",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": 27937000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": 3229000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestExpenseFederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Securities sold under agreements to repurchase",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": 766000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": 31932000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestIncomeExpenseNet",
+              "label": "Net interest income",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": 50096000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "ProvisionForCreditLossesExpenses",
+              "label": "Credit loss (recovery) of credit loss expense on loans",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": 729000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "CreditLossRecoveryOfCreditLossExpenseOnOffbalanceSheetCreditExposures",
+              "label": "Credit loss (recovery) of credit loss expense on off-balance sheet credit exposures",
+              "line": 26,
+              "indent": 0,
+              "negating": true,
+              "value": -70000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after credit loss expense",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": 49437000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Other",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": 17234000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "NoninterestIncome",
+              "label": "Total non-interest income",
+              "line": 30,
+              "indent": 0,
+              "negating": false,
+              "value": 17234000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Salaries and employee benefits",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": 32216000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "OccupancyNet",
+              "label": "Occupancy",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": 2685000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": 1128000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "OtherNoninterestExpense",
+              "label": "Other",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": 12169000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "NoninterestExpense",
+              "label": "Total non-interest expenses",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": 48198000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+              "label": "Income before income taxes",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": 18473000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "IncomeTaxExpenseBenefit",
+              "label": "Income tax expense",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": 4810000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "NetIncomeLoss",
+              "label": "Net income",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": 13663000,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "EarningsPerShareBasic",
+              "label": "Basic",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": 5.73,
+              "uom": "USD",
+              "hasValue": true
+            },
+            {
+              "tag": "EarningsPerShareDiluted",
+              "label": "Diluted",
+              "line": 41,
+              "indent": 0,
+              "negating": false,
+              "value": 5.67,
+              "uom": "USD",
+              "hasValue": true
+            }
+          ]
+        }
+      ],
       "quarterly": [
+        {
+          "period": "Q4 2025",
+          "label": "Q4 2025 (derived)",
+          "form": "10-K",
+          "fy": "2025",
+          "fp": "Q4",
+          "filed": "20260309",
+          "ddate": "20251231",
+          "adsh": "0001493152-26-009243",
+          "isDerived": true,
+          "items": [
+            {
+              "tag": "InterestAndFeeIncomeLoansAndLeasesHeldForSale",
+              "label": "Loans, including fees",
+              "line": 11,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxable",
+              "label": "Taxable",
+              "line": 13,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestIncomeSecuritiesTaxExempt",
+              "label": "Tax-exempt",
+              "line": 14,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestAndFeeIncomeLoansAndLeasesHeldInPortfolio",
+              "label": "Mortgage loans held for sale, including fees",
+              "line": 15,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "DividendIncomeOperating",
+              "label": "Dividends",
+              "line": 16,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestIncomeDepositsWithFinancialInstitutions",
+              "label": "Other",
+              "line": 17,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestAndDividendIncomeOperating",
+              "label": "Total interest income",
+              "line": 18,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestExpenseTimeDeposits",
+              "label": "Deposits",
+              "line": 20,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+              "label": "Federal Home Loan Bank advances and other borrowings",
+              "line": 21,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestExpenseFederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+              "label": "Securities sold under agreements to repurchase",
+              "line": 22,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestExpenseOperating",
+              "label": "Total interest expense",
+              "line": 23,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestIncomeExpenseNet",
+              "label": "Net interest income",
+              "line": 24,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "ProvisionForCreditLossesExpenses",
+              "label": "Credit loss (recovery) of credit loss expense on loans",
+              "line": 25,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "CreditLossRecoveryOfCreditLossExpenseOnOffbalanceSheetCreditExposures",
+              "label": "Credit loss (recovery) of credit loss expense on off-balance sheet credit exposures",
+              "line": 26,
+              "indent": 0,
+              "negating": true,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+              "label": "Net interest income after credit loss expense",
+              "line": 27,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Other",
+              "line": 29,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "NoninterestIncome",
+              "label": "Total non-interest income",
+              "line": 30,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "LaborAndRelatedExpense",
+              "label": "Salaries and employee benefits",
+              "line": 32,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "OccupancyNet",
+              "label": "Occupancy",
+              "line": 33,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "EquipmentExpense",
+              "label": "Furniture and equipment",
+              "line": 34,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "OtherNoninterestExpense",
+              "label": "Other",
+              "line": 35,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "NoninterestExpense",
+              "label": "Total non-interest expenses",
+              "line": 36,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+              "label": "Income before income taxes",
+              "line": 37,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "IncomeTaxExpenseBenefit",
+              "label": "Income tax expense",
+              "line": 38,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "NetIncomeLoss",
+              "label": "Net income",
+              "line": 39,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "EarningsPerShareBasic",
+              "label": "Basic",
+              "line": 40,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            },
+            {
+              "tag": "EarningsPerShareDiluted",
+              "label": "Diluted",
+              "line": 41,
+              "indent": 0,
+              "negating": false,
+              "value": null,
+              "uom": "USD",
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
+              "isAnnualProxy": false,
+              "isRestated": false
+            }
+          ]
+        },
         {
           "period": "Q3 2025",
           "label": "Q3 2025",
@@ -1957,7 +3546,170 @@
         }
       ],
       "canonicalItems": {
-        "annual": [],
+        "annual": [
+          {
+            "tag": "InterestAndFeeIncomeLoansAndLeasesHeldForSale",
+            "label": "Loans, including fees",
+            "line": 11,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeSecuritiesTaxable",
+            "label": "Taxable",
+            "line": 13,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeSecuritiesTaxExempt",
+            "label": "Tax-exempt",
+            "line": 14,
+            "indent": 0
+          },
+          {
+            "tag": "InterestAndFeeIncomeLoansAndLeasesHeldInPortfolio",
+            "label": "Mortgage loans held for sale, including fees",
+            "line": 15,
+            "indent": 0
+          },
+          {
+            "tag": "DividendIncomeOperating",
+            "label": "Dividends",
+            "line": 16,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeDepositsWithFinancialInstitutions",
+            "label": "Other",
+            "line": 17,
+            "indent": 0
+          },
+          {
+            "tag": "InterestAndDividendIncomeOperating",
+            "label": "Total interest income",
+            "line": 18,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseTimeDeposits",
+            "label": "Deposits",
+            "line": 20,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
+            "label": "Federal Home Loan Bank advances and other borrowings",
+            "line": 21,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseFederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
+            "label": "Securities sold under agreements to repurchase",
+            "line": 22,
+            "indent": 0
+          },
+          {
+            "tag": "InterestExpenseOperating",
+            "label": "Total interest expense",
+            "line": 23,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeExpenseNet",
+            "label": "Net interest income",
+            "line": 24,
+            "indent": 0
+          },
+          {
+            "tag": "ProvisionForCreditLossesExpenses",
+            "label": "Credit loss (recovery) of credit loss expense on loans",
+            "line": 25,
+            "indent": 0
+          },
+          {
+            "tag": "CreditLossRecoveryOfCreditLossExpenseOnOffbalanceSheetCreditExposures",
+            "label": "Credit loss (recovery) of credit loss expense on off-balance sheet credit exposures",
+            "line": 26,
+            "indent": 0
+          },
+          {
+            "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+            "label": "Net interest income after credit loss expense",
+            "line": 27,
+            "indent": 0
+          },
+          {
+            "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Other",
+            "line": 29,
+            "indent": 0
+          },
+          {
+            "tag": "NoninterestIncome",
+            "label": "Total non-interest income",
+            "line": 30,
+            "indent": 0
+          },
+          {
+            "tag": "LaborAndRelatedExpense",
+            "label": "Salaries and employee benefits",
+            "line": 32,
+            "indent": 0
+          },
+          {
+            "tag": "OccupancyNet",
+            "label": "Occupancy",
+            "line": 33,
+            "indent": 0
+          },
+          {
+            "tag": "EquipmentExpense",
+            "label": "Furniture and equipment",
+            "line": 34,
+            "indent": 0
+          },
+          {
+            "tag": "OtherNoninterestExpense",
+            "label": "Other",
+            "line": 35,
+            "indent": 0
+          },
+          {
+            "tag": "NoninterestExpense",
+            "label": "Total non-interest expenses",
+            "line": 36,
+            "indent": 0
+          },
+          {
+            "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "line": 37,
+            "indent": 0
+          },
+          {
+            "tag": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "line": 38,
+            "indent": 0
+          },
+          {
+            "tag": "NetIncomeLoss",
+            "label": "Net income",
+            "line": 39,
+            "indent": 0
+          },
+          {
+            "tag": "EarningsPerShareBasic",
+            "label": "Basic",
+            "line": 40,
+            "indent": 0
+          },
+          {
+            "tag": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "line": 41,
+            "indent": 0
+          }
+        ],
         "quarterly": [
           {
             "tag": "InterestAndFeeIncomeLoansAndLeasesHeldForSale",
@@ -2124,8 +3876,26 @@
         ]
       },
       "periods": {
-        "annual": [],
+        "annual": [
+          {
+            "key": "FY 2025",
+            "label": "FY 2025",
+            "form": "10-K",
+            "fy": "2025",
+            "fp": "FY",
+            "filed": "20260309"
+          }
+        ],
         "quarterly": [
+          {
+            "key": "Q4 2025",
+            "label": "Q4 2025",
+            "form": "10-K",
+            "fy": "2025",
+            "fp": "Q4",
+            "filed": "20260309",
+            "isDerived": false
+          },
           {
             "key": "Q3 2025",
             "label": "Q3 2025",
@@ -2149,6 +3919,14 @@
     }
   },
   "submissions": [
+    {
+      "adsh": "0001493152-26-009243",
+      "form": "10-K",
+      "period": "20251231",
+      "fy": "2025",
+      "fp": "FY",
+      "filed": "20260309"
+    },
     {
       "adsh": "0001493152-25-022301",
       "form": "10-Q",
