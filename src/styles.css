@@ -5744,6 +5744,10 @@ body {
 }
 
 .typical-range p {
+  margin-bottom: var(--spacing-3);
+}
+
+.typical-range p:last-child {
   margin-bottom: 0;
 }
 
@@ -5786,6 +5790,10 @@ body {
 
 .indicator p {
   font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-3);
+}
+
+.indicator p:last-child {
   margin-bottom: 0;
 }
 
