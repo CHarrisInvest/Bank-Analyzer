@@ -99,6 +99,15 @@ jobs:
           VITE_CONTACT_EMAIL: ${{ secrets.VITE_CONTACT_EMAIL }}
         run: npm run build
 
+      - name: Commit regenerated sitemap
+        if: steps.commit.outputs.changed == 'true'
+        run: |
+          git add public/sitemap.xml
+          if ! git diff --staged --quiet; then
+            git commit -m "Regenerate sitemap after data update"
+            git push
+          fi
+
       - name: Setup Pages
         if: steps.commit.outputs.changed == 'true'
         uses: actions/configure-pages@v4
