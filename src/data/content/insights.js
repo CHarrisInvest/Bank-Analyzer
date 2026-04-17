@@ -1356,7 +1356,7 @@ export const INSIGHT_CATEGORIES = [
     slug: 'bank-risk-management',
     name: 'Bank Risk Management',
     shortDescription: 'How banks identify, measure, and manage the five major risk categories that determine whether they survive and thrive through economic cycles.',
-    icon: 'shield',
+    icon: 'risk',
     order: 10,
     metaTitle: 'Bank Risk Management: Credit, Market, Liquidity & Operational Risk | BankSift Insights',
     metaDescription: 'Understand how banks manage credit risk, market risk, operational risk, liquidity risk, and concentration risk, and how investors can evaluate risk management quality from public disclosures.',
