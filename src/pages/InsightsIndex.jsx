@@ -8,8 +8,10 @@ import SEO from '../components/SEO.jsx';
 function RateIcon() {
   return (
     <svg className="feature-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-      <polyline points="16 7 22 7 22 13" />
+      <path d="M2 14 Q 6 8 10 14 T 18 14 T 22 14" />
+      <line x1="18" y1="4" x2="9" y2="20" />
+      <circle cx="9" cy="6" r="1.5" />
+      <circle cx="18" cy="18" r="1.5" />
     </svg>
   );
 }
@@ -28,6 +30,7 @@ function ShieldIcon() {
   return (
     <svg className="feature-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <polyline points="9 12 11 14 15 10" />
     </svg>
   );
 }
@@ -66,8 +69,10 @@ function CrisisIcon() {
 function FeeIcon() {
   return (
     <svg className="feature-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <line x1="12" y1="1" x2="12" y2="23" />
-      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      <ellipse cx="12" cy="5" rx="8" ry="2.5" />
+      <path d="M4 5v5c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5V5" />
+      <path d="M4 10v5c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-5" />
+      <path d="M4 15v4c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-4" />
     </svg>
   );
 }
@@ -97,8 +102,23 @@ function CompareIcon() {
 function RiskIcon() {
   return (
     <svg className="feature-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 6v6l4 2" />
+      <path d="M3 18a9 9 0 1 1 18 0" />
+      <line x1="12" y1="18" x2="17" y2="9" />
+      <circle cx="12" cy="18" r="1.5" />
+    </svg>
+  );
+}
+
+function BankIcon() {
+  return (
+    <svg className="feature-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M3 10l9-6 9 6" />
+      <line x1="3" y1="10" x2="21" y2="10" />
+      <line x1="6" y1="10" x2="6" y2="18" />
+      <line x1="10" y1="10" x2="10" y2="18" />
+      <line x1="14" y1="10" x2="14" y2="18" />
+      <line x1="18" y1="10" x2="18" y2="18" />
+      <line x1="2" y1="21" x2="22" y2="21" />
     </svg>
   );
 }
@@ -114,6 +134,7 @@ const CATEGORY_ICONS = {
   earnings: EarningsIcon,
   compare: CompareIcon,
   risk: RiskIcon,
+  bank: BankIcon,
 };
 
 /**
