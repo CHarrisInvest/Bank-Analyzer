@@ -8,10 +8,9 @@ import SEO from '../components/SEO.jsx';
 function RateIcon() {
   return (
     <svg className="feature-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M2 14 Q 6 8 10 14 T 18 14 T 22 14" />
-      <line x1="18" y1="4" x2="9" y2="20" />
-      <circle cx="9" cy="6" r="1.5" />
-      <circle cx="18" cy="18" r="1.5" />
+      <line x1="19" y1="5" x2="5" y2="19" />
+      <circle cx="6.5" cy="6.5" r="2.5" />
+      <circle cx="17.5" cy="17.5" r="2.5" />
     </svg>
   );
 }
