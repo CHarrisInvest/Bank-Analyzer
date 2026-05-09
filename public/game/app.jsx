@@ -11,7 +11,7 @@ function App() {
   const [advancing, setAdvancing] = useState(false);
   const [flashKey, setFlashKey] = useState(0);
   const [coachActive, setCoachActive] = useState(() => {
-    try { return !sessionStorage.getItem("banksim.coach.dismissed"); } catch { return true; }
+    try { return !sessionStorage.getItem("bankceo.coach.dismissed"); } catch { return true; }
   });
 
   const ratios = useMemoA(() => ABE.computeRatios(state, state.lastIS), [state]);
@@ -68,7 +68,7 @@ function App() {
 
   const dismissCoach = () => {
     setCoachActive(false);
-    try { sessionStorage.setItem("banksim.coach.dismissed", "1"); } catch {}
+    try { sessionStorage.setItem("bankceo.coach.dismissed", "1"); } catch {}
   };
 
   // Auto-dismiss coach after Y1

@@ -1,5 +1,5 @@
 // =====================================================================
-// BankSim theme — palette, type, shared primitives. window.Theme.
+// BankCEO theme — palette, type, shared primitives. window.Theme.
 // Aesthetic: warm dark slate w/ amber signature; Geist + Geist Mono.
 // =====================================================================
 (function () {
@@ -192,9 +192,9 @@
     }
   `;
 
-  if (typeof document !== "undefined" && !document.getElementById("__banksim_theme")) {
+  if (typeof document !== "undefined" && !document.getElementById("__bankceo_theme")) {
     const style = document.createElement("style");
-    style.id = "__banksim_theme";
+    style.id = "__bankceo_theme";
     style.textContent = css;
     document.head.appendChild(style);
   }

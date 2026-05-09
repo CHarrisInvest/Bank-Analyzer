@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { fetchBankData } from './data/sheets.js';
@@ -46,6 +46,10 @@ import InsightsIndex from './pages/InsightsIndex.jsx';
 import InsightHub from './pages/InsightHub.jsx';
 import InsightArticle from './pages/InsightArticle.jsx';
 import NotFound from './pages/NotFound.jsx';
+
+// Lazy-loaded routes (kept out of the main bundle)
+const Game = lazy(() => import('./pages/Game.jsx'));
+const GamePlay = lazy(() => import('./pages/GamePlay.jsx'));
 
 /**
  * Main Application Component
@@ -164,6 +168,24 @@ function App() {
 
             {/* Glossary */}
             <Route path="glossary" element={<Glossary />} />
+
+            {/* Simulation Game */}
+            <Route
+              path="game"
+              element={
+                <Suspense fallback={<div className="page" style={{ padding: 48, textAlign: 'center' }}>Loading…</div>}>
+                  <Game />
+                </Suspense>
+              }
+            />
+            <Route
+              path="game/BankCEO"
+              element={
+                <Suspense fallback={<div style={{ padding: 48, textAlign: 'center', color: '#9aa7b8', background: '#0d1218', minHeight: 400 }}>Loading simulation…</div>}>
+                  <GamePlay />
+                </Suspense>
+              }
+            />
 
             {/* Legal */}
             <Route path="privacy" element={<Privacy />} />
