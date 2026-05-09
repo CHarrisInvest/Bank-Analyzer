@@ -47,7 +47,7 @@ function CallReportTab({ state, ratios }) {
   return (
     <div className="tab-enter scroll-thin" style={{ padding: 22, height: "100%", overflowY: "auto" }}>
       {/* Title block */}
-      <div style={{ marginBottom: 18, paddingBottom: 14, borderBottom: `1px solid ${RP.line}`, display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+      <div data-coach="report-title" style={{ marginBottom: 18, paddingBottom: 14, borderBottom: `1px solid ${RP.line}`, display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
         <div>
           <div className="serif" style={{ fontSize: 26, lineHeight: 1, color: RP.text }}>
             Consolidated Reports of Condition and Income

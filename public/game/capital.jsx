@@ -45,7 +45,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
         {/* Shareholder distributions */}
-        <div className="panel panel-pad">
+        <div className="panel panel-pad" data-coach="capital-distributions">
           <div className="label-strong" style={{ marginBottom: 4 }}>Shareholder Distributions</div>
           <div className="serif" style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
             Returning capital — at the cost of CET1 and book value.
@@ -65,7 +65,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
         </div>
 
         {/* Wholesale funding */}
-        <div className="panel panel-pad">
+        <div className="panel panel-pad" data-coach="capital-wholesale">
           <div className="label-strong" style={{ marginBottom: 4 }}>Wholesale Funding</div>
           <div className="serif" style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
             FHLB advances float with rates; sub debt locks in fixed at issuance and counts as Total Capital, not wholesale.
@@ -86,7 +86,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
       </div>
 
       {/* Provision override */}
-      <div className="panel panel-pad">
+      <div className="panel panel-pad" data-coach="capital-provision">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
           <div className="label-strong">Provision Override</div>
           <button onClick={() => setDecision("provisionOverride", null)} disabled={locked || d.provisionOverride === null}
@@ -111,7 +111,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
       </div>
 
       {/* Capital impact preview */}
-      <div className="panel panel-pad">
+      <div className="panel panel-pad" data-coach="capital-impact">
         <div className="label-strong" style={{ marginBottom: 12 }}>Capital Impact — Next Quarter Projection</div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }}>
           <div>

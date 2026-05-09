@@ -343,7 +343,7 @@ function TabStrip({ tab, setTab }) {
     { id: "history",   label: "Tenure",      hint: "10-year track record" },
   ];
   return (
-    <div style={{
+    <div data-coach="tab-strip" style={{
       display: "flex",
       gap: 0,
       padding: "0 28px",
