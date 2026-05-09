@@ -170,7 +170,7 @@ function ForecastStrip({ ratios, forecast }) {
 
 function LeversTab({ state, ratios, forecast, setLever, locked }) {
   return (
-    <div className="tab-enter" style={{ display: "flex", flexDirection: "column", gap: 14, padding: 22, height: "100%", overflowY: "auto" }} data-coach="levers-root">
+    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 14, padding: 22, height: "100%", overflowY: "auto" }} data-coach="levers-root">
       <ForecastStrip ratios={ratios} forecast={forecast} />
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
         {LEVERS.map(L => (
