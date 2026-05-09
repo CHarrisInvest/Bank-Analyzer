@@ -183,7 +183,7 @@ function CockpitTab({ state, ratios, forecast }) {
   const lastIS = state.lastIS;
 
   const totalDeposits = (bs) => bs.deposits.noninterest + bs.deposits.interestChecking + bs.deposits.savingsMM + bs.deposits.timeDeposits;
-  const wholesaleFund = (bs) => (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0) + (bs.subDebt || 0);
+  const wholesaleFund = (bs) => (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0);
 
   const rows = [
     { l: "Net Income",       plan: lf?.netIncome,  actual: lastIS.netIncome,         forecast: fis.netIncome,                        fmt: "money" },

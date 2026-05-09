@@ -62,18 +62,18 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
         <div className="panel panel-pad">
           <div className="label-strong" style={{ marginBottom: 4 }}>Wholesale Funding</div>
           <div className="serif" style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
-            FHLB advances and sub debt — fast cash, but examiners watch the ratio.
+            FHLB advances float with rates; sub debt locks in fixed at issuance and counts as Total Capital, not wholesale.
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             <NumberDial label="FHLB Advance (Δ this quarter)" value={d.fhlbAdvance}
               onChange={v => setDecision("fhlbAdvance", v)}
               min={-10000} max={20000} step={500} format="money"
-              hint={`Currently outstanding: ${KBE.fmt$(state.bs.borrowingsFHLB)} · cost ≈ Fed Funds + 50bp`}
+              hint={`Outstanding: ${KBE.fmt$(state.bs.borrowingsFHLB)} · floating cost ≈ Fed Funds + 50bp`}
               color={KP.warn} locked={locked} />
-            <NumberDial label="Sub Debt Issuance" value={d.subDebtIssuance}
+            <NumberDial label="Sub Debt (Δ this quarter)" value={d.subDebtIssuance}
               onChange={v => setDecision("subDebtIssuance", v)}
-              min={0} max={10000} step={500} format="money"
-              hint={`Outstanding: ${KBE.fmt$(state.bs.subDebt)} · cost 7.0% · counts as Total Capital (not Tier 1)`}
+              min={-10000} max={10000} step={500} format="money"
+              hint={`Outstanding: ${KBE.fmt$(state.bs.subDebt)} · avg fixed cost ${((state.bs.subDebtAvgCost || 0) * 100).toFixed(2)}% · new issuance locks at Fed Funds + 100bp (${(((state.macro.fedFunds || 0) + 0.01) * 100).toFixed(2)}%)`}
               color={KP.warn} locked={locked} />
           </div>
         </div>
@@ -128,11 +128,11 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
           </div>
           <div>
             <div className="label" style={{ fontSize: 9.5 }}>Wholesale / Total</div>
-            <div className="num" style={{ fontSize: 22, fontWeight: 700, color: ((forecast.bs.borrowingsFHLB + forecast.bs.subDebt) / (KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB + forecast.bs.subDebt)) > 0.15 ? KP.warn : KP.text }}>
-              {(((forecast.bs.borrowingsFHLB + forecast.bs.subDebt) / (KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB + forecast.bs.subDebt)) * 100).toFixed(1)}%
+            <div className="num" style={{ fontSize: 22, fontWeight: 700, color: (forecast.bs.borrowingsFHLB / (KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB)) > 0.15 ? KP.warn : KP.text }}>
+              {((forecast.bs.borrowingsFHLB / Math.max(1, KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB)) * 100).toFixed(1)}%
             </div>
             <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
-              cap concentration ≤ 15%
+              FHLB only · ≤ 15%
             </div>
           </div>
           <div>

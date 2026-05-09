@@ -40,7 +40,7 @@ function App() {
     setAdvancing(true);
     // Snapshot the current forecast before mutation
     const totalDep = (bs) => bs.deposits.noninterest + bs.deposits.interestChecking + bs.deposits.savingsMM + bs.deposits.timeDeposits;
-    const wholesale = (bs) => (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0) + (bs.subDebt || 0);
+    const wholesale = (bs) => (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0);
     const lf = {
       netIncome: forecast.is.netIncome,
       provision: forecast.is.provision,

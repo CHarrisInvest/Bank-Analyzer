@@ -57,6 +57,7 @@
       },
       borrowingsFHLB: 0,
       subDebt: 0,
+      subDebtAvgCost: 0,
       otherLiab: 3_000,
 
       commonEquity: 25_000,
@@ -489,7 +490,7 @@
       (deposits.deltaNI + deposits.deltaIC + deposits.deltaSMM + deposits.deltaTD) / 2;
     const depCost = deposits.weightedCost;
     const fhlbCost = s.macro.fedFunds + 0.005;
-    const subDebtCost = 0.07;
+    const subDebtCost = bs.subDebtAvgCost || 0;
 
     const interestExpense =
       (avgDeposits * depCost + bs.borrowingsFHLB * fhlbCost + bs.subDebt * subDebtCost) / 4;
@@ -585,8 +586,20 @@
     s.bs.cash -= totalDiv;
     s.bs.borrowingsFHLB = Math.max(0, s.bs.borrowingsFHLB + dec.fhlbAdvance);
     s.bs.cash += dec.fhlbAdvance;
-    s.bs.subDebt += dec.subDebtIssuance;
-    s.bs.cash += dec.subDebtIssuance;
+
+    // Sub debt: positive = new issuance (locks in current Fed Funds + 100bps), negative = call.
+    // Avg cost is principal-weighted; calls reduce principal but keep blended rate; reaching zero resets.
+    const subDelta = Math.max(-s.bs.subDebt, dec.subDebtIssuance);
+    if (subDelta > 0) {
+      const newRate = s.macro.fedFunds + 0.01;
+      const oldPrincipal = s.bs.subDebt;
+      const oldAvgCost = s.bs.subDebtAvgCost || 0;
+      const newPrincipal = oldPrincipal + subDelta;
+      s.bs.subDebtAvgCost = (oldPrincipal * oldAvgCost + subDelta * newRate) / newPrincipal;
+    }
+    s.bs.subDebt = Math.max(0, s.bs.subDebt + subDelta);
+    if (s.bs.subDebt === 0) s.bs.subDebtAvgCost = 0;
+    s.bs.cash += subDelta;
   }
 
   function applyBalanceSheet(s, deposits, loans, securities, is) {
@@ -651,8 +664,9 @@
       }
     }
 
-    const totalFunding = totalDeposits(bs.deposits) + bs.borrowingsFHLB + bs.subDebt;
-    s._wholesaleRatio = (bs.borrowingsFHLB + bs.subDebt) / totalFunding;
+    // Wholesale ratio excludes subordinated debt — sub debt is treated as Total Capital, not wholesale funding.
+    const totalFunding = totalDeposits(bs.deposits) + bs.borrowingsFHLB;
+    s._wholesaleRatio = totalFunding > 0 ? bs.borrowingsFHLB / totalFunding : 0;
   }
 
   function totalDeposits(d) {
@@ -776,7 +790,7 @@
     const wasHighWholesale = s._wasHighWholesale === true;
     const isHighWholesale = wholesaleRatio > 0.15;
     if (isHighWholesale && !wasHighWholesale) {
-      log.push({ q, type: "warn", msg: `WHOLESALE FUNDING: Non-deposit funding now ${fmtPct(wholesaleRatio, 1)} of total — examiners view above 15% as concentration risk.` });
+      log.push({ q, type: "warn", msg: `WHOLESALE FUNDING: FHLB advances now ${fmtPct(wholesaleRatio, 1)} of (deposits + FHLB) — examiners view above 15% as concentration risk.` });
     }
     s._wasHighWholesale = isHighWholesale;
 
