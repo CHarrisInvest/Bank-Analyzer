@@ -218,12 +218,12 @@ function CockpitTab({ state, ratios, forecast }) {
             <div className="label" style={{ color: CP.textDim, fontSize: 9.5 }}>
               {isQ1 ? "Y1 Q1 — Just Posted (no prior plan)" : `${cur.label} — Quarter Just Posted`}
             </div>
-            <div className="serif" style={{ fontSize: 11, color: CP.textMute, marginTop: 1 }}>how close were your projections?</div>
+            <div style={{ fontSize: 11, color: CP.textMute, marginTop: 1 }}>how close were your projections?</div>
           </div>
           <div />
           <div style={{ gridColumn: "6 / 8" }}>
             <div className="label" style={{ color: CP.amber, fontSize: 9.5 }}>{next.label} — Next Quarter Forecast</div>
-            <div className="serif" style={{ fontSize: 11, color: CP.textMute, marginTop: 1 }}>your plan as set today</div>
+            <div style={{ fontSize: 11, color: CP.textMute, marginTop: 1 }}>your plan as set today</div>
           </div>
         </div>
         {/* Sub-header column labels */}
@@ -256,7 +256,7 @@ function CockpitTab({ state, ratios, forecast }) {
               Net Δ {(fis.netIncome - lastIS.netIncome) >= 0 ? "+" : ""}{CBE.fmt$(fis.netIncome - lastIS.netIncome)}
             </div>
           </div>
-          <div className="serif" style={{ fontSize: 12, color: CP.textMute, marginBottom: 6 }}>
+          <div style={{ fontSize: 12, color: CP.textMute, marginBottom: 6 }}>
             What's driving the change in net income.
           </div>
           {(() => {

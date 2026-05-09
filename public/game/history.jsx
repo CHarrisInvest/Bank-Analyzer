@@ -48,7 +48,7 @@ function Timeline({ history, log }) {
     <div className="panel panel-pad" data-coach="history-bvps">
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
         <div className="label-strong">Tangible Book Value per Share — 10-Year Track</div>
-        <div className="serif" style={{ fontSize: 13, color: HP.textMute }}>Cycle bands shaded · key events flagged</div>
+        <div style={{ fontSize: 13, color: HP.textMute }}>Cycle bands shaded · key events flagged</div>
       </div>
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", height: "auto", display: "block" }}>
         {/* Cycle bands */}
