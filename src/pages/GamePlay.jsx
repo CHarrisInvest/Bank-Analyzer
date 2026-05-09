@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO.jsx';
 
-const STRIP_H = 36;
+const STRIP_H = 30;
 
 function GamePlay() {
   return (
@@ -102,7 +102,7 @@ function GamePlay() {
 
       <iframe
         className="bs-game-frame"
-        src="/game/BankCEO.html"
+        src="/game/play.html"
         title="BankCEO — bank simulation game"
         allow="fullscreen"
       />
