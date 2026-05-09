@@ -33,6 +33,12 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
   const cet1Bp = (fr.cet1 - ratios.cet1) * 10000;
   const cet1Tone = cet1Bp >= 0 ? KP.good : KP.bad;
 
+  const estPrice = KBE.estimatedSharePrice(state, ratios);
+  const bvps = KBE.totalEquity(state.bs) / Math.max(1, state.bs.sharesOutstanding);
+  const repurchaseHint = d.repurchaseAmount > 0
+    ? `Est. price $${estPrice.toFixed(2)} · BVPS $${bvps.toFixed(2)} · buys ~${(d.repurchaseAmount / Math.max(1, estPrice)).toFixed(1)}K shares`
+    : `Est. price $${estPrice.toFixed(2)} · BVPS $${bvps.toFixed(2)}`;
+
   return (
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 14, padding: 22, height: "100%", overflowY: "auto" }}>
       <ForecastStrip ratios={ratios} forecast={forecast} />
@@ -53,7 +59,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
             <NumberDial label="Share Repurchase Authorization" value={d.repurchaseAmount}
               onChange={v => setDecision("repurchaseAmount", v)}
               min={0} max={5000} step={250} format="money"
-              hint={d.repurchaseAmount > 0 ? `Buys roughly ${(d.repurchaseAmount / Math.max(1, KBE.estimatedSharePrice(state, ratios))).toFixed(1)}K shares at est. $${KBE.estimatedSharePrice(state, ratios).toFixed(2)}` : "No buybacks scheduled"}
+              hint={repurchaseHint}
               color={KP.amber} locked={locked} />
           </div>
         </div>
