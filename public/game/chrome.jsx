@@ -178,33 +178,52 @@ function MacroTape({ macro }) {
 }
 
 // ---------- Event card ----------
+const SEV_RANK = { bad: 4, warn: 3, info: 2, good: 1, neutral: 0, system: 0 };
 function EventCard({ log, currentQ }) {
-  // Find most recent non-system event (this quarter or last)
-  const recent = [...log].reverse().filter(e => e.type !== "system" && e.q >= currentQ - 1).slice(0, 1)[0];
-  if (!recent) {
+  // Show ALL non-system events from the just-completed quarter only.
+  // If that quarter is quiet, say so — earlier quarters' events stay in the Activity Log.
+  const targetQ = currentQ - 1;
+  const events = targetQ > 0
+    ? log.filter(e => e.type !== "system" && e.q === targetQ)
+    : [];
+  if (events.length === 0) {
     return (
       <div className="panel-soft" style={{ padding: "14px 16px" }}>
-        <div className="label" style={{ marginBottom: 6 }}>Latest Event</div>
+        <div className="label" style={{ marginBottom: 6 }}>Latest Quarter Event(s)</div>
         <div style={{ fontSize: 12, color: P.textMute, fontStyle: "italic" }}>
           Quiet quarter. No notable events.
         </div>
       </div>
     );
   }
-  const sev = SEV[recent.type] || SEV.neutral;
+  const topType = events.reduce(
+    (acc, e) => (SEV_RANK[e.type] || 0) > (SEV_RANK[acc] || 0) ? e.type : acc,
+    events[0].type
+  );
+  const topSev = SEV[topType] || SEV.neutral;
   return (
     <div className="panel-soft" style={{
       padding: "14px 16px",
-      borderLeft: `3px solid ${sev.dot}`,
+      borderLeft: `3px solid ${topSev.dot}`,
     }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-        <div className="label" style={{ color: sev.fg }}>Latest Event</div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+        <div className="label" style={{ color: topSev.fg }}>Latest Quarter Event(s)</div>
         <div className="mono" style={{ fontSize: 10, color: P.textMute }}>
-          {qlbl(recent.q).label}
+          {qlbl(targetQ).label}
         </div>
       </div>
-      <div style={{ fontSize: 12.5, lineHeight: 1.45, color: P.text }}>
-        {recent.msg}
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {events.map((e, i) => {
+          const sev = SEV[e.type] || SEV.neutral;
+          return (
+            <div key={i} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+              <div style={{ width: 6, height: 6, borderRadius: 3, background: sev.dot, flexShrink: 0, marginTop: 6 }} />
+              <div style={{ fontSize: 12.5, lineHeight: 1.45, color: P.text, flex: 1, minWidth: 0 }}>
+                {e.msg}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -212,18 +231,17 @@ function EventCard({ log, currentQ }) {
 
 // ---------- Event log ----------
 function EventLog({ log }) {
-  const ref = useRef(null);
-  useEffect(() => {
-    if (ref.current) ref.current.scrollTop = ref.current.scrollHeight;
-  }, [log.length]);
+  // Most recent at top.
+  const items = log.slice(-40).reverse();
   return (
-    <div className="panel-soft" style={{ padding: "12px 14px", display: "flex", flexDirection: "column", minHeight: 0, flex: 1 }}>
+    <div className="panel-soft" style={{ padding: "12px 14px" }}>
       <div className="label" style={{ marginBottom: 8 }}>Activity Log</div>
-      <div ref={ref} className="scroll-thin" style={{ overflowY: "auto", flex: 1, paddingRight: 4 }}>
-        {log.slice(-40).map((e, i) => {
+      <div>
+        {items.map((e, i) => {
           const sev = SEV[e.type] || SEV.neutral;
+          const isLast = i === items.length - 1;
           return (
-            <div key={i} style={{ display: "flex", gap: 8, padding: "6px 0", borderBottom: i < log.length - 1 ? `1px solid ${P.lineSoft}` : "none" }}>
+            <div key={i} style={{ display: "flex", gap: 8, padding: "6px 0", borderBottom: isLast ? "none" : `1px solid ${P.lineSoft}` }}>
               <div style={{ width: 6, height: 6, borderRadius: 3, background: sev.dot, flexShrink: 0, marginTop: 7 }} />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div className="mono" style={{ fontSize: 9.5, color: P.textMute, letterSpacing: "0.1em" }}>
@@ -280,22 +298,37 @@ function AdvanceButton({ onAdvance, disabled, advancing, currentQ }) {
 // ---------- Right rail ----------
 function RightRail({ state, ratios, onAdvance, advancing }) {
   return (
-    <div className="scroll-thin" style={{
+    <div style={{
       display: "flex",
       flexDirection: "column",
-      gap: 10,
-      padding: 12,
       borderLeft: `1px solid ${P.line}`,
       background: P.bg,
       width: 360,
       flexShrink: 0,
       minHeight: 0,
-      overflowY: "auto",
+      height: "100%",
     }}>
-      <MacroTape macro={state.macro} />
-      <EventCard log={state.log} currentQ={state.quarter} />
-      <EventLog log={state.log} />
-      <AdvanceButton onAdvance={onAdvance} disabled={!!state.gameOver} advancing={advancing} currentQ={state.quarter} />
+      <div className="scroll-thin" style={{
+        flex: 1,
+        minHeight: 0,
+        overflowY: "auto",
+        padding: "12px 12px 6px",
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+      }}>
+        <MacroTape macro={state.macro} />
+        <EventCard log={state.log} currentQ={state.quarter} />
+        <EventLog log={state.log} />
+      </div>
+      <div style={{
+        flexShrink: 0,
+        padding: "10px 12px 12px",
+        borderTop: `1px solid ${P.lineSoft}`,
+        background: P.bg,
+      }}>
+        <AdvanceButton onAdvance={onAdvance} disabled={!!state.gameOver} advancing={advancing} currentQ={state.quarter} />
+      </div>
     </div>
   );
 }
