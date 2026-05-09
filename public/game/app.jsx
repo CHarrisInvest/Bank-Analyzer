@@ -91,12 +91,14 @@ function App() {
       position: "relative",
     }}>
       <Header state={state} ratios={ratios} />
-      <TabStrip tab={tab} setTab={setTab} />
       <div style={{ display: "flex", flex: 1, minHeight: 0 }}>
-        <div style={{ flex: 1, minWidth: 0, position: "relative" }}>
-          {advancing && <div className="q-flash" key={flashKey} />}
-          <div key={tab + "-" + state.quarter} style={{ height: "100%" }}>
-            {body}
+        <div style={{ display: "flex", flexDirection: "column", flex: 1, minWidth: 0 }}>
+          <TabStrip tab={tab} setTab={setTab} />
+          <div style={{ flex: 1, minHeight: 0, position: "relative" }}>
+            {advancing && <div className="q-flash" key={flashKey} />}
+            <div key={tab + "-" + state.quarter} style={{ height: "100%" }}>
+              {body}
+            </div>
           </div>
         </div>
         <RightRail state={state} ratios={ratios} onAdvance={advance} advancing={advancing} />
