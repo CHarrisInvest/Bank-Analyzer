@@ -139,7 +139,7 @@ function ForecastStrip({ ratios, forecast }) {
     { l: "Next Provision",   v: LBE.fmt$(fis.provision),                d: fis.provision,                f: "money", noDelta: true },
   ];
   return (
-    <div className="panel" style={{
+    <div className="panel" data-coach="live-forecast" style={{
       padding: "14px 18px",
       background: `linear-gradient(180deg, ${LP.panel} 0%, ${LP.bgRaised} 100%)`,
       borderColor: LP.amber + "55",
@@ -172,7 +172,7 @@ function LeversTab({ state, ratios, forecast, setLever, locked }) {
   return (
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 14, padding: 22, height: "100%", overflowY: "auto" }} data-coach="levers-root">
       <ForecastStrip ratios={ratios} forecast={forecast} />
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+      <div data-coach="lever-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
         {LEVERS.map(L => (
           <LeverCard key={L.key} lever={L} value={state.levers[L.key]} onChange={(v) => setLever(L.key, v)} locked={locked} />
         ))}

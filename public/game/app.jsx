@@ -5,13 +5,24 @@ const ABE = window.BankEngine;
 
 function deepClone(s) { return JSON.parse(JSON.stringify(s)); }
 
+const TAB_FLOW = { cockpit: null, levers: "levers", capital: "capital", report: "report", history: "history" };
+const COACH_SEEN_KEY = "bankceo.coach.seen";
+function readSeen() {
+  try { return new Set(JSON.parse(sessionStorage.getItem(COACH_SEEN_KEY) || "[]")); }
+  catch { return new Set(); }
+}
+function writeSeen(set) {
+  try { sessionStorage.setItem(COACH_SEEN_KEY, JSON.stringify([...set])); } catch {}
+}
+
 function App() {
   const [state, setState] = useState(() => deepClone(ABE.INITIAL_STATE));
   const [tab, setTab] = useState("cockpit");
   const [advancing, setAdvancing] = useState(false);
   const [flashKey, setFlashKey] = useState(0);
-  const [coachActive, setCoachActive] = useState(() => {
-    try { return !sessionStorage.getItem("bankceo.coach.dismissed"); } catch { return true; }
+  const [coachFlow, setCoachFlow] = useState(() => {
+    const seen = readSeen();
+    return seen.has("intro") ? null : "intro";
   });
 
   const ratios = useMemoA(() => ABE.computeRatios(state, state.lastIS), [state]);
@@ -40,10 +51,12 @@ function App() {
     setAdvancing(true);
     // Snapshot the current forecast before mutation
     const totalDep = (bs) => bs.deposits.noninterest + bs.deposits.interestChecking + bs.deposits.savingsMM + bs.deposits.timeDeposits;
-    const wholesale = (bs) => (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0) + (bs.subDebt || 0);
+    const wholesale = (bs) => (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0);
     const lf = {
       netIncome: forecast.is.netIncome,
       provision: forecast.is.provision,
+      nonintIncome: forecast.is.nonintIncome,
+      nonintExpense: forecast.is.nonintExpense,
       nim: forecast.ratios.nim,
       cet1: forecast.ratios.cet1,
       loansGross: forecast.bs.loansGross,
@@ -67,14 +80,38 @@ function App() {
   };
 
   const dismissCoach = () => {
-    setCoachActive(false);
-    try { sessionStorage.setItem("bankceo.coach.dismissed", "1"); } catch {}
+    if (coachFlow) {
+      const seen = readSeen();
+      seen.add(coachFlow);
+      writeSeen(seen);
+    }
+    setCoachFlow(null);
   };
 
-  // Auto-dismiss coach after Y1
+  // Auto-dismiss the intro after Y1.
   useEffect(() => {
-    if (state.quarter > 4 && coachActive) dismissCoach();
+    if (state.quarter > 4 && coachFlow === "intro") dismissCoach();
   }, [state.quarter]);
+
+  const handleTabChange = (newTab) => {
+    if (newTab === tab) return;
+    // Switching tabs interrupts any active flow — mark it seen so it doesn't re-fire.
+    if (coachFlow) {
+      const seen = readSeen();
+      seen.add(coachFlow);
+      writeSeen(seen);
+      setCoachFlow(null);
+    }
+    setTab(newTab);
+    const flowName = TAB_FLOW[newTab];
+    if (flowName && !state.gameOver) {
+      const seen = readSeen();
+      if (!seen.has(flowName)) {
+        // Defer one tick so the new tab content mounts before the coach measures its target.
+        setTimeout(() => setCoachFlow(flowName), 80);
+      }
+    }
+  };
 
   let body;
   if (tab === "cockpit") body = <CockpitTab state={state} ratios={ratios} forecast={forecast} />;
@@ -93,7 +130,7 @@ function App() {
       <Header state={state} ratios={ratios} />
       <div style={{ display: "flex", flex: 1, minHeight: 0 }}>
         <div style={{ display: "flex", flexDirection: "column", flex: 1, minWidth: 0 }}>
-          <TabStrip tab={tab} setTab={setTab} />
+          <TabStrip tab={tab} setTab={handleTabChange} />
           <div style={{ flex: 1, minHeight: 0, position: "relative" }}>
             {advancing && <div className="q-flash" key={flashKey} />}
             <div key={tab + "-" + state.quarter} style={{ height: "100%" }}>
@@ -103,7 +140,7 @@ function App() {
         </div>
         <RightRail state={state} ratios={ratios} onAdvance={advance} advancing={advancing} />
       </div>
-      <Coach active={coachActive && state.quarter === 1 && !state.gameOver} onDismiss={dismissCoach} />
+      <Coach flow={coachFlow && (coachFlow !== "intro" || (state.quarter === 1 && !state.gameOver)) ? coachFlow : null} onDismiss={dismissCoach} />
       <GameOver state={state} onRestart={restart} />
     </div>
   );

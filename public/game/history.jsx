@@ -45,7 +45,7 @@ function Timeline({ history, log }) {
   const eventMarks = log.filter(e => e.type === "bad" || e.type === "warn" || e.type === "good").slice(-12);
 
   return (
-    <div className="panel panel-pad">
+    <div className="panel panel-pad" data-coach="history-bvps">
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
         <div className="label-strong">Tangible Book Value per Share — 10-Year Track</div>
         <div className="serif" style={{ fontSize: 13, color: HP.textMute }}>Cycle bands shaded · key events flagged</div>
@@ -154,7 +154,7 @@ function HistoryTab({ state }) {
     <div className="tab-enter scroll-thin" style={{ padding: 22, height: "100%", overflowY: "auto", display: "flex", flexDirection: "column", gap: 14 }}>
       <Timeline history={h} log={state.log} />
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
+      <div data-coach="history-sparklines" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
         <Sparkline label="Net Income" history={h} accessor={x => x.netIncome} fmt={HBE.fmt$} />
         <Sparkline label="NIM" history={h} accessor={x => x.nim} fmt={v => (v*100).toFixed(2) + "%"} ratioName="nim" />
         <Sparkline label="ROA" history={h} accessor={x => x.roa} fmt={v => (v*100).toFixed(2) + "%"} ratioName="roa" />

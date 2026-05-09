@@ -33,13 +33,19 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
   const cet1Bp = (fr.cet1 - ratios.cet1) * 10000;
   const cet1Tone = cet1Bp >= 0 ? KP.good : KP.bad;
 
+  const estPrice = KBE.estimatedSharePrice(state, ratios);
+  const bvps = KBE.totalEquity(state.bs) / Math.max(1, state.bs.sharesOutstanding);
+  const repurchaseHint = d.repurchaseAmount > 0
+    ? `Est. price $${estPrice.toFixed(2)} · BVPS $${bvps.toFixed(2)} · buys ~${(d.repurchaseAmount / Math.max(1, estPrice)).toFixed(1)}K shares`
+    : `Est. price $${estPrice.toFixed(2)} · BVPS $${bvps.toFixed(2)}`;
+
   return (
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 14, padding: 22, height: "100%", overflowY: "auto" }}>
       <ForecastStrip ratios={ratios} forecast={forecast} />
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
         {/* Shareholder distributions */}
-        <div className="panel panel-pad">
+        <div className="panel panel-pad" data-coach="capital-distributions">
           <div className="label-strong" style={{ marginBottom: 4 }}>Shareholder Distributions</div>
           <div className="serif" style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
             Returning capital — at the cost of CET1 and book value.
@@ -53,34 +59,34 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
             <NumberDial label="Share Repurchase Authorization" value={d.repurchaseAmount}
               onChange={v => setDecision("repurchaseAmount", v)}
               min={0} max={5000} step={250} format="money"
-              hint={d.repurchaseAmount > 0 ? `Buys roughly ${(d.repurchaseAmount / Math.max(1, KBE.estimatedSharePrice(state, ratios))).toFixed(1)}K shares at est. $${KBE.estimatedSharePrice(state, ratios).toFixed(2)}` : "No buybacks scheduled"}
+              hint={repurchaseHint}
               color={KP.amber} locked={locked} />
           </div>
         </div>
 
         {/* Wholesale funding */}
-        <div className="panel panel-pad">
+        <div className="panel panel-pad" data-coach="capital-wholesale">
           <div className="label-strong" style={{ marginBottom: 4 }}>Wholesale Funding</div>
           <div className="serif" style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
-            FHLB advances and sub debt — fast cash, but examiners watch the ratio.
+            FHLB advances float with rates; sub debt locks in fixed at issuance and counts as Total Capital, not wholesale.
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             <NumberDial label="FHLB Advance (Δ this quarter)" value={d.fhlbAdvance}
               onChange={v => setDecision("fhlbAdvance", v)}
               min={-10000} max={20000} step={500} format="money"
-              hint={`Currently outstanding: ${KBE.fmt$(state.bs.borrowingsFHLB)} · cost ≈ Fed Funds + 50bp`}
+              hint={`Outstanding: ${KBE.fmt$(state.bs.borrowingsFHLB)} · floating cost ≈ Fed Funds + 50bp`}
               color={KP.warn} locked={locked} />
-            <NumberDial label="Sub Debt Issuance" value={d.subDebtIssuance}
+            <NumberDial label="Sub Debt (Δ this quarter)" value={d.subDebtIssuance}
               onChange={v => setDecision("subDebtIssuance", v)}
-              min={0} max={10000} step={500} format="money"
-              hint={`Outstanding: ${KBE.fmt$(state.bs.subDebt)} · cost 7.0% · counts as Total Capital (not Tier 1)`}
+              min={-10000} max={10000} step={500} format="money"
+              hint={`Outstanding: ${KBE.fmt$(state.bs.subDebt)} · avg fixed cost ${((state.bs.subDebtAvgCost || 0) * 100).toFixed(2)}% · new issuance locks at Fed Funds + 100bp (${(((state.macro.fedFunds || 0) + 0.01) * 100).toFixed(2)}%)`}
               color={KP.warn} locked={locked} />
           </div>
         </div>
       </div>
 
       {/* Provision override */}
-      <div className="panel panel-pad">
+      <div className="panel panel-pad" data-coach="capital-provision">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
           <div className="label-strong">Provision Override</div>
           <button onClick={() => setDecision("provisionOverride", null)} disabled={locked || d.provisionOverride === null}
@@ -105,7 +111,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
       </div>
 
       {/* Capital impact preview */}
-      <div className="panel panel-pad">
+      <div className="panel panel-pad" data-coach="capital-impact">
         <div className="label-strong" style={{ marginBottom: 12 }}>Capital Impact — Next Quarter Projection</div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }}>
           <div>
@@ -128,11 +134,11 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
           </div>
           <div>
             <div className="label" style={{ fontSize: 9.5 }}>Wholesale / Total</div>
-            <div className="num" style={{ fontSize: 22, fontWeight: 700, color: ((forecast.bs.borrowingsFHLB + forecast.bs.subDebt) / (KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB + forecast.bs.subDebt)) > 0.15 ? KP.warn : KP.text }}>
-              {(((forecast.bs.borrowingsFHLB + forecast.bs.subDebt) / (KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB + forecast.bs.subDebt)) * 100).toFixed(1)}%
+            <div className="num" style={{ fontSize: 22, fontWeight: 700, color: (forecast.bs.borrowingsFHLB / (KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB)) > 0.15 ? KP.warn : KP.text }}>
+              {((forecast.bs.borrowingsFHLB / Math.max(1, KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB)) * 100).toFixed(1)}%
             </div>
             <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
-              cap concentration ≤ 15%
+              FHLB only · ≤ 15%
             </div>
           </div>
           <div>
