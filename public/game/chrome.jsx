@@ -179,10 +179,14 @@ function MacroTape({ macro }) {
 
 // ---------- Event card ----------
 const SEV_RANK = { bad: 4, warn: 3, info: 2, good: 1, neutral: 0, system: 0 };
-function EventCard({ log }) {
-  // Show ALL non-system events from the most recent quarter that has any.
-  const nonSystem = log.filter(e => e.type !== "system" && e.q > 0);
-  if (nonSystem.length === 0) {
+function EventCard({ log, currentQ }) {
+  // Show ALL non-system events from the just-completed quarter only.
+  // If that quarter is quiet, say so — earlier quarters' events stay in the Activity Log.
+  const targetQ = currentQ - 1;
+  const events = targetQ > 0
+    ? log.filter(e => e.type !== "system" && e.q === targetQ)
+    : [];
+  if (events.length === 0) {
     return (
       <div className="panel-soft" style={{ padding: "14px 16px" }}>
         <div className="label" style={{ marginBottom: 6 }}>Latest Quarter Event(s)</div>
@@ -192,8 +196,6 @@ function EventCard({ log }) {
       </div>
     );
   }
-  const latestQ = nonSystem.reduce((m, e) => Math.max(m, e.q), 0);
-  const events = nonSystem.filter(e => e.q === latestQ);
   const topType = events.reduce(
     (acc, e) => (SEV_RANK[e.type] || 0) > (SEV_RANK[acc] || 0) ? e.type : acc,
     events[0].type
@@ -207,7 +209,7 @@ function EventCard({ log }) {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
         <div className="label" style={{ color: topSev.fg }}>Latest Quarter Event(s)</div>
         <div className="mono" style={{ fontSize: 10, color: P.textMute }}>
-          {qlbl(latestQ).label}
+          {qlbl(targetQ).label}
         </div>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -316,7 +318,7 @@ function RightRail({ state, ratios, onAdvance, advancing }) {
         gap: 10,
       }}>
         <MacroTape macro={state.macro} />
-        <EventCard log={state.log} />
+        <EventCard log={state.log} currentQ={state.quarter} />
         <EventLog log={state.log} />
       </div>
       <div style={{
