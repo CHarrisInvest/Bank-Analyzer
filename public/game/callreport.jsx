@@ -45,7 +45,7 @@ function CallReportTab({ state, ratios }) {
   const fpct = (v, d = 2) => v === null || v === undefined || isNaN(v) ? "—" : `${(v * 100).toFixed(d)}%`;
 
   return (
-    <div className="tab-enter" style={{ padding: 22, height: "100%", overflowY: "auto" }}>
+    <div className="tab-enter scroll-thin" style={{ padding: 22, height: "100%", overflowY: "auto" }}>
       {/* Title block */}
       <div style={{ marginBottom: 18, paddingBottom: 14, borderBottom: `1px solid ${RP.line}`, display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
         <div>

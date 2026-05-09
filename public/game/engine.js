@@ -105,7 +105,7 @@
     creditRiskBank: 0,
     history: [],
     log: [
-      { q: 0, type: "system", msg: "Welcome to First Meridian Bank, NA. You are CEO of a $400M single-branch community bank. Make it through 40 quarters without failing." },
+      { q: 0, type: "system", msg: "Welcome to First Meridian Bank, NA. You are CEO of a single-branch community bank. Make it through 40 quarters without failing." },
     ],
     pendingEvent: null,
     lastForecast: null,

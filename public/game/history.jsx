@@ -151,7 +151,7 @@ function Sparkline({ label, history, accessor, fmt, ratioName }) {
 function HistoryTab({ state }) {
   const h = state.history;
   return (
-    <div className="tab-enter" style={{ padding: 22, height: "100%", overflowY: "auto", display: "flex", flexDirection: "column", gap: 14 }}>
+    <div className="tab-enter scroll-thin" style={{ padding: 22, height: "100%", overflowY: "auto", display: "flex", flexDirection: "column", gap: 14 }}>
       <Timeline history={h} log={state.log} />
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>

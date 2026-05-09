@@ -34,7 +34,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
   const cet1Tone = cet1Bp >= 0 ? KP.good : KP.bad;
 
   return (
-    <div className="tab-enter" style={{ display: "flex", flexDirection: "column", gap: 14, padding: 22, height: "100%", overflowY: "auto" }}>
+    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 14, padding: 22, height: "100%", overflowY: "auto" }}>
       <ForecastStrip ratios={ratios} forecast={forecast} />
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
