@@ -99,8 +99,8 @@ function Header({ state, ratios }) {
   const m = state.macro;
   return (
     <div style={{
-      display: "flex", flexDirection: "column", gap: 10,
-      padding: "12px 24px 12px",
+      display: "flex", flexDirection: "column", gap: 8,
+      padding: "8px 24px 8px",
       borderBottom: `1px solid ${P.line}`,
       background: P.bgRaised,
     }}>
@@ -280,16 +280,17 @@ function AdvanceButton({ onAdvance, disabled, advancing, currentQ }) {
 // ---------- Right rail ----------
 function RightRail({ state, ratios, onAdvance, advancing }) {
   return (
-    <div style={{
+    <div className="scroll-thin" style={{
       display: "flex",
       flexDirection: "column",
-      gap: 12,
-      padding: 16,
+      gap: 10,
+      padding: 12,
       borderLeft: `1px solid ${P.line}`,
       background: P.bg,
       width: 360,
       flexShrink: 0,
       minHeight: 0,
+      overflowY: "auto",
     }}>
       <MacroTape macro={state.macro} />
       <EventCard log={state.log} currentQ={state.quarter} />
