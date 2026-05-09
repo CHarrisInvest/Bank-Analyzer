@@ -114,6 +114,25 @@ function InfoIcon() {
   );
 }
 
+function PlayIcon() {
+  return (
+    <svg
+      className="nav-link-icon"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <polygon points="6 4 20 12 6 20 6 4" />
+    </svg>
+  );
+}
+
 function ChevronIcon() {
   return (
     <svg
@@ -281,6 +300,21 @@ function Navigation() {
               >
                 <BookIcon />
                 <span>Glossary</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Play Section */}
+          <div className="nav-section">
+            <span className="nav-section-header">Play</span>
+            <div className="nav-section-items">
+              <Link
+                to="/game"
+                className={`nav-link ${isActive('/game') ? 'nav-link-active' : ''}`}
+                onClick={() => handleNavClick('game')}
+              >
+                <PlayIcon />
+                <span>Simulation</span>
               </Link>
             </div>
           </div>
