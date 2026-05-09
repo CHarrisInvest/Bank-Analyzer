@@ -47,7 +47,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
         {/* Shareholder distributions */}
         <div className="panel panel-pad" data-coach="capital-distributions">
           <div className="label-strong" style={{ marginBottom: 4 }}>Shareholder Distributions</div>
-          <div className="serif" style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
+          <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
             Returning capital — at the cost of CET1 and book value.
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -67,7 +67,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
         {/* Wholesale funding */}
         <div className="panel panel-pad" data-coach="capital-wholesale">
           <div className="label-strong" style={{ marginBottom: 4 }}>Wholesale Funding</div>
-          <div className="serif" style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
+          <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
             FHLB advances float with rates; sub debt locks in fixed at issuance and counts as Total Capital, not wholesale.
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -99,7 +99,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
             {d.provisionOverride === null ? "Auto (model)" : "Reset to auto"}
           </button>
         </div>
-        <div className="serif" style={{ fontSize: 13, color: KP.textMute, marginBottom: 12 }}>
+        <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 12 }}>
           Override the CECL model's recommended provision. Aggressive reserve building flows through earnings now, padding the cushion later.
         </div>
         <NumberDial label="Provision Expense (next qtr)"

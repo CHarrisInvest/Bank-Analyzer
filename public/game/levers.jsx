@@ -85,7 +85,7 @@ function LeverCard({ lever, value, onChange, locked }) {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12 }}>
         <div>
           <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: "-0.01em" }}>{lever.title}</div>
-          <div className="serif" style={{ fontSize: 13, color: LP.textMute, marginTop: 2 }}>{lever.subtitle}</div>
+          <div style={{ fontSize: 13, color: LP.textMute, marginTop: 2 }}>{lever.subtitle}</div>
         </div>
         <div style={{
           padding: "4px 10px", borderRadius: 999,
@@ -146,7 +146,7 @@ function ForecastStrip({ ratios, forecast }) {
     }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 }}>
         <div className="label-strong" style={{ color: LP.amber }}>Live Forecast — Next Quarter</div>
-        <div className="serif" style={{ fontSize: 13, color: LP.textMute }}>Projections update as you adjust levers above</div>
+        <div style={{ fontSize: 13, color: LP.textMute }}>Projections update as you adjust levers above</div>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 14 }}>
         {items.map(it => (

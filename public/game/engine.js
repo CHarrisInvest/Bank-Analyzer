@@ -198,6 +198,7 @@
       tbvPerShare: totalEquity(s.bs) / s.bs.sharesOutstanding,
       aoci: s.bs.aoci,
       cycle: s.macro.cycle,
+      dividendsPaid: is.dividendsPaid || 0,
     });
 
     s.lastIS = is;
@@ -223,6 +224,7 @@
       const annualizedROE = s.history.length > 0
         ? s.history.reduce((sum, h) => sum + h.roe, 0) / s.history.length
         : 0;
+      const totalDividendsPaid = s.history.reduce((sum, h) => sum + (h.dividendsPaid || 0), 0);
 
       let grade = "F";
       let gradeMsg = "";
@@ -249,6 +251,7 @@
           finalBVPS, initialBVPS, bvpsCAGR, totalReturn,
           annualizedROE, finalCET1: ratios.cet1, finalEq,
           finalAssets: totalAssets(s.bs), finalPx,
+          totalDividendsPaid,
         },
       };
     }
