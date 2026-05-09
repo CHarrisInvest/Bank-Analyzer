@@ -55,6 +55,8 @@ function App() {
     const lf = {
       netIncome: forecast.is.netIncome,
       provision: forecast.is.provision,
+      nonintIncome: forecast.is.nonintIncome,
+      nonintExpense: forecast.is.nonintExpense,
       nim: forecast.ratios.nim,
       cet1: forecast.ratios.cet1,
       loansGross: forecast.bs.loansGross,

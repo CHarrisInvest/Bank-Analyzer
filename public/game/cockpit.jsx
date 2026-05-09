@@ -112,7 +112,7 @@ function BalanceBars({ bs }) {
     { l: "Other",       v: bs.premises + bs.otherAssets,  c: CP.textMute },
   ];
   const fundSegs = [
-    { l: "Non-int dep.", v: bs.deposits.noninterest, c: CP.good },
+    { l: "Noninterest dep.", v: bs.deposits.noninterest, c: CP.good },
     { l: "Int. deposits",v: bs.deposits.interestChecking + bs.deposits.savingsMM + bs.deposits.timeDeposits, c: CP.expansion },
     { l: "FHLB",         v: bs.borrowingsFHLB, c: CP.warn },
     { l: "Sub Debt",     v: bs.subDebt, c: CP.bad },
@@ -186,13 +186,15 @@ function CockpitTab({ state, ratios, forecast }) {
   const wholesaleFund = (bs) => (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0);
 
   const rows = [
-    { l: "Net Income",       plan: lf?.netIncome,  actual: lastIS.netIncome,         forecast: fis.netIncome,                        fmt: "money" },
-    { l: "NIM",              plan: lf?.nim,        actual: ratios.nim,               forecast: fr.nim,         ratioName: "nim",     fmt: "pct" },
-    { l: "Provision",        plan: lf?.provision,  actual: lastIS.provision,         forecast: fis.provision,                        fmt: "money", invert: true },
-    { l: "CET1 Ratio",       plan: lf?.cet1,       actual: ratios.cet1,              forecast: fr.cet1,        ratioName: "cet1",    fmt: "pct1" },
-    { l: "Loans (gross)",    plan: lf?.loansGross, actual: state.bs.loansGross,      forecast: fbs.loansGross,                       fmt: "money" },
-    { l: "Deposits",         plan: lf?.deposits,   actual: totalDeposits(state.bs),  forecast: totalDeposits(fbs),                   fmt: "money" },
-    { l: "Wholesale Funding",plan: lf?.wholesale,  actual: wholesaleFund(state.bs),  forecast: wholesaleFund(fbs),                   fmt: "money", invert: true },
+    { l: "Net Income",         plan: lf?.netIncome,     actual: lastIS.netIncome,         forecast: fis.netIncome,                        fmt: "money" },
+    { l: "NIM",                plan: lf?.nim,           actual: ratios.nim,               forecast: fr.nim,         ratioName: "nim",     fmt: "pct" },
+    { l: "Provision",          plan: lf?.provision,     actual: lastIS.provision,         forecast: fis.provision,                        fmt: "money", invert: true },
+    { l: "Noninterest Income", plan: lf?.nonintIncome,  actual: lastIS.nonintIncome,      forecast: fis.nonintIncome,                     fmt: "money" },
+    { l: "Noninterest Expense",plan: lf?.nonintExpense, actual: lastIS.nonintExpense,     forecast: fis.nonintExpense,                    fmt: "money", invert: true },
+    { l: "CET1 Ratio",         plan: lf?.cet1,          actual: ratios.cet1,              forecast: fr.cet1,        ratioName: "cet1",    fmt: "pct1" },
+    { l: "Loans (gross)",      plan: lf?.loansGross,    actual: state.bs.loansGross,      forecast: fbs.loansGross,                       fmt: "money" },
+    { l: "Deposits",           plan: lf?.deposits,      actual: totalDeposits(state.bs),  forecast: totalDeposits(fbs),                   fmt: "money" },
+    { l: "Wholesale Funding",  plan: lf?.wholesale,     actual: wholesaleFund(state.bs),  forecast: wholesaleFund(fbs),                   fmt: "money", invert: true },
   ];
 
   return (
