@@ -55,10 +55,20 @@ function Game() {
         .bs-game-landing .bs-game-pillar p {
           margin: 0; font-size: 13.5px; line-height: 1.5; color: #4a5568;
         }
+        .bs-game-landing .bs-game-docs {
+          margin-top: 40px; padding-top: 28px; border-top: 1px solid #e2e8f0;
+          display: flex; flex-wrap: wrap; gap: 24px;
+          font-size: 14px;
+        }
+        .bs-game-landing .bs-game-docs a {
+          color: #c98c3b; text-decoration: none; font-weight: 500;
+        }
+        .bs-game-landing .bs-game-docs a:hover { text-decoration: underline; }
         @media (max-width: 640px) {
           .bs-game-landing { padding: 32px 16px 48px; }
           .bs-game-landing h1 { font-size: 1.875rem; }
           .bs-game-landing .bs-game-pillars { grid-template-columns: 1fr; }
+          .bs-game-landing .bs-game-docs { gap: 14px; }
         }
       `}</style>
 
@@ -88,6 +98,12 @@ function Game() {
           <h3>Survive the Cycle</h3>
           <p>Macro shifts every few quarters. Provision early, manage liquidity, and outlast the recession.</p>
         </div>
+      </div>
+
+      <div className="bs-game-docs">
+        <Link to="/game/about">About BankCEO →</Link>
+        <Link to="/game/how-to-play">How to Play →</Link>
+        <Link to="/game/strategy-guide">Strategy Guide →</Link>
       </div>
     </div>
   );

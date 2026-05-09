@@ -54,13 +54,14 @@ function Coach({ active, onDismiss }) {
   if (!active || !pos) return null;
   const s = COACH_STEPS[step];
   const W = 320;
+  const TIP_H_EST = 200;
   let x = pos.x + pos.w / 2 - W / 2;
   let y = pos.y + pos.h + 14;
   if (s.placement === "top") y = pos.y - 14 - 130;
   if (s.placement === "left") { x = pos.x - W - 14; y = pos.y + pos.h / 2 - 65; }
   if (s.placement === "right") { x = pos.x + pos.w + 14; y = pos.y + pos.h / 2 - 65; }
   x = Math.max(12, Math.min(window.innerWidth - W - 12, x));
-  y = Math.max(12, y);
+  y = Math.max(12, Math.min(window.innerHeight - TIP_H_EST - 12, y));
 
   return (
     <>

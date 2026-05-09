@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO.jsx';
 
+const STRIP_H = 36;
+
 function GamePlay() {
   return (
     <div className="bs-game-play">
@@ -14,48 +16,77 @@ function GamePlay() {
 
       <style>{`
         .bs-game-play {
-          width: 100%;
+          position: fixed; inset: 0;
           background: #0d1218;
-          display: flex;
-          flex-direction: column;
+          display: flex; flex-direction: column;
+          overflow: hidden;
         }
-        .bs-game-play .bs-game-play-bar {
+        .bs-game-play .bs-game-strip {
+          flex: 0 0 ${STRIP_H}px;
           display: flex; align-items: center; justify-content: space-between;
-          padding: 8px 16px;
+          padding: 0 14px;
           background: #141b24;
           border-bottom: 1px solid #2a384e;
           color: #9aa7b8;
+          font-family: 'Geist', system-ui, -apple-system, sans-serif;
           font-size: 12.5px;
+          letter-spacing: 0.01em;
+          user-select: none;
         }
-        .bs-game-play .bs-game-play-bar a {
-          color: #f3b561; text-decoration: none; font-weight: 500;
+        .bs-game-play .bs-game-strip-back {
+          color: #f3b561;
+          text-decoration: none;
+          font-weight: 500;
+          padding: 4px 8px;
+          border-radius: 6px;
+          transition: background 0.12s;
         }
-        .bs-game-play .bs-game-play-bar a:hover { text-decoration: underline; }
+        .bs-game-play .bs-game-strip-back:hover { background: rgba(243,181,97,0.08); }
+        .bs-game-play .bs-game-strip-links {
+          display: flex; align-items: center; gap: 4px;
+        }
+        .bs-game-play .bs-game-strip-links a {
+          color: #9aa7b8;
+          text-decoration: none;
+          padding: 4px 10px;
+          border-radius: 6px;
+          transition: color 0.12s, background 0.12s;
+        }
+        .bs-game-play .bs-game-strip-links a:hover {
+          color: #eef2f6;
+          background: #1a2230;
+        }
+        .bs-game-play .bs-game-strip-sep {
+          width: 1px; height: 14px; background: #2a384e;
+        }
         .bs-game-play .bs-game-frame {
+          flex: 1 1 auto;
           width: 100%;
-          height: calc(100vh - 110px);
-          min-height: 640px;
           border: 0;
           display: block;
           background: #0d1218;
         }
-        @media (max-width: 640px) {
-          .bs-game-play .bs-game-frame { height: calc(100vh - 110px); min-height: 560px; }
+        @media (max-width: 560px) {
+          .bs-game-play .bs-game-strip-links a { padding: 4px 6px; font-size: 11.5px; }
+          .bs-game-play .bs-game-strip { padding: 0 8px; }
         }
       `}</style>
 
-      <div className="bs-game-play-bar">
-        <Link to="/game">← Back to Game</Link>
-        <a href="/game/BankCEO.html" target="_blank" rel="noopener noreferrer">
-          Open in new tab ↗
-        </a>
+      <div className="bs-game-strip">
+        <Link to="/game" className="bs-game-strip-back">← Back to BankSift</Link>
+        <div className="bs-game-strip-links">
+          <a href="/game/about" target="_blank" rel="noopener noreferrer">About BankCEO</a>
+          <span className="bs-game-strip-sep" />
+          <a href="/game/how-to-play" target="_blank" rel="noopener noreferrer">How to Play</a>
+          <span className="bs-game-strip-sep" />
+          <a href="/game/strategy-guide" target="_blank" rel="noopener noreferrer">Strategy Guide</a>
+        </div>
       </div>
 
       <iframe
         className="bs-game-frame"
         src="/game/BankCEO.html"
         title="BankCEO — bank simulation game"
-        loading="lazy"
         allow="fullscreen"
       />
     </div>
