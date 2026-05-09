@@ -18,11 +18,11 @@ function GamePlay() {
         .bs-game-play {
           position: fixed; inset: 0;
           background: #0d1218;
-          display: flex; flex-direction: column;
           overflow: hidden;
         }
         .bs-game-play .bs-game-strip {
-          flex: 0 0 ${STRIP_H}px;
+          position: absolute; top: 0; left: 0; right: 0;
+          height: ${STRIP_H}px;
           display: flex; align-items: center; justify-content: space-between;
           padding: 0 14px;
           background: #141b24;
@@ -32,6 +32,8 @@ function GamePlay() {
           font-size: 12.5px;
           letter-spacing: 0.01em;
           user-select: none;
+          z-index: 2;
+          box-sizing: border-box;
         }
         .bs-game-play .bs-game-strip-back {
           color: #f3b561;
@@ -42,6 +44,15 @@ function GamePlay() {
           transition: background 0.12s;
         }
         .bs-game-play .bs-game-strip-back:hover { background: rgba(243,181,97,0.08); }
+        .bs-game-play .bs-game-strip-right {
+          display: flex; align-items: center; gap: 10px;
+        }
+        .bs-game-play .bs-game-strip-hint {
+          color: #6b7888;
+          font-size: 11.5px;
+          font-style: italic;
+          letter-spacing: 0.02em;
+        }
         .bs-game-play .bs-game-strip-links {
           display: flex; align-items: center; gap: 4px;
         }
@@ -60,8 +71,10 @@ function GamePlay() {
           width: 1px; height: 14px; background: #2a384e;
         }
         .bs-game-play .bs-game-frame {
-          flex: 1 1 auto;
+          position: absolute;
+          top: ${STRIP_H}px; left: 0; right: 0; bottom: 0;
           width: 100%;
+          height: calc(100vh - ${STRIP_H}px);
           border: 0;
           display: block;
           background: #0d1218;
@@ -69,17 +82,21 @@ function GamePlay() {
         @media (max-width: 560px) {
           .bs-game-play .bs-game-strip-links a { padding: 4px 6px; font-size: 11.5px; }
           .bs-game-play .bs-game-strip { padding: 0 8px; }
+          .bs-game-play .bs-game-strip-hint { display: none; }
         }
       `}</style>
 
       <div className="bs-game-strip">
         <Link to="/game" className="bs-game-strip-back">← Back to BankSift</Link>
-        <div className="bs-game-strip-links">
-          <a href="/game/about" target="_blank" rel="noopener noreferrer">About BankCEO</a>
-          <span className="bs-game-strip-sep" />
-          <a href="/game/how-to-play" target="_blank" rel="noopener noreferrer">How to Play</a>
-          <span className="bs-game-strip-sep" />
-          <a href="/game/strategy-guide" target="_blank" rel="noopener noreferrer">Strategy Guide</a>
+        <div className="bs-game-strip-right">
+          <span className="bs-game-strip-hint">Open in new tab »</span>
+          <div className="bs-game-strip-links">
+            <a href="/game/about" target="_blank" rel="noopener noreferrer">About BankCEO</a>
+            <span className="bs-game-strip-sep" />
+            <a href="/game/how-to-play" target="_blank" rel="noopener noreferrer">How to Play</a>
+            <span className="bs-game-strip-sep" />
+            <a href="/game/strategy-guide" target="_blank" rel="noopener noreferrer">Strategy Guide</a>
+          </div>
         </div>
       </div>
 
