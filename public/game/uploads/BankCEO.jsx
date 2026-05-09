@@ -1130,7 +1130,7 @@ const FONT_DISP = `'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace`;
 const FONT_BODY = `'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace`;
 const FONT_NUM = `'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace`;
 
-export default function BankSim() {
+export default function BankCEO() {
   const [state, setState] = useState(INITIAL_STATE);
   const [tab, setTab] = useState("overview");
   const [confirmAdvance, setConfirmAdvance] = useState(false);

@@ -6,9 +6,9 @@ function GamePlay() {
   return (
     <div className="bs-game-play">
       <SEO
-        title="Play BankSim | Bank Simulation Game"
-        description="Play BankSim — run First Meridian Bank for 40 quarters. Set strategy, manage capital, and survive the credit cycle."
-        canonical="/game/play"
+        title="Play BankCEO | Bank Simulation Game"
+        description="Play BankCEO — run First Meridian Bank for 40 quarters. Set strategy, manage capital, and survive the credit cycle."
+        canonical="/game/BankCEO"
         noindex
       />
 
@@ -46,15 +46,15 @@ function GamePlay() {
 
       <div className="bs-game-play-bar">
         <Link to="/game">← Back to Game</Link>
-        <a href="/game/BankSim.html" target="_blank" rel="noopener noreferrer">
+        <a href="/game/BankCEO.html" target="_blank" rel="noopener noreferrer">
           Open in new tab ↗
         </a>
       </div>
 
       <iframe
         className="bs-game-frame"
-        src="/game/BankSim.html"
-        title="BankSim — bank simulation game"
+        src="/game/BankCEO.html"
+        title="BankCEO — bank simulation game"
         loading="lazy"
         allow="fullscreen"
       />

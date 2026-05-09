@@ -1,5 +1,5 @@
 // =====================================================================
-// BankSim engine — pure simulation, no React.
+// BankCEO engine — pure simulation, no React.
 // All mechanics preserved verbatim from the original source.
 // Attached to window.BankEngine for the UI to consume.
 // =====================================================================

@@ -179,7 +179,7 @@ function App() {
               }
             />
             <Route
-              path="game/play"
+              path="game/BankCEO"
               element={
                 <Suspense fallback={<div style={{ padding: 48, textAlign: 'center', color: '#9aa7b8', background: '#0d1218', minHeight: 400 }}>Loading simulation…</div>}>
                   <GamePlay />

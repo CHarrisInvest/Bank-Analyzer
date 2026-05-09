@@ -6,8 +6,8 @@ function Game() {
   return (
     <div className="page bs-game-landing">
       <SEO
-        title="BankSim Simulation Game | Run a Community Bank for 10 Years"
-        description="Play BankSim, a free interactive bank simulation game. Take the helm of First Meridian Bank, set lending and deposit strategy, manage capital, and steer through 40 quarters of economic cycles."
+        title="BankCEO Simulation Game | Run a Community Bank for 10 Years"
+        description="Play BankCEO, a free interactive bank simulation game. Take the helm of First Meridian Bank, set lending and deposit strategy, manage capital, and steer through 40 quarters of economic cycles."
         canonical="/game"
       />
 
@@ -62,7 +62,7 @@ function Game() {
         }
       `}</style>
 
-      <p className="bs-game-eyebrow">BankSim · Simulation</p>
+      <p className="bs-game-eyebrow">BankCEO · Simulation</p>
       <h1>Run a community bank for 10 years.</h1>
       <p className="bs-game-lede">
         Take the helm of First Meridian Bank, NA. Set loan and deposit strategy,
@@ -70,8 +70,8 @@ function Game() {
         late cycle, recession, and recovery. Every decision moves the call report.
       </p>
 
-      <Link to="/game/play" className="bs-game-cta">
-        Play BankSim <span className="bs-game-cta-arrow" aria-hidden="true">→</span>
+      <Link to="/game/BankCEO" className="bs-game-cta">
+        Play BankCEO <span className="bs-game-cta-arrow" aria-hidden="true">→</span>
       </Link>
       <div className="bs-game-meta">Free · No signup · Plays in your browser</div>
 
