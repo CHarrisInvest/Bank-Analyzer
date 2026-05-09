@@ -50,6 +50,9 @@ import NotFound from './pages/NotFound.jsx';
 // Lazy-loaded routes (kept out of the main bundle)
 const Game = lazy(() => import('./pages/Game.jsx'));
 const GamePlay = lazy(() => import('./pages/GamePlay.jsx'));
+const GameAbout = lazy(() => import('./pages/GameAbout.jsx'));
+const GameHowToPlay = lazy(() => import('./pages/GameHowToPlay.jsx'));
+const GameStrategy = lazy(() => import('./pages/GameStrategy.jsx'));
 
 /**
  * Main Application Component
@@ -126,6 +129,15 @@ function App() {
         <SpaRedirectHandler />
         <ScrollToTop />
         <Routes>
+          {/* Full-screen simulation route — outside Layout, no BankSift nav/footer */}
+          <Route
+            path="/game/BankCEO"
+            element={
+              <Suspense fallback={<div style={{ padding: 48, textAlign: 'center', color: '#9aa7b8', background: '#0d1218', minHeight: '100vh' }}>Loading simulation…</div>}>
+                <GamePlay />
+              </Suspense>
+            }
+          />
           <Route path="/" element={<Layout />}>
             {/* Home */}
             <Route index element={<Home />} />
@@ -179,10 +191,26 @@ function App() {
               }
             />
             <Route
-              path="game/BankCEO"
+              path="game/about"
               element={
-                <Suspense fallback={<div style={{ padding: 48, textAlign: 'center', color: '#9aa7b8', background: '#0d1218', minHeight: 400 }}>Loading simulation…</div>}>
-                  <GamePlay />
+                <Suspense fallback={<div className="page" style={{ padding: 48, textAlign: 'center' }}>Loading…</div>}>
+                  <GameAbout />
+                </Suspense>
+              }
+            />
+            <Route
+              path="game/how-to-play"
+              element={
+                <Suspense fallback={<div className="page" style={{ padding: 48, textAlign: 'center' }}>Loading…</div>}>
+                  <GameHowToPlay />
+                </Suspense>
+              }
+            />
+            <Route
+              path="game/strategy-guide"
+              element={
+                <Suspense fallback={<div className="page" style={{ padding: 48, textAlign: 'center' }}>Loading…</div>}>
+                  <GameStrategy />
                 </Suspense>
               }
             />
