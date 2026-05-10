@@ -28,8 +28,8 @@ function ProgressTrack({ history, currentQ, height = 28 }) {
   }, [history]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 6, width: "100%" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9.5, color: P.textMute, letterSpacing: "0.12em" }} className="mono">
+    <div style={{ display: "flex", flexDirection: "column", gap: 4, width: "100%" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, color: P.textMute, letterSpacing: "0.10em" }} className="mono">
         <span>Y1</span><span>Y2</span><span>Y3</span><span>Y4</span><span>Y5</span><span>Y6</span><span>Y7</span><span>Y8</span><span>Y9</span><span>Y10</span>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(40, 1fr)", gap: 1.5, height }}>
@@ -99,8 +99,8 @@ function Header({ state, ratios }) {
   const m = state.macro;
   return (
     <div style={{
-      display: "flex", flexDirection: "column", gap: 8,
-      padding: "8px 24px 8px",
+      display: "flex", flexDirection: "column", gap: 6,
+      padding: "6px 24px 7px",
       borderBottom: `1px solid ${P.line}`,
       background: P.bgRaised,
     }}>
@@ -142,7 +142,7 @@ function Header({ state, ratios }) {
       </div>
 
       {/* Progress track full width */}
-      <ProgressTrack history={state.history} currentQ={state.quarter} height={20} />
+      <ProgressTrack history={state.history} currentQ={state.quarter} height={13} />
     </div>
   );
 }
@@ -333,38 +333,44 @@ function RightRail({ state, ratios, onAdvance, advancing }) {
   );
 }
 
-// ---------- Tab strip ----------
+// ---------- Tab strip (vertical left rail) ----------
 function TabStrip({ tab, setTab }) {
   const tabs = [
-    { id: "cockpit",   label: "Overview",    hint: "Forecast vs. actual" },
-    { id: "levers",    label: "Operations",  hint: "Loans, deposits, securities" },
-    { id: "capital",   label: "Capital",     hint: "Dividends, buybacks, funding" },
-    { id: "report",    label: "Call Report", hint: "FFIEC quarterly" },
-    { id: "history",   label: "Tenure",      hint: "10-year track record" },
+    { id: "cockpit",   label: "Overview" },
+    { id: "levers",    label: "Operations" },
+    { id: "capital",   label: "Capital" },
+    { id: "report",    label: "Call Report" },
+    { id: "history",   label: "Tenure" },
   ];
   return (
     <div data-coach="tab-strip" style={{
       display: "flex",
-      gap: 0,
-      padding: "0 28px",
+      flexDirection: "column",
+      width: 150,
+      flexShrink: 0,
+      padding: "10px 0",
       background: P.bgRaised,
-      borderBottom: `1px solid ${P.line}`,
+      borderRight: `1px solid ${P.line}`,
     }}>
       {tabs.map(t => {
         const active = t.id === tab;
         return (
           <button key={t.id} onClick={() => setTab(t.id)} data-coach={`tab-${t.id}`}
             style={{
-              padding: "14px 22px",
-              background: "transparent",
+              padding: "11px 18px",
+              background: active ? P.bg : "transparent",
               border: "none",
-              borderBottom: `2px solid ${active ? P.amber : "transparent"}`,
+              borderLeft: `3px solid ${active ? P.amber : "transparent"}`,
               color: active ? P.text : P.textDim,
-              display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 1,
+              fontSize: 13,
+              fontWeight: active ? 600 : 500,
+              letterSpacing: "-0.01em",
+              textAlign: "left",
               fontFamily: "inherit",
+              cursor: "pointer",
+              transition: "color 0.12s, border-color 0.12s, background 0.12s",
             }}>
-            <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: "-0.01em" }}>{t.label}</div>
-            <div style={{ fontSize: 10, color: P.textMute, letterSpacing: "0.04em" }}>{t.hint}</div>
+            {t.label}
           </button>
         );
       })}
