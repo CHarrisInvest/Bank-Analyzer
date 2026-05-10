@@ -39,7 +39,7 @@ function ProgressTrack({ history, currentQ, height = 28 }) {
           const isCurrent = q === currentQ;
           const cycle = cycleBy[q];
           const fill = isPast ? (cycle ? P[cycle] : P.panelHi)
-                     : isCurrent ? P.amber
+                     : isCurrent ? P.text
                      : P.lineSoft;
           const isYearMark = q % 4 === 0;
           return (
