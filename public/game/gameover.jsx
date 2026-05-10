@@ -40,7 +40,7 @@ function GameOver({ state, onRestart }) {
           {!failed && (
             <>
               <Stat label="BVPS Growth" value={`${(stats.bvpsCAGR * 100).toFixed(1)}%`} sub="CAGR" tone={stats.bvpsCAGR > 0.06 ? GP.good : stats.bvpsCAGR > 0 ? GP.warn : GP.bad} />
-              <Stat label="Total Return" value={`${(stats.totalReturn * 100).toFixed(1)}%`} sub={`divs $${(stats.totalDividendsPerShare || 0).toFixed(2)}/sh`} tone={stats.totalReturn > 0.80 ? GP.good : stats.totalReturn > 0 ? GP.warn : GP.bad} />
+              <Stat label="Total Return" value={`${(stats.totalReturn * 100).toFixed(1)}%`} sub={`divs $${(stats.totalDividendsPerShare || 0).toFixed(2)}/sh`} tone={stats.totalReturn > 1.00 ? GP.good : stats.totalReturn > 0 ? GP.warn : GP.bad} />
               <Stat label="Avg ROE" value={`${(stats.annualizedROE * 100).toFixed(1)}%`} tone={stats.annualizedROE > 0.10 ? GP.good : stats.annualizedROE > 0.06 ? GP.warn : GP.bad} />
               <Stat label="Final CET1" value={`${(stats.finalCET1 * 100).toFixed(1)}%`} tone={stats.finalCET1 > 0.10 ? GP.good : GP.warn} />
               <Stat label="Final BVPS" value={`$${stats.finalBVPS?.toFixed(2)}`} sub={`from $${stats.initialBVPS?.toFixed(2)}`} />
