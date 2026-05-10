@@ -199,6 +199,7 @@
       aoci: s.bs.aoci,
       cycle: s.macro.cycle,
       dividendsPaid: is.dividendsPaid || 0,
+      dividendPerShare: s.decisions.dividendPerShare || 0,
     });
 
     s.lastIS = is;
@@ -225,6 +226,7 @@
         ? s.history.reduce((sum, h) => sum + h.roe, 0) / s.history.length
         : 0;
       const totalDividendsPaid = s.history.reduce((sum, h) => sum + (h.dividendsPaid || 0), 0);
+      const totalDividendsPerShare = s.history.reduce((sum, h) => sum + (h.dividendPerShare || 0), 0);
 
       let grade = "F";
       let gradeMsg = "";
@@ -251,7 +253,7 @@
           finalBVPS, initialBVPS, bvpsCAGR, totalReturn,
           annualizedROE, finalCET1: ratios.cet1, finalEq,
           finalAssets: totalAssets(s.bs), finalPx,
-          totalDividendsPaid,
+          totalDividendsPaid, totalDividendsPerShare,
         },
       };
     }
