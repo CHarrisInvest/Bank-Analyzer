@@ -14,7 +14,7 @@ function Game() {
       <style>{`
         .bs-game-landing { max-width: 880px; margin: 0 auto; padding: 48px 24px 64px; }
         .bs-game-landing .bs-game-eyebrow {
-          font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+          font-size: 13px; letter-spacing: 0.04em;
           color: #c98c3b; font-weight: 600; margin: 0 0 14px;
         }
         .bs-game-landing h1 {
@@ -24,19 +24,19 @@ function Game() {
           font-size: 1.125rem; line-height: 1.55; color: #4a5568; margin: 0 0 32px;
         }
         .bs-game-landing .bs-game-cta {
-          display: inline-flex; align-items: center; gap: 10px;
-          padding: 16px 28px; border-radius: 12px;
+          display: inline-flex; align-items: center; gap: 12px;
+          padding: 22px 40px; border-radius: 14px;
           background: linear-gradient(135deg, #f3b561 0%, #c98c3b 100%);
-          color: #1a1408; font-weight: 700; font-size: 16px;
-          text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase;
-          box-shadow: 0 6px 24px rgba(243,181,97,0.25);
+          color: #1a1408; font-weight: 700; font-size: 20px;
+          text-decoration: none; letter-spacing: -0.01em;
+          box-shadow: 0 8px 28px rgba(243,181,97,0.28);
           transition: transform 0.12s, box-shadow 0.2s;
         }
         .bs-game-landing .bs-game-cta:hover {
           transform: translateY(-1px);
-          box-shadow: 0 10px 28px rgba(243,181,97,0.35);
+          box-shadow: 0 12px 34px rgba(243,181,97,0.38);
         }
-        .bs-game-landing .bs-game-cta-arrow { font-size: 20px; line-height: 1; }
+        .bs-game-landing .bs-game-cta-arrow { font-size: 24px; line-height: 1; }
         .bs-game-landing .bs-game-meta {
           margin-top: 18px; font-size: 13px; color: #718096;
         }
@@ -72,7 +72,7 @@ function Game() {
         }
       `}</style>
 
-      <p className="bs-game-eyebrow">BankCEO · Simulation</p>
+      <p className="bs-game-eyebrow">BankCEO · Bank Management Simulation</p>
       <h1>Run a community bank for 10 years.</h1>
       <p className="bs-game-lede">
         Take the helm of First Meridian Bank, NA. Set loan and deposit strategy,
