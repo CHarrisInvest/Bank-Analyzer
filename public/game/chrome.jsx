@@ -29,8 +29,21 @@ function ProgressTrack({ history, currentQ, height = 28 }) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 4, width: "100%" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, color: P.textMute, letterSpacing: "0.10em" }} className="mono">
-        <span>Y1</span><span>Y2</span><span>Y3</span><span>Y4</span><span>Y5</span><span>Y6</span><span>Y7</span><span>Y8</span><span>Y9</span><span>Y10</span>
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(40, 1fr)",
+        columnGap: 1.5,
+        fontSize: 9, color: P.textMute, letterSpacing: "0.10em",
+      }} className="mono">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <div key={i} style={{
+            gridColumn: `${i * 4 + 1} / span 4`,
+            display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2,
+          }}>
+            <span style={{ lineHeight: 1 }}>Y{i + 1}</span>
+            <span style={{ width: 1, height: 4, background: P.line }} />
+          </div>
+        ))}
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(40, 1fr)", gap: 1.5, height }}>
         {Array.from({ length: 40 }).map((_, i) => {
@@ -41,13 +54,11 @@ function ProgressTrack({ history, currentQ, height = 28 }) {
           const fill = isPast ? (cycle ? P[cycle] : P.panelHi)
                      : isCurrent ? P.text
                      : P.lineSoft;
-          const isYearMark = q % 4 === 0;
           return (
             <div key={q} style={{
               background: fill,
               opacity: isPast ? 0.85 : isCurrent ? 1 : 0.55,
               borderRadius: 2,
-              borderRight: isYearMark && !isCurrent ? `1px solid ${P.line}` : "none",
               transform: isCurrent ? "scaleY(1.25)" : "none",
               boxShadow: isCurrent ? `0 0 12px ${P.amber}80` : "none",
               transition: "all 0.3s",
@@ -100,7 +111,7 @@ function Header({ state, ratios }) {
   return (
     <div style={{
       display: "flex", flexDirection: "column", gap: 6,
-      padding: "6px 24px 7px",
+      padding: "6px 24px 12px",
       borderBottom: `1px solid ${P.line}`,
       background: P.bgRaised,
     }}>
@@ -336,17 +347,17 @@ function RightRail({ state, ratios, onAdvance, advancing }) {
 // ---------- Tab strip (vertical left rail) ----------
 function TabStrip({ tab, setTab }) {
   const tabs = [
-    { id: "cockpit",   label: "Overview" },
-    { id: "levers",    label: "Operations" },
-    { id: "capital",   label: "Capital" },
-    { id: "report",    label: "Call Report" },
-    { id: "history",   label: "Tenure" },
+    { id: "cockpit",   label: "Overview",    hint: "Forecast vs. actual" },
+    { id: "levers",    label: "Operations",  hint: "Loans, deposits, securities" },
+    { id: "capital",   label: "Capital",     hint: "Dividends, buybacks, funding" },
+    { id: "report",    label: "Call Report", hint: "FFIEC quarterly" },
+    { id: "history",   label: "Tenure",      hint: "10-year track record" },
   ];
   return (
     <div data-coach="tab-strip" style={{
       display: "flex",
       flexDirection: "column",
-      width: 150,
+      width: 160,
       flexShrink: 0,
       padding: "10px 0",
       background: P.bgRaised,
@@ -357,20 +368,31 @@ function TabStrip({ tab, setTab }) {
         return (
           <button key={t.id} onClick={() => setTab(t.id)} data-coach={`tab-${t.id}`}
             style={{
-              padding: "11px 18px",
+              padding: "10px 18px",
               background: active ? P.bg : "transparent",
               border: "none",
               borderLeft: `3px solid ${active ? P.amber : "transparent"}`,
-              color: active ? P.text : P.textDim,
-              fontSize: 13,
-              fontWeight: active ? 600 : 500,
-              letterSpacing: "-0.01em",
+              display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2,
               textAlign: "left",
               fontFamily: "inherit",
               cursor: "pointer",
-              transition: "color 0.12s, border-color 0.12s, background 0.12s",
+              transition: "border-color 0.12s, background 0.12s",
             }}>
-            {t.label}
+            <div style={{
+              fontSize: 13,
+              fontWeight: active ? 600 : 500,
+              letterSpacing: "-0.01em",
+              color: active ? P.text : P.textDim,
+            }}>
+              {t.label}
+            </div>
+            <div style={{
+              fontSize: 10,
+              letterSpacing: "0.02em",
+              color: P.textMute,
+            }}>
+              {t.hint}
+            </div>
           </button>
         );
       })}
