@@ -18,8 +18,8 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='tab-strip']",
       title: "Where you actually run the bank",
-      body: "Tabs sit just under the timeline. Each is where you make a different category of decisions or look up supporting data. We'll walk through each the first time you open it.",
-      placement: "bottom",
+      body: "Tabs are on the left rail. Each is where you make a different category of decisions or look up supporting data. We'll walk through each the first time you open it.",
+      placement: "right",
     },
     {
       target: "[data-coach='forecast-pair']",
