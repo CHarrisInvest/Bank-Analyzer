@@ -221,12 +221,12 @@
       const finalPx = estimatedSharePrice(s, ratios);
       const initialBVPS = 32_000 / 2_000;
       const bvpsCAGR = Math.pow(finalBVPS / initialBVPS, 1/10) - 1;
-      const totalReturn = (finalBVPS - initialBVPS) / initialBVPS;
       const annualizedROE = s.history.length > 0
         ? s.history.reduce((sum, h) => sum + h.roe, 0) / s.history.length
         : 0;
       const totalDividendsPaid = s.history.reduce((sum, h) => sum + (h.dividendsPaid || 0), 0);
       const totalDividendsPerShare = s.history.reduce((sum, h) => sum + (h.dividendPerShare || 0), 0);
+      const totalReturn = (finalBVPS - initialBVPS + totalDividendsPerShare) / initialBVPS;
 
       let grade = "F";
       let gradeMsg = "";
