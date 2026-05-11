@@ -198,7 +198,7 @@ function CockpitTab({ state, ratios, forecast }) {
   ];
 
   return (
-    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 18, height: "100%", overflowY: "auto" }} data-coach="cockpit-root">
+    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }} data-coach="cockpit-root">
 
       {/* Unified Plan / Actual / Forecast table */}
       <div className="panel" style={{ padding: 0, overflow: "hidden", flexShrink: 0 }} data-coach="forecast-pair">
