@@ -53,6 +53,7 @@ async function generateSitemap() {
     { path: '/valuation', priority: '0.9', changefreq: 'monthly', src: 'src/pages/ValuationIndex.jsx' },
     { path: '/glossary', priority: '0.8', changefreq: 'monthly', src: 'src/pages/Glossary.jsx' },
     { path: '/insights', priority: '0.9', changefreq: 'monthly', src: 'src/pages/InsightsIndex.jsx' },
+    { path: '/game', priority: '0.7', changefreq: 'monthly', src: 'src/pages/Game.jsx' },
     { path: '/privacy', priority: '0.3', changefreq: 'yearly', src: 'src/pages/Privacy.jsx' },
     { path: '/terms', priority: '0.3', changefreq: 'yearly', src: 'src/pages/Terms.jsx' },
   ];
