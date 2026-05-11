@@ -70,7 +70,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='capital-impact']",
       title: "Capital impact preview",
-      body: "Forecasted CET1 delta, cash, FHLB share, and net income for next quarter — the four levers above all flow into this strip.",
+      body: "Forecasted CET1 delta, cash, FHLB share, and net income for next quarter. The expected quarter results and the impact of your levers all flow into this strip.",
       placement: "top",
     },
   ],
