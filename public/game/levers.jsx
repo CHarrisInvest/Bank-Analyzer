@@ -9,11 +9,11 @@ const LEVERS = [
     subtitle: "How aggressively to chase new loan demand",
     min: -2, max: 2, step: 1,
     marks: [
-      { v: -2, l: "Shrink",      hint: "Run off the book" },
-      { v: -1, l: "Slow",        hint: "Renew only" },
-      { v:  0, l: "Match Demand",hint: "Default" },
-      { v:  1, l: "Push",        hint: "Above-market growth" },
-      { v:  2, l: "Floor It",    hint: "Aggressive risk-on" },
+      { v: -2, l: "Shrink", pill: "Shrink Book" },
+      { v: -1, l: "Slow",   pill: "Slow Growth" },
+      { v:  0, l: "Match",  pill: "Match Demand" },
+      { v:  1, l: "Push",   pill: "Push Growth" },
+      { v:  2, l: "Floor It" },
     ],
     color: LP.amber,
     risk: (v) => v >= 1 ? "Builds latent credit risk; new yields modestly lower" : v <= -1 ? "Forfeits NII; protects capital" : "Balanced",
@@ -41,7 +41,7 @@ const LEVERS = [
     marks: [
       { v: -2, l: "−40 bps", hint: "Cheap" },
       { v: -1, l: "−20 bps" },
-      { v:  0, l: "Match" },
+      { v:  0, l: "Match", pill: "Match Demand" },
       { v:  1, l: "+20 bps" },
       { v:  2, l: "+40 bps", hint: "Pricing leader" },
     ],
@@ -93,7 +93,7 @@ function LeverCard({ lever, value, onChange, locked }) {
             whiteSpace: "nowrap",
             flexShrink: 0,
           }}>
-            {mark.l}
+            {mark.pill || mark.l}
           </div>
         </div>
         <div style={{ fontSize: 13, color: LP.textMute, marginTop: 2 }}>{lever.subtitle}</div>
