@@ -53,13 +53,13 @@ const COACH_FLOWS = {
       target: "[data-coach='capital-distributions']",
       title: "Returning capital",
       body: "Dividends and buybacks. Both lower CET1; buybacks shrink the share count, dividends reward holders directly. The hint shows estimated price and BVPS so you can size the authorization.",
-      placement: "bottom",
+      placement: "right",
     },
     {
       target: "[data-coach='capital-wholesale']",
       title: "Wholesale funding",
       body: "FHLB advances float with Fed Funds. Sub debt locks in fixed at issuance (Fed Funds + 100bp at the time you issue) — useful in low-rate periods. Sub debt counts as Total Capital, not wholesale concentration.",
-      placement: "bottom",
+      placement: "left",
     },
     {
       target: "[data-coach='capital-provision']",
