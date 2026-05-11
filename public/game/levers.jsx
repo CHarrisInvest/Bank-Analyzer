@@ -147,7 +147,7 @@ function ForecastStrip({ ratios, forecast }) {
     }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 }}>
         <div className="label-strong" style={{ color: LP.amber }}>Live Forecast — Next Quarter</div>
-        <div style={{ fontSize: 13, color: LP.textMute }}>Projections update as you adjust levers above</div>
+        <div style={{ fontSize: 13, color: LP.textMute }}>Projections update as you adjust levers</div>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 14 }}>
         {items.map(it => (
