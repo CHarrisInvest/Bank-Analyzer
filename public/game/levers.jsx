@@ -82,20 +82,21 @@ function LeverCard({ lever, value, onChange, locked }) {
   const mark = lever.marks.find(m => m.v === value) || lever.marks[Math.round(lever.marks.length / 2)];
   return (
     <div className="panel panel-pad" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12 }}>
-        <div>
+      <div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
           <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: "-0.01em" }}>{lever.title}</div>
-          <div style={{ fontSize: 13, color: LP.textMute, marginTop: 2 }}>{lever.subtitle}</div>
+          <div style={{
+            padding: "4px 10px", borderRadius: 999,
+            background: lever.color + "22",
+            color: lever.color,
+            fontSize: 12, fontWeight: 600,
+            whiteSpace: "nowrap",
+            flexShrink: 0,
+          }}>
+            {mark.l}{mark.hint ? ` · ${mark.hint}` : ""}
+          </div>
         </div>
-        <div style={{
-          padding: "4px 10px", borderRadius: 999,
-          background: lever.color + "22",
-          color: lever.color,
-          fontSize: 12, fontWeight: 600,
-          whiteSpace: "nowrap",
-        }}>
-          {mark.l}{mark.hint ? ` · ${mark.hint}` : ""}
-        </div>
+        <div style={{ fontSize: 13, color: LP.textMute, marginTop: 2 }}>{lever.subtitle}</div>
       </div>
 
       <div style={{ position: "relative", padding: "0 4px" }}>
