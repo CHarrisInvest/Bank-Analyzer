@@ -86,14 +86,14 @@ function LeverCard({ lever, value, onChange, locked }) {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
           <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: "-0.01em" }}>{lever.title}</div>
           <div style={{
-            padding: "4px 10px", borderRadius: 999,
+            padding: "3px 9px", borderRadius: 999,
             background: lever.color + "22",
             color: lever.color,
-            fontSize: 12, fontWeight: 600,
+            fontSize: 11.5, fontWeight: 600,
             whiteSpace: "nowrap",
             flexShrink: 0,
           }}>
-            {mark.l}{mark.hint ? ` · ${mark.hint}` : ""}
+            {mark.l}
           </div>
         </div>
         <div style={{ fontSize: 13, color: LP.textMute, marginTop: 2 }}>{lever.subtitle}</div>
@@ -171,7 +171,7 @@ function ForecastStrip({ ratios, forecast }) {
 
 function LeversTab({ state, ratios, forecast, setLever, locked }) {
   return (
-    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 14, padding: 22, height: "100%", overflowY: "auto" }} data-coach="levers-root">
+    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }} data-coach="levers-root">
       <ForecastStrip ratios={ratios} forecast={forecast} />
       <div data-coach="lever-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
         {LEVERS.map(L => (
