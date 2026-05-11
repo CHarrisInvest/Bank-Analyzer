@@ -171,7 +171,7 @@ function HistoryTab({ state }) {
 
       <div className="panel panel-pad">
         <div className="label-strong" style={{ marginBottom: 10 }}>Quarterly Detail</div>
-        <div style={{ overflowX: "auto" }}>
+        <div className="scroll-thin" style={{ overflowX: "auto" }}>
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 11.5 }} className="num">
             <thead>
               <tr style={{ color: HP.textMute, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.1em" }}>
