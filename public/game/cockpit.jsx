@@ -187,11 +187,11 @@ function CockpitTab({ state, ratios, forecast }) {
 
   const rows = [
     { l: "Net Income",         plan: lf?.netIncome,     actual: lastIS.netIncome,         forecast: fis.netIncome,                        fmt: "money" },
-    { l: "NIM",                plan: lf?.nim,           actual: ratios.nim,               forecast: fr.nim,         ratioName: "nim",     fmt: "pct" },
+    { l: "NIM",                plan: lf?.nim,           actual: ratios.nim,               forecast: fr.nim,                               fmt: "pct" },
     { l: "Provision",          plan: lf?.provision,     actual: lastIS.provision,         forecast: fis.provision,                        fmt: "money", invert: true },
     { l: "Noninterest Income", plan: lf?.nonintIncome,  actual: lastIS.nonintIncome,      forecast: fis.nonintIncome,                     fmt: "money" },
     { l: "Noninterest Expense",plan: lf?.nonintExpense, actual: lastIS.nonintExpense,     forecast: fis.nonintExpense,                    fmt: "money", invert: true },
-    { l: "CET1 Ratio",         plan: lf?.cet1,          actual: ratios.cet1,              forecast: fr.cet1,        ratioName: "cet1",    fmt: "pct1" },
+    { l: "CET1 Ratio",         plan: lf?.cet1,          actual: ratios.cet1,              forecast: fr.cet1,                              fmt: "pct1" },
     { l: "Loans (gross)",      plan: lf?.loansGross,    actual: state.bs.loansGross,      forecast: fbs.loansGross,                       fmt: "money" },
     { l: "Deposits",           plan: lf?.deposits,      actual: totalDeposits(state.bs),  forecast: totalDeposits(fbs),                   fmt: "money" },
     { l: "Wholesale Funding",  plan: lf?.wholesale,     actual: wholesaleFund(state.bs),  forecast: wholesaleFund(fbs),                   fmt: "money", invert: true },
