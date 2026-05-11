@@ -71,7 +71,7 @@ async function loadData() {
 /**
  * Create HTML for a route with proper SEO tags
  */
-function createPage({ path, title, description, canonical, type = 'website', schema, content }) {
+function createPage({ path, title, description, canonical, type = 'website', schema, content, noindex = false }) {
   let html = template;
 
   // Update title
@@ -138,6 +138,14 @@ function createPage({ path, title, description, canonical, type = 'website', sch
     /<meta name="twitter:description" content="[^"]*"/,
     `<meta name="twitter:description" content="${escapeHtml(description)}"`
   );
+
+  // Apply noindex if requested (default template carries 'index, follow')
+  if (noindex) {
+    html = html.replace(
+      /<meta name="robots" content="[^"]*"/,
+      `<meta name="robots" content="noindex, follow"`
+    );
+  }
 
   // Add page-specific JSON-LD schema if provided
   if (schema) {
@@ -1520,6 +1528,69 @@ async function generatePages() {
       ]
     },
     content: `<h1>Terms of Service</h1><p>BankSift terms and conditions of use.</p>`
+  }));
+  count++;
+
+  // ============================================
+  // GAME PAGES (BankCEO simulation)
+  // ============================================
+
+  // /game — landing page for the simulation. Indexable.
+  writePage('/game', createPage({
+    path: '/game',
+    title: 'BankCEO Simulation Game | Run a Community Bank for 10 Years',
+    description: 'Play BankCEO, a free interactive bank simulation game. Take the helm of First Meridian Bank, set lending and deposit strategy, manage capital, and steer through 40 quarters of economic cycles.',
+    canonical: `${SITE_URL}/game`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "BankCEO Simulation", path: "/game" }
+        ])
+      ]
+    },
+    content: `<h1>Run a community bank for 10 years.</h1><p>Take the helm of First Meridian Bank, NA. Set loan and deposit strategy, manage capital and liquidity, and steer through 40 quarters of expansion, late cycle, recession, and recovery.</p>`
+  }));
+  count++;
+
+  // /game/BankCEO — full-screen play surface. noindex (iframe wrapper, not a content page).
+  writePage('/game/BankCEO', createPage({
+    path: '/game/BankCEO',
+    title: 'Play BankCEO | Bank Simulation Game',
+    description: 'Play BankCEO — run First Meridian Bank for 40 quarters. Set strategy, manage capital, and survive the credit cycle.',
+    canonical: `${SITE_URL}/game/BankCEO`,
+    noindex: true,
+  }));
+  count++;
+
+  // /game/about — doc shell (placeholder content). noindex until written.
+  writePage('/game/about', createPage({
+    path: '/game/about',
+    title: 'About BankCEO | Bank Simulation Game',
+    description: "About BankCEO — what the simulation models, who it's for, and why it exists.",
+    canonical: `${SITE_URL}/game/about`,
+    noindex: true,
+  }));
+  count++;
+
+  // /game/how-to-play — doc shell (placeholder content). noindex until written.
+  writePage('/game/how-to-play', createPage({
+    path: '/game/how-to-play',
+    title: 'How to Play BankCEO | Bank Simulation Game',
+    description: 'How to play BankCEO — controls, tabs, and what each lever does.',
+    canonical: `${SITE_URL}/game/how-to-play`,
+    noindex: true,
+  }));
+  count++;
+
+  // /game/strategy-guide — doc shell (placeholder content). noindex until written.
+  writePage('/game/strategy-guide', createPage({
+    path: '/game/strategy-guide',
+    title: 'BankCEO Strategy Guide | Bank Simulation Game',
+    description: 'BankCEO strategy guide — how to manage NIM, capital, and credit through the cycle.',
+    canonical: `${SITE_URL}/game/strategy-guide`,
+    noindex: true,
   }));
   count++;
 
