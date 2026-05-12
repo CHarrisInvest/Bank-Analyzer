@@ -72,6 +72,7 @@
       case "ltd":       return v <= 1.00 ? p.good : v <= 1.10 ? p.warn : p.bad;
       case "onHandLiq": return v >= 0.12 ? p.good : v >= 0.06 ? p.warn : p.bad;
       case "efficiency":return v <= 0.60 ? p.good : v <= 0.70 ? p.warn : p.bad;
+      case "satisfaction": return v >= 75 ? p.good : v >= 55 ? p.text : v >= 35 ? p.warn : p.bad;
       default: return p.text;
     }
   }

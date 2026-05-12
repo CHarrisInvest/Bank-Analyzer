@@ -142,11 +142,12 @@ function Header({ state, ratios }) {
         </div>
 
         {/* Vitals — pushed to the right */}
-        <div style={{ display: "flex", marginLeft: "auto", gap: 18, alignItems: "center", flexShrink: 0 }} data-coach="header-vitals">
+        <div style={{ display: "flex", marginLeft: "auto", gap: 16, alignItems: "center", flexShrink: 0 }} data-coach="header-vitals">
           <Vital label="CET1" value={(ratios.cet1 * 100).toFixed(1) + "%"} color={rcolor("cet1", ratios.cet1)} />
           <Vital label="ROA" value={(ratios.roa * 100).toFixed(2) + "%"} color={rcolor("roa", ratios.roa)} />
           <Vital label="NIM" value={(ratios.nim * 100).toFixed(2) + "%"} color={rcolor("nim", ratios.nim)} />
           <Vital label="NPL" value={(ratios.nplRatio * 100).toFixed(2) + "%"} color={rcolor("nplRatio", ratios.nplRatio)} />
+          <Vital label="Sat" value={Math.round(state.satisfaction ?? 70)} color={rcolor("satisfaction", state.satisfaction ?? 70)} />
           <div style={{ width: 1, height: 28, background: P.line }} />
           <Vital label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} sub="last quarter" color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
         </div>

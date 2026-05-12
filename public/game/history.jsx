@@ -167,6 +167,9 @@ function HistoryTab({ state }) {
         <Sparkline label="Loans" history={h} accessor={x => x.loans} fmt={HBE.fmt$} />
         <Sparkline label="Deposits" history={h} accessor={x => x.deposits} fmt={HBE.fmt$} />
         <Sparkline label="Share Price" history={h} accessor={x => x.sharePrice} fmt={v => "$" + v.toFixed(2)} />
+        <Sparkline label="Satisfaction" history={h} accessor={x => x.satisfaction ?? 70} fmt={v => v.toFixed(0)} ratioName="satisfaction" />
+        <Sparkline label="Noninterest Income" history={h} accessor={x => x.nonintIncome ?? 0} fmt={HBE.fmt$} />
+        <Sparkline label="Noninterest Expense" history={h} accessor={x => x.nonintExpense ?? 0} fmt={HBE.fmt$} />
       </div>
 
       <div className="panel panel-pad">

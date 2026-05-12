@@ -23,6 +23,44 @@
     return ((x - Math.floor(x)) - 0.5) * 2 * scale;
   };
 
+  // ---------- customer satisfaction ----------
+  // Single 0-100 score. Target driven by deposit pricing, ad spend, and a Phase-5
+  // fee-load slot. Diminishing returns past ±20 pts. State moves toward target
+  // with asymmetric hysteresis (~7-qtr half-life rising, ~4-qtr half-life falling).
+  function computeSatisfaction(s) {
+    const lev = s.levers;
+    const pricingPts = (lev.depositPricing || 0) * 5;          // -10..+10
+    const adSpend = Math.max(0, lev.depositAdSpend || 0);
+    const adPts = adSpend > 0 ? 5 * Math.log(1 + adSpend / 100) / Math.log(6) : 0; // 0..+5
+    const feePts = s.feeLoadPts || 0;                          // Phase-5 stub, currently 0
+
+    let sumPts = pricingPts + adPts + feePts;
+    if (sumPts > 20) sumPts = 20 + (sumPts - 20) * 0.5;
+    if (sumPts < -20) sumPts = -20 + (sumPts + 20) * 0.5;
+
+    const target = clamp(65 + sumPts, 0, 100);
+    return { target, pricingPts, adPts, feePts };
+  }
+  function applySatisfactionHysteresis(cur, target) {
+    const c = cur == null ? 70 : cur;
+    const delta = target - c;
+    const speed = delta >= 0 ? 1 / 8 : 1 / 5; // rising slow, falling fast
+    return clamp(c + delta * speed, 0, 100);
+  }
+  // Retention multiplier on organic deposit growth (piecewise linear).
+  function retentionMult(sat) {
+    const pts = [
+      [0, 0.50], [20, 0.55], [35, 0.72], [50, 0.88], [60, 0.96],
+      [65, 1.00], [70, 1.012], [75, 1.025], [80, 1.04], [85, 1.052], [100, 1.060],
+    ];
+    if (sat <= 0) return 0.50;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+      if (sat >= x1 && sat <= x2) return y1 + (y2 - y1) * (sat - x1) / (x2 - x1);
+    }
+    return 1.060;
+  }
+
   // ---------- initial state ----------
   const INITIAL_STATE = {
     quarter: 1,
@@ -123,6 +161,8 @@
 
     creditRiskBank: 0,
     loanVintages: [],
+    satisfaction: 70,
+    feeLoadPts: 0,
     history: [],
     log: [
       { q: 0, type: "system", msg: "Welcome to First Meridian Bank, NA. You are CEO of a single-branch community bank. Make it through 40 quarters without failing." },
@@ -186,6 +226,13 @@
       nonintExpense: noise(s.runSeed, q, 14, 0.03),
     };
 
+    // Customer satisfaction — driven by pricing, ad spend, and (Phase 5) fee load.
+    // Updates with asymmetric hysteresis BEFORE deposits compute, so today's lever
+    // changes immediately influence retention this quarter.
+    const satBefore = s.satisfaction;
+    const satInfo = computeSatisfaction(s);
+    s.satisfaction = applySatisfactionHysteresis(s.satisfaction, satInfo.target);
+
     const deposits = computeDeposits(s, event, nf);
     const loans = computeLoans(s, event, nf);
     const securities = computeSecurities(s, event, prevFedFunds, prev10y);
@@ -198,6 +245,22 @@
     applyBalanceSheet(s, deposits, loans, securities, is);
     const ratios = computeRatios(s, is);
     checkRegulatory(s, ratios, log);
+
+    // Satisfaction-driven flight + threshold-crossing announcements.
+    if (!forecastMode) {
+      if (deposits.satFlightPct < 0) {
+        const pct = (deposits.satFlightPct * 100).toFixed(1);
+        log.push({ q, type: "warn", msg: `RETENTION SLIPPING: customer satisfaction at ${Math.round(s.satisfaction)} — ${pct}% of deposits walked this quarter chasing better pricing/service.` });
+      }
+      const wasLowSat = s._wasLowSat === true;
+      const isLowSat = s.satisfaction < 50;
+      if (isLowSat && !wasLowSat) {
+        log.push({ q, type: "warn", msg: `CUSTOMER SATISFACTION LOW: dropped to ${Math.round(s.satisfaction)}. Retention multiplier turning negative; flights possible below 35.` });
+      } else if (!isLowSat && wasLowSat && s.satisfaction >= 60) {
+        log.push({ q, type: "good", msg: `CUSTOMER SATISFACTION RECOVERED: now at ${Math.round(s.satisfaction)}. Deposit retention back to neutral or better.` });
+      }
+      s._wasLowSat = isLowSat;
+    }
 
     s.history.push({
       q,
@@ -219,6 +282,9 @@
       cycle: s.macro.cycle,
       dividendsPaid: is.dividendsPaid || 0,
       dividendPerShare: s.decisions.dividendPerShare || 0,
+      satisfaction: s.satisfaction,
+      nonintIncome: is.nonintIncome,
+      nonintExpense: is.nonintExpense,
     });
 
     s.lastIS = is;
@@ -382,6 +448,7 @@
     const d = s.bs.deposits;
     const lev = s.levers;
     const m = s.macro;
+    const sat = s.satisfaction != null ? s.satisfaction : 70;
 
     let organicGrowth = 0.0075;
     if (m.cycle === "expansion") organicGrowth = 0.013;
@@ -389,6 +456,8 @@
     if (m.cycle === "recession") organicGrowth = -0.005;
     if (m.cycle === "recovery") organicGrowth = 0.008;
     organicGrowth = organicGrowth * (1 + nf.depositGrowth);
+    // Satisfaction multiplies organic flow (retention + slight acquisition tilt).
+    organicGrowth *= retentionMult(sat);
 
     const pricingPremium = lev.depositPricing * 0.004;
 
@@ -401,15 +470,35 @@
       pricingFlowAdj = 0;
     }
 
+    // deposit_run severity modulated mildly by satisfaction.
     let runDrain = 0;
-    if (event?.type === "deposit_run") runDrain = -0.10;
+    if (event?.type === "deposit_run") {
+      let base = -0.10;
+      if (sat >= 80) base = -0.075;
+      else if (sat <= 40) base = -0.125;
+      runDrain = base;
+    }
     if (event?.type === "competitor_exit") runDrain = 0.015;
+
+    // Sat-driven flight: probability-weighted drain when sat < 35.
+    let satFlightPct = 0;
+    if (sat < 35) {
+      const depth = 35 - sat;
+      const triggerProb = Math.min(0.85, depth / 30);
+      const r = Math.abs(noise(s.runSeed, s.quarter, 21));
+      if (r < triggerProb) {
+        satFlightPct = -Math.min(0.06, depth * 0.002);
+      }
+    }
+
+    // Combined sat-flight + run drain floor.
+    const totalForcedDrain = Math.max(-0.08, runDrain + satFlightPct);
 
     // Marketing spend log-curve: $100K +1.5%, $200K +2.1%, $500K +3.1%
     const adSpend = Math.max(0, lev.depositAdSpend || 0);
     const adBoost = adSpend > 0 ? 0.012 * Math.log(1 + adSpend / 40) : 0;
 
-    const totalNet = totalDeposits(d) * (organicGrowth + pricingFlowAdj + adBoost + runDrain);
+    const totalNet = totalDeposits(d) * (organicGrowth + pricingFlowAdj + adBoost + totalForcedDrain);
 
     const intShare = clamp(0.45 + (m.fedFunds - 0.02) * 3, 0.45, 0.80);
     const niShare = 1 - intShare;
@@ -422,6 +511,7 @@
       deltaNI: niDelta, deltaIC: icDelta, deltaSMM: smmDelta, deltaTD: tdDelta,
       pricingPremium,
       weightedCost: depositCost(s, pricingPremium),
+      satFlightPct,
     };
   }
 
@@ -1051,6 +1141,7 @@
     runQuarter,
     computeRatios,
     estimatedSharePrice,
+    computeSatisfaction, retentionMult,
     totalAssets, totalDeposits, totalLiabilities, totalEquity,
     fmt$, fmtPct, fmtBps, clamp, noise,
   };

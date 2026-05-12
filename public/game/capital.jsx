@@ -45,7 +45,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
 
   return (
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }}>
-      <ForecastStrip ratios={ratios} forecast={forecast} />
+      <ForecastStrip state={state} ratios={ratios} forecast={forecast} />
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
         {/* Shareholder distributions */}

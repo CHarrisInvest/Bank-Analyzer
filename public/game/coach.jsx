@@ -12,7 +12,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='header-vitals']",
       title: "Vital signs",
-      body: "CET1 below 4.5% ends the run. Watch these four — they color-code by health.",
+      body: "CET1 below 4.5% ends the run. Watch capital, profitability, asset quality, and customer satisfaction — they color-code by health. Satisfaction drives deposit retention; mismanaged customers can quietly drain the funding base.",
       placement: "bottom",
     },
     {
@@ -38,14 +38,20 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='live-forecast']",
       title: "Live forecast",
-      body: "This panel reprices the next quarter the moment you move any lever — NIM, net income, CET1, and NPL all update before you commit.",
+      body: "This panel reprices the next quarter the moment you move any lever — NIM, net income, CET1, NPL, and customer satisfaction all update before you commit.",
       placement: "bottom",
     },
     {
       target: "[data-coach='lever-grid']",
-      title: "Five operating levers",
-      body: "Loan pace, underwriting, deposit pricing, securities duration, and liquidity. The colored strip at the bottom of each card spells out the trade-off.",
+      title: "Two operating panels",
+      body: "Production on the left — loan pace, underwriting, fee channels. Funding on the right — pricing, marketing, securities, liquidity. The colored strip at the bottom of each card spells out the trade-off.",
       placement: "top",
+    },
+    {
+      target: "[data-coach='lever-funding']",
+      title: "Pricing and marketing drive satisfaction",
+      body: "Deposit pricing and ad spend have a second pathway: they shape customer satisfaction, which in turn governs whether existing deposits stay. Underpaying or going quiet for many quarters erodes the franchise slowly — and below 35 satisfaction, deposits begin to walk on their own.",
+      placement: "left",
     },
   ],
   capital: [

@@ -213,14 +213,17 @@ function NumericLeverCard({ title, subtitle, value, onChange, min, max, step, co
   );
 }
 
-function ForecastStrip({ ratios, forecast }) {
+function ForecastStrip({ state, ratios, forecast }) {
   const fr = forecast.ratios;
   const fis = forecast.is;
+  const curSat = state?.satisfaction ?? 70;
+  const nextSat = forecast.snapshot?.satisfaction ?? curSat;
   const items = [
     { l: "Next NIM",         v: (fr.nim * 100).toFixed(2) + "%",        d: fr.nim - ratios.nim,         f: "pct" },
     { l: "Next Net Income",  v: LBE.fmt$(fis.netIncome),                d: fis.netIncome,                f: "money", noDelta: true },
     { l: "Next CET1",        v: (fr.cet1 * 100).toFixed(2) + "%",       d: fr.cet1 - ratios.cet1,        f: "pct" },
     { l: "Next NPL",         v: (fr.nplRatio * 100).toFixed(2) + "%",   d: fr.nplRatio - ratios.nplRatio, f: "pct", invert: true },
+    { l: "Next Sat",         v: Math.round(nextSat).toString(),         d: nextSat - curSat,             f: "sat" },
     { l: "Next Loans",       v: LBE.fmt$(forecast.bs.loansGross),       d: forecast.bs.loansGross,       f: "money", noDelta: true },
     { l: "Next Provision",   v: LBE.fmt$(fis.provision),                d: fis.provision,                f: "money", noDelta: true },
   ];
@@ -234,7 +237,7 @@ function ForecastStrip({ ratios, forecast }) {
         <div className="label-strong" style={{ color: LP.amber }}>Live Forecast — Next Quarter</div>
         <div style={{ fontSize: 13, color: LP.textMute }}>Projections update as you adjust levers</div>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 14 }}>
         {items.map(it => (
           <div key={it.l}>
             <div className="label" style={{ fontSize: 9.5 }}>{it.l}</div>
@@ -242,7 +245,9 @@ function ForecastStrip({ ratios, forecast }) {
             {!it.noDelta && (() => {
               const tone = Math.abs(it.d) < 1e-9 ? LP.textMute :
                 (it.invert ? it.d < 0 : it.d > 0) ? LP.good : LP.bad;
-              const str = it.f === "pct" ? `${it.d >= 0 ? "+" : ""}${(it.d * 100).toFixed(2)}%` : LBE.fmt$(it.d);
+              const str = it.f === "pct" ? `${it.d >= 0 ? "+" : ""}${(it.d * 100).toFixed(2)}%`
+                        : it.f === "sat" ? `${it.d >= 0 ? "+" : ""}${it.d.toFixed(1)}`
+                        : LBE.fmt$(it.d);
               return <div className="num" style={{ fontSize: 10.5, color: tone, marginTop: 2, fontWeight: 600 }}>
                 {Math.abs(it.d) < 1e-9 ? "no change" : (it.d > 0 ? "▲ " : "▼ ") + str}
               </div>;
@@ -281,7 +286,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
 
   return (
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }} data-coach="levers-root">
-      <ForecastStrip ratios={ratios} forecast={forecast} />
+      <ForecastStrip state={state} ratios={ratios} forecast={forecast} />
 
       <div data-coach="lever-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, alignItems: "start" }}>
         {/* Production column */}
@@ -297,7 +302,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
         </div>
 
         {/* Funding column */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <div data-coach="lever-funding" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <PanelHeader title="Funding & Balance Sheet" subtitle="Deposit mix, marketing, securities, liquidity" color={LP.expansion} />
           {LEVERS_FUNDING.map(L => (
             <LeverCard key={L.key} lever={L} value={lev[L.key] ?? 0} onChange={(v) => setLever(L.key, v)} locked={locked} />
