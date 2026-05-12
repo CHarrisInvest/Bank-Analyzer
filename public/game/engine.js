@@ -425,32 +425,79 @@
       const totalDividendsPerShare = s.history.reduce((sum, h) => sum + (h.dividendPerShare || 0), 0);
       const totalReturn = (finalBVPS - initialBVPS + totalDividendsPerShare) / initialBVPS;
 
-      let grade = "F";
-      let gradeMsg = "";
-      if (bvpsCAGR > 0.10 && ratios.cet1 > 0.10) {
-        grade = "A+"; gradeMsg = "OUTSTANDING — top decile bank performance";
-      } else if (bvpsCAGR > 0.08 && ratios.cet1 > 0.08) {
-        grade = "A"; gradeMsg = "Excellent — strong franchise built";
-      } else if (bvpsCAGR > 0.06 && ratios.cet1 > 0.07) {
-        grade = "B"; gradeMsg = "Good — solid steward of shareholder capital";
-      } else if (bvpsCAGR > 0.03 && ratios.cet1 > 0.07) {
-        grade = "C"; gradeMsg = "Adequate — bank survived but underperformed peers";
-      } else if (bvpsCAGR > 0) {
-        grade = "D"; gradeMsg = "Marginal — barely created shareholder value";
-      } else {
-        grade = "F"; gradeMsg = "Failed — destroyed shareholder value despite avoiding regulatory failure";
+      // Macro difficulty score — informational only, does not affect grade.
+      // Recession + late_cycle quarters carry the most stress; bad-severity events
+      // (deposit_run, credit_shock, rate_shock, fraud) add to the score.
+      const recessionQtrs = s.history.filter(h => h.cycle === "recession").length;
+      const lateCycleQtrs = s.history.filter(h => h.cycle === "late_cycle").length;
+      const badEventTags = ["DEPOSIT FLIGHT","REGIONAL CREDIT SHOCK","RATE SHOCK","FRAUD LOSS"];
+      const badEventCount = s.log.filter(l =>
+        l.q > 0 && badEventTags.some(t => l.msg.startsWith(t))
+      ).length;
+      const macroScore = recessionQtrs * 2 + lateCycleQtrs * 1 + badEventCount * 2;
+      let macroDifficulty = "Easy";
+      if (macroScore >= 15) macroDifficulty = "Normal";
+      if (macroScore >= 30) macroDifficulty = "Hard";
+      if (macroScore >= 50) macroDifficulty = "Brutal";
+
+      // Grading — primary key: 10-year total return. CET1 + (L/D, satisfaction) modifiers.
+      const TIERS = ["F","D","C","B","A","A+"];
+      let tierIdx;
+      if (totalReturn > 1.20) tierIdx = 5;
+      else if (totalReturn > 1.00) tierIdx = 4;
+      else if (totalReturn > 0.75) tierIdx = 3;
+      else if (totalReturn > 0.50) tierIdx = 2;
+      else if (totalReturn > 0.25) tierIdx = 1;
+      else tierIdx = 0;
+
+      // CET1 gates per tier (A+:10%, A:9%, B:8%, C:7%). If short, drop tier until satisfied.
+      const cet1Gates = [0, 0, 0.07, 0.08, 0.09, 0.10];
+      while (tierIdx > 0 && ratios.cet1 < cet1Gates[tierIdx]) tierIdx -= 1;
+
+      // L/D modifier: outside 0.65-1.15 drops one tier. A+ requires tighter 0.75-1.05.
+      const ldOuterOk = ratios.ltd >= 0.65 && ratios.ltd <= 1.15;
+      const ldA1Ok = ratios.ltd >= 0.75 && ratios.ltd <= 1.05;
+      const ldPenalty = !ldOuterOk;
+      if (tierIdx === 5 && !ldA1Ok) tierIdx = 4;
+      if (ldPenalty && tierIdx > 0) tierIdx -= 1;
+
+      // Customer satisfaction modifier: < 50 drops one tier.
+      const satPenalty = (s.satisfaction ?? 70) < 50;
+      if (satPenalty && tierIdx > 0) tierIdx -= 1;
+
+      const grade = TIERS[tierIdx];
+      const GRADE_MSGS = {
+        "A+": "OUTSTANDING — top decile bank performance",
+        "A":  "Excellent — strong franchise built",
+        "B":  "Good — solid steward of shareholder capital",
+        "C":  "Adequate — bank survived but underperformed peers",
+        "D":  "Marginal — barely created shareholder value",
+        "F":  "Failed — destroyed shareholder value despite avoiding regulatory failure",
+      };
+      const gradeMsg = GRADE_MSGS[grade];
+      const modifiersApplied = [];
+      if (tierIdx < 5 && totalReturn > 1.20) {
+        // Reconstruct what dropped us
+        if (ratios.cet1 < 0.10) modifiersApplied.push(`CET1 ${(ratios.cet1*100).toFixed(1)}% short of 10%`);
+        if (!ldA1Ok && ldOuterOk) modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside A+ band 0.75-1.05`);
       }
+      if (ldPenalty) modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside healthy band 0.65-1.15`);
+      if (satPenalty) modifiersApplied.push(`customer satisfaction ${Math.round(s.satisfaction)} below 50`);
 
       s.gameOver = {
         reason: "victory",
-        severity: bvpsCAGR > 0.05 ? "good" : "neutral",
+        severity: totalReturn > 1.00 ? "good" : totalReturn > 0.50 ? "neutral" : "warn",
         grade, gradeMsg,
-        msg: `10 years complete. Tenure: BVPS grew from $${initialBVPS.toFixed(2)} to $${finalBVPS.toFixed(2)} (${(bvpsCAGR*100).toFixed(1)}% CAGR). Avg ROE ${(annualizedROE*100).toFixed(1)}%. Final CET1 ${(ratios.cet1*100).toFixed(1)}%.`,
+        msg: `10 years complete. Total shareholder return ${(totalReturn*100).toFixed(0)}%. BVPS $${initialBVPS.toFixed(2)} → $${finalBVPS.toFixed(2)} (${(bvpsCAGR*100).toFixed(1)}% CAGR), cumulative dividends $${totalDividendsPerShare.toFixed(2)}/share. Avg ROE ${(annualizedROE*100).toFixed(1)}%. Final CET1 ${(ratios.cet1*100).toFixed(1)}%, L/D ${ratios.ltd.toFixed(2)}x. Macro difficulty: ${macroDifficulty}.`,
+        modifiersApplied,
         stats: {
           finalBVPS, initialBVPS, bvpsCAGR, totalReturn,
           annualizedROE, finalCET1: ratios.cet1, finalEq,
           finalAssets: totalAssets(s.bs), finalPx,
           totalDividendsPaid, totalDividendsPerShare,
+          finalLTD: ratios.ltd, finalSat: s.satisfaction,
+          macroDifficulty, macroScore,
+          recessionQtrs, lateCycleQtrs, badEventCount,
         },
       };
     }
