@@ -1,8 +1,8 @@
-// Levers tab — operations: loans, underwriting, deposit pricing, securities duration, liquidity.
+// Operations tab — Production levers (left) + Funding & Balance Sheet levers (right).
 const { palette: LP, ratioColor: lcolor } = window.Theme;
 const LBE = window.BankEngine;
 
-const LEVERS = [
+const LEVERS_PRODUCTION = [
   {
     key: "loanGrowth",
     title: "Loan Origination Pace",
@@ -31,8 +31,52 @@ const LEVERS = [
       { v:  2, l: "Strict" },
     ],
     color: LP.info,
-    risk: (v) => v <= -1 ? "Lower yields, higher latent NPL formation" : v >= 1 ? "Suppresses growth, demands yield premium" : "Standard",
+    risk: (v) => v <= -1 ? "Lower yields, higher latent NPL formation; vintages surface 4-8 qtrs out" : v >= 1 ? "Suppresses growth, demands yield premium; future vintage credit improves" : "Standard vintage profile",
   },
+  {
+    key: "sbaSalePct",
+    title: "SBA Gain-on-Sale",
+    subtitle: "Share of new loan production sold to secondary market",
+    min: 0, max: 3, step: 1,
+    marks: [
+      { v: 0, l: "Off" },
+      { v: 1, l: "10%" },
+      { v: 2, l: "20%" },
+      { v: 3, l: "30%" },
+    ],
+    color: LP.good,
+    risk: (v) => v === 0 ? "No fee income from secondary sales" : `Sells ~${v * 7.5}% of organic production at 8% premium → fee income; reduces retained loan growth`,
+  },
+  {
+    key: "mortgageProgram",
+    title: "Mortgage Banking Program",
+    subtitle: "Originate-to-sell residential mortgage operation",
+    min: 0, max: 3, step: 1,
+    marks: [
+      { v: 0, l: "Off" },
+      { v: 1, l: "Light" },
+      { v: 2, l: "Standard" },
+      { v: 3, l: "Full" },
+    ],
+    color: LP.recovery,
+    risk: (v) => v === 0 ? "No mortgage banking exposure" : `Fixed cost $${v * 60}K/qtr; gain swings with rate cycle (refi waves)`,
+  },
+  {
+    key: "indirectShare",
+    title: "Indirect Loan Channel",
+    subtitle: "Auto / RV / dealer-sourced paper",
+    min: 0, max: 2, step: 1,
+    marks: [
+      { v: 0, l: "Off" },
+      { v: 1, l: "Modest" },
+      { v: 2, l: "Aggressive" },
+    ],
+    color: LP.warn,
+    risk: (v) => v === 0 ? "All originations relationship-driven" : `Adds ~${v * 1.5}% loan growth at -30bp yield; warn at 15% concentration, restriction at 25%`,
+  },
+];
+
+const LEVERS_FUNDING = [
   {
     key: "depositPricing",
     title: "Deposit Pricing",
@@ -128,6 +172,47 @@ function LeverCard({ lever, value, onChange, locked }) {
   );
 }
 
+// Continuous numeric dial used for $ amounts (deposit ad spend, brokered CD balance).
+function NumericLeverCard({ title, subtitle, value, onChange, min, max, step, color, format, hint, locked, pill }) {
+  const fmt = (v) => format === "money"
+    ? (v >= 1000 ? `$${(v / 1000).toFixed(2)}M` : `$${v.toFixed(0)}K`)
+    : v.toFixed(0);
+  return (
+    <div className="panel panel-pad" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+      <div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+          <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: "-0.01em" }}>{title}</div>
+          <div style={{
+            padding: "3px 9px", borderRadius: 999,
+            background: color + "22",
+            color: color,
+            fontSize: 11.5, fontWeight: 600,
+            whiteSpace: "nowrap",
+            flexShrink: 0,
+          }}>
+            {pill || fmt(value)}
+          </div>
+        </div>
+        <div style={{ fontSize: 13, color: LP.textMute, marginTop: 2 }}>{subtitle}</div>
+      </div>
+      <div style={{ position: "relative", padding: "0 4px" }}>
+        <input type="range" className="lev-slider"
+          min={min} max={max} step={step} value={value}
+          disabled={locked}
+          onChange={e => onChange(parseFloat(e.target.value))}
+          style={{ accentColor: color }} />
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8, padding: "0 2px", fontSize: 10, color: LP.textMute }} className="num">
+          <span>{fmt(min)}</span>
+          <span>{fmt(max)}</span>
+        </div>
+      </div>
+      <div style={{ fontSize: 11.5, color: LP.textDim, padding: "6px 10px", background: LP.bgRaised, borderRadius: 6, borderLeft: `2px solid ${color}` }}>
+        {hint}
+      </div>
+    </div>
+  );
+}
+
 function ForecastStrip({ ratios, forecast }) {
   const fr = forecast.ratios;
   const fis = forecast.is;
@@ -169,17 +254,86 @@ function ForecastStrip({ ratios, forecast }) {
   );
 }
 
-function LeversTab({ state, ratios, forecast, setLever, locked }) {
+function PanelHeader({ title, subtitle, color }) {
+  return (
+    <div style={{ marginBottom: 4 }}>
+      <div style={{
+        fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase",
+        color: color, paddingBottom: 4, borderBottom: `1.5px solid ${color}55`,
+      }}>
+        {title}
+      </div>
+      {subtitle && <div style={{ fontSize: 11.5, color: LP.textMute, marginTop: 6, fontStyle: "italic" }}>{subtitle}</div>}
+    </div>
+  );
+}
+
+function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
+  const lev = state.levers;
+  const dec = state.decisions;
+  const indirectShare = state.bs.loansGross > 0 ? (state.bs.loansIndirect || 0) / state.bs.loansGross : 0;
+  const indirectPct = (indirectShare * 100).toFixed(1);
+  const indTone = indirectShare > 0.25 ? LP.bad : indirectShare > 0.15 ? LP.warn : LP.text;
+  const wholesale = (state.bs.borrowingsFHLB || 0) + (state.bs.brokeredCDs || 0);
+  const totalFunding = LBE.totalDeposits(state.bs.deposits) + wholesale;
+  const wholesalePct = totalFunding > 0 ? (wholesale / totalFunding * 100).toFixed(1) : "0.0";
+  const wsTone = wholesale / Math.max(1, totalFunding) > 0.15 ? LP.warn : LP.textMute;
+
   return (
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }} data-coach="levers-root">
       <ForecastStrip ratios={ratios} forecast={forecast} />
-      <div data-coach="lever-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
-        {LEVERS.map(L => (
-          <LeverCard key={L.key} lever={L} value={state.levers[L.key]} onChange={(v) => setLever(L.key, v)} locked={locked} />
-        ))}
+
+      <div data-coach="lever-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, alignItems: "start" }}>
+        {/* Production column */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <PanelHeader title="Production" subtitle="Loan origination, sales, and channels" color={LP.amber} />
+          {LEVERS_PRODUCTION.map(L => (
+            <LeverCard key={L.key} lever={L} value={lev[L.key] ?? 0} onChange={(v) => setLever(L.key, v)} locked={locked} />
+          ))}
+          <div style={{ padding: "8px 12px", background: LP.bgRaised, borderRadius: 8, fontSize: 11.5, color: LP.textDim, display: "flex", justifyContent: "space-between" }}>
+            <span>Indirect concentration</span>
+            <span className="num" style={{ color: indTone, fontWeight: 600 }}>{indirectPct}% of loans</span>
+          </div>
+        </div>
+
+        {/* Funding column */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <PanelHeader title="Funding & Balance Sheet" subtitle="Deposit mix, marketing, securities, liquidity" color={LP.expansion} />
+          {LEVERS_FUNDING.map(L => (
+            <LeverCard key={L.key} lever={L} value={lev[L.key] ?? 0} onChange={(v) => setLever(L.key, v)} locked={locked} />
+          ))}
+          <NumericLeverCard
+            title="Deposit Marketing Spend"
+            subtitle="Quarterly ad spend; log-curve boost to organic deposit growth"
+            value={lev.depositAdSpend || 0}
+            onChange={(v) => setLever("depositAdSpend", v)}
+            min={0} max={500} step={25} format="money"
+            color={LP.info}
+            pill={lev.depositAdSpend > 0 ? `$${lev.depositAdSpend}K/qtr` : "Off"}
+            hint={lev.depositAdSpend > 0
+              ? `Boosts organic deposit growth by ~${(0.012 * Math.log(1 + lev.depositAdSpend / 40) * 100).toFixed(2)}% this qtr; flows to non-int expense`
+              : "No marketing spend; growth is purely organic + pricing-driven"}
+            locked={locked}
+          />
+          <NumericLeverCard
+            title="Brokered CDs Balance"
+            subtitle="Wholesale time deposits, auto-roll at Fed Funds + 35bp"
+            value={dec.brokeredCDsTarget || 0}
+            onChange={(v) => setDecision("brokeredCDsTarget", v)}
+            min={0} max={50000} step={500} format="money"
+            color={LP.warn}
+            pill={dec.brokeredCDsTarget > 0 ? `$${(dec.brokeredCDsTarget / 1000).toFixed(1)}M` : "Off"}
+            hint={`Outstanding: ${LBE.fmt$(state.bs.brokeredCDs || 0)} · cost ≈ ${(((state.macro.fedFunds || 0) + 0.0035) * 100).toFixed(2)}% · counts toward wholesale concentration (≤ 15%)`}
+            locked={locked}
+          />
+          <div style={{ padding: "8px 12px", background: LP.bgRaised, borderRadius: 8, fontSize: 11.5, color: LP.textDim, display: "flex", justifyContent: "space-between" }}>
+            <span>Wholesale funding (FHLB + brokered)</span>
+            <span className="num" style={{ color: wsTone, fontWeight: 600 }}>{wholesalePct}% of funding</span>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-Object.assign(window, { LeversTab, ForecastStrip, LEVERS });
+Object.assign(window, { LeversTab, ForecastStrip, LEVERS_PRODUCTION, LEVERS_FUNDING });

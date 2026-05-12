@@ -115,7 +115,7 @@ function App() {
 
   let body;
   if (tab === "cockpit") body = <CockpitTab state={state} ratios={ratios} forecast={forecast} />;
-  else if (tab === "levers") body = <LeversTab state={state} ratios={ratios} forecast={forecast} setLever={setLever} locked={!!state.gameOver || advancing} />;
+  else if (tab === "levers") body = <LeversTab state={state} ratios={ratios} forecast={forecast} setLever={setLever} setDecision={setDecision} locked={!!state.gameOver || advancing} />;
   else if (tab === "capital") body = <CapitalTab state={state} ratios={ratios} forecast={forecast} setDecision={setDecision} locked={!!state.gameOver || advancing} />;
   else if (tab === "report") body = <CallReportTab state={state} ratios={ratios} />;
   else if (tab === "history") body = <HistoryTab state={state} />;

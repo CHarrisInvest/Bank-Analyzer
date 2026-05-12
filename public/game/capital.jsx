@@ -143,12 +143,21 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
           </div>
           <div>
             <div className="label" style={{ fontSize: 9.5 }}>Wholesale / Total</div>
-            <div className="num" style={{ fontSize: 22, fontWeight: 700, color: (forecast.bs.borrowingsFHLB / (KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB)) > 0.15 ? KP.warn : KP.text }}>
-              {((forecast.bs.borrowingsFHLB / Math.max(1, KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB)) * 100).toFixed(1)}%
-            </div>
-            <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
-              FHLB only · ≤ 15%
-            </div>
+            {(() => {
+              const fwh = (forecast.bs.borrowingsFHLB || 0) + (forecast.bs.brokeredCDs || 0);
+              const ftd = KBE.totalDeposits(forecast.bs.deposits);
+              const wsPct = fwh / Math.max(1, ftd + fwh);
+              return (
+                <>
+                  <div className="num" style={{ fontSize: 22, fontWeight: 700, color: wsPct > 0.15 ? KP.warn : KP.text }}>
+                    {(wsPct * 100).toFixed(1)}%
+                  </div>
+                  <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
+                    FHLB + brokered · ≤ 15%
+                  </div>
+                </>
+              );
+            })()}
           </div>
           <div>
             <div className="label" style={{ fontSize: 9.5 }}>Net Income (next qtr)</div>

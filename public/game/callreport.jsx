@@ -84,6 +84,7 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Savings and money market" value={f$(bs.deposits.savingsMM)} dim />
             <ReportRow label="Time deposits" value={f$(bs.deposits.timeDeposits)} dim />
             <ReportRow label="Total deposits" value={f$(td)} bold />
+            <ReportRow label="Brokered CDs" value={f$(bs.brokeredCDs || 0)} />
             <ReportRow label="FHLB advances" value={f$(bs.borrowingsFHLB)} />
             <ReportRow label="Subordinated debt" value={f$(bs.subDebt)} />
             <ReportRow label="Other liabilities" value={f$(bs.otherLiab)} dim />
@@ -111,9 +112,12 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Total Interest Expense" value={f$(is.interestExpense)} bold />
             <ReportRow label="Net Interest Income" value={f$(is.nii)} total />
             <ReportRow label="Provision for Credit Losses" value={f$(is.provision)} />
-            <ReportRow label="Noninterest Income" value={f$(is.nonintIncome)} />
+            {(is.sbaGain ?? 0) > 0 && <ReportRow label="Gain on sale — SBA" value={f$(is.sbaGain)} indent={1} dim />}
+            {(is.mortGain ?? 0) > 0 && <ReportRow label="Gain on sale — mortgage" value={f$(is.mortGain)} indent={1} dim />}
+            <ReportRow label="Noninterest Income" value={f$(is.nonintIncome)} bold />
             <ReportRow label="Fixed (premises + systems + base)" value={f$(is.nonintExpenseFixed ?? 0)} indent={1} dim />
             <ReportRow label="Variable (scales with assets + events)" value={f$(is.nonintExpenseVariable ?? (is.nonintExpense - (is.nonintExpenseFixed ?? 0)))} indent={1} dim />
+            {(is.depositAdSpend ?? 0) > 0 && <ReportRow label="of which: deposit marketing" value={f$(is.depositAdSpend)} indent={2} dim />}
             <ReportRow label="Noninterest Expense" value={f$(is.nonintExpense)} bold />
             <ReportRow label="Pre-tax Income" value={f$(is.pretax)} bold />
             <ReportRow label="Income Tax (21%)" value={f$(is.tax)} dim />
@@ -154,6 +158,20 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Efficiency Ratio" value={fpct(ratios.efficiency, 1)} />
             <ReportRow label="Loan-to-Deposit Ratio" value={`${ratios.ltd.toFixed(2)}x`} />
             <ReportRow label="On-hand Liquidity" value={fpct(ratios.onHandLiq, 1)} />
+
+            <div className="label" style={{ fontSize: 10, marginTop: 14, marginBottom: 4 }}>Concentration Memos</div>
+            {(() => {
+              const indShare = bs.loansGross > 0 ? (bs.loansIndirect || 0) / bs.loansGross : 0;
+              const wholesale = (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0);
+              const totalFunding = td + wholesale;
+              const wsShare = totalFunding > 0 ? wholesale / totalFunding : 0;
+              return (
+                <>
+                  <ReportRow label="Indirect loan share" value={fpct(indShare, 1)} neg={indShare > 0.15} />
+                  <ReportRow label="Wholesale funding share" value={fpct(wsShare, 1)} neg={wsShare > 0.15} />
+                </>
+              );
+            })()}
           </ReportSection>
         </div>
       </div>

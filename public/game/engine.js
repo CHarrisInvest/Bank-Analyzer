@@ -56,6 +56,7 @@
         timeDeposits: 70_000,
       },
       borrowingsFHLB: 0,
+      brokeredCDs: 0,
       subDebt: 0,
       subDebtAvgCost: 0,
       otherLiab: 3_000,
@@ -63,6 +64,8 @@
       commonEquity: 25_000,
       retainedEarnings: 8_200,
       sharesOutstanding: 2_000,
+
+      loansIndirect: 0,
     },
 
     lastIS: {
@@ -87,6 +90,13 @@
       avgDeposits: 300_000,
       loanYield: 0.0533,
       depCost: 0.0191,
+      sbaGain: 0,
+      sbaSold: 0,
+      mortGain: 0,
+      mortFixedCost: 0,
+      depositAdSpend: 0,
+      brokeredCDInterest: 0,
+      vintageNplAdj: 0,
     },
 
     levers: {
@@ -95,6 +105,10 @@
       depositPricing: 0,
       securitiesDuration: 1,
       liquidityTarget: 1,
+      sbaSalePct: 0,
+      mortgageProgram: 0,
+      depositAdSpend: 0,
+      indirectShare: 0,
     },
 
     decisions: {
@@ -103,10 +117,12 @@
       equityIssuance: 0,
       fhlbAdvance: 0,
       subDebtIssuance: 0,
+      brokeredCDsTarget: 0,
       provisionOverride: null,
     },
 
     creditRiskBank: 0,
+    loanVintages: [],
     history: [],
     log: [
       { q: 0, type: "system", msg: "Welcome to First Meridian Bank, NA. You are CEO of a single-branch community bank. Make it through 40 quarters without failing." },
@@ -173,7 +189,7 @@
     const deposits = computeDeposits(s, event, nf);
     const loans = computeLoans(s, event, nf);
     const securities = computeSecurities(s, event, prevFedFunds, prev10y);
-    const is = computeIncome(s, deposits, loans, securities, event, nf);
+    const is = computeIncome(s, deposits, loans, securities, event, nf, prevFedFunds);
     is._nf = nf;
     is._event = event;
 
@@ -215,6 +231,7 @@
       equityIssuance: 0,
       fhlbAdvance: 0,
       subDebtIssuance: 0,
+      brokeredCDsTarget: s.bs.brokeredCDs,
       provisionOverride: null,
     };
 
@@ -388,7 +405,11 @@
     if (event?.type === "deposit_run") runDrain = -0.10;
     if (event?.type === "competitor_exit") runDrain = 0.015;
 
-    const totalNet = totalDeposits(d) * (organicGrowth + pricingFlowAdj + runDrain);
+    // Marketing spend log-curve: $100K +1.5%, $200K +2.1%, $500K +3.1%
+    const adSpend = Math.max(0, lev.depositAdSpend || 0);
+    const adBoost = adSpend > 0 ? 0.012 * Math.log(1 + adSpend / 40) : 0;
+
+    const totalNet = totalDeposits(d) * (organicGrowth + pricingFlowAdj + adBoost + runDrain);
 
     const intShare = clamp(0.45 + (m.fedFunds - 0.02) * 3, 0.45, 0.80);
     const niShare = 1 - intShare;
@@ -448,15 +469,36 @@
     if (event?.type === "cre_concern") netGrowth -= 0.003;
 
     netGrowth = clamp(netGrowth, -0.030, 0.060);
-    const grossNew = s.bs.loansGross * netGrowth;
+    const grossOrganic = s.bs.loansGross * netGrowth;
+
+    // Indirect channel: dealer / broker auto + RV + powersports paper.
+    // Adds growth at a yield discount; lower relationship stickiness.
+    const indStep = Math.max(0, lev.indirectShare || 0);
+    const indBoostPct = indStep * 0.015;
+    const indNew = s.bs.loansGross * indBoostPct;
+
+    // SBA gain-on-sale: a portion of new C&I production is sold off-balance-sheet
+    // (75% govt-guaranteed slice at ~8% premium). Reduces retained loan growth.
+    const sbaStep = Math.max(0, lev.sbaSalePct || 0);
+    const salePct = sbaStep * 0.10; // 0%/10%/20%/30% of new organic production
+    const sbaSold = Math.max(0, grossOrganic) * salePct * 0.75;
+    const sbaGain = sbaSold * 0.08;
+
+    const grossNew = grossOrganic - sbaSold + indNew;
 
     const baseYield = m.treasury10y + 0.020;
     const underwritePremium = -lev.underwriting * 0.0025;
     const aggressivenessYieldHit = lev.loanGrowth * -0.0025;
-    const newYield = clamp(baseYield + underwritePremium + aggressivenessYieldHit, 0.03, 0.10);
+    const indirectYieldHit = -indBoostPct > 0 ? -0.0030 : (indStep > 0 ? -0.0030 : 0);
+    const newYield = clamp(baseYield + underwritePremium + aggressivenessYieldHit + indirectYieldHit, 0.03, 0.10);
     const portfolioYield = blendedLoanYield(s) * 0.95 + newYield * 0.05;
 
-    return { delta: grossNew, portfolioYield, newYield };
+    return {
+      delta: grossNew,
+      portfolioYield, newYield,
+      sbaSold, sbaGain,
+      indirectNew: indNew,
+    };
   }
 
   function blendedLoanYield(s) {
@@ -481,7 +523,7 @@
     return { aociChange: aociChange + pullToPar, yield: secYield, duration };
   }
 
-  function computeIncome(s, deposits, loans, securities, event, nf = { nplFormation: 0, nonintIncome: 0, nonintExpense: 0 }) {
+  function computeIncome(s, deposits, loans, securities, event, nf = { nplFormation: 0, nonintIncome: 0, nonintExpense: 0 }, prevFedFunds = s.macro.fedFunds) {
     const bs = s.bs;
     const avgLoans = bs.loansGross + loans.delta / 2;
     const avgSecurities = bs.securitiesAFS + bs.securitiesHTM;
@@ -500,9 +542,13 @@
     const depCost = deposits.weightedCost;
     const fhlbCost = s.macro.fedFunds + 0.005;
     const subDebtCost = bs.subDebtAvgCost || 0;
+    const brokeredCDCost = s.macro.fedFunds + 0.0035;
 
     const interestExpense =
-      (avgDeposits * depCost + bs.borrowingsFHLB * fhlbCost + bs.subDebt * subDebtCost) / 4;
+      (avgDeposits * depCost
+        + bs.borrowingsFHLB * fhlbCost
+        + bs.subDebt * subDebtCost
+        + (bs.brokeredCDs || 0) * brokeredCDCost) / 4;
 
     const nii = interestIncome - interestExpense;
 
@@ -526,8 +572,27 @@
 
     const totalNplFormationRate = Math.max(0, cycleNplRate + eventNplAdj);
     const baselineNplFormation = avgLoans * totalNplFormationRate / 4;
+
+    // Vintage-aware NPL formation: prior originations surface as NPLs 4-8 quarters later,
+    // weighted by the underwriting stance at origination. Loose vintages add NPLs;
+    // tight vintages subtract. Peak weight at lag=6 (~18 months).
+    let vintageNplAdj = 0;
+    const vintages = s.loanVintages || [];
+    const qNow = s.quarter;
+    for (const v of vintages) {
+      const lag = qNow - v.q;
+      if (lag < 4 || lag > 8) continue;
+      const weight = lag === 6 ? 0.30 : (lag === 5 || lag === 7) ? 0.22 : 0.13;
+      // Per $1K of vintage growth, each underwriting unit shifts NPL formation by 12bps;
+      // multiplied by lag weight. Negative score (loose) => positive adjustment.
+      vintageNplAdj += -v.underwritingScore * 0.0012 * Math.max(0, v.growthAmount) * weight;
+    }
+    // Cycle amplifies vintage surfacing during stress
+    const cycleAmp = s.macro.cycle === "recession" ? 1.6 : s.macro.cycle === "late_cycle" ? 1.2 : 1.0;
+    vintageNplAdj *= cycleAmp;
+
     const newNplFormation = Math.max(0,
-      baselineNplFormation * (1 + nf.nplFormation) + riskBankRelease
+      baselineNplFormation * (1 + nf.nplFormation) + riskBankRelease + vintageNplAdj
     );
 
     let ncoMigrationRate = 0.10;
@@ -552,10 +617,32 @@
       ((totalAssets(bs) * 0.006 + 400) / 4) * (1 + nf.nonintIncome) + (event?.severity === "good" ? 60 : 0);
     if (event?.type === "fee_income") nonintIncome += 250;
 
+    // SBA gain-on-sale: 75% govt-guaranteed slice of new C&I production sold at ~8% premium.
+    const sbaGain = loans.sbaGain || 0;
+    nonintIncome += sbaGain;
+
+    // Mortgage banking gain-on-sale — refi-wave dynamic.
+    // Origination volume responds to (a) rate change vs prior qtr (refi wave: 70%) and
+    // (b) absolute rate level (low rates = high origination: 30%).
+    const mortProg = Math.max(0, s.levers.mortgageProgram || 0);
+    let mortGain = 0;
+    let mortFixedCost = 0;
+    if (mortProg > 0) {
+      const dRate = s.macro.fedFunds - prevFedFunds;
+      const refiBoost = clamp(-dRate * 80, -0.6, 1.5);    // -100bp move -> +0.8; +100bp -> -0.8
+      const levelBoost = clamp((0.05 - s.macro.fedFunds) * 8, -0.4, 0.6);
+      const cycleMult = Math.max(0.10, 1 + (refiBoost * 0.7 + levelBoost * 0.3));
+      const baseGain = mortProg * 80;                     // $80K/$160K/$240K base per program step
+      mortGain = baseGain * cycleMult;
+      mortFixedCost = mortProg * 60;                      // $60K/$120K/$180K fixed staffing per qtr
+      nonintIncome += mortGain;
+    }
+
     // Fixed: premises, core systems, base headcount. Doesn't move with quarterly noise.
-    const nonintExpenseFixed = (bs.premises * 0.18 + 800) / 4;
-    // Variable: asset-scaled compensation + ops costs + event shocks.
+    const nonintExpenseFixed = (bs.premises * 0.18 + 800) / 4 + mortFixedCost;
+    // Variable: asset-scaled compensation + ops costs + event shocks + deposit ad spend.
     let nonintExpenseVariable = (totalAssets(bs) * 0.0233 / 4) * (1 + nf.nonintExpense);
+    nonintExpenseVariable += Math.max(0, s.levers.depositAdSpend || 0);
     if (event?.type === "fraud") nonintExpenseVariable += 350;
     if (event?.type === "exam") nonintExpenseVariable += 80;
     let nonintExpense = nonintExpenseFixed + nonintExpenseVariable;
@@ -574,12 +661,27 @@
       loanYield, depCost,
       nplDelta: 0, newNplFormation,
       riskBankAccrual, riskBankRelease,
+      vintageNplAdj,
+      sbaGain, sbaSold: loans.sbaSold || 0,
+      mortGain, mortFixedCost,
+      depositAdSpend: Math.max(0, s.levers.depositAdSpend || 0),
+      brokeredCDInterest: ((s.bs.brokeredCDs || 0) * brokeredCDCost) / 4,
       dividendsPaid: 0, repurchases: 0,
     };
   }
 
   function applyCapitalActions(s, is, ratios) {
     const dec = s.decisions;
+
+    // PCA-style restriction: if indirect concentration is critical, suppress discretionary
+    // capital distributions (dividends + buybacks). Auto-detected, examiner-imposed.
+    const indirectShare = s.bs.loansGross > 0 ? s.bs.loansIndirect / s.bs.loansGross : 0;
+    const distRestricted = indirectShare > 0.25;
+    if (distRestricted) {
+      dec.repurchaseAmount = 0;
+      dec.dividendPerShare = Math.min(dec.dividendPerShare, 0);
+    }
+    is._distRestricted = distRestricted;
 
     // Equity issuance: 95% of marked price → paid-in capital + cash; 5% fee flows through non-int expense.
     // Applied before dividends so retained-earnings/cash reflect both this quarter, and new shares are eligible.
@@ -640,6 +742,14 @@
     s.bs.subDebt = Math.max(0, s.bs.subDebt + subDelta);
     if (s.bs.subDebt === 0) s.bs.subDebtAvgCost = 0;
     s.bs.cash += subDelta;
+
+    // Brokered CDs: target balance dial; auto-rolls each quarter at FedFunds + 35bp
+    // (cost is already applied in computeIncome based on opening balance).
+    const bcdTarget = Math.max(0, dec.brokeredCDsTarget || 0);
+    const bcdDelta = bcdTarget - (s.bs.brokeredCDs || 0);
+    s.bs.brokeredCDs = bcdTarget;
+    s.bs.cash += bcdDelta;
+    is.brokeredCDDelta = bcdDelta;
   }
 
   function applyBalanceSheet(s, deposits, loans, securities, is) {
@@ -652,6 +762,29 @@
     const depDelta = deposits.deltaNI + deposits.deltaIC + deposits.deltaSMM + deposits.deltaTD;
 
     bs.loansGross += loans.delta;
+
+    // Track indirect-channel cumulative balance and decay it at the same pace as the book amortizes.
+    // Net new indirect adds; existing indirect runs off proportionally to gross book turnover.
+    bs.loansIndirect = Math.max(0, (bs.loansIndirect || 0) + (loans.indirectNew || 0));
+    if (bs.loansGross > 0) {
+      // Natural runoff: assume indirect amortizes ~3% per quarter (shorter-tenor auto/RV paper)
+      bs.loansIndirect *= 0.97;
+    }
+
+    // Record vintage entry for this quarter — only when the book actually grew organically.
+    // Captures underwriting stance for forward-looking provision recognition (4-8 qtr lag).
+    const organicAdd = (loans.delta || 0) - (loans.indirectNew || 0) + (is.sbaSold || 0);
+    if (organicAdd > 0) {
+      if (!s.loanVintages) s.loanVintages = [];
+      s.loanVintages.push({
+        q: s.quarter,
+        growthAmount: organicAdd,
+        underwritingScore: s.levers.underwriting || 0,
+      });
+      // Prune entries older than 12 quarters
+      s.loanVintages = s.loanVintages.filter(v => s.quarter - v.q <= 12);
+    }
+
     bs.acl += is.provision - is.netChargeOffs;
     bs.acl = Math.max(0, bs.acl);
     const cures = bs.npl * 0.06;
@@ -705,8 +838,10 @@
     }
 
     // Wholesale ratio excludes subordinated debt — sub debt is treated as Total Capital, not wholesale funding.
-    const totalFunding = totalDeposits(bs.deposits) + bs.borrowingsFHLB;
-    s._wholesaleRatio = totalFunding > 0 ? bs.borrowingsFHLB / totalFunding : 0;
+    // FHLB advances + brokered CDs both count as wholesale concentration.
+    const wholesale = bs.borrowingsFHLB + (bs.brokeredCDs || 0);
+    const totalFunding = totalDeposits(bs.deposits) + wholesale;
+    s._wholesaleRatio = totalFunding > 0 ? wholesale / totalFunding : 0;
   }
 
   function totalDeposits(d) {
@@ -830,9 +965,23 @@
     const wasHighWholesale = s._wasHighWholesale === true;
     const isHighWholesale = wholesaleRatio > 0.15;
     if (isHighWholesale && !wasHighWholesale) {
-      log.push({ q, type: "warn", msg: `WHOLESALE FUNDING: FHLB advances now ${fmtPct(wholesaleRatio, 1)} of (deposits + FHLB) — examiners view above 15% as concentration risk.` });
+      log.push({ q, type: "warn", msg: `WHOLESALE FUNDING: FHLB + brokered CDs now ${fmtPct(wholesaleRatio, 1)} of (deposits + wholesale) — examiners view above 15% as concentration risk.` });
     }
     s._wasHighWholesale = isHighWholesale;
+
+    // Indirect-loan concentration: warn 15%, capital-distribution restriction at 25%.
+    const indirectShare = s.bs.loansGross > 0 ? (s.bs.loansIndirect || 0) / s.bs.loansGross : 0;
+    const wasIndWarn = s._wasIndirectWarn === true;
+    const wasIndCrit = s._wasIndirectCritical === true;
+    const isIndWarn = indirectShare > 0.15 && indirectShare <= 0.25;
+    const isIndCrit = indirectShare > 0.25;
+    if (isIndCrit && !wasIndCrit) {
+      log.push({ q, type: "bad", msg: `INDIRECT CONCENTRATION CRITICAL: ${fmtPct(indirectShare, 1)} of loans through dealer/broker channels. Examiners imposing capital-distribution restriction — dividends and buybacks suspended until reduced below 25%.` });
+    } else if (isIndWarn && !wasIndWarn && !wasIndCrit) {
+      log.push({ q, type: "warn", msg: `INDIRECT CONCENTRATION ELEVATED: ${fmtPct(indirectShare, 1)} of loans now indirect/broker-sourced — above 15% draws examiner scrutiny. Lower stickiness in stress.` });
+    }
+    s._wasIndirectWarn = isIndWarn;
+    s._wasIndirectCritical = isIndCrit;
 
     const crb = s.creditRiskBank || 0;
     const wasElevated = s._wasElevatedRisk === true;
