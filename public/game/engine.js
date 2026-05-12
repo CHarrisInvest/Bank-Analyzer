@@ -1121,10 +1121,10 @@
         cause = "Severe AOCI losses from interest rate risk eroded capital base";
       } else if (ratios.nplRatio > 0.025) {
         cause = "Asset quality deterioration overwhelmed loss absorption capacity";
-      } else if ((s.creditRiskBank || 0) > 3_000) {
-        cause = "Latent credit risk from prior aggressive originations surfaced in stress";
       } else if (ratios.ltd > 1.20) {
         cause = "Aggressive loan growth funded by wholesale borrowing, then funding gap closed";
+      } else if ((s.creditRiskBank || 0) > 3_000) {
+        cause = "Latent credit risk from prior aggressive originations surfaced in stress";
       } else if (s.lastIS.repurchases > 5_000 || s.lastIS.dividendsPaid > 1_000) {
         cause = "Excessive capital distributions while underlying earnings deteriorated";
       }
