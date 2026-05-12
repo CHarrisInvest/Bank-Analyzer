@@ -469,7 +469,7 @@
       m.cycle = "late_cycle"; m.cycleQuarters = 0;
     } else if (m.cycle === "late_cycle" && m.cycleQuarters > 4 && r > 0.6) {
       m.cycle = "recession"; m.cycleQuarters = 0;
-    } else if (m.cycle === "recession" && m.cycleQuarters > 3 && r > 0.5) {
+    } else if (m.cycle === "recession" && m.cycleQuarters > 1 && r > 0.5) {
       m.cycle = "recovery"; m.cycleQuarters = 0;
     } else if (m.cycle === "recovery" && m.cycleQuarters > 4 && r > 0.5) {
       m.cycle = "expansion"; m.cycleQuarters = 0;
@@ -496,6 +496,11 @@
       m.treasury10y + (target10y - m.treasury10y) * meanRevSpeed + t10yShock,
       0.015, 0.085
     );
+    // Suppress curve inversion in early-stage expansion — real expansions almost
+    // always carry a positive term premium until the cycle matures.
+    if (m.cycle === "expansion" && m.cycleQuarters < 4 && m.treasury10y < m.fedFunds + 0.0025) {
+      m.treasury10y = m.fedFunds + 0.0025;
+    }
 
     if (m.cycle === "expansion") {
       m.unemployment = clamp(m.unemployment - 0.001, 0.032, 0.10);
