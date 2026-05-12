@@ -31,12 +31,16 @@
     const lev = s.levers;
     const pricingPts = (lev.depositPricing || 0) * 5;          // -10..+10
     const adSpend = Math.max(0, lev.depositAdSpend || 0);
-    const adPts = adSpend > 0 ? 5 * Math.log(1 + adSpend / 100) / Math.log(6) : 0; // 0..+5
+    const adPts = adSpend > 0 ? 2 * Math.log(1 + adSpend / 100) / Math.log(6) : 0; // 0..+2 (small, primarily an acquisition tool)
     const feePts = s.feeLoadPts || 0;                          // Phase-5 stub, currently 0
 
     let sumPts = pricingPts + adPts + feePts;
+    // Diminishing returns on the upside only — you can only make customers so happy.
+    // On the downside each grievance compounds without relief.
     if (sumPts > 20) sumPts = 20 + (sumPts - 20) * 0.5;
-    if (sumPts < -20) sumPts = -20 + (sumPts + 20) * 0.5;
+    // Compounding bad-management penalty: cheap pricing + punitive fees synergize
+    // (customers feel nickel-and-dimed AND underpaid simultaneously).
+    if (pricingPts < -5 && feePts < -5) sumPts -= 7;
 
     const target = clamp(65 + sumPts, 0, 100);
     return { target, pricingPts, adPts, feePts };
@@ -47,6 +51,51 @@
     const speed = delta >= 0 ? 1 / 8 : 1 / 5; // rising slow, falling fast
     return clamp(c + delta * speed, 0, 100);
   }
+  // Fee structure (Phase 5). Account count proxy from transaction-account deposits.
+  // Avg balance per account ~$6.5K (community-bank typical). Overdraft incidents at
+  // 0.25/acct/qtr in baseline cycle, more in recession. Interchange a passive 4bps/qtr
+  // on transaction deposits — community banks under $10B keep the full Durbin amount.
+  function computeFeeIncome(s) {
+    const d = s.bs.deposits;
+    const txnDeposits = d.noninterest + d.interestChecking + d.savingsMM;   // $K
+    // Avg balance per account ~$6,500. Express accounts in THOUSANDS so dollar-per-account
+    // math lands directly in $K.
+    const accountsK = Math.max(0.001, txnDeposits / 6500);
+    let incidentsPerAcct = 0.25;
+    if (s.macro.cycle === "recession") incidentsPerAcct = 0.32;
+    if (s.macro.cycle === "late_cycle") incidentsPerAcct = 0.28;
+
+    const ofFee = Math.max(0, s.levers.overdraftFee || 0);
+    const overdraftIncidentsK = accountsK * incidentsPerAcct;
+    // Overdraft elasticity: very high fees drive opt-outs / account closures, dampening volume.
+    const ofVolumeMult = ofFee > 30 ? Math.max(0.55, 1 - (ofFee - 30) * 0.012) : 1.0;
+    const overdraftIncome = overdraftIncidentsK * ofFee * ofVolumeMult;     // K-incidents * $/incident = $K
+
+    const monthlyFee = Math.max(0, s.levers.monthlyMaintenance || 0);
+    // Roughly 22% of accounts pay maintenance (rest meet waiver minimums). Higher fee -> waiver shopping.
+    const payShare = monthlyFee > 12 ? Math.max(0.08, 0.22 - (monthlyFee - 12) * 0.008) : 0.22;
+    const maintenanceIncome = accountsK * payShare * monthlyFee * 3;        // $K
+
+    const interchangeRate = 0.0004;                                          // 4bps/qtr on txn deposits
+    const interchangeIncome = txnDeposits * interchangeRate;                 // $K
+
+    return {
+      accountsK, overdraftIncidentsK,
+      overdraftIncome, maintenanceIncome, interchangeIncome,
+      serviceCharges: overdraftIncome + maintenanceIncome,
+      totalPhase5: overdraftIncome + maintenanceIncome + interchangeIncome,
+    };
+  }
+  // Translate fees into satisfaction pts. Overdraft is more punishing per dollar than
+  // maintenance (regulator-watched, customer-watched). Range targets roughly -10..0.
+  function computeFeeLoadPts(s) {
+    const ofFee = Math.max(0, s.levers.overdraftFee || 0);
+    const monthlyFee = Math.max(0, s.levers.monthlyMaintenance || 0);
+    const ofPts = ofFee <= 20 ? 0 : -Math.min(7, (ofFee - 20) * 0.20);    // $30 -> -2, $45 -> -5, $55 -> -7
+    const mntPts = monthlyFee <= 5 ? 0 : -Math.min(4, (monthlyFee - 5) * 0.20); // $10 -> -1, $20 -> -3, $25 -> -4
+    return ofPts + mntPts;
+  }
+
   // Retention multiplier on organic deposit growth (piecewise linear).
   function retentionMult(sat) {
     const pts = [
@@ -135,6 +184,11 @@
       depositAdSpend: 0,
       brokeredCDInterest: 0,
       vintageNplAdj: 0,
+      overdraftIncome: 0,
+      maintenanceIncome: 0,
+      interchangeIncome: 0,
+      serviceCharges: 0,
+      accountCountK: 0,
     },
 
     levers: {
@@ -147,6 +201,8 @@
       mortgageProgram: 0,
       depositAdSpend: 0,
       indirectShare: 0,
+      overdraftFee: 30,
+      monthlyMaintenance: 10,
     },
 
     decisions: {
@@ -163,6 +219,8 @@
     loanVintages: [],
     satisfaction: 70,
     feeLoadPts: 0,
+    overdraftHistory: [],
+    cfpbConsent: null,
     history: [],
     log: [
       { q: 0, type: "system", msg: "Welcome to First Meridian Bank, NA. You are CEO of a single-branch community bank. Make it through 40 quarters without failing." },
@@ -211,8 +269,43 @@
       });
     }
 
+    // Track overdraft-fee history (rolling) for CFPB-inquiry trigger.
+    if (!s.overdraftHistory) s.overdraftHistory = [];
+    s.overdraftHistory.push(Math.max(0, s.levers.overdraftFee || 0));
+    if (s.overdraftHistory.length > 8) s.overdraftHistory.shift();
+
+    // Tick down active CFPB consent order.
+    if (s.cfpbConsent && s.cfpbConsent.qtrsLeft > 0) {
+      s.cfpbConsent.qtrsLeft -= 1;
+      if (s.cfpbConsent.qtrsLeft === 0) {
+        s.cfpbConsent = null;
+        if (!forecastMode) log.push({ q, type: "good", msg: "CFPB CONSENT ORDER LIFTED: reputational drag rolled off." });
+      }
+    }
+
     const event = (forecastMode || q === 1) ? null : maybeEvent(s, q);
     if (event) log.push({ q, type: event.severity, msg: event.msg });
+
+    // CFPB inquiry: probability-weighted when overdraft sustained > $30 for 4+ qtrs.
+    let cfpbEvent = null;
+    if (!forecastMode && !s.cfpbConsent && s.overdraftHistory.length >= 4) {
+      const last4 = s.overdraftHistory.slice(-4);
+      const sustained = last4.every(f => f > 30);
+      if (sustained) {
+        const r = Math.abs(noise(s.runSeed, q, 22));
+        const avg = last4.reduce((a, b) => a + b, 0) / 4;
+        const triggerProb = Math.min(0.40, (avg - 30) * 0.025);
+        if (r < triggerProb) {
+          const oneTime = 200 + Math.round((avg - 30) * 30);            // $200-$650K consent order
+          cfpbEvent = { oneTime, qtrsActive: 6 };
+          s.cfpbConsent = { qtrsLeft: 6, openedAt: q };
+          log.push({ q, type: "bad", msg: `CFPB INQUIRY: regulator opened consent-order proceeding citing overdraft practices averaging $${avg.toFixed(0)}/item. One-time charge ${fmt$(oneTime)} hits non-int expense; reputational drag on satisfaction for 6 quarters.` });
+        }
+      }
+    }
+    if (cfpbEvent) {
+      // Surface as additional non-int expense in this quarter via the event hook.
+    }
 
     const suppressNoise = forecastMode || q === 1;
     const nf = suppressNoise ? {
@@ -226,7 +319,15 @@
       nonintExpense: noise(s.runSeed, q, 14, 0.03),
     };
 
-    // Customer satisfaction — driven by pricing, ad spend, and (Phase 5) fee load.
+    // Phase 5 fee-load pts feed Phase 4 satisfaction target.
+    // Refresh from current lever positions each quarter.
+    s.feeLoadPts = computeFeeLoadPts(s);
+    // Active CFPB consent order applies an additional sat penalty for its duration.
+    if (s.cfpbConsent && s.cfpbConsent.qtrsLeft > 0) {
+      s.feeLoadPts -= 6;
+    }
+
+    // Customer satisfaction — driven by pricing, ad spend, and fee load.
     // Updates with asymmetric hysteresis BEFORE deposits compute, so today's lever
     // changes immediately influence retention this quarter.
     const satBefore = s.satisfaction;
@@ -237,6 +338,15 @@
     const loans = computeLoans(s, event, nf);
     const securities = computeSecurities(s, event, prevFedFunds, prev10y);
     const is = computeIncome(s, deposits, loans, securities, event, nf, prevFedFunds);
+    if (cfpbEvent) {
+      is.nonintExpense += cfpbEvent.oneTime;
+      is.nonintExpenseVariable = (is.nonintExpenseVariable || 0) + cfpbEvent.oneTime;
+      is.cfpbCharge = cfpbEvent.oneTime;
+      is.pretax -= cfpbEvent.oneTime;
+      const newTax = Math.max(0, is.pretax * 0.21);
+      is.netIncome = is.pretax - newTax;
+      is.tax = newTax;
+    }
     is._nf = nf;
     is._event = event;
 
@@ -480,14 +590,14 @@
     }
     if (event?.type === "competitor_exit") runDrain = 0.015;
 
-    // Sat-driven flight: probability-weighted drain when sat < 35.
+    // Sat-driven flight: small drain fires ~50% of quarters when sat < 35,
+    // magnitude scaling with depth below the threshold.
     let satFlightPct = 0;
     if (sat < 35) {
       const depth = 35 - sat;
-      const triggerProb = Math.min(0.85, depth / 30);
       const r = Math.abs(noise(s.runSeed, s.quarter, 21));
-      if (r < triggerProb) {
-        satFlightPct = -Math.min(0.06, depth * 0.002);
+      if (r < 0.55) {
+        satFlightPct = -Math.min(0.05, 0.005 + depth * 0.0030);
       }
     }
 
@@ -703,9 +813,15 @@
         ? s.decisions.provisionOverride
         : modelProvision;
 
+    // Baseline asset-scaled "other" fees (wires, ATM, BOLI, etc.). Reduced now that
+    // Phase 5 explicit service charges + interchange carry most of the load.
     let nonintIncome =
-      ((totalAssets(bs) * 0.006 + 400) / 4) * (1 + nf.nonintIncome) + (event?.severity === "good" ? 60 : 0);
+      ((totalAssets(bs) * 0.0022 + 80) / 4) * (1 + nf.nonintIncome) + (event?.severity === "good" ? 60 : 0);
     if (event?.type === "fee_income") nonintIncome += 250;
+
+    // Phase 5 fee streams: service charges (overdraft + maintenance) + debit interchange.
+    const feeStreams = computeFeeIncome(s);
+    nonintIncome += feeStreams.totalPhase5;
 
     // SBA gain-on-sale: 75% govt-guaranteed slice of new C&I production sold at ~8% premium.
     const sbaGain = loans.sbaGain || 0;
@@ -756,6 +872,11 @@
       mortGain, mortFixedCost,
       depositAdSpend: Math.max(0, s.levers.depositAdSpend || 0),
       brokeredCDInterest: ((s.bs.brokeredCDs || 0) * brokeredCDCost) / 4,
+      overdraftIncome: feeStreams.overdraftIncome,
+      maintenanceIncome: feeStreams.maintenanceIncome,
+      interchangeIncome: feeStreams.interchangeIncome,
+      serviceCharges: feeStreams.serviceCharges,
+      accountCountK: feeStreams.accountsK,
       dividendsPaid: 0, repurchases: 0,
     };
   }
@@ -1142,6 +1263,7 @@
     computeRatios,
     estimatedSharePrice,
     computeSatisfaction, retentionMult,
+    computeFeeIncome, computeFeeLoadPts,
     totalAssets, totalDeposits, totalLiabilities, totalEquity,
     fmt$, fmtPct, fmtBps, clamp, noise,
   };

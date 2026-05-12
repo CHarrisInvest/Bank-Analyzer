@@ -49,8 +49,8 @@ const COACH_FLOWS = {
     },
     {
       target: "[data-coach='lever-funding']",
-      title: "Pricing and marketing drive satisfaction",
-      body: "Deposit pricing and ad spend have a second pathway: they shape customer satisfaction, which in turn governs whether existing deposits stay. Underpaying or going quiet for many quarters erodes the franchise slowly — and below 35 satisfaction, deposits begin to walk on their own.",
+      title: "Three paths to satisfaction",
+      body: "Deposit pricing, ad spend, and fee load (overdraft + maintenance) all shape customer satisfaction in the background. Cheap pricing and aggressive fees grind sat down slowly; sustained overdraft fees above $30 invite CFPB scrutiny. Below 35 satisfaction, deposits begin to walk on their own.",
       placement: "left",
     },
   ],

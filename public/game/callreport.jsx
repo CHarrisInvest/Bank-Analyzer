@@ -112,12 +112,22 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Total Interest Expense" value={f$(is.interestExpense)} bold />
             <ReportRow label="Net Interest Income" value={f$(is.nii)} total />
             <ReportRow label="Provision for Credit Losses" value={f$(is.provision)} />
+            {(is.overdraftIncome ?? 0) > 0 && <ReportRow label="Service charges — overdraft" value={f$(is.overdraftIncome)} indent={1} dim />}
+            {(is.maintenanceIncome ?? 0) > 0 && <ReportRow label="Service charges — maintenance" value={f$(is.maintenanceIncome)} indent={1} dim />}
+            {(is.interchangeIncome ?? 0) > 0 && <ReportRow label="Debit card interchange" value={f$(is.interchangeIncome)} indent={1} dim />}
             {(is.sbaGain ?? 0) > 0 && <ReportRow label="Gain on sale — SBA" value={f$(is.sbaGain)} indent={1} dim />}
             {(is.mortGain ?? 0) > 0 && <ReportRow label="Gain on sale — mortgage" value={f$(is.mortGain)} indent={1} dim />}
+            {(() => {
+              const itemized = (is.overdraftIncome || 0) + (is.maintenanceIncome || 0) + (is.interchangeIncome || 0) + (is.sbaGain || 0) + (is.mortGain || 0);
+              const other = (is.nonintIncome || 0) - itemized;
+              if (other > 1) return <ReportRow label="Other (BOLI, wires, ATM, etc.)" value={f$(other)} indent={1} dim />;
+              return null;
+            })()}
             <ReportRow label="Noninterest Income" value={f$(is.nonintIncome)} bold />
             <ReportRow label="Fixed (premises + systems + base)" value={f$(is.nonintExpenseFixed ?? 0)} indent={1} dim />
             <ReportRow label="Variable (scales with assets + events)" value={f$(is.nonintExpenseVariable ?? (is.nonintExpense - (is.nonintExpenseFixed ?? 0)))} indent={1} dim />
             {(is.depositAdSpend ?? 0) > 0 && <ReportRow label="of which: deposit marketing" value={f$(is.depositAdSpend)} indent={2} dim />}
+            {(is.cfpbCharge ?? 0) > 0 && <ReportRow label="of which: CFPB consent order" value={f$(is.cfpbCharge)} indent={2} neg />}
             <ReportRow label="Noninterest Expense" value={f$(is.nonintExpense)} bold />
             <ReportRow label="Pre-tax Income" value={f$(is.pretax)} bold />
             <ReportRow label="Income Tax (21%)" value={f$(is.tax)} dim />

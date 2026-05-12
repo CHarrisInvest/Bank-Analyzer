@@ -176,6 +176,7 @@ function LeverCard({ lever, value, onChange, locked }) {
 function NumericLeverCard({ title, subtitle, value, onChange, min, max, step, color, format, hint, locked, pill }) {
   const fmt = (v) => format === "money"
     ? (v >= 1000 ? `$${(v / 1000).toFixed(2)}M` : `$${v.toFixed(0)}K`)
+    : format === "dollar" ? `$${v.toFixed(0)}`
     : v.toFixed(0);
   return (
     <div className="panel panel-pad" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -331,6 +332,38 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
             hint={`Outstanding: ${LBE.fmt$(state.bs.brokeredCDs || 0)} · cost ≈ ${(((state.macro.fedFunds || 0) + 0.0035) * 100).toFixed(2)}% · counts toward wholesale concentration (≤ 15%)`}
             locked={locked}
           />
+          {(() => {
+            const fees = LBE.computeFeeIncome(state);
+            const ofFee = lev.overdraftFee ?? 30;
+            const mntFee = lev.monthlyMaintenance ?? 10;
+            const feeLoad = LBE.computeFeeLoadPts(state);
+            return (
+              <>
+                <NumericLeverCard
+                  title="Overdraft Fee (per item)"
+                  subtitle="Consumer-watched; regulator-watched above $30"
+                  value={ofFee}
+                  onChange={(v) => setLever("overdraftFee", v)}
+                  min={0} max={45} step={1} format="dollar"
+                  color={LP.bad}
+                  pill={`$${ofFee.toFixed(0)}`}
+                  hint={`Est. ${LBE.fmt$(fees.overdraftIncome)}/qtr at ~${fees.overdraftIncidentsK.toFixed(1)}K incidents${ofFee > 30 ? ` · CFPB risk above $30 sustained ${state.overdraftHistory ? state.overdraftHistory.filter(f => f > 30).length : 0}/4 qtrs` : ""}`}
+                  locked={locked}
+                />
+                <NumericLeverCard
+                  title="Monthly Maintenance Fee"
+                  subtitle="On accounts that don't meet waiver minimums"
+                  value={mntFee}
+                  onChange={(v) => setLever("monthlyMaintenance", v)}
+                  min={0} max={25} step={1} format="dollar"
+                  color={LP.info}
+                  pill={`$${mntFee.toFixed(0)}/mo`}
+                  hint={`Est. ${LBE.fmt$(fees.maintenanceIncome)}/qtr · ~${fees.accountsK.toFixed(1)}K total accounts · combined fee load impact on satisfaction: ${feeLoad.toFixed(1)} pts`}
+                  locked={locked}
+                />
+              </>
+            );
+          })()}
           <div style={{ padding: "8px 12px", background: LP.bgRaised, borderRadius: 8, fontSize: 11.5, color: LP.textDim, display: "flex", justifyContent: "space-between" }}>
             <span>Wholesale funding (FHLB + brokered)</span>
             <span className="num" style={{ color: wsTone, fontWeight: 600 }}>{wholesalePct}% of funding</span>
