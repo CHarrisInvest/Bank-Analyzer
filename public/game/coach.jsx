@@ -51,8 +51,8 @@ const COACH_FLOWS = {
   capital: [
     {
       target: "[data-coach='capital-distributions']",
-      title: "Returning capital",
-      body: "Dividends and buybacks. Both lower CET1; buybacks shrink the share count, dividends reward holders directly. The hint shows estimated price and BVPS so you can size the authorization.",
+      title: "Returning and raising capital",
+      body: "Dividends and buybacks lower CET1; buybacks shrink the share count, dividends reward holders directly. Equity issuance goes the other way — adds capital at a 5% underwriting fee and dilutes existing holders. The hint on each dial estimates share-count impact at current price.",
       placement: "right",
     },
     {

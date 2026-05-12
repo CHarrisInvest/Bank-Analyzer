@@ -72,6 +72,8 @@
       provision: 198,
       nonintIncome: 603,
       nonintExpense: 2_352,
+      nonintExpenseFixed: 403,
+      nonintExpenseVariable: 1_949,
       pretax: 834,
       tax: 175,
       netIncome: 659,
@@ -98,6 +100,7 @@
     decisions: {
       dividendPerShare: 0.18,
       repurchaseAmount: 0,
+      equityIssuance: 0,
       fhlbAdvance: 0,
       subDebtIssuance: 0,
       provisionOverride: null,
@@ -209,6 +212,7 @@
     s.decisions = {
       dividendPerShare: s.decisions.dividendPerShare,
       repurchaseAmount: 0,
+      equityIssuance: 0,
       fhlbAdvance: 0,
       subDebtIssuance: 0,
       provisionOverride: null,
@@ -325,7 +329,7 @@
     if (m.cycle === "recession" && r > 0.78) {
       return { severity: "bad", type: "credit_shock", msg: "REGIONAL CREDIT SHOCK: Major employer in service area announced layoffs. Expect elevated charge-offs." };
     }
-    if (r > 0.88) {
+    if (r > 0.96) {
       return { severity: "bad", type: "deposit_run", msg: "DEPOSIT FLIGHT: Local credit union launched aggressive money-market campaign. Outflows expected." };
     }
     if (r > 0.83 && m.fedFunds > 0.05) {
@@ -548,10 +552,13 @@
       ((totalAssets(bs) * 0.006 + 400) / 4) * (1 + nf.nonintIncome) + (event?.severity === "good" ? 60 : 0);
     if (event?.type === "fee_income") nonintIncome += 250;
 
-    let nonintExpense =
-      ((totalAssets(bs) * 0.0245 + 1_200) / 4) * (1 + nf.nonintExpense);
-    if (event?.type === "fraud") nonintExpense += 350;
-    if (event?.type === "exam") nonintExpense += 80;
+    // Fixed: premises, core systems, base headcount. Doesn't move with quarterly noise.
+    const nonintExpenseFixed = (bs.premises * 0.18 + 800) / 4;
+    // Variable: asset-scaled compensation + ops costs + event shocks.
+    let nonintExpenseVariable = (totalAssets(bs) * 0.0233 / 4) * (1 + nf.nonintExpense);
+    if (event?.type === "fraud") nonintExpenseVariable += 350;
+    if (event?.type === "exam") nonintExpenseVariable += 80;
+    let nonintExpense = nonintExpenseFixed + nonintExpenseVariable;
 
     const pretax = nii + nonintIncome - nonintExpense - provision;
     const tax = Math.max(0, pretax * 0.21);
@@ -561,6 +568,7 @@
       interestIncome, interestExpense, nii,
       provision, netChargeOffs, grossChargeOffs,
       nonintIncome, nonintExpense,
+      nonintExpenseFixed, nonintExpenseVariable,
       pretax, tax, netIncome,
       avgLoans, avgSecurities, avgDeposits,
       loanYield, depCost,
@@ -572,6 +580,33 @@
 
   function applyCapitalActions(s, is, ratios) {
     const dec = s.decisions;
+
+    // Equity issuance: 95% of marked price → paid-in capital + cash; 5% fee flows through non-int expense.
+    // Applied before dividends so retained-earnings/cash reflect both this quarter, and new shares are eligible.
+    if (dec.equityIssuance > 0) {
+      const px = estimatedSharePrice(s, ratios);
+      const gross = dec.equityIssuance;
+      const net = gross * 0.95;
+      const fees = gross * 0.05;
+      const newShares = net / Math.max(0.01, px);
+
+      s.bs.commonEquity += net;
+      s.bs.sharesOutstanding += newShares;
+      s.bs.cash += net;
+
+      is.equityIssuanceGross = gross;
+      is.equityIssuanceNet = net;
+      is.equityIssuanceFees = fees;
+      is.equityIssuanceShares = newShares;
+      is.equityIssuancePrice = px;
+      is.nonintExpense += fees;
+      is.nonintExpenseVariable = (is.nonintExpenseVariable || 0) + fees;
+      is.pretax -= fees;
+      const newTax = Math.max(0, is.pretax * 0.21);
+      is.netIncome = is.pretax - newTax;
+      is.tax = newTax;
+    }
+
     const totalDiv = dec.dividendPerShare * s.bs.sharesOutstanding;
     is.dividendsPaid = totalDiv;
     is.repurchases = dec.repurchaseAmount;

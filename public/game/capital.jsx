@@ -38,6 +38,10 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
   const repurchaseHint = d.repurchaseAmount > 0
     ? `Est. price $${estPrice.toFixed(2)} · BVPS $${bvps.toFixed(2)} · buys ~${(d.repurchaseAmount / Math.max(1, estPrice)).toFixed(1)}K shares`
     : `Est. price $${estPrice.toFixed(2)} · BVPS $${bvps.toFixed(2)}`;
+  const issuanceShares = d.equityIssuance > 0 ? (d.equityIssuance * 0.95 / Math.max(0.01, estPrice)) : 0;
+  const issuanceHint = d.equityIssuance > 0
+    ? `Est. price $${estPrice.toFixed(2)} · net 95% (${KBE.fmt$(d.equityIssuance * 0.05)} fee → non-int expense) · ~${issuanceShares.toFixed(1)}K new shares`
+    : `Est. price $${estPrice.toFixed(2)} · 5% underwriting fee on gross proceeds`;
 
   return (
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }}>
@@ -61,6 +65,11 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
               min={0} max={5000} step={250} format="money"
               hint={repurchaseHint}
               color={KP.amber} locked={locked} />
+            <NumberDial label="Equity Issuance (gross proceeds)" value={d.equityIssuance || 0}
+              onChange={v => setDecision("equityIssuance", v)}
+              min={0} max={20000} step={500} format="money"
+              hint={issuanceHint}
+              color={KP.bad} locked={locked} />
           </div>
         </div>
 

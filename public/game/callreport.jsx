@@ -112,7 +112,9 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Net Interest Income" value={f$(is.nii)} total />
             <ReportRow label="Provision for Credit Losses" value={f$(is.provision)} />
             <ReportRow label="Noninterest Income" value={f$(is.nonintIncome)} />
-            <ReportRow label="Noninterest Expense" value={f$(is.nonintExpense)} />
+            <ReportRow label="Fixed (premises + systems + base)" value={f$(is.nonintExpenseFixed ?? 0)} indent={1} dim />
+            <ReportRow label="Variable (scales with assets + events)" value={f$(is.nonintExpenseVariable ?? (is.nonintExpense - (is.nonintExpenseFixed ?? 0)))} indent={1} dim />
+            <ReportRow label="Noninterest Expense" value={f$(is.nonintExpense)} bold />
             <ReportRow label="Pre-tax Income" value={f$(is.pretax)} bold />
             <ReportRow label="Income Tax (21%)" value={f$(is.tax)} dim />
             <ReportRow label="Net Income" value={f$(is.netIncome)} total />
@@ -122,6 +124,12 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Share repurchases" value={f$(is.repurchases)} />
             {is.repurchases > 0 && is.repurchasePrice && (
               <ReportRow label="Repurchase price / shares (K)" value={`$${is.repurchasePrice.toFixed(2)} / ${(is.repurchaseShares || 0).toFixed(1)}`} dim />
+            )}
+            {is.equityIssuanceGross > 0 && (
+              <>
+                <ReportRow label="Equity issuance (gross)" value={f$(is.equityIssuanceGross)} />
+                <ReportRow label="Issuance price / shares (K)" value={`$${(is.equityIssuancePrice || 0).toFixed(2)} / ${(is.equityIssuanceShares || 0).toFixed(1)}`} dim />
+              </>
             )}
 
             <div className="label" style={{ fontSize: 10, marginTop: 14, marginBottom: 4 }}>Credit Quality</div>
