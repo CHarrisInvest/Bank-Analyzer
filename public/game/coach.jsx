@@ -44,7 +44,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='lever-grid']",
       title: "Two operating panels",
-      body: "Production on the left — loan pace, underwriting, fee channels. Funding on the right — pricing, marketing, securities, liquidity. The colored strip at the bottom of each card spells out the trade-off.",
+      body: "Production levers on the left, Funding levers on the right. Move any slider and watch the colored strip at the bottom of the card — it spells out the live trade-off in plain English.",
       placement: "top",
     },
     {
@@ -76,7 +76,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='capital-impact']",
       title: "Capital impact preview",
-      body: "Forecasted CET1 delta, cash, FHLB share, and net income for next quarter. The expected quarter results and the impact of your levers all flow into this strip.",
+      body: "Forecasted CET1 delta, cash, wholesale concentration (FHLB + brokered), and net income for next quarter. The combined impact of operations levers and capital decisions all flow into this strip.",
       placement: "top",
     },
   ],
@@ -92,13 +92,13 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='history-bvps']",
       title: "Tangible Book Value per Share",
-      body: "BVPS growth is the scoring metric for the run. This chart traces it across all 40 quarters so you can see the slope of compounding.",
+      body: "BVPS compounding plus cumulative dividends paid = total shareholder return — the primary scoring metric for the run. This chart traces BVPS across all 40 quarters so you can see the slope.",
       placement: "bottom",
     },
     {
       target: "[data-coach='history-sparklines']",
-      title: "Ten-year ratio sparklines",
-      body: "Each key metric — NIM, ROA, ROE, CET1, NPL, L/D, AOCI, share price — gets its own 40-quarter trace. The detail table below has every quarter row by row.",
+      title: "Ten-year sparklines",
+      body: "Every key metric — profitability, capital, asset quality, balance-sheet composition, fee income, and customer satisfaction — gets its own 40-quarter trace. The detail table below has every quarter row by row.",
       placement: "top",
     },
   ],
