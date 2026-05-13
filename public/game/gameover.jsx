@@ -36,7 +36,7 @@ function GameOver({ state, onRestart }) {
             <strong>Root cause:</strong> {go.cause}
           </div>
         )}
-        <div style={{ display: "grid", gridTemplateColumns: failed ? "repeat(4, 1fr)" : "repeat(4, 1fr)", gap: 12, marginBottom: failed ? 24 : 12 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: failed ? 24 : 12 }}>
           {!failed && (
             <>
               <Stat label="Total Return" value={`${(stats.totalReturn * 100).toFixed(1)}%`} sub={`divs $${(stats.totalDividendsPerShare || 0).toFixed(2)}/sh`} tone={stats.totalReturn > 1.20 ? GP.good : stats.totalReturn > 0.50 ? GP.warn : GP.bad} />
@@ -55,6 +55,12 @@ function GameOver({ state, onRestart }) {
               <Stat label="Tier 1 Lev." value={`${(stats.finalTier1Lev * 100).toFixed(1)}%`} tone={GP.bad} />
               <Stat label="NPL Ratio" value={`${(stats.finalNPL * 100).toFixed(1)}%`} />
               <Stat label="AOCI" value={GBE.fmt$(stats.finalAOCI || 0)} tone={(stats.finalAOCI || 0) < 0 ? GP.bad : GP.text} />
+              {stats.macroDifficulty && (
+                <Stat label="Macro Difficulty" value={stats.macroDifficulty} sub={`recessions ${stats.recessionQtrs ?? 0}q · shocks ${stats.badEventCount ?? 0}`} tone={stats.macroDifficulty === "Brutal" ? GP.bad : stats.macroDifficulty === "Hard" ? GP.warn : GP.text} />
+              )}
+              {stats.failedAtQ && (
+                <Stat label="Failed At" value={`Y${Math.ceil(stats.failedAtQ / 4)} Q${((stats.failedAtQ - 1) % 4) + 1}`} sub={`${stats.failedAtQ}/40 qtrs in`} tone={GP.bad} />
+              )}
             </>
           )}
         </div>

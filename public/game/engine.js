@@ -23,6 +23,24 @@
     return ((x - Math.floor(x)) - 0.5) * 2 * scale;
   };
 
+  // ---------- macro difficulty ----------
+  // Informational scorecard line — does not affect grading. Scored from how much of
+  // the run was spent in stress regimes and how many bad-severity events landed.
+  const BAD_EVENT_TAGS = ["DEPOSIT FLIGHT","REGIONAL CREDIT SHOCK","RATE SHOCK","FRAUD LOSS"];
+  function macroDifficultyFor(s) {
+    const recessionQtrs = s.history.filter(h => h.cycle === "recession").length;
+    const lateCycleQtrs = s.history.filter(h => h.cycle === "late_cycle").length;
+    const badEventCount = s.log.filter(l =>
+      l.q > 0 && BAD_EVENT_TAGS.some(t => l.msg.startsWith(t))
+    ).length;
+    const score = recessionQtrs * 2 + lateCycleQtrs * 1 + badEventCount * 2;
+    let label = "Easy";
+    if (score >= 15) label = "Normal";
+    if (score >= 30) label = "Hard";
+    if (score >= 50) label = "Brutal";
+    return { label, score, recessionQtrs, lateCycleQtrs, badEventCount };
+  }
+
   // ---------- customer satisfaction ----------
   // Single 0-100 score. Target driven by deposit pricing, ad spend, and a Phase-5
   // fee-load slot. Diminishing returns past ±20 pts. State moves toward target
@@ -426,19 +444,12 @@
       const totalReturn = (finalBVPS - initialBVPS + totalDividendsPerShare) / initialBVPS;
 
       // Macro difficulty score — informational only, does not affect grade.
-      // Recession + late_cycle quarters carry the most stress; bad-severity events
-      // (deposit_run, credit_shock, rate_shock, fraud) add to the score.
-      const recessionQtrs = s.history.filter(h => h.cycle === "recession").length;
-      const lateCycleQtrs = s.history.filter(h => h.cycle === "late_cycle").length;
-      const badEventTags = ["DEPOSIT FLIGHT","REGIONAL CREDIT SHOCK","RATE SHOCK","FRAUD LOSS"];
-      const badEventCount = s.log.filter(l =>
-        l.q > 0 && badEventTags.some(t => l.msg.startsWith(t))
-      ).length;
-      const macroScore = recessionQtrs * 2 + lateCycleQtrs * 1 + badEventCount * 2;
-      let macroDifficulty = "Easy";
-      if (macroScore >= 15) macroDifficulty = "Normal";
-      if (macroScore >= 30) macroDifficulty = "Hard";
-      if (macroScore >= 50) macroDifficulty = "Brutal";
+      const macro = macroDifficultyFor(s);
+      const macroDifficulty = macro.label;
+      const macroScore = macro.score;
+      const recessionQtrs = macro.recessionQtrs;
+      const lateCycleQtrs = macro.lateCycleQtrs;
+      const badEventCount = macro.badEventCount;
 
       // Grading — primary key: 10-year total return. CET1 + (L/D, satisfaction) modifiers.
       const TIERS = ["F","D","C","B","A","A+"];
@@ -454,9 +465,9 @@
       const cet1Gates = [0, 0, 0.07, 0.08, 0.09, 0.10];
       while (tierIdx > 0 && ratios.cet1 < cet1Gates[tierIdx]) tierIdx -= 1;
 
-      // L/D modifier: outside 0.65-1.15 drops one tier. A+ requires tighter 0.75-1.05.
+      // L/D modifier: outside 0.65-1.15 drops one tier. A+ requires lower-bound 0.75.
       const ldOuterOk = ratios.ltd >= 0.65 && ratios.ltd <= 1.15;
-      const ldA1Ok = ratios.ltd >= 0.75 && ratios.ltd <= 1.05;
+      const ldA1Ok = ratios.ltd >= 0.75 && ratios.ltd <= 1.15;
       const ldPenalty = !ldOuterOk;
       if (tierIdx === 5 && !ldA1Ok) tierIdx = 4;
       if (ldPenalty && tierIdx > 0) tierIdx -= 1;
@@ -479,7 +490,7 @@
       if (tierIdx < 5 && totalReturn > 1.20) {
         // Reconstruct what dropped us
         if (ratios.cet1 < 0.10) modifiersApplied.push(`CET1 ${(ratios.cet1*100).toFixed(1)}% short of 10%`);
-        if (!ldA1Ok && ldOuterOk) modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside A+ band 0.75-1.05`);
+        if (!ldA1Ok && ldOuterOk) modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside A+ band 0.75-1.15`);
       }
       if (ldPenalty) modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside healthy band 0.65-1.15`);
       if (satPenalty) modifiersApplied.push(`customer satisfaction ${Math.round(s.satisfaction)} below 50`);
@@ -1180,16 +1191,20 @@
       } else if (s.lastIS.repurchases > 5_000 || s.lastIS.dividendsPaid > 1_000) {
         cause = "Excessive capital distributions while underlying earnings deteriorated";
       }
+      const macro = macroDifficultyFor(s);
       s.gameOver = {
         reason: "critically_undercapitalized",
         severity: "bad",
-        msg: `BANK FAILED at Y${yearNum}Q${qNum}. CET1 ${fmtPct(ratios.cet1)} · Tier 1 Leverage ${fmtPct(ratios.tier1Lev)} — both below PCA "critically undercapitalized" thresholds. FDIC has been appointed receiver.`,
+        msg: `BANK FAILED at Y${yearNum}Q${qNum}. CET1 ${fmtPct(ratios.cet1)} · Tier 1 Leverage ${fmtPct(ratios.tier1Lev)} — both below PCA "critically undercapitalized" thresholds. FDIC has been appointed receiver. Macro: ${macro.label}.`,
         cause,
         stats: {
           finalCET1: ratios.cet1, finalTier1Lev: ratios.tier1Lev,
           finalNPL: ratios.nplRatio, finalAOCI: s.bs.aoci,
           finalEq: totalEquity(s.bs), creditRiskBank: s.creditRiskBank || 0,
           ltd: ratios.ltd,
+          macroDifficulty: macro.label, macroScore: macro.score,
+          recessionQtrs: macro.recessionQtrs, lateCycleQtrs: macro.lateCycleQtrs, badEventCount: macro.badEventCount,
+          failedAtQ: s.quarter,
         },
       };
       log.push({ q, type: "bad", msg: s.gameOver.msg });
