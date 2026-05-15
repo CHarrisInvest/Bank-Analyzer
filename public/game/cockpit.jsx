@@ -29,12 +29,14 @@ function fmtVal(v, fmt) {
   if (fmt === "pct")   return `${(v * 100).toFixed(2)}%`;
   if (fmt === "pct1")  return `${(v * 100).toFixed(1)}%`;
   if (fmt === "ratio") return `${v.toFixed(2)}x`;
+  if (fmt === "eps")   return `$${v.toFixed(2)}`;
   return v.toFixed(2);
 }
 
 function diffStr(diff, fmt) {
   if (fmt === "money") return `${diff >= 0 ? "+" : ""}${CBE.fmt$(diff)}`;
   if (fmt === "ratio") return `${diff >= 0 ? "+" : ""}${diff.toFixed(2)}x`;
+  if (fmt === "eps")   return `${diff >= 0 ? "+" : ""}$${diff.toFixed(2)}`;
   return `${diff >= 0 ? "+" : ""}${(diff * 100).toFixed(2)}%`;
 }
 
@@ -42,14 +44,14 @@ function MetricRow({ label, plan, actual, forecast, fmt = "money", invert = fals
   const hasPlan = plan !== undefined && plan !== null && !isNaN(plan);
   const planActDiff = hasPlan ? actual - plan : 0;
   const surprise = invert ? -planActDiff : planActDiff;
-  const sigThreshold = fmt === "money" ? Math.max(0.5, Math.abs(plan || 0) * 0.005) : 0.0001;
+  const sigThreshold = fmt === "money" ? Math.max(0.5, Math.abs(plan || 0) * 0.005) : fmt === "eps" ? 0.005 : 0.0001;
   const onPlan = hasPlan && Math.abs(planActDiff) < sigThreshold;
   const surpriseTone = !hasPlan ? CP.textMute : onPlan ? CP.textMute : surprise > 0 ? CP.good : CP.bad;
   const surpriseLabel = !hasPlan ? "—" : onPlan ? "on plan" : `${surprise > 0 ? "▲" : "▼"} ${diffStr(planActDiff, fmt)}`;
 
   const fcDiff = forecast - actual;
   const fcTone = ratioName ? ccolor(ratioName, forecast) : CP.text;
-  const fcSig = fmt === "money" ? Math.max(0.5, Math.abs(actual || 0) * 0.005) : 0.0001;
+  const fcSig = fmt === "money" ? Math.max(0.5, Math.abs(actual || 0) * 0.005) : fmt === "eps" ? 0.005 : 0.0001;
   const fcDirGood = invert ? fcDiff < 0 : fcDiff > 0;
   const fcDeltaTone = Math.abs(fcDiff) < fcSig ? CP.textMute : fcDirGood ? CP.good : CP.bad;
 
@@ -185,8 +187,12 @@ function CockpitTab({ state, ratios, forecast }) {
   const totalDeposits = (bs) => bs.deposits.noninterest + bs.deposits.interestChecking + bs.deposits.savingsMM + bs.deposits.timeDeposits;
   const wholesaleFund = (bs) => (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0);
 
+  const epsActual = lastIS.netIncome / Math.max(1e-6, state.bs.sharesOutstanding);
+  const epsForecast = fis.netIncome / Math.max(1e-6, fbs.sharesOutstanding);
+
   const rows = [
     { l: "Net Income",         plan: lf?.netIncome,     actual: lastIS.netIncome,         forecast: fis.netIncome,                        fmt: "money" },
+    { l: "EPS (quarter)",      plan: lf?.eps,           actual: epsActual,                forecast: epsForecast,                          fmt: "eps" },
     { l: "NIM",                plan: lf?.nim,           actual: ratios.nim,               forecast: fr.nim,                               fmt: "pct" },
     { l: "Provision",          plan: lf?.provision,     actual: lastIS.provision,         forecast: fis.provision,                        fmt: "money", invert: true },
     { l: "Noninterest Income", plan: lf?.nonintIncome,  actual: lastIS.nonintIncome,      forecast: fis.nonintIncome,                     fmt: "money" },

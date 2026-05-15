@@ -219,9 +219,10 @@ function ForecastStrip({ state, ratios, forecast }) {
   const fis = forecast.is;
   const curSat = state?.satisfaction ?? 70;
   const nextSat = forecast.snapshot?.satisfaction ?? curSat;
+  const nextEPS = fis.netIncome / Math.max(1e-6, forecast.bs.sharesOutstanding);
   const items = [
     { l: "Next NIM",         v: (fr.nim * 100).toFixed(2) + "%",        d: fr.nim - ratios.nim,         f: "pct" },
-    { l: "Next Net Income",  v: LBE.fmt$(fis.netIncome),                d: fis.netIncome,                f: "money", noDelta: true },
+    { l: "Next Net Income",  v: LBE.fmt$(fis.netIncome),                d: fis.netIncome,                f: "money", noDelta: true, sub: `EPS $${nextEPS.toFixed(2)}` },
     { l: "Next CET1",        v: (fr.cet1 * 100).toFixed(2) + "%",       d: fr.cet1 - ratios.cet1,        f: "pct" },
     { l: "Next NPL",         v: (fr.nplRatio * 100).toFixed(2) + "%",   d: fr.nplRatio - ratios.nplRatio, f: "pct", invert: true },
     { l: "Next Sat",         v: Math.round(nextSat).toString(),         d: nextSat - curSat,             f: "sat" },
@@ -243,6 +244,9 @@ function ForecastStrip({ state, ratios, forecast }) {
           <div key={it.l}>
             <div className="label" style={{ fontSize: 9.5 }}>{it.l}</div>
             <div className="num" style={{ fontSize: 18, fontWeight: 600, marginTop: 2 }}>{it.v}</div>
+            {it.sub && (
+              <div className="num" style={{ fontSize: 10.5, color: LP.textMute, marginTop: 2, fontWeight: 600 }}>{it.sub}</div>
+            )}
             {!it.noDelta && (() => {
               const tone = Math.abs(it.d) < 1e-9 ? LP.textMute :
                 (it.invert ? it.d < 0 : it.d > 0) ? LP.good : LP.bad;

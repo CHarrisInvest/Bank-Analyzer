@@ -54,6 +54,7 @@ function App() {
     const wholesale = (bs) => (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0);
     const lf = {
       netIncome: forecast.is.netIncome,
+      eps: forecast.is.netIncome / Math.max(1e-6, forecast.bs.sharesOutstanding),
       provision: forecast.is.provision,
       nonintIncome: forecast.is.nonintIncome,
       nonintExpense: forecast.is.nonintExpense,

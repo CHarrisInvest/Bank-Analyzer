@@ -413,6 +413,8 @@
       satisfaction: s.satisfaction,
       nonintIncome: is.nonintIncome,
       nonintExpense: is.nonintExpense,
+      sharesOutstanding: s.bs.sharesOutstanding,
+      eps: is.netIncome / Math.max(1e-6, s.bs.sharesOutstanding),
     });
 
     s.lastIS = is;
