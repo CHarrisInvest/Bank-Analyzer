@@ -253,40 +253,7 @@ function CockpitTab({ state, ratios, forecast }) {
         ))}
       </div>
 
-      {/* Driver chart + balance sheet */}
-      <div style={{ display: "grid", gridTemplateColumns: "1.25fr 1fr", gap: 12, flexShrink: 0 }}>
-        <div className="panel" style={{ padding: "14px 16px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
-            <div className="label-strong">Earnings Walk · this q → next q</div>
-            <div className="num" style={{ fontSize: 14, fontWeight: 700, color: (fis.netIncome - lastIS.netIncome) >= 0 ? CP.good : CP.bad }}>
-              Net Δ {(fis.netIncome - lastIS.netIncome) >= 0 ? "+" : ""}{CBE.fmt$(fis.netIncome - lastIS.netIncome)}
-            </div>
-          </div>
-          <div style={{ fontSize: 12, color: CP.textMute, marginBottom: 6 }}>
-            What's driving the change in net income.
-          </div>
-          {(() => {
-            const drivers = [
-              { l: "Δ Net Interest Income", v: fis.nii - lastIS.nii, c: CP.good },
-              { l: "Δ Provision",            v: -(fis.provision - lastIS.provision), c: CP.bad },
-              { l: "Δ Noninterest Income",   v: fis.nonintIncome - lastIS.nonintIncome, c: CP.info },
-              { l: "Δ Noninterest Expense",  v: -(fis.nonintExpense - lastIS.nonintExpense), c: CP.warn },
-              { l: "Δ Tax",                  v: -(fis.tax - lastIS.tax), c: CP.textMute },
-            ];
-            const max = Math.max(1, ...drivers.map(d => Math.abs(d.v)));
-            return drivers.map(d => (
-              <DriverBar key={d.l} label={d.l} value={d.v} max={max} color={d.c} fmt={CBE.fmt$} />
-            ));
-          })()}
-        </div>
-
-        <div className="panel" style={{ padding: "14px 16px" }}>
-          <div className="label-strong" style={{ marginBottom: 8 }}>Balance Sheet — Today</div>
-          <BalanceBars bs={state.bs} />
-        </div>
-      </div>
-
-      {/* Capital, liquidity, asset quality */}
+      {/* Capital, liquidity, asset quality — prominent, directly below the forecast table */}
       <div className="panel" style={{ padding: "14px 16px", flexShrink: 0 }}>
         <div className="label-strong" style={{ marginBottom: 8 }}>Capital, Liquidity, Asset Quality</div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 8 }}>
@@ -297,6 +264,38 @@ function CockpitTab({ state, ratios, forecast }) {
           <KPITile label="On-hand Liq."  value={(ratios.onHandLiq * 100).toFixed(1) + "%"} sub="cash + AFS" tone={ccolor("onHandLiq", ratios.onHandLiq)} />
           <KPITile label="Efficiency"    value={(ratios.efficiency * 100).toFixed(1) + "%"} sub="lower=better" tone={ccolor("efficiency", ratios.efficiency)} />
         </div>
+      </div>
+
+      {/* Earnings walk — full width, above the balance sheet */}
+      <div className="panel" style={{ padding: "14px 16px", flexShrink: 0 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
+          <div className="label-strong">Earnings Walk · this q → next q</div>
+          <div className="num" style={{ fontSize: 14, fontWeight: 700, color: (fis.netIncome - lastIS.netIncome) >= 0 ? CP.good : CP.bad }}>
+            Net Δ {(fis.netIncome - lastIS.netIncome) >= 0 ? "+" : ""}{CBE.fmt$(fis.netIncome - lastIS.netIncome)}
+          </div>
+        </div>
+        <div style={{ fontSize: 12, color: CP.textMute, marginBottom: 6 }}>
+          What's driving the change in net income.
+        </div>
+        {(() => {
+          const drivers = [
+            { l: "Δ Net Interest Income", v: fis.nii - lastIS.nii, c: CP.good },
+            { l: "Δ Provision",            v: -(fis.provision - lastIS.provision), c: CP.bad },
+            { l: "Δ Noninterest Income",   v: fis.nonintIncome - lastIS.nonintIncome, c: CP.info },
+            { l: "Δ Noninterest Expense",  v: -(fis.nonintExpense - lastIS.nonintExpense), c: CP.warn },
+            { l: "Δ Tax",                  v: -(fis.tax - lastIS.tax), c: CP.textMute },
+          ];
+          const max = Math.max(1, ...drivers.map(d => Math.abs(d.v)));
+          return drivers.map(d => (
+            <DriverBar key={d.l} label={d.l} value={d.v} max={max} color={d.c} fmt={CBE.fmt$} />
+          ));
+        })()}
+      </div>
+
+      {/* Balance sheet — full width, below the earnings walk */}
+      <div className="panel" style={{ padding: "14px 16px", flexShrink: 0 }}>
+        <div className="label-strong" style={{ marginBottom: 8 }}>Balance Sheet — Today</div>
+        <BalanceBars bs={state.bs} />
       </div>
     </div>
   );
