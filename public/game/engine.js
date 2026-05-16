@@ -207,6 +207,10 @@
       interchangeIncome: 0,
       serviceCharges: 0,
       accountCountK: 0,
+      uncoveredChargeOffs: 0,
+      reserveShortfallFee: 0,
+      examFee: 0,
+      provisionCatchUp: false,
     },
 
     levers: {
@@ -325,6 +329,14 @@
       // Surface as additional non-int expense in this quarter via the event hook.
     }
 
+    // Annual regulatory exam — Year 2 onward. Scheduled (not a random event slot),
+    // so it can co-occur with other events. Assessed against opening-quarter ratios.
+    let examOutcome = null;
+    if (!forecastMode && q > 4 && q % 4 === 0) {
+      examOutcome = assessExam(s, computeRatios(s, s.lastIS), q);
+      log.push({ q, type: examOutcome.type, msg: examOutcome.msg });
+    }
+
     const suppressNoise = forecastMode || q === 1;
     const nf = suppressNoise ? {
       depositGrowth: 0, loanGrowth: 0, nplFormation: 0,
@@ -365,6 +377,15 @@
       is.netIncome = is.pretax - newTax;
       is.tax = newTax;
     }
+    if (examOutcome && examOutcome.fee > 0) {
+      is.nonintExpense += examOutcome.fee;
+      is.nonintExpenseVariable = (is.nonintExpenseVariable || 0) + examOutcome.fee;
+      is.examFee = examOutcome.fee;
+      is.pretax -= examOutcome.fee;
+      const newTax = Math.max(0, is.pretax * 0.21);
+      is.netIncome = is.pretax - newTax;
+      is.tax = newTax;
+    }
     is._nf = nf;
     is._event = event;
 
@@ -373,6 +394,17 @@
     applyBalanceSheet(s, deposits, loans, securities, is);
     const ratios = computeRatios(s, is);
     checkRegulatory(s, ratios, log);
+
+    // Reserve catch-up + shortfall announcements.
+    if (!forecastMode) {
+      if (is.provisionCatchUp && !s._wasProvisionCatchUp) {
+        log.push({ q, type: "warn", msg: `RESERVE CATCH-UP: ACL/NPL coverage fell below 0.35x — a mandatory provision of ${fmt$(is.provision)} was applied over your override. Below-adequate reserves cannot be sustained.` });
+      }
+      s._wasProvisionCatchUp = is.provisionCatchUp;
+      if (is.uncoveredChargeOffs > 0) {
+        log.push({ q, type: "bad", msg: `RESERVE SHORTFALL: charge-offs exceeded the loss allowance by ${fmt$(is.uncoveredChargeOffs)} — the uncovered loss hit earnings and capital directly, and a ${fmt$(is.reserveShortfallFee)} supervisory remediation charge flowed through expenses. Rebuild reserves.` });
+      }
+    }
 
     // Satisfaction-driven flight + threshold-crossing announcements.
     if (!forecastMode) {
@@ -593,9 +625,6 @@
     if (r > 0.83 && m.fedFunds > 0.05) {
       return { severity: "warn", type: "rate_shock", msg: "RATE SHOCK: FOMC surprise +100bp move. Securities portfolio (AFS + HTM) marks down across the board." };
     }
-    if (q > 4 && q % 4 === 0 && r > 0.55) {
-      return { severity: "warn", type: "exam", msg: "REGULATORY EXAM: OCC on-site this quarter. Findings depend on capital, asset quality, liquidity." };
-    }
     if (r < 0.10 && (m.cycle === "expansion" || m.cycle === "recovery")) {
       return { severity: "good", type: "loan_pipeline", msg: "STRONG PIPELINE: Local economic boom. Loan demand surging." };
     }
@@ -617,6 +646,41 @@
     }
 
     return null;
+  }
+
+  // Annual regulatory exam. Assesses opening-quarter ratios against citation thresholds.
+  // Clean exams cost nothing. Citations carry a probabilistic, progressive fee — a
+  // single breach rarely fines (and only $50K); multiple breaches raise both the odds
+  // and the size. A pure-Auto bank holds coverage >= 0.70x so it is never cited there.
+  function assessExam(s, r, q) {
+    const year = Math.ceil(q / 4);
+    const checks = [
+      { label: "CET1",              bad: r.cet1 < 0.085,     val: fmtPct(r.cet1),              lim: "8.5%",  guide: "rebuild capital — ease distributions or slow RWA growth" },
+      { label: "Tier 1 Leverage",   bad: r.tier1Lev < 0.06,  val: fmtPct(r.tier1Lev),          lim: "6.0%",  guide: "cut leverage — raise capital or shrink the balance sheet" },
+      { label: "ACL/NPL coverage",  bad: r.aclToNpl < 0.60,  val: r.aclToNpl.toFixed(2) + "x", lim: "0.60x", guide: "raise provisioning to restore reserve coverage" },
+      { label: "NPL ratio",         bad: r.nplRatio > 0.04,  val: fmtPct(r.nplRatio),          lim: "4.0%",  guide: "tighten underwriting and work down problem loans" },
+      { label: "On-hand liquidity", bad: r.onHandLiq < 0.06, val: fmtPct(r.onHandLiq),         lim: "6.0%",  guide: "lift the liquidity target or temper loan growth" },
+    ];
+    const breaches = checks.filter(c => c.bad);
+    if (breaches.length === 0) {
+      return { fee: 0, type: "good", msg: `REGULATORY EXAM (Year ${year}): OCC on-site review complete. All five key ratios within supervisory expectations — no findings.` };
+    }
+    const n = breaches.length;
+    const findings = breaches.map(b => `${b.label} ${b.val} (limit ${b.lim})`).join("; ");
+    const guidance = breaches.map(b => b.guide).join("; ");
+    const feeProb = Math.min(0.85, n * 0.17);
+    const rFee = Math.abs(noise(s.runSeed, q, 23));
+    if (rFee >= feeProb) {
+      return { fee: 0, type: "warn", msg: `REGULATORY EXAM (Year ${year}): OCC cited ${n} finding${n > 1 ? "s" : ""} — ${findings}. No monetary penalty this cycle, but address before next year's exam: ${guidance}.` };
+    }
+    let fee;
+    if (n === 1) {
+      fee = 50;
+    } else {
+      const rMag = Math.abs(noise(s.runSeed, q, 24));
+      fee = rMag < 0.35 ? 50 : Math.round(clamp(90 + n * 28 + rMag * 90, 100, 250));
+    }
+    return { fee, type: "bad", msg: `REGULATORY EXAM (Year ${year}): OCC cited ${n} finding${n > 1 ? "s" : ""} — ${findings}. $${fee}K penalty assessed. Priorities: ${guidance}.` };
   }
 
   function computeDeposits(s, event, nf = { depositGrowth: 0 }) {
@@ -868,15 +932,40 @@
     const netChargeOffs = Math.max(0, grossChargeOffs - recoveries);
 
     const targetAclRate = 0.0115 + (s.macro.cycle === "recession" ? 0.004 : s.macro.cycle === "late_cycle" ? 0.0015 : 0);
-    const targetACL = avgLoans * targetAclRate;
-    const aclShortfall = Math.max(0, (targetACL - (bs.acl - netChargeOffs)) * 0.25);
+    const loanTargetACL = avgLoans * targetAclRate;
+    const loanShortfall = Math.max(0, (loanTargetACL - (bs.acl - netChargeOffs)) * 0.25);
     const expectedLossOnNew = newNplFormation * 0.40;
 
-    const modelProvision = Math.max(0, netChargeOffs + aclShortfall + expectedLossOnNew * 0.5);
-    const provision =
-      s.decisions.provisionOverride !== null && s.decisions.provisionOverride !== undefined
-        ? s.decisions.provisionOverride
-        : modelProvision;
+    // Coverage-based reserve floor — keeps the Auto model safely above the examiner's
+    // 0.60x ACL/NPL citation line. projNpl mirrors the applyBalanceSheet NPL roll so a
+    // pure-Auto bank structurally maintains >= 0.70x coverage and is never cited.
+    const projNpl = Math.max(0, bs.npl + newNplFormation - grossChargeOffs - bs.npl * 0.06);
+    const coverageFloorACL = projNpl * 0.70;
+    const coverageShortfall = Math.max(0, coverageFloorACL - bs.acl - loanShortfall - expectedLossOnNew * 0.5);
+
+    const modelProvision = Math.max(0, netChargeOffs + loanShortfall + coverageShortfall + expectedLossOnNew * 0.5);
+
+    const overrideActive = s.decisions.provisionOverride !== null && s.decisions.provisionOverride !== undefined;
+    let provision = overrideActive ? s.decisions.provisionOverride : modelProvision;
+
+    // Piece B — mandatory catch-up: an override that has run ACL/NPL coverage below
+    // 0.35x is force-rebuilt toward 0.50x coverage, capped at 0.4% of avg loans/qtr.
+    // The cap is deliberate — a fast NPL spike can still outrun the rebuild, leaving
+    // the door open for a genuine shortfall (Piece A).
+    let provisionCatchUp = false;
+    if (overrideActive && bs.npl > 0 && bs.acl / bs.npl < 0.35) {
+      const rebuildNeed = Math.max(0, bs.npl * 0.50 - (bs.acl - netChargeOffs));
+      const catchUp = Math.min(rebuildNeed, avgLoans * 0.004);
+      if (catchUp > provision) { provision = catchUp; provisionCatchUp = true; }
+    }
+
+    // Piece A — charge-offs beyond the allowance + provision spill into the income
+    // statement (a real loss, hits net income / capital). Piece C — supervisory
+    // remediation fee whenever such a shortfall occurs.
+    const uncoveredChargeOffs = Math.max(0, netChargeOffs - bs.acl - provision);
+    const reserveShortfallFee = uncoveredChargeOffs > 0
+      ? clamp(uncoveredChargeOffs * 0.30, 25, 500)
+      : 0;
 
     // Baseline asset-scaled "other" fees (wires, ATM, BOLI, etc.). Reduced now that
     // Phase 5 explicit service charges + interchange carry most of the load.
@@ -915,16 +1004,19 @@
     let nonintExpenseVariable = (totalAssets(bs) * 0.0233 / 4) * (1 + nf.nonintExpense);
     nonintExpenseVariable += Math.max(0, s.levers.depositAdSpend || 0);
     if (event?.type === "fraud") nonintExpenseVariable += 350;
-    if (event?.type === "exam") nonintExpenseVariable += 80;
+    nonintExpenseVariable += reserveShortfallFee;
     let nonintExpense = nonintExpenseFixed + nonintExpenseVariable;
 
-    const pretax = nii + nonintIncome - nonintExpense - provision;
+    // Uncovered charge-offs flow through the income statement as a credit cost,
+    // so they show up in ROA/ROE/EPS rather than bypassing earnings.
+    const pretax = nii + nonintIncome - nonintExpense - provision - uncoveredChargeOffs;
     const tax = Math.max(0, pretax * 0.21);
     const netIncome = pretax - tax;
 
     return {
       interestIncome, interestExpense, nii,
       provision, netChargeOffs, grossChargeOffs,
+      uncoveredChargeOffs, reserveShortfallFee, provisionCatchUp,
       nonintIncome, nonintExpense,
       nonintExpenseFixed, nonintExpenseVariable,
       pretax, tax, netIncome,
@@ -1070,7 +1162,7 @@
 
     bs.aoci += securities.aociChange;
 
-    const cashChange = depDelta + is.netIncome + is.provision - loans.delta;
+    const cashChange = depDelta + is.netIncome + is.provision + (is.uncoveredChargeOffs || 0) - loans.delta;
     bs.cash += cashChange;
 
     const cashTargetPct = 0.025 + s.levers.liquidityTarget * 0.025;

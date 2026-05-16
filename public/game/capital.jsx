@@ -109,14 +109,23 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
           </button>
         </div>
         <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 12 }}>
-          Override the CECL model's recommended provision. Aggressive reserve building flows through earnings now, padding the cushion later.
+          Override the CECL model's provision. Running lean flatters earnings now — but charge-offs that outrun the allowance spill straight into capital plus a remediation fee, and below 0.35x ACL/NPL coverage a mandatory catch-up overrides you. Auto keeps reserves safely above the examiner's line.
         </div>
-        <NumberDial label="Provision Expense (next qtr)"
-          value={d.provisionOverride ?? 0}
-          onChange={v => setDecision("provisionOverride", v)}
-          min={0} max={2000} step={50} format="money"
-          hint={d.provisionOverride === null ? `Auto recommendation will run · last quarter ${KBE.fmt$(state.lastIS.provision)}` : `Manual override: ${KBE.fmt$(d.provisionOverride)} · click reset to use model`}
-          color={KP.info} locked={locked} />
+        {(() => {
+          const cov = state.bs.npl > 0 ? state.bs.acl / state.bs.npl : null;
+          const covStr = cov === null ? "ACL/NPL coverage —" : `ACL/NPL coverage ${cov.toFixed(2)}x`;
+          const hint = d.provisionOverride === null
+            ? `Auto model will run · ${covStr} · last quarter ${KBE.fmt$(state.lastIS.provision)}`
+            : `Manual override: ${KBE.fmt$(d.provisionOverride)} · ${covStr} · catch-up forces a top-up below 0.35x`;
+          return (
+            <NumberDial label="Provision Expense (next qtr)"
+              value={d.provisionOverride ?? 0}
+              onChange={v => setDecision("provisionOverride", v)}
+              min={0} max={2000} step={50} format="money"
+              hint={hint}
+              color={KP.info} locked={locked} />
+          );
+        })()}
       </div>
 
       {/* Capital impact preview */}

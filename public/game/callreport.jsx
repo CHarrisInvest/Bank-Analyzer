@@ -112,6 +112,7 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Total Interest Expense" value={f$(is.interestExpense)} bold />
             <ReportRow label="Net Interest Income" value={f$(is.nii)} total />
             <ReportRow label="Provision for Credit Losses" value={f$(is.provision)} />
+            {(is.uncoveredChargeOffs ?? 0) > 0 && <ReportRow label="Credit losses in excess of allowance" value={f$(is.uncoveredChargeOffs)} indent={1} neg />}
             {(is.overdraftIncome ?? 0) > 0 && <ReportRow label="Service charges — overdraft" value={f$(is.overdraftIncome)} indent={1} dim />}
             {(is.maintenanceIncome ?? 0) > 0 && <ReportRow label="Service charges — maintenance" value={f$(is.maintenanceIncome)} indent={1} dim />}
             {(is.interchangeIncome ?? 0) > 0 && <ReportRow label="Debit card interchange" value={f$(is.interchangeIncome)} indent={1} dim />}
@@ -128,6 +129,8 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Variable (scales with assets + events)" value={f$(is.nonintExpenseVariable ?? (is.nonintExpense - (is.nonintExpenseFixed ?? 0)))} indent={1} dim />
             {(is.depositAdSpend ?? 0) > 0 && <ReportRow label="of which: deposit marketing" value={f$(is.depositAdSpend)} indent={2} dim />}
             {(is.cfpbCharge ?? 0) > 0 && <ReportRow label="of which: CFPB consent order" value={f$(is.cfpbCharge)} indent={2} neg />}
+            {(is.reserveShortfallFee ?? 0) > 0 && <ReportRow label="of which: reserve shortfall charge" value={f$(is.reserveShortfallFee)} indent={2} neg />}
+            {(is.examFee ?? 0) > 0 && <ReportRow label="of which: exam remediation" value={f$(is.examFee)} indent={2} neg />}
             <ReportRow label="Noninterest Expense" value={f$(is.nonintExpense)} bold />
             <ReportRow label="Pre-tax Income" value={f$(is.pretax)} bold />
             <ReportRow label="Income Tax (21%)" value={f$(is.tax)} dim />
