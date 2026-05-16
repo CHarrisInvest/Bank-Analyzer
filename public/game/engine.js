@@ -488,10 +488,10 @@
       // Grading — primary key: 10-year total return. CET1 + (L/D, satisfaction) modifiers.
       const TIERS = ["F","D","C","B","A","A+"];
       let tierIdx;
-      if (totalReturn > 1.20) tierIdx = 5;
-      else if (totalReturn > 1.00) tierIdx = 4;
-      else if (totalReturn > 0.75) tierIdx = 3;
-      else if (totalReturn > 0.50) tierIdx = 2;
+      if (totalReturn > 2.10) tierIdx = 5;
+      else if (totalReturn > 1.70) tierIdx = 4;
+      else if (totalReturn > 1.30) tierIdx = 3;
+      else if (totalReturn > 0.70) tierIdx = 2;
       else if (totalReturn > 0.25) tierIdx = 1;
       else tierIdx = 0;
 
@@ -521,7 +521,7 @@
       };
       const gradeMsg = GRADE_MSGS[grade];
       const modifiersApplied = [];
-      if (tierIdx < 5 && totalReturn > 1.20) {
+      if (tierIdx < 5 && totalReturn > 2.10) {
         // Reconstruct what dropped us
         if (ratios.cet1 < 0.10) modifiersApplied.push(`CET1 ${(ratios.cet1*100).toFixed(1)}% short of 10%`);
         if (!ldA1Ok && ldOuterOk) modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside A+ band 0.75-1.15`);
@@ -531,7 +531,7 @@
 
       s.gameOver = {
         reason: "victory",
-        severity: totalReturn > 1.00 ? "good" : totalReturn > 0.50 ? "neutral" : "warn",
+        severity: totalReturn > 1.30 ? "good" : totalReturn > 0.70 ? "neutral" : "warn",
         grade, gradeMsg,
         msg: `10 years complete. Total shareholder return ${(totalReturn*100).toFixed(0)}%. BVPS $${initialBVPS.toFixed(2)} → $${finalBVPS.toFixed(2)} (${(bvpsCAGR*100).toFixed(1)}% CAGR), cumulative dividends $${totalDividendsPerShare.toFixed(2)}/share. Avg ROE ${(annualizedROE*100).toFixed(1)}%. Final CET1 ${(ratios.cet1*100).toFixed(1)}%, L/D ${ratios.ltd.toFixed(2)}x. Macro difficulty: ${macroDifficulty}.`,
         modifiersApplied,
