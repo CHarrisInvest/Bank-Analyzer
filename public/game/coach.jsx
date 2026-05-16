@@ -38,7 +38,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='live-forecast']",
       title: "Live forecast",
-      body: "This panel reprices the next quarter the moment you move any lever — NIM, net income, CET1, NPL, and customer satisfaction all update before you commit.",
+      body: "This panel reprices the next quarter the moment you move any lever — NIM, net income and EPS, CET1, NPL, and customer satisfaction all update before you commit.",
       placement: "bottom",
     },
     {
@@ -84,7 +84,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='report-title']",
       title: "Your filed call report",
-      body: "FFIEC 051 — the regulatory quarterly your bank would actually file. Schedule RC for the balance sheet, RI for the income statement, RC-N for asset quality, plus key regulatory ratios. Read-only — no decisions, just data.",
+      body: "FFIEC 051 — the regulatory quarterly your bank would actually file. Schedule RC for the balance sheet, RI for the income statement and credit quality, RC-R for regulatory capital ratios. Read-only — no decisions, just data.",
       placement: "bottom",
     },
   ],
