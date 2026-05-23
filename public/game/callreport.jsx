@@ -84,6 +84,7 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Savings and money market" value={f$(bs.deposits.savingsMM)} dim />
             <ReportRow label="Time deposits" value={f$(bs.deposits.timeDeposits)} dim />
             <ReportRow label="Total deposits" value={f$(td)} bold />
+            <ReportRow label="Brokered CDs" value={f$(bs.brokeredCDs || 0)} />
             <ReportRow label="FHLB advances" value={f$(bs.borrowingsFHLB)} />
             <ReportRow label="Subordinated debt" value={f$(bs.subDebt)} />
             <ReportRow label="Other liabilities" value={f$(bs.otherLiab)} dim />
@@ -111,8 +112,26 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Total Interest Expense" value={f$(is.interestExpense)} bold />
             <ReportRow label="Net Interest Income" value={f$(is.nii)} total />
             <ReportRow label="Provision for Credit Losses" value={f$(is.provision)} />
-            <ReportRow label="Noninterest Income" value={f$(is.nonintIncome)} />
-            <ReportRow label="Noninterest Expense" value={f$(is.nonintExpense)} />
+            {(is.uncoveredChargeOffs ?? 0) > 0 && <ReportRow label="Credit losses in excess of allowance" value={f$(is.uncoveredChargeOffs)} indent={1} neg />}
+            {(is.overdraftIncome ?? 0) > 0 && <ReportRow label="Service charges — overdraft" value={f$(is.overdraftIncome)} indent={1} dim />}
+            {(is.maintenanceIncome ?? 0) > 0 && <ReportRow label="Service charges — maintenance" value={f$(is.maintenanceIncome)} indent={1} dim />}
+            {(is.interchangeIncome ?? 0) > 0 && <ReportRow label="Debit card interchange" value={f$(is.interchangeIncome)} indent={1} dim />}
+            {(is.sbaGain ?? 0) > 0 && <ReportRow label="Gain on sale — SBA" value={f$(is.sbaGain)} indent={1} dim />}
+            {(is.mortGain ?? 0) > 0 && <ReportRow label="Gain on sale — mortgage" value={f$(is.mortGain)} indent={1} dim />}
+            {(() => {
+              const itemized = (is.overdraftIncome || 0) + (is.maintenanceIncome || 0) + (is.interchangeIncome || 0) + (is.sbaGain || 0) + (is.mortGain || 0);
+              const other = (is.nonintIncome || 0) - itemized;
+              if (other > 1) return <ReportRow label="Other (BOLI, wires, ATM, etc.)" value={f$(other)} indent={1} dim />;
+              return null;
+            })()}
+            <ReportRow label="Noninterest Income" value={f$(is.nonintIncome)} bold />
+            <ReportRow label="Fixed (premises + systems + base)" value={f$(is.nonintExpenseFixed ?? 0)} indent={1} dim />
+            <ReportRow label="Variable (scales with assets + events)" value={f$(is.nonintExpenseVariable ?? (is.nonintExpense - (is.nonintExpenseFixed ?? 0)))} indent={1} dim />
+            {(is.depositAdSpend ?? 0) > 0 && <ReportRow label="of which: deposit marketing" value={f$(is.depositAdSpend)} indent={2} dim />}
+            {(is.cfpbCharge ?? 0) > 0 && <ReportRow label="of which: CFPB consent order" value={f$(is.cfpbCharge)} indent={2} neg />}
+            {(is.reserveShortfallFee ?? 0) > 0 && <ReportRow label="of which: reserve shortfall charge" value={f$(is.reserveShortfallFee)} indent={2} neg />}
+            {(is.examFee ?? 0) > 0 && <ReportRow label="of which: exam remediation" value={f$(is.examFee)} indent={2} neg />}
+            <ReportRow label="Noninterest Expense" value={f$(is.nonintExpense)} bold />
             <ReportRow label="Pre-tax Income" value={f$(is.pretax)} bold />
             <ReportRow label="Income Tax (21%)" value={f$(is.tax)} dim />
             <ReportRow label="Net Income" value={f$(is.netIncome)} total />
@@ -122,6 +141,12 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Share repurchases" value={f$(is.repurchases)} />
             {is.repurchases > 0 && is.repurchasePrice && (
               <ReportRow label="Repurchase price / shares (K)" value={`$${is.repurchasePrice.toFixed(2)} / ${(is.repurchaseShares || 0).toFixed(1)}`} dim />
+            )}
+            {is.equityIssuanceGross > 0 && (
+              <>
+                <ReportRow label="Equity issuance (gross)" value={f$(is.equityIssuanceGross)} />
+                <ReportRow label="Issuance price / shares (K)" value={`$${(is.equityIssuancePrice || 0).toFixed(2)} / ${(is.equityIssuanceShares || 0).toFixed(1)}`} dim />
+              </>
             )}
 
             <div className="label" style={{ fontSize: 10, marginTop: 14, marginBottom: 4 }}>Credit Quality</div>
@@ -146,6 +171,20 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Efficiency Ratio" value={fpct(ratios.efficiency, 1)} />
             <ReportRow label="Loan-to-Deposit Ratio" value={`${ratios.ltd.toFixed(2)}x`} />
             <ReportRow label="On-hand Liquidity" value={fpct(ratios.onHandLiq, 1)} />
+
+            <div className="label" style={{ fontSize: 10, marginTop: 14, marginBottom: 4 }}>Concentration Memos</div>
+            {(() => {
+              const indShare = bs.loansGross > 0 ? (bs.loansIndirect || 0) / bs.loansGross : 0;
+              const wholesale = (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0);
+              const totalFunding = td + wholesale;
+              const wsShare = totalFunding > 0 ? wholesale / totalFunding : 0;
+              return (
+                <>
+                  <ReportRow label="Indirect loan share" value={fpct(indShare, 1)} neg={indShare > 0.15} />
+                  <ReportRow label="Wholesale funding share" value={fpct(wsShare, 1)} neg={wsShare > 0.15} />
+                </>
+              );
+            })()}
           </ReportSection>
         </div>
       </div>

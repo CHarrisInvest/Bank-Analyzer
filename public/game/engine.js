@@ -23,6 +23,111 @@
     return ((x - Math.floor(x)) - 0.5) * 2 * scale;
   };
 
+  // ---------- macro difficulty ----------
+  // Informational scorecard line — does not affect grading. Scored from how much of
+  // the run was spent in stress regimes and how many bad-severity events landed.
+  const BAD_EVENT_TAGS = ["DEPOSIT FLIGHT","REGIONAL CREDIT SHOCK","RATE SHOCK","FRAUD LOSS"];
+  function macroDifficultyFor(s) {
+    const recessionQtrs = s.history.filter(h => h.cycle === "recession").length;
+    const lateCycleQtrs = s.history.filter(h => h.cycle === "late_cycle").length;
+    const badEventCount = s.log.filter(l =>
+      l.q > 0 && BAD_EVENT_TAGS.some(t => l.msg.startsWith(t))
+    ).length;
+    const score = recessionQtrs * 2 + lateCycleQtrs * 1 + badEventCount * 2;
+    let label = "Easy";
+    if (score >= 15) label = "Normal";
+    if (score >= 30) label = "Hard";
+    if (score >= 50) label = "Brutal";
+    return { label, score, recessionQtrs, lateCycleQtrs, badEventCount };
+  }
+
+  // ---------- customer satisfaction ----------
+  // Single 0-100 score. Target driven by deposit pricing, ad spend, and a Phase-5
+  // fee-load slot. Diminishing returns past ±20 pts. State moves toward target
+  // with asymmetric hysteresis (~7-qtr half-life rising, ~4-qtr half-life falling).
+  function computeSatisfaction(s) {
+    const lev = s.levers;
+    const pricingPts = (lev.depositPricing || 0) * 5;          // -10..+10
+    const adSpend = Math.max(0, lev.depositAdSpend || 0);
+    const adPts = adSpend > 0 ? 2 * Math.log(1 + adSpend / 100) / Math.log(6) : 0; // 0..+2 (small, primarily an acquisition tool)
+    const feePts = s.feeLoadPts || 0;                          // Phase-5 stub, currently 0
+
+    let sumPts = pricingPts + adPts + feePts;
+    // Diminishing returns on the upside only — you can only make customers so happy.
+    // On the downside each grievance compounds without relief.
+    if (sumPts > 20) sumPts = 20 + (sumPts - 20) * 0.5;
+    // Compounding bad-management penalty: cheap pricing + punitive fees synergize
+    // (customers feel nickel-and-dimed AND underpaid simultaneously).
+    if (pricingPts < -5 && feePts < -5) sumPts -= 7;
+
+    const target = clamp(65 + sumPts, 0, 100);
+    return { target, pricingPts, adPts, feePts };
+  }
+  function applySatisfactionHysteresis(cur, target) {
+    const c = cur == null ? 70 : cur;
+    const delta = target - c;
+    const speed = delta >= 0 ? 1 / 8 : 1 / 5; // rising slow, falling fast
+    return clamp(c + delta * speed, 0, 100);
+  }
+  // Fee structure (Phase 5). Account count proxy from transaction-account deposits.
+  // Avg balance per account ~$6.5K (community-bank typical). Overdraft incidents at
+  // 0.25/acct/qtr in baseline cycle, more in recession. Interchange a passive 4bps/qtr
+  // on transaction deposits — community banks under $10B keep the full Durbin amount.
+  function computeFeeIncome(s) {
+    const d = s.bs.deposits;
+    const txnDeposits = d.noninterest + d.interestChecking + d.savingsMM;   // $K
+    // Avg balance per account ~$6,500. Express accounts in THOUSANDS so dollar-per-account
+    // math lands directly in $K.
+    const accountsK = Math.max(0.001, txnDeposits / 6500);
+    let incidentsPerAcct = 0.25;
+    if (s.macro.cycle === "recession") incidentsPerAcct = 0.32;
+    if (s.macro.cycle === "late_cycle") incidentsPerAcct = 0.28;
+
+    const ofFee = Math.max(0, s.levers.overdraftFee || 0);
+    const overdraftIncidentsK = accountsK * incidentsPerAcct;
+    // Overdraft elasticity: very high fees drive opt-outs / account closures, dampening volume.
+    const ofVolumeMult = ofFee > 30 ? Math.max(0.55, 1 - (ofFee - 30) * 0.012) : 1.0;
+    const overdraftIncome = overdraftIncidentsK * ofFee * ofVolumeMult;     // K-incidents * $/incident = $K
+
+    const monthlyFee = Math.max(0, s.levers.monthlyMaintenance || 0);
+    // Roughly 22% of accounts pay maintenance (rest meet waiver minimums). Higher fee -> waiver shopping.
+    const payShare = monthlyFee > 12 ? Math.max(0.08, 0.22 - (monthlyFee - 12) * 0.008) : 0.22;
+    const maintenanceIncome = accountsK * payShare * monthlyFee * 3;        // $K
+
+    const interchangeRate = 0.0004;                                          // 4bps/qtr on txn deposits
+    const interchangeIncome = txnDeposits * interchangeRate;                 // $K
+
+    return {
+      accountsK, overdraftIncidentsK,
+      overdraftIncome, maintenanceIncome, interchangeIncome,
+      serviceCharges: overdraftIncome + maintenanceIncome,
+      totalPhase5: overdraftIncome + maintenanceIncome + interchangeIncome,
+    };
+  }
+  // Translate fees into satisfaction pts. Overdraft is more punishing per dollar than
+  // maintenance (regulator-watched, customer-watched). Range targets roughly -10..0.
+  function computeFeeLoadPts(s) {
+    const ofFee = Math.max(0, s.levers.overdraftFee || 0);
+    const monthlyFee = Math.max(0, s.levers.monthlyMaintenance || 0);
+    const ofPts = ofFee <= 20 ? 0 : -Math.min(7, (ofFee - 20) * 0.20);    // $30 -> -2, $45 -> -5, $55 -> -7
+    const mntPts = monthlyFee <= 5 ? 0 : -Math.min(4, (monthlyFee - 5) * 0.20); // $10 -> -1, $20 -> -3, $25 -> -4
+    return ofPts + mntPts;
+  }
+
+  // Retention multiplier on organic deposit growth (piecewise linear).
+  function retentionMult(sat) {
+    const pts = [
+      [0, 0.50], [20, 0.55], [35, 0.72], [50, 0.88], [60, 0.96],
+      [65, 1.00], [70, 1.012], [75, 1.025], [80, 1.04], [85, 1.052], [100, 1.060],
+    ];
+    if (sat <= 0) return 0.50;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+      if (sat >= x1 && sat <= x2) return y1 + (y2 - y1) * (sat - x1) / (x2 - x1);
+    }
+    return 1.060;
+  }
+
   // ---------- initial state ----------
   const INITIAL_STATE = {
     quarter: 1,
@@ -56,6 +161,7 @@
         timeDeposits: 70_000,
       },
       borrowingsFHLB: 0,
+      brokeredCDs: 0,
       subDebt: 0,
       subDebtAvgCost: 0,
       otherLiab: 3_000,
@@ -63,6 +169,8 @@
       commonEquity: 25_000,
       retainedEarnings: 8_200,
       sharesOutstanding: 2_000,
+
+      loansIndirect: 0,
     },
 
     lastIS: {
@@ -72,6 +180,8 @@
       provision: 198,
       nonintIncome: 603,
       nonintExpense: 2_352,
+      nonintExpenseFixed: 403,
+      nonintExpenseVariable: 1_949,
       pretax: 834,
       tax: 175,
       netIncome: 659,
@@ -85,6 +195,22 @@
       avgDeposits: 300_000,
       loanYield: 0.0533,
       depCost: 0.0191,
+      sbaGain: 0,
+      sbaSold: 0,
+      mortGain: 0,
+      mortFixedCost: 0,
+      depositAdSpend: 0,
+      brokeredCDInterest: 0,
+      vintageNplAdj: 0,
+      overdraftIncome: 0,
+      maintenanceIncome: 0,
+      interchangeIncome: 0,
+      serviceCharges: 0,
+      accountCountK: 0,
+      uncoveredChargeOffs: 0,
+      reserveShortfallFee: 0,
+      examFee: 0,
+      provisionCatchUp: false,
     },
 
     levers: {
@@ -93,17 +219,30 @@
       depositPricing: 0,
       securitiesDuration: 1,
       liquidityTarget: 1,
+      sbaSalePct: 0,
+      mortgageProgram: 0,
+      depositAdSpend: 0,
+      indirectShare: 0,
+      overdraftFee: 30,
+      monthlyMaintenance: 10,
     },
 
     decisions: {
       dividendPerShare: 0.18,
       repurchaseAmount: 0,
+      equityIssuance: 0,
       fhlbAdvance: 0,
       subDebtIssuance: 0,
+      brokeredCDsTarget: 0,
       provisionOverride: null,
     },
 
     creditRiskBank: 0,
+    loanVintages: [],
+    satisfaction: 70,
+    feeLoadPts: 0,
+    overdraftHistory: [],
+    cfpbConsent: null,
     history: [],
     log: [
       { q: 0, type: "system", msg: "Welcome to First Meridian Bank, NA. You are CEO of a single-branch community bank. Make it through 40 quarters without failing." },
@@ -152,8 +291,51 @@
       });
     }
 
+    // Track overdraft-fee history (rolling) for CFPB-inquiry trigger.
+    if (!s.overdraftHistory) s.overdraftHistory = [];
+    s.overdraftHistory.push(Math.max(0, s.levers.overdraftFee || 0));
+    if (s.overdraftHistory.length > 8) s.overdraftHistory.shift();
+
+    // Tick down active CFPB consent order.
+    if (s.cfpbConsent && s.cfpbConsent.qtrsLeft > 0) {
+      s.cfpbConsent.qtrsLeft -= 1;
+      if (s.cfpbConsent.qtrsLeft === 0) {
+        s.cfpbConsent = null;
+        if (!forecastMode) log.push({ q, type: "good", msg: "CFPB CONSENT ORDER LIFTED: reputational drag rolled off." });
+      }
+    }
+
     const event = (forecastMode || q === 1) ? null : maybeEvent(s, q);
     if (event) log.push({ q, type: event.severity, msg: event.msg });
+
+    // CFPB inquiry: probability-weighted when overdraft sustained > $30 for 4+ qtrs.
+    let cfpbEvent = null;
+    if (!forecastMode && !s.cfpbConsent && s.overdraftHistory.length >= 4) {
+      const last4 = s.overdraftHistory.slice(-4);
+      const sustained = last4.every(f => f > 30);
+      if (sustained) {
+        const r = Math.abs(noise(s.runSeed, q, 22));
+        const avg = last4.reduce((a, b) => a + b, 0) / 4;
+        const triggerProb = Math.min(0.40, (avg - 30) * 0.025);
+        if (r < triggerProb) {
+          const oneTime = 200 + Math.round((avg - 30) * 30);            // $200-$650K consent order
+          cfpbEvent = { oneTime, qtrsActive: 6 };
+          s.cfpbConsent = { qtrsLeft: 6, openedAt: q };
+          log.push({ q, type: "bad", msg: `CFPB INQUIRY: regulator opened consent-order proceeding citing overdraft practices averaging $${avg.toFixed(0)}/item. One-time charge ${fmt$(oneTime)} hits non-int expense; reputational drag on satisfaction for 6 quarters.` });
+        }
+      }
+    }
+    if (cfpbEvent) {
+      // Surface as additional non-int expense in this quarter via the event hook.
+    }
+
+    // Annual regulatory exam — Year 2 onward. Scheduled (not a random event slot),
+    // so it can co-occur with other events. Assessed against opening-quarter ratios.
+    let examOutcome = null;
+    if (!forecastMode && q > 4 && q % 4 === 0) {
+      examOutcome = assessExam(s, computeRatios(s, s.lastIS), q);
+      log.push({ q, type: examOutcome.type, msg: examOutcome.msg });
+    }
 
     const suppressNoise = forecastMode || q === 1;
     const nf = suppressNoise ? {
@@ -167,10 +349,43 @@
       nonintExpense: noise(s.runSeed, q, 14, 0.03),
     };
 
+    // Phase 5 fee-load pts feed Phase 4 satisfaction target.
+    // Refresh from current lever positions each quarter.
+    s.feeLoadPts = computeFeeLoadPts(s);
+    // Active CFPB consent order applies an additional sat penalty for its duration.
+    if (s.cfpbConsent && s.cfpbConsent.qtrsLeft > 0) {
+      s.feeLoadPts -= 6;
+    }
+
+    // Customer satisfaction — driven by pricing, ad spend, and fee load.
+    // Updates with asymmetric hysteresis BEFORE deposits compute, so today's lever
+    // changes immediately influence retention this quarter.
+    const satBefore = s.satisfaction;
+    const satInfo = computeSatisfaction(s);
+    s.satisfaction = applySatisfactionHysteresis(s.satisfaction, satInfo.target);
+
     const deposits = computeDeposits(s, event, nf);
     const loans = computeLoans(s, event, nf);
     const securities = computeSecurities(s, event, prevFedFunds, prev10y);
-    const is = computeIncome(s, deposits, loans, securities, event, nf);
+    const is = computeIncome(s, deposits, loans, securities, event, nf, prevFedFunds);
+    if (cfpbEvent) {
+      is.nonintExpense += cfpbEvent.oneTime;
+      is.nonintExpenseVariable = (is.nonintExpenseVariable || 0) + cfpbEvent.oneTime;
+      is.cfpbCharge = cfpbEvent.oneTime;
+      is.pretax -= cfpbEvent.oneTime;
+      const newTax = Math.max(0, is.pretax * 0.21);
+      is.netIncome = is.pretax - newTax;
+      is.tax = newTax;
+    }
+    if (examOutcome && examOutcome.fee > 0) {
+      is.nonintExpense += examOutcome.fee;
+      is.nonintExpenseVariable = (is.nonintExpenseVariable || 0) + examOutcome.fee;
+      is.examFee = examOutcome.fee;
+      is.pretax -= examOutcome.fee;
+      const newTax = Math.max(0, is.pretax * 0.21);
+      is.netIncome = is.pretax - newTax;
+      is.tax = newTax;
+    }
     is._nf = nf;
     is._event = event;
 
@@ -179,6 +394,33 @@
     applyBalanceSheet(s, deposits, loans, securities, is);
     const ratios = computeRatios(s, is);
     checkRegulatory(s, ratios, log);
+
+    // Reserve catch-up + shortfall announcements.
+    if (!forecastMode) {
+      if (is.provisionCatchUp && !s._wasProvisionCatchUp) {
+        log.push({ q, type: "warn", msg: `RESERVE CATCH-UP: ACL/NPL coverage fell below 0.35x — a mandatory provision of ${fmt$(is.provision)} was applied over your override. Below-adequate reserves cannot be sustained.` });
+      }
+      s._wasProvisionCatchUp = is.provisionCatchUp;
+      if (is.uncoveredChargeOffs > 0) {
+        log.push({ q, type: "bad", msg: `RESERVE SHORTFALL: charge-offs exceeded the loss allowance by ${fmt$(is.uncoveredChargeOffs)} — the uncovered loss hit earnings and capital directly, and a ${fmt$(is.reserveShortfallFee)} supervisory remediation charge flowed through expenses. Rebuild reserves.` });
+      }
+    }
+
+    // Satisfaction-driven flight + threshold-crossing announcements.
+    if (!forecastMode) {
+      if (deposits.satFlightPct < 0) {
+        const pct = (deposits.satFlightPct * 100).toFixed(1);
+        log.push({ q, type: "warn", msg: `RETENTION SLIPPING: customer satisfaction at ${Math.round(s.satisfaction)} — ${pct}% of deposits walked this quarter chasing better pricing/service.` });
+      }
+      const wasLowSat = s._wasLowSat === true;
+      const isLowSat = s.satisfaction < 50;
+      if (isLowSat && !wasLowSat) {
+        log.push({ q, type: "warn", msg: `CUSTOMER SATISFACTION LOW: dropped to ${Math.round(s.satisfaction)}. Retention multiplier turning negative; flights possible below 35.` });
+      } else if (!isLowSat && wasLowSat && s.satisfaction >= 60) {
+        log.push({ q, type: "good", msg: `CUSTOMER SATISFACTION RECOVERED: now at ${Math.round(s.satisfaction)}. Deposit retention back to neutral or better.` });
+      }
+      s._wasLowSat = isLowSat;
+    }
 
     s.history.push({
       q,
@@ -200,6 +442,11 @@
       cycle: s.macro.cycle,
       dividendsPaid: is.dividendsPaid || 0,
       dividendPerShare: s.decisions.dividendPerShare || 0,
+      satisfaction: s.satisfaction,
+      nonintIncome: is.nonintIncome,
+      nonintExpense: is.nonintExpense,
+      sharesOutstanding: s.bs.sharesOutstanding,
+      eps: is.netIncome / Math.max(1e-6, s.bs.sharesOutstanding),
     });
 
     s.lastIS = is;
@@ -209,8 +456,10 @@
     s.decisions = {
       dividendPerShare: s.decisions.dividendPerShare,
       repurchaseAmount: 0,
+      equityIssuance: 0,
       fhlbAdvance: 0,
       subDebtIssuance: 0,
+      brokeredCDsTarget: s.bs.brokeredCDs,
       provisionOverride: null,
     };
 
@@ -228,32 +477,72 @@
       const totalDividendsPerShare = s.history.reduce((sum, h) => sum + (h.dividendPerShare || 0), 0);
       const totalReturn = (finalBVPS - initialBVPS + totalDividendsPerShare) / initialBVPS;
 
-      let grade = "F";
-      let gradeMsg = "";
-      if (bvpsCAGR > 0.10 && ratios.cet1 > 0.10) {
-        grade = "A+"; gradeMsg = "OUTSTANDING — top decile bank performance";
-      } else if (bvpsCAGR > 0.08 && ratios.cet1 > 0.08) {
-        grade = "A"; gradeMsg = "Excellent — strong franchise built";
-      } else if (bvpsCAGR > 0.06 && ratios.cet1 > 0.07) {
-        grade = "B"; gradeMsg = "Good — solid steward of shareholder capital";
-      } else if (bvpsCAGR > 0.03 && ratios.cet1 > 0.07) {
-        grade = "C"; gradeMsg = "Adequate — bank survived but underperformed peers";
-      } else if (bvpsCAGR > 0) {
-        grade = "D"; gradeMsg = "Marginal — barely created shareholder value";
-      } else {
-        grade = "F"; gradeMsg = "Failed — destroyed shareholder value despite avoiding regulatory failure";
+      // Macro difficulty score — informational only, does not affect grade.
+      const macro = macroDifficultyFor(s);
+      const macroDifficulty = macro.label;
+      const macroScore = macro.score;
+      const recessionQtrs = macro.recessionQtrs;
+      const lateCycleQtrs = macro.lateCycleQtrs;
+      const badEventCount = macro.badEventCount;
+
+      // Grading — primary key: 10-year total return. CET1 + (L/D, satisfaction) modifiers.
+      const TIERS = ["F","D","C","B","A","A+"];
+      let tierIdx;
+      if (totalReturn > 2.10) tierIdx = 5;
+      else if (totalReturn > 1.70) tierIdx = 4;
+      else if (totalReturn > 1.30) tierIdx = 3;
+      else if (totalReturn > 0.70) tierIdx = 2;
+      else if (totalReturn > 0.25) tierIdx = 1;
+      else tierIdx = 0;
+
+      // CET1 gates per tier (A+:10%, A:9%, B:8%, C:7%). If short, drop tier until satisfied.
+      const cet1Gates = [0, 0, 0.07, 0.08, 0.09, 0.10];
+      while (tierIdx > 0 && ratios.cet1 < cet1Gates[tierIdx]) tierIdx -= 1;
+
+      // L/D modifier: outside 0.65-1.15 drops one tier. A+ requires lower-bound 0.75.
+      const ldOuterOk = ratios.ltd >= 0.65 && ratios.ltd <= 1.15;
+      const ldA1Ok = ratios.ltd >= 0.75 && ratios.ltd <= 1.15;
+      const ldPenalty = !ldOuterOk;
+      if (tierIdx === 5 && !ldA1Ok) tierIdx = 4;
+      if (ldPenalty && tierIdx > 0) tierIdx -= 1;
+
+      // Customer satisfaction modifier: < 50 drops one tier.
+      const satPenalty = (s.satisfaction ?? 70) < 50;
+      if (satPenalty && tierIdx > 0) tierIdx -= 1;
+
+      const grade = TIERS[tierIdx];
+      const GRADE_MSGS = {
+        "A+": "OUTSTANDING — top decile bank performance",
+        "A":  "Excellent — strong franchise built",
+        "B":  "Good — solid steward of shareholder capital",
+        "C":  "Adequate — bank survived but underperformed peers",
+        "D":  "Marginal — barely created shareholder value",
+        "F":  "Failed — destroyed shareholder value despite avoiding regulatory failure",
+      };
+      const gradeMsg = GRADE_MSGS[grade];
+      const modifiersApplied = [];
+      if (tierIdx < 5 && totalReturn > 2.10) {
+        // Reconstruct what dropped us
+        if (ratios.cet1 < 0.10) modifiersApplied.push(`CET1 ${(ratios.cet1*100).toFixed(1)}% short of 10%`);
+        if (!ldA1Ok && ldOuterOk) modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside A+ band 0.75-1.15`);
       }
+      if (ldPenalty) modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside healthy band 0.65-1.15`);
+      if (satPenalty) modifiersApplied.push(`customer satisfaction ${Math.round(s.satisfaction)} below 50`);
 
       s.gameOver = {
         reason: "victory",
-        severity: bvpsCAGR > 0.05 ? "good" : "neutral",
+        severity: totalReturn > 1.30 ? "good" : totalReturn > 0.70 ? "neutral" : "warn",
         grade, gradeMsg,
-        msg: `10 years complete. Tenure: BVPS grew from $${initialBVPS.toFixed(2)} to $${finalBVPS.toFixed(2)} (${(bvpsCAGR*100).toFixed(1)}% CAGR). Avg ROE ${(annualizedROE*100).toFixed(1)}%. Final CET1 ${(ratios.cet1*100).toFixed(1)}%.`,
+        msg: `10 years complete. Total shareholder return ${(totalReturn*100).toFixed(0)}%. BVPS $${initialBVPS.toFixed(2)} → $${finalBVPS.toFixed(2)} (${(bvpsCAGR*100).toFixed(1)}% CAGR), cumulative dividends $${totalDividendsPerShare.toFixed(2)}/share. Avg ROE ${(annualizedROE*100).toFixed(1)}%. Final CET1 ${(ratios.cet1*100).toFixed(1)}%, L/D ${ratios.ltd.toFixed(2)}x. Macro difficulty: ${macroDifficulty}.`,
+        modifiersApplied,
         stats: {
           finalBVPS, initialBVPS, bvpsCAGR, totalReturn,
           annualizedROE, finalCET1: ratios.cet1, finalEq,
           finalAssets: totalAssets(s.bs), finalPx,
           totalDividendsPaid, totalDividendsPerShare,
+          finalLTD: ratios.ltd, finalSat: s.satisfaction,
+          macroDifficulty, macroScore,
+          recessionQtrs, lateCycleQtrs, badEventCount,
         },
       };
     }
@@ -272,7 +561,7 @@
       m.cycle = "late_cycle"; m.cycleQuarters = 0;
     } else if (m.cycle === "late_cycle" && m.cycleQuarters > 4 && r > 0.6) {
       m.cycle = "recession"; m.cycleQuarters = 0;
-    } else if (m.cycle === "recession" && m.cycleQuarters > 3 && r > 0.5) {
+    } else if (m.cycle === "recession" && m.cycleQuarters > 1 && r > 0.5) {
       m.cycle = "recovery"; m.cycleQuarters = 0;
     } else if (m.cycle === "recovery" && m.cycleQuarters > 4 && r > 0.5) {
       m.cycle = "expansion"; m.cycleQuarters = 0;
@@ -299,6 +588,11 @@
       m.treasury10y + (target10y - m.treasury10y) * meanRevSpeed + t10yShock,
       0.015, 0.085
     );
+    // Suppress curve inversion in early-stage expansion — real expansions almost
+    // always carry a positive term premium until the cycle matures.
+    if (m.cycle === "expansion" && m.cycleQuarters < 4 && m.treasury10y < m.fedFunds + 0.0025) {
+      m.treasury10y = m.fedFunds + 0.0025;
+    }
 
     if (m.cycle === "expansion") {
       m.unemployment = clamp(m.unemployment - 0.001, 0.032, 0.10);
@@ -325,14 +619,11 @@
     if (m.cycle === "recession" && r > 0.78) {
       return { severity: "bad", type: "credit_shock", msg: "REGIONAL CREDIT SHOCK: Major employer in service area announced layoffs. Expect elevated charge-offs." };
     }
-    if (r > 0.88) {
+    if (r > 0.96) {
       return { severity: "bad", type: "deposit_run", msg: "DEPOSIT FLIGHT: Local credit union launched aggressive money-market campaign. Outflows expected." };
     }
     if (r > 0.83 && m.fedFunds > 0.05) {
       return { severity: "warn", type: "rate_shock", msg: "RATE SHOCK: FOMC surprise +100bp move. Securities portfolio (AFS + HTM) marks down across the board." };
-    }
-    if (q > 4 && q % 4 === 0 && r > 0.55) {
-      return { severity: "warn", type: "exam", msg: "REGULATORY EXAM: OCC on-site this quarter. Findings depend on capital, asset quality, liquidity." };
     }
     if (r < 0.10 && (m.cycle === "expansion" || m.cycle === "recovery")) {
       return { severity: "good", type: "loan_pipeline", msg: "STRONG PIPELINE: Local economic boom. Loan demand surging." };
@@ -357,10 +648,46 @@
     return null;
   }
 
+  // Annual regulatory exam. Assesses opening-quarter ratios against citation thresholds.
+  // Clean exams cost nothing. Citations carry a probabilistic, progressive fee — a
+  // single breach rarely fines (and only $50K); multiple breaches raise both the odds
+  // and the size. A pure-Auto bank holds coverage >= 0.70x so it is never cited there.
+  function assessExam(s, r, q) {
+    const year = Math.ceil(q / 4);
+    const checks = [
+      { label: "CET1",              bad: r.cet1 < 0.085,     val: fmtPct(r.cet1),              lim: "8.5%",  guide: "rebuild capital — ease distributions or slow RWA growth" },
+      { label: "Tier 1 Leverage",   bad: r.tier1Lev < 0.06,  val: fmtPct(r.tier1Lev),          lim: "6.0%",  guide: "cut leverage — raise capital or shrink the balance sheet" },
+      { label: "ACL/NPL coverage",  bad: r.aclToNpl < 0.60,  val: r.aclToNpl.toFixed(2) + "x", lim: "0.60x", guide: "raise provisioning to restore reserve coverage" },
+      { label: "NPL ratio",         bad: r.nplRatio > 0.04,  val: fmtPct(r.nplRatio),          lim: "4.0%",  guide: "tighten underwriting and work down problem loans" },
+      { label: "On-hand liquidity", bad: r.onHandLiq < 0.06, val: fmtPct(r.onHandLiq),         lim: "6.0%",  guide: "lift the liquidity target or temper loan growth" },
+    ];
+    const breaches = checks.filter(c => c.bad);
+    if (breaches.length === 0) {
+      return { fee: 0, type: "good", msg: `REGULATORY EXAM (Year ${year}): OCC on-site review complete. All five key ratios within supervisory expectations — no findings.` };
+    }
+    const n = breaches.length;
+    const findings = breaches.map(b => `${b.label} ${b.val} (limit ${b.lim})`).join("; ");
+    const guidance = breaches.map(b => b.guide).join("; ");
+    const feeProb = Math.min(0.85, n * 0.17);
+    const rFee = Math.abs(noise(s.runSeed, q, 23));
+    if (rFee >= feeProb) {
+      return { fee: 0, type: "warn", msg: `REGULATORY EXAM (Year ${year}): OCC cited ${n} finding${n > 1 ? "s" : ""} — ${findings}. No monetary penalty this cycle, but address before next year's exam: ${guidance}.` };
+    }
+    let fee;
+    if (n === 1) {
+      fee = 50;
+    } else {
+      const rMag = Math.abs(noise(s.runSeed, q, 24));
+      fee = rMag < 0.35 ? 50 : Math.round(clamp(90 + n * 28 + rMag * 90, 100, 250));
+    }
+    return { fee, type: "bad", msg: `REGULATORY EXAM (Year ${year}): OCC cited ${n} finding${n > 1 ? "s" : ""} — ${findings}. $${fee}K penalty assessed. Priorities: ${guidance}.` };
+  }
+
   function computeDeposits(s, event, nf = { depositGrowth: 0 }) {
     const d = s.bs.deposits;
     const lev = s.levers;
     const m = s.macro;
+    const sat = s.satisfaction != null ? s.satisfaction : 70;
 
     let organicGrowth = 0.0075;
     if (m.cycle === "expansion") organicGrowth = 0.013;
@@ -368,6 +695,8 @@
     if (m.cycle === "recession") organicGrowth = -0.005;
     if (m.cycle === "recovery") organicGrowth = 0.008;
     organicGrowth = organicGrowth * (1 + nf.depositGrowth);
+    // Satisfaction multiplies organic flow (retention + slight acquisition tilt).
+    organicGrowth *= retentionMult(sat);
 
     const pricingPremium = lev.depositPricing * 0.004;
 
@@ -380,11 +709,35 @@
       pricingFlowAdj = 0;
     }
 
+    // deposit_run severity modulated mildly by satisfaction.
     let runDrain = 0;
-    if (event?.type === "deposit_run") runDrain = -0.10;
+    if (event?.type === "deposit_run") {
+      let base = -0.10;
+      if (sat >= 80) base = -0.075;
+      else if (sat <= 40) base = -0.125;
+      runDrain = base;
+    }
     if (event?.type === "competitor_exit") runDrain = 0.015;
 
-    const totalNet = totalDeposits(d) * (organicGrowth + pricingFlowAdj + runDrain);
+    // Sat-driven flight: small drain fires ~50% of quarters when sat < 35,
+    // magnitude scaling with depth below the threshold.
+    let satFlightPct = 0;
+    if (sat < 35) {
+      const depth = 35 - sat;
+      const r = Math.abs(noise(s.runSeed, s.quarter, 21));
+      if (r < 0.55) {
+        satFlightPct = -Math.min(0.05, 0.005 + depth * 0.0030);
+      }
+    }
+
+    // Combined sat-flight + run drain floor.
+    const totalForcedDrain = Math.max(-0.08, runDrain + satFlightPct);
+
+    // Marketing spend log-curve: $100K +1.5%, $200K +2.1%, $500K +3.1%
+    const adSpend = Math.max(0, lev.depositAdSpend || 0);
+    const adBoost = adSpend > 0 ? 0.012 * Math.log(1 + adSpend / 40) : 0;
+
+    const totalNet = totalDeposits(d) * (organicGrowth + pricingFlowAdj + adBoost + totalForcedDrain);
 
     const intShare = clamp(0.45 + (m.fedFunds - 0.02) * 3, 0.45, 0.80);
     const niShare = 1 - intShare;
@@ -397,6 +750,7 @@
       deltaNI: niDelta, deltaIC: icDelta, deltaSMM: smmDelta, deltaTD: tdDelta,
       pricingPremium,
       weightedCost: depositCost(s, pricingPremium),
+      satFlightPct,
     };
   }
 
@@ -444,15 +798,36 @@
     if (event?.type === "cre_concern") netGrowth -= 0.003;
 
     netGrowth = clamp(netGrowth, -0.030, 0.060);
-    const grossNew = s.bs.loansGross * netGrowth;
+    const grossOrganic = s.bs.loansGross * netGrowth;
+
+    // Indirect channel: dealer / broker auto + RV + powersports paper.
+    // Adds growth at a yield discount; lower relationship stickiness.
+    const indStep = Math.max(0, lev.indirectShare || 0);
+    const indBoostPct = indStep * 0.015;
+    const indNew = s.bs.loansGross * indBoostPct;
+
+    // SBA gain-on-sale: a portion of new C&I production is sold off-balance-sheet
+    // (75% govt-guaranteed slice at ~8% premium). Reduces retained loan growth.
+    const sbaStep = Math.max(0, lev.sbaSalePct || 0);
+    const salePct = sbaStep * 0.10; // 0%/10%/20%/30% of new organic production
+    const sbaSold = Math.max(0, grossOrganic) * salePct * 0.75;
+    const sbaGain = sbaSold * 0.08;
+
+    const grossNew = grossOrganic - sbaSold + indNew;
 
     const baseYield = m.treasury10y + 0.020;
     const underwritePremium = -lev.underwriting * 0.0025;
     const aggressivenessYieldHit = lev.loanGrowth * -0.0025;
-    const newYield = clamp(baseYield + underwritePremium + aggressivenessYieldHit, 0.03, 0.10);
+    const indirectYieldHit = -indBoostPct > 0 ? -0.0030 : (indStep > 0 ? -0.0030 : 0);
+    const newYield = clamp(baseYield + underwritePremium + aggressivenessYieldHit + indirectYieldHit, 0.03, 0.10);
     const portfolioYield = blendedLoanYield(s) * 0.95 + newYield * 0.05;
 
-    return { delta: grossNew, portfolioYield, newYield };
+    return {
+      delta: grossNew,
+      portfolioYield, newYield,
+      sbaSold, sbaGain,
+      indirectNew: indNew,
+    };
   }
 
   function blendedLoanYield(s) {
@@ -477,7 +852,7 @@
     return { aociChange: aociChange + pullToPar, yield: secYield, duration };
   }
 
-  function computeIncome(s, deposits, loans, securities, event, nf = { nplFormation: 0, nonintIncome: 0, nonintExpense: 0 }) {
+  function computeIncome(s, deposits, loans, securities, event, nf = { nplFormation: 0, nonintIncome: 0, nonintExpense: 0 }, prevFedFunds = s.macro.fedFunds) {
     const bs = s.bs;
     const avgLoans = bs.loansGross + loans.delta / 2;
     const avgSecurities = bs.securitiesAFS + bs.securitiesHTM;
@@ -496,9 +871,13 @@
     const depCost = deposits.weightedCost;
     const fhlbCost = s.macro.fedFunds + 0.005;
     const subDebtCost = bs.subDebtAvgCost || 0;
+    const brokeredCDCost = s.macro.fedFunds + 0.0035;
 
     const interestExpense =
-      (avgDeposits * depCost + bs.borrowingsFHLB * fhlbCost + bs.subDebt * subDebtCost) / 4;
+      (avgDeposits * depCost
+        + bs.borrowingsFHLB * fhlbCost
+        + bs.subDebt * subDebtCost
+        + (bs.brokeredCDs || 0) * brokeredCDCost) / 4;
 
     const nii = interestIncome - interestExpense;
 
@@ -522,8 +901,27 @@
 
     const totalNplFormationRate = Math.max(0, cycleNplRate + eventNplAdj);
     const baselineNplFormation = avgLoans * totalNplFormationRate / 4;
+
+    // Vintage-aware NPL formation: prior originations surface as NPLs 4-8 quarters later,
+    // weighted by the underwriting stance at origination. Loose vintages add NPLs;
+    // tight vintages subtract. Peak weight at lag=6 (~18 months).
+    let vintageNplAdj = 0;
+    const vintages = s.loanVintages || [];
+    const qNow = s.quarter;
+    for (const v of vintages) {
+      const lag = qNow - v.q;
+      if (lag < 4 || lag > 8) continue;
+      const weight = lag === 6 ? 0.30 : (lag === 5 || lag === 7) ? 0.22 : 0.13;
+      // Per $1K of vintage growth, each underwriting unit shifts NPL formation by 12bps;
+      // multiplied by lag weight. Negative score (loose) => positive adjustment.
+      vintageNplAdj += -v.underwritingScore * 0.0012 * Math.max(0, v.growthAmount) * weight;
+    }
+    // Cycle amplifies vintage surfacing during stress
+    const cycleAmp = s.macro.cycle === "recession" ? 1.6 : s.macro.cycle === "late_cycle" ? 1.2 : 1.0;
+    vintageNplAdj *= cycleAmp;
+
     const newNplFormation = Math.max(0,
-      baselineNplFormation * (1 + nf.nplFormation) + riskBankRelease
+      baselineNplFormation * (1 + nf.nplFormation) + riskBankRelease + vintageNplAdj
     );
 
     let ncoMigrationRate = 0.10;
@@ -534,44 +932,151 @@
     const netChargeOffs = Math.max(0, grossChargeOffs - recoveries);
 
     const targetAclRate = 0.0115 + (s.macro.cycle === "recession" ? 0.004 : s.macro.cycle === "late_cycle" ? 0.0015 : 0);
-    const targetACL = avgLoans * targetAclRate;
-    const aclShortfall = Math.max(0, (targetACL - (bs.acl - netChargeOffs)) * 0.25);
+    const loanTargetACL = avgLoans * targetAclRate;
+    const loanShortfall = Math.max(0, (loanTargetACL - (bs.acl - netChargeOffs)) * 0.25);
     const expectedLossOnNew = newNplFormation * 0.40;
 
-    const modelProvision = Math.max(0, netChargeOffs + aclShortfall + expectedLossOnNew * 0.5);
-    const provision =
-      s.decisions.provisionOverride !== null && s.decisions.provisionOverride !== undefined
-        ? s.decisions.provisionOverride
-        : modelProvision;
+    // Coverage-based reserve floor — keeps the Auto model safely above the examiner's
+    // 0.60x ACL/NPL citation line. projNpl mirrors the applyBalanceSheet NPL roll so a
+    // pure-Auto bank structurally maintains >= 0.70x coverage and is never cited.
+    const projNpl = Math.max(0, bs.npl + newNplFormation - grossChargeOffs - bs.npl * 0.06);
+    const coverageFloorACL = projNpl * 0.70;
+    const coverageShortfall = Math.max(0, coverageFloorACL - bs.acl - loanShortfall - expectedLossOnNew * 0.5);
 
+    const modelProvision = Math.max(0, netChargeOffs + loanShortfall + coverageShortfall + expectedLossOnNew * 0.5);
+
+    const overrideActive = s.decisions.provisionOverride !== null && s.decisions.provisionOverride !== undefined;
+    let provision = overrideActive ? s.decisions.provisionOverride : modelProvision;
+
+    // Piece B — mandatory catch-up: an override that has run ACL/NPL coverage below
+    // 0.35x is force-rebuilt toward 0.50x coverage, capped at 0.4% of avg loans/qtr.
+    // The cap is deliberate — a fast NPL spike can still outrun the rebuild, leaving
+    // the door open for a genuine shortfall (Piece A).
+    let provisionCatchUp = false;
+    if (overrideActive && bs.npl > 0 && bs.acl / bs.npl < 0.35) {
+      const rebuildNeed = Math.max(0, bs.npl * 0.50 - (bs.acl - netChargeOffs));
+      const catchUp = Math.min(rebuildNeed, avgLoans * 0.004);
+      if (catchUp > provision) { provision = catchUp; provisionCatchUp = true; }
+    }
+
+    // Piece A — charge-offs beyond the allowance + provision spill into the income
+    // statement (a real loss, hits net income / capital). Piece C — supervisory
+    // remediation fee whenever such a shortfall occurs.
+    const uncoveredChargeOffs = Math.max(0, netChargeOffs - bs.acl - provision);
+    const reserveShortfallFee = uncoveredChargeOffs > 0
+      ? clamp(uncoveredChargeOffs * 0.30, 25, 500)
+      : 0;
+
+    // Baseline asset-scaled "other" fees (wires, ATM, BOLI, etc.). Reduced now that
+    // Phase 5 explicit service charges + interchange carry most of the load.
     let nonintIncome =
-      ((totalAssets(bs) * 0.006 + 400) / 4) * (1 + nf.nonintIncome) + (event?.severity === "good" ? 60 : 0);
+      ((totalAssets(bs) * 0.0022 + 80) / 4) * (1 + nf.nonintIncome) + (event?.severity === "good" ? 60 : 0);
     if (event?.type === "fee_income") nonintIncome += 250;
 
-    let nonintExpense =
-      ((totalAssets(bs) * 0.0245 + 1_200) / 4) * (1 + nf.nonintExpense);
-    if (event?.type === "fraud") nonintExpense += 350;
-    if (event?.type === "exam") nonintExpense += 80;
+    // Phase 5 fee streams: service charges (overdraft + maintenance) + debit interchange.
+    const feeStreams = computeFeeIncome(s);
+    nonintIncome += feeStreams.totalPhase5;
 
-    const pretax = nii + nonintIncome - nonintExpense - provision;
+    // SBA gain-on-sale: 75% govt-guaranteed slice of new C&I production sold at ~8% premium.
+    const sbaGain = loans.sbaGain || 0;
+    nonintIncome += sbaGain;
+
+    // Mortgage banking gain-on-sale — refi-wave dynamic.
+    // Origination volume responds to (a) rate change vs prior qtr (refi wave: 70%) and
+    // (b) absolute rate level (low rates = high origination: 30%).
+    const mortProg = Math.max(0, s.levers.mortgageProgram || 0);
+    let mortGain = 0;
+    let mortFixedCost = 0;
+    if (mortProg > 0) {
+      const dRate = s.macro.fedFunds - prevFedFunds;
+      const refiBoost = clamp(-dRate * 80, -0.6, 1.5);    // -100bp move -> +0.8; +100bp -> -0.8
+      const levelBoost = clamp((0.05 - s.macro.fedFunds) * 8, -0.4, 0.6);
+      const cycleMult = Math.max(0.10, 1 + (refiBoost * 0.7 + levelBoost * 0.3));
+      const baseGain = mortProg * 80;                     // $80K/$160K/$240K base per program step
+      mortGain = baseGain * cycleMult;
+      mortFixedCost = mortProg * 60;                      // $60K/$120K/$180K fixed staffing per qtr
+      nonintIncome += mortGain;
+    }
+
+    // Fixed: premises, core systems, base headcount. Doesn't move with quarterly noise.
+    const nonintExpenseFixed = (bs.premises * 0.18 + 800) / 4 + mortFixedCost;
+    // Variable: asset-scaled compensation + ops costs + event shocks + deposit ad spend.
+    let nonintExpenseVariable = (totalAssets(bs) * 0.0233 / 4) * (1 + nf.nonintExpense);
+    nonintExpenseVariable += Math.max(0, s.levers.depositAdSpend || 0);
+    if (event?.type === "fraud") nonintExpenseVariable += 350;
+    nonintExpenseVariable += reserveShortfallFee;
+    let nonintExpense = nonintExpenseFixed + nonintExpenseVariable;
+
+    // Uncovered charge-offs flow through the income statement as a credit cost,
+    // so they show up in ROA/ROE/EPS rather than bypassing earnings.
+    const pretax = nii + nonintIncome - nonintExpense - provision - uncoveredChargeOffs;
     const tax = Math.max(0, pretax * 0.21);
     const netIncome = pretax - tax;
 
     return {
       interestIncome, interestExpense, nii,
       provision, netChargeOffs, grossChargeOffs,
+      uncoveredChargeOffs, reserveShortfallFee, provisionCatchUp,
       nonintIncome, nonintExpense,
+      nonintExpenseFixed, nonintExpenseVariable,
       pretax, tax, netIncome,
       avgLoans, avgSecurities, avgDeposits,
       loanYield, depCost,
       nplDelta: 0, newNplFormation,
       riskBankAccrual, riskBankRelease,
+      vintageNplAdj,
+      sbaGain, sbaSold: loans.sbaSold || 0,
+      mortGain, mortFixedCost,
+      depositAdSpend: Math.max(0, s.levers.depositAdSpend || 0),
+      brokeredCDInterest: ((s.bs.brokeredCDs || 0) * brokeredCDCost) / 4,
+      overdraftIncome: feeStreams.overdraftIncome,
+      maintenanceIncome: feeStreams.maintenanceIncome,
+      interchangeIncome: feeStreams.interchangeIncome,
+      serviceCharges: feeStreams.serviceCharges,
+      accountCountK: feeStreams.accountsK,
       dividendsPaid: 0, repurchases: 0,
     };
   }
 
   function applyCapitalActions(s, is, ratios) {
     const dec = s.decisions;
+
+    // PCA-style restriction: if indirect concentration is critical, suppress discretionary
+    // capital distributions (dividends + buybacks). Auto-detected, examiner-imposed.
+    const indirectShare = s.bs.loansGross > 0 ? s.bs.loansIndirect / s.bs.loansGross : 0;
+    const distRestricted = indirectShare > 0.25;
+    if (distRestricted) {
+      dec.repurchaseAmount = 0;
+      dec.dividendPerShare = Math.min(dec.dividendPerShare, 0);
+    }
+    is._distRestricted = distRestricted;
+
+    // Equity issuance: 95% of marked price → paid-in capital + cash; 5% fee flows through non-int expense.
+    // Applied before dividends so retained-earnings/cash reflect both this quarter, and new shares are eligible.
+    if (dec.equityIssuance > 0) {
+      const px = estimatedSharePrice(s, ratios);
+      const gross = dec.equityIssuance;
+      const net = gross * 0.95;
+      const fees = gross * 0.05;
+      const newShares = net / Math.max(0.01, px);
+
+      s.bs.commonEquity += net;
+      s.bs.sharesOutstanding += newShares;
+      s.bs.cash += net;
+
+      is.equityIssuanceGross = gross;
+      is.equityIssuanceNet = net;
+      is.equityIssuanceFees = fees;
+      is.equityIssuanceShares = newShares;
+      is.equityIssuancePrice = px;
+      is.nonintExpense += fees;
+      is.nonintExpenseVariable = (is.nonintExpenseVariable || 0) + fees;
+      is.pretax -= fees;
+      const newTax = Math.max(0, is.pretax * 0.21);
+      is.netIncome = is.pretax - newTax;
+      is.tax = newTax;
+    }
+
     const totalDiv = dec.dividendPerShare * s.bs.sharesOutstanding;
     is.dividendsPaid = totalDiv;
     is.repurchases = dec.repurchaseAmount;
@@ -605,6 +1110,14 @@
     s.bs.subDebt = Math.max(0, s.bs.subDebt + subDelta);
     if (s.bs.subDebt === 0) s.bs.subDebtAvgCost = 0;
     s.bs.cash += subDelta;
+
+    // Brokered CDs: target balance dial; auto-rolls each quarter at FedFunds + 35bp
+    // (cost is already applied in computeIncome based on opening balance).
+    const bcdTarget = Math.max(0, dec.brokeredCDsTarget || 0);
+    const bcdDelta = bcdTarget - (s.bs.brokeredCDs || 0);
+    s.bs.brokeredCDs = bcdTarget;
+    s.bs.cash += bcdDelta;
+    is.brokeredCDDelta = bcdDelta;
   }
 
   function applyBalanceSheet(s, deposits, loans, securities, is) {
@@ -617,6 +1130,29 @@
     const depDelta = deposits.deltaNI + deposits.deltaIC + deposits.deltaSMM + deposits.deltaTD;
 
     bs.loansGross += loans.delta;
+
+    // Track indirect-channel cumulative balance and decay it at the same pace as the book amortizes.
+    // Net new indirect adds; existing indirect runs off proportionally to gross book turnover.
+    bs.loansIndirect = Math.max(0, (bs.loansIndirect || 0) + (loans.indirectNew || 0));
+    if (bs.loansGross > 0) {
+      // Natural runoff: assume indirect amortizes ~3% per quarter (shorter-tenor auto/RV paper)
+      bs.loansIndirect *= 0.97;
+    }
+
+    // Record vintage entry for this quarter — only when the book actually grew organically.
+    // Captures underwriting stance for forward-looking provision recognition (4-8 qtr lag).
+    const organicAdd = (loans.delta || 0) - (loans.indirectNew || 0) + (is.sbaSold || 0);
+    if (organicAdd > 0) {
+      if (!s.loanVintages) s.loanVintages = [];
+      s.loanVintages.push({
+        q: s.quarter,
+        growthAmount: organicAdd,
+        underwritingScore: s.levers.underwriting || 0,
+      });
+      // Prune entries older than 12 quarters
+      s.loanVintages = s.loanVintages.filter(v => s.quarter - v.q <= 12);
+    }
+
     bs.acl += is.provision - is.netChargeOffs;
     bs.acl = Math.max(0, bs.acl);
     const cures = bs.npl * 0.06;
@@ -626,7 +1162,7 @@
 
     bs.aoci += securities.aociChange;
 
-    const cashChange = depDelta + is.netIncome + is.provision - loans.delta;
+    const cashChange = depDelta + is.netIncome + is.provision + (is.uncoveredChargeOffs || 0) - loans.delta;
     bs.cash += cashChange;
 
     const cashTargetPct = 0.025 + s.levers.liquidityTarget * 0.025;
@@ -670,8 +1206,10 @@
     }
 
     // Wholesale ratio excludes subordinated debt — sub debt is treated as Total Capital, not wholesale funding.
-    const totalFunding = totalDeposits(bs.deposits) + bs.borrowingsFHLB;
-    s._wholesaleRatio = totalFunding > 0 ? bs.borrowingsFHLB / totalFunding : 0;
+    // FHLB advances + brokered CDs both count as wholesale concentration.
+    const wholesale = bs.borrowingsFHLB + (bs.brokeredCDs || 0);
+    const totalFunding = totalDeposits(bs.deposits) + wholesale;
+    s._wholesaleRatio = totalFunding > 0 ? wholesale / totalFunding : 0;
   }
 
   function totalDeposits(d) {
@@ -740,23 +1278,27 @@
         cause = "Severe AOCI losses from interest rate risk eroded capital base";
       } else if (ratios.nplRatio > 0.025) {
         cause = "Asset quality deterioration overwhelmed loss absorption capacity";
-      } else if ((s.creditRiskBank || 0) > 3_000) {
-        cause = "Latent credit risk from prior aggressive originations surfaced in stress";
       } else if (ratios.ltd > 1.20) {
         cause = "Aggressive loan growth funded by wholesale borrowing, then funding gap closed";
+      } else if ((s.creditRiskBank || 0) > 3_000) {
+        cause = "Latent credit risk from prior aggressive originations surfaced in stress";
       } else if (s.lastIS.repurchases > 5_000 || s.lastIS.dividendsPaid > 1_000) {
         cause = "Excessive capital distributions while underlying earnings deteriorated";
       }
+      const macro = macroDifficultyFor(s);
       s.gameOver = {
         reason: "critically_undercapitalized",
         severity: "bad",
-        msg: `BANK FAILED at Y${yearNum}Q${qNum}. CET1 ${fmtPct(ratios.cet1)} · Tier 1 Leverage ${fmtPct(ratios.tier1Lev)} — both below PCA "critically undercapitalized" thresholds. FDIC has been appointed receiver.`,
+        msg: `BANK FAILED at Y${yearNum}Q${qNum}. CET1 ${fmtPct(ratios.cet1)} · Tier 1 Leverage ${fmtPct(ratios.tier1Lev)} — both below PCA "critically undercapitalized" thresholds. FDIC has been appointed receiver. Macro: ${macro.label}.`,
         cause,
         stats: {
           finalCET1: ratios.cet1, finalTier1Lev: ratios.tier1Lev,
           finalNPL: ratios.nplRatio, finalAOCI: s.bs.aoci,
           finalEq: totalEquity(s.bs), creditRiskBank: s.creditRiskBank || 0,
           ltd: ratios.ltd,
+          macroDifficulty: macro.label, macroScore: macro.score,
+          recessionQtrs: macro.recessionQtrs, lateCycleQtrs: macro.lateCycleQtrs, badEventCount: macro.badEventCount,
+          failedAtQ: s.quarter,
         },
       };
       log.push({ q, type: "bad", msg: s.gameOver.msg });
@@ -795,9 +1337,23 @@
     const wasHighWholesale = s._wasHighWholesale === true;
     const isHighWholesale = wholesaleRatio > 0.15;
     if (isHighWholesale && !wasHighWholesale) {
-      log.push({ q, type: "warn", msg: `WHOLESALE FUNDING: FHLB advances now ${fmtPct(wholesaleRatio, 1)} of (deposits + FHLB) — examiners view above 15% as concentration risk.` });
+      log.push({ q, type: "warn", msg: `WHOLESALE FUNDING: FHLB + brokered CDs now ${fmtPct(wholesaleRatio, 1)} of (deposits + wholesale) — examiners view above 15% as concentration risk.` });
     }
     s._wasHighWholesale = isHighWholesale;
+
+    // Indirect-loan concentration: warn 15%, capital-distribution restriction at 25%.
+    const indirectShare = s.bs.loansGross > 0 ? (s.bs.loansIndirect || 0) / s.bs.loansGross : 0;
+    const wasIndWarn = s._wasIndirectWarn === true;
+    const wasIndCrit = s._wasIndirectCritical === true;
+    const isIndWarn = indirectShare > 0.15 && indirectShare <= 0.25;
+    const isIndCrit = indirectShare > 0.25;
+    if (isIndCrit && !wasIndCrit) {
+      log.push({ q, type: "bad", msg: `INDIRECT CONCENTRATION CRITICAL: ${fmtPct(indirectShare, 1)} of loans through dealer/broker channels. Examiners imposing capital-distribution restriction — dividends and buybacks suspended until reduced below 25%.` });
+    } else if (isIndWarn && !wasIndWarn && !wasIndCrit) {
+      log.push({ q, type: "warn", msg: `INDIRECT CONCENTRATION ELEVATED: ${fmtPct(indirectShare, 1)} of loans now indirect/broker-sourced — above 15% draws examiner scrutiny. Lower stickiness in stress.` });
+    }
+    s._wasIndirectWarn = isIndWarn;
+    s._wasIndirectCritical = isIndCrit;
 
     const crb = s.creditRiskBank || 0;
     const wasElevated = s._wasElevatedRisk === true;
@@ -867,6 +1423,8 @@
     runQuarter,
     computeRatios,
     estimatedSharePrice,
+    computeSatisfaction, retentionMult,
+    computeFeeIncome, computeFeeLoadPts,
     totalAssets, totalDeposits, totalLiabilities, totalEquity,
     fmt$, fmtPct, fmtBps, clamp, noise,
   };

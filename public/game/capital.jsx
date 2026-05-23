@@ -38,10 +38,14 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
   const repurchaseHint = d.repurchaseAmount > 0
     ? `Est. price $${estPrice.toFixed(2)} · BVPS $${bvps.toFixed(2)} · buys ~${(d.repurchaseAmount / Math.max(1, estPrice)).toFixed(1)}K shares`
     : `Est. price $${estPrice.toFixed(2)} · BVPS $${bvps.toFixed(2)}`;
+  const issuanceShares = d.equityIssuance > 0 ? (d.equityIssuance * 0.95 / Math.max(0.01, estPrice)) : 0;
+  const issuanceHint = d.equityIssuance > 0
+    ? `Est. price $${estPrice.toFixed(2)} · net 95% (${KBE.fmt$(d.equityIssuance * 0.05)} fee → non-int expense) · ~${issuanceShares.toFixed(1)}K new shares`
+    : `Est. price $${estPrice.toFixed(2)} · 5% underwriting fee on gross proceeds`;
 
   return (
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }}>
-      <ForecastStrip ratios={ratios} forecast={forecast} />
+      <ForecastStrip state={state} ratios={ratios} forecast={forecast} />
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
         {/* Shareholder distributions */}
@@ -61,6 +65,11 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
               min={0} max={5000} step={250} format="money"
               hint={repurchaseHint}
               color={KP.amber} locked={locked} />
+            <NumberDial label="Equity Issuance (gross proceeds)" value={d.equityIssuance || 0}
+              onChange={v => setDecision("equityIssuance", v)}
+              min={0} max={20000} step={500} format="money"
+              hint={issuanceHint}
+              color={KP.bad} locked={locked} />
           </div>
         </div>
 
@@ -100,14 +109,23 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
           </button>
         </div>
         <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 12 }}>
-          Override the CECL model's recommended provision. Aggressive reserve building flows through earnings now, padding the cushion later.
+          Override the CECL model's provision. Running lean flatters earnings now — but charge-offs that outrun the allowance spill straight into capital plus a remediation fee, and below 0.35x ACL/NPL coverage a mandatory catch-up overrides you. Auto keeps reserves safely above the examiner's line.
         </div>
-        <NumberDial label="Provision Expense (next qtr)"
-          value={d.provisionOverride ?? 0}
-          onChange={v => setDecision("provisionOverride", v)}
-          min={0} max={2000} step={50} format="money"
-          hint={d.provisionOverride === null ? `Auto recommendation will run · last quarter ${KBE.fmt$(state.lastIS.provision)}` : `Manual override: ${KBE.fmt$(d.provisionOverride)} · click reset to use model`}
-          color={KP.info} locked={locked} />
+        {(() => {
+          const cov = state.bs.npl > 0 ? state.bs.acl / state.bs.npl : null;
+          const covStr = cov === null ? "ACL/NPL coverage —" : `ACL/NPL coverage ${cov.toFixed(2)}x`;
+          const hint = d.provisionOverride === null
+            ? `Auto model will run · ${covStr} · last quarter ${KBE.fmt$(state.lastIS.provision)}`
+            : `Manual override: ${KBE.fmt$(d.provisionOverride)} · ${covStr} · catch-up forces a top-up below 0.35x`;
+          return (
+            <NumberDial label="Provision Expense (next qtr)"
+              value={d.provisionOverride ?? 0}
+              onChange={v => setDecision("provisionOverride", v)}
+              min={0} max={2000} step={50} format="money"
+              hint={hint}
+              color={KP.info} locked={locked} />
+          );
+        })()}
       </div>
 
       {/* Capital impact preview */}
@@ -134,12 +152,21 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
           </div>
           <div>
             <div className="label" style={{ fontSize: 9.5 }}>Wholesale / Total</div>
-            <div className="num" style={{ fontSize: 22, fontWeight: 700, color: (forecast.bs.borrowingsFHLB / (KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB)) > 0.15 ? KP.warn : KP.text }}>
-              {((forecast.bs.borrowingsFHLB / Math.max(1, KBE.totalDeposits(forecast.bs.deposits) + forecast.bs.borrowingsFHLB)) * 100).toFixed(1)}%
-            </div>
-            <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
-              FHLB only · ≤ 15%
-            </div>
+            {(() => {
+              const fwh = (forecast.bs.borrowingsFHLB || 0) + (forecast.bs.brokeredCDs || 0);
+              const ftd = KBE.totalDeposits(forecast.bs.deposits);
+              const wsPct = fwh / Math.max(1, ftd + fwh);
+              return (
+                <>
+                  <div className="num" style={{ fontSize: 22, fontWeight: 700, color: wsPct > 0.15 ? KP.warn : KP.text }}>
+                    {(wsPct * 100).toFixed(1)}%
+                  </div>
+                  <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
+                    FHLB + brokered · ≤ 15%
+                  </div>
+                </>
+              );
+            })()}
           </div>
           <div>
             <div className="label" style={{ fontSize: 9.5 }}>Net Income (next qtr)</div>

@@ -12,7 +12,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='header-vitals']",
       title: "Vital signs",
-      body: "CET1 below 4.5% ends the run. Watch these four — they color-code by health.",
+      body: "CET1 below 4.5% ends the run. Watch capital, profitability, asset quality, and customer satisfaction — they color-code by health. Satisfaction drives deposit retention; mismanaged customers can quietly drain the funding base.",
       placement: "bottom",
     },
     {
@@ -38,21 +38,27 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='live-forecast']",
       title: "Live forecast",
-      body: "This panel reprices the next quarter the moment you move any lever — NIM, net income, CET1, and NPL all update before you commit.",
+      body: "This panel reprices the next quarter the moment you move any lever — NIM, net income and EPS, CET1, NPL, and customer satisfaction all update before you commit.",
       placement: "bottom",
     },
     {
       target: "[data-coach='lever-grid']",
-      title: "Five operating levers",
-      body: "Loan pace, underwriting, deposit pricing, securities duration, and liquidity. The colored strip at the bottom of each card spells out the trade-off.",
+      title: "Two operating panels",
+      body: "Production levers on the left, Funding levers on the right. Move any slider and watch the colored strip at the bottom of the card — it spells out the live trade-off in plain English.",
       placement: "top",
+    },
+    {
+      target: "[data-coach='lever-funding']",
+      title: "Three paths to satisfaction",
+      body: "Deposit pricing, ad spend, and fee load (overdraft + maintenance) all shape customer satisfaction in the background. Cheap pricing and aggressive fees grind sat down slowly; sustained overdraft fees above $30 invite CFPB scrutiny. Below 35 satisfaction, deposits begin to walk on their own.",
+      placement: "left",
     },
   ],
   capital: [
     {
       target: "[data-coach='capital-distributions']",
-      title: "Returning capital",
-      body: "Dividends and buybacks. Both lower CET1; buybacks shrink the share count, dividends reward holders directly. The hint shows estimated price and BVPS so you can size the authorization.",
+      title: "Returning and raising capital",
+      body: "Dividends and buybacks lower CET1; buybacks shrink the share count, dividends reward holders directly. Equity issuance goes the other way — adds capital at a 5% underwriting fee and dilutes existing holders. The hint on each dial estimates share-count impact at current price.",
       placement: "right",
     },
     {
@@ -64,13 +70,13 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='capital-provision']",
       title: "Provision override",
-      body: "Override the CECL model when you want to build reserves aggressively or run lean. Reset returns control to the model.",
+      body: "Override the CECL model to build reserves ahead of trouble or run lean for a few quarters. But charge-offs that outrun the allowance hit capital directly plus a remediation fee, and below 0.35x ACL/NPL coverage a mandatory catch-up overrides you. Auto keeps you safely reserved — and clear of the examiner.",
       placement: "top",
     },
     {
       target: "[data-coach='capital-impact']",
       title: "Capital impact preview",
-      body: "Forecasted CET1 delta, cash, FHLB share, and net income for next quarter. The expected quarter results and the impact of your levers all flow into this strip.",
+      body: "Forecasted CET1 delta, cash, wholesale concentration (FHLB + brokered), and net income for next quarter. The combined impact of operations levers and capital decisions all flow into this strip.",
       placement: "top",
     },
   ],
@@ -78,7 +84,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='report-title']",
       title: "Your filed call report",
-      body: "FFIEC 051 — the regulatory quarterly your bank would actually file. Schedule RC for the balance sheet, RI for the income statement, RC-N for asset quality, plus key regulatory ratios. Read-only — no decisions, just data.",
+      body: "FFIEC 051 — the regulatory quarterly your bank would actually file. Schedule RC for the balance sheet, RI for the income statement and credit quality, RC-R for regulatory capital ratios. Read-only — no decisions, just data.",
       placement: "bottom",
     },
   ],
@@ -86,13 +92,13 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='history-bvps']",
       title: "Tangible Book Value per Share",
-      body: "BVPS growth is the scoring metric for the run. This chart traces it across all 40 quarters so you can see the slope of compounding.",
+      body: "BVPS compounding plus cumulative dividends paid = total shareholder return — the primary scoring metric for the run. This chart traces BVPS across all 40 quarters so you can see the slope.",
       placement: "bottom",
     },
     {
       target: "[data-coach='history-sparklines']",
-      title: "Ten-year ratio sparklines",
-      body: "Each key metric — NIM, ROA, ROE, CET1, NPL, L/D, AOCI, share price — gets its own 40-quarter trace. The detail table below has every quarter row by row.",
+      title: "Ten-year sparklines",
+      body: "Every key metric — profitability, capital, asset quality, balance-sheet composition, fee income, and customer satisfaction — gets its own 40-quarter trace. The detail table below has every quarter row by row.",
       placement: "top",
     },
   ],

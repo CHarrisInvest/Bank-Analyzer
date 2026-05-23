@@ -36,14 +36,17 @@ function GameOver({ state, onRestart }) {
             <strong>Root cause:</strong> {go.cause}
           </div>
         )}
-        <div style={{ display: "grid", gridTemplateColumns: failed ? "repeat(4, 1fr)" : "repeat(5, 1fr)", gap: 12, marginBottom: 24 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: failed ? 24 : 12 }}>
           {!failed && (
             <>
+              <Stat label="Total Return" value={`${(stats.totalReturn * 100).toFixed(1)}%`} sub={`divs $${(stats.totalDividendsPerShare || 0).toFixed(2)}/sh`} tone={stats.totalReturn > 1.20 ? GP.good : stats.totalReturn > 0.50 ? GP.warn : GP.bad} />
               <Stat label="BVPS Growth" value={`${(stats.bvpsCAGR * 100).toFixed(1)}%`} sub="CAGR" tone={stats.bvpsCAGR > 0.06 ? GP.good : stats.bvpsCAGR > 0 ? GP.warn : GP.bad} />
-              <Stat label="Total Return" value={`${(stats.totalReturn * 100).toFixed(1)}%`} sub={`divs $${(stats.totalDividendsPerShare || 0).toFixed(2)}/sh`} tone={stats.totalReturn > 1.20 ? GP.good : stats.totalReturn > 0.80 ? GP.warn : GP.bad} />
               <Stat label="Avg ROE" value={`${(stats.annualizedROE * 100).toFixed(1)}%`} tone={stats.annualizedROE > 0.10 ? GP.good : stats.annualizedROE > 0.06 ? GP.warn : GP.bad} />
-              <Stat label="Final CET1" value={`${(stats.finalCET1 * 100).toFixed(1)}%`} tone={stats.finalCET1 > 0.10 ? GP.good : GP.warn} />
               <Stat label="Final BVPS" value={`$${stats.finalBVPS?.toFixed(2)}`} sub={`from $${stats.initialBVPS?.toFixed(2)}`} />
+              <Stat label="Final CET1" value={`${(stats.finalCET1 * 100).toFixed(1)}%`} tone={stats.finalCET1 > 0.10 ? GP.good : stats.finalCET1 > 0.07 ? GP.warn : GP.bad} />
+              <Stat label="Final L/D" value={`${stats.finalLTD?.toFixed(2)}x`} tone={(stats.finalLTD >= 0.65 && stats.finalLTD <= 1.15) ? GP.good : GP.warn} />
+              <Stat label="Final Satisfaction" value={`${Math.round(stats.finalSat ?? 70)}`} tone={(stats.finalSat ?? 70) >= 55 ? GP.good : (stats.finalSat ?? 70) >= 40 ? GP.warn : GP.bad} />
+              <Stat label="Macro Difficulty" value={stats.macroDifficulty || "—"} sub={`recessions ${stats.recessionQtrs}q · shocks ${stats.badEventCount}`} tone={stats.macroDifficulty === "Brutal" ? GP.bad : stats.macroDifficulty === "Hard" ? GP.warn : GP.text} />
             </>
           )}
           {failed && (
@@ -52,9 +55,20 @@ function GameOver({ state, onRestart }) {
               <Stat label="Tier 1 Lev." value={`${(stats.finalTier1Lev * 100).toFixed(1)}%`} tone={GP.bad} />
               <Stat label="NPL Ratio" value={`${(stats.finalNPL * 100).toFixed(1)}%`} />
               <Stat label="AOCI" value={GBE.fmt$(stats.finalAOCI || 0)} tone={(stats.finalAOCI || 0) < 0 ? GP.bad : GP.text} />
+              {stats.macroDifficulty && (
+                <Stat label="Macro Difficulty" value={stats.macroDifficulty} sub={`recessions ${stats.recessionQtrs ?? 0}q · shocks ${stats.badEventCount ?? 0}`} tone={stats.macroDifficulty === "Brutal" ? GP.bad : stats.macroDifficulty === "Hard" ? GP.warn : GP.text} />
+              )}
+              {stats.failedAtQ && (
+                <Stat label="Failed At" value={`Y${Math.ceil(stats.failedAtQ / 4)} Q${((stats.failedAtQ - 1) % 4) + 1}`} sub={`${stats.failedAtQ}/40 qtrs in`} tone={GP.bad} />
+              )}
             </>
           )}
         </div>
+        {!failed && go.modifiersApplied && go.modifiersApplied.length > 0 && (
+          <div style={{ fontSize: 12, color: GP.warn, padding: "8px 12px", background: GP.warnSoft, borderRadius: 8, marginBottom: 18, borderLeft: `3px solid ${GP.warn}` }}>
+            <strong>Tier modifiers applied:</strong> {go.modifiersApplied.join("; ")}
+          </div>
+        )}
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <button onClick={onRestart} style={{
             padding: "12px 22px",

@@ -142,11 +142,12 @@ function Header({ state, ratios }) {
         </div>
 
         {/* Vitals — pushed to the right */}
-        <div style={{ display: "flex", marginLeft: "auto", gap: 18, alignItems: "center", flexShrink: 0 }} data-coach="header-vitals">
+        <div style={{ display: "flex", marginLeft: "auto", gap: 16, alignItems: "center", flexShrink: 0 }} data-coach="header-vitals">
           <Vital label="CET1" value={(ratios.cet1 * 100).toFixed(1) + "%"} color={rcolor("cet1", ratios.cet1)} />
           <Vital label="ROA" value={(ratios.roa * 100).toFixed(2) + "%"} color={rcolor("roa", ratios.roa)} />
           <Vital label="NIM" value={(ratios.nim * 100).toFixed(2) + "%"} color={rcolor("nim", ratios.nim)} />
           <Vital label="NPL" value={(ratios.nplRatio * 100).toFixed(2) + "%"} color={rcolor("nplRatio", ratios.nplRatio)} />
+          <Vital label="Sat" value={Math.round(state.satisfaction ?? 70)} color={rcolor("satisfaction", state.satisfaction ?? 70)} />
           <div style={{ width: 1, height: 28, background: P.line }} />
           <Vital label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} sub="last quarter" color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
         </div>
@@ -344,6 +345,61 @@ function RightRail({ state, ratios, onAdvance, advancing }) {
   );
 }
 
+// ---------- Tab icons ----------
+function TabIcon({ id, size = 18, color }) {
+  const c = { fill: "none", stroke: color, strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" };
+  let body = null;
+  if (id === "cockpit") {
+    // Gauge / speedometer
+    body = (
+      <>
+        <path d="M4 17.5 A 8.5 8.5 0 0 1 20 17.5" {...c} />
+        <line x1="12" y1="17.5" x2="16.6" y2="10.6" {...c} />
+        <circle cx="12" cy="17.5" r="1.9" fill={color} stroke="none" />
+      </>
+    );
+  } else if (id === "levers") {
+    // Wrench + pen crossed
+    body = (
+      <>
+        <path d="M4.5 19.5 L13.3 10.7" {...c} />
+        <path d="M13.3 10.7 A 3.4 3.4 0 1 1 18 7" {...c} />
+        <line x1="19.5" y1="19.5" x2="9.8" y2="9.8" {...c} />
+        <path d="M5.5 5.5 L11.2 8.4 L8.4 11.2 Z" fill={color} stroke={color} strokeWidth="1.2" strokeLinejoin="round" />
+      </>
+    );
+  } else if (id === "capital") {
+    // 3 stacked ellipses (coin stack)
+    body = (
+      <>
+        <ellipse cx="12" cy="16.6" rx="7" ry="2.4" {...c} />
+        <ellipse cx="12" cy="12" rx="7" ry="2.4" {...c} />
+        <ellipse cx="12" cy="7.4" rx="7" ry="2.4" {...c} />
+      </>
+    );
+  } else if (id === "report") {
+    // Document with folded corner + text lines
+    body = (
+      <>
+        <path d="M6 3 H14 L18.5 7.5 V21 H6 Z" {...c} />
+        <path d="M14 3 V7.5 H18.5" {...c} />
+        <line x1="9" y1="11.6" x2="15" y2="11.6" {...c} />
+        <line x1="9" y1="14.6" x2="15" y2="14.6" {...c} />
+        <line x1="9" y1="17.6" x2="12.5" y2="17.6" {...c} />
+      </>
+    );
+  } else if (id === "history") {
+    // Upward-right trend line + arrowhead
+    body = (
+      <>
+        <polyline points="3 19 8.5 13 12.5 16 20 6" {...c} />
+        <polyline points="14.6 6 20 6 20 11.4" {...c} />
+      </>
+    );
+  }
+  return <svg width={size} height={size} viewBox="0 0 24 24" style={{ flexShrink: 0 }}>{body}</svg>;
+}
+
 // ---------- Tab strip (vertical left rail) ----------
 function TabStrip({ tab, setTab }) {
   const tabs = [
@@ -368,30 +424,33 @@ function TabStrip({ tab, setTab }) {
         return (
           <button key={t.id} onClick={() => setTab(t.id)} data-coach={`tab-${t.id}`}
             style={{
-              padding: "10px 18px",
+              padding: "10px 16px",
               background: active ? P.bg : "transparent",
               border: "none",
               borderLeft: `3px solid ${active ? P.amber : "transparent"}`,
-              display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2,
+              display: "flex", flexDirection: "row", alignItems: "center", gap: 11,
               textAlign: "left",
               fontFamily: "inherit",
               cursor: "pointer",
               transition: "border-color 0.12s, background 0.12s",
             }}>
-            <div style={{
-              fontSize: 13,
-              fontWeight: active ? 600 : 500,
-              letterSpacing: "-0.01em",
-              color: active ? P.text : P.textDim,
-            }}>
-              {t.label}
-            </div>
-            <div style={{
-              fontSize: 10,
-              letterSpacing: "0.02em",
-              color: P.textMute,
-            }}>
-              {t.hint}
+            <TabIcon id={t.id} size={18} color={active ? P.amber : P.textMute} />
+            <div style={{ display: "flex", flexDirection: "column", gap: 2, minWidth: 0 }}>
+              <div style={{
+                fontSize: 13,
+                fontWeight: active ? 600 : 500,
+                letterSpacing: "-0.01em",
+                color: active ? P.text : P.textDim,
+              }}>
+                {t.label}
+              </div>
+              <div style={{
+                fontSize: 10,
+                letterSpacing: "0.02em",
+                color: P.textMute,
+              }}>
+                {t.hint}
+              </div>
             </div>
           </button>
         );

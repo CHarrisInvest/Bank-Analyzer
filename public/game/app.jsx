@@ -54,6 +54,7 @@ function App() {
     const wholesale = (bs) => (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0);
     const lf = {
       netIncome: forecast.is.netIncome,
+      eps: forecast.is.netIncome / Math.max(1e-6, forecast.bs.sharesOutstanding),
       provision: forecast.is.provision,
       nonintIncome: forecast.is.nonintIncome,
       nonintExpense: forecast.is.nonintExpense,
@@ -115,7 +116,7 @@ function App() {
 
   let body;
   if (tab === "cockpit") body = <CockpitTab state={state} ratios={ratios} forecast={forecast} />;
-  else if (tab === "levers") body = <LeversTab state={state} ratios={ratios} forecast={forecast} setLever={setLever} locked={!!state.gameOver || advancing} />;
+  else if (tab === "levers") body = <LeversTab state={state} ratios={ratios} forecast={forecast} setLever={setLever} setDecision={setDecision} locked={!!state.gameOver || advancing} />;
   else if (tab === "capital") body = <CapitalTab state={state} ratios={ratios} forecast={forecast} setDecision={setDecision} locked={!!state.gameOver || advancing} />;
   else if (tab === "report") body = <CallReportTab state={state} ratios={ratios} />;
   else if (tab === "history") body = <HistoryTab state={state} />;
