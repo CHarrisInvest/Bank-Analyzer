@@ -349,51 +349,63 @@ function RightRail({ state, ratios, onAdvance, advancing }) {
 function TabIcon({ id, size = 22, color }) {
   const c = { fill: "none", stroke: color, strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" };
   const c2 = { ...c, strokeWidth: 2.3 };
+  const cThin = { ...c, strokeWidth: 1.4 };
+  const cThinMid = { ...c, strokeWidth: 1.6 };
   let body = null;
   if (id === "cockpit") {
-    // Gauge / speedometer — semicircle face, tick marks, needle, hub
+    // Gauge / speedometer — true semicircle face, thin tick marks, needle, hub
     body = (
       <>
-        {/* Dial face */}
-        <path d="M5 17 A 7 7 0 0 1 19 17" {...c2} />
+        {/* Dial face — true semicircle (endpoints share y, radius spans 7 each way) */}
+        <path d="M5 17 A 7 7 0 0 1 19 17" {...cThin} />
         {/* Tick marks (5 evenly spaced, just inside the arc) */}
-        <line x1="5" y1="17" x2="6.5" y2="17" {...c} />
-        <line x1="8.11" y1="13.11" x2="9.17" y2="14.17" {...c} />
-        <line x1="12" y1="10" x2="12" y2="11.5" {...c} />
-        <line x1="14.83" y1="14.17" x2="15.89" y2="13.11" {...c} />
-        <line x1="17.5" y1="17" x2="19" y2="17" {...c} />
+        <line x1="5" y1="17" x2="6.4" y2="17" {...cThin} />
+        <line x1="8.11" y1="13.11" x2="9.17" y2="14.17" {...cThin} />
+        <line x1="12" y1="10" x2="12" y2="11.4" {...cThin} />
+        <line x1="14.83" y1="14.17" x2="15.89" y2="13.11" {...cThin} />
+        <line x1="17.6" y1="17" x2="19" y2="17" {...cThin} />
         {/* Needle pointing up-right (~60°) */}
-        <line x1="12" y1="17" x2="15.5" y2="10.94" {...c2} />
+        <line x1="12" y1="17" x2="15.5" y2="10.94" {...cThinMid} />
         {/* Hub */}
-        <circle cx="12" cy="17" r="2" fill={color} stroke="none" />
+        <circle cx="12" cy="17" r="1.6" fill={color} stroke="none" />
       </>
     );
   } else if (id === "levers") {
-    // Wrench (lower-left -> upper-right, open-ring head) + writing pen (lower-right -> upper-left)
+    // Wrench + pen crossed as an X
+    //  Wrench: open-end head at upper-left, handle diagonal to lower-right
+    //  Pen:    rounded cap at upper-right, tapered tip at lower-left
     body = (
       <>
-        {/* Wrench */}
-        <path d="M4.5 19.5 L13.3 10.7" {...c2} />
-        <path d="M13.3 10.7 A 3.4 3.4 0 1 1 18 7" {...c2} />
-        {/* Writing pen — slim filled barrel tapering to a point */}
-        <path d="M18.43 19.57 L19.57 18.43 L7.57 6.43 L5 5 L6.43 7.57 Z" fill={color} stroke={color} strokeWidth="1.2" strokeLinejoin="round" />
-        {/* Pen tip detail — small line where ink meets paper */}
-        <line x1="5" y1="5" x2="6" y2="6" {...c} />
+        {/* Wrench — open-end ring head + handle, single continuous outline */}
+        <path
+          d="M7.4 3.4 A 2.9 2.9 0 1 0 3.4 7.4 L9.2 13.2 L13.2 9.2 Z M9.2 13.2 L20 20"
+          {...c}
+        />
+        {/* Pen — tapered barrel from upper-right cap to lower-left tip */}
+        <path
+          d="M16.6 4 L20 7.4 L8 19.4 L4 20.4 L5 16.4 Z"
+          {...c}
+        />
+        {/* Cap collar */}
+        <line x1="15" y1="5.6" x2="18.4" y2="9" {...c} />
+        {/* Pen tip detail */}
+        <line x1="4" y1="20.4" x2="6.4" y2="18" {...c} />
       </>
     );
   } else if (id === "capital") {
-    // 3 stacked coins — top face filled, side edges connect them for 3D stack depth
+    // 3 stacked coin cylinders (database-style) — line-only outlines, no fill
     body = (
       <>
-        {/* Left + right side edges of the stack (vertical depth lines) */}
-        <line x1="5" y1="7.4" x2="5" y2="16.6" {...c} />
-        <line x1="19" y1="7.4" x2="19" y2="16.6" {...c} />
-        {/* Bottom coin */}
-        <ellipse cx="12" cy="16.6" rx="7" ry="2.4" {...c} />
-        {/* Middle coin */}
-        <ellipse cx="12" cy="12" rx="7" ry="2.4" {...c} />
-        {/* Top coin — filled to read as a clear face */}
-        <ellipse cx="12" cy="7.4" rx="7" ry="2.4" fill={color} stroke={color} strokeWidth="1.6" />
+        {/* Top coin face — full ellipse outline */}
+        <ellipse cx="12" cy="5" rx="8" ry="2.3" {...c} />
+        {/* Left and right sides spanning the full stack */}
+        <line x1="4" y1="5" x2="4" y2="19" {...c} />
+        <line x1="20" y1="5" x2="20" y2="19" {...c} />
+        {/* Front-edge arcs separating each coin */}
+        <path d="M4 9.7 A 8 2.3 0 0 0 20 9.7" {...c} />
+        <path d="M4 14.3 A 8 2.3 0 0 0 20 14.3" {...c} />
+        {/* Bottom front arc */}
+        <path d="M4 19 A 8 2.3 0 0 0 20 19" {...c} />
       </>
     );
   } else if (id === "report") {
@@ -408,11 +420,17 @@ function TabIcon({ id, size = 22, color }) {
       </>
     );
   } else if (id === "history") {
-    // Upward-right trend line + arrowhead
+    // X/Y axis with upward trend line + arrowhead
     body = (
       <>
-        <polyline points="3 19 8.5 13 12.5 16 20 6" {...c} />
-        <polyline points="14.6 6 20 6 20 11.4" {...c} />
+        {/* Y axis */}
+        <line x1="4" y1="3" x2="4" y2="21" {...c} />
+        {/* X axis */}
+        <line x1="4" y1="21" x2="21" y2="21" {...c} />
+        {/* Trend line */}
+        <polyline points="6.5 17 10.5 13.5 13.5 15.5 19 8" {...c} />
+        {/* Arrowhead at line end */}
+        <polyline points="16 8 19 8 19 11" {...c} />
       </>
     );
   }
