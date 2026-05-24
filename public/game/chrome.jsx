@@ -346,35 +346,54 @@ function RightRail({ state, ratios, onAdvance, advancing }) {
 }
 
 // ---------- Tab icons ----------
-function TabIcon({ id, size = 18, color }) {
+function TabIcon({ id, size = 22, color }) {
   const c = { fill: "none", stroke: color, strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" };
+  const c2 = { ...c, strokeWidth: 2.3 };
   let body = null;
   if (id === "cockpit") {
-    // Gauge / speedometer
+    // Gauge / speedometer — semicircle face, tick marks, needle, hub
     body = (
       <>
-        <path d="M4 17.5 A 8.5 8.5 0 0 1 20 17.5" {...c} />
-        <line x1="12" y1="17.5" x2="16.6" y2="10.6" {...c} />
-        <circle cx="12" cy="17.5" r="1.9" fill={color} stroke="none" />
+        {/* Dial face */}
+        <path d="M5 17 A 7 7 0 0 1 19 17" {...c2} />
+        {/* Tick marks (5 evenly spaced, just inside the arc) */}
+        <line x1="5" y1="17" x2="6.5" y2="17" {...c} />
+        <line x1="8.11" y1="13.11" x2="9.17" y2="14.17" {...c} />
+        <line x1="12" y1="10" x2="12" y2="11.5" {...c} />
+        <line x1="14.83" y1="14.17" x2="15.89" y2="13.11" {...c} />
+        <line x1="17.5" y1="17" x2="19" y2="17" {...c} />
+        {/* Needle pointing up-right (~60°) */}
+        <line x1="12" y1="17" x2="15.5" y2="10.94" {...c2} />
+        {/* Hub */}
+        <circle cx="12" cy="17" r="2" fill={color} stroke="none" />
       </>
     );
   } else if (id === "levers") {
-    // Wrench + pen crossed
+    // Wrench (lower-left -> upper-right, open-ring head) + writing pen (lower-right -> upper-left)
     body = (
       <>
-        <path d="M4.5 19.5 L13.3 10.7" {...c} />
-        <path d="M13.3 10.7 A 3.4 3.4 0 1 1 18 7" {...c} />
-        <line x1="19.5" y1="19.5" x2="9.8" y2="9.8" {...c} />
-        <path d="M5.5 5.5 L11.2 8.4 L8.4 11.2 Z" fill={color} stroke={color} strokeWidth="1.2" strokeLinejoin="round" />
+        {/* Wrench */}
+        <path d="M4.5 19.5 L13.3 10.7" {...c2} />
+        <path d="M13.3 10.7 A 3.4 3.4 0 1 1 18 7" {...c2} />
+        {/* Writing pen — slim filled barrel tapering to a point */}
+        <path d="M18.43 19.57 L19.57 18.43 L7.57 6.43 L5 5 L6.43 7.57 Z" fill={color} stroke={color} strokeWidth="1.2" strokeLinejoin="round" />
+        {/* Pen tip detail — small line where ink meets paper */}
+        <line x1="5" y1="5" x2="6" y2="6" {...c} />
       </>
     );
   } else if (id === "capital") {
-    // 3 stacked ellipses (coin stack)
+    // 3 stacked coins — top face filled, side edges connect them for 3D stack depth
     body = (
       <>
+        {/* Left + right side edges of the stack (vertical depth lines) */}
+        <line x1="5" y1="7.4" x2="5" y2="16.6" {...c} />
+        <line x1="19" y1="7.4" x2="19" y2="16.6" {...c} />
+        {/* Bottom coin */}
         <ellipse cx="12" cy="16.6" rx="7" ry="2.4" {...c} />
+        {/* Middle coin */}
         <ellipse cx="12" cy="12" rx="7" ry="2.4" {...c} />
-        <ellipse cx="12" cy="7.4" rx="7" ry="2.4" {...c} />
+        {/* Top coin — filled to read as a clear face */}
+        <ellipse cx="12" cy="7.4" rx="7" ry="2.4" fill={color} stroke={color} strokeWidth="1.6" />
       </>
     );
   } else if (id === "report") {
@@ -405,7 +424,7 @@ function TabStrip({ tab, setTab }) {
   const tabs = [
     { id: "cockpit",   label: "Overview",    hint: "Forecast vs. actual" },
     { id: "levers",    label: "Operations",  hint: "Loans, deposits, securities" },
-    { id: "capital",   label: "Capital",     hint: "Dividends, buybacks, funding" },
+    { id: "capital",   label: "Treasury",    hint: "Dividends, buybacks, funding" },
     { id: "report",    label: "Call Report", hint: "FFIEC quarterly" },
     { id: "history",   label: "Tenure",      hint: "10-year track record" },
   ];
@@ -434,7 +453,7 @@ function TabStrip({ tab, setTab }) {
               cursor: "pointer",
               transition: "border-color 0.12s, background 0.12s",
             }}>
-            <TabIcon id={t.id} size={18} color={active ? P.amber : P.textMute} />
+            <TabIcon id={t.id} size={22} color={active ? P.amber : P.textMute} />
             <div style={{ display: "flex", flexDirection: "column", gap: 2, minWidth: 0 }}>
               <div style={{
                 fontSize: 13,

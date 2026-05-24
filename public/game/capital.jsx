@@ -47,6 +47,63 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }}>
       <ForecastStrip state={state} ratios={ratios} forecast={forecast} />
 
+      {/* Capital impact preview — sits high so the projected impact is the first thing you read */}
+      <div className="panel panel-pad" data-coach="capital-impact">
+        <div className="label-strong" style={{ marginBottom: 12 }}>Capital Impact — Next Quarter Projection</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }}>
+          <div>
+            <div className="label" style={{ fontSize: 9.5 }}>CET1 Δ</div>
+            <div className="num" style={{ fontSize: 22, fontWeight: 700, color: cet1Tone }}>
+              {cet1Bp >= 0 ? "+" : ""}{cet1Bp.toFixed(0)} bps
+            </div>
+            <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
+              {(ratios.cet1 * 100).toFixed(2)}% → {(fr.cet1 * 100).toFixed(2)}%
+            </div>
+          </div>
+          <div>
+            <div className="label" style={{ fontSize: 9.5 }}>Cash Δ</div>
+            <div className="num" style={{ fontSize: 22, fontWeight: 700, color: forecast.bs.cash >= state.bs.cash ? KP.good : KP.bad }}>
+              {forecast.bs.cash >= state.bs.cash ? "+" : ""}{KBE.fmt$(forecast.bs.cash - state.bs.cash)}
+            </div>
+            <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
+              {KBE.fmt$(state.bs.cash)} → {KBE.fmt$(forecast.bs.cash)}
+            </div>
+          </div>
+          <div>
+            <div className="label" style={{ fontSize: 9.5 }}>Wholesale / Total</div>
+            {(() => {
+              const fwh = (forecast.bs.borrowingsFHLB || 0) + (forecast.bs.brokeredCDs || 0);
+              const ftd = KBE.totalDeposits(forecast.bs.deposits);
+              const wsPct = fwh / Math.max(1, ftd + fwh);
+              return (
+                <>
+                  <div className="num" style={{ fontSize: 22, fontWeight: 700, color: wsPct > 0.15 ? KP.warn : KP.text }}>
+                    {(wsPct * 100).toFixed(1)}%
+                  </div>
+                  <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
+                    FHLB + brokered · ≤ 15%
+                  </div>
+                </>
+              );
+            })()}
+          </div>
+          {(() => {
+            const dRetained = fis.netIncome - totalDiv;
+            return (
+              <div>
+                <div className="label" style={{ fontSize: 9.5 }}>Δ Retained Earnings (next qtr)</div>
+                <div className="num" style={{ fontSize: 22, fontWeight: 700, color: dRetained >= 0 ? KP.good : KP.bad }}>
+                  {dRetained >= 0 ? "+" : ""}{KBE.fmt$(dRetained)}
+                </div>
+                <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
+                  NI {KBE.fmt$(fis.netIncome)} less {KBE.fmt$(totalDiv)} divs
+                </div>
+              </div>
+            );
+          })()}
+        </div>
+      </div>
+
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
         {/* Shareholder distributions */}
         <div className="panel panel-pad" data-coach="capital-distributions">
@@ -126,58 +183,6 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
               color={KP.info} locked={locked} />
           );
         })()}
-      </div>
-
-      {/* Capital impact preview */}
-      <div className="panel panel-pad" data-coach="capital-impact">
-        <div className="label-strong" style={{ marginBottom: 12 }}>Capital Impact — Next Quarter Projection</div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }}>
-          <div>
-            <div className="label" style={{ fontSize: 9.5 }}>CET1 Δ</div>
-            <div className="num" style={{ fontSize: 22, fontWeight: 700, color: cet1Tone }}>
-              {cet1Bp >= 0 ? "+" : ""}{cet1Bp.toFixed(0)} bps
-            </div>
-            <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
-              {(ratios.cet1 * 100).toFixed(2)}% → {(fr.cet1 * 100).toFixed(2)}%
-            </div>
-          </div>
-          <div>
-            <div className="label" style={{ fontSize: 9.5 }}>Cash Δ</div>
-            <div className="num" style={{ fontSize: 22, fontWeight: 700, color: forecast.bs.cash >= state.bs.cash ? KP.good : KP.bad }}>
-              {forecast.bs.cash >= state.bs.cash ? "+" : ""}{KBE.fmt$(forecast.bs.cash - state.bs.cash)}
-            </div>
-            <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
-              {KBE.fmt$(state.bs.cash)} → {KBE.fmt$(forecast.bs.cash)}
-            </div>
-          </div>
-          <div>
-            <div className="label" style={{ fontSize: 9.5 }}>Wholesale / Total</div>
-            {(() => {
-              const fwh = (forecast.bs.borrowingsFHLB || 0) + (forecast.bs.brokeredCDs || 0);
-              const ftd = KBE.totalDeposits(forecast.bs.deposits);
-              const wsPct = fwh / Math.max(1, ftd + fwh);
-              return (
-                <>
-                  <div className="num" style={{ fontSize: 22, fontWeight: 700, color: wsPct > 0.15 ? KP.warn : KP.text }}>
-                    {(wsPct * 100).toFixed(1)}%
-                  </div>
-                  <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
-                    FHLB + brokered · ≤ 15%
-                  </div>
-                </>
-              );
-            })()}
-          </div>
-          <div>
-            <div className="label" style={{ fontSize: 9.5 }}>Net Income (next qtr)</div>
-            <div className="num" style={{ fontSize: 22, fontWeight: 700, color: fis.netIncome >= 0 ? KP.good : KP.bad }}>
-              {KBE.fmt$(fis.netIncome)}
-            </div>
-            <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
-              after {KBE.fmt$(totalDiv)} divs
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -107,7 +107,7 @@ const COACH_FLOWS = {
 const FLOW_LABELS = {
   intro: "Tutorial",
   levers: "Operations",
-  capital: "Capital",
+  capital: "Treasury",
   report: "Call Report",
   history: "Tenure",
 };
