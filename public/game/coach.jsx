@@ -38,18 +38,24 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='live-forecast']",
       title: "Live forecast",
-      body: "This panel reprices the next quarter the moment you move any lever — NIM, net income and EPS, CET1, NPL, and customer satisfaction all update before you commit.",
+      body: "This panel reprices the next quarter the moment you move any lever — NIM, net income and EPS, CET1, NPL, customer satisfaction, deposits, and loans all update before you commit.",
       placement: "bottom",
     },
     {
       target: "[data-coach='lever-grid']",
       title: "Two operating panels",
-      body: "Production levers on the left, Funding levers on the right. Move any slider and watch the colored strip at the bottom of the card — it spells out the live trade-off in plain English.",
+      body: "Production levers on the left, consumer deposit ops on the right. Move any slider and watch the colored strip at the bottom of the card — it spells out the live trade-off in plain English.",
       placement: "top",
     },
     {
-      target: "[data-coach='lever-funding']",
-      title: "Three paths to satisfaction",
+      target: "[data-coach='lever-production']",
+      title: "Production levers",
+      body: "Your asset-generation engine: origination pace, underwriting tightness, SBA gain-on-sale, mortgage banking, and indirect auto. These set loan growth, yield, and the credit-loss vintages you'll inherit 4-8 quarters out.",
+      placement: "right",
+    },
+    {
+      target: "[data-coach='lever-deposit-ops']",
+      title: "Consumer deposit franchise",
       body: "Deposit pricing, ad spend, and fee load (overdraft + maintenance) all shape customer satisfaction in the background. Cheap pricing and aggressive fees grind sat down slowly; sustained overdraft fees above $30 invite CFPB scrutiny. Below 35 satisfaction, deposits begin to walk on their own.",
       placement: "left",
     },
@@ -64,7 +70,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='capital-wholesale']",
       title: "Wholesale funding",
-      body: "FHLB advances float with Fed Funds. Sub debt locks in fixed at issuance (Fed Funds + 100bp at the time you issue) — useful in low-rate periods. Sub debt counts as Total Capital, not wholesale concentration.",
+      body: "FHLB advances float with Fed Funds; brokered CDs auto-roll at Fed Funds + 35bp. The strip at the bottom tracks the combined share of total funding — keep it under 15% or examiners start asking.",
       placement: "left",
     },
     {

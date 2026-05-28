@@ -24,11 +24,16 @@ function NumberDial({ label, value, onChange, min, max, step, format, hint, colo
   );
 }
 
-function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
+function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) {
   const d = state.decisions;
+  const lev = state.levers;
   const totalDiv = d.dividendPerShare * state.bs.sharesOutstanding;
   const fr = forecast.ratios;
   const fis = forecast.is;
+  const wholesale = (state.bs.borrowingsFHLB || 0) + (state.bs.brokeredCDs || 0);
+  const totalFunding = KBE.totalDeposits(state.bs.deposits) + wholesale;
+  const wholesalePct = totalFunding > 0 ? (wholesale / totalFunding * 100) : 0;
+  const wsTone = wholesalePct > 15 ? KP.warn : KP.textMute;
 
   const cet1Bp = (fr.cet1 - ratios.cet1) * 10000;
   const cet1Tone = cet1Bp >= 0 ? KP.good : KP.bad;
@@ -134,7 +139,7 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
         <div className="panel panel-pad" data-coach="capital-wholesale">
           <div className="label-strong" style={{ marginBottom: 4 }}>Wholesale Funding</div>
           <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
-            FHLB advances float with rates; sub debt locks in fixed at issuance and counts as Total Capital, not wholesale.
+            FHLB advances float with Fed Funds; brokered CDs auto-roll at Fed Funds + 35bp. Together they form your wholesale concentration.
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             <NumberDial label="FHLB Advance (Δ this quarter)" value={d.fhlbAdvance}
@@ -142,7 +147,47 @@ function CapitalTab({ state, ratios, forecast, setDecision, locked }) {
               min={-10000} max={20000} step={500} format="money"
               hint={`Outstanding: ${KBE.fmt$(state.bs.borrowingsFHLB)} · floating cost ≈ Fed Funds + 50bp`}
               color={KP.warn} locked={locked} />
-            <NumberDial label="Sub Debt (Δ this quarter)" value={d.subDebtIssuance}
+            <NumericLeverCard
+              title="Brokered CDs Balance"
+              subtitle="Wholesale time deposits, auto-roll at Fed Funds + 35bp"
+              value={d.brokeredCDsTarget || 0}
+              onChange={(v) => setDecision("brokeredCDsTarget", v)}
+              min={0} max={50000} step={500} format="money"
+              color={KP.warn}
+              pill={d.brokeredCDsTarget > 0 ? `$${(d.brokeredCDsTarget / 1000).toFixed(1)}M` : "Off"}
+              hint={`Outstanding: ${KBE.fmt$(state.bs.brokeredCDs || 0)} · cost ≈ ${(((state.macro.fedFunds || 0) + 0.0035) * 100).toFixed(2)}% · counts toward wholesale concentration (≤ 15%)`}
+              locked={locked}
+            />
+            <div style={{ padding: "8px 12px", background: KP.bgRaised, borderRadius: 8, fontSize: 11.5, color: KP.textDim, display: "flex", justifyContent: "space-between" }}>
+              <span>Wholesale funding (FHLB + brokered)</span>
+              <span className="num" style={{ color: wsTone, fontWeight: 600 }}>{wholesalePct.toFixed(1)}% of funding</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+        {/* Balance sheet positioning */}
+        <div className="panel panel-pad" data-coach="capital-balance-sheet">
+          <div className="label-strong" style={{ marginBottom: 4 }}>Balance Sheet Positioning</div>
+          <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
+            Securities duration and cash buffer — how much rate risk and runoff cushion you carry.
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            {LEVERS_BALANCE_SHEET.map(L => (
+              <LeverCard key={L.key} lever={L} value={lev[L.key] ?? 0} onChange={(v) => setLever(L.key, v)} locked={locked} />
+            ))}
+          </div>
+        </div>
+
+        {/* Sub debt */}
+        <div className="panel panel-pad" data-coach="capital-sub-debt">
+          <div className="label-strong" style={{ marginBottom: 4 }}>Sub Debt</div>
+          <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
+            Subordinated debt locks in at fixed cost on issuance and counts toward Total Capital — not wholesale concentration.
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <NumberDial label="Sub Debt Issuance (Δ this quarter)" value={d.subDebtIssuance}
               onChange={v => setDecision("subDebtIssuance", v)}
               min={-10000} max={10000} step={500} format="money"
               hint={`Outstanding: ${KBE.fmt$(state.bs.subDebt)} · avg fixed cost ${((state.bs.subDebtAvgCost || 0) * 100).toFixed(2)}% · new issuance locks at Fed Funds + 100bp (${(((state.macro.fedFunds || 0) + 0.01) * 100).toFixed(2)}%)`}

@@ -92,6 +92,9 @@ const LEVERS_FUNDING = [
     color: LP.expansion,
     risk: (v) => v <= -1 ? "Pays less but bleeds deposits" : v >= 1 ? "Buys deposits at higher cost" : "Market",
   },
+];
+
+const LEVERS_BALANCE_SHEET = [
   {
     key: "securitiesDuration",
     title: "Securities Portfolio Duration",
@@ -220,14 +223,17 @@ function ForecastStrip({ state, ratios, forecast }) {
   const curSat = state?.satisfaction ?? 70;
   const nextSat = forecast.snapshot?.satisfaction ?? curSat;
   const nextEPS = fis.netIncome / Math.max(1e-6, forecast.bs.sharesOutstanding);
+  const curDeposits = LBE.totalDeposits(state.bs.deposits);
+  const nextDeposits = LBE.totalDeposits(forecast.bs.deposits);
   const items = [
-    { l: "Next NIM",         v: (fr.nim * 100).toFixed(2) + "%",        d: fr.nim - ratios.nim,         f: "pct" },
-    { l: "Next Net Income",  v: LBE.fmt$(fis.netIncome),                d: fis.netIncome,                f: "money", noDelta: true, sub: `EPS $${nextEPS.toFixed(2)}` },
-    { l: "Next CET1",        v: (fr.cet1 * 100).toFixed(2) + "%",       d: fr.cet1 - ratios.cet1,        f: "pct" },
-    { l: "Next NPL",         v: (fr.nplRatio * 100).toFixed(2) + "%",   d: fr.nplRatio - ratios.nplRatio, f: "pct", invert: true },
-    { l: "Next Sat",         v: Math.round(nextSat).toString(),         d: nextSat - curSat,             f: "sat" },
-    { l: "Next Loans",       v: LBE.fmt$(forecast.bs.loansGross),       d: forecast.bs.loansGross,       f: "money", noDelta: true },
-    { l: "Next Provision",   v: LBE.fmt$(fis.provision),                d: fis.provision,                f: "money", noDelta: true },
+    { l: "NIM",         v: (fr.nim * 100).toFixed(2) + "%",        d: fr.nim - ratios.nim,         f: "pct" },
+    { l: "Net Income",  v: LBE.fmt$(fis.netIncome),                d: fis.netIncome,                f: "money", noDelta: true, sub: `EPS $${nextEPS.toFixed(2)}` },
+    { l: "CET1",        v: (fr.cet1 * 100).toFixed(2) + "%",       d: fr.cet1 - ratios.cet1,        f: "pct" },
+    { l: "NPL",         v: (fr.nplRatio * 100).toFixed(2) + "%",   d: fr.nplRatio - ratios.nplRatio, f: "pct", invert: true },
+    { l: "Sat",         v: Math.round(nextSat).toString(),         d: nextSat - curSat,             f: "sat" },
+    { l: "Deposits",    v: LBE.fmt$(nextDeposits),                 d: nextDeposits - curDeposits,   f: "money" },
+    { l: "Loans",       v: LBE.fmt$(forecast.bs.loansGross),       d: forecast.bs.loansGross - state.bs.loansGross, f: "money" },
+    { l: "Provision",   v: LBE.fmt$(fis.provision),                d: fis.provision,                f: "money", noDelta: true },
   ];
   return (
     <div className="panel" data-coach="live-forecast" style={{
@@ -239,7 +245,7 @@ function ForecastStrip({ state, ratios, forecast }) {
         <div className="label-strong" style={{ color: LP.amber }}>Live Forecast — Next Quarter</div>
         <div style={{ fontSize: 13, color: LP.textMute }}>Projections update as you adjust levers</div>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(8, 1fr)", gap: 14 }}>
         {items.map(it => (
           <div key={it.l}>
             <div className="label" style={{ fontSize: 9.5 }}>{it.l}</div>
@@ -280,14 +286,9 @@ function PanelHeader({ title, subtitle, color }) {
 
 function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
   const lev = state.levers;
-  const dec = state.decisions;
   const indirectShare = state.bs.loansGross > 0 ? (state.bs.loansIndirect || 0) / state.bs.loansGross : 0;
   const indirectPct = (indirectShare * 100).toFixed(1);
   const indTone = indirectShare > 0.25 ? LP.bad : indirectShare > 0.15 ? LP.warn : LP.text;
-  const wholesale = (state.bs.borrowingsFHLB || 0) + (state.bs.brokeredCDs || 0);
-  const totalFunding = LBE.totalDeposits(state.bs.deposits) + wholesale;
-  const wholesalePct = totalFunding > 0 ? (wholesale / totalFunding * 100).toFixed(1) : "0.0";
-  const wsTone = wholesale / Math.max(1, totalFunding) > 0.15 ? LP.warn : LP.textMute;
 
   return (
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }} data-coach="levers-root">
@@ -295,7 +296,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
 
       <div data-coach="lever-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, alignItems: "start" }}>
         {/* Production column */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <div data-coach="lever-production" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <PanelHeader title="Production" subtitle="Loan origination, sales, and channels" color={LP.amber} />
           {LEVERS_PRODUCTION.map(L => (
             <LeverCard key={L.key} lever={L} value={lev[L.key] ?? 0} onChange={(v) => setLever(L.key, v)} locked={locked} />
@@ -306,9 +307,9 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
           </div>
         </div>
 
-        {/* Funding column */}
-        <div data-coach="lever-funding" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          <PanelHeader title="Funding & Balance Sheet" subtitle="Deposit mix, marketing, securities, liquidity" color={LP.expansion} />
+        {/* Consumer deposit ops column */}
+        <div data-coach="lever-deposit-ops" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <PanelHeader title="Consumer Deposit Ops" subtitle="Pricing, acquisition, and fee revenue" color={LP.expansion} />
           {LEVERS_FUNDING.map(L => (
             <LeverCard key={L.key} lever={L} value={lev[L.key] ?? 0} onChange={(v) => setLever(L.key, v)} locked={locked} />
           ))}
@@ -325,24 +326,23 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
               : "No marketing spend; growth is purely organic + pricing-driven"}
             locked={locked}
           />
-          <NumericLeverCard
-            title="Brokered CDs Balance"
-            subtitle="Wholesale time deposits, auto-roll at Fed Funds + 35bp"
-            value={dec.brokeredCDsTarget || 0}
-            onChange={(v) => setDecision("brokeredCDsTarget", v)}
-            min={0} max={50000} step={500} format="money"
-            color={LP.warn}
-            pill={dec.brokeredCDsTarget > 0 ? `$${(dec.brokeredCDsTarget / 1000).toFixed(1)}M` : "Off"}
-            hint={`Outstanding: ${LBE.fmt$(state.bs.brokeredCDs || 0)} · cost ≈ ${(((state.macro.fedFunds || 0) + 0.0035) * 100).toFixed(2)}% · counts toward wholesale concentration (≤ 15%)`}
-            locked={locked}
-          />
           {(() => {
             const fees = LBE.computeFeeIncome(state);
             const ofFee = lev.overdraftFee ?? 30;
             const mntFee = lev.monthlyMaintenance ?? 10;
             const feeLoad = LBE.computeFeeLoadPts(state);
+            const totalFee = (fees.overdraftIncome || 0) + (fees.maintenanceIncome || 0);
             return (
-              <>
+              <div className="panel" style={{ padding: 14, display: "flex", flexDirection: "column", gap: 12 }}>
+                <div style={{
+                  fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase",
+                  color: LP.bad, paddingBottom: 4, borderBottom: `1.5px solid ${LP.bad}55`,
+                }}>
+                  Fee Income
+                </div>
+                <div style={{ fontSize: 11.5, color: LP.textMute, fontStyle: "italic", marginTop: -4 }}>
+                  Fee revenue trades dollars for satisfaction; sustained overdraft &gt;$30 invites CFPB scrutiny.
+                </div>
                 <NumericLeverCard
                   title="Overdraft Fee (per item)"
                   subtitle="Consumer-watched; regulator-watched above $30"
@@ -362,20 +362,22 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
                   min={0} max={25} step={1} format="dollar"
                   color={LP.info}
                   pill={`$${mntFee.toFixed(0)}/mo`}
-                  hint={`Est. ${LBE.fmt$(fees.maintenanceIncome)}/qtr · ~${fees.accountsK.toFixed(1)}K total accounts · combined fee load impact on satisfaction: ${feeLoad.toFixed(1)} pts`}
+                  hint={`Est. ${LBE.fmt$(fees.maintenanceIncome)}/qtr · ~${fees.accountsK.toFixed(1)}K total accounts`}
                   locked={locked}
                 />
-              </>
+                <div style={{ padding: "8px 12px", background: LP.bgRaised, borderRadius: 8, fontSize: 11.5, color: LP.textDim, display: "flex", justifyContent: "space-between" }}>
+                  <span>Total fee income · sat impact</span>
+                  <span className="num" style={{ fontWeight: 600 }}>
+                    {LBE.fmt$(totalFee)} · <span style={{ color: feeLoad > 3 ? LP.bad : feeLoad > 1.5 ? LP.warn : LP.text }}>{feeLoad.toFixed(1)} pts</span>
+                  </span>
+                </div>
+              </div>
             );
           })()}
-          <div style={{ padding: "8px 12px", background: LP.bgRaised, borderRadius: 8, fontSize: 11.5, color: LP.textDim, display: "flex", justifyContent: "space-between" }}>
-            <span>Wholesale funding (FHLB + brokered)</span>
-            <span className="num" style={{ color: wsTone, fontWeight: 600 }}>{wholesalePct}% of funding</span>
-          </div>
         </div>
       </div>
     </div>
   );
 }
 
-Object.assign(window, { LeversTab, ForecastStrip, LEVERS_PRODUCTION, LEVERS_FUNDING });
+Object.assign(window, { LeversTab, ForecastStrip, LeverCard, NumericLeverCard, LEVERS_PRODUCTION, LEVERS_FUNDING, LEVERS_BALANCE_SHEET });
