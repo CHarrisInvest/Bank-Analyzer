@@ -404,18 +404,22 @@ function TabIcon({ id, size = 22, color }) {
       </g>
     );
   } else if (id === "capital") {
-    // Three overlapping coin stacks of varying heights, modeled after the
-    // provided reference: back-right is tallest (4 coins), middle-left is
-    // medium (3 coins), front-bottom is shortest (1 coin, closest to viewer).
-    // Each stack is rendered as: top rim ellipse + two side lines +
-    // (n-1) internal divider arcs + bottom front-arc.
-    //
-    // Stacks are drawn back-to-front. SVG masks hide each back stack where
-    // the front stacks cover it so the three read as cleanly stacked.
+    // Three overlapping coin cylinders, varying heights and widths.
+    // Back-right (5 coins, tallest), middle-left (4 coins), front-bottom
+    // (3 coins, comes furthest forward/down). Each stack draws an opaque
+    // bg-colored silhouette first, so the next stack rendered over it
+    // cleanly masks lines behind it without needing SVG masks.
+    const bgFill = color === P.amber ? P.bg : P.bgRaised;
     const drawStack = (cx, cyTop, rx, ry, n, h, key) => {
       const cyBot = cyTop + n * h;
       return (
         <g key={key}>
+          {/* Opaque silhouette fill — blocks anything drawn before this stack */}
+          <path
+            d={`M ${cx - rx} ${cyTop} A ${rx} ${ry} 0 0 1 ${cx + rx} ${cyTop} L ${cx + rx} ${cyBot} A ${rx} ${ry} 0 0 0 ${cx - rx} ${cyBot} Z`}
+            fill={bgFill}
+            stroke="none"
+          />
           <ellipse cx={cx} cy={cyTop} rx={rx} ry={ry} {...c} />
           <line x1={cx - rx} y1={cyTop} x2={cx - rx} y2={cyBot} {...c} />
           <line x1={cx + rx} y1={cyTop} x2={cx + rx} y2={cyBot} {...c} />
@@ -436,30 +440,11 @@ function TabIcon({ id, size = 22, color }) {
         </g>
       );
     };
-    const silhouette = (cx, cyTop, rx, ry, height) => {
-      const cyBot = cyTop + height;
-      return `M ${cx - rx} ${cyTop} A ${rx} ${ry} 0 0 1 ${cx + rx} ${cyTop} L ${cx + rx} ${cyBot} A ${rx} ${ry} 0 0 0 ${cx - rx} ${cyBot} Z`;
-    };
     body = (
       <>
-        <defs>
-          <mask id="treasury-mask-back" maskUnits="userSpaceOnUse">
-            <rect x="0" y="0" width="24" height="24" fill="white" />
-            <path d={silhouette(8, 9, 4, 2, 9)} fill="black" />
-            <path d={silhouette(12, 15.5, 4.5, 2, 3)} fill="black" />
-          </mask>
-          <mask id="treasury-mask-mid" maskUnits="userSpaceOnUse">
-            <rect x="0" y="0" width="24" height="24" fill="white" />
-            <path d={silhouette(12, 15.5, 4.5, 2, 3)} fill="black" />
-          </mask>
-        </defs>
-        <g mask="url(#treasury-mask-back)">
-          {drawStack(16, 6.5, 4.5, 2, 4, 3, "back-right")}
-        </g>
-        <g mask="url(#treasury-mask-mid)">
-          {drawStack(8, 9, 4, 2, 3, 3, "middle-left")}
-        </g>
-        {drawStack(12, 15.5, 4.5, 2, 1, 3, "front-bottom")}
+        {drawStack(15, 4, 5, 1.7, 5, 2, "back-right")}
+        {drawStack(7, 6, 4.8, 1.6, 4, 2, "middle-left")}
+        {drawStack(12, 13, 5.2, 1.8, 3, 2.2, "front-bottom")}
       </>
     );
   } else if (id === "report") {
