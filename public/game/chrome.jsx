@@ -371,31 +371,31 @@ function TabIcon({ id, size = 22, color }) {
       </>
     );
   } else if (id === "levers") {
-    // Crossed wrench + pencil — traced to match the iconic reference
+    // Crossed wrench + pencil — wrench head upper-left, pencil tip lower-left
     body = (
       <>
-        {/* WRENCH — rotated +45° so head sits upper-left and handle runs lower-right */}
+        {/* WRENCH — drawn axis-aligned (head at left, handle to right), then rotated +45° */}
         <g transform="rotate(45 12 12)">
-          {/* Single-outline silhouette: head with V-notch jaw + handle bar */}
+          {/* Single-outline silhouette: head + handle + V-notch jaw */}
           <path
-            d="M3.5 6.5 L6 6.5 L6 8.5 L9 8.5 L9 10.5 L20 10.5 L20 13.5 L9 13.5 L9 15.5 L6 15.5 L6 17.5 L3.5 17.5 L3.5 13.5 L6 12 L3.5 10.5 Z"
+            d="M3 8 L8 8 L8 10.5 L20 10.5 A 1.5 1.5 0 0 1 20 13.5 L8 13.5 L8 16 L3 16 L3 13 L6 12 L3 11 Z"
             {...c}
           />
-          {/* Open hole at the handle tip */}
-          <circle cx="17.5" cy="12" r="1.1" {...c} />
+          {/* Hole near handle end */}
+          <circle cx="17" cy="12" r="0.9" {...c} />
         </g>
-        {/* PENCIL — rotated -45° so pointed tip sits lower-left and eraser upper-right */}
+        {/* PENCIL — drawn axis-aligned (tip at left, eraser at right), then rotated -45° */}
         <g transform="rotate(-45 12 12)">
-          {/* Outer silhouette: triangular tip → body → ferrule → rounded eraser */}
-          <path d="M3 12 L6 10 L19 10 A 2 2 0 0 1 19 14 L6 14 Z" {...c} />
+          {/* Outer silhouette: pointed tip → body → eraser cap */}
+          <path d="M3 12 L5.5 9.5 L16 9.5 A 2 2 0 0 1 16 14.5 L5.5 14.5 Z" {...c} />
           {/* Tip / body seam */}
-          <line x1="6" y1="10" x2="6" y2="14" {...c} />
+          <line x1="5.5" y1="9.5" x2="5.5" y2="14.5" {...c} />
           {/* Body / ferrule seam */}
-          <line x1="15" y1="10" x2="15" y2="14" {...c} />
+          <line x1="12" y1="9.5" x2="12" y2="14.5" {...c} />
           {/* Ferrule / eraser seam */}
-          <line x1="17" y1="10" x2="17" y2="14" {...c} />
-          {/* Exposed lead at the sharpened tip */}
-          <path d="M6 11 L4 12 L6 13 Z" {...c} />
+          <line x1="14" y1="9.5" x2="14" y2="14.5" {...c} />
+          {/* Exposed lead detail at the tip */}
+          <path d="M5.5 11 L3.8 12 L5.5 13 Z" {...c} />
         </g>
       </>
     );
