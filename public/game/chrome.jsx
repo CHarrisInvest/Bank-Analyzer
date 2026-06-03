@@ -353,59 +353,62 @@ function TabIcon({ id, size = 22, color }) {
   const cThinMid = { ...c, strokeWidth: 1.6 };
   let body = null;
   if (id === "cockpit") {
-    // Gauge / speedometer — true semicircle face, thin tick marks, needle, hub
+    // Gauge / speedometer — larger dial, longer needle
     body = (
       <>
-        {/* Dial face — true semicircle (endpoints share y, radius spans 7 each way) */}
-        <path d="M5 17 A 7 7 0 0 1 19 17" {...cThin} />
+        {/* Dial face — larger semicircle */}
+        <path d="M2.5 18.5 A 9.5 9.5 0 0 1 21.5 18.5" {...cThin} />
         {/* Tick marks (5 evenly spaced, just inside the arc) */}
-        <line x1="5" y1="17" x2="6.4" y2="17" {...cThin} />
-        <line x1="8.11" y1="13.11" x2="9.17" y2="14.17" {...cThin} />
-        <line x1="12" y1="10" x2="12" y2="11.4" {...cThin} />
-        <line x1="14.83" y1="14.17" x2="15.89" y2="13.11" {...cThin} />
-        <line x1="17.6" y1="17" x2="19" y2="17" {...cThin} />
-        {/* Needle pointing up-right (~60°) */}
-        <line x1="12" y1="17" x2="15.5" y2="10.94" {...cThinMid} />
+        <line x1="2.5" y1="18.5" x2="4.4" y2="18.5" {...cThin} />
+        <line x1="5.28" y1="11.78" x2="6.62" y2="13.12" {...cThin} />
+        <line x1="12" y1="9" x2="12" y2="10.9" {...cThin} />
+        <line x1="17.38" y1="13.12" x2="18.72" y2="11.78" {...cThin} />
+        <line x1="19.6" y1="18.5" x2="21.5" y2="18.5" {...cThin} />
+        {/* Needle — longer, pointing up-right */}
+        <line x1="12" y1="18.5" x2="17.4" y2="10.65" {...cThinMid} />
         {/* Hub */}
-        <circle cx="12" cy="17" r="1.6" fill={color} stroke="none" />
+        <circle cx="12" cy="18.5" r="1.8" fill={color} stroke="none" />
       </>
     );
   } else if (id === "levers") {
-    // Wrench + pen crossed as an X
-    //  Wrench: open-end head at upper-left, handle diagonal to lower-right
-    //  Pen:    rounded cap at upper-right, tapered tip at lower-left
+    // Crossed wrench + pencil — wrench jaw upper-left, pencil tip lower-left
     body = (
       <>
-        {/* Wrench — open-end ring head + handle, single continuous outline */}
-        <path
-          d="M7.4 3.4 A 2.9 2.9 0 1 0 3.4 7.4 L9.2 13.2 L13.2 9.2 Z M9.2 13.2 L20 20"
-          {...c}
-        />
-        {/* Pen — tapered barrel from upper-right cap to lower-left tip */}
-        <path
-          d="M16.6 4 L20 7.4 L8 19.4 L4 20.4 L5 16.4 Z"
-          {...c}
-        />
-        {/* Cap collar */}
-        <line x1="15" y1="5.6" x2="18.4" y2="9" {...c} />
-        {/* Pen tip detail */}
-        <line x1="4" y1="20.4" x2="6.4" y2="18" {...c} />
+        {/* Wrench rotated +45° so head sits upper-left and handle runs lower-right */}
+        <g transform="rotate(45 12 12)">
+          {/* Open-jaw fork head */}
+          <path d="M2 7 L5 7 L5 9 L7 9 L7 7 L10 7 L10 15 L7 15 L7 13 L5 13 L5 15 L2 15 Z" {...c} />
+          {/* Handle bar */}
+          <path d="M10 9.5 L19 9.5 L19 12.5 L10 12.5 Z" {...c} />
+          {/* Hole at handle end */}
+          <circle cx="17.4" cy="11" r="1.1" {...c} />
+        </g>
+        {/* Pencil rotated -45° so tip sits lower-left and eraser upper-right */}
+        <g transform="rotate(-45 12 12)">
+          {/* Pointed tip */}
+          <path d="M2.5 11 L5 9 L5 13 Z" {...c} />
+          {/* Body */}
+          <path d="M5 9 L16 9 L16 13 L5 13 Z" {...c} />
+          {/* Eraser cap with rounded end */}
+          <path d="M16 9 L18.5 9 A 1.5 1.5 0 0 1 18.5 13 L16 13 Z" {...c} />
+          {/* Ferrule band */}
+          <line x1="14.7" y1="9" x2="14.7" y2="13" {...c} />
+          {/* Lead-point detail */}
+          <line x1="2.5" y1="11" x2="3.4" y2="11" {...c} />
+        </g>
       </>
     );
   } else if (id === "capital") {
-    // 3 stacked coin cylinders (database-style) — line-only outlines, no fill
+    // 3 stacked coin cylinders — each coin drawn as its own U so junctions show
     body = (
       <>
-        {/* Top coin face — full ellipse outline */}
-        <ellipse cx="12" cy="5" rx="8" ry="2.3" {...c} />
-        {/* Left and right sides spanning the full stack */}
-        <line x1="4" y1="5" x2="4" y2="19" {...c} />
-        <line x1="20" y1="5" x2="20" y2="19" {...c} />
-        {/* Front-edge arcs separating each coin */}
-        <path d="M4 9.7 A 8 2.3 0 0 0 20 9.7" {...c} />
-        <path d="M4 14.3 A 8 2.3 0 0 0 20 14.3" {...c} />
-        {/* Bottom front arc */}
-        <path d="M4 19 A 8 2.3 0 0 0 20 19" {...c} />
+        {/* Top coin: full top ellipse + sides + front arc */}
+        <ellipse cx="12" cy="4.5" rx="8" ry="2" {...c} />
+        <path d="M4 4.5 V9.5 A 8 2 0 0 0 20 9.5 V4.5" {...c} />
+        {/* Middle coin */}
+        <path d="M4 9.5 V14.5 A 8 2 0 0 0 20 14.5 V9.5" {...c} />
+        {/* Bottom coin */}
+        <path d="M4 14.5 V19.5 A 8 2 0 0 0 20 19.5 V14.5" {...c} />
       </>
     );
   } else if (id === "report") {
