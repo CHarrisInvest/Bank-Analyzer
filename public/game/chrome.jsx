@@ -354,16 +354,19 @@ function TabIcon({ id, size = 22, color }) {
   let body = null;
   if (id === "cockpit") {
     // 3/4 circle gauge centered on the icon (12, 12), bottom 1/4 cut out.
-    // Arc spans 270° from lower-left to lower-right via the top.
+    // Arc spans 270° from lower-left to lower-right via the top, with
+    // 7 ticks evenly spaced 45° apart.
     body = (
       <>
         {/* Dial arc */}
         <path d="M 5.28 18.72 A 9.5 9.5 0 1 1 18.72 18.72" {...cThin} />
-        {/* 5 tick marks evenly spaced across the 270° arc (67.5° apart) */}
+        {/* 7 tick marks evenly spaced across the 270° arc (45° apart) */}
         <line x1="5.28" y1="18.72" x2="6.27" y2="17.73" {...cThin} />
-        <line x1="3.22" y1="8.36" x2="4.51" y2="8.90" {...cThin} />
+        <line x1="2.5" y1="12" x2="3.9" y2="12" {...cThin} />
+        <line x1="5.28" y1="5.28" x2="6.27" y2="6.27" {...cThin} />
         <line x1="12" y1="2.5" x2="12" y2="3.9" {...cThin} />
-        <line x1="20.78" y1="8.36" x2="19.49" y2="8.90" {...cThin} />
+        <line x1="18.72" y1="5.28" x2="17.73" y2="6.27" {...cThin} />
+        <line x1="21.5" y1="12" x2="20.1" y2="12" {...cThin} />
         <line x1="18.72" y1="18.72" x2="17.73" y2="17.73" {...cThin} />
         {/* Needle pointing up-right (~55° above horizontal) */}
         <line x1="12" y1="12" x2="16.31" y2="5.86" {...cThinMid} />
