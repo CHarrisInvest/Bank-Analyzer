@@ -347,8 +347,8 @@ function RightRail({ state, ratios, onAdvance, advancing }) {
 
 // ---------- Tab icons ----------
 function TabIcon({ id, size = 22, color }) {
-  const c = { fill: "none", stroke: color, strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" };
-  const c2 = { ...c, strokeWidth: 2.3 };
+  const c = { fill: "none", stroke: color, strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" };
+  const c2 = { ...c, strokeWidth: 1.9 };
   const cThin = { ...c, strokeWidth: 1.4 };
   const cThinMid = { ...c, strokeWidth: 1.6 };
   let body = null;
@@ -442,9 +442,9 @@ function TabIcon({ id, size = 22, color }) {
     };
     body = (
       <>
-        {drawStack(8, 1.8, 7, 1.8, 5, 3, "back-left")}
-        {drawStack(16, 6, 7, 1.8, 4, 3, "middle-right")}
-        {drawStack(11, 10.5, 7, 1.8, 3, 3, "front-bottom")}
+        {drawStack(8, 2, 7, 2, 5, 3.3, "back-left")}
+        {drawStack(16, 6, 7, 2, 4, 3.3, "middle-right")}
+        {drawStack(11, 10.5, 7, 2, 3, 3.3, "front-bottom")}
       </>
     );
   } else if (id === "report") {
