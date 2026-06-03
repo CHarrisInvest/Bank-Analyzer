@@ -359,7 +359,7 @@ function TabIcon({ id, size = 22, color }) {
     body = (
       <>
         {/* Dial arc */}
-        <path d="M 5.28 18.72 A 9.5 9.5 0 1 1 18.72 18.72" {...cThin} />
+        <path d="M 5.28 18.72 A 9.5 9.5 0 1 1 18.72 18.72" {...cThinMid} />
         {/* 7 tick marks evenly spaced across the 270° arc (45° apart) */}
         <line x1="5.28" y1="18.72" x2="6.27" y2="17.73" {...cThin} />
         <line x1="2.5" y1="12" x2="3.9" y2="12" {...cThin} />
@@ -369,86 +369,34 @@ function TabIcon({ id, size = 22, color }) {
         <line x1="21.5" y1="12" x2="20.1" y2="12" {...cThin} />
         <line x1="18.72" y1="18.72" x2="17.73" y2="17.73" {...cThin} />
         {/* Needle pointing up-right (~55° above horizontal) */}
-        <line x1="12" y1="12" x2="16.31" y2="5.86" {...cThinMid} />
+        <line x1="12" y1="12" x2="16.31" y2="5.86" {...cThin} />
         {/* Hub */}
         <circle cx="12" cy="12" r="1.8" fill={color} stroke="none" />
       </>
     );
   } else if (id === "levers") {
-    // Crossed wrench + pencil — vector trace of the reference icon, drawn in
-    // 1024-space and scaled into the 24x24 viewBox.
-    const LEVERS_PATHS = [
-      "M514,551 L511,541 L464,494 L453,491",
-      "M515,552 L527,556 L667,692 L677,697 L694,700 L711,697 L727,687 L735,677 L740,662 L739,641 L733,628 L591,490 L588,479",
-      "M347,253 L356,255",
-      "M729,336 L588,477",
-      "M344,607 L333,612 L304,667 L301,682 L303,701",
-      "M289,321 L288,315",
-      "M304,702 L321,704 L347,697 L391,673 L395,669 L398,660",
-      "M730,335 L730,326",
-      "M587,478 L577,475 L563,462 L529,428 L526,418",
-      "M687,278 L668,277 L663,279 L526,416",
-      "M525,417 L512,413 L472,373 L470,367 L472,340 L466,312 L453,289 L437,272 L412,257 L394,252 L372,250 L360,251 L357,254",
-      "M357,256 L360,267 L396,303 L398,308 L391,350 L387,355 L352,363 L341,362 L304,327 L290,322",
-      "M649,466 L744,369 L746,361 L744,348 L739,341 L731,336",
-      "M514,552 L412,655 L399,659",
-      "M345,606 L349,595 L451,491",
-      "M731,325 L747,310 L755,295 L756,282 L750,265 L737,256 L715,256 L700,265 L688,278",
-      "M303,702 L288,716",
-      "M688,279 L691,289 L722,320 L730,325",
-      "M345,607 L398,659",
-      "M289,322 L286,325 L285,337 L288,365 L296,386 L306,401 L326,420 L346,431 L364,436 L402,437 L408,439 L448,478 L452,490",
-      "M708,644 L699,635 L683,636 L676,645 L676,658 L684,667 L701,667 L708,660 L708,644",
-    ];
-    body = (
-      <g transform="scale(0.0234375)">
-        {LEVERS_PATHS.map((d, i) => (
-          <path key={i} d={d} vectorEffect="non-scaling-stroke" {...c} />
-        ))}
-      </g>
-    );
-  } else if (id === "capital") {
-    // Three overlapping coin cylinders, varying heights and widths.
-    // Back-right (5 coins, tallest), middle-left (4 coins), front-bottom
-    // (3 coins, comes furthest forward/down). Each stack draws an opaque
-    // bg-colored silhouette first, so the next stack rendered over it
-    // cleanly masks lines behind it without needing SVG masks.
-    const bgFill = color === P.amber ? P.bg : P.bgRaised;
-    const drawStack = (cx, cyTop, rx, ry, n, h, key) => {
-      const cyBot = cyTop + n * h;
-      return (
-        <g key={key}>
-          {/* Opaque silhouette fill — blocks anything drawn before this stack */}
-          <path
-            d={`M ${cx - rx} ${cyTop} A ${rx} ${ry} 0 0 1 ${cx + rx} ${cyTop} L ${cx + rx} ${cyBot} A ${rx} ${ry} 0 0 1 ${cx - rx} ${cyBot} Z`}
-            fill={bgFill}
-            stroke="none"
-          />
-          <ellipse cx={cx} cy={cyTop} rx={rx} ry={ry} {...c} />
-          <line x1={cx - rx} y1={cyTop} x2={cx - rx} y2={cyBot} {...c} />
-          <line x1={cx + rx} y1={cyTop} x2={cx + rx} y2={cyBot} {...c} />
-          {Array.from({ length: n - 1 }, (_, i) => {
-            const y = cyTop + (i + 1) * h;
-            return (
-              <path
-                key={i}
-                d={`M ${cx - rx} ${y} A ${rx} ${ry} 0 0 0 ${cx + rx} ${y}`}
-                {...c}
-              />
-            );
-          })}
-          <path
-            d={`M ${cx - rx} ${cyBot} A ${rx} ${ry} 0 0 0 ${cx + rx} ${cyBot}`}
-            {...c}
-          />
-        </g>
-      );
-    };
+    // Crossed tool icon: main diagonal shaft (handle) running lower-left to
+    // upper-right, with a cross-head at the upper-left jaw and a single
+    // bar at the lower-right handle tip.
     body = (
       <>
-        {drawStack(8, 2, 7, 2, 5, 3.3, "back-left")}
-        {drawStack(16, 6, 7, 2, 4, 3.3, "middle-right")}
-        {drawStack(11, 10.5, 7, 2, 3, 3.3, "front-bottom")}
+        <line x1="4.5" y1="19.5" x2="19.5" y2="4.5" {...c} />
+        <line x1="4.1" y1="7" x2="9.9" y2="7" {...cThin} />
+        <line x1="7" y1="4.1" x2="7" y2="9.9" {...cThin} />
+        <line x1="14.1" y1="17" x2="19.9" y2="17" {...cThin} />
+      </>
+    );
+  } else if (id === "capital") {
+    // Single coin cylinder stack — 4 coins.
+    body = (
+      <>
+        <ellipse cx="12" cy="4.6" rx="7" ry="2" {...cThin} />
+        <line x1="5" y1="4.6" x2="5" y2="19.4" {...cThin} />
+        <line x1="19" y1="4.6" x2="19" y2="19.4" {...cThin} />
+        <path d="M 5 8.3 A 7 2 0 0 0 19 8.3" {...cThin} />
+        <path d="M 5 12 A 7 2 0 0 0 19 12" {...cThin} />
+        <path d="M 5 15.7 A 7 2 0 0 0 19 15.7" {...cThin} />
+        <path d="M 5 19.4 A 7 2 0 0 0 19 19.4" {...cThin} />
       </>
     );
   } else if (id === "report") {
@@ -457,9 +405,9 @@ function TabIcon({ id, size = 22, color }) {
       <>
         <path d="M6 3 H14 L18.5 7.5 V21 H6 Z" {...c} />
         <path d="M14 3 V7.5 H18.5" {...c} />
-        <line x1="9" y1="11.6" x2="15" y2="11.6" {...c} />
-        <line x1="9" y1="14.6" x2="15" y2="14.6" {...c} />
-        <line x1="9" y1="17.6" x2="12.5" y2="17.6" {...c} />
+        <line x1="9" y1="11.6" x2="15" y2="11.6" {...cThin} />
+        <line x1="9" y1="14.6" x2="15" y2="14.6" {...cThin} />
+        <line x1="9" y1="17.6" x2="12.5" y2="17.6" {...cThin} />
       </>
     );
   } else if (id === "history") {
@@ -471,9 +419,9 @@ function TabIcon({ id, size = 22, color }) {
         {/* X axis */}
         <line x1="4" y1="21" x2="21" y2="21" {...c} />
         {/* Trend line */}
-        <polyline points="6.5 17 10.5 13.5 13.5 15.5 19 8" {...c} />
+        <polyline points="6.5 17 10.5 13.5 13.5 15.5 19 8" {...cThin} />
         {/* Arrowhead at line end */}
-        <polyline points="16 8 19 8 19 11" {...c} />
+        <polyline points="16.03 8.46 19 8 19.46 10.97" {...cThin} />
       </>
     );
   }
