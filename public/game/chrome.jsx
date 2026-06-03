@@ -442,9 +442,9 @@ function TabIcon({ id, size = 22, color }) {
     };
     body = (
       <>
-        {drawStack(8, 1.8, 6, 1.8, 5, 3, "back-left")}
-        {drawStack(16, 6, 6, 1.8, 4, 3, "middle-right")}
-        {drawStack(11, 10.5, 6, 1.8, 3, 3, "front-bottom")}
+        {drawStack(8, 1.8, 7, 1.8, 5, 3, "back-left")}
+        {drawStack(16, 6, 7, 1.8, 4, 3, "middle-right")}
+        {drawStack(11, 10.5, 7, 1.8, 3, 3, "front-bottom")}
       </>
     );
   } else if (id === "report") {
