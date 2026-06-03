@@ -404,49 +404,62 @@ function TabIcon({ id, size = 22, color }) {
       </g>
     );
   } else if (id === "capital") {
-    // Three overlapping stacks of coins of varying heights.
-    // Back-left (4 coins) and back-right (3 coins) are drawn first inside a
-    // mask that hides them within the front-middle stack's silhouette, so the
-    // front stack (5 coins, tallest) cleanly stacks over them.
-    const rx = 4, ry = 0.85, h = 1.5;
-    const yBot = 20;
-    const stacks = {
-      backLeft: { cx: 5, n: 4 },
-      backRight: { cx: 16, n: 3 },
-      front: { cx: 10.5, n: 5 },
-    };
-    const silhouette = (cx, n) => {
-      const yTop = yBot - n * h;
-      return `M ${cx - rx} ${yTop} A ${rx} ${ry} 0 0 1 ${cx + rx} ${yTop} L ${cx + rx} ${yBot} A ${rx} ${ry} 0 0 0 ${cx - rx} ${yBot} Z`;
-    };
-    const drawStack = (cx, n, key) => {
-      const yTop = yBot - n * h;
-      const ellipses = [];
-      for (let i = 0; i < n; i++) {
-        ellipses.push(<ellipse key={i} cx={cx} cy={yTop + i * h} rx={rx} ry={ry} {...c} />);
-      }
+    // Three overlapping coin stacks of varying heights, modeled after the
+    // provided reference: back-right is tallest (4 coins), middle-left is
+    // medium (3 coins), front-bottom is shortest (1 coin, closest to viewer).
+    // Each stack is rendered as: top rim ellipse + two side lines +
+    // (n-1) internal divider arcs + bottom front-arc.
+    //
+    // Stacks are drawn back-to-front. SVG masks hide each back stack where
+    // the front stacks cover it so the three read as cleanly stacked.
+    const drawStack = (cx, cyTop, rx, ry, n, h, key) => {
+      const cyBot = cyTop + n * h;
       return (
         <g key={key}>
-          <line x1={cx - rx} y1={yTop} x2={cx - rx} y2={yBot} {...c} />
-          <line x1={cx + rx} y1={yTop} x2={cx + rx} y2={yBot} {...c} />
-          {ellipses}
-          <path d={`M ${cx - rx} ${yBot} A ${rx} ${ry} 0 0 0 ${cx + rx} ${yBot}`} {...c} />
+          <ellipse cx={cx} cy={cyTop} rx={rx} ry={ry} {...c} />
+          <line x1={cx - rx} y1={cyTop} x2={cx - rx} y2={cyBot} {...c} />
+          <line x1={cx + rx} y1={cyTop} x2={cx + rx} y2={cyBot} {...c} />
+          {Array.from({ length: n - 1 }, (_, i) => {
+            const y = cyTop + (i + 1) * h;
+            return (
+              <path
+                key={i}
+                d={`M ${cx - rx} ${y} A ${rx} ${ry} 0 0 0 ${cx + rx} ${y}`}
+                {...c}
+              />
+            );
+          })}
+          <path
+            d={`M ${cx - rx} ${cyBot} A ${rx} ${ry} 0 0 0 ${cx + rx} ${cyBot}`}
+            {...c}
+          />
         </g>
       );
+    };
+    const silhouette = (cx, cyTop, rx, ry, height) => {
+      const cyBot = cyTop + height;
+      return `M ${cx - rx} ${cyTop} A ${rx} ${ry} 0 0 1 ${cx + rx} ${cyTop} L ${cx + rx} ${cyBot} A ${rx} ${ry} 0 0 0 ${cx - rx} ${cyBot} Z`;
     };
     body = (
       <>
         <defs>
-          <mask id="treasury-stack-mask" maskUnits="userSpaceOnUse">
+          <mask id="treasury-mask-back" maskUnits="userSpaceOnUse">
             <rect x="0" y="0" width="24" height="24" fill="white" />
-            <path d={silhouette(stacks.front.cx, stacks.front.n)} fill="black" />
+            <path d={silhouette(8, 9, 4, 2, 9)} fill="black" />
+            <path d={silhouette(12, 15.5, 4.5, 2, 3)} fill="black" />
+          </mask>
+          <mask id="treasury-mask-mid" maskUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="24" height="24" fill="white" />
+            <path d={silhouette(12, 15.5, 4.5, 2, 3)} fill="black" />
           </mask>
         </defs>
-        <g mask="url(#treasury-stack-mask)">
-          {drawStack(stacks.backLeft.cx, stacks.backLeft.n, "back-left")}
-          {drawStack(stacks.backRight.cx, stacks.backRight.n, "back-right")}
+        <g mask="url(#treasury-mask-back)">
+          {drawStack(16, 6.5, 4.5, 2, 4, 3, "back-right")}
         </g>
-        {drawStack(stacks.front.cx, stacks.front.n, "front")}
+        <g mask="url(#treasury-mask-mid)">
+          {drawStack(8, 9, 4, 2, 3, 3, "middle-left")}
+        </g>
+        {drawStack(12, 15.5, 4.5, 2, 1, 3, "front-bottom")}
       </>
     );
   } else if (id === "report") {
