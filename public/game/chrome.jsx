@@ -372,9 +372,7 @@ function TabIcon({ id, size = 22, color }) {
     );
   } else if (id === "levers") {
     // Crossed wrench + pencil — vector trace of the reference icon, drawn in
-    // 1024-space and scaled into the 24x24 viewBox. The final segment is the
-    // wrench's upper-outer edge bridging the pencil body so the two read as
-    // stacked rather than conjoined at the crossing.
+    // 1024-space and scaled into the 24x24 viewBox.
     const LEVERS_PATHS = [
       "M514,551 L511,541 L464,494 L453,491",
       "M515,552 L527,556 L667,692 L677,697 L694,700 L711,697 L727,687 L735,677 L740,662 L739,641 L733,628 L591,490 L588,479",
@@ -383,6 +381,8 @@ function TabIcon({ id, size = 22, color }) {
       "M344,607 L333,612 L304,667 L301,682 L303,701",
       "M289,321 L288,315",
       "M304,702 L321,704 L347,697 L391,673 L395,669 L398,660",
+      "M730,335 L730,326",
+      "M587,478 L577,475 L563,462 L529,428 L526,418",
       "M687,278 L668,277 L663,279 L526,416",
       "M525,417 L512,413 L472,373 L470,367 L472,340 L466,312 L453,289 L437,272 L412,257 L394,252 L372,250 L360,251 L357,254",
       "M357,256 L360,267 L396,303 L398,308 L391,350 L387,355 L352,363 L341,362 L304,327 L290,322",
@@ -393,8 +393,8 @@ function TabIcon({ id, size = 22, color }) {
       "M303,702 L288,716",
       "M688,279 L691,289 L722,320 L730,325",
       "M345,607 L398,659",
-      "M289,322 L286,325 L285,337 L288,365 L296,386 L306,401 L322,417 L346,431 L364,436 L402,437 L408,439 L448,478 L452,490",
-      "M526,416 L588,477",
+      "M289,322 L286,325 L285,337 L288,365 L296,386 L306,401 L326,420 L346,431 L364,436 L402,437 L408,439 L448,478 L452,490",
+      "M708,644 L699,635 L683,636 L676,645 L676,658 L684,667 L701,667 L708,660 L708,644",
     ];
     body = (
       <g transform="scale(0.0234375)">
@@ -404,16 +404,49 @@ function TabIcon({ id, size = 22, color }) {
       </g>
     );
   } else if (id === "capital") {
-    // 3 stacked coin cylinders — each coin drawn as its own U so junctions show
+    // Three overlapping stacks of coins of varying heights.
+    // Back-left (4 coins) and back-right (3 coins) are drawn first inside a
+    // mask that hides them within the front-middle stack's silhouette, so the
+    // front stack (5 coins, tallest) cleanly stacks over them.
+    const rx = 4, ry = 0.85, h = 1.5;
+    const yBot = 20;
+    const stacks = {
+      backLeft: { cx: 5, n: 4 },
+      backRight: { cx: 16, n: 3 },
+      front: { cx: 10.5, n: 5 },
+    };
+    const silhouette = (cx, n) => {
+      const yTop = yBot - n * h;
+      return `M ${cx - rx} ${yTop} A ${rx} ${ry} 0 0 1 ${cx + rx} ${yTop} L ${cx + rx} ${yBot} A ${rx} ${ry} 0 0 0 ${cx - rx} ${yBot} Z`;
+    };
+    const drawStack = (cx, n, key) => {
+      const yTop = yBot - n * h;
+      const ellipses = [];
+      for (let i = 0; i < n; i++) {
+        ellipses.push(<ellipse key={i} cx={cx} cy={yTop + i * h} rx={rx} ry={ry} {...c} />);
+      }
+      return (
+        <g key={key}>
+          <line x1={cx - rx} y1={yTop} x2={cx - rx} y2={yBot} {...c} />
+          <line x1={cx + rx} y1={yTop} x2={cx + rx} y2={yBot} {...c} />
+          {ellipses}
+          <path d={`M ${cx - rx} ${yBot} A ${rx} ${ry} 0 0 0 ${cx + rx} ${yBot}`} {...c} />
+        </g>
+      );
+    };
     body = (
       <>
-        {/* Top coin: full top ellipse + sides + front arc */}
-        <ellipse cx="12" cy="4.5" rx="8" ry="2" {...c} />
-        <path d="M4 4.5 V9.5 A 8 2 0 0 0 20 9.5 V4.5" {...c} />
-        {/* Middle coin */}
-        <path d="M4 9.5 V14.5 A 8 2 0 0 0 20 14.5 V9.5" {...c} />
-        {/* Bottom coin */}
-        <path d="M4 14.5 V19.5 A 8 2 0 0 0 20 19.5 V14.5" {...c} />
+        <defs>
+          <mask id="treasury-stack-mask" maskUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="24" height="24" fill="white" />
+            <path d={silhouette(stacks.front.cx, stacks.front.n)} fill="black" />
+          </mask>
+        </defs>
+        <g mask="url(#treasury-stack-mask)">
+          {drawStack(stacks.backLeft.cx, stacks.backLeft.n, "back-left")}
+          {drawStack(stacks.backRight.cx, stacks.backRight.n, "back-right")}
+        </g>
+        {drawStack(stacks.front.cx, stacks.front.n, "front")}
       </>
     );
   } else if (id === "report") {
