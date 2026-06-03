@@ -416,7 +416,7 @@ function TabIcon({ id, size = 22, color }) {
         <g key={key}>
           {/* Opaque silhouette fill — blocks anything drawn before this stack */}
           <path
-            d={`M ${cx - rx} ${cyTop} A ${rx} ${ry} 0 0 1 ${cx + rx} ${cyTop} L ${cx + rx} ${cyBot} A ${rx} ${ry} 0 0 0 ${cx - rx} ${cyBot} Z`}
+            d={`M ${cx - rx} ${cyTop} A ${rx} ${ry} 0 0 1 ${cx + rx} ${cyTop} L ${cx + rx} ${cyBot} A ${rx} ${ry} 0 0 1 ${cx - rx} ${cyBot} Z`}
             fill={bgFill}
             stroke="none"
           />
@@ -442,8 +442,8 @@ function TabIcon({ id, size = 22, color }) {
     };
     body = (
       <>
-        {drawStack(15, 1.8, 5, 1.8, 5, 3, "back-right")}
-        {drawStack(7, 6, 5, 1.8, 4, 3, "middle-left")}
+        {drawStack(9, 1.8, 5, 1.8, 5, 3, "back-left")}
+        {drawStack(17, 6, 5, 1.8, 4, 3, "middle-right")}
         {drawStack(12, 10, 5, 1.8, 3, 3, "front-bottom")}
       </>
     );
