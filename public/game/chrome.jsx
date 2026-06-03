@@ -371,33 +371,37 @@ function TabIcon({ id, size = 22, color }) {
       </>
     );
   } else if (id === "levers") {
-    // Crossed wrench + pencil — wrench head upper-left, pencil tip lower-left
+    // Crossed wrench + pencil — vector trace of the reference icon, drawn in
+    // 1024-space and scaled into the 24x24 viewBox. The final segment is the
+    // wrench's upper-outer edge bridging the pencil body so the two read as
+    // stacked rather than conjoined at the crossing.
+    const LEVERS_PATHS = [
+      "M514,551 L511,541 L464,494 L453,491",
+      "M515,552 L527,556 L667,692 L677,697 L694,700 L711,697 L727,687 L735,677 L740,662 L739,641 L733,628 L591,490 L588,479",
+      "M347,253 L356,255",
+      "M729,336 L588,477",
+      "M344,607 L333,612 L304,667 L301,682 L303,701",
+      "M289,321 L288,315",
+      "M304,702 L321,704 L347,697 L391,673 L395,669 L398,660",
+      "M687,278 L668,277 L663,279 L526,416",
+      "M525,417 L512,413 L472,373 L470,367 L472,340 L466,312 L453,289 L437,272 L412,257 L394,252 L372,250 L360,251 L357,254",
+      "M357,256 L360,267 L396,303 L398,308 L391,350 L387,355 L352,363 L341,362 L304,327 L290,322",
+      "M649,466 L744,369 L746,361 L744,348 L739,341 L731,336",
+      "M514,552 L412,655 L399,659",
+      "M345,606 L349,595 L451,491",
+      "M731,325 L747,310 L755,295 L756,282 L750,265 L737,256 L715,256 L700,265 L688,278",
+      "M303,702 L288,716",
+      "M688,279 L691,289 L722,320 L730,325",
+      "M345,607 L398,659",
+      "M289,322 L286,325 L285,337 L288,365 L296,386 L306,401 L322,417 L346,431 L364,436 L402,437 L408,439 L448,478 L452,490",
+      "M526,416 L588,477",
+    ];
     body = (
-      <>
-        {/* WRENCH — drawn axis-aligned (head at left, handle to right), then rotated +45° */}
-        <g transform="rotate(45 12 12)">
-          {/* Single-outline silhouette: head + handle + V-notch jaw */}
-          <path
-            d="M3 8 L8 8 L8 10.5 L20 10.5 A 1.5 1.5 0 0 1 20 13.5 L8 13.5 L8 16 L3 16 L3 13 L6 12 L3 11 Z"
-            {...c}
-          />
-          {/* Hole near handle end */}
-          <circle cx="17" cy="12" r="0.9" {...c} />
-        </g>
-        {/* PENCIL — drawn axis-aligned (tip at left, eraser at right), then rotated -45° */}
-        <g transform="rotate(-45 12 12)">
-          {/* Outer silhouette: pointed tip → body → eraser cap */}
-          <path d="M3 12 L5.5 9.5 L16 9.5 A 2 2 0 0 1 16 14.5 L5.5 14.5 Z" {...c} />
-          {/* Tip / body seam */}
-          <line x1="5.5" y1="9.5" x2="5.5" y2="14.5" {...c} />
-          {/* Body / ferrule seam */}
-          <line x1="12" y1="9.5" x2="12" y2="14.5" {...c} />
-          {/* Ferrule / eraser seam */}
-          <line x1="14" y1="9.5" x2="14" y2="14.5" {...c} />
-          {/* Exposed lead detail at the tip */}
-          <path d="M5.5 11 L3.8 12 L5.5 13 Z" {...c} />
-        </g>
-      </>
+      <g transform="scale(0.0234375)">
+        {LEVERS_PATHS.map((d, i) => (
+          <path key={i} d={d} vectorEffect="non-scaling-stroke" {...c} />
+        ))}
+      </g>
     );
   } else if (id === "capital") {
     // 3 stacked coin cylinders — each coin drawn as its own U so junctions show
