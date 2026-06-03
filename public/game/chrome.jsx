@@ -353,21 +353,22 @@ function TabIcon({ id, size = 22, color }) {
   const cThinMid = { ...c, strokeWidth: 1.6 };
   let body = null;
   if (id === "cockpit") {
-    // Gauge / speedometer — larger dial, longer needle
+    // 3/4 circle gauge centered on the icon (12, 12), bottom 1/4 cut out.
+    // Arc spans 270° from lower-left to lower-right via the top.
     body = (
       <>
-        {/* Dial face — larger semicircle */}
-        <path d="M2.5 18.5 A 9.5 9.5 0 0 1 21.5 18.5" {...cThin} />
-        {/* Tick marks (5 evenly spaced, just inside the arc) */}
-        <line x1="2.5" y1="18.5" x2="4.4" y2="18.5" {...cThin} />
-        <line x1="5.28" y1="11.78" x2="6.62" y2="13.12" {...cThin} />
-        <line x1="12" y1="9" x2="12" y2="10.9" {...cThin} />
-        <line x1="17.38" y1="13.12" x2="18.72" y2="11.78" {...cThin} />
-        <line x1="19.6" y1="18.5" x2="21.5" y2="18.5" {...cThin} />
-        {/* Needle — longer, pointing up-right */}
-        <line x1="12" y1="18.5" x2="17.4" y2="10.65" {...cThinMid} />
+        {/* Dial arc */}
+        <path d="M 5.28 18.72 A 9.5 9.5 0 1 1 18.72 18.72" {...cThin} />
+        {/* 5 tick marks evenly spaced across the 270° arc (67.5° apart) */}
+        <line x1="5.28" y1="18.72" x2="6.27" y2="17.73" {...cThin} />
+        <line x1="3.22" y1="8.36" x2="4.51" y2="8.90" {...cThin} />
+        <line x1="12" y1="2.5" x2="12" y2="3.9" {...cThin} />
+        <line x1="20.78" y1="8.36" x2="19.49" y2="8.90" {...cThin} />
+        <line x1="18.72" y1="18.72" x2="17.73" y2="17.73" {...cThin} />
+        {/* Needle pointing up-right (~55° above horizontal) */}
+        <line x1="12" y1="12" x2="16.31" y2="5.86" {...cThinMid} />
         {/* Hub */}
-        <circle cx="12" cy="18.5" r="1.8" fill={color} stroke="none" />
+        <circle cx="12" cy="12" r="1.8" fill={color} stroke="none" />
       </>
     );
   } else if (id === "levers") {
