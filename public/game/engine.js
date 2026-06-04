@@ -1003,6 +1003,11 @@
     // Variable: asset-scaled compensation + ops costs + event shocks + deposit ad spend.
     let nonintExpenseVariable = (totalAssets(bs) * 0.0233 / 4) * (1 + nf.nonintExpense);
     nonintExpenseVariable += Math.max(0, s.levers.depositAdSpend || 0);
+    // Advertising & lender incentives: cost of chasing loan demand. Scales with how
+    // hard the pace slider is pushed (only Push/Floor It). ~12 bps annualized of avg
+    // loans per pace step.
+    const advLenderExpense = Math.max(0, s.levers.loanGrowth) * 0.0012 * avgLoans / 4;
+    nonintExpenseVariable += advLenderExpense;
     if (event?.type === "fraud") nonintExpenseVariable += 350;
     nonintExpenseVariable += reserveShortfallFee;
     let nonintExpense = nonintExpenseFixed + nonintExpenseVariable;
@@ -1028,6 +1033,7 @@
       sbaGain, sbaSold: loans.sbaSold || 0,
       mortGain, mortFixedCost,
       depositAdSpend: Math.max(0, s.levers.depositAdSpend || 0),
+      advLenderExpense,
       brokeredCDInterest: ((s.bs.brokeredCDs || 0) * brokeredCDCost) / 4,
       overdraftIncome: feeStreams.overdraftIncome,
       maintenanceIncome: feeStreams.maintenanceIncome,

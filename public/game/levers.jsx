@@ -16,7 +16,7 @@ const LEVERS_PRODUCTION = [
       { v:  2, l: "Floor It" },
     ],
     color: LP.amber,
-    risk: (v) => v >= 1 ? "Builds latent credit risk; new yields modestly lower" : v <= -1 ? "Forfeits NII; protects capital" : "Balanced",
+    risk: (v) => v >= 1 ? "Builds latent credit risk; new yields modestly lower; raises advertising & lender-incentive expense" : v <= -1 ? "Forfeits NII; protects capital" : "Balanced",
   },
   {
     key: "underwriting",
