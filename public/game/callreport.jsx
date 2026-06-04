@@ -128,6 +128,7 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Fixed (premises + systems + base)" value={f$(is.nonintExpenseFixed ?? 0)} indent={1} dim />
             <ReportRow label="Variable (scales with assets + events)" value={f$(is.nonintExpenseVariable ?? (is.nonintExpense - (is.nonintExpenseFixed ?? 0)))} indent={1} dim />
             {(is.depositAdSpend ?? 0) > 0 && <ReportRow label="of which: deposit marketing" value={f$(is.depositAdSpend)} indent={2} dim />}
+            {(is.advLenderExpense ?? 0) > 0 && <ReportRow label="of which: advertising & lender incentives" value={f$(is.advLenderExpense)} indent={2} dim />}
             {(is.cfpbCharge ?? 0) > 0 && <ReportRow label="of which: CFPB consent order" value={f$(is.cfpbCharge)} indent={2} neg />}
             {(is.reserveShortfallFee ?? 0) > 0 && <ReportRow label="of which: reserve shortfall charge" value={f$(is.reserveShortfallFee)} indent={2} neg />}
             {(is.examFee ?? 0) > 0 && <ReportRow label="of which: exam remediation" value={f$(is.examFee)} indent={2} neg />}
