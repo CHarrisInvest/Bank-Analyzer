@@ -75,11 +75,12 @@ function GamePlay() {
         }
         .bs-game-play .bs-game-frame {
           position: absolute;
-          top: ${STRIP_H}px; left: 0; right: 0; bottom: 0;
-          width: 100%;
-          /* No explicit height — top + bottom stretch the iframe to fill the
-             fixed parent exactly. Avoids 100vh, which overshoots the visible
-             area on mobile browsers. */
+          top: ${STRIP_H}px; left: 0; right: 0;
+          /* An iframe is a replaced element, so top+bottom alone won't stretch
+             it — it needs a definite height. Resolve it as a percentage of the
+             fixed parent (which tracks the visible viewport), not vh/dvh, so it
+             fills exactly the area below the strip on every device. */
+          height: calc(100% - ${STRIP_H}px);
           border: 0;
           display: block;
           background: #0d1218;
