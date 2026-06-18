@@ -16,11 +16,10 @@ function GamePlay() {
 
       <style>{`
         .bs-game-play {
+          /* Fixed + inset:0 anchors all four edges to the visible viewport;
+             the browser resizes it as mobile toolbars show/hide. No vh/dvh
+             units (they over- or under-shoot the visible area on mobile). */
           position: fixed; inset: 0;
-          /* dvh tracks the *visible* viewport on mobile (excludes the browser
-             toolbars), so the embedded game's bottom nav is never hidden
-             behind Safari/Chrome chrome. inset:0 is the fallback. */
-          height: 100dvh;
           background: #0d1218;
           overflow: hidden;
         }
