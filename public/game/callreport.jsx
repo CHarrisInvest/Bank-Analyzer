@@ -35,6 +35,8 @@ function ReportSection({ title, children }) {
 }
 
 function CallReportTab({ state, ratios }) {
+  const vp = window.Theme.useViewport();
+  const compact = vp.compact;
   const bs = state.bs;
   const is = state.lastIS;
   const td = RBE.totalDeposits(bs.deposits);
@@ -45,14 +47,14 @@ function CallReportTab({ state, ratios }) {
   const fpct = (v, d = 2) => v === null || v === undefined || isNaN(v) ? "—" : `${(v * 100).toFixed(d)}%`;
 
   return (
-    <div className="tab-enter scroll-thin" style={{ padding: 14, height: "100%", overflowY: "auto" }}>
+    <div className="tab-enter scroll-thin" style={{ padding: compact ? 10 : 14, height: "100%", overflowY: "auto" }}>
       {/* Title block */}
-      <div data-coach="report-title" style={{ marginBottom: 18, paddingBottom: 14, borderBottom: `1px solid ${RP.line}`, display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-        <div>
-          <div className="serif" style={{ fontSize: 26, lineHeight: 1, color: RP.text }}>
+      <div data-coach="report-title" style={{ marginBottom: compact ? 14 : 18, paddingBottom: compact ? 10 : 14, borderBottom: `1px solid ${RP.line}`, display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 12, flexWrap: "wrap" }}>
+        <div style={{ minWidth: 0 }}>
+          <div className="serif" style={{ fontSize: vp.isPhone ? 20 : 26, lineHeight: 1.05, color: RP.text }}>
             Consolidated Reports of Condition and Income
           </div>
-          <div style={{ fontSize: 12, color: RP.textMute, marginTop: 6 }}>
+          <div style={{ fontSize: vp.isPhone ? 11 : 12, color: RP.textMute, marginTop: 6 }}>
             FFIEC 051 · First Meridian Bank, NA · Charter #1893 · Confidential
           </div>
         </div>
@@ -62,7 +64,7 @@ function CallReportTab({ state, ratios }) {
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}>
+      <div style={{ display: "grid", gridTemplateColumns: compact ? "1fr" : "1fr 1fr", gap: compact ? 4 : 28 }}>
         {/* Schedule RC — Balance Sheet */}
         <div>
           <ReportSection title="Schedule RC — Balance Sheet">

@@ -104,10 +104,82 @@ function Vital({ label, value, color, sub }) {
   );
 }
 
+// ---------- Compact cycle chip (mobile header) ----------
+function CycleChip({ cycle }) {
+  return (
+    <div style={{
+      display: "inline-flex", alignItems: "center", gap: 6,
+      padding: "4px 9px", borderRadius: 999,
+      background: P[cycle] + "1f", border: `1px solid ${P[cycle]}66`,
+      flexShrink: 0,
+    }}>
+      <span style={{ width: 6, height: 6, borderRadius: "50%", background: P[cycle] }} />
+      <span style={{ fontSize: 10.5, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: P[cycle] }}>
+        {CYL[cycle]}
+      </span>
+    </div>
+  );
+}
+
 // ---------- Header ----------
 function Header({ state, ratios }) {
   const { label } = qlbl(state.quarter);
   const m = state.macro;
+  const vp = window.Theme.useViewport();
+
+  const vitals = (
+    <>
+      <Vital label="CET1" value={(ratios.cet1 * 100).toFixed(1) + "%"} color={rcolor("cet1", ratios.cet1)} />
+      <Vital label="ROA" value={(ratios.roa * 100).toFixed(2) + "%"} color={rcolor("roa", ratios.roa)} />
+      <Vital label="NIM" value={(ratios.nim * 100).toFixed(2) + "%"} color={rcolor("nim", ratios.nim)} />
+      <Vital label="NPL" value={(ratios.nplRatio * 100).toFixed(2) + "%"} color={rcolor("nplRatio", ratios.nplRatio)} />
+      <Vital label="Sat" value={Math.round(state.satisfaction ?? 70)} color={rcolor("satisfaction", state.satisfaction ?? 70)} />
+      <div style={{ width: 1, height: 28, background: P.line, flexShrink: 0 }} />
+      <Vital label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} sub="last quarter" color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
+    </>
+  );
+
+  // ---- Compact (phone / tablet) header: stacked, scrollable vitals ----
+  if (vp.compact) {
+    return (
+      <div style={{
+        display: "flex", flexDirection: "column", gap: 8,
+        padding: "8px 14px 10px",
+        borderBottom: `1px solid ${P.line}`,
+        background: P.bgRaised,
+        flexShrink: 0,
+      }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 9, minWidth: 0 }}>
+            <BankGlyph size={22} />
+            <div style={{ minWidth: 0 }}>
+              <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: "-0.01em", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>First Meridian Bank</div>
+              <div style={{ fontSize: 9, color: P.textMute, letterSpacing: "0.12em" }} className="mono">NA · #1893</div>
+            </div>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 5, whiteSpace: "nowrap" }}>
+              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1 }} className="num">{label}</div>
+              <div style={{ fontSize: 9.5, color: P.textMute, letterSpacing: "0.08em" }} className="mono">{state.quarter}/40</div>
+            </div>
+            <CycleChip cycle={m.cycle} />
+          </div>
+        </div>
+
+        {/* Vitals — horizontal scroll on small screens */}
+        <div className="scroll-x" data-coach="header-vitals" style={{ display: "flex", gap: 16, alignItems: "center", paddingBottom: 2 }}>
+          {vitals}
+        </div>
+
+        {/* Progress track full width */}
+        <div data-coach="header-progress">
+          <ProgressTrack history={state.history} currentQ={state.quarter} height={11} />
+        </div>
+      </div>
+    );
+  }
+
+  // ---- Desktop header (unchanged three-column layout) ----
   return (
     <div style={{
       display: "flex", flexDirection: "column", gap: 6,
@@ -143,13 +215,7 @@ function Header({ state, ratios }) {
 
         {/* Vitals — pushed to the right */}
         <div style={{ display: "flex", marginLeft: "auto", gap: 16, alignItems: "center", flexShrink: 0 }} data-coach="header-vitals">
-          <Vital label="CET1" value={(ratios.cet1 * 100).toFixed(1) + "%"} color={rcolor("cet1", ratios.cet1)} />
-          <Vital label="ROA" value={(ratios.roa * 100).toFixed(2) + "%"} color={rcolor("roa", ratios.roa)} />
-          <Vital label="NIM" value={(ratios.nim * 100).toFixed(2) + "%"} color={rcolor("nim", ratios.nim)} />
-          <Vital label="NPL" value={(ratios.nplRatio * 100).toFixed(2) + "%"} color={rcolor("nplRatio", ratios.nplRatio)} />
-          <Vital label="Sat" value={Math.round(state.satisfaction ?? 70)} color={rcolor("satisfaction", state.satisfaction ?? 70)} />
-          <div style={{ width: 1, height: 28, background: P.line }} />
-          <Vital label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} sub="last quarter" color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
+          {vitals}
         </div>
       </div>
 
@@ -424,19 +490,35 @@ function TabIcon({ id, size = 22, color }) {
         <polyline points="16.03 8.46 19 8 19.46 10.97" {...cThin} />
       </>
     );
+  } else if (id === "markets") {
+    // Globe: circle with latitude + meridian lines (macro / markets feed)
+    body = (
+      <>
+        <circle cx="12" cy="12" r="9" {...cThinMid} />
+        <line x1="3" y1="12" x2="21" y2="12" {...cThin} />
+        <line x1="3.8" y1="8.5" x2="20.2" y2="8.5" {...cThin} />
+        <line x1="3.8" y1="15.5" x2="20.2" y2="15.5" {...cThin} />
+        <path d="M12 3 C 7.5 7, 7.5 17, 12 21 C 16.5 17, 16.5 7, 12 3 Z" {...cThin} />
+      </>
+    );
   }
   return <svg width={size} height={size} viewBox="0 0 24 24" style={{ flexShrink: 0 }}>{body}</svg>;
 }
 
+// ---------- Shared tab definitions ----------
+const GAME_TABS = [
+  { id: "cockpit",   label: "Overview",    short: "Overview", hint: "Forecast vs. actual" },
+  { id: "levers",    label: "Operations",  short: "Ops",      hint: "Loans, deposits, securities" },
+  { id: "capital",   label: "Treasury",    short: "Treasury", hint: "Dividends, buybacks, funding" },
+  { id: "report",    label: "Call Report", short: "Report",   hint: "FFIEC quarterly" },
+  { id: "history",   label: "Tenure",      short: "Tenure",   hint: "10-year track record" },
+];
+// Extra tab surfaced only in the compact shell, where the right rail is gone.
+const MARKETS_TAB = { id: "markets", label: "Markets", short: "Markets", hint: "Macro & events" };
+
 // ---------- Tab strip (vertical left rail) ----------
 function TabStrip({ tab, setTab }) {
-  const tabs = [
-    { id: "cockpit",   label: "Overview",    hint: "Forecast vs. actual" },
-    { id: "levers",    label: "Operations",  hint: "Loans, deposits, securities" },
-    { id: "capital",   label: "Treasury",    hint: "Dividends, buybacks, funding" },
-    { id: "report",    label: "Call Report", hint: "FFIEC quarterly" },
-    { id: "history",   label: "Tenure",      hint: "10-year track record" },
-  ];
+  const tabs = GAME_TABS;
   return (
     <div data-coach="tab-strip" style={{
       display: "flex",
@@ -487,7 +569,57 @@ function TabStrip({ tab, setTab }) {
   );
 }
 
+// ---------- Markets surface (compact shell) ----------
+// In the stacked layout the right rail disappears, so its macro + event
+// content moves into its own tab reachable from the bottom nav.
+function MobileMarkets({ state }) {
+  return (
+    <div className="tab-enter scroll-thin" style={{
+      height: "100%", overflowY: "auto",
+      padding: 12, display: "flex", flexDirection: "column", gap: 10,
+    }}>
+      <MacroTape macro={state.macro} />
+      <EventCard log={state.log} currentQ={state.quarter} />
+      <EventLog log={state.log} />
+    </div>
+  );
+}
+
+// ---------- Bottom navigation + advance (compact shell) ----------
+function MobileNav({ tab, setTab, onAdvance, advancing, state }) {
+  const navItems = [...GAME_TABS, MARKETS_TAB];
+  return (
+    <div style={{
+      flexShrink: 0,
+      background: P.bgRaised,
+      borderTop: `1px solid ${P.line}`,
+      paddingBottom: "env(safe-area-inset-bottom)",
+    }}>
+      {/* Primary action — always reachable by thumb */}
+      <div style={{ padding: "9px 12px 10px" }}>
+        <AdvanceButton onAdvance={onAdvance} disabled={!!state.gameOver} advancing={advancing} currentQ={state.quarter} />
+      </div>
+      {/* Tab rail */}
+      <div data-coach="tab-strip" style={{ display: "flex", borderTop: `1px solid ${P.lineSoft}` }}>
+        {navItems.map(t => {
+          const active = t.id === tab;
+          return (
+            <button key={t.id} onClick={() => setTab(t.id)} data-coach={`tab-${t.id}`}
+              data-active={active} className="mnav-btn">
+              <TabIcon id={t.id} size={21} color={active ? P.amber : P.textMute} />
+              <span className="mnav-label" style={{ color: active ? P.text : P.textMute, fontWeight: active ? 600 : 500 }}>
+                {t.short}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 Object.assign(window, {
-  BankGlyph, ProgressTrack, CurrentCycle, Vital,
+  BankGlyph, ProgressTrack, CurrentCycle, CycleChip, Vital,
   Header, MacroTape, EventCard, EventLog, AdvanceButton, RightRail, TabStrip,
+  MobileNav, MobileMarkets, GAME_TABS, MARKETS_TAB,
 });

@@ -148,13 +148,19 @@ function Coach({ flow, onDismiss }) {
 
   if (!steps || !pos) return null;
   const s = steps[step];
-  const W = 320;
+  const W = Math.min(320, window.innerWidth - 24);
   const TIP_H_EST = 220;
+  // On narrow screens the target often spans most of the width, so left/right
+  // placements have nowhere to go — fall back to vertical placement.
+  const narrow = window.innerWidth < 680;
+  const placement = narrow && (s.placement === "left" || s.placement === "right")
+    ? (pos.y > window.innerHeight / 2 ? "top" : "bottom")
+    : s.placement;
   let x = pos.x + pos.w / 2 - W / 2;
   let y = pos.y + pos.h + 14;
-  if (s.placement === "top") y = pos.y - 14 - 130;
-  if (s.placement === "left") { x = pos.x - W - 14; y = pos.y + pos.h / 2 - 65; }
-  if (s.placement === "right") { x = pos.x + pos.w + 14; y = pos.y + pos.h / 2 - 65; }
+  if (placement === "top") y = pos.y - 14 - 130;
+  if (placement === "left") { x = pos.x - W - 14; y = pos.y + pos.h / 2 - 65; }
+  if (placement === "right") { x = pos.x + pos.w + 14; y = pos.y + pos.h / 2 - 65; }
   x = Math.max(12, Math.min(window.innerWidth - W - 12, x));
   y = Math.max(12, Math.min(window.innerHeight - TIP_H_EST - 12, y));
 

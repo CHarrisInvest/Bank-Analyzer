@@ -114,13 +114,48 @@ function App() {
     }
   };
 
-  let body;
-  if (tab === "cockpit") body = <CockpitTab state={state} ratios={ratios} forecast={forecast} />;
-  else if (tab === "levers") body = <LeversTab state={state} ratios={ratios} forecast={forecast} setLever={setLever} setDecision={setDecision} locked={!!state.gameOver || advancing} />;
-  else if (tab === "capital") body = <CapitalTab state={state} ratios={ratios} forecast={forecast} setLever={setLever} setDecision={setDecision} locked={!!state.gameOver || advancing} />;
-  else if (tab === "report") body = <CallReportTab state={state} ratios={ratios} />;
-  else if (tab === "history") body = <HistoryTab state={state} />;
+  const vp = window.Theme.useViewport();
 
+  // The Markets tab only exists in the compact shell. If the viewport grows
+  // to desktop while it's active, fall back to the cockpit.
+  const effTab = (!vp.compact && tab === "markets") ? "cockpit" : tab;
+
+  let body;
+  if (effTab === "cockpit") body = <CockpitTab state={state} ratios={ratios} forecast={forecast} />;
+  else if (effTab === "levers") body = <LeversTab state={state} ratios={ratios} forecast={forecast} setLever={setLever} setDecision={setDecision} locked={!!state.gameOver || advancing} />;
+  else if (effTab === "capital") body = <CapitalTab state={state} ratios={ratios} forecast={forecast} setLever={setLever} setDecision={setDecision} locked={!!state.gameOver || advancing} />;
+  else if (effTab === "report") body = <CallReportTab state={state} ratios={ratios} />;
+  else if (effTab === "history") body = <HistoryTab state={state} />;
+  else if (effTab === "markets") body = <MobileMarkets state={state} />;
+
+  const coachNode = (
+    <Coach flow={coachFlow && (coachFlow !== "intro" || (state.quarter === 1 && !state.gameOver)) ? coachFlow : null} onDismiss={dismissCoach} />
+  );
+
+  // ---- Compact shell: stacked header / body / bottom nav (phone + tablet) ----
+  if (vp.compact) {
+    return (
+      <div style={{
+        display: "flex", flexDirection: "column",
+        height: "100vh", overflow: "hidden",
+        background: AP.bg,
+        position: "relative",
+      }}>
+        <Header state={state} ratios={ratios} />
+        <div style={{ flex: 1, minHeight: 0, position: "relative", overflow: "hidden" }}>
+          {advancing && <div className="q-flash" key={flashKey} />}
+          <div key={effTab + "-" + state.quarter} style={{ height: "100%" }}>
+            {body}
+          </div>
+        </div>
+        <MobileNav tab={tab} setTab={handleTabChange} onAdvance={advance} advancing={advancing} state={state} />
+        {coachNode}
+        <GameOver state={state} onRestart={restart} />
+      </div>
+    );
+  }
+
+  // ---- Desktop shell: three-column layout ----
   return (
     <div style={{
       display: "flex", flexDirection: "column",
@@ -133,13 +168,13 @@ function App() {
         <TabStrip tab={tab} setTab={handleTabChange} />
         <div style={{ flex: 1, minWidth: 0, position: "relative" }}>
           {advancing && <div className="q-flash" key={flashKey} />}
-          <div key={tab + "-" + state.quarter} style={{ height: "100%" }}>
+          <div key={effTab + "-" + state.quarter} style={{ height: "100%" }}>
             {body}
           </div>
         </div>
         <RightRail state={state} ratios={ratios} onAdvance={advance} advancing={advancing} />
       </div>
-      <Coach flow={coachFlow && (coachFlow !== "intro" || (state.quarter === 1 && !state.gameOver)) ? coachFlow : null} onDismiss={dismissCoach} />
+      {coachNode}
       <GameOver state={state} onRestart={restart} />
     </div>
   );
