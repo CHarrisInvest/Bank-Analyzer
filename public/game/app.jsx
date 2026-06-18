@@ -137,7 +137,7 @@ function App() {
     return (
       <div style={{
         display: "flex", flexDirection: "column",
-        height: "100vh", overflow: "hidden",
+        height: "100%", overflow: "hidden",
         background: AP.bg,
         position: "relative",
       }}>
@@ -159,7 +159,7 @@ function App() {
   return (
     <div style={{
       display: "flex", flexDirection: "column",
-      height: "100vh", overflow: "hidden",
+      height: "100%", overflow: "hidden",
       background: AP.bg,
       position: "relative",
     }}>

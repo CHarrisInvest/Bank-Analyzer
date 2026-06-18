@@ -17,6 +17,10 @@ function GamePlay() {
       <style>{`
         .bs-game-play {
           position: fixed; inset: 0;
+          /* dvh tracks the *visible* viewport on mobile (excludes the browser
+             toolbars), so the embedded game's bottom nav is never hidden
+             behind Safari/Chrome chrome. inset:0 is the fallback. */
+          height: 100dvh;
           background: #0d1218;
           overflow: hidden;
         }
@@ -74,7 +78,9 @@ function GamePlay() {
           position: absolute;
           top: ${STRIP_H}px; left: 0; right: 0; bottom: 0;
           width: 100%;
-          height: calc(100vh - ${STRIP_H}px);
+          /* No explicit height — top + bottom stretch the iframe to fill the
+             fixed parent exactly. Avoids 100vh, which overshoots the visible
+             area on mobile browsers. */
           border: 0;
           display: block;
           background: #0d1218;
