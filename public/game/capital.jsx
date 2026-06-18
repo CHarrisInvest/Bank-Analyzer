@@ -25,6 +25,9 @@ function NumberDial({ label, value, onChange, min, max, step, format, hint, colo
 }
 
 function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) {
+  const vp = window.Theme.useViewport();
+  const compact = vp.compact;
+  const impactCols = vp.isPhone ? 2 : 4;
   const d = state.decisions;
   const lev = state.levers;
   const totalDiv = d.dividendPerShare * state.bs.sharesOutstanding;
@@ -49,13 +52,13 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
     : `Est. price $${estPrice.toFixed(2)} · 5% underwriting fee on gross proceeds`;
 
   return (
-    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }}>
+    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: compact ? 10 : 12, padding: compact ? 10 : 14, height: "100%", overflowY: "auto" }}>
       <ForecastStrip state={state} ratios={ratios} forecast={forecast} />
 
       {/* Capital impact preview — sits high so the projected impact is the first thing you read */}
       <div className="panel panel-pad" data-coach="capital-impact">
         <div className="label-strong" style={{ marginBottom: 12 }}>Capital Impact — Next Quarter Projection</div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }}>
+        <div style={{ display: "grid", gridTemplateColumns: `repeat(${impactCols}, 1fr)`, gap: compact ? 12 : 14 }}>
           <div>
             <div className="label" style={{ fontSize: 9.5 }}>CET1 Δ</div>
             <div className="num" style={{ fontSize: 22, fontWeight: 700, color: cet1Tone }}>
@@ -109,7 +112,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: compact ? "1fr" : "1fr 1fr", gap: compact ? 10 : 14 }}>
         {/* Shareholder distributions */}
         <div className="panel panel-pad" data-coach="capital-distributions">
           <div className="label-strong" style={{ marginBottom: 4 }}>Shareholder Distributions</div>
@@ -166,7 +169,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: compact ? "1fr" : "1fr 1fr", gap: compact ? 10 : 14 }}>
         {/* Balance sheet positioning */}
         <div className="panel panel-pad" data-coach="capital-balance-sheet">
           <div className="label-strong" style={{ marginBottom: 4 }}>Balance Sheet Positioning</div>

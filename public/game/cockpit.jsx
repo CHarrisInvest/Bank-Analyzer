@@ -40,7 +40,7 @@ function diffStr(diff, fmt) {
   return `${diff >= 0 ? "+" : ""}${(diff * 100).toFixed(2)}%`;
 }
 
-function MetricRow({ label, plan, actual, forecast, fmt = "money", invert = false, ratioName }) {
+function MetricRow({ label, plan, actual, forecast, fmt = "money", invert = false, ratioName, compact = false }) {
   const hasPlan = plan !== undefined && plan !== null && !isNaN(plan);
   const planActDiff = hasPlan ? actual - plan : 0;
   const surprise = invert ? -planActDiff : planActDiff;
@@ -54,6 +54,31 @@ function MetricRow({ label, plan, actual, forecast, fmt = "money", invert = fals
   const fcSig = fmt === "money" ? Math.max(0.5, Math.abs(actual || 0) * 0.005) : fmt === "eps" ? 0.005 : 0.0001;
   const fcDirGood = invert ? fcDiff < 0 : fcDiff > 0;
   const fcDeltaTone = Math.abs(fcDiff) < fcSig ? CP.textMute : fcDirGood ? CP.good : CP.bad;
+
+  // Compact: three columns — label · actual(+surprise) · forecast(+Δ).
+  // The standalone Plan column is dropped; the surprise tag already encodes it.
+  if (compact) {
+    return (
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "1.1fr 1fr 1fr",
+        alignItems: "center",
+        gap: 8,
+        padding: "9px 12px",
+        borderTop: `1px solid ${CP.lineSoft}`,
+      }}>
+        <div style={{ fontSize: 12, color: CP.textDim, fontWeight: 500 }}>{label}</div>
+        <div style={{ textAlign: "right" }}>
+          <div className="num" style={{ fontSize: 13.5, fontWeight: 600, color: CP.text }}>{fmtVal(actual, fmt)}</div>
+          <div className="num" style={{ fontSize: 10.5, fontWeight: 600, color: surpriseTone, marginTop: 1 }}>{surpriseLabel}</div>
+        </div>
+        <div style={{ textAlign: "right" }}>
+          <div className="num" style={{ fontSize: 13.5, fontWeight: 600, color: fcTone }}>{fmtVal(forecast, fmt)}</div>
+          <div className="num" style={{ fontSize: 10.5, fontWeight: 600, color: fcDeltaTone, marginTop: 1 }}>{diffStr(fcDiff, fmt)}</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{
@@ -76,13 +101,13 @@ function MetricRow({ label, plan, actual, forecast, fmt = "money", invert = fals
 }
 
 // ---------- Driver bar ----------
-function DriverBar({ label, value, max, color, fmt }) {
+function DriverBar({ label, value, max, color, fmt, compact = false }) {
   const pct = max > 0 ? Math.abs(value) / max : 0;
   const positive = value >= 0;
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "6px 0" }}>
-      <div style={{ width: 130, fontSize: 11.5, color: CP.textDim }}>{label}</div>
-      <div style={{ flex: 1, height: 18, background: CP.lineSoft, borderRadius: 4, position: "relative", overflow: "hidden" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: compact ? 8 : 12, padding: "6px 0" }}>
+      <div style={{ width: compact ? 104 : 130, flexShrink: 0, fontSize: 11.5, color: CP.textDim }}>{label}</div>
+      <div style={{ flex: 1, minWidth: 0, height: 18, background: CP.lineSoft, borderRadius: 4, position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: CP.line }} />
         <div style={{
           position: "absolute",
@@ -94,7 +119,7 @@ function DriverBar({ label, value, max, color, fmt }) {
           transition: "width 0.3s",
         }} />
       </div>
-      <div className="num" style={{ width: 80, textAlign: "right", fontSize: 11.5, color: positive ? CP.good : CP.bad, fontWeight: 600 }}>
+      <div className="num" style={{ width: compact ? 62 : 80, flexShrink: 0, textAlign: "right", fontSize: 11.5, color: positive ? CP.good : CP.bad, fontWeight: 600 }}>
         {fmt(value)}
       </div>
     </div>
@@ -174,6 +199,9 @@ function BalanceBars({ bs }) {
 
 // ---------- Overview ----------
 function CockpitTab({ state, ratios, forecast }) {
+  const vp = window.Theme.useViewport();
+  const compact = vp.compact;
+  const kpiCols = vp.isPhone ? 2 : vp.isTablet ? 3 : 6;
   const fr = forecast.ratios;
   const fis = forecast.is;
   const fbs = forecast.bs;
@@ -204,59 +232,83 @@ function CockpitTab({ state, ratios, forecast }) {
   ];
 
   return (
-    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }} data-coach="cockpit-root">
+    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: compact ? 10 : 12, padding: compact ? 10 : 14, height: "100%", overflowY: "auto" }} data-coach="cockpit-root">
 
       {/* Unified Plan / Actual / Forecast table */}
       <div className="panel" style={{ padding: 0, overflow: "hidden", flexShrink: 0 }} data-coach="forecast-pair">
-        {/* Header band */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1.3fr 1fr 1fr 1fr 8px 1fr 1fr",
-          gap: 10,
-          padding: "12px 14px 10px",
-          borderBottom: `1px solid ${CP.line}`,
-          background: CP.bgRaised,
-        }}>
-          <div>
+        {compact ? (
+          /* Compact header — three columns: Metric · Actual · Forecast */
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1.1fr 1fr 1fr",
+            gap: 8,
+            padding: "11px 12px 9px",
+            borderBottom: `1px solid ${CP.line}`,
+            background: CP.bgRaised,
+          }}>
             <div className="label" style={{ color: CP.textDim, fontSize: 9.5 }}>Metric</div>
-          </div>
-          <div style={{ gridColumn: "2 / 5" }}>
-            <div className="label" style={{ color: CP.textDim, fontSize: 9.5 }}>
-              {isQ1 ? "Y1 Q1 — Just Posted (no prior plan)" : `${cur.label} — Quarter Just Posted`}
+            <div style={{ textAlign: "right" }}>
+              <div className="label" style={{ color: CP.textDim, fontSize: 9.5 }}>Actual</div>
+              <div style={{ fontSize: 9.5, color: CP.textMute, marginTop: 1 }}>{isQ1 ? "Y1 Q1" : cur.label}</div>
             </div>
-            <div style={{ fontSize: 11, color: CP.textMute, marginTop: 1 }}>how close were your projections?</div>
+            <div style={{ textAlign: "right" }}>
+              <div className="label" style={{ color: CP.amber, fontSize: 9.5 }}>Forecast</div>
+              <div style={{ fontSize: 9.5, color: CP.textMute, marginTop: 1 }}>{next.label}</div>
+            </div>
           </div>
-          <div />
-          <div style={{ gridColumn: "6 / 8" }}>
-            <div className="label" style={{ color: CP.amber, fontSize: 9.5 }}>{next.label} — Next Quarter Forecast</div>
-            <div style={{ fontSize: 11, color: CP.textMute, marginTop: 1 }}>your plan as set today</div>
-          </div>
-        </div>
-        {/* Sub-header column labels */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1.3fr 1fr 1fr 1fr 8px 1fr 1fr",
-          gap: 10,
-          padding: "6px 14px",
-          background: CP.bg,
-        }}>
-          <div />
-          <div className="label" style={{ fontSize: 9, color: CP.textMute }}>Plan</div>
-          <div className="label" style={{ fontSize: 9, color: CP.textMute }}>Actual</div>
-          <div className="label" style={{ fontSize: 9, color: CP.textMute }}>Surprise</div>
-          <div />
-          <div className="label" style={{ fontSize: 9, color: CP.amber }}>Forecast</div>
-          <div className="label" style={{ fontSize: 9, color: CP.textMute }}>Δ vs now</div>
-        </div>
+        ) : (
+          <>
+            {/* Header band */}
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "1.3fr 1fr 1fr 1fr 8px 1fr 1fr",
+              gap: 10,
+              padding: "12px 14px 10px",
+              borderBottom: `1px solid ${CP.line}`,
+              background: CP.bgRaised,
+            }}>
+              <div>
+                <div className="label" style={{ color: CP.textDim, fontSize: 9.5 }}>Metric</div>
+              </div>
+              <div style={{ gridColumn: "2 / 5" }}>
+                <div className="label" style={{ color: CP.textDim, fontSize: 9.5 }}>
+                  {isQ1 ? "Y1 Q1 — Just Posted (no prior plan)" : `${cur.label} — Quarter Just Posted`}
+                </div>
+                <div style={{ fontSize: 11, color: CP.textMute, marginTop: 1 }}>how close were your projections?</div>
+              </div>
+              <div />
+              <div style={{ gridColumn: "6 / 8" }}>
+                <div className="label" style={{ color: CP.amber, fontSize: 9.5 }}>{next.label} — Next Quarter Forecast</div>
+                <div style={{ fontSize: 11, color: CP.textMute, marginTop: 1 }}>your plan as set today</div>
+              </div>
+            </div>
+            {/* Sub-header column labels */}
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "1.3fr 1fr 1fr 1fr 8px 1fr 1fr",
+              gap: 10,
+              padding: "6px 14px",
+              background: CP.bg,
+            }}>
+              <div />
+              <div className="label" style={{ fontSize: 9, color: CP.textMute }}>Plan</div>
+              <div className="label" style={{ fontSize: 9, color: CP.textMute }}>Actual</div>
+              <div className="label" style={{ fontSize: 9, color: CP.textMute }}>Surprise</div>
+              <div />
+              <div className="label" style={{ fontSize: 9, color: CP.amber }}>Forecast</div>
+              <div className="label" style={{ fontSize: 9, color: CP.textMute }}>Δ vs now</div>
+            </div>
+          </>
+        )}
         {rows.map(r => (
-          <MetricRow key={r.l} label={r.l} plan={r.plan} actual={r.actual} forecast={r.forecast} fmt={r.fmt} invert={r.invert} ratioName={r.ratioName} isQ1={isQ1} />
+          <MetricRow key={r.l} label={r.l} plan={r.plan} actual={r.actual} forecast={r.forecast} fmt={r.fmt} invert={r.invert} ratioName={r.ratioName} isQ1={isQ1} compact={compact} />
         ))}
       </div>
 
       {/* Capital, liquidity, asset quality — prominent, directly below the forecast table */}
       <div className="panel" style={{ padding: "14px 16px", flexShrink: 0 }}>
         <div className="label-strong" style={{ marginBottom: 8 }}>Capital, Liquidity, Asset Quality</div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 8 }}>
+        <div style={{ display: "grid", gridTemplateColumns: `repeat(${kpiCols}, 1fr)`, gap: 8 }}>
           <KPITile label="CET1 Ratio"    value={(ratios.cet1 * 100).toFixed(2) + "%"}    sub="min 7.0%" tone={ccolor("cet1", ratios.cet1)} />
           <KPITile label="Tier 1 Lev."   value={(ratios.tier1Lev * 100).toFixed(2) + "%"} sub="min 5.0%" tone={ccolor("tier1Lev", ratios.tier1Lev)} />
           <KPITile label="TCE/TA"        value={(ratios.tce * 100).toFixed(2) + "%"}     sub="tangible" tone={ccolor("tce", ratios.tce)} />
@@ -287,7 +339,7 @@ function CockpitTab({ state, ratios, forecast }) {
           ];
           const max = Math.max(1, ...drivers.map(d => Math.abs(d.v)));
           return drivers.map(d => (
-            <DriverBar key={d.l} label={d.l} value={d.v} max={max} color={d.c} fmt={CBE.fmt$} />
+            <DriverBar key={d.l} label={d.l} value={d.v} max={max} color={d.c} fmt={CBE.fmt$} compact={compact} />
           ));
         })()}
       </div>

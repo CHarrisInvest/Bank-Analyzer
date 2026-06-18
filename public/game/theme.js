@@ -191,6 +191,32 @@
     .headline-bar {
       background: linear-gradient(90deg, ${palette.panel} 0%, ${palette.panelHi} 50%, ${palette.panel} 100%);
     }
+
+    /* Horizontal scroller that hides its scrollbar (compact header vitals) */
+    .scroll-x { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .scroll-x::-webkit-scrollbar { display: none; height: 0; }
+
+    /* Bottom nav (compact shell) */
+    .mnav-btn {
+      flex: 1; min-width: 0; border: none; background: transparent;
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+      padding: 7px 2px 8px; cursor: pointer; position: relative;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.12s;
+    }
+    .mnav-btn::before {
+      content: ""; position: absolute; top: 0; left: 18%; right: 18%; height: 2px;
+      border-radius: 0 0 2px 2px; background: transparent; transition: background 0.14s;
+    }
+    .mnav-btn[data-active="true"]::before { background: ${palette.amber}; }
+    .mnav-label { font-size: 10px; letter-spacing: 0.01em; line-height: 1; }
+
+    /* Larger tap targets on touch devices */
+    @media (pointer: coarse) {
+      .lev-slider { height: 8px; }
+      .lev-slider::-webkit-slider-thumb { width: 26px; height: 26px; }
+      .lev-slider::-moz-range-thumb { width: 26px; height: 26px; }
+    }
   `;
 
   if (typeof document !== "undefined" && !document.getElementById("__bankceo_theme")) {
@@ -200,5 +226,43 @@
     document.head.appendChild(style);
   }
 
-  window.Theme = { palette, severity, cycleLabel, ratioColor, quarterLabel };
+  // ------------------------------------------------------------------
+  // Responsive viewport hook. Inline styles can't be driven by CSS media
+  // queries, so layout decisions read this instead. Breakpoints:
+  //   phone   < 680   → single column, bottom nav
+  //   tablet  680–1023 → stacked shell, 2-column content
+  //   desktop ≥ 1024  → original three-column layout
+  // ------------------------------------------------------------------
+  const BP = { phone: 680, desktop: 1024 };
+  function readViewport() {
+    const w = (typeof window !== "undefined" && window.innerWidth) || 1280;
+    return {
+      width: w,
+      isPhone: w < BP.phone,
+      isTablet: w >= BP.phone && w < BP.desktop,
+      isDesktop: w >= BP.desktop,
+      compact: w < BP.desktop,
+    };
+  }
+  function useViewport() {
+    const { useState, useEffect } = React;
+    const [vp, setVp] = useState(readViewport);
+    useEffect(() => {
+      let raf = 0;
+      const onResize = () => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => setVp(readViewport()));
+      };
+      window.addEventListener("resize", onResize);
+      window.addEventListener("orientationchange", onResize);
+      return () => {
+        cancelAnimationFrame(raf);
+        window.removeEventListener("resize", onResize);
+        window.removeEventListener("orientationchange", onResize);
+      };
+    }, []);
+    return vp;
+  }
+
+  window.Theme = { palette, severity, cycleLabel, ratioColor, quarterLabel, useViewport, readViewport, BP };
 })();

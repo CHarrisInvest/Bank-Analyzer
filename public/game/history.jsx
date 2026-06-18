@@ -149,12 +149,15 @@ function Sparkline({ label, history, accessor, fmt, ratioName }) {
 }
 
 function HistoryTab({ state }) {
+  const vp = window.Theme.useViewport();
+  const compact = vp.compact;
+  const sparkCols = vp.isPhone ? 2 : vp.isTablet ? 3 : 4;
   const h = state.history;
   return (
-    <div className="tab-enter scroll-thin" style={{ padding: 14, height: "100%", overflowY: "auto", display: "flex", flexDirection: "column", gap: 12 }}>
+    <div className="tab-enter scroll-thin" style={{ padding: compact ? 10 : 14, height: "100%", overflowY: "auto", display: "flex", flexDirection: "column", gap: compact ? 10 : 12 }}>
       <Timeline history={h} log={state.log} />
 
-      <div data-coach="history-sparklines" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
+      <div data-coach="history-sparklines" style={{ display: "grid", gridTemplateColumns: `repeat(${sparkCols}, 1fr)`, gap: 10 }}>
         <Sparkline label="Net Income" history={h} accessor={x => x.netIncome} fmt={HBE.fmt$} />
         <Sparkline label="NIM" history={h} accessor={x => x.nim} fmt={v => (v*100).toFixed(2) + "%"} ratioName="nim" />
         <Sparkline label="ROA" history={h} accessor={x => x.roa} fmt={v => (v*100).toFixed(2) + "%"} ratioName="roa" />

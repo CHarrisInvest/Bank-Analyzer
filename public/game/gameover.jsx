@@ -3,26 +3,29 @@ const { palette: GP, quarterLabel: gqlbl } = window.Theme;
 const GBE = window.BankEngine;
 
 function GameOver({ state, onRestart }) {
+  const vp = window.Theme.useViewport();
+  const compact = vp.compact;
   if (!state.gameOver) return null;
   const go = state.gameOver;
   const failed = go.reason !== "victory";
   const stats = go.stats || {};
+  const statCols = vp.isPhone ? 2 : 4;
 
   return (
-    <div style={{
+    <div className="scroll-thin" style={{
       position: "fixed", inset: 0, background: "rgba(8,12,18,0.85)",
       backdropFilter: "blur(8px)", zIndex: 10000,
-      display: "flex", alignItems: "center", justifyContent: "center",
-      padding: 32,
+      display: "flex", alignItems: compact ? "flex-start" : "center", justifyContent: "center",
+      padding: compact ? 14 : 32, overflowY: "auto",
     }}>
-      <div className="panel" style={{ padding: 36, maxWidth: 720, width: "100%" }}>
+      <div className="panel" style={{ padding: compact ? 20 : 36, maxWidth: 720, width: "100%", margin: compact ? "auto" : 0 }}>
         <div style={{
           fontSize: 11, fontWeight: 600, letterSpacing: "0.2em",
           color: failed ? GP.bad : GP.good, textTransform: "uppercase", marginBottom: 8,
         }}>
           {failed ? "Bank Failed" : "Tenure Complete"}
         </div>
-        <div className="serif" style={{ fontSize: 36, lineHeight: 1.05, marginBottom: 12 }}>
+        <div className="serif" style={{ fontSize: compact ? 28 : 36, lineHeight: 1.05, marginBottom: 12 }}>
           {failed ? "FDIC has been appointed receiver." : `Grade: ${go.grade || "—"}`}
         </div>
         {!failed && go.gradeMsg && (
@@ -36,7 +39,7 @@ function GameOver({ state, onRestart }) {
             <strong>Root cause:</strong> {go.cause}
           </div>
         )}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: failed ? 24 : 12 }}>
+        <div style={{ display: "grid", gridTemplateColumns: `repeat(${statCols}, 1fr)`, gap: 12, marginBottom: failed ? 24 : 12 }}>
           {!failed && (
             <>
               <Stat label="Total Return" value={`${(stats.totalReturn * 100).toFixed(1)}%`} sub={`divs $${(stats.totalDividendsPerShare || 0).toFixed(2)}/sh`} tone={stats.totalReturn > 1.20 ? GP.good : stats.totalReturn > 0.50 ? GP.warn : GP.bad} />

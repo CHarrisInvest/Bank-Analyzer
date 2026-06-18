@@ -218,6 +218,8 @@ function NumericLeverCard({ title, subtitle, value, onChange, min, max, step, co
 }
 
 function ForecastStrip({ state, ratios, forecast }) {
+  const vp = window.Theme.useViewport();
+  const fcCols = vp.isPhone ? 2 : vp.isTablet ? 4 : 8;
   const fr = forecast.ratios;
   const fis = forecast.is;
   const curSat = state?.satisfaction ?? 70;
@@ -241,11 +243,11 @@ function ForecastStrip({ state, ratios, forecast }) {
       background: `linear-gradient(180deg, ${LP.panel} 0%, ${LP.bgRaised} 100%)`,
       borderColor: LP.amber + "55",
     }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10, gap: 8, flexWrap: "wrap" }}>
         <div className="label-strong" style={{ color: LP.amber }}>Live Forecast — Next Quarter</div>
-        <div style={{ fontSize: 13, color: LP.textMute }}>Projections update as you adjust levers</div>
+        <div style={{ fontSize: vp.isPhone ? 11 : 13, color: LP.textMute }}>Projections update as you adjust levers</div>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(8, 1fr)", gap: 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: `repeat(${fcCols}, 1fr)`, gap: vp.isPhone ? 10 : 14, rowGap: vp.compact ? 12 : 14 }}>
         {items.map(it => (
           <div key={it.l}>
             <div className="label" style={{ fontSize: 9.5 }}>{it.l}</div>
@@ -285,16 +287,18 @@ function PanelHeader({ title, subtitle, color }) {
 }
 
 function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
+  const vp = window.Theme.useViewport();
+  const compact = vp.compact;
   const lev = state.levers;
   const indirectShare = state.bs.loansGross > 0 ? (state.bs.loansIndirect || 0) / state.bs.loansGross : 0;
   const indirectPct = (indirectShare * 100).toFixed(1);
   const indTone = indirectShare > 0.25 ? LP.bad : indirectShare > 0.15 ? LP.warn : LP.text;
 
   return (
-    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: 12, padding: 14, height: "100%", overflowY: "auto" }} data-coach="levers-root">
+    <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: compact ? 10 : 12, padding: compact ? 10 : 14, height: "100%", overflowY: "auto" }} data-coach="levers-root">
       <ForecastStrip state={state} ratios={ratios} forecast={forecast} />
 
-      <div data-coach="lever-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, alignItems: "start" }}>
+      <div data-coach="lever-grid" style={{ display: "grid", gridTemplateColumns: compact ? "1fr" : "1fr 1fr", gap: compact ? 10 : 14, alignItems: "start" }}>
         {/* Production column */}
         <div data-coach="lever-production" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <PanelHeader title="Production" subtitle="Loan origination, sales, and channels" color={LP.amber} />
