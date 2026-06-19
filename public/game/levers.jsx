@@ -219,7 +219,7 @@ function NumericLeverCard({ title, subtitle, value, onChange, min, max, step, co
 
 function ForecastStrip({ state, ratios, forecast }) {
   const vp = window.Theme.useViewport();
-  const fcCols = vp.isPhone ? 2 : vp.isTablet ? 4 : 8;
+  const compact = vp.compact;
   const fr = forecast.ratios;
   const fis = forecast.is;
   const curSat = state?.satisfaction ?? 70;
@@ -237,21 +237,28 @@ function ForecastStrip({ state, ratios, forecast }) {
     { l: "Loans",       v: LBE.fmt$(forecast.bs.loansGross),       d: forecast.bs.loansGross - state.bs.loansGross, f: "money" },
     { l: "Provision",   v: LBE.fmt$(fis.provision),                d: fis.provision,                f: "money", noDelta: true },
   ];
+  // Compact: a fixed 4-column / 2-row grid filled column-pair by column-pair:
+  // Loans/Deposits · Provision/Sat · NPL/NIM · Net Income/CET1.
+  const compactOrder = ["Loans", "Provision", "NPL", "Net Income", "Deposits", "Sat", "NIM", "CET1"];
+  const byLabel = Object.fromEntries(items.map(it => [it.l, it]));
+  const renderItems = compact ? compactOrder.map(l => byLabel[l]) : items;
+  const fcCols = compact ? 4 : 8;
+  const valFont = compact ? 14 : 18;
   return (
     <div className="panel" data-coach="live-forecast" style={{
-      padding: "14px 18px",
+      padding: compact ? "12px 14px" : "14px 18px",
       background: `linear-gradient(180deg, ${LP.panel} 0%, ${LP.bgRaised} 100%)`,
       borderColor: LP.amber + "55",
     }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10, gap: 8, flexWrap: "wrap" }}>
-        <div className="label-strong" style={{ color: LP.amber }}>Live Forecast — Next Quarter</div>
+        <div className="label-strong" style={{ color: LP.amber, fontSize: compact ? 14 : undefined, letterSpacing: compact ? "0.03em" : undefined }}>Live Forecast — Next Quarter</div>
         <div style={{ fontSize: vp.isPhone ? 11 : 13, color: LP.textMute }}>Projections update as you adjust levers</div>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: `repeat(${fcCols}, 1fr)`, gap: vp.isPhone ? 10 : 14, rowGap: vp.compact ? 12 : 14 }}>
-        {items.map(it => (
-          <div key={it.l}>
+      <div style={{ display: "grid", gridTemplateColumns: `repeat(${fcCols}, 1fr)`, columnGap: compact ? 8 : 14, rowGap: compact ? 12 : 14 }}>
+        {renderItems.map(it => (
+          <div key={it.l} style={{ minWidth: 0 }}>
             <div className="label" style={{ fontSize: 9.5 }}>{it.l}</div>
-            <div className="num" style={{ fontSize: 18, fontWeight: 600, marginTop: 2 }}>{it.v}</div>
+            <div className="num" style={{ fontSize: valFont, fontWeight: 600, marginTop: 2 }}>{it.v}</div>
             {it.sub && (
               <div className="num" style={{ fontSize: 10.5, color: LP.textMute, marginTop: 2, fontWeight: 600 }}>{it.sub}</div>
             )}
