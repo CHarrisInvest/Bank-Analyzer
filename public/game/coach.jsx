@@ -18,7 +18,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='tab-strip']",
       title: "Where you actually run the bank",
-      body: "Tabs are on the left rail. Each is where you make a different category of decisions or look up supporting data. We'll walk through each the first time you open it.",
+      body: "Each tab is a different category of decisions or supporting data. We'll walk through each one the first time you open it.",
       placement: "right",
     },
     {
@@ -148,21 +148,25 @@ function Coach({ flow, onDismiss }) {
 
   if (!steps || !pos) return null;
   const s = steps[step];
-  const W = Math.min(320, window.innerWidth - 24);
-  const TIP_H_EST = 220;
-  // On narrow screens the target often spans most of the width, so left/right
-  // placements have nowhere to go — fall back to vertical placement.
-  const narrow = window.innerWidth < 680;
-  const placement = narrow && (s.placement === "left" || s.placement === "right")
-    ? (pos.y > window.innerHeight / 2 ? "top" : "bottom")
+  const vw = window.innerWidth, vh = window.innerHeight;
+  const small = vw < 680 || vh < 560;
+  const W = Math.min(320, vw - 24);
+  // Cap the tooltip height to the viewport (with scroll) so long copy never
+  // runs off a short screen.
+  const TIP_MAXH = Math.min(360, vh - 24);
+  const TIP_H_EST = Math.min(TIP_MAXH, 220);
+  // On small screens the target often spans most of the width/height, so
+  // left/right placements have nowhere to go — fall back to vertical.
+  const placement = small && (s.placement === "left" || s.placement === "right")
+    ? (pos.y > vh / 2 ? "top" : "bottom")
     : s.placement;
   let x = pos.x + pos.w / 2 - W / 2;
   let y = pos.y + pos.h + 14;
-  if (placement === "top") y = pos.y - 14 - 130;
+  if (placement === "top") y = pos.y - 14 - TIP_H_EST;
   if (placement === "left") { x = pos.x - W - 14; y = pos.y + pos.h / 2 - 65; }
   if (placement === "right") { x = pos.x + pos.w + 14; y = pos.y + pos.h / 2 - 65; }
-  x = Math.max(12, Math.min(window.innerWidth - W - 12, x));
-  y = Math.max(12, Math.min(window.innerHeight - TIP_H_EST - 12, y));
+  x = Math.max(12, Math.min(vw - W - 12, x));
+  y = Math.max(12, Math.min(vh - TIP_H_EST - 12, y));
 
   const flowLabel = FLOW_LABELS[flow] || "Tutorial";
 
@@ -176,10 +180,11 @@ function Coach({ flow, onDismiss }) {
         boxShadow: `0 0 0 9999px rgba(8,12,18,0.55)`,
         transition: "all 0.2s",
       }} />
-      <div style={{
+      <div className="scroll-thin" style={{
         position: "fixed", left: x, top: y, width: W, zIndex: 9999,
+        maxHeight: TIP_MAXH, overflowY: "auto",
         background: COP.panel, border: `1px solid ${COP.amber}`,
-        borderRadius: 12, padding: "14px 16px",
+        borderRadius: 12, padding: small ? "12px 14px" : "14px 16px",
         boxShadow: "0 12px 32px rgba(0,0,0,0.5)",
       }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
