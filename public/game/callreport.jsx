@@ -9,7 +9,7 @@ function ReportRow({ label, value, indent = 0, total = false, dim = false, neg =
       padding: total ? "8px 0 4px" : "4px 0",
       borderTop: total ? `1px solid ${RP.line}` : "none",
       paddingLeft: indent * 14,
-      fontSize: 12,
+      fontSize: "inherit",
       fontWeight: total || bold ? 600 : 400,
       color: dim ? RP.textMute : neg ? RP.bad : RP.text,
     }}>
@@ -58,13 +58,16 @@ function CallReportTab({ state, ratios }) {
             FFIEC 051 · First Meridian Bank, NA · Charter #1893 · Confidential
           </div>
         </div>
-        <div style={{ textAlign: "right" }}>
-          <div className="label">Reporting Period</div>
-          <div className="num" style={{ fontSize: 16, fontWeight: 600 }}>{window.Theme.quarterLabel(Math.max(1, state.quarter - 1)).label}</div>
-        </div>
+        {/* Reporting period is already shown in the header on small screens */}
+        {!compact && (
+          <div style={{ textAlign: "right" }}>
+            <div className="label">Reporting Period</div>
+            <div className="num" style={{ fontSize: 16, fontWeight: 600 }}>{window.Theme.quarterLabel(Math.max(1, state.quarter - 1)).label}</div>
+          </div>
+        )}
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: vp.isPhone ? "1fr" : "1fr 1fr", gap: vp.isPhone ? 4 : 28 }}>
+      <div style={{ display: "grid", gridTemplateColumns: vp.isPhone ? "1fr" : "1fr 1fr", gap: vp.isPhone ? 4 : 28, fontSize: compact ? 14 : 12 }}>
         {/* Schedule RC — Balance Sheet */}
         <div>
           <ReportSection title="Schedule RC — Balance Sheet">
