@@ -81,8 +81,8 @@ const COACH_FLOWS = {
     },
     {
       target: "[data-coach='capital-impact']",
-      title: "Capital impact preview",
-      body: "Forecasted CET1 delta, cash, wholesale concentration (FHLB + brokered), and net income for next quarter. The combined impact of operations levers and capital decisions all flow into this strip.",
+      title: "Treasury impacts preview",
+      body: "Forecasted CET1 delta, cash, wholesale concentration (FHLB + brokered), and net income for next quarter. The combined impact of operations levers and treasury decisions all flow into this strip.",
       placement: "top",
     },
   ],
