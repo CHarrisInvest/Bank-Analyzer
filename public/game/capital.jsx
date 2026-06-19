@@ -57,7 +57,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
 
       {/* Capital impact preview — sits high so the projected impact is the first thing you read */}
       <div className="panel panel-pad" data-coach="capital-impact">
-        <div className="label-strong" style={{ marginBottom: 12, fontSize: compact ? 14 : undefined }}>Treasury Impacts — Next Quarter</div>
+        <div className="label-strong" style={{ marginBottom: 12, fontSize: compact ? 12.5 : undefined }}>Treasury Impacts — Next Quarter</div>
         <div style={{ display: "grid", gridTemplateColumns: `repeat(${impactCols}, 1fr)`, gap: compact ? 12 : 14 }}>
           <div>
             <div className="label" style={{ fontSize: 9.5 }}>CET1 Δ</div>
@@ -115,7 +115,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
       <div style={{ display: "grid", gridTemplateColumns: vp.isPhone ? "1fr" : "1fr 1fr", gap: compact ? 10 : 14 }}>
         {/* Shareholder distributions */}
         <div className="panel panel-pad" data-coach="capital-distributions">
-          <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 14 : undefined }}>Shareholder Distributions</div>
+          <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 12.5 : undefined }}>Shareholder Distributions</div>
           <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
             Returning capital — at the cost of CET1 and book value.
           </div>
@@ -140,7 +140,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
 
         {/* Wholesale funding */}
         <div className="panel panel-pad" data-coach="capital-wholesale">
-          <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 14 : undefined }}>Wholesale Funding</div>
+          <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 12.5 : undefined }}>Wholesale Funding</div>
           <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
             FHLB advances float with Fed Funds; brokered CDs auto-roll at Fed Funds + 35bp. Together they form your wholesale concentration.
           </div>
@@ -172,7 +172,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
       <div style={{ display: "grid", gridTemplateColumns: vp.isPhone ? "1fr" : "1fr 1fr", gap: compact ? 10 : 14 }}>
         {/* Balance sheet positioning */}
         <div className="panel panel-pad" data-coach="capital-balance-sheet">
-          <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 14 : undefined }}>Balance Sheet Positioning</div>
+          <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 12.5 : undefined }}>Balance Sheet Positioning</div>
           <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
             Securities duration and cash buffer — how much rate risk and runoff cushion you carry.
           </div>
@@ -185,7 +185,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
 
         {/* Sub debt */}
         <div className="panel panel-pad" data-coach="capital-sub-debt">
-          <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 14 : undefined }}>Sub Debt</div>
+          <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 12.5 : undefined }}>Sub Debt</div>
           <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
             Subordinated debt locks in at fixed cost on issuance and counts toward Total Capital — not wholesale concentration.
           </div>
@@ -202,7 +202,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
       {/* Provision override */}
       <div className="panel panel-pad" data-coach="capital-provision">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
-          <div className="label-strong" style={{ fontSize: compact ? 14 : undefined }}>Provision Override</div>
+          <div className="label-strong" style={{ fontSize: compact ? 12.5 : undefined }}>Provision Override</div>
           <button onClick={() => setDecision("provisionOverride", null)} disabled={locked || d.provisionOverride === null}
             style={{
               fontSize: 11, padding: "5px 12px", borderRadius: 6,
