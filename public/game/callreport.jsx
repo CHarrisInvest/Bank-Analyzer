@@ -19,11 +19,11 @@ function ReportRow({ label, value, indent = 0, total = false, dim = false, neg =
   );
 }
 
-function ReportSection({ title, children }) {
+function ReportSection({ title, children, compact = false }) {
   return (
     <div style={{ marginBottom: 18 }}>
       <div style={{
-        fontSize: 11, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase",
+        fontSize: compact ? 13.5 : 11, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase",
         color: RP.amber, paddingBottom: 6, borderBottom: `2px solid ${RP.amber}`,
         marginBottom: 6,
       }}>
@@ -70,8 +70,8 @@ function CallReportTab({ state, ratios }) {
       <div style={{ display: "grid", gridTemplateColumns: vp.isPhone ? "1fr" : "1fr 1fr", gap: vp.isPhone ? 4 : 28, fontSize: compact ? 14 : 12 }}>
         {/* Schedule RC — Balance Sheet */}
         <div>
-          <ReportSection title="Schedule RC — Balance Sheet">
-            <div className="label" style={{ fontSize: 10, marginBottom: 4 }}>Assets</div>
+          <ReportSection title="Schedule RC — Balance Sheet" compact={compact}>
+            <div className="label" style={{ fontSize: compact ? 12 : 10, marginBottom: 4 }}>Assets</div>
             <ReportRow label="Cash and balances due" value={f$(bs.cash)} />
             <ReportRow label="Securities AFS" value={f$(bs.securitiesAFS)} indent={1} dim />
             <ReportRow label="Securities HTM" value={f$(bs.securitiesHTM)} indent={1} dim />
@@ -83,7 +83,7 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Other assets" value={f$(bs.otherAssets)} dim />
             <ReportRow label="Total Assets" value={f$(ta)} total />
 
-            <div className="label" style={{ fontSize: 10, marginTop: 14, marginBottom: 4 }}>Liabilities</div>
+            <div className="label" style={{ fontSize: compact ? 12 : 10, marginTop: 14, marginBottom: 4 }}>Liabilities</div>
             <ReportRow label="Noninterest-bearing deposits" value={f$(bs.deposits.noninterest)} />
             <ReportRow label="Interest checking" value={f$(bs.deposits.interestChecking)} dim />
             <ReportRow label="Savings and money market" value={f$(bs.deposits.savingsMM)} dim />
@@ -95,7 +95,7 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Other liabilities" value={f$(bs.otherLiab)} dim />
             <ReportRow label="Total Liabilities" value={f$(tl)} total />
 
-            <div className="label" style={{ fontSize: 10, marginTop: 14, marginBottom: 4 }}>Equity</div>
+            <div className="label" style={{ fontSize: compact ? 12 : 10, marginTop: 14, marginBottom: 4 }}>Equity</div>
             <ReportRow label="Common stock + paid-in capital" value={f$(bs.commonEquity)} />
             <ReportRow label="Retained earnings" value={f$(bs.retainedEarnings)} />
             <ReportRow label="AOCI" value={f$(bs.aoci)} neg={bs.aoci < 0} />
@@ -108,7 +108,7 @@ function CallReportTab({ state, ratios }) {
         </div>
 
         <div>
-          <ReportSection title="Schedule RI — Income Statement">
+          <ReportSection title="Schedule RI — Income Statement" compact={compact}>
             <ReportRow label="Interest on loans" value={f$(is.interestIncome * (is.avgLoans * is.loanYield) / 4 / Math.max(0.001, is.interestIncome))} indent={1} dim />
             <ReportRow label="Interest on securities + cash" value={f$(is.interestIncome - (is.avgLoans * is.loanYield) / 4)} indent={1} dim />
             <ReportRow label="Total Interest Income" value={f$(is.interestIncome)} bold />
@@ -142,7 +142,7 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Income Tax (21%)" value={f$(is.tax)} dim />
             <ReportRow label="Net Income" value={f$(is.netIncome)} total />
 
-            <div className="label" style={{ fontSize: 10, marginTop: 14, marginBottom: 4 }}>Capital Distributions</div>
+            <div className="label" style={{ fontSize: compact ? 12 : 10, marginTop: 14, marginBottom: 4 }}>Capital Distributions</div>
             <ReportRow label="Cash dividends paid" value={f$(is.dividendsPaid)} />
             <ReportRow label="Share repurchases" value={f$(is.repurchases)} />
             {is.repurchases > 0 && is.repurchasePrice && (
@@ -155,7 +155,7 @@ function CallReportTab({ state, ratios }) {
               </>
             )}
 
-            <div className="label" style={{ fontSize: 10, marginTop: 14, marginBottom: 4 }}>Credit Quality</div>
+            <div className="label" style={{ fontSize: compact ? 12 : 10, marginTop: 14, marginBottom: 4 }}>Credit Quality</div>
             <ReportRow label="Nonperforming loans" value={f$(bs.npl)} />
             <ReportRow label="Gross charge-offs" value={f$(is.grossChargeOffs)} dim />
             <ReportRow label="Net charge-offs" value={f$(is.netChargeOffs)} />
@@ -163,14 +163,14 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="ACL / NPL coverage" value={`${(bs.acl / Math.max(1, bs.npl)).toFixed(2)}x`} dim />
           </ReportSection>
 
-          <ReportSection title="Schedule RC-R — Regulatory Capital">
+          <ReportSection title="Schedule RC-R — Regulatory Capital" compact={compact}>
             <ReportRow label="CET1 Ratio" value={fpct(ratios.cet1)} bold />
             <ReportRow label="Tier 1 Leverage Ratio" value={fpct(ratios.tier1Lev)} />
             <ReportRow label="Total Capital Ratio" value={fpct(ratios.totalCapRatio)} />
             <ReportRow label="Tangible Common Equity / TA" value={fpct(ratios.tce)} />
             <ReportRow label="Risk-Weighted Assets" value={f$(ratios.rwa)} dim />
 
-            <div className="label" style={{ fontSize: 10, marginTop: 14, marginBottom: 4 }}>Performance</div>
+            <div className="label" style={{ fontSize: compact ? 12 : 10, marginTop: 14, marginBottom: 4 }}>Performance</div>
             <ReportRow label="Net Interest Margin" value={fpct(ratios.nim)} bold />
             <ReportRow label="Return on Assets" value={fpct(ratios.roa)} />
             <ReportRow label="Return on Equity" value={fpct(ratios.roe)} />
@@ -178,7 +178,7 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Loan-to-Deposit Ratio" value={`${ratios.ltd.toFixed(2)}x`} />
             <ReportRow label="On-hand Liquidity" value={fpct(ratios.onHandLiq, 1)} />
 
-            <div className="label" style={{ fontSize: 10, marginTop: 14, marginBottom: 4 }}>Concentration Memos</div>
+            <div className="label" style={{ fontSize: compact ? 12 : 10, marginTop: 14, marginBottom: 4 }}>Concentration Memos</div>
             {(() => {
               const indShare = bs.loansGross > 0 ? (bs.loansIndirect || 0) / bs.loansGross : 0;
               const wholesale = (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0);
