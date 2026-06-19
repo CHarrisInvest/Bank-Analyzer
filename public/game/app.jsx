@@ -132,8 +132,37 @@ function App() {
     <Coach flow={coachFlow && (coachFlow !== "intro" || (state.quarter === 1 && !state.gameOver)) ? coachFlow : null} onDismiss={dismissCoach} />
   );
 
-  // ---- Compact shell: stacked header / body / bottom nav (phone + tablet) ----
+  // ---- Compact shell (phone + tablet) ----
   if (vp.compact) {
+    // Landscape phones are wide but short: a bottom bar would crowd out the
+    // body, so nav moves to a narrow side rail and the body keeps the height.
+    const landscapeShort = vp.width > vp.height && vp.height < 560;
+
+    if (landscapeShort) {
+      return (
+        <div style={{
+          display: "flex", flexDirection: "column",
+          height: "100%", overflow: "hidden",
+          background: AP.bg,
+          position: "relative",
+        }}>
+          <Header state={state} ratios={ratios} />
+          <div style={{ display: "flex", flex: 1, minHeight: 0 }}>
+            <SideNav tab={tab} setTab={handleTabChange} onAdvance={advance} advancing={advancing} state={state} />
+            <div style={{ flex: 1, minWidth: 0, position: "relative" }}>
+              {advancing && <div className="q-flash" key={flashKey} />}
+              <div key={effTab + "-" + state.quarter} style={{ height: "100%" }}>
+                {body}
+              </div>
+            </div>
+          </div>
+          {coachNode}
+          <GameOver state={state} onRestart={restart} />
+        </div>
+      );
+    }
+
+    // Portrait: stacked header / body / bottom nav.
     return (
       <div style={{
         display: "flex", flexDirection: "column",
