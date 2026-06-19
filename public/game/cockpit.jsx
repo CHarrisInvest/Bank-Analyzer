@@ -311,7 +311,7 @@ function CockpitTab({ state, ratios, forecast }) {
 
       {/* Capital, liquidity, asset quality — prominent, directly below the forecast table */}
       <div className="panel" style={{ padding: "14px 16px", flexShrink: 0 }}>
-        <div className="label-strong" style={{ marginBottom: 8 }}>Capital, Liquidity, Asset Quality</div>
+        <div className="label-strong" style={{ marginBottom: 8, fontSize: compact ? 14 : undefined }}>Capital, Liquidity, Asset Quality</div>
         <div style={{ display: "grid", gridTemplateColumns: `repeat(${kpiCols}, 1fr)`, gap: 8 }}>
           <KPITile label="CET1 Ratio"    value={(ratios.cet1 * 100).toFixed(2) + "%"}    sub="min 7.0%" tone={ccolor("cet1", ratios.cet1)} />
           <KPITile label="Tier 1 Lev."   value={(ratios.tier1Lev * 100).toFixed(2) + "%"} sub="min 5.0%" tone={ccolor("tier1Lev", ratios.tier1Lev)} />
@@ -326,7 +326,7 @@ function CockpitTab({ state, ratios, forecast }) {
       <div className="panel" style={{ padding: "14px 16px", flexShrink: 0 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 10, marginBottom: 4 }}>
           <div>
-            <div className="label-strong">Earnings Walk</div>
+            <div className="label-strong" style={{ fontSize: compact ? 14 : undefined }}>Earnings Walk</div>
             <div className="label" style={{ marginTop: 3 }}>This Q → Next Q</div>
           </div>
           <div className="num" style={{ fontSize: 14, fontWeight: 700, whiteSpace: "nowrap", color: (fis.netIncome - lastIS.netIncome) >= 0 ? CP.good : CP.bad }}>
@@ -353,7 +353,7 @@ function CockpitTab({ state, ratios, forecast }) {
 
       {/* Balance sheet — full width, below the earnings walk */}
       <div className="panel" style={{ padding: "14px 16px", flexShrink: 0 }}>
-        <div className="label-strong" style={{ marginBottom: 8 }}>Balance Sheet — Today</div>
+        <div className="label-strong" style={{ marginBottom: 8, fontSize: compact ? 14 : undefined }}>Balance Sheet — Today</div>
         <BalanceBars bs={state.bs} />
       </div>
     </div>
