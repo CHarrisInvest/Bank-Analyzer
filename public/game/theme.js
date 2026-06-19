@@ -199,8 +199,8 @@
     /* Bottom nav (compact shell) */
     .mnav-btn {
       flex: 1; min-width: 0; border: none; background: transparent;
-      display: flex; flex-direction: column; align-items: center; gap: 3px;
-      padding: 7px 2px 8px; cursor: pointer; position: relative;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+      padding: 6px 1px; cursor: pointer; position: relative;
       -webkit-tap-highlight-color: transparent;
       transition: color 0.12s;
     }
@@ -209,7 +209,7 @@
       border-radius: 0 0 2px 2px; background: transparent; transition: background 0.14s;
     }
     .mnav-btn[data-active="true"]::before { background: ${palette.amber}; }
-    .mnav-label { font-size: 10px; letter-spacing: 0.01em; line-height: 1; }
+    .mnav-label { font-size: 10px; letter-spacing: 0; line-height: 1.06; text-align: center; max-width: 100%; }
 
     /* Larger tap targets on touch devices */
     @media (pointer: coarse) {

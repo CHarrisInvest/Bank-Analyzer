@@ -166,9 +166,14 @@ function Header({ state, ratios }) {
           </div>
         </div>
 
-        {/* Vitals — horizontal scroll on small screens */}
-        <div className="scroll-x" data-coach="header-vitals" style={{ display: "flex", gap: 16, alignItems: "center", paddingBottom: 2 }}>
-          {vitals}
+        {/* Vitals — spread across the full width */}
+        <div data-coach="header-vitals" style={{ display: "flex", flexWrap: "wrap", gap: "6px 8px", alignItems: "center", justifyContent: "space-between" }}>
+          <Vital label="CET1" value={(ratios.cet1 * 100).toFixed(1) + "%"} color={rcolor("cet1", ratios.cet1)} />
+          <Vital label="ROA" value={(ratios.roa * 100).toFixed(2) + "%"} color={rcolor("roa", ratios.roa)} />
+          <Vital label="NIM" value={(ratios.nim * 100).toFixed(2) + "%"} color={rcolor("nim", ratios.nim)} />
+          <Vital label="NPL" value={(ratios.nplRatio * 100).toFixed(2) + "%"} color={rcolor("nplRatio", ratios.nplRatio)} />
+          <Vital label="Sat" value={Math.round(state.satisfaction ?? 70)} color={rcolor("satisfaction", state.satisfaction ?? 70)} />
+          <Vital label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
         </div>
 
         {/* Progress track full width */}
@@ -514,7 +519,7 @@ const GAME_TABS = [
   { id: "history",   label: "Tenure",      short: "Tenure",   hint: "10-year track record" },
 ];
 // Extra tab surfaced only in the compact shell, where the right rail is gone.
-const MARKETS_TAB = { id: "markets", label: "Markets", short: "Markets", hint: "Macro & events" };
+const MARKETS_TAB = { id: "markets", label: "Log & Macro", short: "Log & Macro", hint: "Macro & events" };
 
 // ---------- Tab strip (vertical left rail) ----------
 function TabStrip({ tab, setTab }) {
@@ -585,9 +590,11 @@ function MobileMarkets({ state }) {
   );
 }
 
-// ---------- Bottom navigation + advance (compact shell) ----------
+// ---------- Bottom navigation + advance (compact portrait shell) ----------
+// Top stack is split in two — the run button on the left half, the Log & Macro
+// reference tab on the right half — over a row of the five decision tabs.
 function MobileNav({ tab, setTab, onAdvance, advancing, state }) {
-  const navItems = [...GAME_TABS, MARKETS_TAB];
+  const marketsActive = tab === "markets";
   return (
     <div style={{
       flexShrink: 0,
@@ -595,13 +602,28 @@ function MobileNav({ tab, setTab, onAdvance, advancing, state }) {
       borderTop: `1px solid ${P.line}`,
       paddingBottom: "env(safe-area-inset-bottom)",
     }}>
-      {/* Primary action — always reachable by thumb */}
-      <div style={{ padding: "9px 12px 10px" }}>
-        <AdvanceButton onAdvance={onAdvance} disabled={!!state.gameOver} advancing={advancing} currentQ={state.quarter} />
+      {/* Top stack: run (left) | Log & Macro (right) */}
+      <div style={{ display: "flex", alignItems: "stretch", gap: 8, padding: "9px 12px 8px" }}>
+        <div style={{ flex: 1, minWidth: 0, display: "flex" }}>
+          <AdvanceButton onAdvance={onAdvance} disabled={!!state.gameOver} advancing={advancing} currentQ={state.quarter} />
+        </div>
+        <button onClick={() => setTab("markets")} data-coach="tab-markets" data-active={marketsActive}
+          style={{
+            flex: 1, minWidth: 0,
+            border: `1px solid ${marketsActive ? P.amber : P.line}`,
+            background: marketsActive ? P.amber + "14" : P.panel,
+            borderRadius: 12, cursor: "pointer",
+            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 4,
+            padding: "8px 6px",
+            WebkitTapHighlightColor: "transparent",
+          }}>
+          <TabIcon id="markets" size={20} color={marketsActive ? P.amber : P.textMute} />
+          <span style={{ fontSize: 11.5, fontWeight: 600, color: marketsActive ? P.amber : P.textDim }}>Log &amp; Macro</span>
+        </button>
       </div>
-      {/* Tab rail */}
+      {/* Decision tabs */}
       <div data-coach="tab-strip" style={{ display: "flex", borderTop: `1px solid ${P.lineSoft}` }}>
-        {navItems.map(t => {
+        {GAME_TABS.map(t => {
           const active = t.id === tab;
           return (
             <button key={t.id} onClick={() => setTab(t.id)} data-coach={`tab-${t.id}`}
