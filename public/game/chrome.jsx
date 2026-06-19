@@ -613,12 +613,12 @@ function MobileNav({ tab, setTab, onAdvance, advancing, state }) {
             border: `1px solid ${marketsActive ? P.amber : P.line}`,
             background: marketsActive ? P.amber + "14" : P.panel,
             borderRadius: 12, cursor: "pointer",
-            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 4,
+            display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8,
             padding: "8px 6px",
             WebkitTapHighlightColor: "transparent",
           }}>
-          <TabIcon id="markets" size={20} color={marketsActive ? P.amber : P.textMute} />
-          <span style={{ fontSize: 11.5, fontWeight: 600, color: marketsActive ? P.amber : P.textDim }}>Log &amp; Macro</span>
+          <TabIcon id="markets" size={22} color={marketsActive ? P.amber : P.textMute} />
+          <span style={{ fontSize: 14.5, fontWeight: 600, color: marketsActive ? P.amber : P.textDim }}>Log &amp; Macro</span>
         </button>
       </div>
       {/* Decision tabs */}
