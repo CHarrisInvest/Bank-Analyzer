@@ -618,8 +618,72 @@ function MobileNav({ tab, setTab, onAdvance, advancing, state }) {
   );
 }
 
+// ---------- Compact advance button (side rail, landscape) ----------
+function CompactAdvance({ onAdvance, disabled, advancing, currentQ }) {
+  const next = qlbl(currentQ);
+  return (
+    <button
+      onClick={onAdvance}
+      disabled={disabled || advancing}
+      data-coach="advance-btn"
+      className={disabled || advancing ? "" : "advance-btn"}
+      style={{
+        width: "100%",
+        padding: "9px 4px",
+        background: disabled ? P.panel2 : `linear-gradient(135deg, ${P.amber} 0%, ${P.amberDeep} 100%)`,
+        color: disabled ? P.textMute : "#1a1408",
+        border: "none",
+        borderRadius: 10,
+        display: "flex", flexDirection: "column", alignItems: "center", gap: 1,
+        fontWeight: 700, letterSpacing: "0.03em", textTransform: "uppercase",
+        opacity: advancing ? 0.6 : 1,
+      }}
+    >
+      <span style={{ fontSize: 17, lineHeight: 1 }}>{advancing ? "…" : disabled ? "■" : "→"}</span>
+      <span style={{ fontSize: 9 }}>{advancing ? "Wait" : disabled ? "Done" : next.label}</span>
+    </button>
+  );
+}
+
+// ---------- Side navigation (compact landscape / short screens) ----------
+// Landscape phones are wide but short, so a bottom bar eats the limited
+// vertical space. The nav lives on a narrow vertical rail instead.
+function SideNav({ tab, setTab, onAdvance, advancing, state }) {
+  const navItems = [...GAME_TABS, MARKETS_TAB];
+  return (
+    <div style={{
+      display: "flex", flexDirection: "column",
+      width: 66, flexShrink: 0,
+      background: P.bgRaised, borderRight: `1px solid ${P.line}`,
+    }}>
+      <div data-coach="tab-strip" className="scroll-thin" style={{ flex: 1, minHeight: 0, overflowY: "auto", display: "flex", flexDirection: "column" }}>
+        {navItems.map(t => {
+          const active = t.id === tab;
+          return (
+            <button key={t.id} onClick={() => setTab(t.id)} data-coach={`tab-${t.id}`} data-active={active}
+              style={{
+                border: "none",
+                borderLeft: `3px solid ${active ? P.amber : "transparent"}`,
+                background: active ? P.bg : "transparent",
+                display: "flex", flexDirection: "column", alignItems: "center", gap: 3,
+                padding: "9px 2px 8px", cursor: "pointer",
+                WebkitTapHighlightColor: "transparent",
+              }}>
+              <TabIcon id={t.id} size={20} color={active ? P.amber : P.textMute} />
+              <span style={{ fontSize: 9, lineHeight: 1, color: active ? P.text : P.textMute, fontWeight: active ? 600 : 500 }}>{t.short}</span>
+            </button>
+          );
+        })}
+      </div>
+      <div style={{ flexShrink: 0, padding: 8, borderTop: `1px solid ${P.lineSoft}`, paddingBottom: "max(8px, env(safe-area-inset-bottom))" }}>
+        <CompactAdvance onAdvance={onAdvance} disabled={!!state.gameOver} advancing={advancing} currentQ={state.quarter} />
+      </div>
+    </div>
+  );
+}
+
 Object.assign(window, {
   BankGlyph, ProgressTrack, CurrentCycle, CycleChip, Vital,
   Header, MacroTape, EventCard, EventLog, AdvanceButton, RightRail, TabStrip,
-  MobileNav, MobileMarkets, GAME_TABS, MARKETS_TAB,
+  MobileNav, MobileMarkets, SideNav, CompactAdvance, GAME_TABS, MARKETS_TAB,
 });
