@@ -61,13 +61,13 @@ function MetricRow({ label, plan, actual, forecast, fmt = "money", invert = fals
     return (
       <div style={{
         display: "grid",
-        gridTemplateColumns: "1.15fr 1fr 1fr",
+        gridTemplateColumns: "1.3fr 1fr 1fr",
         alignItems: "center",
         gap: 8,
         padding: "12px 14px",
         borderTop: `1px solid ${CP.lineSoft}`,
       }}>
-        <div style={{ fontSize: 14, color: CP.textDim, fontWeight: 500 }}>{label}</div>
+        <div style={{ fontSize: 16, color: CP.text, fontWeight: 600, letterSpacing: "-0.01em" }}>{label}</div>
         <div style={{ textAlign: "right" }}>
           <div className="num" style={{ fontSize: 17, fontWeight: 600, color: CP.text, lineHeight: 1.1 }}>{fmtVal(actual, fmt)}</div>
           <div className="num" style={{ fontSize: 11.5, fontWeight: 600, color: surpriseTone, marginTop: 2 }}>{surpriseLabel}</div>
@@ -244,7 +244,7 @@ function CockpitTab({ state, ratios, forecast }) {
           /* Compact header — three columns: Metric · Actual · Forecast */
           <div style={{
             display: "grid",
-            gridTemplateColumns: "1.15fr 1fr 1fr",
+            gridTemplateColumns: "1.3fr 1fr 1fr",
             gap: 8,
             padding: "12px 14px 10px",
             borderBottom: `1px solid ${CP.line}`,

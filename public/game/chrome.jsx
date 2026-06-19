@@ -92,11 +92,11 @@ function CurrentCycle({ cycle, cycleQuarters }) {
 }
 
 // ---------- KPI vital ----------
-function Vital({ label, value, color, sub }) {
+function Vital({ label, value, color, sub, dense }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 1, minWidth: 60 }}>
-      <div className="label" style={{ fontSize: 9, color: P.textMute }}>{label}</div>
-      <div className="num" style={{ fontSize: 16, fontWeight: 600, color: color || P.text, lineHeight: 1.05 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 1, minWidth: dense ? 0 : 60 }}>
+      <div className="label" style={{ fontSize: dense ? 8.5 : 9, color: P.textMute }}>{label}</div>
+      <div className="num" style={{ fontSize: dense ? 14.5 : 16, fontWeight: 600, color: color || P.text, lineHeight: 1.05 }}>
         {value}
       </div>
       {sub && <div className="num" style={{ fontSize: 9.5, color: P.textMute, lineHeight: 1.1 }}>{sub}</div>}
@@ -143,8 +143,8 @@ function Header({ state, ratios }) {
   if (vp.compact) {
     return (
       <div style={{
-        display: "flex", flexDirection: "column", gap: 8,
-        padding: "8px 14px 10px",
+        display: "flex", flexDirection: "column", gap: 7,
+        padding: "8px 14px 9px",
         borderBottom: `1px solid ${P.line}`,
         background: P.bgRaised,
         flexShrink: 0,
@@ -158,27 +158,27 @@ function Header({ state, ratios }) {
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 5, whiteSpace: "nowrap" }}>
-              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1 }} className="num">{label}</div>
-              <div style={{ fontSize: 9.5, color: P.textMute, letterSpacing: "0.08em" }} className="mono">{state.quarter}/40</div>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 4, whiteSpace: "nowrap" }}>
+              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1, wordSpacing: "-3px" }} className="num">{label}</div>
+              <div style={{ fontSize: 9.5, color: P.textMute, letterSpacing: "0.04em" }} className="mono">{state.quarter}/40</div>
             </div>
             <CycleChip cycle={m.cycle} />
           </div>
         </div>
 
-        {/* Vitals — spread across the full width */}
-        <div data-coach="header-vitals" style={{ display: "flex", flexWrap: "wrap", gap: "6px 8px", alignItems: "center", justifyContent: "space-between" }}>
-          <Vital label="CET1" value={(ratios.cet1 * 100).toFixed(1) + "%"} color={rcolor("cet1", ratios.cet1)} />
-          <Vital label="ROA" value={(ratios.roa * 100).toFixed(2) + "%"} color={rcolor("roa", ratios.roa)} />
-          <Vital label="NIM" value={(ratios.nim * 100).toFixed(2) + "%"} color={rcolor("nim", ratios.nim)} />
-          <Vital label="NPL" value={(ratios.nplRatio * 100).toFixed(2) + "%"} color={rcolor("nplRatio", ratios.nplRatio)} />
-          <Vital label="Sat" value={Math.round(state.satisfaction ?? 70)} color={rcolor("satisfaction", state.satisfaction ?? 70)} />
-          <Vital label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
+        {/* Vitals — one line, spread across the full width */}
+        <div data-coach="header-vitals" style={{ display: "flex", gap: 6, alignItems: "center", justifyContent: "space-between" }}>
+          <Vital dense label="CET1" value={(ratios.cet1 * 100).toFixed(1) + "%"} color={rcolor("cet1", ratios.cet1)} />
+          <Vital dense label="ROA" value={(ratios.roa * 100).toFixed(2) + "%"} color={rcolor("roa", ratios.roa)} />
+          <Vital dense label="NIM" value={(ratios.nim * 100).toFixed(2) + "%"} color={rcolor("nim", ratios.nim)} />
+          <Vital dense label="NPL" value={(ratios.nplRatio * 100).toFixed(2) + "%"} color={rcolor("nplRatio", ratios.nplRatio)} />
+          <Vital dense label="Sat" value={Math.round(state.satisfaction ?? 70)} color={rcolor("satisfaction", state.satisfaction ?? 70)} />
+          <Vital dense label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
         </div>
 
-        {/* Progress track full width */}
+        {/* Progress track full width — short bars, normal year labels */}
         <div data-coach="header-progress">
-          <ProgressTrack history={state.history} currentQ={state.quarter} height={11} />
+          <ProgressTrack history={state.history} currentQ={state.quarter} height={7} />
         </div>
       </div>
     );
@@ -603,7 +603,7 @@ function MobileNav({ tab, setTab, onAdvance, advancing, state }) {
       paddingBottom: "env(safe-area-inset-bottom)",
     }}>
       {/* Top stack: run (left) | Log & Macro (right) */}
-      <div style={{ display: "flex", alignItems: "stretch", gap: 8, padding: "9px 12px 8px" }}>
+      <div style={{ display: "flex", alignItems: "stretch", gap: 8, padding: "8px 12px 6px" }}>
         <div style={{ flex: 1, minWidth: 0, display: "flex" }}>
           <AdvanceButton onAdvance={onAdvance} disabled={!!state.gameOver} advancing={advancing} currentQ={state.quarter} />
         </div>

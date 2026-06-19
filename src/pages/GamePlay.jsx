@@ -87,23 +87,41 @@ function GamePlay() {
           display: block;
           background: #0d1218;
         }
+        .bs-game-play .bs-lbl-short { display: none; }
         @media (max-width: 560px) {
-          .bs-game-play .bs-game-strip-links a { padding: 4px 6px; font-size: 11.5px; }
+          /* Keep the whole strip on a single row by swapping to short labels. */
           .bs-game-play .bs-game-strip { padding: 0 8px; }
+          .bs-game-play .bs-game-strip,
+          .bs-game-play .bs-game-strip-right,
+          .bs-game-play .bs-game-strip-links { flex-wrap: nowrap; white-space: nowrap; min-width: 0; }
+          .bs-game-play .bs-game-strip-back { padding: 4px 6px; white-space: nowrap; }
+          .bs-game-play .bs-game-strip-links { gap: 2px; }
+          .bs-game-play .bs-game-strip-links a { padding: 4px 7px; font-size: 11px; white-space: nowrap; }
           .bs-game-play .bs-game-strip-hint { display: none; }
+          .bs-game-play .bs-lbl-full { display: none; }
+          .bs-game-play .bs-lbl-short { display: inline; }
         }
       `}</style>
 
       <div className="bs-game-strip">
-        <Link to="/game" className="bs-game-strip-back">← Back to BankSift</Link>
+        <Link to="/game" className="bs-game-strip-back">
+          <span className="bs-lbl-full">← Back to BankSift</span>
+          <span className="bs-lbl-short">← Back</span>
+        </Link>
         <div className="bs-game-strip-right">
           <span className="bs-game-strip-hint">Open in new tab »</span>
           <div className="bs-game-strip-links">
-            <a href="/game/about" target="_blank" rel="noopener noreferrer">About BankCEO</a>
+            <a href="/game/about" target="_blank" rel="noopener noreferrer">
+              <span className="bs-lbl-full">About BankCEO</span><span className="bs-lbl-short">About</span>
+            </a>
             <span className="bs-game-strip-sep" />
-            <a href="/game/how-to-play" target="_blank" rel="noopener noreferrer">How to Play</a>
+            <a href="/game/how-to-play" target="_blank" rel="noopener noreferrer">
+              <span className="bs-lbl-full">How to Play</span><span className="bs-lbl-short">How-to</span>
+            </a>
             <span className="bs-game-strip-sep" />
-            <a href="/game/strategy-guide" target="_blank" rel="noopener noreferrer">Strategy Guide</a>
+            <a href="/game/strategy-guide" target="_blank" rel="noopener noreferrer">
+              <span className="bs-lbl-full">Strategy Guide</span><span className="bs-lbl-short">Strategy</span>
+            </a>
           </div>
         </div>
       </div>
