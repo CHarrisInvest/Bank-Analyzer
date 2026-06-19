@@ -590,54 +590,45 @@ function MobileMarkets({ state }) {
   );
 }
 
-// ---------- Inline run button (bottom bar) ----------
-function BarAdvance({ onAdvance, disabled, advancing, currentQ }) {
-  const next = qlbl(currentQ);
-  return (
-    <button
-      onClick={onAdvance}
-      disabled={disabled || advancing}
-      data-coach="advance-btn"
-      className={disabled || advancing ? "" : "advance-btn"}
-      style={{
-        height: "100%", minWidth: 96, flexShrink: 0,
-        padding: "0 14px",
-        background: disabled ? P.panel2 : `linear-gradient(135deg, ${P.amber} 0%, ${P.amberDeep} 100%)`,
-        color: disabled ? P.textMute : "#1a1408",
-        border: "none", borderRadius: 11,
-        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 1,
-        fontWeight: 700, letterSpacing: "0.03em",
-        opacity: advancing ? 0.6 : 1,
-      }}
-    >
-      <span style={{ fontSize: 13 }}>{advancing ? "Running…" : disabled ? "Run Over" : "RUN →"}</span>
-      {!advancing && !disabled && <span style={{ fontSize: 9.5 }} className="mono">{next.label}</span>}
-    </button>
-  );
-}
-
 // ---------- Bottom navigation + advance (compact portrait shell) ----------
-// Single row: the run button sits on the left, the Log & Macro reference tab
-// next to it, then the five decision tabs.
+// Top stack is split in two — the run button on the left half, the Log & Macro
+// reference tab on the right half — over a row of the five decision tabs.
 function MobileNav({ tab, setTab, onAdvance, advancing, state }) {
-  const navItems = [MARKETS_TAB, ...GAME_TABS];
+  const marketsActive = tab === "markets";
   return (
     <div style={{
       flexShrink: 0,
-      display: "flex", alignItems: "stretch", gap: 8,
-      padding: "8px 8px",
-      paddingBottom: "max(8px, env(safe-area-inset-bottom))",
       background: P.bgRaised,
       borderTop: `1px solid ${P.line}`,
+      paddingBottom: "env(safe-area-inset-bottom)",
     }}>
-      <BarAdvance onAdvance={onAdvance} disabled={!!state.gameOver} advancing={advancing} currentQ={state.quarter} />
-      <div data-coach="tab-strip" style={{ flex: 1, minWidth: 0, display: "flex" }}>
-        {navItems.map(t => {
+      {/* Top stack: run (left) | Log & Macro (right) */}
+      <div style={{ display: "flex", alignItems: "stretch", gap: 8, padding: "9px 12px 8px" }}>
+        <div style={{ flex: 1, minWidth: 0, display: "flex" }}>
+          <AdvanceButton onAdvance={onAdvance} disabled={!!state.gameOver} advancing={advancing} currentQ={state.quarter} />
+        </div>
+        <button onClick={() => setTab("markets")} data-coach="tab-markets" data-active={marketsActive}
+          style={{
+            flex: 1, minWidth: 0,
+            border: `1px solid ${marketsActive ? P.amber : P.line}`,
+            background: marketsActive ? P.amber + "14" : P.panel,
+            borderRadius: 12, cursor: "pointer",
+            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 4,
+            padding: "8px 6px",
+            WebkitTapHighlightColor: "transparent",
+          }}>
+          <TabIcon id="markets" size={20} color={marketsActive ? P.amber : P.textMute} />
+          <span style={{ fontSize: 11.5, fontWeight: 600, color: marketsActive ? P.amber : P.textDim }}>Log &amp; Macro</span>
+        </button>
+      </div>
+      {/* Decision tabs */}
+      <div data-coach="tab-strip" style={{ display: "flex", borderTop: `1px solid ${P.lineSoft}` }}>
+        {GAME_TABS.map(t => {
           const active = t.id === tab;
           return (
             <button key={t.id} onClick={() => setTab(t.id)} data-coach={`tab-${t.id}`}
               data-active={active} className="mnav-btn">
-              <TabIcon id={t.id} size={20} color={active ? P.amber : P.textMute} />
+              <TabIcon id={t.id} size={21} color={active ? P.amber : P.textMute} />
               <span className="mnav-label" style={{ color: active ? P.text : P.textMute, fontWeight: active ? 600 : 500 }}>
                 {t.short}
               </span>

@@ -209,7 +209,7 @@
       border-radius: 0 0 2px 2px; background: transparent; transition: background 0.14s;
     }
     .mnav-btn[data-active="true"]::before { background: ${palette.amber}; }
-    .mnav-label { font-size: 9px; letter-spacing: 0; line-height: 1.06; text-align: center; max-width: 100%; }
+    .mnav-label { font-size: 10px; letter-spacing: 0; line-height: 1.06; text-align: center; max-width: 100%; }
 
     /* Larger tap targets on touch devices */
     @media (pointer: coarse) {
