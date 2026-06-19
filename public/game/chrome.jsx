@@ -19,7 +19,7 @@ function BankGlyph({ size = 22 }) {
 }
 
 // ---------- 40-quarter cycle track ----------
-function ProgressTrack({ history, currentQ, height = 28, compact = false }) {
+function ProgressTrack({ history, currentQ, height = 28 }) {
   // history is array of past quarters; build cycle band per quarter index 1..40
   const cycleBy = useMemo(() => {
     const m = {};
@@ -28,20 +28,20 @@ function ProgressTrack({ history, currentQ, height = 28, compact = false }) {
   }, [history]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: compact ? 2 : 4, width: "100%" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 4, width: "100%" }}>
       <div style={{
         display: "grid",
         gridTemplateColumns: "repeat(40, 1fr)",
         columnGap: 1.5,
-        fontSize: compact ? 7.5 : 9, color: P.textMute, letterSpacing: compact ? "0.04em" : "0.10em",
+        fontSize: 9, color: P.textMute, letterSpacing: "0.10em",
       }} className="mono">
         {Array.from({ length: 10 }).map((_, i) => (
           <div key={i} style={{
             gridColumn: `${i * 4 + 1} / span 4`,
-            display: "flex", flexDirection: "column", alignItems: "flex-start", gap: compact ? 1 : 2,
+            display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2,
           }}>
             <span style={{ lineHeight: 1 }}>Y{i + 1}</span>
-            <span style={{ width: 1, height: compact ? 2 : 4, background: P.line }} />
+            <span style={{ width: 1, height: 4, background: P.line }} />
           </div>
         ))}
       </div>
@@ -176,9 +176,9 @@ function Header({ state, ratios }) {
           <Vital dense label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
         </div>
 
-        {/* Progress track full width — slim indicators */}
+        {/* Progress track full width — short bars, normal year labels */}
         <div data-coach="header-progress">
-          <ProgressTrack history={state.history} currentQ={state.quarter} height={7} compact />
+          <ProgressTrack history={state.history} currentQ={state.quarter} height={7} />
         </div>
       </div>
     );
