@@ -61,20 +61,20 @@ function MetricRow({ label, plan, actual, forecast, fmt = "money", invert = fals
     return (
       <div style={{
         display: "grid",
-        gridTemplateColumns: "1.1fr 1fr 1fr",
+        gridTemplateColumns: "1.15fr 1fr 1fr",
         alignItems: "center",
         gap: 8,
-        padding: "9px 12px",
+        padding: "12px 14px",
         borderTop: `1px solid ${CP.lineSoft}`,
       }}>
-        <div style={{ fontSize: 12, color: CP.textDim, fontWeight: 500 }}>{label}</div>
+        <div style={{ fontSize: 14, color: CP.textDim, fontWeight: 500 }}>{label}</div>
         <div style={{ textAlign: "right" }}>
-          <div className="num" style={{ fontSize: 13.5, fontWeight: 600, color: CP.text }}>{fmtVal(actual, fmt)}</div>
-          <div className="num" style={{ fontSize: 10.5, fontWeight: 600, color: surpriseTone, marginTop: 1 }}>{surpriseLabel}</div>
+          <div className="num" style={{ fontSize: 17, fontWeight: 600, color: CP.text, lineHeight: 1.1 }}>{fmtVal(actual, fmt)}</div>
+          <div className="num" style={{ fontSize: 11.5, fontWeight: 600, color: surpriseTone, marginTop: 2 }}>{surpriseLabel}</div>
         </div>
         <div style={{ textAlign: "right" }}>
-          <div className="num" style={{ fontSize: 13.5, fontWeight: 600, color: fcTone }}>{fmtVal(forecast, fmt)}</div>
-          <div className="num" style={{ fontSize: 10.5, fontWeight: 600, color: fcDeltaTone, marginTop: 1 }}>{diffStr(fcDiff, fmt)}</div>
+          <div className="num" style={{ fontSize: 17, fontWeight: 600, color: fcTone, lineHeight: 1.1 }}>{fmtVal(forecast, fmt)}</div>
+          <div className="num" style={{ fontSize: 11.5, fontWeight: 600, color: fcDeltaTone, marginTop: 2 }}>{diffStr(fcDiff, fmt)}</div>
         </div>
       </div>
     );
@@ -244,20 +244,20 @@ function CockpitTab({ state, ratios, forecast }) {
           /* Compact header — three columns: Metric · Actual · Forecast */
           <div style={{
             display: "grid",
-            gridTemplateColumns: "1.1fr 1fr 1fr",
+            gridTemplateColumns: "1.15fr 1fr 1fr",
             gap: 8,
-            padding: "11px 12px 9px",
+            padding: "12px 14px 10px",
             borderBottom: `1px solid ${CP.line}`,
             background: CP.bgRaised,
           }}>
-            <div className="label" style={{ color: CP.textDim, fontSize: 9.5 }}>Metric</div>
+            <div className="label" style={{ color: CP.textDim, fontSize: 10.5 }}>Metric</div>
             <div style={{ textAlign: "right" }}>
-              <div className="label" style={{ color: CP.textDim, fontSize: 9.5 }}>Actual</div>
-              <div style={{ fontSize: 9.5, color: CP.textMute, marginTop: 1 }}>{isQ1 ? "Y1 Q1" : cur.label}</div>
+              <div className="label" style={{ color: CP.textDim, fontSize: 10.5 }}>Actual</div>
+              <div style={{ fontSize: 10, color: CP.textMute, marginTop: 1 }}>{isQ1 ? "Y1 Q1" : cur.label}</div>
             </div>
             <div style={{ textAlign: "right" }}>
-              <div className="label" style={{ color: CP.amber, fontSize: 9.5 }}>Forecast</div>
-              <div style={{ fontSize: 9.5, color: CP.textMute, marginTop: 1 }}>{next.label}</div>
+              <div className="label" style={{ color: CP.amber, fontSize: 10.5 }}>Forecast</div>
+              <div style={{ fontSize: 10, color: CP.textMute, marginTop: 1 }}>{next.label}</div>
             </div>
           </div>
         ) : (

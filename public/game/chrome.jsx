@@ -166,9 +166,14 @@ function Header({ state, ratios }) {
           </div>
         </div>
 
-        {/* Vitals — horizontal scroll on small screens */}
-        <div className="scroll-x" data-coach="header-vitals" style={{ display: "flex", gap: 16, alignItems: "center", paddingBottom: 2 }}>
-          {vitals}
+        {/* Vitals — spread across the full width */}
+        <div data-coach="header-vitals" style={{ display: "flex", flexWrap: "wrap", gap: "6px 8px", alignItems: "center", justifyContent: "space-between" }}>
+          <Vital label="CET1" value={(ratios.cet1 * 100).toFixed(1) + "%"} color={rcolor("cet1", ratios.cet1)} />
+          <Vital label="ROA" value={(ratios.roa * 100).toFixed(2) + "%"} color={rcolor("roa", ratios.roa)} />
+          <Vital label="NIM" value={(ratios.nim * 100).toFixed(2) + "%"} color={rcolor("nim", ratios.nim)} />
+          <Vital label="NPL" value={(ratios.nplRatio * 100).toFixed(2) + "%"} color={rcolor("nplRatio", ratios.nplRatio)} />
+          <Vital label="Sat" value={Math.round(state.satisfaction ?? 70)} color={rcolor("satisfaction", state.satisfaction ?? 70)} />
+          <Vital label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
         </div>
 
         {/* Progress track full width */}
@@ -514,7 +519,7 @@ const GAME_TABS = [
   { id: "history",   label: "Tenure",      short: "Tenure",   hint: "10-year track record" },
 ];
 // Extra tab surfaced only in the compact shell, where the right rail is gone.
-const MARKETS_TAB = { id: "markets", label: "Markets", short: "Markets", hint: "Macro & events" };
+const MARKETS_TAB = { id: "markets", label: "Log & Macro", short: "Log & Macro", hint: "Macro & events" };
 
 // ---------- Tab strip (vertical left rail) ----------
 function TabStrip({ tab, setTab }) {
@@ -585,28 +590,54 @@ function MobileMarkets({ state }) {
   );
 }
 
-// ---------- Bottom navigation + advance (compact shell) ----------
+// ---------- Inline run button (bottom bar) ----------
+function BarAdvance({ onAdvance, disabled, advancing, currentQ }) {
+  const next = qlbl(currentQ);
+  return (
+    <button
+      onClick={onAdvance}
+      disabled={disabled || advancing}
+      data-coach="advance-btn"
+      className={disabled || advancing ? "" : "advance-btn"}
+      style={{
+        height: "100%", minWidth: 96, flexShrink: 0,
+        padding: "0 14px",
+        background: disabled ? P.panel2 : `linear-gradient(135deg, ${P.amber} 0%, ${P.amberDeep} 100%)`,
+        color: disabled ? P.textMute : "#1a1408",
+        border: "none", borderRadius: 11,
+        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 1,
+        fontWeight: 700, letterSpacing: "0.03em",
+        opacity: advancing ? 0.6 : 1,
+      }}
+    >
+      <span style={{ fontSize: 13 }}>{advancing ? "Running…" : disabled ? "Run Over" : "RUN →"}</span>
+      {!advancing && !disabled && <span style={{ fontSize: 9.5 }} className="mono">{next.label}</span>}
+    </button>
+  );
+}
+
+// ---------- Bottom navigation + advance (compact portrait shell) ----------
+// Single row: the run button sits on the left, the Log & Macro reference tab
+// next to it, then the five decision tabs.
 function MobileNav({ tab, setTab, onAdvance, advancing, state }) {
-  const navItems = [...GAME_TABS, MARKETS_TAB];
+  const navItems = [MARKETS_TAB, ...GAME_TABS];
   return (
     <div style={{
       flexShrink: 0,
+      display: "flex", alignItems: "stretch", gap: 8,
+      padding: "8px 8px",
+      paddingBottom: "max(8px, env(safe-area-inset-bottom))",
       background: P.bgRaised,
       borderTop: `1px solid ${P.line}`,
-      paddingBottom: "env(safe-area-inset-bottom)",
     }}>
-      {/* Primary action — always reachable by thumb */}
-      <div style={{ padding: "9px 12px 10px" }}>
-        <AdvanceButton onAdvance={onAdvance} disabled={!!state.gameOver} advancing={advancing} currentQ={state.quarter} />
-      </div>
-      {/* Tab rail */}
-      <div data-coach="tab-strip" style={{ display: "flex", borderTop: `1px solid ${P.lineSoft}` }}>
+      <BarAdvance onAdvance={onAdvance} disabled={!!state.gameOver} advancing={advancing} currentQ={state.quarter} />
+      <div data-coach="tab-strip" style={{ flex: 1, minWidth: 0, display: "flex" }}>
         {navItems.map(t => {
           const active = t.id === tab;
           return (
             <button key={t.id} onClick={() => setTab(t.id)} data-coach={`tab-${t.id}`}
               data-active={active} className="mnav-btn">
-              <TabIcon id={t.id} size={21} color={active ? P.amber : P.textMute} />
+              <TabIcon id={t.id} size={20} color={active ? P.amber : P.textMute} />
               <span className="mnav-label" style={{ color: active ? P.text : P.textMute, fontWeight: active ? 600 : 500 }}>
                 {t.short}
               </span>
