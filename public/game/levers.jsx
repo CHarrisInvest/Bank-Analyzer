@@ -243,24 +243,33 @@ function ForecastStrip({ state, ratios, forecast }) {
   const byLabel = Object.fromEntries(items.map(it => [it.l, it]));
   const renderItems = compact ? compactOrder.map(l => byLabel[l]) : items;
   const fcCols = compact ? 4 : 8;
-  const valFont = compact ? 14 : 18;
+  const valFont = compact ? 15 : 18;
+  const labelFont = compact ? 10.5 : 9.5;
+  const subFont = compact ? 11.5 : 10.5;
   return (
     <div className="panel" data-coach="live-forecast" style={{
       padding: compact ? "12px 14px" : "14px 18px",
       background: `linear-gradient(180deg, ${LP.panel} 0%, ${LP.bgRaised} 100%)`,
       borderColor: LP.amber + "55",
     }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10, gap: 8, flexWrap: "wrap" }}>
-        <div className="label-strong" style={{ color: LP.amber, fontSize: compact ? 14 : undefined, letterSpacing: compact ? "0.03em" : undefined }}>Live Forecast — Next Quarter</div>
-        <div style={{ fontSize: vp.isPhone ? 11 : 13, color: LP.textMute }}>Projections update as you adjust levers</div>
-      </div>
+      {compact ? (
+        <div style={{ marginBottom: 9 }}>
+          <div className="label-strong" style={{ color: LP.amber, fontSize: 16, letterSpacing: "0.03em" }}>Live Forecast — Next Quarter</div>
+          <div style={{ fontSize: 12.5, color: LP.textMute, marginTop: 1 }}>Projections update as you adjust levers</div>
+        </div>
+      ) : (
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10, gap: 8, flexWrap: "wrap" }}>
+          <div className="label-strong" style={{ color: LP.amber }}>Live Forecast — Next Quarter</div>
+          <div style={{ fontSize: 13, color: LP.textMute }}>Projections update as you adjust levers</div>
+        </div>
+      )}
       <div style={{ display: "grid", gridTemplateColumns: `repeat(${fcCols}, 1fr)`, columnGap: compact ? 8 : 14, rowGap: compact ? 12 : 14 }}>
         {renderItems.map(it => (
           <div key={it.l} style={{ minWidth: 0 }}>
-            <div className="label" style={{ fontSize: 9.5 }}>{it.l}</div>
+            <div className="label" style={{ fontSize: labelFont }}>{it.l}</div>
             <div className="num" style={{ fontSize: valFont, fontWeight: 600, marginTop: 2 }}>{it.v}</div>
             {it.sub && (
-              <div className="num" style={{ fontSize: 10.5, color: LP.textMute, marginTop: 2, fontWeight: 600 }}>{it.sub}</div>
+              <div className="num" style={{ fontSize: subFont, color: LP.textMute, marginTop: 2, fontWeight: 600 }}>{it.sub}</div>
             )}
             {!it.noDelta && (() => {
               const tone = Math.abs(it.d) < 1e-9 ? LP.textMute :
@@ -268,7 +277,7 @@ function ForecastStrip({ state, ratios, forecast }) {
               const str = it.f === "pct" ? `${it.d >= 0 ? "+" : ""}${(it.d * 100).toFixed(2)}%`
                         : it.f === "sat" ? `${it.d >= 0 ? "+" : ""}${it.d.toFixed(1)}`
                         : LBE.fmt$(it.d);
-              return <div className="num" style={{ fontSize: 10.5, color: tone, marginTop: 2, fontWeight: 600 }}>
+              return <div className="num" style={{ fontSize: subFont, color: tone, marginTop: 2, fontWeight: 600 }}>
                 {Math.abs(it.d) < 1e-9 ? "no change" : (it.d > 0 ? "▲ " : "▼ ") + str}
               </div>;
             })()}
@@ -280,15 +289,16 @@ function ForecastStrip({ state, ratios, forecast }) {
 }
 
 function PanelHeader({ title, subtitle, color }) {
+  const compact = window.Theme.useViewport().compact;
   return (
     <div style={{ marginBottom: 4 }}>
       <div style={{
-        fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase",
+        fontSize: compact ? 13.5 : 11, fontWeight: 700, letterSpacing: compact ? "0.10em" : "0.14em", textTransform: "uppercase",
         color: color, paddingBottom: 4, borderBottom: `1.5px solid ${color}55`,
       }}>
         {title}
       </div>
-      {subtitle && <div style={{ fontSize: 11.5, color: LP.textMute, marginTop: 6, fontStyle: "italic" }}>{subtitle}</div>}
+      {subtitle && <div style={{ fontSize: compact ? 13 : 11.5, color: LP.textMute, marginTop: 6, fontStyle: "italic" }}>{subtitle}</div>}
     </div>
   );
 }
