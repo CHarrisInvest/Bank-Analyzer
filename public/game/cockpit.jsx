@@ -201,6 +201,10 @@ function BalanceBars({ bs }) {
 function CockpitTab({ state, ratios, forecast }) {
   const vp = window.Theme.useViewport();
   const compact = vp.compact;
+  // The dense 7-column plan/actual/forecast table only collapses to the
+  // 3-column actual-vs-forecast view on phone-width screens; tablet and
+  // landscape bodies are wide enough for the full table.
+  const phoneTable = vp.isPhone;
   const kpiCols = vp.isPhone ? 2 : vp.isTablet ? 3 : 6;
   const fr = forecast.ratios;
   const fis = forecast.is;
@@ -236,7 +240,7 @@ function CockpitTab({ state, ratios, forecast }) {
 
       {/* Unified Plan / Actual / Forecast table */}
       <div className="panel" style={{ padding: 0, overflow: "hidden", flexShrink: 0 }} data-coach="forecast-pair">
-        {compact ? (
+        {phoneTable ? (
           /* Compact header — three columns: Metric · Actual · Forecast */
           <div style={{
             display: "grid",
@@ -301,7 +305,7 @@ function CockpitTab({ state, ratios, forecast }) {
           </>
         )}
         {rows.map(r => (
-          <MetricRow key={r.l} label={r.l} plan={r.plan} actual={r.actual} forecast={r.forecast} fmt={r.fmt} invert={r.invert} ratioName={r.ratioName} isQ1={isQ1} compact={compact} />
+          <MetricRow key={r.l} label={r.l} plan={r.plan} actual={r.actual} forecast={r.forecast} fmt={r.fmt} invert={r.invert} ratioName={r.ratioName} isQ1={isQ1} compact={phoneTable} />
         ))}
       </div>
 

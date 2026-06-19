@@ -64,7 +64,7 @@ function CallReportTab({ state, ratios }) {
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: compact ? "1fr" : "1fr 1fr", gap: compact ? 4 : 28 }}>
+      <div style={{ display: "grid", gridTemplateColumns: vp.isPhone ? "1fr" : "1fr 1fr", gap: vp.isPhone ? 4 : 28 }}>
         {/* Schedule RC — Balance Sheet */}
         <div>
           <ReportSection title="Schedule RC — Balance Sheet">

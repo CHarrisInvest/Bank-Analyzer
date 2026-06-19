@@ -112,7 +112,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: compact ? "1fr" : "1fr 1fr", gap: compact ? 10 : 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: vp.isPhone ? "1fr" : "1fr 1fr", gap: compact ? 10 : 14 }}>
         {/* Shareholder distributions */}
         <div className="panel panel-pad" data-coach="capital-distributions">
           <div className="label-strong" style={{ marginBottom: 4 }}>Shareholder Distributions</div>
@@ -169,7 +169,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: compact ? "1fr" : "1fr 1fr", gap: compact ? 10 : 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: vp.isPhone ? "1fr" : "1fr 1fr", gap: compact ? 10 : 14 }}>
         {/* Balance sheet positioning */}
         <div className="panel panel-pad" data-coach="capital-balance-sheet">
           <div className="label-strong" style={{ marginBottom: 4 }}>Balance Sheet Positioning</div>

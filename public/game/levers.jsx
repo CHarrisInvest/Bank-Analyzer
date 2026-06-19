@@ -298,7 +298,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: compact ? 10 : 12, padding: compact ? 10 : 14, height: "100%", overflowY: "auto" }} data-coach="levers-root">
       <ForecastStrip state={state} ratios={ratios} forecast={forecast} />
 
-      <div data-coach="lever-grid" style={{ display: "grid", gridTemplateColumns: compact ? "1fr" : "1fr 1fr", gap: compact ? 10 : 14, alignItems: "start" }}>
+      <div data-coach="lever-grid" style={{ display: "grid", gridTemplateColumns: vp.isPhone ? "1fr" : "1fr 1fr", gap: compact ? 10 : 14, alignItems: "start" }}>
         {/* Production column */}
         <div data-coach="lever-production" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <PanelHeader title="Production" subtitle="Loan origination, sales, and channels" color={LP.amber} />
