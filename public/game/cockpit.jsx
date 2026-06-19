@@ -169,10 +169,10 @@ function BalanceBars({ bs }) {
           <div className="num" style={{ fontSize: 12, color: CP.text, fontWeight: 600 }}>{CBE.fmt$(ta)}</div>
         </div>
         {renderBar(assetSegs, ta)}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 5 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "7px 14px", marginTop: 7 }}>
           {assetSegs.filter(s => s.v > 0).map(s => (
-            <div key={s.l} style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 10, color: CP.textDim }}>
-              <div style={{ width: 7, height: 7, background: s.c, borderRadius: 2 }} />
+            <div key={s.l} style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 12.5, color: CP.textDim }}>
+              <div style={{ width: 9, height: 9, background: s.c, borderRadius: 2 }} />
               {s.l} <span className="num" style={{ color: CP.textMute }}>{CBE.fmt$(s.v)}</span>
             </div>
           ))}
@@ -184,10 +184,10 @@ function BalanceBars({ bs }) {
           <div className="num" style={{ fontSize: 12, color: CP.text, fontWeight: 600 }}>{CBE.fmt$(tl + eq)}</div>
         </div>
         {renderBar(fundSegs, tl + eq)}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 5 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "7px 14px", marginTop: 7 }}>
           {fundSegs.filter(s => s.v > 0).map(s => (
-            <div key={s.l} style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 10, color: CP.textDim }}>
-              <div style={{ width: 7, height: 7, background: s.c, borderRadius: 2 }} />
+            <div key={s.l} style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 12.5, color: CP.textDim }}>
+              <div style={{ width: 9, height: 9, background: s.c, borderRadius: 2 }} />
               {s.l} <span className="num" style={{ color: CP.textMute }}>{CBE.fmt$(s.v)}</span>
             </div>
           ))}
@@ -324,9 +324,12 @@ function CockpitTab({ state, ratios, forecast }) {
 
       {/* Earnings walk — full width, above the balance sheet */}
       <div className="panel" style={{ padding: "14px 16px", flexShrink: 0 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
-          <div className="label-strong">Earnings Walk · this q → next q</div>
-          <div className="num" style={{ fontSize: 14, fontWeight: 700, color: (fis.netIncome - lastIS.netIncome) >= 0 ? CP.good : CP.bad }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 10, marginBottom: 4 }}>
+          <div>
+            <div className="label-strong">Earnings Walk</div>
+            <div className="label" style={{ marginTop: 3 }}>This Q → Next Q</div>
+          </div>
+          <div className="num" style={{ fontSize: 14, fontWeight: 700, whiteSpace: "nowrap", color: (fis.netIncome - lastIS.netIncome) >= 0 ? CP.good : CP.bad }}>
             Net Δ {(fis.netIncome - lastIS.netIncome) >= 0 ? "+" : ""}{CBE.fmt$(fis.netIncome - lastIS.netIncome)}
           </div>
         </div>
