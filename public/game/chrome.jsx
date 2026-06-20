@@ -242,11 +242,11 @@ function MacroTape({ macro }) {
   const slope = macro.treasury10y - macro.fedFunds;
   return (
     <div className="panel-soft" style={{ padding: compact ? "14px 16px" : "12px 14px" }}>
-      <div className="label" style={{ marginBottom: compact ? 10 : 8, fontSize: compact ? 13 : undefined }}>Macro Tape</div>
+      <div className="label" style={{ marginBottom: compact ? 10 : 8, fontSize: compact ? 15 : undefined }}>Macro Tape</div>
       <div style={{ display: "grid", gridTemplateColumns: compact ? "repeat(4, 1fr)" : "1fr 1fr", gap: compact ? 8 : 10 }}>
         {items.map(it => (
           <div key={it.l} style={{ minWidth: 0 }}>
-            <div style={{ fontSize: compact ? 11.5 : 10, color: P.textMute }}>{it.l}</div>
+            <div style={{ fontSize: compact ? 13 : 10, color: P.textMute }}>{it.l}</div>
             <div className="num" style={{ fontSize: compact ? 18 : 15, fontWeight: 500 }}>{it.v}</div>
           </div>
         ))}
