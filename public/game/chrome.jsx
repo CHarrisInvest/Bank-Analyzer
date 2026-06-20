@@ -232,6 +232,7 @@ function Header({ state, ratios }) {
 
 // ---------- Macro tape ----------
 function MacroTape({ macro }) {
+  const compact = window.Theme.useViewport().compact;
   const items = [
     { l: "Fed Funds", v: (macro.fedFunds * 100).toFixed(2) + "%" },
     { l: "10Y UST", v: (macro.treasury10y * 100).toFixed(2) + "%" },
@@ -240,19 +241,19 @@ function MacroTape({ macro }) {
   ];
   const slope = macro.treasury10y - macro.fedFunds;
   return (
-    <div className="panel-soft" style={{ padding: "12px 14px" }}>
-      <div className="label" style={{ marginBottom: 8 }}>Macro Tape</div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+    <div className="panel-soft" style={{ padding: compact ? "14px 16px" : "12px 14px" }}>
+      <div className="label" style={{ marginBottom: compact ? 10 : 8, fontSize: compact ? 13 : undefined }}>Macro Tape</div>
+      <div style={{ display: "grid", gridTemplateColumns: compact ? "repeat(4, 1fr)" : "1fr 1fr", gap: compact ? 8 : 10 }}>
         {items.map(it => (
-          <div key={it.l}>
-            <div style={{ fontSize: 10, color: P.textMute }}>{it.l}</div>
-            <div className="num" style={{ fontSize: 15, fontWeight: 500 }}>{it.v}</div>
+          <div key={it.l} style={{ minWidth: 0 }}>
+            <div style={{ fontSize: compact ? 11.5 : 10, color: P.textMute }}>{it.l}</div>
+            <div className="num" style={{ fontSize: compact ? 18 : 15, fontWeight: 500 }}>{it.v}</div>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 10, paddingTop: 10, borderTop: `1px solid ${P.lineSoft}`, display: "flex", justifyContent: "space-between", fontSize: 10.5 }}>
+      <div style={{ marginTop: compact ? 12 : 10, paddingTop: compact ? 12 : 10, borderTop: `1px solid ${P.lineSoft}`, display: "flex", justifyContent: "space-between", alignItems: "baseline", fontSize: compact ? 16 : 10.5 }}>
         <span style={{ color: P.textMute }}>Yield curve</span>
-        <span className="num" style={{ color: slope >= 0 ? P.good : P.bad, fontWeight: 600 }}>
+        <span className="num" style={{ color: slope >= 0 ? P.good : P.bad, fontWeight: 700 }}>
           {slope >= 0 ? "+" : ""}{(slope * 100).toFixed(2)}%
         </span>
       </div>
@@ -263,6 +264,7 @@ function MacroTape({ macro }) {
 // ---------- Event card ----------
 const SEV_RANK = { bad: 4, warn: 3, info: 2, good: 1, neutral: 0, system: 0 };
 function EventCard({ log, currentQ }) {
+  const compact = window.Theme.useViewport().compact;
   // Show ALL non-system events from the just-completed quarter only.
   // If that quarter is quiet, say so — earlier quarters' events stay in the Activity Log.
   const targetQ = currentQ - 1;
@@ -272,8 +274,8 @@ function EventCard({ log, currentQ }) {
   if (events.length === 0) {
     return (
       <div className="panel-soft" style={{ padding: "14px 16px" }}>
-        <div className="label" style={{ marginBottom: 6 }}>Latest Quarter Event(s)</div>
-        <div style={{ fontSize: 12, color: P.textMute, fontStyle: "italic" }}>
+        <div className="label" style={{ marginBottom: 6, fontSize: compact ? 13 : undefined }}>Latest Quarter Event(s)</div>
+        <div style={{ fontSize: compact ? 13 : 12, color: P.textMute, fontStyle: "italic" }}>
           Quiet quarter. No notable events.
         </div>
       </div>
@@ -290,8 +292,8 @@ function EventCard({ log, currentQ }) {
       borderLeft: `3px solid ${topSev.dot}`,
     }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-        <div className="label" style={{ color: topSev.fg }}>Latest Quarter Event(s)</div>
-        <div className="mono" style={{ fontSize: 10, color: P.textMute }}>
+        <div className="label" style={{ color: topSev.fg, fontSize: compact ? 13 : undefined }}>Latest Quarter Event(s)</div>
+        <div className="mono" style={{ fontSize: compact ? 11.5 : 10, color: P.textMute }}>
           {qlbl(targetQ).label}
         </div>
       </div>
@@ -301,7 +303,7 @@ function EventCard({ log, currentQ }) {
           return (
             <div key={i} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
               <div style={{ width: 6, height: 6, borderRadius: 3, background: sev.dot, flexShrink: 0, marginTop: 6 }} />
-              <div style={{ fontSize: 12.5, lineHeight: 1.45, color: P.text, flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: compact ? 13.5 : 12.5, lineHeight: 1.45, color: P.text, flex: 1, minWidth: 0 }}>
                 {e.msg}
               </div>
             </div>
@@ -314,23 +316,24 @@ function EventCard({ log, currentQ }) {
 
 // ---------- Event log ----------
 function EventLog({ log }) {
+  const compact = window.Theme.useViewport().compact;
   // Most recent at top.
   const items = log.slice(-40).reverse();
   return (
-    <div className="panel-soft" style={{ padding: "12px 14px" }}>
-      <div className="label" style={{ marginBottom: 8 }}>Activity Log</div>
+    <div className="panel-soft" style={{ padding: compact ? "14px 16px" : "12px 14px" }}>
+      <div className="label" style={{ marginBottom: compact ? 10 : 8, fontSize: compact ? 13 : undefined }}>Activity Log</div>
       <div>
         {items.map((e, i) => {
           const sev = SEV[e.type] || SEV.neutral;
           const isLast = i === items.length - 1;
           return (
-            <div key={i} style={{ display: "flex", gap: 8, padding: "6px 0", borderBottom: isLast ? "none" : `1px solid ${P.lineSoft}` }}>
+            <div key={i} style={{ display: "flex", gap: 8, padding: compact ? "7px 0" : "6px 0", borderBottom: isLast ? "none" : `1px solid ${P.lineSoft}` }}>
               <div style={{ width: 6, height: 6, borderRadius: 3, background: sev.dot, flexShrink: 0, marginTop: 7 }} />
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div className="mono" style={{ fontSize: 9.5, color: P.textMute, letterSpacing: "0.1em" }}>
+                <div className="mono" style={{ fontSize: compact ? 11 : 9.5, color: P.textMute, letterSpacing: "0.1em" }}>
                   {e.q === 0 ? "PROLOGUE" : qlbl(e.q).label}
                 </div>
-                <div style={{ fontSize: 11.5, lineHeight: 1.4, color: sev.fg }}>{e.msg}</div>
+                <div style={{ fontSize: compact ? 12.5 : 11.5, lineHeight: 1.4, color: sev.fg }}>{e.msg}</div>
               </div>
             </div>
           );
