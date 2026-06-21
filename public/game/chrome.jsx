@@ -319,23 +319,36 @@ function EventLog({ log }) {
   const compact = window.Theme.useViewport().compact;
   // Most recent at top.
   const items = log.slice(-40).reverse();
+  // Group consecutive entries by quarter so the period header shows once.
+  const groups = [];
+  for (const e of items) {
+    const last = groups[groups.length - 1];
+    if (last && last.q === e.q) last.events.push(e);
+    else groups.push({ q: e.q, events: [e] });
+  }
   return (
     <div className="panel-soft" style={{ padding: compact ? "14px 16px" : "12px 14px" }}>
       <div className="label" style={{ marginBottom: compact ? 10 : 8, fontSize: compact ? 13 : undefined, color: compact ? P.text : undefined }}>Activity Log</div>
       <div>
-        {items.map((e, i) => {
-          const sev = SEV[e.type] || SEV.neutral;
-          const isLast = i === items.length - 1;
-          // On compact, brighten the otherwise-dim system/neutral lines.
-          const msgColor = compact && (e.type === "system" || e.type === "neutral") ? P.text : sev.fg;
+        {groups.map((g, gi) => {
+          const isLast = gi === groups.length - 1;
           return (
-            <div key={i} style={{ display: "flex", gap: 8, padding: compact ? "7px 0" : "6px 0", borderBottom: isLast ? "none" : `1px solid ${P.lineSoft}` }}>
-              <div style={{ width: 6, height: 6, borderRadius: 3, background: sev.dot, flexShrink: 0, marginTop: 7 }} />
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div className="mono" style={{ fontSize: compact ? 11 : 9.5, color: compact ? P.textDim : P.textMute, letterSpacing: "0.1em" }}>
-                  {e.q === 0 ? "PROLOGUE" : qlbl(e.q).label}
-                </div>
-                <div style={{ fontSize: compact ? 12.5 : 11.5, lineHeight: 1.4, color: msgColor }}>{e.msg}</div>
+            <div key={gi} style={{ padding: compact ? "8px 0" : "7px 0", borderBottom: isLast ? "none" : `1px solid ${P.lineSoft}` }}>
+              <div className="mono" style={{ fontSize: compact ? 11 : 9.5, color: compact ? P.textDim : P.textMute, letterSpacing: "0.1em", marginBottom: 5 }}>
+                {g.q === 0 ? "PROLOGUE" : qlbl(g.q).label}
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+                {g.events.map((e, i) => {
+                  const sev = SEV[e.type] || SEV.neutral;
+                  // On compact, brighten the otherwise-dim system/neutral lines.
+                  const msgColor = compact && (e.type === "system" || e.type === "neutral") ? P.text : sev.fg;
+                  return (
+                    <div key={i} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                      <div style={{ width: 6, height: 6, borderRadius: 3, background: sev.dot, flexShrink: 0, marginTop: compact ? 6 : 5 }} />
+                      <div style={{ fontSize: compact ? 12.5 : 11.5, lineHeight: 1.4, color: msgColor, flex: 1, minWidth: 0 }}>{e.msg}</div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           );
