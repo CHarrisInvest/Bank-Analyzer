@@ -67,7 +67,7 @@ function MetricRow({ label, plan, actual, forecast, fmt = "money", invert = fals
         padding: "12px 14px",
         borderTop: `1px solid ${CP.lineSoft}`,
       }}>
-        <div style={{ fontSize: 16, color: CP.text, fontWeight: 600, letterSpacing: "-0.01em" }}>{label}</div>
+        <div style={{ fontSize: 16, color: CP.textDim, fontWeight: 600, letterSpacing: "-0.01em" }}>{label}</div>
         <div style={{ textAlign: "right" }}>
           <div className="num" style={{ fontSize: 17, fontWeight: 600, color: CP.text, lineHeight: 1.1 }}>{fmtVal(actual, fmt)}</div>
           <div className="num" style={{ fontSize: 11.5, fontWeight: 600, color: surpriseTone, marginTop: 2 }}>{surpriseLabel}</div>
@@ -250,14 +250,14 @@ function CockpitTab({ state, ratios, forecast }) {
             borderBottom: `1px solid ${CP.line}`,
             background: CP.bgRaised,
           }}>
-            <div className="label" style={{ color: CP.textDim, fontSize: 10.5 }}>Metric</div>
+            <div className="label" style={{ color: CP.text, fontSize: 13 }}>Metric</div>
             <div style={{ textAlign: "right" }}>
-              <div className="label" style={{ color: CP.textDim, fontSize: 10.5 }}>Actual</div>
-              <div style={{ fontSize: 10, color: CP.textMute, marginTop: 1 }}>{isQ1 ? "Y1 Q1" : cur.label}</div>
+              <div className="label" style={{ color: CP.text, fontSize: 11.5 }}>Actual</div>
+              <div style={{ fontSize: 10, color: CP.textDim, marginTop: 1 }}>{isQ1 ? "Y1 Q1" : cur.label}</div>
             </div>
             <div style={{ textAlign: "right" }}>
-              <div className="label" style={{ color: CP.amber, fontSize: 10.5 }}>Forecast</div>
-              <div style={{ fontSize: 10, color: CP.textMute, marginTop: 1 }}>{next.label}</div>
+              <div className="label" style={{ color: CP.amber, fontSize: 11.5 }}>Forecast</div>
+              <div style={{ fontSize: 10, color: CP.textDim, marginTop: 1 }}>{next.label}</div>
             </div>
           </div>
         ) : (
