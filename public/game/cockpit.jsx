@@ -64,17 +64,17 @@ function MetricRow({ label, plan, actual, forecast, fmt = "money", invert = fals
         gridTemplateColumns: "1.3fr 1fr 1fr",
         alignItems: "center",
         gap: 8,
-        padding: "12px 14px",
+        padding: "6px 14px",
         borderTop: `1px solid ${CP.lineSoft}`,
       }}>
         <div style={{ fontSize: 16, color: CP.textDim, fontWeight: 600, letterSpacing: "-0.01em" }}>{label}</div>
         <div style={{ textAlign: "right" }}>
-          <div className="num" style={{ fontSize: 17, fontWeight: 600, color: CP.text, lineHeight: 1.1 }}>{fmtVal(actual, fmt)}</div>
-          <div className="num" style={{ fontSize: 11.5, fontWeight: 600, color: surpriseTone, marginTop: 2 }}>{surpriseLabel}</div>
+          <div className="num" style={{ fontSize: 17, fontWeight: 600, color: CP.text, lineHeight: 1.15 }}>{fmtVal(actual, fmt)}</div>
+          <div className="num" style={{ fontSize: 11.5, fontWeight: 600, color: surpriseTone, lineHeight: 1.2 }}>{surpriseLabel}</div>
         </div>
         <div style={{ textAlign: "right" }}>
-          <div className="num" style={{ fontSize: 17, fontWeight: 600, color: fcTone, lineHeight: 1.1 }}>{fmtVal(forecast, fmt)}</div>
-          <div className="num" style={{ fontSize: 11.5, fontWeight: 600, color: fcDeltaTone, marginTop: 2 }}>{diffStr(fcDiff, fmt)}</div>
+          <div className="num" style={{ fontSize: 17, fontWeight: 600, color: fcTone, lineHeight: 1.15 }}>{fmtVal(forecast, fmt)}</div>
+          <div className="num" style={{ fontSize: 11.5, fontWeight: 600, color: fcDeltaTone, lineHeight: 1.2 }}>{diffStr(fcDiff, fmt)}</div>
         </div>
       </div>
     );
@@ -246,7 +246,7 @@ function CockpitTab({ state, ratios, forecast }) {
             display: "grid",
             gridTemplateColumns: "1.3fr 1fr 1fr",
             gap: 8,
-            padding: "12px 14px 10px",
+            padding: "10px 14px 8px",
             borderBottom: `1px solid ${CP.line}`,
             background: CP.bgRaised,
           }}>
