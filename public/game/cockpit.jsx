@@ -119,7 +119,7 @@ function DriverBar({ label, value, max, color, fmt, compact = false }) {
           transition: "width 0.3s",
         }} />
       </div>
-      <div className="num" style={{ width: compact ? 62 : 80, flexShrink: 0, textAlign: "right", fontSize: 11.5, color: positive ? CP.good : CP.bad, fontWeight: 600 }}>
+      <div className="num" style={{ width: compact ? 72 : 80, flexShrink: 0, textAlign: "right", fontSize: compact ? 14 : 11.5, color: positive ? CP.good : CP.bad, fontWeight: 600 }}>
         {fmt(value)}
       </div>
     </div>
@@ -128,6 +128,9 @@ function DriverBar({ label, value, max, color, fmt, compact = false }) {
 
 // ---------- Balance sheet bars ----------
 function BalanceBars({ bs }) {
+  const compact = window.Theme.useViewport().compact;
+  const legFont = compact ? 14 : 11;
+  const legSw = compact ? 10 : 8;
   const ta = CBE.totalAssets(bs);
   const eq = CBE.totalEquity(bs);
   const tl = CBE.totalLiabilities(bs);
@@ -171,8 +174,8 @@ function BalanceBars({ bs }) {
         {renderBar(assetSegs, ta)}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "7px 14px", marginTop: 7 }}>
           {assetSegs.filter(s => s.v > 0).map(s => (
-            <div key={s.l} style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 12.5, color: CP.textDim }}>
-              <div style={{ width: 9, height: 9, background: s.c, borderRadius: 2 }} />
+            <div key={s.l} style={{ display: "flex", alignItems: "center", gap: 5, fontSize: legFont, color: CP.textDim }}>
+              <div style={{ width: legSw, height: legSw, background: s.c, borderRadius: 2 }} />
               {s.l} <span className="num" style={{ color: CP.textMute }}>{CBE.fmt$(s.v)}</span>
             </div>
           ))}
@@ -186,8 +189,8 @@ function BalanceBars({ bs }) {
         {renderBar(fundSegs, tl + eq)}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "7px 14px", marginTop: 7 }}>
           {fundSegs.filter(s => s.v > 0).map(s => (
-            <div key={s.l} style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 12.5, color: CP.textDim }}>
-              <div style={{ width: 9, height: 9, background: s.c, borderRadius: 2 }} />
+            <div key={s.l} style={{ display: "flex", alignItems: "center", gap: 5, fontSize: legFont, color: CP.textDim }}>
+              <div style={{ width: legSw, height: legSw, background: s.c, borderRadius: 2 }} />
               {s.l} <span className="num" style={{ color: CP.textMute }}>{CBE.fmt$(s.v)}</span>
             </div>
           ))}
