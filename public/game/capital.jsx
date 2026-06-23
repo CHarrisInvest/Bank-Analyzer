@@ -64,7 +64,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
             <div className="num" style={{ fontSize: 22, fontWeight: 700, color: cet1Tone }}>
               {cet1Bp >= 0 ? "+" : ""}{cet1Bp.toFixed(0)} bps
             </div>
-            <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
+            <div className="num" style={{ fontSize: 10.5, color: KP.textMute, marginTop: 2, whiteSpace: "nowrap" }}>
               {(ratios.cet1 * 100).toFixed(2)}% → {(fr.cet1 * 100).toFixed(2)}%
             </div>
           </div>
@@ -73,7 +73,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
             <div className="num" style={{ fontSize: 22, fontWeight: 700, color: forecast.bs.cash >= state.bs.cash ? KP.good : KP.bad }}>
               {forecast.bs.cash >= state.bs.cash ? "+" : ""}{KBE.fmt$(forecast.bs.cash - state.bs.cash)}
             </div>
-            <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
+            <div className="num" style={{ fontSize: 10.5, color: KP.textMute, marginTop: 2, whiteSpace: "nowrap" }}>
               {KBE.fmt$(state.bs.cash)} → {KBE.fmt$(forecast.bs.cash)}
             </div>
           </div>
@@ -88,7 +88,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
                   <div className="num" style={{ fontSize: 22, fontWeight: 700, color: wsPct > 0.15 ? KP.warn : KP.text }}>
                     {(wsPct * 100).toFixed(1)}%
                   </div>
-                  <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
+                  <div className="num" style={{ fontSize: 10.5, color: KP.textMute, marginTop: 2, whiteSpace: "nowrap" }}>
                     FHLB + brokered · ≤ 15%
                   </div>
                 </>
@@ -99,11 +99,11 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
             const dRetained = fis.netIncome - totalDiv;
             return (
               <div>
-                <div className="label" style={{ fontSize: 9.5 }}>Δ Retained Earnings (next qtr)</div>
+                <div className="label" style={{ fontSize: 9.5 }}>Δ Retained Earnings</div>
                 <div className="num" style={{ fontSize: 22, fontWeight: 700, color: dRetained >= 0 ? KP.good : KP.bad }}>
                   {dRetained >= 0 ? "+" : ""}{KBE.fmt$(dRetained)}
                 </div>
-                <div className="num" style={{ fontSize: 11, color: KP.textMute, marginTop: 2 }}>
+                <div className="num" style={{ fontSize: 10.5, color: KP.textMute, marginTop: 2, whiteSpace: "nowrap" }}>
                   NI {KBE.fmt$(fis.netIncome)} less {KBE.fmt$(totalDiv)} divs
                 </div>
               </div>
