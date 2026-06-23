@@ -89,7 +89,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
                     {(wsPct * 100).toFixed(1)}%
                   </div>
                   <div className="num" style={{ fontSize: 10.5, color: KP.textMute, marginTop: 2, whiteSpace: "nowrap" }}>
-                    FHLB + brokered · ≤ 15%
+                    FHLB + brokered ≤ 15%
                   </div>
                 </>
               );
@@ -104,7 +104,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
                   {dRetained >= 0 ? "+" : ""}{KBE.fmt$(dRetained)}
                 </div>
                 <div className="num" style={{ fontSize: 10.5, color: KP.textMute, marginTop: 2, whiteSpace: "nowrap" }}>
-                  NI {KBE.fmt$(fis.netIncome)} less {KBE.fmt$(totalDiv)} divs
+                  NI {KBE.fmt$(fis.netIncome)} — {KBE.fmt$(totalDiv)} divs
                 </div>
               </div>
             );
