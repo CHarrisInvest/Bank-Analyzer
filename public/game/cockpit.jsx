@@ -105,8 +105,8 @@ function DriverBar({ label, value, max, color, fmt, compact = false }) {
   const pct = max > 0 ? Math.abs(value) / max : 0;
   const positive = value >= 0;
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: compact ? 8 : 12, padding: "6px 0" }}>
-      <div style={{ width: compact ? 104 : 130, flexShrink: 0, fontSize: 11.5, color: CP.textDim }}>{label}</div>
+    <div style={{ display: "flex", alignItems: "center", gap: compact ? 8 : 12, padding: compact ? "3px 0" : "6px 0" }}>
+      <div style={{ width: compact ? 116 : 130, flexShrink: 0, fontSize: compact ? 13 : 11.5, color: CP.textDim, whiteSpace: "nowrap" }}>{label}</div>
       <div style={{ flex: 1, minWidth: 0, height: 18, background: CP.lineSoft, borderRadius: 4, position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: CP.line }} />
         <div style={{
@@ -142,8 +142,8 @@ function BalanceBars({ bs }) {
     { l: "Other",       v: bs.premises + bs.otherAssets,  c: CP.textMute },
   ];
   const fundSegs = [
-    { l: "Noninterest dep.", v: bs.deposits.noninterest, c: CP.good },
-    { l: "Int. deposits",v: bs.deposits.interestChecking + bs.deposits.savingsMM + bs.deposits.timeDeposits, c: CP.expansion },
+    { l: "Nonint dep", v: bs.deposits.noninterest, c: CP.good },
+    { l: "Int dep",v: bs.deposits.interestChecking + bs.deposits.savingsMM + bs.deposits.timeDeposits, c: CP.expansion },
     { l: "FHLB",         v: bs.borrowingsFHLB, c: CP.warn },
     { l: "Sub Debt",     v: bs.subDebt, c: CP.bad },
     { l: "Other liab.",  v: bs.otherLiab, c: CP.textMute },
@@ -341,15 +341,15 @@ function CockpitTab({ state, ratios, forecast }) {
         </div>
         {(() => {
           const drivers = [
-            { l: "Δ Net Interest Income", v: fis.nii - lastIS.nii, c: CP.good },
-            { l: "Δ Provision",            v: -(fis.provision - lastIS.provision), c: CP.bad },
-            { l: "Δ Noninterest Income",   v: fis.nonintIncome - lastIS.nonintIncome, c: CP.info },
-            { l: "Δ Noninterest Expense",  v: -(fis.nonintExpense - lastIS.nonintExpense), c: CP.warn },
-            { l: "Δ Tax",                  v: -(fis.tax - lastIS.tax), c: CP.textMute },
+            { l: "Δ Net Interest Income", s: "Δ Net Int Inc",  v: fis.nii - lastIS.nii, c: CP.good },
+            { l: "Δ Provision",            s: "Δ Provision",     v: -(fis.provision - lastIS.provision), c: CP.bad },
+            { l: "Δ Noninterest Income",   s: "Δ Nonint Inc",    v: fis.nonintIncome - lastIS.nonintIncome, c: CP.info },
+            { l: "Δ Noninterest Expense",  s: "Δ Nonint Exp",    v: -(fis.nonintExpense - lastIS.nonintExpense), c: CP.warn },
+            { l: "Δ Tax",                  s: "Δ Tax",           v: -(fis.tax - lastIS.tax), c: CP.textMute },
           ];
           const max = Math.max(1, ...drivers.map(d => Math.abs(d.v)));
           return drivers.map(d => (
-            <DriverBar key={d.l} label={d.l} value={d.v} max={max} color={d.c} fmt={CBE.fmt$} compact={compact} />
+            <DriverBar key={d.l} label={compact ? d.s : d.l} value={d.v} max={max} color={d.c} fmt={CBE.fmt$} compact={compact} />
           ));
         })()}
       </div>
