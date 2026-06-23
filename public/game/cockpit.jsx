@@ -67,7 +67,7 @@ function MetricRow({ label, plan, actual, forecast, fmt = "money", invert = fals
         padding: "6px 14px",
         borderTop: `1px solid ${CP.lineSoft}`,
       }}>
-        <div style={{ fontSize: 16, color: CP.textDim, fontWeight: 600, letterSpacing: "-0.01em" }}>{label}</div>
+        <div style={{ fontSize: 16, color: CP.textDim, fontWeight: 600, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}>{label}</div>
         <div style={{ textAlign: "right" }}>
           <div className="num" style={{ fontSize: 17, fontWeight: 600, color: CP.text, lineHeight: 1.15 }}>{fmtVal(actual, fmt)}</div>
           <div className="num" style={{ fontSize: 11.5, fontWeight: 600, color: surpriseTone, lineHeight: 1.2 }}>{surpriseLabel}</div>
@@ -227,12 +227,12 @@ function CockpitTab({ state, ratios, forecast }) {
     { l: "EPS (quarter)",      plan: lf?.eps,           actual: epsActual,                forecast: epsForecast,                          fmt: "eps" },
     { l: "NIM",                plan: lf?.nim,           actual: ratios.nim,               forecast: fr.nim,                               fmt: "pct" },
     { l: "Provision",          plan: lf?.provision,     actual: lastIS.provision,         forecast: fis.provision,                        fmt: "money", invert: true },
-    { l: "Noninterest Income", plan: lf?.nonintIncome,  actual: lastIS.nonintIncome,      forecast: fis.nonintIncome,                     fmt: "money" },
-    { l: "Noninterest Expense",plan: lf?.nonintExpense, actual: lastIS.nonintExpense,     forecast: fis.nonintExpense,                    fmt: "money", invert: true },
+    { l: "Noninterest Income", short: "Nonint. Inc.",  plan: lf?.nonintIncome,  actual: lastIS.nonintIncome,      forecast: fis.nonintIncome,                     fmt: "money" },
+    { l: "Noninterest Expense",short: "Nonint. Exp.",  plan: lf?.nonintExpense, actual: lastIS.nonintExpense,     forecast: fis.nonintExpense,                    fmt: "money", invert: true },
     { l: "CET1 Ratio",         plan: lf?.cet1,          actual: ratios.cet1,              forecast: fr.cet1,                              fmt: "pct1" },
     { l: "Loans (gross)",      plan: lf?.loansGross,    actual: state.bs.loansGross,      forecast: fbs.loansGross,                       fmt: "money" },
     { l: "Deposits",           plan: lf?.deposits,      actual: totalDeposits(state.bs),  forecast: totalDeposits(fbs),                   fmt: "money" },
-    { l: "Wholesale Funding",  plan: lf?.wholesale,     actual: wholesaleFund(state.bs),  forecast: wholesaleFund(fbs),                   fmt: "money", invert: true },
+    { l: "Wholesale Funding",  short: "Wholesale",     plan: lf?.wholesale,     actual: wholesaleFund(state.bs),  forecast: wholesaleFund(fbs),                   fmt: "money", invert: true },
   ];
 
   return (
@@ -305,7 +305,7 @@ function CockpitTab({ state, ratios, forecast }) {
           </>
         )}
         {rows.map(r => (
-          <MetricRow key={r.l} label={r.l} plan={r.plan} actual={r.actual} forecast={r.forecast} fmt={r.fmt} invert={r.invert} ratioName={r.ratioName} isQ1={isQ1} compact={phoneTable} />
+          <MetricRow key={r.l} label={phoneTable && r.short ? r.short : r.l} plan={r.plan} actual={r.actual} forecast={r.forecast} fmt={r.fmt} invert={r.invert} ratioName={r.ratioName} isQ1={isQ1} compact={phoneTable} />
         ))}
       </div>
 
