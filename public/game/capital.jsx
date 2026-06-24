@@ -48,7 +48,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
     : `Est. price $${estPrice.toFixed(2)} · BVPS $${bvps.toFixed(2)}`;
   const issuanceShares = d.equityIssuance > 0 ? (d.equityIssuance * 0.95 / Math.max(0.01, estPrice)) : 0;
   const issuanceHint = d.equityIssuance > 0
-    ? `Est. price $${estPrice.toFixed(2)} · net 95% (${KBE.fmt$(d.equityIssuance * 0.05)} fee → non-int expense) · ~${issuanceShares.toFixed(1)}K new shares`
+    ? `Est. price $${estPrice.toFixed(2)} · net 95% (${KBE.fmt$(d.equityIssuance * 0.05)} fee → nonint. expense) · ~${issuanceShares.toFixed(1)}K new shares`
     : `Est. price $${estPrice.toFixed(2)} · 5% underwriting fee on gross proceeds`;
 
   return (
@@ -185,15 +185,15 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
 
         {/* Sub debt */}
         <div className="panel panel-pad" data-coach="capital-sub-debt">
-          <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 12.5 : undefined }}>Sub Debt</div>
+          <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 12.5 : undefined }}>Sub. Debt</div>
           <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
             Subordinated debt locks in at fixed cost on issuance and counts toward Total Capital — not wholesale concentration.
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            <NumberDial label="Sub Debt Issuance (Δ this quarter)" value={d.subDebtIssuance}
+            <NumberDial label="Sub. Debt Issuance (Δ this quarter)" value={d.subDebtIssuance}
               onChange={v => setDecision("subDebtIssuance", v)}
               min={-10000} max={10000} step={500} format="money"
-              hint={`Outstanding: ${KBE.fmt$(state.bs.subDebt)} · avg fixed cost ${((state.bs.subDebtAvgCost || 0) * 100).toFixed(2)}% · new issuance locks at Fed Funds + 100bp (${(((state.macro.fedFunds || 0) + 0.01) * 100).toFixed(2)}%)`}
+              hint={`Outstanding: ${KBE.fmt$(state.bs.subDebt)} · avg. fixed cost ${((state.bs.subDebtAvgCost || 0) * 100).toFixed(2)}% · new issuance locks at Fed Funds + 100bp (${(((state.macro.fedFunds || 0) + 0.01) * 100).toFixed(2)}%)`}
               color={KP.warn} locked={locked} />
           </div>
         </div>
