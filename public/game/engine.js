@@ -321,7 +321,7 @@
           const oneTime = 200 + Math.round((avg - 30) * 30);            // $200-$650K consent order
           cfpbEvent = { oneTime, qtrsActive: 6 };
           s.cfpbConsent = { qtrsLeft: 6, openedAt: q };
-          log.push({ q, type: "bad", msg: `CFPB INQUIRY: regulator opened consent-order proceeding citing overdraft practices averaging $${avg.toFixed(0)}/item. One-time charge ${fmt$(oneTime)} hits non-int expense; reputational drag on satisfaction for 6 quarters.` });
+          log.push({ q, type: "bad", msg: `CFPB INQUIRY: regulator opened consent-order proceeding citing overdraft practices averaging $${avg.toFixed(0)}/item. One-time charge ${fmt$(oneTime)} hits nonint. expense; reputational drag on satisfaction for 6 quarters.` });
         }
       }
     }
@@ -533,7 +533,7 @@
         reason: "victory",
         severity: totalReturn > 1.30 ? "good" : totalReturn > 0.70 ? "neutral" : "warn",
         grade, gradeMsg,
-        msg: `10 years complete. Total shareholder return ${(totalReturn*100).toFixed(0)}%. BVPS $${initialBVPS.toFixed(2)} → $${finalBVPS.toFixed(2)} (${(bvpsCAGR*100).toFixed(1)}% CAGR), cumulative dividends $${totalDividendsPerShare.toFixed(2)}/share. Avg ROE ${(annualizedROE*100).toFixed(1)}%. Final CET1 ${(ratios.cet1*100).toFixed(1)}%, L/D ${ratios.ltd.toFixed(2)}x. Macro difficulty: ${macroDifficulty}.`,
+        msg: `10 years complete. Total shareholder return ${(totalReturn*100).toFixed(0)}%. BVPS $${initialBVPS.toFixed(2)} → $${finalBVPS.toFixed(2)} (${(bvpsCAGR*100).toFixed(1)}% CAGR), cumulative dividends $${totalDividendsPerShare.toFixed(2)}/share. Avg. ROE ${(annualizedROE*100).toFixed(1)}%. Final CET1 ${(ratios.cet1*100).toFixed(1)}%, L/D ${ratios.ltd.toFixed(2)}x. Macro difficulty: ${macroDifficulty}.`,
         modifiersApplied,
         stats: {
           finalBVPS, initialBVPS, bvpsCAGR, totalReturn,

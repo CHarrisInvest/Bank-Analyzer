@@ -23,7 +23,7 @@ const COACH_FLOWS = {
     },
     {
       target: "[data-coach='forecast-pair']",
-      title: "This quarter vs. next",
+      title: "This quarter vs next",
       body: "Posted actuals on the left. Your forecast on the right updates as you change levers and capital decisions.",
       placement: "top",
     },
@@ -56,7 +56,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='lever-deposit-ops']",
       title: "Consumer deposit franchise",
-      body: "Deposit pricing, ad spend, and fee load (overdraft + maintenance) all shape customer satisfaction in the background. Cheap pricing and aggressive fees grind sat down slowly; sustained overdraft fees above $30 invite CFPB scrutiny. Below 35 satisfaction, deposits begin to walk on their own.",
+      body: "Deposit pricing, ad spend, and fee load (overdraft + maintenance) all shape customer satisfaction in the background. Cheap pricing and aggressive fees grind Sat. down slowly; sustained overdraft fees above $30 invite CFPB scrutiny. Below 35 satisfaction, deposits begin to walk on their own.",
       placement: "left",
     },
   ],

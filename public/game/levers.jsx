@@ -80,7 +80,7 @@ const LEVERS_FUNDING = [
   {
     key: "depositPricing",
     title: "Deposit Pricing",
-    subtitle: "Where you sit vs. local peer rate sheet",
+    subtitle: "Where you sit vs local peer rate sheet",
     min: -2, max: 2, step: 1,
     marks: [
       { v: -2, l: "−40 bps", hint: "Cheap" },
@@ -232,7 +232,7 @@ function ForecastStrip({ state, ratios, forecast }) {
     { l: "Net Income",  v: LBE.fmt$(fis.netIncome),                d: fis.netIncome,                f: "money", noDelta: true, sub: `EPS $${nextEPS.toFixed(2)}` },
     { l: "CET1",        v: (fr.cet1 * 100).toFixed(2) + "%",       d: fr.cet1 - ratios.cet1,        f: "pct" },
     { l: "NPL",         v: (fr.nplRatio * 100).toFixed(2) + "%",   d: fr.nplRatio - ratios.nplRatio, f: "pct", invert: true },
-    { l: "Sat",         v: Math.round(nextSat).toString(),         d: nextSat - curSat,             f: "sat" },
+    { l: "Sat.",         v: Math.round(nextSat).toString(),         d: nextSat - curSat,             f: "sat" },
     { l: "Deposits",    v: LBE.fmt$(nextDeposits),                 d: nextDeposits - curDeposits,   f: "money" },
     { l: "Loans",       v: LBE.fmt$(forecast.bs.loansGross),       d: forecast.bs.loansGross - state.bs.loansGross, f: "money" },
     { l: "Provision",   v: LBE.fmt$(fis.provision),                d: fis.provision,                f: "money", noDelta: true },
@@ -343,7 +343,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
             color={LP.info}
             pill={lev.depositAdSpend > 0 ? `$${lev.depositAdSpend}K/qtr` : "Off"}
             hint={lev.depositAdSpend > 0
-              ? `Boosts organic deposit growth by ~${(0.012 * Math.log(1 + lev.depositAdSpend / 40) * 100).toFixed(2)}% this qtr; flows to non-int expense`
+              ? `Boosts organic deposit growth by ~${(0.012 * Math.log(1 + lev.depositAdSpend / 40) * 100).toFixed(2)}% this qtr; flows to nonint. expense`
               : "No marketing spend; growth is purely organic + pricing-driven"}
             locked={locked}
           />
@@ -387,7 +387,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
                   locked={locked}
                 />
                 <div style={{ padding: "8px 12px", background: LP.bgRaised, borderRadius: 8, fontSize: 11.5, color: LP.textDim, display: "flex", justifyContent: "space-between" }}>
-                  <span>Total fee income · sat impact</span>
+                  <span>Total fee income · Sat. impact</span>
                   <span className="num" style={{ fontWeight: 600 }}>
                     {LBE.fmt$(totalFee)} · <span style={{ color: feeLoad > 3 ? LP.bad : feeLoad > 1.5 ? LP.warn : LP.text }}>{feeLoad.toFixed(1)} pts</span>
                   </span>

@@ -142,10 +142,10 @@ function BalanceBars({ bs }) {
     { l: "Other",       v: bs.premises + bs.otherAssets,  c: CP.textMute },
   ];
   const fundSegs = [
-    { l: "Nonint dep", v: bs.deposits.noninterest, c: CP.good },
-    { l: "Int dep",v: bs.deposits.interestChecking + bs.deposits.savingsMM + bs.deposits.timeDeposits, c: CP.expansion },
+    { l: "Nonint. dep.", v: bs.deposits.noninterest, c: CP.good },
+    { l: "Int. dep.",v: bs.deposits.interestChecking + bs.deposits.savingsMM + bs.deposits.timeDeposits, c: CP.expansion },
     { l: "FHLB",         v: bs.borrowingsFHLB, c: CP.warn },
-    { l: "Sub Debt",     v: bs.subDebt, c: CP.bad },
+    { l: "Sub. Debt",     v: bs.subDebt, c: CP.bad },
     { l: "Other liab.",  v: bs.otherLiab, c: CP.textMute },
     { l: "Equity",       v: eq, c: CP.amber },
   ];
@@ -341,10 +341,10 @@ function CockpitTab({ state, ratios, forecast }) {
         </div>
         {(() => {
           const drivers = [
-            { l: "Δ Net Interest Income", s: "Δ Net Int Inc",  v: fis.nii - lastIS.nii, c: CP.good },
+            { l: "Δ Net Interest Income", s: "Δ Net Int. Inc.",  v: fis.nii - lastIS.nii, c: CP.good },
             { l: "Δ Provision",            s: "Δ Provision",     v: -(fis.provision - lastIS.provision), c: CP.bad },
-            { l: "Δ Noninterest Income",   s: "Δ Nonint Inc",    v: fis.nonintIncome - lastIS.nonintIncome, c: CP.info },
-            { l: "Δ Noninterest Expense",  s: "Δ Nonint Exp",    v: -(fis.nonintExpense - lastIS.nonintExpense), c: CP.warn },
+            { l: "Δ Noninterest Income",   s: "Δ Nonint. Inc.",    v: fis.nonintIncome - lastIS.nonintIncome, c: CP.info },
+            { l: "Δ Noninterest Expense",  s: "Δ Nonint. Exp.",    v: -(fis.nonintExpense - lastIS.nonintExpense), c: CP.warn },
             { l: "Δ Tax",                  s: "Δ Tax",           v: -(fis.tax - lastIS.tax), c: CP.textMute },
           ];
           const max = Math.max(1, ...drivers.map(d => Math.abs(d.v)));
