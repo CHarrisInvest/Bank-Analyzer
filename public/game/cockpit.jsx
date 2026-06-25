@@ -239,7 +239,7 @@ function CockpitTab({ state, ratios, forecast }) {
     { l: "Loans (gross)",      plan: lf?.loansGross,    actual: state.bs.loansGross,      forecast: fbs.loansGross,                       fmt: "money" },
     { l: "Deposits",           plan: lf?.deposits,      actual: totalDeposits(state.bs),  forecast: totalDeposits(fbs),                   fmt: "money" },
     { l: "Wholesale Funding",  short: "Wholesale",     plan: lf?.wholesale,     actual: wholesaleFund(state.bs),  forecast: wholesaleFund(fbs),                   fmt: "money", invert: true },
-    { l: "Efficiency",         plan: lf?.efficiency,    actual: ratios.efficiency,        forecast: fr.efficiency,                        fmt: "pct1", invert: true, ratioName: "efficiency" },
+    { l: "Efficiency",         plan: lf?.efficiency,    actual: ratios.efficiency,        forecast: fr.efficiency,                        fmt: "pct1", invert: true },
   ];
 
   return (
