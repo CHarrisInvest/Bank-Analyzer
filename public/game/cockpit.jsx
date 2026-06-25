@@ -323,7 +323,7 @@ function CockpitTab({ state, ratios, forecast }) {
           <KPITile label="Tier 1 Lev."   value={(ratios.tier1Lev * 100).toFixed(2) + "%"} sub="min 5.0%" tone={ccolor("tier1Lev", ratios.tier1Lev)} />
           <KPITile label="TCE/TA"        value={(ratios.tce * 100).toFixed(2) + "%"}     sub="tangible" tone={ccolor("tce", ratios.tce)} />
           <KPITile label="Loan/Deposit"  value={ratios.ltd.toFixed(2) + "x"}              sub="target ≤1.00x" tone={ccolor("ltd", ratios.ltd)} />
-          <KPITile label={compact ? "Liquidity" : "On-hand Liq."}  value={(ratios.onHandLiq * 100).toFixed(1) + "%"} sub="cash + AFS" tone={ccolor("onHandLiq", ratios.onHandLiq)} />
+          <KPITile label="Liquidity"  value={(ratios.onHandLiq * 100).toFixed(1) + "%"} sub="cash + AFS" tone={ccolor("onHandLiq", ratios.onHandLiq)} />
           <KPITile label="Efficiency"    value={(ratios.efficiency * 100).toFixed(1) + "%"} sub="lower=better" tone={ccolor("efficiency", ratios.efficiency)} />
         </div>
       </div>
