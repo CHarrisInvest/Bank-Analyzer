@@ -4,6 +4,29 @@ const CBE = window.BankEngine;
 
 // ---------- Tile ----------
 function KPITile({ label, value, sub, tone }) {
+  const compact = window.Theme.useViewport().compact;
+  // Compact: horizontal — name + descriptor on the left, large value on the
+  // right — so the tile fills its width instead of leaving it blank.
+  if (compact) {
+    return (
+      <div style={{
+        padding: "11px 13px",
+        background: CP.panel,
+        border: `1px solid ${CP.line}`,
+        borderRadius: 10,
+        display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 8,
+        minWidth: 0,
+      }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 2, minWidth: 0, flex: 1 }}>
+          <div className="label" style={{ fontSize: 9.5 }}>{label}</div>
+          {sub && <div style={{ fontSize: 10, color: CP.textMute }} className="num">{sub}</div>}
+        </div>
+        <div className="num" style={{ fontSize: 18.5, fontWeight: 700, color: tone || CP.text, lineHeight: 1.05, whiteSpace: "nowrap", flexShrink: 0 }}>
+          {value}
+        </div>
+      </div>
+    );
+  }
   return (
     <div style={{
       padding: "10px 12px",
@@ -332,7 +355,7 @@ function CockpitTab({ state, ratios, forecast }) {
             <div className="label-strong" style={{ fontSize: compact ? 12.5 : undefined }}>Earnings Walk</div>
             <div className="label" style={{ marginTop: 3 }}>This Q → Next Q</div>
           </div>
-          <div className="num" style={{ fontSize: 14, fontWeight: 700, whiteSpace: "nowrap", color: (fis.netIncome - lastIS.netIncome) >= 0 ? CP.good : CP.bad }}>
+          <div className="num" style={{ fontSize: compact ? 17 : 14, fontWeight: 700, whiteSpace: "nowrap", color: (fis.netIncome - lastIS.netIncome) >= 0 ? CP.good : CP.bad }}>
             Net Δ {(fis.netIncome - lastIS.netIncome) >= 0 ? "+" : ""}{CBE.fmt$(fis.netIncome - lastIS.netIncome)}
           </div>
         </div>
