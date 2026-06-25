@@ -239,6 +239,7 @@ function CockpitTab({ state, ratios, forecast }) {
     { l: "Loans (gross)",      plan: lf?.loansGross,    actual: state.bs.loansGross,      forecast: fbs.loansGross,                       fmt: "money" },
     { l: "Deposits",           plan: lf?.deposits,      actual: totalDeposits(state.bs),  forecast: totalDeposits(fbs),                   fmt: "money" },
     { l: "Wholesale Funding",  short: "Wholesale",     plan: lf?.wholesale,     actual: wholesaleFund(state.bs),  forecast: wholesaleFund(fbs),                   fmt: "money", invert: true },
+    { l: "Efficiency",         plan: lf?.efficiency,    actual: ratios.efficiency,        forecast: fr.efficiency,                        fmt: "pct1", invert: true, ratioName: "efficiency" },
   ];
 
   return (
@@ -319,12 +320,19 @@ function CockpitTab({ state, ratios, forecast }) {
       <div className="panel" style={{ padding: "14px 16px", flexShrink: 0 }}>
         <div className="label-strong" style={{ marginBottom: 8, fontSize: compact ? 12.5 : undefined }}>Capital, Liquidity, Asset Quality</div>
         <div style={{ display: "grid", gridTemplateColumns: `repeat(${kpiCols}, 1fr)`, gap: 8 }}>
-          <KPITile label="CET1 Ratio"    value={(ratios.cet1 * 100).toFixed(2) + "%"}    sub="min 7.0%" tone={ccolor("cet1", ratios.cet1)} />
-          <KPITile label="Tier 1 Lev."   value={(ratios.tier1Lev * 100).toFixed(2) + "%"} sub="min 5.0%" tone={ccolor("tier1Lev", ratios.tier1Lev)} />
-          <KPITile label="TCE/TA"        value={(ratios.tce * 100).toFixed(2) + "%"}     sub="tangible" tone={ccolor("tce", ratios.tce)} />
-          <KPITile label="Loan/Deposit"  value={ratios.ltd.toFixed(2) + "x"}              sub="target ≤1.00x" tone={ccolor("ltd", ratios.ltd)} />
-          <KPITile label="Liquidity"  value={(ratios.onHandLiq * 100).toFixed(1) + "%"} sub="cash + AFS" tone={ccolor("onHandLiq", ratios.onHandLiq)} />
-          <KPITile label="Efficiency"    value={(ratios.efficiency * 100).toFixed(1) + "%"} sub="lower=better" tone={ccolor("efficiency", ratios.efficiency)} />
+          {(() => {
+            const tiles = [
+              <KPITile key="cet1"  label="CET1 Ratio"   value={(ratios.cet1 * 100).toFixed(2) + "%"}    sub="min 7.0%" tone={ccolor("cet1", ratios.cet1)} />,
+              <KPITile key="t1lev" label="Tier 1 Lev."  value={(ratios.tier1Lev * 100).toFixed(2) + "%"} sub="min 5.0%" tone={ccolor("tier1Lev", ratios.tier1Lev)} />,
+              <KPITile key="tce"   label="TCE/TA"       value={(ratios.tce * 100).toFixed(2) + "%"}     sub="tangible" tone={ccolor("tce", ratios.tce)} />,
+              <KPITile key="ltd"   label="Loan/Deposit" value={ratios.ltd.toFixed(2) + "x"}              sub="target ≤1.00x" tone={ccolor("ltd", ratios.ltd)} />,
+              <KPITile key="liq"   label="Liquidity"    value={(ratios.onHandLiq * 100).toFixed(1) + "%"} sub="cash + AFS" tone={ccolor("onHandLiq", ratios.onHandLiq)} />,
+              <KPITile key="npl"   label="NPL Ratio"    value={(ratios.nplRatio * 100).toFixed(2) + "%"} sub="target ≤1.5%" tone={ccolor("nplRatio", ratios.nplRatio)} />,
+            ];
+            // Compact: swap TCE/TA and Loan/Deposit so the layout reads better.
+            if (compact) { const t = tiles[2]; tiles[2] = tiles[3]; tiles[3] = t; }
+            return tiles;
+          })()}
         </div>
       </div>
 

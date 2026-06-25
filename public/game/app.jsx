@@ -63,6 +63,7 @@ function App() {
       loansGross: forecast.bs.loansGross,
       deposits: totalDep(forecast.bs),
       wholesale: wholesale(forecast.bs),
+      efficiency: forecast.ratios.efficiency,
     };
     setTimeout(() => {
       setState(s => {
