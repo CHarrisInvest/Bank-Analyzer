@@ -5,36 +5,16 @@ const CBE = window.BankEngine;
 // ---------- Tile ----------
 function KPITile({ label, value, sub, tone }) {
   const compact = window.Theme.useViewport().compact;
-  // Compact: horizontal — name + descriptor on the left, large value on the
-  // right — so the tile fills its width instead of leaving it blank.
-  if (compact) {
-    return (
-      <div style={{
-        padding: "11px 13px",
-        background: CP.panel,
-        border: `1px solid ${CP.line}`,
-        borderRadius: 10,
-        display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 8,
-        minWidth: 0,
-      }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: 2, minWidth: 0, flex: 1 }}>
-          <div className="label" style={{ fontSize: 9.5 }}>{label}</div>
-          {sub && <div style={{ fontSize: 10, color: CP.textMute }} className="num">{sub}</div>}
-        </div>
-        <div className="num" style={{ fontSize: 18.5, fontWeight: 700, color: tone || CP.text, lineHeight: 1.05, whiteSpace: "nowrap", flexShrink: 0 }}>
-          {value}
-        </div>
-      </div>
-    );
-  }
   return (
     <div style={{
-      padding: "10px 12px",
+      padding: compact ? "10px 8px" : "10px 12px",
       background: CP.panel,
       border: `1px solid ${CP.line}`,
       borderRadius: 10,
       display: "flex", flexDirection: "column", gap: 3,
       minWidth: 0,
+      alignItems: compact ? "center" : "flex-start",
+      textAlign: compact ? "center" : "left",
     }}>
       <div className="label" style={{ fontSize: 9.5 }}>{label}</div>
       <div className="num" style={{ fontSize: 17, fontWeight: 600, color: tone || CP.text, lineHeight: 1.05 }}>
@@ -231,7 +211,7 @@ function CockpitTab({ state, ratios, forecast }) {
   // 3-column actual-vs-forecast view on phone-width screens; tablet and
   // landscape bodies are wide enough for the full table.
   const phoneTable = vp.isPhone;
-  const kpiCols = vp.isPhone ? 2 : vp.isTablet ? 3 : 6;
+  const kpiCols = vp.compact ? 3 : 6;
   const fr = forecast.ratios;
   const fis = forecast.is;
   const fbs = forecast.bs;
@@ -343,7 +323,7 @@ function CockpitTab({ state, ratios, forecast }) {
           <KPITile label="Tier 1 Lev."   value={(ratios.tier1Lev * 100).toFixed(2) + "%"} sub="min 5.0%" tone={ccolor("tier1Lev", ratios.tier1Lev)} />
           <KPITile label="TCE/TA"        value={(ratios.tce * 100).toFixed(2) + "%"}     sub="tangible" tone={ccolor("tce", ratios.tce)} />
           <KPITile label="Loan/Deposit"  value={ratios.ltd.toFixed(2) + "x"}              sub="target ≤1.00x" tone={ccolor("ltd", ratios.ltd)} />
-          <KPITile label="On-hand Liq."  value={(ratios.onHandLiq * 100).toFixed(1) + "%"} sub="cash + AFS" tone={ccolor("onHandLiq", ratios.onHandLiq)} />
+          <KPITile label="Liquidity"  value={(ratios.onHandLiq * 100).toFixed(1) + "%"} sub="cash + AFS" tone={ccolor("onHandLiq", ratios.onHandLiq)} />
           <KPITile label="Efficiency"    value={(ratios.efficiency * 100).toFixed(1) + "%"} sub="lower=better" tone={ccolor("efficiency", ratios.efficiency)} />
         </div>
       </div>
@@ -355,7 +335,7 @@ function CockpitTab({ state, ratios, forecast }) {
             <div className="label-strong" style={{ fontSize: compact ? 12.5 : undefined }}>Earnings Walk</div>
             <div className="label" style={{ marginTop: 3 }}>This Q → Next Q</div>
           </div>
-          <div className="num" style={{ fontSize: compact ? 17 : 14, fontWeight: 700, whiteSpace: "nowrap", color: (fis.netIncome - lastIS.netIncome) >= 0 ? CP.good : CP.bad }}>
+          <div className="num" style={{ fontSize: compact ? 18.5 : 14, fontWeight: 700, whiteSpace: "nowrap", color: (fis.netIncome - lastIS.netIncome) >= 0 ? CP.good : CP.bad }}>
             Net Δ {(fis.netIncome - lastIS.netIncome) >= 0 ? "+" : ""}{CBE.fmt$(fis.netIncome - lastIS.netIncome)}
           </div>
         </div>
