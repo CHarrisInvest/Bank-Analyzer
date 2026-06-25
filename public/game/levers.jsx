@@ -239,9 +239,9 @@ function ForecastStrip({ state, ratios, forecast }) {
   ];
   // Compact: a fixed 4-column / 2-row grid filled column-pair by column-pair:
   // Loans/Deposits · Provision/Sat · NPL/NIM · Net Income/CET1.
-  const compactOrder = ["Loans", "Provision", "NPL", "Net Income", "Deposits", "Sat", "NIM", "CET1"];
+  const compactOrder = ["Loans", "Provision", "NPL", "Net Income", "Deposits", "Sat.", "NIM", "CET1"];
   const byLabel = Object.fromEntries(items.map(it => [it.l, it]));
-  const renderItems = compact ? compactOrder.map(l => byLabel[l]) : items;
+  const renderItems = compact ? compactOrder.map(l => byLabel[l]).filter(Boolean) : items;
   const fcCols = compact ? 4 : 8;
   const valFont = compact ? 15 : 18;
   const labelFont = compact ? 10.5 : 9.5;
