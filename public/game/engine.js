@@ -787,12 +787,14 @@
     // even when cyclical demand is negative (recession). A multiplicative model
     // (demand * mult) inverts in a recession — a 3x on negative demand made
     // "Floor It" shrink the book faster than "Match". Match stays == demand.
+    // Offsets are calibrated so the expansion cycle (demand 0.015) reproduces
+    // the prior multiplicative results exactly: effortAdj = 0.015*(mult-1).
     let effortAdj;
-    if (lev.loanGrowth === -2) effortAdj = -0.0150;
-    else if (lev.loanGrowth === -1) effortAdj = -0.0075;
-    else if (lev.loanGrowth === 1) effortAdj = 0.0125;
-    else if (lev.loanGrowth === 2) effortAdj = 0.0250;
-    else effortAdj = 0; // Match Demand
+    if (lev.loanGrowth === -2) effortAdj = -0.02250;      // was mult -0.5
+    else if (lev.loanGrowth === -1) effortAdj = -0.01125; // was mult 0.25
+    else if (lev.loanGrowth === 1) effortAdj = 0.01500;   // was mult 2.0
+    else if (lev.loanGrowth === 2) effortAdj = 0.03000;   // was mult 3.0
+    else effortAdj = 0; // Match Demand (mult 1.0)
 
     const underwriteDrag = lev.underwriting * 0.004;
 
