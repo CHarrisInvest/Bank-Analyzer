@@ -782,16 +782,21 @@
     if (m.cycle === "recovery") demand = 0.0075;
     demand = demand * (1 + nf.loanGrowth);
 
-    let leverMult;
-    if (lev.loanGrowth === -2) leverMult = -0.5;
-    else if (lev.loanGrowth === -1) leverMult = 0.25;
-    else if (lev.loanGrowth === 0) leverMult = 1.0;
-    else if (lev.loanGrowth === 1) leverMult = 2.0;
-    else if (lev.loanGrowth === 2) leverMult = 3.0;
+    // Origination effort is ADDITIVE relative to "Match Demand" (lever 0):
+    // pushing harder always adds growth and pulling back always subtracts,
+    // even when cyclical demand is negative (recession). A multiplicative model
+    // (demand * mult) inverts in a recession — a 3x on negative demand made
+    // "Floor It" shrink the book faster than "Match". Match stays == demand.
+    let effortAdj;
+    if (lev.loanGrowth === -2) effortAdj = -0.0150;
+    else if (lev.loanGrowth === -1) effortAdj = -0.0075;
+    else if (lev.loanGrowth === 1) effortAdj = 0.0125;
+    else if (lev.loanGrowth === 2) effortAdj = 0.0250;
+    else effortAdj = 0; // Match Demand
 
     const underwriteDrag = lev.underwriting * 0.004;
 
-    let netGrowth = demand * leverMult - underwriteDrag;
+    let netGrowth = demand + effortAdj - underwriteDrag;
     if (event?.type === "loan_pipeline") netGrowth += 0.010;
     if (event?.type === "credit_shock") netGrowth -= 0.005;
     if (event?.type === "competitor_exit") netGrowth += 0.005;
