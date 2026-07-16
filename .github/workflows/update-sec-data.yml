@@ -43,18 +43,23 @@ jobs:
         id: check
         env:
           GH_TOKEN: ${{ github.token }}
+          # SEC's fair-access policy expects a declared contact in the
+          # User-Agent, so reuse the project's existing contact email.
+          # SEC_CONTACT_EMAIL is an optional dedicated override.
           SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
+          VITE_CONTACT_EMAIL: ${{ secrets.VITE_CONTACT_EMAIL }}
         run: |
           set -euo pipefail
 
           # SEC's fair-access policy expects a declared contact in the
           # User-Agent (e.g. "Company AdminContact@example.com"); requests
           # without one are commonly rejected with HTTP 403.
-          if [ -n "${SEC_CONTACT_EMAIL:-}" ]; then
-            UA="Bank-Analyzer/1.0 (${SEC_CONTACT_EMAIL}; +https://github.com/${GITHUB_REPOSITORY})"
+          CONTACT="${SEC_CONTACT_EMAIL:-${VITE_CONTACT_EMAIL:-}}"
+          if [ -n "$CONTACT" ]; then
+            UA="Bank-Analyzer/1.0 (${CONTACT}; +https://github.com/${GITHUB_REPOSITORY})"
           else
             UA="Bank-Analyzer/1.0 (+https://github.com/${GITHUB_REPOSITORY})"
-            echo "::warning::SEC_CONTACT_EMAIL secret is not set; SEC may reject requests (403) without a contact email in the User-Agent."
+            echo "::warning::No contact email available (set SEC_CONTACT_EMAIL or VITE_CONTACT_EMAIL); SEC may reject requests (403) without a contact email in the User-Agent."
           fi
           BASE_URL="https://www.sec.gov/files/dera/data/financial-statement-data-sets"
 
@@ -96,7 +101,7 @@ jobs:
           latest_name="${y}q${q}.zip"
           probe="$(curl -sSL -A "$UA" -I -o /dev/null -w '%{http_code}' "${BASE_URL}/${latest_name}" || echo 000)"
           if [ "$probe" != "200" ]; then
-            echo "::warning::SEC not reachable for known-present ${latest_name} (HTTP ${probe}); skipping new-quarter sync this run. If this persists, SEC is likely blocking the runner -- set the SEC_CONTACT_EMAIL secret, or upload the quarterly zip to the sec-data release manually."
+            echo "::warning::SEC not reachable for known-present ${latest_name} (HTTP ${probe}); skipping new-quarter sync this run. If this persists, SEC is likely blocking the runner -- ensure a contact email is set (SEC_CONTACT_EMAIL or VITE_CONTACT_EMAIL), or upload the quarterly zip to the sec-data release manually."
             echo "new_asset=false" >> "$GITHUB_OUTPUT"
             echo "uploaded=" >> "$GITHUB_OUTPUT"
             exit 0
