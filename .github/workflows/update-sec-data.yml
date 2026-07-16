@@ -21,6 +21,7 @@ jobs:
     outputs:
       new_asset: ${{ steps.check.outputs.new_asset }}
       uploaded: ${{ steps.check.outputs.uploaded }}
+      deploy: ${{ steps.commit.outputs.changed }}
 
     steps:
       - name: Checkout repository
@@ -135,7 +136,8 @@ jobs:
 
       # ============================================
       # SEC Financial Statement Data Sets Processing
-      # (only runs when a new quarter was added above)
+      # Only the heavy zip download + reprocessing is gated on a new
+      # quarter; the daily EDGAR exchange refresh below always runs.
       # ============================================
       - name: Download SEC FS Data Sets from release
         if: steps.check.outputs.new_asset == 'true'
@@ -163,8 +165,9 @@ jobs:
           echo "Processing SEC Financial Statement Data Sets..."
           node --expose-gc scripts/fetch-sec-fs-datasets.cjs --verbose
 
+      # Runs every day regardless of new quarterly data: exchange listings
+      # change independently of the quarterly financial statement datasets.
       - name: Update exchange data from SEC EDGAR
-        if: steps.check.outputs.new_asset == 'true'
         run: |
           echo "Refreshing exchange data from SEC EDGAR submissions API..."
           node scripts/update-exchanges.cjs
@@ -174,7 +177,6 @@ jobs:
       # ============================================
       - name: Commit updated data
         id: commit
-        if: steps.check.outputs.new_asset == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -227,7 +229,7 @@ jobs:
           path: ./dist
 
   deploy:
-    if: needs.update-data.outputs.new_asset == 'true'
+    if: needs.update-data.outputs.deploy == 'true'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
