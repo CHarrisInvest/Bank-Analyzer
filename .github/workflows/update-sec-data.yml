@@ -77,6 +77,21 @@ jobs:
           q=$(( latest % 10 ))
           echo "Latest quarter on release: ${y}q${q}"
 
+          # Sanity probe: the newest quarter we already have MUST be reachable.
+          # SEC returns 403 (not 404) for a missing quarter, so a bare 403 on the
+          # *next* quarter is indistinguishable from SEC blocking us outright.
+          # Confirm a known-present file returns 200/206; otherwise fail loudly
+          # rather than silently reporting "no new data" forever.
+          latest_name="${y}q${q}.zip"
+          probe="$(curl -sSL -A "$UA" -r 0-0 -o /dev/null -w '%{http_code}' "${BASE_URL}/${latest_name}" || echo 000)"
+          case "$probe" in
+            200|206)
+              echo "SEC reachable (sanity probe for ${latest_name}: HTTP ${probe})." ;;
+            *)
+              echo "::error::Sanity probe for known-present ${latest_name} returned HTTP ${probe} (expected 200/206). SEC may be blocking requests or the dataset path changed; aborting to avoid a false 'no new data'."
+              exit 1 ;;
+          esac
+
           # Current calendar quarter is the upper bound for the search
           cur_y="$(date -u +%Y)"
           cur_m="$(date -u +%-m)"
