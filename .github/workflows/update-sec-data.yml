@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       new_asset: ${{ steps.check.outputs.new_asset }}
-      uploaded: ${{ steps.check.outputs.uploaded }}
+      pending: ${{ steps.check.outputs.pending }}
       deploy: ${{ steps.commit.outputs.changed }}
 
     steps:
@@ -35,135 +35,90 @@ jobs:
           node-version: '20'
 
       # ============================================
-      # Detect new SEC quarterly dataset and sync it
-      # to the "sec-data" release. Everything after this
-      # step only runs when a genuinely new quarter was added.
+      # Decide whether a rebuild is needed. The trigger is the sec-data
+      # release contents vs. the quarters already processed into the repo
+      # (metadata.quartersProcessed in sec-data-index.json). A new quarter
+      # on the release -- whether uploaded manually or pulled from SEC by the
+      # best-effort step below -- triggers exactly one rebuild.
+      #
+      # NOTE: SEC blocks datacenter IPs (GitHub-hosted runners) with HTTP 403,
+      # so the SEC auto-download is opportunistic only; on GitHub-hosted
+      # runners new quarters are expected to be uploaded to the release
+      # manually. A self-hosted runner would let the auto-download work.
       # ============================================
-      - name: Check SEC for new quarter and sync to release
+      - name: Check for new quarterly data
         id: check
         env:
           GH_TOKEN: ${{ github.token }}
           # SEC's fair-access policy expects a declared contact in the
-          # User-Agent, so reuse the project's existing contact email.
-          # SEC_CONTACT_EMAIL is an optional dedicated override.
+          # User-Agent; reuse the project's contact email (SEC_CONTACT_EMAIL
+          # is an optional dedicated override).
           SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
           VITE_CONTACT_EMAIL: ${{ secrets.VITE_CONTACT_EMAIL }}
         run: |
           set -euo pipefail
 
-          # SEC's fair-access policy expects a declared contact in the
-          # User-Agent (e.g. "Company AdminContact@example.com"); requests
-          # without one are commonly rejected with HTTP 403.
           CONTACT="${SEC_CONTACT_EMAIL:-${VITE_CONTACT_EMAIL:-}}"
           if [ -n "$CONTACT" ]; then
             UA="Bank-Analyzer/1.0 (${CONTACT}; +https://github.com/${GITHUB_REPOSITORY})"
           else
             UA="Bank-Analyzer/1.0 (+https://github.com/${GITHUB_REPOSITORY})"
-            echo "::warning::No contact email available (set SEC_CONTACT_EMAIL or VITE_CONTACT_EMAIL); SEC may reject requests (403) without a contact email in the User-Agent."
           fi
           BASE_URL="https://www.sec.gov/files/dera/data/financial-statement-data-sets"
+          INDEX_FILE="public/data/sec-data-index.json"
 
-          # Quarters already attached to the sec-data release (e.g. "2026q1.zip")
-          existing="$(gh release view sec-data --repo "$GITHUB_REPOSITORY" \
+          # Quarters already processed into the repo, normalised to "2026Q1".
+          processed="$(jq -r '.metadata.quartersProcessed[]? // empty' "$INDEX_FILE" 2>/dev/null \
+            | tr '[:lower:]' '[:upper:]' | sort -u || true)"
+
+          # Quarterly zips currently on the sec-data release, same normal form.
+          release_q="$(gh release view sec-data --repo "$GITHUB_REPOSITORY" \
             --json assets --jq '.assets[].name' 2>/dev/null \
-            | tr '[:upper:]' '[:lower:]' \
-            | grep -oE '^[0-9]{4}q[1-4]\.zip$' \
-            | sort -u || true)"
+            | grep -oiE '^[0-9]{4}q[1-4]\.zip$' \
+            | sed -E 's/\.[Zz][Ii][Pp]$//' \
+            | tr '[:lower:]' '[:upper:]' | sort -u || true)"
 
-          echo "Existing quarterly assets on the sec-data release:"
-          echo "${existing:-  <none>}"
+          echo "Quarters already processed in repo:"; echo "${processed:-  <none>}"
+          echo "Quarterly assets on the sec-data release:"; echo "${release_q:-  <none>}"
 
-          if [ -z "${existing}" ]; then
-            echo "No quarterly assets found on the release; cannot determine the next quarter." >&2
-            echo "Seed the release with at least one YYYYqQ.zip asset first." >&2
-            echo "new_asset=false" >> "$GITHUB_OUTPUT"
-            echo "uploaded=" >> "$GITHUB_OUTPUT"
-            exit 0
+          # Best-effort: pull any newly published SEC quarter into the release.
+          # SEC blocks datacenter IPs, so treat any failure as "not available"
+          # and fall back to whatever is already on the release.
+          if [ -n "$release_q" ]; then
+            latest="$(echo "$release_q" | sed -E 's/Q/ /' \
+              | awk '{ printf "%d\n", $1 * 10 + $2 }' | sort -n | tail -1)"
+            y=$(( latest / 10 )); q=$(( latest % 10 ))
+            probe="$(curl -sSL -A "$UA" -I -o /dev/null -w '%{http_code}' "${BASE_URL}/${y}q${q}.zip" || echo 000)"
+            if [ "$probe" = "200" ]; then
+              cur_code=$(( $(date -u +%Y) * 10 + ( ($(date -u +%-m) + 2) / 3 ) ))
+              while : ; do
+                q=$(( q + 1 )); if [ "$q" -gt 4 ]; then q=1; y=$(( y + 1 )); fi
+                [ $(( y * 10 + q )) -gt "$cur_code" ] && break
+                name="${y}q${q}.zip"
+                code="$(curl -sSL -A "$UA" -o "$name" -w '%{http_code}' "${BASE_URL}/${name}" || echo 000)"
+                if [ "$code" != "200" ]; then rm -f "$name"; break; fi
+                if unzip -t "$name" >/dev/null 2>&1; then
+                  gh release upload sec-data "$name" --repo "$GITHUB_REPOSITORY" --clobber
+                  release_q="$(printf '%s\n%s' "$release_q" "${y}Q${q}" | sort -u)"
+                  echo "::notice::Synced new SEC quarter to release: ${name}"
+                fi
+                rm -f "$name"
+              done
+            else
+              echo "SEC not reachable from this runner (HTTP ${probe}); using release contents only. Upload new quarterly zips to the sec-data release manually if SEC blocks the runner."
+            fi
           fi
 
-          # Latest quarter present, encoded as year*10 + quarter for easy comparison
-          latest="$(echo "$existing" \
-            | sed -E 's/\.zip$//; s/q/ /' \
-            | awk '{ printf "%d\n", $1 * 10 + $2 }' \
-            | sort -n | tail -1)"
-
-          y=$(( latest / 10 ))
-          q=$(( latest % 10 ))
-          echo "Latest quarter on release: ${y}q${q}"
-
-          # Sanity probe: the newest quarter we already have MUST be reachable.
-          # SEC returns 403 (not 404) for a missing quarter, so a bare 403 on the
-          # *next* quarter is indistinguishable from SEC blocking us outright.
-          # If a known-present file isn't reachable, SEC is rejecting the runner
-          # (bad/blocked User-Agent, or datacenter-IP block) -- warn and skip the
-          # sync for this run rather than failing the whole workflow, so the
-          # daily exchange refresh and deploy still proceed.
-          latest_name="${y}q${q}.zip"
-          probe="$(curl -sSL -A "$UA" -I -o /dev/null -w '%{http_code}' "${BASE_URL}/${latest_name}" || echo 000)"
-          if [ "$probe" != "200" ]; then
-            echo "::warning::SEC not reachable for known-present ${latest_name} (HTTP ${probe}); skipping new-quarter sync this run. If this persists, SEC is likely blocking the runner -- ensure a contact email is set (SEC_CONTACT_EMAIL or VITE_CONTACT_EMAIL), or upload the quarterly zip to the sec-data release manually."
-            echo "new_asset=false" >> "$GITHUB_OUTPUT"
-            echo "uploaded=" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "SEC reachable (sanity probe for ${latest_name}: HTTP ${probe})."
-
-          # Current calendar quarter is the upper bound for the search
-          cur_y="$(date -u +%Y)"
-          cur_m="$(date -u +%-m)"
-          cur_q=$(( (cur_m + 2) / 3 ))
-          cur_code=$(( cur_y * 10 + cur_q ))
-
-          new_found=false
-          uploaded=""
-
-          # Walk forward quarter-by-quarter. SEC publishes sequentially, so we
-          # stop at the first quarter that isn't available yet.
-          while : ; do
-            q=$(( q + 1 ))
-            if [ "$q" -gt 4 ]; then q=1; y=$(( y + 1 )); fi
-            cand=$(( y * 10 + q ))
-            if [ "$cand" -gt "$cur_code" ]; then
-              echo "Reached the current calendar quarter (${y}q${q}); nothing further to check."
-              break
-            fi
-
-            name="${y}q${q}.zip"
-            url="${BASE_URL}/${name}"
-            echo "Checking SEC for ${name} ..."
-            # Fetch in one request; a missing quarter returns a small 404 body
-            # (harmless), and the zip integrity check below rejects non-archives.
-            code="$(curl -sSL -A "$UA" -o "$name" -w '%{http_code}' "$url" || echo 000)"
-
-            if [ "$code" != "200" ]; then
-              echo "  ${name} not available yet (HTTP ${code}); stopping search."
-              rm -f "$name"
-              break
-            fi
-
-            echo "  ${name} downloaded (HTTP ${code}). Verifying ..."
-            if ! unzip -t "$name" >/dev/null 2>&1; then
-              echo "  Downloaded ${name} failed zip integrity check; aborting." >&2
-              rm -f "$name"
-              exit 1
-            fi
-
-            echo "  Uploading ${name} to the sec-data release ..."
-            gh release upload sec-data "$name" --repo "$GITHUB_REPOSITORY" --clobber
-            rm -f "$name"
-
-            new_found=true
-            uploaded="${uploaded:+$uploaded }${name}"
-          done
-
-          echo "new_asset=${new_found}" >> "$GITHUB_OUTPUT"
-          echo "uploaded=${uploaded}" >> "$GITHUB_OUTPUT"
-
-          if [ "$new_found" = "true" ]; then
-            echo "::notice::New SEC quarter(s) synced to release: ${uploaded}"
+          # Reprocess when the release holds a quarter the repo hasn't processed.
+          pending="$(comm -23 <(echo "$release_q") <(echo "$processed") | sed '/^$/d')"
+          if [ -n "$pending" ]; then
+            echo "::notice::New quarter(s) on the release to process: $(echo $pending | tr '\n' ' ')"
+            echo "new_asset=true" >> "$GITHUB_OUTPUT"
           else
-            echo "::notice::No new SEC quarter available; skipping data rebuild."
+            echo "No unprocessed quarters on the release; skipping rebuild."
+            echo "new_asset=false" >> "$GITHUB_OUTPUT"
           fi
+          echo "pending=$(echo $pending | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
 
       # ============================================
       # SEC Financial Statement Data Sets Processing
