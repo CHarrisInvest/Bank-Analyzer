@@ -43,10 +43,19 @@ jobs:
         id: check
         env:
           GH_TOKEN: ${{ github.token }}
+          SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
         run: |
           set -euo pipefail
 
-          UA="Bank-Analyzer/1.0 (https://github.com/${GITHUB_REPOSITORY}); SEC dataset sync"
+          # SEC's fair-access policy expects a declared contact in the
+          # User-Agent (e.g. "Company AdminContact@example.com"); requests
+          # without one are commonly rejected with HTTP 403.
+          if [ -n "${SEC_CONTACT_EMAIL:-}" ]; then
+            UA="Bank-Analyzer/1.0 (${SEC_CONTACT_EMAIL}; +https://github.com/${GITHUB_REPOSITORY})"
+          else
+            UA="Bank-Analyzer/1.0 (+https://github.com/${GITHUB_REPOSITORY})"
+            echo "::warning::SEC_CONTACT_EMAIL secret is not set; SEC may reject requests (403) without a contact email in the User-Agent."
+          fi
           BASE_URL="https://www.sec.gov/files/dera/data/financial-statement-data-sets"
 
           # Quarters already attached to the sec-data release (e.g. "2026q1.zip")
@@ -80,17 +89,19 @@ jobs:
           # Sanity probe: the newest quarter we already have MUST be reachable.
           # SEC returns 403 (not 404) for a missing quarter, so a bare 403 on the
           # *next* quarter is indistinguishable from SEC blocking us outright.
-          # Confirm a known-present file returns 200/206; otherwise fail loudly
-          # rather than silently reporting "no new data" forever.
+          # If a known-present file isn't reachable, SEC is rejecting the runner
+          # (bad/blocked User-Agent, or datacenter-IP block) -- warn and skip the
+          # sync for this run rather than failing the whole workflow, so the
+          # daily exchange refresh and deploy still proceed.
           latest_name="${y}q${q}.zip"
-          probe="$(curl -sSL -A "$UA" -r 0-0 -o /dev/null -w '%{http_code}' "${BASE_URL}/${latest_name}" || echo 000)"
-          case "$probe" in
-            200|206)
-              echo "SEC reachable (sanity probe for ${latest_name}: HTTP ${probe})." ;;
-            *)
-              echo "::error::Sanity probe for known-present ${latest_name} returned HTTP ${probe} (expected 200/206). SEC may be blocking requests or the dataset path changed; aborting to avoid a false 'no new data'."
-              exit 1 ;;
-          esac
+          probe="$(curl -sSL -A "$UA" -I -o /dev/null -w '%{http_code}' "${BASE_URL}/${latest_name}" || echo 000)"
+          if [ "$probe" != "200" ]; then
+            echo "::warning::SEC not reachable for known-present ${latest_name} (HTTP ${probe}); skipping new-quarter sync this run. If this persists, SEC is likely blocking the runner -- set the SEC_CONTACT_EMAIL secret, or upload the quarterly zip to the sec-data release manually."
+            echo "new_asset=false" >> "$GITHUB_OUTPUT"
+            echo "uploaded=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "SEC reachable (sanity probe for ${latest_name}: HTTP ${probe})."
 
           # Current calendar quarter is the upper bound for the search
           cur_y="$(date -u +%Y)"
