@@ -18,6 +18,9 @@ concurrency:
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    outputs:
+      new_asset: ${{ steps.check.outputs.new_asset }}
+      uploaded: ${{ steps.check.outputs.uploaded }}
 
     steps:
       - name: Checkout repository
@@ -31,9 +34,111 @@ jobs:
           node-version: '20'
 
       # ============================================
+      # Detect new SEC quarterly dataset and sync it
+      # to the "sec-data" release. Everything after this
+      # step only runs when a genuinely new quarter was added.
+      # ============================================
+      - name: Check SEC for new quarter and sync to release
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          UA="Bank-Analyzer/1.0 (https://github.com/${GITHUB_REPOSITORY}); SEC dataset sync"
+          BASE_URL="https://www.sec.gov/files/dera/data/financial-statement-data-sets"
+
+          # Quarters already attached to the sec-data release (e.g. "2026q1.zip")
+          existing="$(gh release view sec-data --repo "$GITHUB_REPOSITORY" \
+            --json assets --jq '.assets[].name' 2>/dev/null \
+            | tr '[:upper:]' '[:lower:]' \
+            | grep -oE '^[0-9]{4}q[1-4]\.zip$' \
+            | sort -u || true)"
+
+          echo "Existing quarterly assets on the sec-data release:"
+          echo "${existing:-  <none>}"
+
+          if [ -z "${existing}" ]; then
+            echo "No quarterly assets found on the release; cannot determine the next quarter." >&2
+            echo "Seed the release with at least one YYYYqQ.zip asset first." >&2
+            echo "new_asset=false" >> "$GITHUB_OUTPUT"
+            echo "uploaded=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Latest quarter present, encoded as year*10 + quarter for easy comparison
+          latest="$(echo "$existing" \
+            | sed -E 's/\.zip$//; s/q/ /' \
+            | awk '{ printf "%d\n", $1 * 10 + $2 }' \
+            | sort -n | tail -1)"
+
+          y=$(( latest / 10 ))
+          q=$(( latest % 10 ))
+          echo "Latest quarter on release: ${y}q${q}"
+
+          # Current calendar quarter is the upper bound for the search
+          cur_y="$(date -u +%Y)"
+          cur_m="$(date -u +%-m)"
+          cur_q=$(( (cur_m + 2) / 3 ))
+          cur_code=$(( cur_y * 10 + cur_q ))
+
+          new_found=false
+          uploaded=""
+
+          # Walk forward quarter-by-quarter. SEC publishes sequentially, so we
+          # stop at the first quarter that isn't available yet.
+          while : ; do
+            q=$(( q + 1 ))
+            if [ "$q" -gt 4 ]; then q=1; y=$(( y + 1 )); fi
+            cand=$(( y * 10 + q ))
+            if [ "$cand" -gt "$cur_code" ]; then
+              echo "Reached the current calendar quarter (${y}q${q}); nothing further to check."
+              break
+            fi
+
+            name="${y}q${q}.zip"
+            url="${BASE_URL}/${name}"
+            echo "Checking SEC for ${name} ..."
+            # Fetch in one request; a missing quarter returns a small 404 body
+            # (harmless), and the zip integrity check below rejects non-archives.
+            code="$(curl -sSL -A "$UA" -o "$name" -w '%{http_code}' "$url" || echo 000)"
+
+            if [ "$code" != "200" ]; then
+              echo "  ${name} not available yet (HTTP ${code}); stopping search."
+              rm -f "$name"
+              break
+            fi
+
+            echo "  ${name} downloaded (HTTP ${code}). Verifying ..."
+            if ! unzip -t "$name" >/dev/null 2>&1; then
+              echo "  Downloaded ${name} failed zip integrity check; aborting." >&2
+              rm -f "$name"
+              exit 1
+            fi
+
+            echo "  Uploading ${name} to the sec-data release ..."
+            gh release upload sec-data "$name" --repo "$GITHUB_REPOSITORY" --clobber
+            rm -f "$name"
+
+            new_found=true
+            uploaded="${uploaded:+$uploaded }${name}"
+          done
+
+          echo "new_asset=${new_found}" >> "$GITHUB_OUTPUT"
+          echo "uploaded=${uploaded}" >> "$GITHUB_OUTPUT"
+
+          if [ "$new_found" = "true" ]; then
+            echo "::notice::New SEC quarter(s) synced to release: ${uploaded}"
+          else
+            echo "::notice::No new SEC quarter available; skipping data rebuild."
+          fi
+
+      # ============================================
       # SEC Financial Statement Data Sets Processing
+      # (only runs when a new quarter was added above)
       # ============================================
       - name: Download SEC FS Data Sets from release
+        if: steps.check.outputs.new_asset == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -51,6 +156,7 @@ jobs:
           ls -la .sec-data-cache/
 
       - name: Process SEC FS Data Sets
+        if: steps.check.outputs.new_asset == 'true'
         env:
           NODE_OPTIONS: '--max-old-space-size=8192'
         run: |
@@ -58,6 +164,7 @@ jobs:
           node --expose-gc scripts/fetch-sec-fs-datasets.cjs --verbose
 
       - name: Update exchange data from SEC EDGAR
+        if: steps.check.outputs.new_asset == 'true'
         run: |
           echo "Refreshing exchange data from SEC EDGAR submissions API..."
           node scripts/update-exchanges.cjs
@@ -67,6 +174,7 @@ jobs:
       # ============================================
       - name: Commit updated data
         id: commit
+        if: steps.check.outputs.new_asset == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -119,6 +227,7 @@ jobs:
           path: ./dist
 
   deploy:
+    if: needs.update-data.outputs.new_asset == 'true'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
