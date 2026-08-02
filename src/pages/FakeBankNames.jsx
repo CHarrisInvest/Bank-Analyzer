@@ -97,8 +97,8 @@ function FakeBankNames() {
         You can run a bank in <Link to="/game">BankCEO</Link> — now meet the whole industry with
         the names it deserves. This is a spreadsheet of parody names for U.S. bank holding
         companies and every bank beneath them, mapped alongside their real names, home states,
-        and total assets. Filtering is built in, so you can hunt down your own bank or sort the
-        giants to the top.
+        total assets, and total deposits. Filtering is built in, so you can hunt down your own
+        bank or sort the giants to the top.
       </p>
 
       <div className="bs-fbn-card">

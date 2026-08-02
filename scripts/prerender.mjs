@@ -1611,7 +1611,7 @@ async function generatePages() {
         {
           "@type": "CreativeWork",
           "name": "Fake Bank Names",
-          "description": "A parody spreadsheet of fictional names for U.S. bank holding companies and their banks, mapped to their real names, states, and total assets.",
+          "description": "A parody spreadsheet of fictional names for U.S. bank holding companies and their banks, mapped to their real names, states, total assets, and total deposits.",
           "url": `${SITE_URL}/game/fake-bank-names`,
           "genre": "Parody",
           "isAccessibleForFree": true,
@@ -1625,7 +1625,7 @@ async function generatePages() {
     },
     content: `
       <h1>Fake Bank Names</h1>
-      <p>A companion to the BankCEO simulation: a downloadable spreadsheet of parody names for U.S. bank holding companies and every bank beneath them, mapped alongside their real names, home states, and total assets. Filtering is built in.</p>
+      <p>A companion to the BankCEO simulation: a downloadable spreadsheet of parody names for U.S. bank holding companies and every bank beneath them, mapped alongside their real names, home states, total assets, and total deposits. Filtering is built in.</p>
       <p><a href="${SITE_URL}/downloads/fake-bank-names.xlsx">Download the spreadsheet (.xlsx)</a> — 8,600+ banks and holding companies.</p>
       <h2>A few favorites</h2>
       <ul>
