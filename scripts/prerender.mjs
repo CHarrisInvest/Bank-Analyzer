@@ -1594,6 +1594,55 @@ async function generatePages() {
   }));
   count++;
 
+  // /game/fake-bank-names — parody spreadsheet companion. Indexable, shareable.
+  writePage('/game/fake-bank-names', createPage({
+    path: '/game/fake-bank-names',
+    title: 'Fake Bank Names | A Parody List of Every U.S. Bank',
+    description: 'A companion to BankCEO: a downloadable spreadsheet of parody names for U.S. bank holding companies and their banks. From JP Mulligan Chaser to Bank of Amnesia — filter, sort, and share.',
+    canonical: `${SITE_URL}/game/fake-bank-names`,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        createBreadcrumbSchema([
+          { name: "Home", path: "" },
+          { name: "BankCEO Simulation", path: "/game" },
+          { name: "Fake Bank Names", path: "/game/fake-bank-names" }
+        ]),
+        {
+          "@type": "CreativeWork",
+          "name": "Fake Bank Names",
+          "description": "A parody spreadsheet of fictional names for U.S. bank holding companies and their banks, mapped to their real names, states, and total assets.",
+          "url": `${SITE_URL}/game/fake-bank-names`,
+          "genre": "Parody",
+          "isAccessibleForFree": true,
+          "associatedMedia": {
+            "@type": "MediaObject",
+            "contentUrl": `${SITE_URL}/downloads/fake-bank-names.xlsx`,
+            "encodingFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+          }
+        }
+      ]
+    },
+    content: `
+      <h1>Fake Bank Names</h1>
+      <p>A companion to the BankCEO simulation: a downloadable spreadsheet of parody names for U.S. bank holding companies and every bank beneath them, mapped alongside their real names, home states, and total assets. Filtering is built in.</p>
+      <p><a href="${SITE_URL}/downloads/fake-bank-names.xlsx">Download the spreadsheet (.xlsx)</a> — 8,600+ banks and holding companies.</p>
+      <h2>A few favorites</h2>
+      <ul>
+        <li>JPMorgan Chase → JP Mulligan Chaser</li>
+        <li>Bank of America → Bank of Amnesia</li>
+        <li>Citigroup → Sitting Group</li>
+        <li>Wells Fargo → Wells Far-Gone</li>
+        <li>U.S. Bancorp → U.S. Bankrupt</li>
+        <li>Capital One → Capital None</li>
+        <li>Goldman Sachs → Silverman Sacks</li>
+      </ul>
+      <p>For entertainment only. The parody names are fictional wordplay and are not affiliated with, endorsed by, or representative of any real financial institution.</p>
+      <p><a href="${SITE_URL}/game">← Back to the Game</a></p>
+    `
+  }));
+  count++;
+
   console.log(`✓ Generated ${count} static pages`);
 
   // ============================================
