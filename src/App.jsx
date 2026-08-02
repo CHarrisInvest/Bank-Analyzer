@@ -53,6 +53,7 @@ const GamePlay = lazy(() => import('./pages/GamePlay.jsx'));
 const GameAbout = lazy(() => import('./pages/GameAbout.jsx'));
 const GameHowToPlay = lazy(() => import('./pages/GameHowToPlay.jsx'));
 const GameStrategy = lazy(() => import('./pages/GameStrategy.jsx'));
+const FakeBankNames = lazy(() => import('./pages/FakeBankNames.jsx'));
 
 /**
  * Main Application Component
@@ -211,6 +212,14 @@ function App() {
               element={
                 <Suspense fallback={<div className="page" style={{ padding: 48, textAlign: 'center' }}>Loading…</div>}>
                   <GameStrategy />
+                </Suspense>
+              }
+            />
+            <Route
+              path="game/fake-bank-names"
+              element={
+                <Suspense fallback={<div className="page" style={{ padding: 48, textAlign: 'center' }}>Loading…</div>}>
+                  <FakeBankNames />
                 </Suspense>
               }
             />

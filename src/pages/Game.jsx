@@ -104,6 +104,7 @@ function Game() {
         <Link to="/game/about">About BankCEO →</Link>
         <Link to="/game/how-to-play">How to Play →</Link>
         <Link to="/game/strategy-guide">Strategy Guide →</Link>
+        <Link to="/game/fake-bank-names">Fake Bank Names →</Link>
       </div>
     </div>
   );
