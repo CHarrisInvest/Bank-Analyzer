@@ -24,6 +24,63 @@ function NumberDial({ label, value, onChange, min, max, step, format, hint, colo
   );
 }
 
+// Shared-capacity meter. Dividends and buybacks draw on ONE pool, so the bar shows how
+// much each is consuming and what is left for the other — and flags the overage when the
+// two together ask for more than the bank can fund.
+function DistributionCapacity({ capacity, dividends, buybacks, payoutFactor, compact }) {
+  const divFunded = Math.min(dividends, capacity);
+  const buyFunded = Math.max(0, Math.min(buybacks, capacity - divFunded));
+  const remaining = Math.max(0, capacity - divFunded - buyFunded);
+  const over = (dividends + buybacks) - capacity;
+  const denom = Math.max(1e-6, capacity);
+  const pctDiv = (divFunded / denom) * 100;
+  const pctBuy = (buyFunded / denom) * 100;
+
+  const Row = ({ c, label, value }) => (
+    <div style={{ display: "flex", alignItems: "center", gap: 5, minWidth: 0 }}>
+      <span style={{ width: 8, height: 8, borderRadius: 2, background: c, flexShrink: 0 }} />
+      <span style={{ fontSize: compact ? 11.5 : 11, color: KP.textDim }}>{label}</span>
+      <span className="num" style={{ fontSize: compact ? 11.5 : 11, color: KP.text, fontWeight: 600 }}>{KBE.fmt$(value)}</span>
+    </div>
+  );
+
+  return (
+    <div style={{
+      marginBottom: 14, padding: "10px 12px", borderRadius: 10,
+      background: KP.bgRaised, border: `1px solid ${over > 0.5 ? KP.warn : KP.lineSoft}`,
+    }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8, marginBottom: 7 }}>
+        <div className="label" style={{ fontSize: compact ? 11.5 : 9.5 }}>Distribution Capacity</div>
+        <div className="num" style={{ fontSize: compact ? 14 : 13, fontWeight: 700, color: KP.text }}>{KBE.fmt$(capacity)}</div>
+      </div>
+
+      <div style={{ display: "flex", height: 12, borderRadius: 6, overflow: "hidden", background: KP.panel2, border: `1px solid ${KP.line}` }}>
+        <div style={{ width: `${pctDiv}%`, background: KP.good, transition: "width 0.25s" }} />
+        <div style={{ width: `${pctBuy}%`, background: KP.amber, transition: "width 0.25s" }} />
+      </div>
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "5px 14px", marginTop: 8 }}>
+        <Row c={KP.good} label="Dividends" value={divFunded} />
+        <Row c={KP.amber} label="Buybacks" value={buyFunded} />
+        <Row c={KP.panel2} label="Unused" value={remaining} />
+      </div>
+
+      {over > 0.5 && (
+        <div style={{ fontSize: compact ? 11.5 : 11, color: KP.warn, marginTop: 7, lineHeight: 1.4 }}>
+          Requesting {KBE.fmt$(over)} more than capacity. Dividends are funded first, so the
+          buyback is cut back — raising one lowers what the other can do.
+        </div>
+      )}
+      {payoutFactor < 1 && (
+        <div style={{ fontSize: compact ? 11.5 : 11, color: KP.textMute, marginTop: 6, lineHeight: 1.4 }}>
+          Capital conservation buffer: CET1 is inside the buffer zone, so payouts are capped
+          at {(payoutFactor * 100).toFixed(0)}% of earnings.
+        </div>
+      )}
+    </div>
+  );
+}
+
 function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) {
   const vp = window.Theme.useViewport();
   const compact = vp.compact;
@@ -50,6 +107,20 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
   const issuanceHint = d.equityIssuance > 0
     ? `Est. price $${estPrice.toFixed(2)} · net 95% (${KBE.fmt$(d.equityIssuance * 0.05)} fee → nonint. expense) · ~${issuanceShares.toFixed(1)}K new shares`
     : `Est. price $${estPrice.toFixed(2)} · 5% underwriting fee on gross proceeds`;
+
+  // Dividends and buybacks draw on one shared pool, so the sliders compete with each
+  // other. The dials keep their full range — the capacity readout shows what is actually
+  // fundable and what spending one leaves for the other.
+  const cap = KBE.distributionCapacity(state, fis, ratios);
+  const reqDiv = Math.max(0, d.dividendPerShare * state.bs.sharesOutstanding);
+  const reqBuyback = Math.max(0, d.repurchaseAmount || 0);
+  const capPct = (v) => cap.capacity > 0
+    ? `${Math.min(999, (v / cap.capacity) * 100).toFixed(0)}%`
+    : "n/a";
+  const fundedBuyback = Math.max(0, Math.min(reqBuyback, cap.capacity - Math.min(reqDiv, cap.capacity)));
+  const repurchaseHint2 = reqBuyback > fundedBuyback + 0.5
+    ? `Only ${KBE.fmt$(fundedBuyback)} is fundable — dividends are paid first and have used ${capPct(Math.min(reqDiv, cap.capacity))} of capacity. Est. price $${estPrice.toFixed(2)} · BVPS $${bvps.toFixed(2)}`
+    : repurchaseHint;
 
   return (
     <div className="tab-enter scroll-thin" style={{ display: "flex", flexDirection: "column", gap: compact ? 10 : 12, padding: compact ? 10 : 14, height: "100%", overflowY: "auto" }}>
@@ -119,16 +190,25 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
           <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
             Returning capital — at the cost of CET1 and book value.
           </div>
+
+          <DistributionCapacity
+            capacity={cap.capacity}
+            dividends={reqDiv}
+            buybacks={reqBuyback}
+            payoutFactor={cap.payoutFactor}
+            compact={compact}
+          />
+
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             <NumberDial label="Dividend per Share (qtr)" value={d.dividendPerShare}
               onChange={v => setDecision("dividendPerShare", v)}
               min={0} max={0.50} step={0.01} format="currency"
-              hint={`Total payout next quarter: ${KBE.fmt$(d.dividendPerShare * state.bs.sharesOutstanding)} · Payout ratio ${state.lastIS.netIncome > 0 ? ((d.dividendPerShare * state.bs.sharesOutstanding / state.lastIS.netIncome) * 100).toFixed(0) + "%" : "n/a"}`}
+              hint={`Total payout next quarter: ${KBE.fmt$(reqDiv)} · uses ${capPct(reqDiv)} of capacity · leaves ${KBE.fmt$(Math.max(0, cap.capacity - reqDiv))} for buybacks`}
               color={KP.good} locked={locked} />
             <NumberDial label="Share Repurchase Authorization" value={d.repurchaseAmount}
               onChange={v => setDecision("repurchaseAmount", v)}
               min={0} max={5000} step={250} format="money"
-              hint={repurchaseHint}
+              hint={repurchaseHint2}
               color={KP.amber} locked={locked} />
             <NumberDial label="Equity Issuance (gross proceeds)" value={d.equityIssuance || 0}
               onChange={v => setDecision("equityIssuance", v)}
@@ -142,17 +222,17 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
         <div className="panel panel-pad" data-coach="capital-wholesale">
           <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 12.5 : undefined }}>Wholesale Funding</div>
           <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 14 }}>
-            FHLB advances float with Fed Funds; brokered CDs auto-roll at Fed Funds + 35bp. Together they form your wholesale concentration.
+            FHLB advances are collateralized and price at Fed Funds + 25bp, but the line is capped by pledgeable loans and securities. Brokered CDs are unsecured and auto-roll at Fed Funds + 75bp. Together they form your wholesale concentration.
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             <NumberDial label="FHLB Advance (Δ this quarter)" value={d.fhlbAdvance}
               onChange={v => setDecision("fhlbAdvance", v)}
               min={-10000} max={20000} step={500} format="money"
-              hint={`Outstanding: ${KBE.fmt$(state.bs.borrowingsFHLB)} · floating cost ≈ Fed Funds + 50bp`}
+              hint={`Outstanding: ${KBE.fmt$(state.bs.borrowingsFHLB)} · floating cost ≈ Fed Funds + 25bp · line capped at ${KBE.fmt$((state.bs.loansGross + state.bs.securitiesAFS + state.bs.securitiesHTM) * 0.25)} of pledgeable collateral`}
               color={KP.warn} locked={locked} />
             <NumericLeverCard
               title="Brokered CDs Balance"
-              subtitle="Wholesale time deposits, auto-roll at Fed Funds + 35bp"
+              subtitle="Wholesale time deposits, auto-roll at Fed Funds + 75bp"
               value={d.brokeredCDsTarget || 0}
               onChange={(v) => setDecision("brokeredCDsTarget", v)}
               min={0} max={50000} step={500} format="money"
@@ -193,7 +273,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
             <NumberDial label="Sub. Debt Issuance (Δ this quarter)" value={d.subDebtIssuance}
               onChange={v => setDecision("subDebtIssuance", v)}
               min={-10000} max={10000} step={500} format="money"
-              hint={`Outstanding: ${KBE.fmt$(state.bs.subDebt)} · avg. fixed cost ${((state.bs.subDebtAvgCost || 0) * 100).toFixed(2)}% · new issuance locks at Fed Funds + 100bp (${(((state.macro.fedFunds || 0) + 0.01) * 100).toFixed(2)}%)`}
+              hint={`Outstanding: ${KBE.fmt$(state.bs.subDebt)} · avg. fixed cost ${((state.bs.subDebtAvgCost || 0) * 100).toFixed(2)}% · new issuance locks at Fed Funds + 300bp (${(((state.macro.fedFunds || 0) + 0.03) * 100).toFixed(2)}%)`}
               color={KP.warn} locked={locked} />
           </div>
         </div>

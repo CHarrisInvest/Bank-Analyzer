@@ -48,7 +48,7 @@ function GameOver({ state, onRestart }) {
               <Stat label="Final BVPS" value={`$${stats.finalBVPS?.toFixed(2)}`} sub={`from $${stats.initialBVPS?.toFixed(2)}`} />
               <Stat label="Final CET1" value={`${(stats.finalCET1 * 100).toFixed(1)}%`} tone={stats.finalCET1 > 0.10 ? GP.good : stats.finalCET1 > 0.07 ? GP.warn : GP.bad} />
               <Stat label="Final L/D" value={`${stats.finalLTD?.toFixed(2)}x`} tone={(stats.finalLTD >= 0.65 && stats.finalLTD <= 1.15) ? GP.good : GP.warn} />
-              <Stat label="Final Satisfaction" value={`${Math.round(stats.finalSat ?? 70)}`} tone={(stats.finalSat ?? 70) >= 55 ? GP.good : (stats.finalSat ?? 70) >= 40 ? GP.warn : GP.bad} />
+              <Stat label="Final Satisfaction" value={`${Math.round(stats.finalSat ?? 65)}`} tone={(stats.finalSat ?? 65) >= 55 ? GP.good : (stats.finalSat ?? 65) >= 40 ? GP.warn : GP.bad} />
               <Stat label="Macro Difficulty" value={stats.macroDifficulty || "—"} sub={`recessions ${stats.recessionQtrs}q · shocks ${stats.badEventCount}`} tone={stats.macroDifficulty === "Brutal" ? GP.bad : stats.macroDifficulty === "Hard" ? GP.warn : GP.text} />
             </>
           )}

@@ -70,7 +70,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='capital-wholesale']",
       title: "Wholesale funding",
-      body: "FHLB advances float with Fed Funds; brokered CDs auto-roll at Fed Funds + 35bp. The strip at the bottom tracks the combined share of total funding — keep it under 15% or examiners start asking.",
+      body: "FHLB advances price at Fed Funds + 25bp but are limited by pledgeable collateral; brokered CDs are unsecured and auto-roll at Fed Funds + 75bp. The strip at the bottom tracks the combined share of total funding — keep it under 15% or examiners start asking.",
       placement: "left",
     },
     {

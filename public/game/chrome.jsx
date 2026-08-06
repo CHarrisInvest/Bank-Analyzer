@@ -133,7 +133,7 @@ function Header({ state, ratios }) {
       <Vital label="ROA" value={(ratios.roa * 100).toFixed(2) + "%"} color={rcolor("roa", ratios.roa)} />
       <Vital label="NIM" value={(ratios.nim * 100).toFixed(2) + "%"} color={rcolor("nim", ratios.nim)} />
       <Vital label="NPL" value={(ratios.nplRatio * 100).toFixed(2) + "%"} color={rcolor("nplRatio", ratios.nplRatio)} />
-      <Vital label="Sat." value={Math.round(state.satisfaction ?? 70)} color={rcolor("satisfaction", state.satisfaction ?? 70)} />
+      <Vital label="Sat." value={Math.round(state.satisfaction ?? 65)} color={rcolor("satisfaction", state.satisfaction ?? 65)} />
       <div style={{ width: 1, height: 28, background: P.line, flexShrink: 0 }} />
       <Vital label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} sub="last quarter" color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
     </>
@@ -172,7 +172,7 @@ function Header({ state, ratios }) {
           <Vital dense label="ROA" value={(ratios.roa * 100).toFixed(2) + "%"} color={rcolor("roa", ratios.roa)} />
           <Vital dense label="NIM" value={(ratios.nim * 100).toFixed(2) + "%"} color={rcolor("nim", ratios.nim)} />
           <Vital dense label="NPL" value={(ratios.nplRatio * 100).toFixed(2) + "%"} color={rcolor("nplRatio", ratios.nplRatio)} />
-          <Vital dense label="Sat." value={Math.round(state.satisfaction ?? 70)} color={rcolor("satisfaction", state.satisfaction ?? 70)} />
+          <Vital dense label="Sat." value={Math.round(state.satisfaction ?? 65)} color={rcolor("satisfaction", state.satisfaction ?? 65)} />
           <Vital dense label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
         </div>
 
