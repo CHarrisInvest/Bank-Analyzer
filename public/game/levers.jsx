@@ -343,7 +343,11 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
             color={LP.info}
             pill={lev.depositAdSpend > 0 ? `$${lev.depositAdSpend}K/qtr` : "Off"}
             hint={lev.depositAdSpend > 0
-              ? `Boosts organic deposit growth by ~${(0.012 * Math.log(1 + lev.depositAdSpend / 40) * 100).toFixed(2)}% this qtr; flows to nonint. expense`
+              ? (() => {
+                  const lift = LBE.computeAdLift(state);
+                  const satNote = lift.saturation < 0.9 ? ` · local market ${(lift.saturation * 100).toFixed(0)}% saturated` : "";
+                  return `Acquires ~${LBE.fmt$(lift.dollars)} of deposits this qtr (~${(lift.pct * 100).toFixed(2)}% of book)${satNote}; flows to nonint. expense`;
+                })()
               : "No marketing spend; growth is purely organic + pricing-driven"}
             locked={locked}
           />
