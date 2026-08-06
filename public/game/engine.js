@@ -64,7 +64,7 @@
     return { target, pricingPts, adPts, feePts };
   }
   function applySatisfactionHysteresis(cur, target) {
-    const c = cur == null ? 70 : cur;
+    const c = cur == null ? 65 : cur;
     const delta = target - c;
     const speed = delta >= 0 ? 1 / 8 : 1 / 5; // rising slow, falling fast
     return clamp(c + delta * speed, 0, 100);
@@ -79,9 +79,12 @@
     // Avg balance per account ~$6,500. Express accounts in THOUSANDS so dollar-per-account
     // math lands directly in $K.
     const accountsK = Math.max(0.001, txnDeposits / 6500);
-    let incidentsPerAcct = 0.25;
-    if (s.macro.cycle === "recession") incidentsPerAcct = 0.32;
-    if (s.macro.cycle === "late_cycle") incidentsPerAcct = 0.28;
+    // Incidence calibrated so service charges land near 0.25-0.30% of assets annually
+    // (FFIEC community-bank norm). Fees are a meaningful but secondary earnings stream,
+    // not a substitute for spread income.
+    let incidentsPerAcct = 0.14;
+    if (s.macro.cycle === "recession") incidentsPerAcct = 0.18;
+    if (s.macro.cycle === "late_cycle") incidentsPerAcct = 0.16;
 
     const ofFee = Math.max(0, s.levers.overdraftFee || 0);
     const overdraftIncidentsK = accountsK * incidentsPerAcct;
@@ -90,8 +93,9 @@
     const overdraftIncome = overdraftIncidentsK * ofFee * ofVolumeMult;     // K-incidents * $/incident = $K
 
     const monthlyFee = Math.max(0, s.levers.monthlyMaintenance || 0);
-    // Roughly 22% of accounts pay maintenance (rest meet waiver minimums). Higher fee -> waiver shopping.
-    const payShare = monthlyFee > 12 ? Math.max(0.08, 0.22 - (monthlyFee - 12) * 0.008) : 0.22;
+    // Roughly 12% of accounts pay maintenance (the rest meet waiver minimums via
+    // direct deposit / minimum balance). Higher fee -> waiver shopping.
+    const payShare = monthlyFee > 12 ? Math.max(0.05, 0.12 - (monthlyFee - 12) * 0.005) : 0.12;
     const maintenanceIncome = accountsK * payShare * monthlyFee * 3;        // $K
 
     const interchangeRate = 0.0004;                                          // 4bps/qtr on txn deposits
@@ -171,6 +175,9 @@
       sharesOutstanding: 2_000,
 
       loansIndirect: 0,
+      // Weighted-average yield actually carried on the loan book (a stock, not a spot
+      // rate) — new production and floating-rate resets move it gradually.
+      loanBookYield: 0.0533,
     },
 
     lastIS: {
@@ -223,7 +230,7 @@
       mortgageProgram: 0,
       depositAdSpend: 0,
       indirectShare: 0,
-      overdraftFee: 30,
+      overdraftFee: 25,
       monthlyMaintenance: 10,
     },
 
@@ -239,7 +246,7 @@
 
     creditRiskBank: 0,
     loanVintages: [],
-    satisfaction: 70,
+    satisfaction: 65,
     feeLoadPts: 0,
     overdraftHistory: [],
     cfpbConsent: null,
@@ -325,10 +332,6 @@
         }
       }
     }
-    if (cfpbEvent) {
-      // Surface as additional non-int expense in this quarter via the event hook.
-    }
-
     // Annual regulatory exam — Year 2 onward. Scheduled (not a random event slot),
     // so it can co-occur with other events. Assessed against opening-quarter ratios.
     let examOutcome = null;
@@ -365,7 +368,7 @@
     s.satisfaction = applySatisfactionHysteresis(s.satisfaction, satInfo.target);
 
     const deposits = computeDeposits(s, event, nf);
-    const loans = computeLoans(s, event, nf);
+    const loans = computeLoans(s, event, nf, prev10y);
     const securities = computeSecurities(s, event, prevFedFunds, prev10y);
     const is = computeIncome(s, deposits, loans, securities, event, nf, prevFedFunds);
     if (cfpbEvent) {
@@ -373,18 +376,14 @@
       is.nonintExpenseVariable = (is.nonintExpenseVariable || 0) + cfpbEvent.oneTime;
       is.cfpbCharge = cfpbEvent.oneTime;
       is.pretax -= cfpbEvent.oneTime;
-      const newTax = Math.max(0, is.pretax * 0.21);
-      is.netIncome = is.pretax - newTax;
-      is.tax = newTax;
+      retax(s, is);
     }
     if (examOutcome && examOutcome.fee > 0) {
       is.nonintExpense += examOutcome.fee;
       is.nonintExpenseVariable = (is.nonintExpenseVariable || 0) + examOutcome.fee;
       is.examFee = examOutcome.fee;
       is.pretax -= examOutcome.fee;
-      const newTax = Math.max(0, is.pretax * 0.21);
-      is.netIncome = is.pretax - newTax;
-      is.tax = newTax;
+      retax(s, is);
     }
     is._nf = nf;
     is._event = event;
@@ -394,6 +393,31 @@
     applyBalanceSheet(s, deposits, loans, securities, is);
     const ratios = computeRatios(s, is);
     checkRegulatory(s, ratios, log);
+
+    // Capital-action constraint announcements.
+    if (!forecastMode) {
+      if ((is._divCut || 0) > 0.5 || (is._buybackCut || 0) > 0.5) {
+        const pf = is._distPayoutFactor;
+        const why = pf < 1
+          ? `the capital conservation buffer capped the payout ratio at ${(pf * 100).toFixed(0)}% of eligible retained income`
+          : `distributions draw on eligible retained income — roughly a year of earnings — not on the whole balance sheet`;
+        const parts = [];
+        if ((is._divCut || 0) > 0.5) parts.push(`${fmt$(is._divCut)} of dividends`);
+        if ((is._buybackCut || 0) > 0.5) parts.push(`${fmt$(is._buybackCut)} of buybacks`);
+        log.push({ q, type: "warn", msg: `DISTRIBUTION LIMITED: ${parts.join(" and ")} could not be paid — ${why}. Dividends are funded first; buybacks draw on what is left.` });
+      }
+      if ((is._fhlbBlocked || 0) > 0.5) {
+        log.push({ q, type: "warn", msg: `FHLB CAPACITY REACHED: the requested advance exceeded your ${fmt$(is._fhlbCapacity)} borrowing line against pledged loans and securities. Only the available balance was drawn.` });
+      }
+      if ((s._forcedFhlbDraw || 0) > 0) {
+        log.push({ q, type: "warn", msg: `LIQUIDITY BACKSTOP: ${fmt$(s._forcedFhlbDraw)} of FHLB advances were drawn automatically to hold the minimum cash position. Wholesale funding costs more than core deposits.` });
+        s._forcedFhlbDraw = 0;
+      }
+      if (s._forcedAfsLossLog) {
+        log.push({ q, type: "bad", msg: `SECURITIES SOLD AT A LOSS: ${fmt$(Math.abs(s._forcedAfsLossLog))} of unrealized loss was realized into earnings to raise cash. Underwater AFS is not free liquidity.` });
+        s._forcedAfsLossLog = 0;
+      }
+    }
 
     // Reserve catch-up + shortfall announcements.
     if (!forecastMode) {
@@ -449,6 +473,9 @@
       eps: is.netIncome / Math.max(1e-6, s.bs.sharesOutstanding),
     });
 
+    // Carryback pool for loss-quarter tax benefits (drawn down when tax is negative).
+    s._cumTaxPaid = Math.max(0, (s._cumTaxPaid || 0) + is.tax);
+
     s.lastIS = is;
     s.quarter = q + 1;
     s.log = [...s.log, ...log].slice(-100);
@@ -468,7 +495,8 @@
       const finalShares = s.bs.sharesOutstanding;
       const finalBVPS = finalEq / finalShares;
       const finalPx = estimatedSharePrice(s, ratios);
-      const initialBVPS = 32_000 / 2_000;
+      // Derived from the opening balance sheet so it can never drift out of sync with it.
+      const initialBVPS = totalEquity(INITIAL_STATE.bs) / INITIAL_STATE.bs.sharesOutstanding;
       const bvpsCAGR = Math.pow(finalBVPS / initialBVPS, 1/10) - 1;
       const annualizedROE = s.history.length > 0
         ? s.history.reduce((sum, h) => sum + h.roe, 0) / s.history.length
@@ -486,28 +514,36 @@
       const badEventCount = macro.badEventCount;
 
       // Grading — primary key: 10-year total return. CET1 + (L/D, satisfaction) modifiers.
+      // Return bands. Recalibrated alongside the fee-income rebalance and the FDIC
+      // assessment: those deliberately removed roughly 25 points of 10-year total return
+      // from every strategy, so the bands come down with them and the grade curve keeps
+      // its original shape rather than silently sliding a tier.
       const TIERS = ["F","D","C","B","A","A+"];
       let tierIdx;
-      if (totalReturn > 2.10) tierIdx = 5;
-      else if (totalReturn > 1.70) tierIdx = 4;
-      else if (totalReturn > 1.30) tierIdx = 3;
-      else if (totalReturn > 0.70) tierIdx = 2;
-      else if (totalReturn > 0.25) tierIdx = 1;
+      if (totalReturn > 1.74) tierIdx = 5;
+      else if (totalReturn > 1.36) tierIdx = 4;
+      else if (totalReturn > 1.04) tierIdx = 3;
+      else if (totalReturn > 0.46) tierIdx = 2;
+      else if (totalReturn > 0.18) tierIdx = 1;
       else tierIdx = 0;
 
       // CET1 gates per tier (A+:10%, A:9%, B:8%, C:7%). If short, drop tier until satisfied.
       const cet1Gates = [0, 0, 0.07, 0.08, 0.09, 0.10];
+      const tierBeforeCet1 = tierIdx;
       while (tierIdx > 0 && ratios.cet1 < cet1Gates[tierIdx]) tierIdx -= 1;
+      const cet1GateDrop = tierBeforeCet1 - tierIdx;
 
-      // L/D modifier: outside 0.65-1.15 drops one tier. A+ requires lower-bound 0.75.
+      // L/D modifier: outside 0.65-1.15 drops one tier. A+ additionally requires a 0.75
+      // lower bound — but only when L/D is already inside the healthy band, otherwise the
+      // outer-band penalty below would charge for the same miss twice.
       const ldOuterOk = ratios.ltd >= 0.65 && ratios.ltd <= 1.15;
       const ldA1Ok = ratios.ltd >= 0.75 && ratios.ltd <= 1.15;
       const ldPenalty = !ldOuterOk;
-      if (tierIdx === 5 && !ldA1Ok) tierIdx = 4;
+      if (tierIdx === 5 && !ldA1Ok && ldOuterOk) tierIdx = 4;
       if (ldPenalty && tierIdx > 0) tierIdx -= 1;
 
       // Customer satisfaction modifier: < 50 drops one tier.
-      const satPenalty = (s.satisfaction ?? 70) < 50;
+      const satPenalty = (s.satisfaction ?? 65) < 50;
       if (satPenalty && tierIdx > 0) tierIdx -= 1;
 
       const grade = TIERS[tierIdx];
@@ -521,10 +557,14 @@
       };
       const gradeMsg = GRADE_MSGS[grade];
       const modifiersApplied = [];
-      if (tierIdx < 5 && totalReturn > 2.10) {
-        // Reconstruct what dropped us
-        if (ratios.cet1 < 0.10) modifiersApplied.push(`CET1 ${(ratios.cet1*100).toFixed(1)}% short of 10%`);
-        if (!ldA1Ok && ldOuterOk) modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside A+ band 0.75-1.15`);
+      // Explain a capital-driven downgrade at ANY tier, not just a missed A+.
+      if (cet1GateDrop > 0) {
+        modifiersApplied.push(
+          `CET1 ${(ratios.cet1*100).toFixed(1)}% short of the ${(cet1Gates[tierBeforeCet1]*100).toFixed(1)}% gate for ${TIERS[tierBeforeCet1]}`
+        );
+      }
+      if (tierIdx < 5 && totalReturn > 2.10 && !ldA1Ok && ldOuterOk) {
+        modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside A+ band 0.75-1.15`);
       }
       if (ldPenalty) modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside healthy band 0.65-1.15`);
       if (satPenalty) modifiersApplied.push(`customer satisfaction ${Math.round(s.satisfaction)} below 50`);
@@ -687,7 +727,7 @@
     const d = s.bs.deposits;
     const lev = s.levers;
     const m = s.macro;
-    const sat = s.satisfaction != null ? s.satisfaction : 70;
+    const sat = s.satisfaction != null ? s.satisfaction : 65;
 
     let organicGrowth = 0.0075;
     if (m.cycle === "expansion") organicGrowth = 0.013;
@@ -700,11 +740,17 @@
 
     const pricingPremium = lev.depositPricing * 0.004;
 
+    // Flow response to pricing. Paying up has to actually buy balances or the lever is
+    // economically dead — a 40bp premium on the interest book only pays for itself if it
+    // pulls in enough new funding to earn the loan/securities spread on.
+    // Sized so paying up roughly pays for itself: the premium is an immediate, certain
+    // cost while the balances it buys compound, so the lever is a genuine trade rather
+    // than either a no-op or a free win.
     let pricingFlowAdj;
     if (lev.depositPricing < 0) {
       pricingFlowAdj = lev.depositPricing * 0.020;
     } else if (lev.depositPricing > 0) {
-      pricingFlowAdj = lev.depositPricing * 0.008 - Math.max(0, lev.depositPricing - 1) * 0.001;
+      pricingFlowAdj = lev.depositPricing * 0.012 - Math.max(0, lev.depositPricing - 1) * 0.0015;
     } else {
       pricingFlowAdj = 0;
     }
@@ -737,41 +783,64 @@
     const adSpend = Math.max(0, lev.depositAdSpend || 0);
     const adBoost = adSpend > 0 ? 0.012 * Math.log(1 + adSpend / 40) : 0;
 
-    const totalNet = totalDeposits(d) * (organicGrowth + pricingFlowAdj + adBoost + totalForcedDrain);
+    const base = totalDeposits(d);
+    // Ordinary flow follows the normal mix...
+    const organicNet = base * (organicGrowth + pricingFlowAdj + adBoost);
+    // ...but a run is not proportional. Rate-sensitive and uninsured money leaves first;
+    // core operating DDA (payroll, operating accounts) is the stickiest thing a community
+    // bank owns and walks last.
+    const forcedNet = base * totalForcedDrain;
 
     const intShare = clamp(0.45 + (m.fedFunds - 0.02) * 3, 0.45, 0.80);
     const niShare = 1 - intShare;
-    const niDelta = totalNet * niShare;
-    const icDelta = totalNet * intShare * 0.20;
-    const smmDelta = totalNet * intShare * 0.45;
-    const tdDelta = totalNet * intShare * 0.35;
+
+    const isDrain = forcedNet < 0;
+    const fNI  = isDrain ? 0.10 : niShare;
+    const fIC  = isDrain ? 0.15 : intShare * 0.20;
+    const fSMM = isDrain ? 0.40 : intShare * 0.45;
+    const fTD  = isDrain ? 0.35 : intShare * 0.35;
+
+    const niDelta  = organicNet * niShare          + forcedNet * fNI;
+    const icDelta  = organicNet * intShare * 0.20  + forcedNet * fIC;
+    const smmDelta = organicNet * intShare * 0.45  + forcedNet * fSMM;
+    const tdDelta  = organicNet * intShare * 0.35  + forcedNet * fTD;
+
+    // A rate shock forces the whole book to reprice faster than the normal beta path.
+    const shockPremium = event?.type === "rate_shock" ? 0.0020 : 0;
 
     return {
       deltaNI: niDelta, deltaIC: icDelta, deltaSMM: smmDelta, deltaTD: tdDelta,
       pricingPremium,
-      weightedCost: depositCost(s, pricingPremium),
+      weightedCost: depositCost(s, pricingPremium + shockPremium),
       satFlightPct,
+      forcedDrain: forcedNet,
     };
   }
 
+  // Deposit cost with realistic floors and a repricing lag. Interest-bearing accounts
+  // never fall to literally zero (banks pay a few bps even at the zero bound), and the
+  // book does not reprice the instant the Fed moves — betas lag by roughly a quarter or
+  // two, which is why NIM expands into hikes and compresses on the way down.
   function depositCost(s, pricingPremium) {
     const m = s.macro;
     const d = s.bs.deposits;
     const total = totalDeposits(d);
     const niCost = 0;
-    const icCost = clamp(m.fedFunds * 0.12 + pricingPremium, 0, 0.085);
-    const smmCost = clamp(m.fedFunds * 0.60 + pricingPremium, 0, 0.085);
-    const tdCost = clamp(m.fedFunds * 0.90 + pricingPremium, 0, 0.085);
-    return (
+    const icCost = clamp(m.fedFunds * 0.12 + pricingPremium, 0.0005, 0.085);
+    const smmCost = clamp(m.fedFunds * 0.60 + pricingPremium, 0.0010, 0.085);
+    const tdCost = clamp(m.fedFunds * 0.90 + pricingPremium, 0.0025, 0.085);
+    const targetCost =
       (d.noninterest * niCost +
         d.interestChecking * icCost +
         d.savingsMM * smmCost +
         d.timeDeposits * tdCost) /
-      total
-    );
+      total;
+    // Move halfway to target each quarter (~1-2 quarter lag).
+    const prev = s._depCostState;
+    return prev == null ? targetCost : prev + (targetCost - prev) * 0.5;
   }
 
-  function computeLoans(s, event, nf = { loanGrowth: 0 }) {
+  function computeLoans(s, event, nf = { loanGrowth: 0 }, prev10y = s.macro.treasury10y) {
     const lev = s.levers;
     const m = s.macro;
 
@@ -825,13 +894,39 @@
     const baseYield = m.treasury10y + 0.020;
     const underwritePremium = -lev.underwriting * 0.0025;
     const aggressivenessYieldHit = lev.loanGrowth * -0.0025;
-    const indirectYieldHit = -indBoostPct > 0 ? -0.0030 : (indStep > 0 ? -0.0030 : 0);
+    const indirectYieldHit = indStep > 0 ? -0.0030 : 0;
     const newYield = clamp(baseYield + underwritePremium + aggressivenessYieldHit + indirectYieldHit, 0.03, 0.10);
-    const portfolioYield = blendedLoanYield(s) * 0.95 + newYield * 0.05;
+
+    // ---- Stateful book yield ----------------------------------------------------
+    // The portfolio is a stock, not a spot rate: only the floating slice reprices with
+    // the curve, and only the slice that matures/renews each quarter takes on today's
+    // pricing. That means a lending decision made now is still in the book years later,
+    // instead of washing out the moment it is made.
+    //
+    // The level is anchored to the same market curve the old model used, so this changes
+    // how quickly and how durably yield responds -- not where it settles.
+    const marketAnchor = blendedLoanYield(s);
+    const prevAnchor = 0.05 + (prev10y - 0.04) * 0.4;
+    const dAnchor = marketAnchor - prevAnchor;
+    const spreadVsAnchor = underwritePremium + aggressivenessYieldHit + indirectYieldHit;
+
+    const FLOAT_SHARE = 0.35;   // ~a third of a community book is floating/prime-linked
+    const ROLL_SHARE  = 0.06;   // ~24%/yr matures or renews at current pricing
+    // Only part of a pricing decision survives into the blended book — SBA sales,
+    // amortization and mix shift wash out the rest — so a sustained pricing stance moves
+    // the portfolio meaningfully without letting one slider dominate total yield.
+    const SPREAD_PERSISTENCE = 0.35;
+    const prevBook = s.bs.loanBookYield != null ? s.bs.loanBookYield : marketAnchor;
+    const repriced = prevBook + FLOAT_SHARE * dAnchor;
+    const bookYield = clamp(
+      repriced * (1 - ROLL_SHARE) +
+        (marketAnchor + spreadVsAnchor * SPREAD_PERSISTENCE) * ROLL_SHARE,
+      0.02, 0.12
+    );
 
     return {
       delta: grossNew,
-      portfolioYield, newYield,
+      portfolioYield: bookYield, newYield, bookYield,
       sbaSold, sbaGain,
       indirectNew: indNew,
     };
@@ -847,16 +942,42 @@
     const duration = 1 + lev.securitiesDuration * 2;
 
     const dRate = (m.treasury10y - prev10y) + (event?.type === "rate_shock" ? 0.0100 : 0);
-    const totalSecurities = s.bs.securitiesAFS + s.bs.securitiesHTM;
-    const aociChange = -duration * dRate * totalSecurities;
+    // Only AVAILABLE-FOR-SALE securities are marked through AOCI. Held-to-maturity is
+    // carried at amortized cost under GAAP, so it never touches AOCI or equity.
+    const markedSecurities = s.bs.securitiesAFS;
+    const aociChange = -duration * dRate * markedSecurities;
 
-    const pullToPar = -s.bs.aoci * 0.015;
+    // Unrealized marks accrete back to par over the remaining life of the portfolio
+    // (a discount bond pulls to par as it matures), not at a flat token rate.
+    const pullToParRate = clamp(1 / Math.max(1, duration * 4), 0.03, 0.20);
+    const pullToPar = -s.bs.aoci * pullToParRate;
 
     const curveSlope = m.treasury10y - m.fedFunds;
     const termPremium = duration * 0.0010 + Math.max(curveSlope, -0.005) * 0.6;
     const secYield = clamp(m.fedFunds + termPremium, 0.012, 0.085);
 
     return { aociChange: aociChange + pullToPar, yield: secYield, duration };
+  }
+
+  // Income tax. Two pieces of realism the flat "max(0, pretax*21%)" was missing:
+  //  - a slice of the securities book is municipal and its income is tax-exempt, so the
+  //    effective rate sits below the statutory 21%;
+  //  - a loss quarter produces a tax BENEFIT (carried back against taxes already paid in
+  //    the run), which is what keeps a real bank's capital from falling by the full
+  //    pre-tax loss. The benefit is capped at cumulative taxes paid so it can never
+  //    become a money fountain.
+  const MUNI_SHARE = 0.10;
+  function taxOn(s, pretax, exemptIncome) {
+    const taxable = pretax - Math.max(0, exemptIncome || 0);
+    if (taxable >= 0) return taxable * 0.21;
+    const benefit = Math.min(-taxable * 0.21, Math.max(0, s._cumTaxPaid || 0));
+    return -benefit;
+  }
+  // Recompute tax + net income after a late charge (CFPB order, exam fee, issuance fees)
+  // has already been pushed through pretax.
+  function retax(s, is) {
+    is.tax = taxOn(s, is.pretax, is._taxExempt || 0);
+    is.netIncome = is.pretax - is.tax;
   }
 
   function computeIncome(s, deposits, loans, securities, event, nf = { nplFormation: 0, nonintIncome: 0, nonintExpense: 0 }, prevFedFunds = s.macro.fedFunds) {
@@ -876,9 +997,12 @@
       totalDeposits(bs.deposits) +
       (deposits.deltaNI + deposits.deltaIC + deposits.deltaSMM + deposits.deltaTD) / 2;
     const depCost = deposits.weightedCost;
-    const fhlbCost = s.macro.fedFunds + 0.005;
+    // Wholesale pricing: FHLB advances are collateralized and price tight to the curve,
+    // brokered CDs are unsecured retail-sourced money and price above both FHLB and core
+    // deposits. Wholesale should be a real cost decision, not free funding.
+    const fhlbCost = s.macro.fedFunds + 0.0025;
     const subDebtCost = bs.subDebtAvgCost || 0;
-    const brokeredCDCost = s.macro.fedFunds + 0.0035;
+    const brokeredCDCost = s.macro.fedFunds + 0.0075;
 
     const interestExpense =
       (avgDeposits * depCost
@@ -1005,8 +1129,20 @@
       nonintIncome += mortGain;
     }
 
+    // FDIC deposit insurance assessment. Base ~6bp of assets annually, with a risk-based
+    // surcharge for thin capital or heavy wholesale reliance — exactly how the FDIC's
+    // scorecard treats a community bank.
+    const wholesaleFunding = (bs.borrowingsFHLB || 0) + (bs.brokeredCDs || 0);
+    const wholesaleShare = wholesaleFunding / Math.max(1, totalDeposits(bs.deposits) + wholesaleFunding);
+    const openingCet1 = (bs.commonEquity + bs.retainedEarnings + bs.aoci) /
+      Math.max(1, bs.loansGross * 0.85 + (bs.securitiesAFS + bs.securitiesHTM) * 0.2 + bs.premises + bs.otherAssets);
+    let fdicRateAnnual = 0.0006;
+    if (openingCet1 < 0.08 || wholesaleShare > 0.15) fdicRateAnnual = 0.0010;
+    if (openingCet1 < 0.065) fdicRateAnnual = 0.0016;
+    const fdicAssessment = totalAssets(bs) * fdicRateAnnual / 4;
+
     // Fixed: premises, core systems, base headcount. Doesn't move with quarterly noise.
-    const nonintExpenseFixed = (bs.premises * 0.18 + 800) / 4 + mortFixedCost;
+    const nonintExpenseFixed = (bs.premises * 0.18 + 800) / 4 + mortFixedCost + fdicAssessment;
     // Variable: asset-scaled compensation + ops costs + event shocks + deposit ad spend.
     let nonintExpenseVariable = (totalAssets(bs) * 0.0233 / 4) * (1 + nf.nonintExpense);
     nonintExpenseVariable += Math.max(0, s.levers.depositAdSpend || 0);
@@ -1022,10 +1158,13 @@
     // Uncovered charge-offs flow through the income statement as a credit cost,
     // so they show up in ROA/ROE/EPS rather than bypassing earnings.
     const pretax = nii + nonintIncome - nonintExpense - provision - uncoveredChargeOffs;
-    const tax = Math.max(0, pretax * 0.21);
+    const taxExempt = Math.max(0, avgSecurities * secYield / 4) * MUNI_SHARE;
+    const tax = taxOn(s, pretax, taxExempt);
     const netIncome = pretax - tax;
 
     return {
+      _taxExempt: taxExempt,
+      fdicAssessment,
       interestIncome, interestExpense, nii,
       provision, netChargeOffs, grossChargeOffs,
       uncoveredChargeOffs, reserveShortfallFee, provisionCatchUp,
@@ -1048,6 +1187,39 @@
       serviceCharges: feeStreams.serviceCharges,
       accountCountK: feeStreams.accountsK,
       dividendsPaid: 0, repurchases: 0,
+    };
+  }
+
+  // Shared capacity for shareholder distributions (dividends + buybacks).
+  function distributionCapacity(s, is, ratios) {
+    // You distribute out of EARNINGS, not out of the balance sheet. "Eligible retained
+    // income" — this quarter plus the trailing year, annualized while history is short —
+    // is the base the capital conservation buffer works off, and it is also simply what a
+    // board would sign off on: returning much more than a year of profit in one quarter
+    // is not something a community bank does.
+    const hist = s.history || [];
+    const recent = hist.slice(-4);
+    const trailing = recent.reduce((a, h) => a + (h.netIncome || 0), 0) + is.netIncome;
+    const avgQuarter = trailing / (recent.length + 1);
+    const earningsBase = Math.max(0, avgQuarter * 4);
+
+    // Never more than the accumulated retained earnings actually on the books.
+    const accounting = Math.max(0, s.bs.retainedEarnings + is.netIncome);
+
+    // Capital conservation buffer: CET1 above 7.0% (4.5% minimum + 2.5% buffer) is
+    // unconstrained; inside the buffer the payout ratio steps down.
+    const buffer = ratios.cet1 - 0.045;
+    let payoutFactor;
+    if (buffer >= 0.025) payoutFactor = 1.00;
+    else if (buffer >= 0.01875) payoutFactor = 0.60;
+    else if (buffer >= 0.0125) payoutFactor = 0.40;
+    else if (buffer >= 0.00625) payoutFactor = 0.20;
+    else payoutFactor = 0;
+
+    const regulatory = earningsBase * payoutFactor;
+    return {
+      capacity: Math.min(accounting, regulatory),
+      payoutFactor, accounting, regulatory, earningsBase,
     };
   }
 
@@ -1085,36 +1257,74 @@
       is.nonintExpense += fees;
       is.nonintExpenseVariable = (is.nonintExpenseVariable || 0) + fees;
       is.pretax -= fees;
-      const newTax = Math.max(0, is.pretax * 0.21);
-      is.netIncome = is.pretax - newTax;
-      is.tax = newTax;
+      retax(s, is);
     }
 
-    const totalDiv = dec.dividendPerShare * s.bs.sharesOutstanding;
+    // ---- Distribution capacity -------------------------------------------------
+    // Dividends and buybacks draw on ONE shared pool, so spending it on one leaves less
+    // for the other. Two limits bind, whichever is tighter:
+    //   1. accounting — you cannot distribute more than retained earnings + this
+    //      quarter's earnings;
+    //   2. regulatory — the capital conservation buffer caps the payout ratio as CET1
+    //      approaches the 4.5% minimum (100%/60%/40%/20%/0% of eligible retained income).
+    // Dividends are declared first and take priority; buybacks are discretionary and get
+    // whatever capacity is left.
+    const cap = distributionCapacity(s, is, ratios);
+    is._distCapacity = cap.capacity;
+    is._distPayoutFactor = cap.payoutFactor;
+
+    const requestedDiv = Math.max(0, dec.dividendPerShare * s.bs.sharesOutstanding);
+    const totalDiv = Math.min(requestedDiv, cap.capacity);
+    const divCut = requestedDiv - totalDiv;
+
+    const remainingCapacity = Math.max(0, cap.capacity - totalDiv);
+    const requestedBuyback = Math.max(0, dec.repurchaseAmount);
+    const buyback = Math.min(requestedBuyback, remainingCapacity);
+    const buybackCut = requestedBuyback - buyback;
+
     is.dividendsPaid = totalDiv;
-    is.repurchases = dec.repurchaseAmount;
+    is.repurchases = buyback;
+    is._divCut = divCut;
+    is._buybackCut = buybackCut;
 
     s.bs.retainedEarnings += is.netIncome - totalDiv;
 
-    if (dec.repurchaseAmount > 0) {
-      const price = estimatedSharePrice(s, ratios);
-      const sharesBought = dec.repurchaseAmount / price;
+    if (buyback > 0) {
+      // Guard the price: a bank with impaired equity can produce a zero/negative marked
+      // price, which would otherwise generate nonsense share counts.
+      const price = Math.max(0.01, estimatedSharePrice(s, ratios));
+      const sharesBought = Math.min(buyback / price, s.bs.sharesOutstanding * 0.5);
       s.bs.sharesOutstanding -= sharesBought;
-      s.bs.commonEquity -= dec.repurchaseAmount;
-      s.bs.cash -= dec.repurchaseAmount;
+      // Treasury accounting: retire against paid-in capital up to book, the premium over
+      // book comes out of retained earnings.
+      const bvps = totalEquity(s.bs) / Math.max(1e-6, s.bs.sharesOutstanding + sharesBought);
+      const atBook = Math.min(buyback, Math.max(0, sharesBought * bvps));
+      s.bs.commonEquity -= atBook;
+      s.bs.retainedEarnings -= (buyback - atBook);
+      s.bs.cash -= buyback;
       is.repurchasePrice = price;
       is.repurchaseShares = sharesBought;
     }
 
     s.bs.cash -= totalDiv;
-    s.bs.borrowingsFHLB = Math.max(0, s.bs.borrowingsFHLB + dec.fhlbAdvance);
-    s.bs.cash += dec.fhlbAdvance;
 
-    // Sub debt: positive = new issuance (locks in current Fed Funds + 100bps), negative = call.
+    // FHLB borrowing capacity: advances are collateralized by pledged loans and
+    // securities, so the line is finite (~25% of the pledgeable base).
+    const pledgeBase = s.bs.loansGross + s.bs.securitiesAFS + s.bs.securitiesHTM;
+    const fhlbCapacity = Math.max(0, pledgeBase * 0.25);
+    const wantFhlb = Math.max(0, s.bs.borrowingsFHLB + dec.fhlbAdvance);
+    const newFhlb = Math.min(wantFhlb, fhlbCapacity);
+    const fhlbDelta = newFhlb - s.bs.borrowingsFHLB;
+    s.bs.borrowingsFHLB = newFhlb;
+    s.bs.cash += fhlbDelta;
+    is._fhlbCapacity = fhlbCapacity;
+    is._fhlbBlocked = Math.max(0, wantFhlb - fhlbCapacity);
+
+    // Sub debt: positive = new issuance (locks in current Fed Funds + 300bps), negative = call.
     // Avg cost is principal-weighted; calls reduce principal but keep blended rate; reaching zero resets.
     const subDelta = Math.max(-s.bs.subDebt, dec.subDebtIssuance);
     if (subDelta > 0) {
-      const newRate = s.macro.fedFunds + 0.01;
+      const newRate = s.macro.fedFunds + 0.03;
       const oldPrincipal = s.bs.subDebt;
       const oldAvgCost = s.bs.subDebtAvgCost || 0;
       const newPrincipal = oldPrincipal + subDelta;
@@ -1166,6 +1376,10 @@
       s.loanVintages = s.loanVintages.filter(v => s.quarter - v.q <= 12);
     }
 
+    // A charge-off removes the loan from the books AND draws down the allowance. Only the
+    // allowance side was happening, so charged-off balances kept sitting in gross loans
+    // (and kept earning interest) forever.
+    bs.loansGross = Math.max(0, bs.loansGross - is.netChargeOffs);
     bs.acl += is.provision - is.netChargeOffs;
     bs.acl = Math.max(0, bs.acl);
     const cures = bs.npl * 0.06;
@@ -1173,7 +1387,15 @@
 
     s.creditRiskBank = Math.max(0, (s.creditRiskBank || 0) + (is.riskBankAccrual || 0) - (is.riskBankRelease || 0));
 
+    // AFS is carried at FAIR VALUE, so the mark moves the asset and AOCI together.
+    // Previously only equity moved, which left the balance sheet permanently out of
+    // balance by the cumulative mark (Schedule RC did not foot).
     bs.aoci += securities.aociChange;
+    bs.securitiesAFS = Math.max(0, bs.securitiesAFS + securities.aociChange);
+
+    // Persist the stateful rate series so next quarter starts from where this one ended.
+    if (loans.bookYield != null) bs.loanBookYield = loans.bookYield;
+    if (is.depCost != null) s._depCostState = is.depCost;
 
     const cashChange = depDelta + is.netIncome + is.provision + (is.uncoveredChargeOffs || 0) - loans.delta;
     bs.cash += cashChange;
@@ -1232,7 +1454,10 @@
     return bs.cash + bs.securitiesAFS + bs.securitiesHTM + bs.loansGross - bs.acl + bs.premises + bs.otherAssets;
   }
   function totalLiabilities(bs) {
-    return totalDeposits(bs.deposits) + bs.borrowingsFHLB + bs.subDebt + bs.otherLiab;
+    // Brokered CDs are a funding liability like any other borrowing — omitting them left
+    // the balance sheet out of balance (A != L + E) whenever the dial was used.
+    return totalDeposits(bs.deposits) + bs.borrowingsFHLB + (bs.brokeredCDs || 0) +
+      bs.subDebt + bs.otherLiab;
   }
   function totalEquity(bs) {
     return bs.commonEquity + bs.retainedEarnings + bs.aoci;
@@ -1249,18 +1474,25 @@
     const roa = annNetInc / ta;
     const roe = annNetInc / eq;
 
+    // Risk-weighted assets. Nonperforming loans carry a 150% weight under the US
+    // standardized approach, so deteriorating credit shows up directly in the capital
+    // ratios instead of only bleeding through earnings.
+    const performingLoans = Math.max(0, bs.loansGross - bs.npl);
     const rwa =
       bs.cash * 0 +
       bs.securitiesAFS * 0.2 +
       bs.securitiesHTM * 0.2 +
-      bs.loansGross * 0.85 +
+      performingLoans * 0.85 +
+      bs.npl * 1.5 +
       bs.premises * 1.0 +
       bs.otherAssets * 1.0;
 
-    const cet1Cap = bs.commonEquity + bs.retainedEarnings + bs.aoci - 0;
+    const cet1Cap = bs.commonEquity + bs.retainedEarnings + bs.aoci;
     const cet1 = cet1Cap / rwa;
     const tier1Cap = cet1Cap;
-    const totalCap = tier1Cap + bs.subDebt + bs.acl;
+    // The allowance counts as Tier 2 only up to 1.25% of credit RWA.
+    const tier2ACL = Math.min(bs.acl, 0.0125 * rwa);
+    const totalCap = tier1Cap + bs.subDebt + tier2ACL;
     const tier1Lev = tier1Cap / ta;
     const totalCapRatio = totalCap / rwa;
     const tce = eq / ta;
@@ -1273,10 +1505,19 @@
     const onHandLiq = (bs.cash + bs.securitiesAFS) / ta;
     const efficiency = is.nonintExpense / (is.nii + is.nonintIncome);
 
+    // Estimated uninsured deposits — the funding metric examiners have focused on since
+    // 2023. Time deposits are mostly under the $250K insurance cap; operating and
+    // money-market balances hold the large corporate relationships.
+    const dep = bs.deposits;
+    const uninsuredDeposits =
+      dep.noninterest * 0.42 + dep.interestChecking * 0.30 +
+      dep.savingsMM * 0.35 + dep.timeDeposits * 0.10;
+    const uninsuredRatio = uninsuredDeposits / Math.max(1, totalDeposits(dep));
+
     return {
       nim, roa, roe, cet1, tier1Lev, totalCapRatio, tce,
       nplRatio, aclCoverage, aclToNpl, ltd, onHandLiq, efficiency, rwa,
-      earningAssets,
+      earningAssets, uninsuredDeposits, uninsuredRatio,
     };
   }
 
@@ -1436,7 +1677,7 @@
     runQuarter,
     computeRatios,
     estimatedSharePrice,
-    computeSatisfaction, retentionMult,
+    computeSatisfaction, retentionMult, distributionCapacity,
     computeFeeIncome, computeFeeLoadPts,
     totalAssets, totalDeposits, totalLiabilities, totalEquity,
     fmt$, fmtPct, fmtBps, clamp, noise,

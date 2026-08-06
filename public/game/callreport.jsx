@@ -104,6 +104,7 @@ function CallReportTab({ state, ratios }) {
             <div style={{ height: 8 }} />
             <ReportRow label="Memo: Shares outstanding (000s)" value={`${(bs.sharesOutstanding).toFixed(0)}K`} dim />
             <ReportRow label="Memo: Book value per share" value={`$${(eq / bs.sharesOutstanding).toFixed(2)}`} dim />
+            <ReportRow label="Memo: Estimated uninsured deposits" value={f$(ratios.uninsuredDeposits || 0)} dim />
           </ReportSection>
         </div>
 
@@ -132,6 +133,7 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Noninterest Income" value={f$(is.nonintIncome)} bold />
             <ReportRow label="Fixed (premises + systems + base)" value={f$(is.nonintExpenseFixed ?? 0)} indent={1} dim />
             <ReportRow label="Variable (scales with assets + events)" value={f$(is.nonintExpenseVariable ?? (is.nonintExpense - (is.nonintExpenseFixed ?? 0)))} indent={1} dim />
+            {(is.fdicAssessment ?? 0) > 0 && <ReportRow label="of which: FDIC insurance assessment" value={f$(is.fdicAssessment)} indent={2} dim />}
             {(is.depositAdSpend ?? 0) > 0 && <ReportRow label="of which: deposit marketing" value={f$(is.depositAdSpend)} indent={2} dim />}
             {(is.advLenderExpense ?? 0) > 0 && <ReportRow label="of which: advertising & lender incentives" value={f$(is.advLenderExpense)} indent={2} dim />}
             {(is.cfpbCharge ?? 0) > 0 && <ReportRow label="of which: CFPB consent order" value={f$(is.cfpbCharge)} indent={2} neg />}
@@ -188,6 +190,7 @@ function CallReportTab({ state, ratios }) {
                 <>
                   <ReportRow label="Indirect loan share" value={fpct(indShare, 1)} neg={indShare > 0.15} />
                   <ReportRow label="Wholesale funding share" value={fpct(wsShare, 1)} neg={wsShare > 0.15} />
+                  <ReportRow label="Uninsured deposit share" value={fpct(ratios.uninsuredRatio || 0, 1)} neg={(ratios.uninsuredRatio || 0) > 0.40} />
                 </>
               );
             })()}

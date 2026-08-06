@@ -222,7 +222,7 @@ function ForecastStrip({ state, ratios, forecast }) {
   const compact = vp.compact;
   const fr = forecast.ratios;
   const fis = forecast.is;
-  const curSat = state?.satisfaction ?? 70;
+  const curSat = state?.satisfaction ?? 65;
   const nextSat = forecast.snapshot?.satisfaction ?? curSat;
   const nextEPS = fis.netIncome / Math.max(1e-6, forecast.bs.sharesOutstanding);
   const curDeposits = LBE.totalDeposits(state.bs.deposits);
@@ -349,7 +349,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
           />
           {(() => {
             const fees = LBE.computeFeeIncome(state);
-            const ofFee = lev.overdraftFee ?? 30;
+            const ofFee = lev.overdraftFee ?? 25;
             const mntFee = lev.monthlyMaintenance ?? 10;
             const feeLoad = LBE.computeFeeLoadPts(state);
             const totalFee = (fees.overdraftIncome || 0) + (fees.maintenanceIncome || 0);
