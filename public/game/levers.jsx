@@ -303,6 +303,41 @@ function PanelHeader({ title, subtitle, color }) {
   );
 }
 
+// Customer-satisfaction impact readout. Three stacked lines that sum: the lift from
+// pricing + marketing, the lift/drag from fee income, and the combined total. Read live
+// off the current lever positions (fee pts recomputed rather than read from the stale
+// per-quarter snapshot) so it tracks the sliders in real time.
+function SatImpactSummary({ state, compact }) {
+  const sat = LBE.computeSatisfaction(state);
+  const feePts = LBE.computeFeeLoadPts(state);
+  const pmPts = sat.pricingPts + sat.adPts;
+  const total = pmPts + feePts;
+  const tone = (v) => (v > 0.05 ? LP.good : v < -0.05 ? LP.bad : LP.textMute);
+  const sign = (v) => (v >= 0 ? "+" : "") + v.toFixed(1) + " pts";
+  const Row = ({ label, v, strong }) => (
+    <div style={{
+      display: "flex", justifyContent: "space-between", alignItems: "baseline",
+      paddingTop: strong ? 8 : 3, paddingBottom: 3,
+      marginTop: strong ? 5 : 0,
+      borderTop: strong ? `1px solid ${LP.lineSoft}` : "none",
+    }}>
+      <span style={{ fontSize: compact ? 12.5 : 12, color: strong ? LP.text : LP.textMute, fontWeight: strong ? 700 : 400 }}>{label}</span>
+      <span className="num" style={{ fontSize: compact ? 14 : 13, fontWeight: 700, color: tone(v) }}>{sign(v)}</span>
+    </div>
+  );
+  return (
+    <div className="panel panel-pad" data-coach="sat-impact">
+      <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 12.5 : undefined }}>Customer Satisfaction Impact</div>
+      <div style={{ fontSize: 11.5, color: LP.textMute, fontStyle: "italic", marginBottom: 8 }}>
+        How this quarter's pricing, marketing, and fees move the satisfaction target off neutral (65).
+      </div>
+      <Row label="Pricing &amp; marketing" v={pmPts} />
+      <Row label="Fee income" v={feePts} />
+      <Row label="Total Sat. impact" v={total} strong />
+    </div>
+  );
+}
+
 function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
   const vp = window.Theme.useViewport();
   const compact = vp.compact;
@@ -331,6 +366,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
         {/* Consumer deposit ops column */}
         <div data-coach="lever-deposit-ops" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <PanelHeader title="Consumer Deposit Ops" subtitle="Pricing, acquisition, and fee revenue" color={LP.expansion} />
+          <SatImpactSummary state={state} compact={compact} />
           {LEVERS_FUNDING.map(L => (
             <LeverCard key={L.key} lever={L} value={lev[L.key] ?? 0} onChange={(v) => setLever(L.key, v)} locked={locked} />
           ))}
@@ -391,9 +427,9 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
                   locked={locked}
                 />
                 <div style={{ padding: "8px 12px", background: LP.bgRaised, borderRadius: 8, fontSize: 11.5, color: LP.textDim, display: "flex", justifyContent: "space-between" }}>
-                  <span>Total fee income · Sat. impact</span>
+                  <span>Total fee income</span>
                   <span className="num" style={{ fontWeight: 600 }}>
-                    {LBE.fmt$(totalFee)} · <span style={{ color: feeLoad > 3 ? LP.bad : feeLoad > 1.5 ? LP.warn : LP.text }}>{feeLoad.toFixed(1)} pts</span>
+                    {LBE.fmt$(totalFee)}<span style={{ color: LP.textMute, fontWeight: 400 }}> · {feeLoad >= 0 ? "+" : ""}{feeLoad.toFixed(1)} Sat. pts</span>
                   </span>
                 </div>
               </div>
