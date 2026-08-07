@@ -127,6 +127,31 @@
     return ofPts + mntPts;
   }
 
+  // Marginal satisfaction impact of the CURRENT lever selections, expressed as the points
+  // satisfaction actually moves THIS quarter — the target contribution scaled by the
+  // hysteresis speed (rising 1/8, falling 1/5) — split into the two driver groups the UI
+  // shows. This is the current-quarter push from the levers, isolated from the mean
+  // reversion that also nudges satisfaction toward 65; the two lines sum to the total.
+  // Live: fee pts recomputed from current slider positions, not read from the per-quarter
+  // snapshot. Shared with the UI so the readout can't drift from the simulation.
+  function satisfactionImpact(s) {
+    const base = computeSatisfaction(s);          // pricingPts / adPts are live from levers
+    const pmPts = base.pricingPts + base.adPts;
+    const feePts = computeFeeLoadPts(s);          // live from current fee sliders
+    let adjSum = pmPts + feePts;
+    if (adjSum > 20) adjSum = 20 + (adjSum - 20) * 0.5;
+    if (base.pricingPts < -5 && feePts < -5) adjSum -= 7;
+    const cur = s.satisfaction == null ? 65 : s.satisfaction;
+    const target = clamp(65 + adjSum, 0, 100);
+    const speed = target >= cur ? 1 / 8 : 1 / 5;  // matches applySatisfactionHysteresis
+    return {
+      pm: pmPts * speed,
+      fee: feePts * speed,
+      total: (pmPts + feePts) * speed,
+      pmPts, feePts, speed,
+    };
+  }
+
   // Retention multiplier on organic deposit growth (piecewise linear).
   function retentionMult(sat) {
     const pts = [
@@ -1715,7 +1740,7 @@
     computeRatios,
     estimatedSharePrice,
     computeSatisfaction, retentionMult, distributionCapacity,
-    computeFeeIncome, computeFeeLoadPts, computeAdLift,
+    computeFeeIncome, computeFeeLoadPts, computeAdLift, satisfactionImpact,
     totalAssets, totalDeposits, totalLiabilities, totalEquity,
     fmt$, fmtPct, fmtBps, clamp, noise,
   };
