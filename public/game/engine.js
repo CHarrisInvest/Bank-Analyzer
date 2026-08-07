@@ -723,6 +723,26 @@
     return { fee, type: "bad", msg: `REGULATORY EXAM (Year ${year}): OCC cited ${n} finding${n > 1 ? "s" : ""} — ${findings}. $${fee}K penalty assessed. Priorities: ${guidance}.` };
   }
 
+  // Deposit-marketing lift, shared by the engine and the UI hint so the displayed number
+  // and the simulated effect can never drift. Returns the quarterly dollar lift, the
+  // effective percentage of the current book, and the local-market saturation factor.
+  //   - Log diminishing returns on the spend level ($100K vs $500K is a small step-up).
+  //   - Anchored to the OPENING deposit base, not the live one, so a fixed budget buys a
+  //     fixed-ish dollar amount rather than a fixed % of an ever-larger balance sheet.
+  //   - Saturation taper: the lift fades toward a 15% floor as deposits push past ~1.5x
+  //     the opening base — a single branch's local market only runs so deep.
+  function computeAdLift(s) {
+    const adSpend = Math.max(0, s.levers.depositAdSpend || 0);
+    const base = totalDeposits(s.bs.deposits);
+    const startBase = totalDeposits(INITIAL_STATE.bs.deposits);
+    const saturation = clamp(1 - (base - startBase) / (startBase * 1.5), 0.15, 1);
+    const dollars = adSpend > 0
+      ? startBase * 0.012 * Math.log(1 + adSpend / 40) * saturation
+      : 0;
+    const pct = base > 0 ? dollars / base : 0;
+    return { dollars, pct, saturation };
+  }
+
   function computeDeposits(s, event, nf = { depositGrowth: 0 }) {
     const d = s.bs.deposits;
     const lev = s.levers;
@@ -779,13 +799,19 @@
     // Combined sat-flight + run drain floor.
     const totalForcedDrain = Math.max(-0.08, runDrain + satFlightPct);
 
-    // Marketing spend log-curve: $100K +1.5%, $200K +2.1%, $500K +3.1%
-    const adSpend = Math.max(0, lev.depositAdSpend || 0);
-    const adBoost = adSpend > 0 ? 0.012 * Math.log(1 + adSpend / 40) : 0;
+    // Marketing spend lift. Diminishing returns on the SPEND level, and — critically — the
+    // lift is a roughly fixed-DOLLAR customer acquisition anchored to the franchise's natural
+    // (opening) size, NOT a fixed percentage of an ever-growing balance sheet. A single-branch
+    // bank's local market does not deepen just because its book got bigger, so the same ad
+    // budget buys a shrinking share as the bank grows, and a saturation taper pulls the lift
+    // down further once deposits run well past the opening base. Keeps marketing a meaningful
+    // early-stage acquisition tool without letting it compound a one-branch bank to $1B+.
+    const adLift = computeAdLift(s);
 
     const base = totalDeposits(d);
-    // Ordinary flow follows the normal mix...
-    const organicNet = base * (organicGrowth + pricingFlowAdj + adBoost);
+    // Ordinary flow follows the normal mix; the marketing lift is a fixed-dollar acquisition
+    // on top, so it does not scale with (and cannot compound) the whole book.
+    const organicNet = base * (organicGrowth + pricingFlowAdj) + adLift.dollars;
     // ...but a run is not proportional. Rate-sensitive and uninsured money leaves first;
     // core operating DDA (payroll, operating accounts) is the stickiest thing a community
     // bank owns and walks last.
@@ -1678,7 +1704,7 @@
     computeRatios,
     estimatedSharePrice,
     computeSatisfaction, retentionMult, distributionCapacity,
-    computeFeeIncome, computeFeeLoadPts,
+    computeFeeIncome, computeFeeLoadPts, computeAdLift,
     totalAssets, totalDeposits, totalLiabilities, totalEquity,
     fmt$, fmtPct, fmtBps, clamp, noise,
   };
