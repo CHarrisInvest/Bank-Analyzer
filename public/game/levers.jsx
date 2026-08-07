@@ -325,9 +325,9 @@ function SatImpactSummary({ state, compact }) {
   return (
     <div className="panel" data-coach="sat-impact" style={{ padding: compact ? "9px 12px" : "9px 12px", display: "flex", flexDirection: "column" }}>
       <div className="label-strong" style={{ marginBottom: 3, fontSize: compact ? 12 : 11 }}>
-        Customer Satisfaction Impact <span style={{ fontWeight: 400, color: LP.textMute }}>· this quarter</span>
+        Customer Satisfaction Impact <span style={{ fontWeight: 400, color: LP.textMute }}>· Live</span>
       </div>
-      <div style={{ fontSize: 11.5, color: LP.textMute, fontStyle: "italic", marginBottom: 6 }}>
+      <div style={{ fontSize: 11, color: LP.textDim, lineHeight: 1.4, marginBottom: 6 }}>
         How this quarter's pricing, marketing, and fees move the satisfaction score.
       </div>
       <Row label="Pricing &amp; marketing" v={imp.pm} />
@@ -378,7 +378,7 @@ function LatentRiskGauge({ state, compact }) {
   return (
     <div className="panel panel-pad" data-coach="latent-risk" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8 }}>
-        <div className="label" style={{ fontSize: compact ? 11.5 : 9.5 }}>Latent Credit Risk</div>
+        <div className="label-strong" style={{ fontSize: compact ? 12 : 11 }}>Latent Credit Risk</div>
         <div className="num" style={{ fontSize: compact ? 14 : 13, fontWeight: 700, color: level.c }}>
           {LBE.fmt$(crb)} · {level.label}
         </div>
