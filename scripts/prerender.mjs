@@ -178,7 +178,7 @@ function createPage({ path, title, description, canonical, type = 'website', sch
       </main>
       <footer id="seo-footer" class="seo-fallback">
         <p>BankSift - Bank Investment Tools. Data sourced from SEC EDGAR filings.</p>
-        <p>Follow <a href="https://x.com/banksiftorg" rel="noopener noreferrer">@banksiftorg</a> on X for updates to the BankSift website, tools, and simulation.</p>
+        <p>Follow <a href="https://x.com/banksiftorg" rel="noopener noreferrer">@BankSiftOrg</a> on X for updates to the BankSift website, tools, and simulation.</p>
         <nav aria-label="Footer navigation">
           <a href="${SITE_URL}/search">Search</a> |
           <a href="${SITE_URL}/screener">Screener</a> |
