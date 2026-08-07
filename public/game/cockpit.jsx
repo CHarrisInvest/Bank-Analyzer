@@ -29,6 +29,7 @@ function KPITile({ label, value, sub, tone }) {
 function fmtVal(v, fmt) {
   if (v === null || v === undefined || isNaN(v)) return "—";
   if (fmt === "money") return CBE.fmt$(v);
+  if (fmt === "money1") return CBE.fmt$(v, 1);
   if (fmt === "pct")   return `${(v * 100).toFixed(2)}%`;
   if (fmt === "pct1")  return `${(v * 100).toFixed(1)}%`;
   if (fmt === "ratio") return `${v.toFixed(2)}x`;
@@ -38,6 +39,7 @@ function fmtVal(v, fmt) {
 
 function diffStr(diff, fmt) {
   if (fmt === "money") return `${diff >= 0 ? "+" : ""}${CBE.fmt$(diff)}`;
+  if (fmt === "money1") return `${diff >= 0 ? "+" : ""}${CBE.fmt$(diff, 1)}`;
   if (fmt === "ratio") return `${diff >= 0 ? "+" : ""}${diff.toFixed(2)}x`;
   if (fmt === "eps")   return `${diff >= 0 ? "+" : ""}$${diff.toFixed(2)}`;
   return `${diff >= 0 ? "+" : ""}${(diff * 100).toFixed(2)}%`;
@@ -236,8 +238,8 @@ function CockpitTab({ state, ratios, forecast }) {
     { l: "Noninterest Income", short: "Nonint. Inc.",  plan: lf?.nonintIncome,  actual: lastIS.nonintIncome,      forecast: fis.nonintIncome,                     fmt: "money" },
     { l: "Noninterest Expense",short: "Nonint. Exp.",  plan: lf?.nonintExpense, actual: lastIS.nonintExpense,     forecast: fis.nonintExpense,                    fmt: "money", invert: true },
     { l: "CET1 Ratio",         plan: lf?.cet1,          actual: ratios.cet1,              forecast: fr.cet1,                              fmt: "pct1" },
-    { l: "Loans (gross)",      plan: lf?.loansGross,    actual: state.bs.loansGross,      forecast: fbs.loansGross,                       fmt: "money" },
-    { l: "Deposits",           plan: lf?.deposits,      actual: totalDeposits(state.bs),  forecast: totalDeposits(fbs),                   fmt: "money" },
+    { l: "Loans (gross)",      plan: lf?.loansGross,    actual: state.bs.loansGross,      forecast: fbs.loansGross,                       fmt: "money1" },
+    { l: "Deposits",           plan: lf?.deposits,      actual: totalDeposits(state.bs),  forecast: totalDeposits(fbs),                   fmt: "money1" },
     { l: "Wholesale Funding",  short: "Wholesale",     plan: lf?.wholesale,     actual: wholesaleFund(state.bs),  forecast: wholesaleFund(fbs),                   fmt: "money", invert: true },
     { l: "Efficiency",         plan: lf?.efficiency,    actual: ratios.efficiency,        forecast: fr.efficiency,                        fmt: "pct1", invert: true },
   ];

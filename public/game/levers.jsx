@@ -233,8 +233,8 @@ function ForecastStrip({ state, ratios, forecast }) {
     { l: "CET1",        v: (fr.cet1 * 100).toFixed(2) + "%",       d: fr.cet1 - ratios.cet1,        f: "pct" },
     { l: "NPL",         v: (fr.nplRatio * 100).toFixed(2) + "%",   d: fr.nplRatio - ratios.nplRatio, f: "pct", invert: true },
     { l: "Sat.",         v: Math.round(nextSat).toString(),         d: nextSat - curSat,             f: "sat" },
-    { l: "Deposits",    v: LBE.fmt$(nextDeposits),                 d: nextDeposits - curDeposits,   f: "money" },
-    { l: "Loans",       v: LBE.fmt$(forecast.bs.loansGross),       d: forecast.bs.loansGross - state.bs.loansGross, f: "money" },
+    { l: "Deposits",    v: LBE.fmt$(nextDeposits, 1),              d: nextDeposits - curDeposits,   f: "money1" },
+    { l: "Loans",       v: LBE.fmt$(forecast.bs.loansGross, 1),    d: forecast.bs.loansGross - state.bs.loansGross, f: "money1" },
     { l: "Provision",   v: LBE.fmt$(fis.provision),                d: fis.provision,                f: "money", noDelta: true },
   ];
   // Compact: a fixed 4-column / 2-row grid filled column-pair by column-pair:
@@ -276,6 +276,7 @@ function ForecastStrip({ state, ratios, forecast }) {
                 (it.invert ? it.d < 0 : it.d > 0) ? LP.good : LP.bad;
               const str = it.f === "pct" ? `${it.d >= 0 ? "+" : ""}${(it.d * 100).toFixed(2)}%`
                         : it.f === "sat" ? `${it.d >= 0 ? "+" : ""}${it.d.toFixed(1)}`
+                        : it.f === "money1" ? LBE.fmt$(it.d, 1)
                         : LBE.fmt$(it.d);
               return <div className="num" style={{ fontSize: subFont, color: tone, marginTop: 2, fontWeight: 600 }}>
                 {Math.abs(it.d) < 1e-9 ? "no change" : (it.d > 0 ? "▲ " : "▼ ") + str}
@@ -338,6 +339,40 @@ function SatImpactSummary({ state, compact }) {
   );
 }
 
+// Live latent-credit-risk gauge. Surfaces the engine's creditRiskBank — the pool of
+// embedded expected losses that aggressive origination / loose underwriting builds up and
+// that later surfaces as NPLs (fastest in recession). Persistent read-out so the player can
+// watch it climb toward the Elevated ($2M) / Critical ($5M) log thresholds and draw back
+// down after de-risking, not just catch the one-time log line.
+function LatentRiskGauge({ state, compact }) {
+  const crb = state.creditRiskBank || 0;
+  const level = crb >= 5000 ? { c: LP.bad, label: "Critical" }
+    : crb >= 2000 ? { c: LP.warn, label: "Elevated" }
+    : { c: LP.good, label: "Contained" };
+  const max = 6000;
+  const pct = Math.max(0, Math.min(100, (crb / max) * 100));
+  const elevPct = (2000 / max) * 100;
+  const critPct = (5000 / max) * 100;
+  return (
+    <div className="panel panel-pad" data-coach="latent-risk" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8 }}>
+        <div className="label" style={{ fontSize: compact ? 11.5 : 9.5 }}>Latent Credit Risk</div>
+        <div className="num" style={{ fontSize: compact ? 14 : 13, fontWeight: 700, color: level.c }}>
+          {LBE.fmt$(crb)} · {level.label}
+        </div>
+      </div>
+      <div style={{ position: "relative", height: 10, borderRadius: 6, overflow: "hidden", background: LP.panel2, border: `1px solid ${LP.line}` }}>
+        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: `${pct}%`, background: level.c, transition: "width 0.25s" }} />
+        <div style={{ position: "absolute", top: 0, bottom: 0, left: `${elevPct}%`, width: 1.5, background: LP.warn, opacity: 0.8 }} />
+        <div style={{ position: "absolute", top: 0, bottom: 0, left: `${critPct}%`, width: 1.5, background: LP.bad, opacity: 0.8 }} />
+      </div>
+      <div style={{ fontSize: 11, color: LP.textDim, lineHeight: 1.4 }}>
+        Embedded expected losses from aggressive originations — surfaces as NPLs over time, fastest in recession. Elevated $2M · Critical $5M.
+      </div>
+    </div>
+  );
+}
+
 function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
   const vp = window.Theme.useViewport();
   const compact = vp.compact;
@@ -354,6 +389,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
         {/* Production column */}
         <div data-coach="lever-production" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <PanelHeader title="Production" subtitle="Loan origination, sales, and channels" color={LP.amber} />
+          <LatentRiskGauge state={state} compact={compact} />
           {LEVERS_PRODUCTION.map(L => (
             <LeverCard key={L.key} lever={L} value={lev[L.key] ?? 0} onChange={(v) => setLever(L.key, v)} locked={locked} />
           ))}

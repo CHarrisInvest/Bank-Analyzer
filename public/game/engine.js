@@ -5,12 +5,12 @@
 // =====================================================================
 (function () {
   // ---------- helpers ----------
-  const fmt$ = (n) => {
+  const fmt$ = (n, d = 2) => {
     if (n === null || n === undefined || isNaN(n)) return "—";
     const abs = Math.abs(n);
     const sign = n < 0 ? "-" : "";
-    if (abs >= 1_000_000) return `${sign}$${(abs / 1_000_000).toFixed(2)}B`;
-    if (abs >= 1_000) return `${sign}$${(abs / 1_000).toFixed(2)}M`;
+    if (abs >= 1_000_000) return `${sign}$${(abs / 1_000_000).toFixed(d)}B`;
+    if (abs >= 1_000) return `${sign}$${(abs / 1_000).toFixed(d)}M`;
     return `${sign}$${abs.toFixed(0)}K`;
   };
   const fmtPct = (n, d = 2) =>
@@ -1653,6 +1653,8 @@
       log.push({ q, type: "bad", msg: `LATENT CREDIT RISK CRITICAL: ${fmt$(crb)} of expected losses embedded in loan book from prior aggressive originations. Recession will surface these rapidly.` });
     } else if (isElevated && !wasElevated && !wasCritical) {
       log.push({ q, type: "warn", msg: `LATENT CREDIT RISK ELEVATED: ${fmt$(crb)} of expected future losses building from recent loan vintage decisions. Tightening underwriting now reduces further accrual but does not undo prior buildup.` });
+    } else if (!isElevated && !isCritical && (wasElevated || wasCritical)) {
+      log.push({ q, type: "good", msg: `LATENT CREDIT RISK CLEARED: embedded expected losses worked back down below ${fmt$(2_000)}. The risk from prior aggressive originations has largely surfaced and been absorbed.` });
     }
     s._wasElevatedRisk = isElevated;
     s._wasCriticalRisk = isCritical;
