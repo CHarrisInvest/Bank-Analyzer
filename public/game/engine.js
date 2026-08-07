@@ -171,6 +171,38 @@
     return { accrual, release, net: accrual - release, releaseRate };
   }
 
+  // Pending loan-vintage NPL pipeline: expected NPL formation from prior originations that
+  // is scheduled to surface (lags 4-8 quarters out) but has NOT yet hit the books. Loose
+  // vintages (negative underwriting score) queue up positive future NPLs; tight vintages
+  // queue relief. Floored at zero for the risk gauge — a net-tight book carries no pending
+  // risk. Base amount only; the recession/late-cycle amplification is applied when it
+  // actually surfaces, not to the embedded stock. `lastCompletedQ` is the most recently
+  // simulated quarter (surfacing at or before it has already hit the books): defaults to
+  // s.quarter - 1 for UI reads of a post-quarter state; checkRegulatory passes s.quarter,
+  // which is the just-simulated quarter there (pre-increment) — both resolve to the same
+  // quarter, so the gauge and the threshold check stay in lockstep.
+  function pendingVintageRisk(s, lastCompletedQ) {
+    const lastQ = lastCompletedQ != null ? lastCompletedQ : (s.quarter - 1);
+    let pending = 0;
+    for (const v of (s.loanVintages || [])) {
+      for (let lag = 4; lag <= 8; lag++) {
+        if (v.q + lag <= lastQ) continue;                 // already surfaced
+        const weight = lag === 6 ? 0.30 : (lag === 5 || lag === 7) ? 0.22 : 0.13;
+        pending += -(v.underwritingScore || 0) * 0.0012 * Math.max(0, v.growthAmount || 0) * weight;
+      }
+    }
+    return Math.max(0, pending);
+  }
+
+  // Total embedded latent credit risk — the number the gauge shows and the Elevated ($2M) /
+  // Critical ($5M) thresholds are measured against: the creditRiskBank stock (aggressive
+  // pace + loose underwriting, cycle-released) PLUS the not-yet-surfaced loan-vintage
+  // pipeline. Both channels are driven by the same lever decisions, so folding them together
+  // gives one honest read of how much loss is embedded in the book.
+  function totalLatentRisk(s, lastCompletedQ) {
+    return (s.creditRiskBank || 0) + pendingVintageRisk(s, lastCompletedQ);
+  }
+
   // Retention multiplier on organic deposit growth (piecewise linear).
   function retentionMult(sat) {
     const pts = [
@@ -1606,7 +1638,7 @@
         cause = "Asset quality deterioration overwhelmed loss absorption capacity";
       } else if (ratios.ltd > 1.20) {
         cause = "Aggressive loan growth funded by wholesale borrowing, then funding gap closed";
-      } else if ((s.creditRiskBank || 0) > 3_000) {
+      } else if (totalLatentRisk(s, s.quarter) > 3_000) {
         cause = "Latent credit risk from prior aggressive originations surfaced in stress";
       } else if (s.lastIS.repurchases > 5_000 || s.lastIS.dividendsPaid > 1_000) {
         cause = "Excessive capital distributions while underlying earnings deteriorated";
@@ -1681,7 +1713,7 @@
     s._wasIndirectWarn = isIndWarn;
     s._wasIndirectCritical = isIndCrit;
 
-    const crb = s.creditRiskBank || 0;
+    const crb = totalLatentRisk(s, s.quarter);
     const wasElevated = s._wasElevatedRisk === true;
     const wasCritical = s._wasCriticalRisk === true;
     const isElevated = crb >= 2_000 && crb < 5_000;
@@ -1752,7 +1784,8 @@
     computeRatios,
     estimatedSharePrice,
     computeSatisfaction, retentionMult, distributionCapacity,
-    computeFeeIncome, computeFeeLoadPts, computeAdLift, satisfactionImpact, latentRiskFlow,
+    computeFeeIncome, computeFeeLoadPts, computeAdLift, satisfactionImpact,
+    latentRiskFlow, pendingVintageRisk, totalLatentRisk,
     totalAssets, totalDeposits, totalLiabilities, totalEquity,
     fmt$, fmtPct, fmtBps, clamp, noise,
   };

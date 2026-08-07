@@ -343,7 +343,12 @@ function SatImpactSummary({ state, compact }) {
 // watch it climb toward the Elevated ($2M) / Critical ($5M) log thresholds and draw back
 // down after de-risking, not just catch the one-time log line.
 function LatentRiskGauge({ state, compact }) {
-  const crb = state.creditRiskBank || 0;
+  // Total embedded latent risk folds the creditRiskBank stock together with the not-yet-
+  // surfaced loan-vintage pipeline; the gauge, its status band, and the Elevated/Critical
+  // log thresholds all read off this same combined number.
+  const riskBank = state.creditRiskBank || 0;
+  const vintagePipeline = LBE.pendingVintageRisk(state);
+  const crb = riskBank + vintagePipeline;
   const level = crb >= 5000 ? { c: LP.bad, label: "Critical" }
     : crb >= 2000 ? { c: LP.warn, label: "Elevated" }
     : { c: LP.good, label: "Contained" };
@@ -383,9 +388,14 @@ function LatentRiskGauge({ state, compact }) {
         <div style={{ position: "absolute", top: 0, bottom: 0, left: `${elevPct}%`, width: 1.5, background: LP.warn, opacity: 0.8 }} />
         <div style={{ position: "absolute", top: 0, bottom: 0, left: `${critPct}%`, width: 1.5, background: LP.bad, opacity: 0.8 }} />
       </div>
+      {vintagePipeline > 1 && (
+        <div className="num" style={{ fontSize: compact ? 11.5 : 11, color: LP.textMute }}>
+          Risk bank {LBE.fmt$(riskBank)} · vintage pipeline {LBE.fmt$(vintagePipeline)}
+        </div>
+      )}
       <div className="num" style={{ fontSize: compact ? 12 : 11.5 }}>{flowNode}</div>
       <div style={{ fontSize: 11, color: LP.textDim, lineHeight: 1.4 }}>
-        Aggressive loan pace and loose underwriting embed expected losses that surface as NPLs over time, fastest in recession. Elevated $2M · Critical $5M.
+        Aggressive loan pace and loose underwriting embed expected losses — a fast-releasing risk bank plus a 4-8 quarter loan-vintage pipeline — that surface as NPLs over time, fastest in recession. Elevated $2M · Critical $5M.
       </div>
     </div>
   );
