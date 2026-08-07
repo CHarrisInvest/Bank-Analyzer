@@ -152,6 +152,25 @@
     };
   }
 
+  // Latent-credit-risk flow for a quarter: how much the CURRENT lever selections accrue
+  // into the creditRiskBank (aggressive loan pace + loose underwriting), and how much the
+  // existing bank releases (cycle-dependent) into NPL formation. Single source of truth for
+  // both the simulation (computeIncome passes the quarter's avgLoans) and the live gauge in
+  // the UI (which passes nothing and uses the current loan book as the avg proxy). Loose
+  // underwriting is weighted more heavily per step than loan pace — it is the larger driver.
+  function latentRiskFlow(s, avgLoans) {
+    const al = avgLoans != null ? avgLoans : s.bs.loansGross;
+    const accrual =
+      Math.max(0, s.levers.loanGrowth || 0) * 0.0010 * al / 4 +
+      Math.max(0, -(s.levers.underwriting || 0)) * 0.0015 * al / 4;
+    let releaseRate = 0.05;
+    if (s.macro.cycle === "late_cycle") releaseRate = 0.12;
+    if (s.macro.cycle === "recession") releaseRate = 0.25;
+    if (s.macro.cycle === "recovery") releaseRate = 0.08;
+    const release = (s.creditRiskBank || 0) * releaseRate;
+    return { accrual, release, net: accrual - release, releaseRate };
+  }
+
   // Retention multiplier on organic deposit growth (piecewise linear).
   function retentionMult(sat) {
     const pts = [
@@ -1079,16 +1098,9 @@
 
     const eventNplAdj = event?.type === "credit_shock" ? 0.025 : 0;
 
-    const riskBankAccrual =
-      Math.max(0, s.levers.loanGrowth) * 0.0010 * avgLoans / 4 +
-      Math.max(0, -s.levers.underwriting) * 0.0015 * avgLoans / 4;
-
-    let riskBankReleaseRate = 0.05;
-    if (s.macro.cycle === "late_cycle") riskBankReleaseRate = 0.12;
-    if (s.macro.cycle === "recession") riskBankReleaseRate = 0.25;
-    if (s.macro.cycle === "recovery") riskBankReleaseRate = 0.08;
-
-    const riskBankRelease = (s.creditRiskBank || 0) * riskBankReleaseRate;
+    const _lrf = latentRiskFlow(s, avgLoans);
+    const riskBankAccrual = _lrf.accrual;
+    const riskBankRelease = _lrf.release;
 
     const totalNplFormationRate = Math.max(0, cycleNplRate + eventNplAdj);
     const baselineNplFormation = avgLoans * totalNplFormationRate / 4;
@@ -1740,7 +1752,7 @@
     computeRatios,
     estimatedSharePrice,
     computeSatisfaction, retentionMult, distributionCapacity,
-    computeFeeIncome, computeFeeLoadPts, computeAdLift, satisfactionImpact,
+    computeFeeIncome, computeFeeLoadPts, computeAdLift, satisfactionImpact, latentRiskFlow,
     totalAssets, totalDeposits, totalLiabilities, totalEquity,
     fmt$, fmtPct, fmtBps, clamp, noise,
   };
