@@ -127,6 +127,82 @@
     return ofPts + mntPts;
   }
 
+  // Marginal satisfaction impact of the CURRENT lever selections, expressed as the points
+  // satisfaction actually moves THIS quarter — the target contribution scaled by the
+  // hysteresis speed (rising 1/8, falling 1/5) — split into the two driver groups the UI
+  // shows. This is the current-quarter push from the levers, isolated from the mean
+  // reversion that also nudges satisfaction toward 65; the two lines sum to the total.
+  // Live: fee pts recomputed from current slider positions, not read from the per-quarter
+  // snapshot. Shared with the UI so the readout can't drift from the simulation.
+  function satisfactionImpact(s) {
+    const base = computeSatisfaction(s);          // pricingPts / adPts are live from levers
+    const pmPts = base.pricingPts + base.adPts;
+    const feePts = computeFeeLoadPts(s);          // live from current fee sliders
+    let adjSum = pmPts + feePts;
+    if (adjSum > 20) adjSum = 20 + (adjSum - 20) * 0.5;
+    if (base.pricingPts < -5 && feePts < -5) adjSum -= 7;
+    const cur = s.satisfaction == null ? 65 : s.satisfaction;
+    const target = clamp(65 + adjSum, 0, 100);
+    const speed = target >= cur ? 1 / 8 : 1 / 5;  // matches applySatisfactionHysteresis
+    return {
+      pm: pmPts * speed,
+      fee: feePts * speed,
+      total: (pmPts + feePts) * speed,
+      pmPts, feePts, speed,
+    };
+  }
+
+  // Latent-credit-risk flow for a quarter: how much the CURRENT lever selections accrue
+  // into the creditRiskBank (aggressive loan pace + loose underwriting), and how much the
+  // existing bank releases (cycle-dependent) into NPL formation. Single source of truth for
+  // both the simulation (computeIncome passes the quarter's avgLoans) and the live gauge in
+  // the UI (which passes nothing and uses the current loan book as the avg proxy). Loose
+  // underwriting is weighted more heavily per step than loan pace — it is the larger driver.
+  function latentRiskFlow(s, avgLoans) {
+    const al = avgLoans != null ? avgLoans : s.bs.loansGross;
+    const accrual =
+      Math.max(0, s.levers.loanGrowth || 0) * 0.0010 * al / 4 +
+      Math.max(0, -(s.levers.underwriting || 0)) * 0.0015 * al / 4;
+    let releaseRate = 0.05;
+    if (s.macro.cycle === "late_cycle") releaseRate = 0.12;
+    if (s.macro.cycle === "recession") releaseRate = 0.25;
+    if (s.macro.cycle === "recovery") releaseRate = 0.08;
+    const release = (s.creditRiskBank || 0) * releaseRate;
+    return { accrual, release, net: accrual - release, releaseRate };
+  }
+
+  // Pending loan-vintage NPL pipeline: expected NPL formation from prior originations that
+  // is scheduled to surface (lags 4-8 quarters out) but has NOT yet hit the books. Loose
+  // vintages (negative underwriting score) queue up positive future NPLs; tight vintages
+  // queue relief. Floored at zero for the risk gauge — a net-tight book carries no pending
+  // risk. Base amount only; the recession/late-cycle amplification is applied when it
+  // actually surfaces, not to the embedded stock. `lastCompletedQ` is the most recently
+  // simulated quarter (surfacing at or before it has already hit the books): defaults to
+  // s.quarter - 1 for UI reads of a post-quarter state; checkRegulatory passes s.quarter,
+  // which is the just-simulated quarter there (pre-increment) — both resolve to the same
+  // quarter, so the gauge and the threshold check stay in lockstep.
+  function pendingVintageRisk(s, lastCompletedQ) {
+    const lastQ = lastCompletedQ != null ? lastCompletedQ : (s.quarter - 1);
+    let pending = 0;
+    for (const v of (s.loanVintages || [])) {
+      for (let lag = 4; lag <= 8; lag++) {
+        if (v.q + lag <= lastQ) continue;                 // already surfaced
+        const weight = lag === 6 ? 0.30 : (lag === 5 || lag === 7) ? 0.22 : 0.13;
+        pending += -(v.underwritingScore || 0) * 0.0012 * Math.max(0, v.growthAmount || 0) * weight;
+      }
+    }
+    return Math.max(0, pending);
+  }
+
+  // Total embedded latent credit risk — the number the gauge shows and the Elevated ($2M) /
+  // Critical ($5M) thresholds are measured against: the creditRiskBank stock (aggressive
+  // pace + loose underwriting, cycle-released) PLUS the not-yet-surfaced loan-vintage
+  // pipeline. Both channels are driven by the same lever decisions, so folding them together
+  // gives one honest read of how much loss is embedded in the book.
+  function totalLatentRisk(s, lastCompletedQ) {
+    return (s.creditRiskBank || 0) + pendingVintageRisk(s, lastCompletedQ);
+  }
+
   // Retention multiplier on organic deposit growth (piecewise linear).
   function retentionMult(sat) {
     const pts = [
@@ -1054,16 +1130,9 @@
 
     const eventNplAdj = event?.type === "credit_shock" ? 0.025 : 0;
 
-    const riskBankAccrual =
-      Math.max(0, s.levers.loanGrowth) * 0.0010 * avgLoans / 4 +
-      Math.max(0, -s.levers.underwriting) * 0.0015 * avgLoans / 4;
-
-    let riskBankReleaseRate = 0.05;
-    if (s.macro.cycle === "late_cycle") riskBankReleaseRate = 0.12;
-    if (s.macro.cycle === "recession") riskBankReleaseRate = 0.25;
-    if (s.macro.cycle === "recovery") riskBankReleaseRate = 0.08;
-
-    const riskBankRelease = (s.creditRiskBank || 0) * riskBankReleaseRate;
+    const _lrf = latentRiskFlow(s, avgLoans);
+    const riskBankAccrual = _lrf.accrual;
+    const riskBankRelease = _lrf.release;
 
     const totalNplFormationRate = Math.max(0, cycleNplRate + eventNplAdj);
     const baselineNplFormation = avgLoans * totalNplFormationRate / 4;
@@ -1569,7 +1638,7 @@
         cause = "Asset quality deterioration overwhelmed loss absorption capacity";
       } else if (ratios.ltd > 1.20) {
         cause = "Aggressive loan growth funded by wholesale borrowing, then funding gap closed";
-      } else if ((s.creditRiskBank || 0) > 3_000) {
+      } else if (totalLatentRisk(s, s.quarter) > 3_000) {
         cause = "Latent credit risk from prior aggressive originations surfaced in stress";
       } else if (s.lastIS.repurchases > 5_000 || s.lastIS.dividendsPaid > 1_000) {
         cause = "Excessive capital distributions while underlying earnings deteriorated";
@@ -1644,7 +1713,7 @@
     s._wasIndirectWarn = isIndWarn;
     s._wasIndirectCritical = isIndCrit;
 
-    const crb = s.creditRiskBank || 0;
+    const crb = totalLatentRisk(s, s.quarter);
     const wasElevated = s._wasElevatedRisk === true;
     const wasCritical = s._wasCriticalRisk === true;
     const isElevated = crb >= 2_000 && crb < 5_000;
@@ -1715,7 +1784,8 @@
     computeRatios,
     estimatedSharePrice,
     computeSatisfaction, retentionMult, distributionCapacity,
-    computeFeeIncome, computeFeeLoadPts, computeAdLift,
+    computeFeeIncome, computeFeeLoadPts, computeAdLift, satisfactionImpact,
+    latentRiskFlow, pendingVintageRisk, totalLatentRisk,
     totalAssets, totalDeposits, totalLiabilities, totalEquity,
     fmt$, fmtPct, fmtBps, clamp, noise,
   };

@@ -304,37 +304,35 @@ function PanelHeader({ title, subtitle, color }) {
   );
 }
 
-// Customer-satisfaction impact readout. Three stacked lines that sum: the lift from
-// pricing + marketing, the lift/drag from fee income, and the combined total. Read live
-// off the current lever positions (fee pts recomputed rather than read from the stale
-// per-quarter snapshot) so it tracks the sliders in real time.
+// Customer-satisfaction impact readout. Three condensed lines that sum: the points
+// satisfaction actually moves THIS quarter from pricing + marketing, from fee income, and
+// combined. Read live off the current lever positions (via the engine's satisfactionImpact
+// helper) so it tracks the sliders in real time and reflects the per-quarter push rather
+// than the eventual converged target.
 function SatImpactSummary({ state, compact }) {
-  const sat = LBE.computeSatisfaction(state);
-  const feePts = LBE.computeFeeLoadPts(state);
-  const pmPts = sat.pricingPts + sat.adPts;
-  const total = pmPts + feePts;
-  const tone = (v) => (v > 0.05 ? LP.good : v < -0.05 ? LP.bad : LP.textMute);
+  const imp = LBE.satisfactionImpact(state);
+  const tone = (v) => (v > 0.02 ? LP.good : v < -0.02 ? LP.bad : LP.textMute);
   const sign = (v) => (v >= 0 ? "+" : "") + v.toFixed(1) + " pts";
   const Row = ({ label, v, strong }) => (
     <div style={{
       display: "flex", justifyContent: "space-between", alignItems: "baseline",
-      paddingTop: strong ? 8 : 3, paddingBottom: 3,
-      marginTop: strong ? 5 : 0,
-      borderTop: strong ? `1px solid ${LP.lineSoft}` : "none",
+      paddingTop: 1, paddingBottom: 1,
     }}>
-      <span style={{ fontSize: compact ? 12.5 : 12, color: strong ? LP.text : LP.textMute, fontWeight: strong ? 700 : 400 }}>{label}</span>
-      <span className="num" style={{ fontSize: compact ? 14 : 13, fontWeight: 700, color: tone(v) }}>{sign(v)}</span>
+      <span style={{ fontSize: compact ? 12 : 11.5, color: strong ? LP.text : LP.textMute, fontWeight: strong ? 700 : 400 }}>{label}</span>
+      <span className="num" style={{ fontSize: compact ? 13 : 12.5, fontWeight: 700, color: tone(v) }}>{sign(v)}</span>
     </div>
   );
   return (
-    <div className="panel panel-pad" data-coach="sat-impact">
-      <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 12.5 : undefined }}>Customer Satisfaction Impact</div>
-      <div style={{ fontSize: 11.5, color: LP.textMute, fontStyle: "italic", marginBottom: 8 }}>
-        How this quarter's pricing, marketing, and fees move the satisfaction target off neutral (65).
+    <div className="panel" data-coach="sat-impact" style={{ padding: compact ? "9px 12px" : "9px 12px", display: "flex", flexDirection: "column" }}>
+      <div className="label-strong" style={{ marginBottom: 3, fontSize: compact ? 12 : 11 }}>
+        Customer Satisfaction Impact <span style={{ fontWeight: 400, color: LP.textMute }}>· this quarter</span>
       </div>
-      <Row label="Pricing &amp; marketing" v={pmPts} />
-      <Row label="Fee income" v={feePts} />
-      <Row label="Total Sat. impact" v={total} strong />
+      <div style={{ fontSize: 11.5, color: LP.textMute, fontStyle: "italic", marginBottom: 6 }}>
+        How this quarter's pricing, marketing, and fees move the satisfaction score.
+      </div>
+      <Row label="Pricing &amp; marketing" v={imp.pm} />
+      <Row label="Fee income" v={imp.fee} />
+      <Row label="Total Sat. impact" v={imp.total} strong />
     </div>
   );
 }
@@ -345,7 +343,12 @@ function SatImpactSummary({ state, compact }) {
 // watch it climb toward the Elevated ($2M) / Critical ($5M) log thresholds and draw back
 // down after de-risking, not just catch the one-time log line.
 function LatentRiskGauge({ state, compact }) {
-  const crb = state.creditRiskBank || 0;
+  // Total embedded latent risk folds the creditRiskBank stock together with the not-yet-
+  // surfaced loan-vintage pipeline; the gauge, its status band, and the Elevated/Critical
+  // log thresholds all read off this same combined number.
+  const riskBank = state.creditRiskBank || 0;
+  const vintagePipeline = LBE.pendingVintageRisk(state);
+  const crb = riskBank + vintagePipeline;
   const level = crb >= 5000 ? { c: LP.bad, label: "Critical" }
     : crb >= 2000 ? { c: LP.warn, label: "Elevated" }
     : { c: LP.good, label: "Contained" };
@@ -353,6 +356,25 @@ function LatentRiskGauge({ state, compact }) {
   const pct = Math.max(0, Math.min(100, (crb / max) * 100));
   const elevPct = (2000 / max) * 100;
   const critPct = (5000 / max) * 100;
+
+  // Live flow from the current lever selections: what this quarter will add to the bank
+  // (aggressive loan pace + loose underwriting) net of what the cycle releases. Lets pulling
+  // the underwriting / pace sliders register on the gauge immediately, before you run.
+  const flow = LBE.latentRiskFlow(state);
+  let flowNode;
+  if (flow.accrual > 0.5) {
+    const tone = flow.net > 0 ? LP.warn : LP.good;
+    flowNode = (
+      <span style={{ color: tone, fontWeight: 600 }}>
+        +{LBE.fmt$(flow.accrual)} building{flow.release > 0.5 ? ` − ${LBE.fmt$(flow.release)} releasing` : ""} = {flow.net >= 0 ? "+" : "−"}{LBE.fmt$(Math.abs(flow.net))}/qtr
+      </span>
+    );
+  } else if (flow.release > 0.5) {
+    flowNode = <span style={{ color: LP.good, fontWeight: 600 }}>−{LBE.fmt$(flow.release)}/qtr releasing (no new risk accruing)</span>;
+  } else {
+    flowNode = <span style={{ color: LP.textMute }}>No new risk accruing at current selections</span>;
+  }
+
   return (
     <div className="panel panel-pad" data-coach="latent-risk" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8 }}>
@@ -366,8 +388,14 @@ function LatentRiskGauge({ state, compact }) {
         <div style={{ position: "absolute", top: 0, bottom: 0, left: `${elevPct}%`, width: 1.5, background: LP.warn, opacity: 0.8 }} />
         <div style={{ position: "absolute", top: 0, bottom: 0, left: `${critPct}%`, width: 1.5, background: LP.bad, opacity: 0.8 }} />
       </div>
+      {vintagePipeline > 1 && (
+        <div className="num" style={{ fontSize: compact ? 11.5 : 11, color: LP.textMute }}>
+          Risk bank {LBE.fmt$(riskBank)} · vintage pipeline {LBE.fmt$(vintagePipeline)}
+        </div>
+      )}
+      <div className="num" style={{ fontSize: compact ? 12 : 11.5 }}>{flowNode}</div>
       <div style={{ fontSize: 11, color: LP.textDim, lineHeight: 1.4 }}>
-        Embedded expected losses from aggressive originations — surfaces as NPLs over time, fastest in recession. Elevated $2M · Critical $5M.
+        Aggressive loan pace and loose underwriting embed expected losses — a fast-releasing risk bank plus a 4-8 quarter loan-vintage pipeline — that surface as NPLs over time, fastest in recession. Elevated $2M · Critical $5M.
       </div>
     </div>
   );
@@ -427,7 +455,6 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
             const fees = LBE.computeFeeIncome(state);
             const ofFee = lev.overdraftFee ?? 25;
             const mntFee = lev.monthlyMaintenance ?? 10;
-            const feeLoad = LBE.computeFeeLoadPts(state);
             const totalFee = (fees.overdraftIncome || 0) + (fees.maintenanceIncome || 0);
             return (
               <div className="panel" style={{ padding: 14, display: "flex", flexDirection: "column", gap: 12 }}>
@@ -438,7 +465,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
                   Fee Income
                 </div>
                 <div style={{ fontSize: 11.5, color: LP.textMute, fontStyle: "italic", marginTop: -4 }}>
-                  Fee revenue trades dollars for satisfaction; sustained overdraft &gt;$30 invites CFPB scrutiny.
+                  Fee revenue trades dollars for satisfaction.
                 </div>
                 <NumericLeverCard
                   title="Overdraft Fee (per item)"
@@ -464,9 +491,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
                 />
                 <div style={{ padding: "8px 12px", background: LP.bgRaised, borderRadius: 8, fontSize: 11.5, color: LP.textDim, display: "flex", justifyContent: "space-between" }}>
                   <span>Total fee income</span>
-                  <span className="num" style={{ fontWeight: 600 }}>
-                    {LBE.fmt$(totalFee)}<span style={{ color: LP.textMute, fontWeight: 400 }}> · {feeLoad >= 0 ? "+" : ""}{feeLoad.toFixed(1)} Sat. pts</span>
-                  </span>
+                  <span className="num" style={{ fontWeight: 600 }}>{LBE.fmt$(totalFee)}</span>
                 </div>
               </div>
             );
