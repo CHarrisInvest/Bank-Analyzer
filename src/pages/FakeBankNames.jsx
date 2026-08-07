@@ -16,8 +16,8 @@ const PREVIEW = [
   ['Morgan Stanley', 'Morgan Stanky'],
   ['American Express', 'American Excess'],
   ['Truist Financial', 'Distruest Financial'],
-  ['Huntington', 'Hauntington'],
-  ['Synchrony Financial', 'Sinkrony Financial'],
+  ['Huntington', 'Haunting Tone'],
+  ['Synchrony Financial', 'Sinkrony Functional'],
 ];
 
 function FakeBankNames() {
