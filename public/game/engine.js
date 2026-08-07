@@ -5,12 +5,12 @@
 // =====================================================================
 (function () {
   // ---------- helpers ----------
-  const fmt$ = (n) => {
+  const fmt$ = (n, d = 2) => {
     if (n === null || n === undefined || isNaN(n)) return "—";
     const abs = Math.abs(n);
     const sign = n < 0 ? "-" : "";
-    if (abs >= 1_000_000) return `${sign}$${(abs / 1_000_000).toFixed(2)}B`;
-    if (abs >= 1_000) return `${sign}$${(abs / 1_000).toFixed(2)}M`;
+    if (abs >= 1_000_000) return `${sign}$${(abs / 1_000_000).toFixed(d)}B`;
+    if (abs >= 1_000) return `${sign}$${(abs / 1_000).toFixed(d)}M`;
     return `${sign}$${abs.toFixed(0)}K`;
   };
   const fmtPct = (n, d = 2) =>
@@ -108,13 +108,22 @@
       totalPhase5: overdraftIncome + maintenanceIncome + interchangeIncome,
     };
   }
-  // Translate fees into satisfaction pts. Overdraft is more punishing per dollar than
-  // maintenance (regulator-watched, customer-watched). Range targets roughly -10..0.
+  // Translate fees into satisfaction pts — a TWO-SIDED lever. Above the customer-tolerated
+  // threshold ($20 overdraft / $5 maintenance) fees nickel-and-dime and drag satisfaction
+  // down (penalty side unchanged from the original calibration). Below it, genuinely
+  // customer-friendly pricing actively LIFTS satisfaction, and the lower the fee the
+  // stronger the lift. Overdraft carries more weight than maintenance in both directions —
+  // it is the fee customers and regulators watch most. Range roughly +8 (fees at zero) to
+  // -11 (fees maxed). Default levers ($25 / $10) still net to -2, so the baseline is intact.
   function computeFeeLoadPts(s) {
     const ofFee = Math.max(0, s.levers.overdraftFee || 0);
     const monthlyFee = Math.max(0, s.levers.monthlyMaintenance || 0);
-    const ofPts = ofFee <= 20 ? 0 : -Math.min(7, (ofFee - 20) * 0.20);    // $30 -> -2, $45 -> -5, $55 -> -7
-    const mntPts = monthlyFee <= 5 ? 0 : -Math.min(4, (monthlyFee - 5) * 0.20); // $10 -> -1, $20 -> -3, $25 -> -4
+    const ofPts = ofFee >= 20
+      ? -Math.min(7, (ofFee - 20) * 0.20)   // $30 -> -2, $45 -> -5, $55 -> -7 (unchanged)
+      :  Math.min(5, (20 - ofFee) * 0.25);  // $10 -> +2.5, $0 -> +5 (customer-friendly)
+    const mntPts = monthlyFee >= 5
+      ? -Math.min(4, (monthlyFee - 5) * 0.20)  // $10 -> -1, $20 -> -3, $25 -> -4 (unchanged)
+      :  Math.min(3, (5 - monthlyFee) * 0.60); // $2 -> +1.8, $0 -> +3 (customer-friendly)
     return ofPts + mntPts;
   }
 
@@ -1644,6 +1653,8 @@
       log.push({ q, type: "bad", msg: `LATENT CREDIT RISK CRITICAL: ${fmt$(crb)} of expected losses embedded in loan book from prior aggressive originations. Recession will surface these rapidly.` });
     } else if (isElevated && !wasElevated && !wasCritical) {
       log.push({ q, type: "warn", msg: `LATENT CREDIT RISK ELEVATED: ${fmt$(crb)} of expected future losses building from recent loan vintage decisions. Tightening underwriting now reduces further accrual but does not undo prior buildup.` });
+    } else if (!isElevated && !isCritical && (wasElevated || wasCritical)) {
+      log.push({ q, type: "good", msg: `LATENT CREDIT RISK CLEARED: embedded expected losses worked back down below ${fmt$(2_000)}. The risk from prior aggressive originations has largely surfaced and been absorbed.` });
     }
     s._wasElevatedRisk = isElevated;
     s._wasCriticalRisk = isCritical;

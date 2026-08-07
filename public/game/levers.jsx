@@ -233,8 +233,8 @@ function ForecastStrip({ state, ratios, forecast }) {
     { l: "CET1",        v: (fr.cet1 * 100).toFixed(2) + "%",       d: fr.cet1 - ratios.cet1,        f: "pct" },
     { l: "NPL",         v: (fr.nplRatio * 100).toFixed(2) + "%",   d: fr.nplRatio - ratios.nplRatio, f: "pct", invert: true },
     { l: "Sat.",         v: Math.round(nextSat).toString(),         d: nextSat - curSat,             f: "sat" },
-    { l: "Deposits",    v: LBE.fmt$(nextDeposits),                 d: nextDeposits - curDeposits,   f: "money" },
-    { l: "Loans",       v: LBE.fmt$(forecast.bs.loansGross),       d: forecast.bs.loansGross - state.bs.loansGross, f: "money" },
+    { l: "Deposits",    v: LBE.fmt$(nextDeposits, 1),              d: nextDeposits - curDeposits,   f: "money1" },
+    { l: "Loans",       v: LBE.fmt$(forecast.bs.loansGross, 1),    d: forecast.bs.loansGross - state.bs.loansGross, f: "money1" },
     { l: "Provision",   v: LBE.fmt$(fis.provision),                d: fis.provision,                f: "money", noDelta: true },
   ];
   // Compact: a fixed 4-column / 2-row grid filled column-pair by column-pair:
@@ -276,6 +276,7 @@ function ForecastStrip({ state, ratios, forecast }) {
                 (it.invert ? it.d < 0 : it.d > 0) ? LP.good : LP.bad;
               const str = it.f === "pct" ? `${it.d >= 0 ? "+" : ""}${(it.d * 100).toFixed(2)}%`
                         : it.f === "sat" ? `${it.d >= 0 ? "+" : ""}${it.d.toFixed(1)}`
+                        : it.f === "money1" ? LBE.fmt$(it.d, 1)
                         : LBE.fmt$(it.d);
               return <div className="num" style={{ fontSize: subFont, color: tone, marginTop: 2, fontWeight: 600 }}>
                 {Math.abs(it.d) < 1e-9 ? "no change" : (it.d > 0 ? "▲ " : "▼ ") + str}
@@ -303,6 +304,75 @@ function PanelHeader({ title, subtitle, color }) {
   );
 }
 
+// Customer-satisfaction impact readout. Three stacked lines that sum: the lift from
+// pricing + marketing, the lift/drag from fee income, and the combined total. Read live
+// off the current lever positions (fee pts recomputed rather than read from the stale
+// per-quarter snapshot) so it tracks the sliders in real time.
+function SatImpactSummary({ state, compact }) {
+  const sat = LBE.computeSatisfaction(state);
+  const feePts = LBE.computeFeeLoadPts(state);
+  const pmPts = sat.pricingPts + sat.adPts;
+  const total = pmPts + feePts;
+  const tone = (v) => (v > 0.05 ? LP.good : v < -0.05 ? LP.bad : LP.textMute);
+  const sign = (v) => (v >= 0 ? "+" : "") + v.toFixed(1) + " pts";
+  const Row = ({ label, v, strong }) => (
+    <div style={{
+      display: "flex", justifyContent: "space-between", alignItems: "baseline",
+      paddingTop: strong ? 8 : 3, paddingBottom: 3,
+      marginTop: strong ? 5 : 0,
+      borderTop: strong ? `1px solid ${LP.lineSoft}` : "none",
+    }}>
+      <span style={{ fontSize: compact ? 12.5 : 12, color: strong ? LP.text : LP.textMute, fontWeight: strong ? 700 : 400 }}>{label}</span>
+      <span className="num" style={{ fontSize: compact ? 14 : 13, fontWeight: 700, color: tone(v) }}>{sign(v)}</span>
+    </div>
+  );
+  return (
+    <div className="panel panel-pad" data-coach="sat-impact">
+      <div className="label-strong" style={{ marginBottom: 4, fontSize: compact ? 12.5 : undefined }}>Customer Satisfaction Impact</div>
+      <div style={{ fontSize: 11.5, color: LP.textMute, fontStyle: "italic", marginBottom: 8 }}>
+        How this quarter's pricing, marketing, and fees move the satisfaction target off neutral (65).
+      </div>
+      <Row label="Pricing &amp; marketing" v={pmPts} />
+      <Row label="Fee income" v={feePts} />
+      <Row label="Total Sat. impact" v={total} strong />
+    </div>
+  );
+}
+
+// Live latent-credit-risk gauge. Surfaces the engine's creditRiskBank — the pool of
+// embedded expected losses that aggressive origination / loose underwriting builds up and
+// that later surfaces as NPLs (fastest in recession). Persistent read-out so the player can
+// watch it climb toward the Elevated ($2M) / Critical ($5M) log thresholds and draw back
+// down after de-risking, not just catch the one-time log line.
+function LatentRiskGauge({ state, compact }) {
+  const crb = state.creditRiskBank || 0;
+  const level = crb >= 5000 ? { c: LP.bad, label: "Critical" }
+    : crb >= 2000 ? { c: LP.warn, label: "Elevated" }
+    : { c: LP.good, label: "Contained" };
+  const max = 6000;
+  const pct = Math.max(0, Math.min(100, (crb / max) * 100));
+  const elevPct = (2000 / max) * 100;
+  const critPct = (5000 / max) * 100;
+  return (
+    <div className="panel panel-pad" data-coach="latent-risk" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8 }}>
+        <div className="label" style={{ fontSize: compact ? 11.5 : 9.5 }}>Latent Credit Risk</div>
+        <div className="num" style={{ fontSize: compact ? 14 : 13, fontWeight: 700, color: level.c }}>
+          {LBE.fmt$(crb)} · {level.label}
+        </div>
+      </div>
+      <div style={{ position: "relative", height: 10, borderRadius: 6, overflow: "hidden", background: LP.panel2, border: `1px solid ${LP.line}` }}>
+        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: `${pct}%`, background: level.c, transition: "width 0.25s" }} />
+        <div style={{ position: "absolute", top: 0, bottom: 0, left: `${elevPct}%`, width: 1.5, background: LP.warn, opacity: 0.8 }} />
+        <div style={{ position: "absolute", top: 0, bottom: 0, left: `${critPct}%`, width: 1.5, background: LP.bad, opacity: 0.8 }} />
+      </div>
+      <div style={{ fontSize: 11, color: LP.textDim, lineHeight: 1.4 }}>
+        Embedded expected losses from aggressive originations — surfaces as NPLs over time, fastest in recession. Elevated $2M · Critical $5M.
+      </div>
+    </div>
+  );
+}
+
 function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
   const vp = window.Theme.useViewport();
   const compact = vp.compact;
@@ -319,6 +389,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
         {/* Production column */}
         <div data-coach="lever-production" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <PanelHeader title="Production" subtitle="Loan origination, sales, and channels" color={LP.amber} />
+          <LatentRiskGauge state={state} compact={compact} />
           {LEVERS_PRODUCTION.map(L => (
             <LeverCard key={L.key} lever={L} value={lev[L.key] ?? 0} onChange={(v) => setLever(L.key, v)} locked={locked} />
           ))}
@@ -331,6 +402,7 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
         {/* Consumer deposit ops column */}
         <div data-coach="lever-deposit-ops" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <PanelHeader title="Consumer Deposit Ops" subtitle="Pricing, acquisition, and fee revenue" color={LP.expansion} />
+          <SatImpactSummary state={state} compact={compact} />
           {LEVERS_FUNDING.map(L => (
             <LeverCard key={L.key} lever={L} value={lev[L.key] ?? 0} onChange={(v) => setLever(L.key, v)} locked={locked} />
           ))}
@@ -391,9 +463,9 @@ function LeversTab({ state, ratios, forecast, setLever, setDecision, locked }) {
                   locked={locked}
                 />
                 <div style={{ padding: "8px 12px", background: LP.bgRaised, borderRadius: 8, fontSize: 11.5, color: LP.textDim, display: "flex", justifyContent: "space-between" }}>
-                  <span>Total fee income · Sat. impact</span>
+                  <span>Total fee income</span>
                   <span className="num" style={{ fontWeight: 600 }}>
-                    {LBE.fmt$(totalFee)} · <span style={{ color: feeLoad > 3 ? LP.bad : feeLoad > 1.5 ? LP.warn : LP.text }}>{feeLoad.toFixed(1)} pts</span>
+                    {LBE.fmt$(totalFee)}<span style={{ color: LP.textMute, fontWeight: 400 }}> · {feeLoad >= 0 ? "+" : ""}{feeLoad.toFixed(1)} Sat. pts</span>
                   </span>
                 </div>
               </div>
