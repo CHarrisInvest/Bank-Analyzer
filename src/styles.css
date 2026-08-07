@@ -2656,6 +2656,34 @@ body {
   color: var(--color-gray-500);
 }
 
+.footer-social {
+  margin-bottom: var(--spacing-3);
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--color-gray-400);
+  text-decoration: none;
+  font-size: var(--font-size-xs);
+  transition: color var(--transition-fast);
+}
+
+.footer-social-link:hover {
+  color: var(--color-white);
+}
+
+.footer-social-link strong {
+  font-weight: 600;
+}
+
+.footer-x-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
 .footer-shortcuts-hint {
   font-size: var(--font-size-xs);
   color: var(--color-gray-400);
