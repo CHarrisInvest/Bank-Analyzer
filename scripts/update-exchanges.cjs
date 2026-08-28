@@ -54,21 +54,21 @@ function fetchSubmissions(cik) {
       res.on('data', chunk => data += chunk);
       res.on('end', () => {
         if (res.statusCode !== 200) {
-          resolve(null);
+          resolve({ submissions: null, status: res.statusCode });
           return;
         }
         try {
-          resolve(JSON.parse(data));
+          resolve({ submissions: JSON.parse(data), status: 200 });
         } catch {
-          resolve(null);
+          resolve({ submissions: null, status: 'parse-error' });
         }
       });
     });
 
-    req.on('error', () => resolve(null));
+    req.on('error', () => resolve({ submissions: null, status: 'network-error' }));
     req.setTimeout(15000, () => {
       req.destroy();
-      resolve(null);
+      resolve({ submissions: null, status: 'timeout' });
     });
     req.end();
   });
@@ -157,6 +157,11 @@ async function main() {
   let updated = 0;
   let failed = 0;
   let skipped = 0;
+  // A request SEC never answered is a different problem from a bank whose
+  // submissions list has no exchange, and only the first one means the whole
+  // refresh was a no-op. Count them apart so a blanket block is visible.
+  let unreachable = 0;
+  const statusCounts = {};
   const startTime = Date.now();
 
   for (let i = 0; i < banks.length; i++) {
@@ -170,14 +175,19 @@ async function main() {
     // Rate limiting
     if (i > 0) await sleep(RATE_LIMIT_MS);
 
-    const submissions = await fetchSubmissions(bank.cik);
-    const exchange = resolveExchange(submissions, bank.ticker);
+    const { submissions, status } = await fetchSubmissions(bank.cik);
 
-    if (exchange) {
-      bank.exchange = exchange;
-      updated++;
+    if (!submissions) {
+      unreachable++;
+      statusCounts[status] = (statusCounts[status] || 0) + 1;
     } else {
-      failed++;
+      const exchange = resolveExchange(submissions, bank.ticker);
+      if (exchange) {
+        bank.exchange = exchange;
+        updated++;
+      } else {
+        failed++;
+      }
     }
 
     // Progress logging every 50 banks
@@ -191,6 +201,25 @@ async function main() {
   console.log(`  Updated: ${updated}`);
   console.log(`  No exchange found: ${failed}`);
   console.log(`  Skipped (no CIK): ${skipped}`);
+  console.log(`  SEC request failed: ${unreachable}`);
+
+  if (unreachable > 0) {
+    const detail = Object.entries(statusCounts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([status, count]) => `${status} x${count}`)
+      .join(', ');
+    console.log(`    (${detail})`);
+
+    // Every request failing means data.sec.gov refused this host outright --
+    // usually a datacenter IP block. Existing exchanges are left untouched, so
+    // the run still "succeeds"; say so loudly rather than reporting 0 updates.
+    if (updated === 0) {
+      console.log(
+        `::error::data.sec.gov answered none of the ${unreachable} requests (${detail}); ` +
+        `exchange data was not refreshed. Existing values were kept.`
+      );
+    }
+  }
 
   // Distribution summary
   const dist = {};

@@ -266,6 +266,32 @@ This will:
 
 The workflow downloads quarterly ZIP files from the `sec-data` release and processes them.
 
+### Adding a new quarter
+
+A quarter's dataset only reaches the site once its ZIP is an asset on the
+`sec-data` release. The workflow tries to fetch new quarters from SEC itself,
+but SEC serves HTTP 403 to datacenter IPs, so on GitHub-hosted runners that
+attempt fails and the ZIP has to be uploaded by hand:
+
+```sh
+# from a machine SEC will serve (not a cloud runner)
+curl -O -A 'Bank-Analyzer/1.0 (your@email)' \
+  https://www.sec.gov/files/dera/data/financial-statement-data-sets/2026q2.zip
+gh release upload sec-data 2026q2.zip --repo CHarrisInvest/Bank-Analyzer --clobber
+```
+
+The next daily run (or a manual `workflow_dispatch`) sees the new asset,
+reprocesses every quarter, commits, and deploys.
+
+Note that SEC names a dataset for the quarter in which filings were *received*,
+not the period they cover: the `2026q1` dataset holds the FY2025 10-Ks, so the
+newest period it yields is Q4 2025. Q1 2026 balance sheets arrive in `2026q2`.
+
+If the release is missing a quarter SEC has already published, the
+`report-freshness` job fails the run and prints the upload commands in the job
+summary. That failure is deliberately in its own job so it does not block the
+deploy of the data already in hand.
+
 ---
 
 ## Historical Statement Structure
