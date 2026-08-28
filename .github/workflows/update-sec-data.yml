@@ -44,16 +44,17 @@ jobs:
       # on the release -- whether uploaded manually or pulled from SEC by the
       # best-effort step below -- triggers exactly one rebuild.
       #
-      # NOTE: SEC blocks datacenter IPs (GitHub-hosted runners) with HTTP 403,
-      # so the SEC auto-download is opportunistic only; on GitHub-hosted
-      # runners new quarters are expected to be uploaded to the release
-      # manually. A self-hosted runner would let the auto-download work.
+      # The download works from GitHub-hosted runners, but only with a
+      # User-Agent of exactly the form "Company Name contact@domain". SEC used
+      # to answer this project's requests with 403 and "Request Rate Threshold
+      # Exceeded" -- which reads like an IP ban but is really what it serves
+      # for a User-Agent it cannot parse. See probe-sec-access.yml, which
+      # established this and can re-establish it if SEC changes the rules.
       #
-      # Because that manual upload is easy to forget, this step also works out
-      # which quarter SEC *should* have published by now and records the gap in
-      # the "behind" output. The report-freshness job below turns a non-empty
-      # gap into a failure, so the site silently serving months-old quarters
-      # shows up as a red run instead of a green no-op.
+      # This step also works out which quarter SEC *should* have published by
+      # now and records any gap in the "behind" output. The report-freshness
+      # job below turns a non-empty gap into a failure, so the site silently
+      # serving months-old quarters shows up as a red run, not a green no-op.
       # ============================================
       - name: Check for new quarterly data
         id: check
@@ -67,11 +68,13 @@ jobs:
         run: |
           set -euo pipefail
 
+          # Bare "Name address" -- see the note above; any extra decoration
+          # (version string, parenthesised address, project URL) makes SEC
+          # treat the client as undeclared and refuse every request.
           CONTACT="${SEC_CONTACT_EMAIL:-${VITE_CONTACT_EMAIL:-}}"
-          if [ -n "$CONTACT" ]; then
-            UA="Bank-Analyzer/1.0 (${CONTACT}; +https://github.com/${GITHUB_REPOSITORY})"
-          else
-            UA="Bank-Analyzer/1.0 (+https://github.com/${GITHUB_REPOSITORY})"
+          UA="Bank Analyzer ${CONTACT}"
+          if [ -z "$CONTACT" ]; then
+            echo "::warning::No SEC contact email configured (SEC_CONTACT_EMAIL or VITE_CONTACT_EMAIL); SEC will refuse every request."
           fi
           BASE_URL="https://www.sec.gov/files/dera/data/financial-statement-data-sets"
           INDEX_FILE="public/data/sec-data-index.json"
@@ -147,7 +150,7 @@ jobs:
               case "$code" in
                 401|403)
                   blocked="$code"
-                  echo "SEC refused ${name} (HTTP ${code}) -- this runner's IP is blocked. Upload the zip to the sec-data release by hand."
+                  echo "SEC refused ${name} (HTTP ${code}). This normally works, so something changed -- run the Probe SEC Access workflow to see what SEC is objecting to."
                   ;;
                 404) echo "SEC has not published ${name} yet (HTTP 404)." ;;
                 200) echo "Downloaded ${name} but it is not a valid zip; ignoring." ;;
@@ -343,17 +346,20 @@ jobs:
             echo "Missing quarter(s): \`${BEHIND}\` (newest published by SEC: \`${EXPECTED}\`)"
             echo
             if [ -n "$BLOCKED" ]; then
-              echo "SEC refused this runner's download with HTTP ${BLOCKED}: GitHub-hosted"
-              echo "runners come from datacenter IPs that SEC blocks, so the zips have to be"
-              echo "added to the \`sec-data\` release by hand."
+              echo "SEC refused this runner's download with HTTP ${BLOCKED}. The sync"
+              echo "normally works from GitHub-hosted runners, so treat this as a"
+              echo "regression rather than an expected block: run the **Probe SEC"
+              echo "Access** workflow, which reports the status and body of each"
+              echo "refusal and says which requirement SEC is objecting to."
               echo
             fi
-            echo "To fix, from a machine SEC will serve:"
+            echo "If the zips have to be added by hand, from any machine:"
             echo
             echo '```sh'
             for q in $BEHIND; do
               name="$(echo "$q" | tr '[:upper:]' '[:lower:]').zip"
-              echo "curl -O -A 'Bank-Analyzer/1.0 (your@email)' ${BASE_URL}/${name}"
+              # A bare "Name address" User-Agent -- anything fancier gets a 403.
+              echo "curl -O -A 'Your Name your@email' ${BASE_URL}/${name}"
               echo "gh release upload sec-data ${name} --repo ${GITHUB_REPOSITORY} --clobber"
             done
             echo '```'

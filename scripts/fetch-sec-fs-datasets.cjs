@@ -123,15 +123,15 @@ const TAG_EQUIVALENTS = {
 const TEMP_DIR = path.join(__dirname, '..', '.sec-data-cache');
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'data');
 
-// SEC's fair-access policy expects a declared contact in the User-Agent;
-// requests without one are commonly rejected with HTTP 403. Reuse the
-// project's existing contact email (SEC_CONTACT_EMAIL overrides).
+// SEC's fair-access policy wants a User-Agent of exactly the shape
+// "Company Name contact@domain" -- a bare name and address, nothing else.
+// A conventional product/version string with the address in parentheses does
+// NOT parse: SEC answered every request from this project with 403 until the
+// User-Agent was reduced to this form. Keep it plain.
 const CONTACT_EMAIL = process.env.SEC_CONTACT_EMAIL || process.env.VITE_CONTACT_EMAIL || '';
-const USER_AGENT = CONTACT_EMAIL
-  ? `Bank-Analyzer/1.0 (${CONTACT_EMAIL}; +https://github.com/CHarrisInvest/Bank-Analyzer)`
-  : 'Bank-Analyzer/1.0 (+https://github.com/CHarrisInvest/Bank-Analyzer)';
+const USER_AGENT = `Bank Analyzer ${CONTACT_EMAIL}`;
 if (!CONTACT_EMAIL) {
-  console.warn('Warning: no SEC contact email set (SEC_CONTACT_EMAIL or VITE_CONTACT_EMAIL); SEC may reject requests (HTTP 403).');
+  console.warn('Warning: no SEC contact email set (SEC_CONTACT_EMAIL or VITE_CONTACT_EMAIL); SEC will reject every request with HTTP 403.');
 }
 
 /**
