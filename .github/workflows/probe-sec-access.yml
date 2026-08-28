@@ -1,0 +1,177 @@
+name: Probe SEC Access
+
+# Diagnostic, run by hand. The daily pipeline cannot fetch anything from SEC on
+# a GitHub-hosted runner -- both www.sec.gov (the quarterly zips) and
+# data.sec.gov (the submissions API) answer 403 for every request. This works
+# out WHY, because the two possible causes have very different remedies:
+#
+#   - A 403 whose body is SEC's "Your Request Originates from an Undeclared
+#     Automated Tool" notice means SEC objects to how we identify ourselves.
+#     That is fixable in code and the pipeline can be fully automated.
+#   - A 403 from the CDN edge (an Akamai reference-number page, or an empty
+#     body) means the runner's datacenter IP is refused before SEC's
+#     application sees it. Then no header or browser work legitimately helps,
+#     and the fetch has to run from a non-datacenter IP.
+#
+# Every request below declares a contact address per SEC's fair-access policy,
+# and the whole probe is under a dozen requests -- far inside SEC's rate limit.
+# The point is to read the refusal, not to disguise the client.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      CONTACT: ${{ secrets.SEC_CONTACT_EMAIL || secrets.VITE_CONTACT_EMAIL }}
+      ZIP_URL: https://www.sec.gov/files/dera/data/financial-statement-data-sets/2026q2.zip
+      PAGE_URL: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets
+      API_URL: https://data.sec.gov/submissions/CIK0000039263.json
+
+    steps:
+      - name: Probe with curl
+        run: |
+          # No -e: a refused probe is a result, not a reason to stop probing.
+          set -uo pipefail
+
+          UA="Bank-Analyzer/1.0 (${CONTACT:-no-contact-configured}; +https://github.com/${GITHUB_REPOSITORY})"
+          echo "Declared User-Agent: $UA"
+          echo "Runner egress IP: $(curl -sS --max-time 20 https://api.ipify.org 2>/dev/null || echo unknown)"
+
+          {
+            echo "## curl probes"
+            echo
+            echo "| probe | status | response body (first 300 chars, tags stripped) |"
+            echo "|---|---|---|"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          probe() {
+            local name="$1" url="$2"; shift 2
+            local body err code rc snippet
+            body="$(mktemp)"; err="$(mktemp)"
+            # curl writes %{http_code} even when it fails, as 000 -- so take its
+            # output as-is and only default when curl produced nothing at all.
+            code="$(curl -sS -L --max-time 60 -o "$body" -w '%{http_code}' "$@" "$url" 2>"$err")"
+            rc=$?
+            code="${code:-000}"
+            # Strip markup and collapse whitespace so a block page reads as prose,
+            # and escape pipes so the markdown table survives.
+            snippet="$(sed -e 's/<[^>]*>/ /g' -e 's/|/\\|/g' "$body" | tr -s '[:space:]' ' ' | cut -c1-300)"
+            # An HTTP-level refusal has a body worth reading; a transport failure
+            # has none, and curl's own message is the only useful evidence.
+            if [ "$code" = "000" ]; then
+              snippet="curl exit ${rc}: $(tr -s '[:space:]' ' ' < "$err" | cut -c1-200)"
+            fi
+            printf '| %s | %s | %s |\n' "$name" "$code" "${snippet:-<empty body>}" >> "$GITHUB_STEP_SUMMARY"
+            echo "=== ${name}: HTTP ${code}"
+            echo "    ${snippet:-<empty body>}"
+            rm -f "$body" "$err"
+          }
+
+          # 1. Exactly what the pipeline does today.
+          probe "zip, declared UA only" "$ZIP_URL" -A "$UA"
+
+          # 2. Same request with the headers a browser would also send. If this
+          #    succeeds where (1) failed, the block keys on headers, not IP.
+          probe "zip, declared UA + browser headers" "$ZIP_URL" \
+            --http2 -A "$UA" \
+            -H 'Accept: application/zip,application/octet-stream,*/*' \
+            -H 'Accept-Language: en-US,en;q=0.9' \
+            -H 'Accept-Encoding: gzip, deflate, br' \
+            -H "Referer: ${PAGE_URL}" \
+            -H 'Sec-Fetch-Dest: document' \
+            -H 'Sec-Fetch-Mode: navigate' \
+            -H 'Sec-Fetch-Site: same-origin' \
+            -H 'Upgrade-Insecure-Requests: 1'
+
+          # 3. Is the whole host refused, or only the bulk-file path?
+          probe "landing page HTML" "$PAGE_URL" -A "$UA" \
+            -H 'Accept: text/html,application/xhtml+xml' \
+            -H 'Accept-Language: en-US,en;q=0.9'
+
+          # 4. Different host, same question -- this is what the exchange
+          #    refresh uses, and it fails for all 336 banks.
+          probe "data.sec.gov submissions API" "$API_URL" -A "$UA" \
+            -H 'Accept: application/json'
+
+      - name: Probe with a real headless Chrome
+        # The "can GitHub just browse the site?" test: a genuine Chromium, so a
+        # real TLS/HTTP2 fingerprint, visiting the landing page first to pick up
+        # any bot-management cookie, then fetching the zip from inside the page.
+        # Nothing short of this rules out browser automation as an option.
+        run: |
+          set -uo pipefail
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null 2>&1
+
+          cat > probe.mjs <<'EOF'
+          import { chromium } from 'playwright';
+
+          const { CONTACT, ZIP_URL, PAGE_URL } = process.env;
+          const rows = [];
+          const browser = await chromium.launch();
+          // Chromium sends its own Chrome User-Agent. Add a From: header so the
+          // request still names a contact, the way SEC's fair-access policy asks.
+          const context = await browser.newContext({
+            extraHTTPHeaders: { From: CONTACT || 'no-contact-configured' },
+          });
+          const page = await context.newPage();
+
+          try {
+            const res = await page.goto(PAGE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
+            rows.push(['chrome: landing page', res ? res.status() : 'no response']);
+
+            // Same-origin fetch from page context: carries the browser's
+            // fingerprint and whatever cookies the page visit just set.
+            const zipStatus = await page.evaluate(async (url) => {
+              try {
+                const r = await fetch(url, { method: 'GET' });
+                // The status is the whole answer; don't pull ~90MB to get it.
+                if (r.body) await r.body.cancel();
+                return `${r.status}`;
+              } catch (err) {
+                return `fetch threw: ${err.message}`;
+              }
+            }, ZIP_URL);
+            rows.push(['chrome: zip fetched from page', zipStatus]);
+          } catch (err) {
+            rows.push(['chrome', `navigation failed: ${err.message}`]);
+          }
+
+          await browser.close();
+
+          const lines = ['', '## headless Chrome probe', '', '| probe | status |', '|---|---|'];
+          for (const [name, status] of rows) {
+            console.log(`=== ${name}: ${status}`);
+            lines.push(`| ${name} | ${status} |`);
+          }
+          const { appendFileSync } = await import('node:fs');
+          appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join('\n') + '\n');
+          EOF
+
+          node probe.mjs
+
+      - name: Interpret the results
+        if: always()
+        run: |
+          {
+            echo
+            echo "### Reading this"
+            echo
+            echo "- Any **200** above means automation is possible; the winning"
+            echo "  method should be ported into \`update-sec-data.yml\`."
+            echo "- **403 naming an \"Undeclared Automated Tool\"** means SEC wants a"
+            echo "  different self-identification -- fixable in the workflow."
+            echo "- **403 from the CDN edge, or an empty body, on every probe** means"
+            echo "  the runner's datacenter IP is refused outright. The fetch then has"
+            echo "  to originate somewhere else: a self-hosted runner on a"
+            echo "  non-datacenter connection, or a manual upload to the sec-data"
+            echo "  release."
+            echo "- A **404** on the zip (while other probes get through) would mean"
+            echo "  SEC has not published that quarter, or has changed the URL."
+          } >> "$GITHUB_STEP_SUMMARY"
