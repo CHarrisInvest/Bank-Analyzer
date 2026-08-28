@@ -21,6 +21,9 @@ jobs:
     outputs:
       new_asset: ${{ steps.check.outputs.new_asset }}
       pending: ${{ steps.check.outputs.pending }}
+      expected: ${{ steps.check.outputs.expected }}
+      behind: ${{ steps.check.outputs.behind }}
+      blocked: ${{ steps.check.outputs.blocked }}
       deploy: ${{ steps.commit.outputs.changed }}
 
     steps:
@@ -45,6 +48,12 @@ jobs:
       # so the SEC auto-download is opportunistic only; on GitHub-hosted
       # runners new quarters are expected to be uploaded to the release
       # manually. A self-hosted runner would let the auto-download work.
+      #
+      # Because that manual upload is easy to forget, this step also works out
+      # which quarter SEC *should* have published by now and records the gap in
+      # the "behind" output. The report-freshness job below turns a non-empty
+      # gap into a failure, so the site silently serving months-old quarters
+      # shows up as a red run instead of a green no-op.
       # ============================================
       - name: Check for new quarterly data
         id: check
@@ -81,32 +90,71 @@ jobs:
           echo "Quarters already processed in repo:"; echo "${processed:-  <none>}"
           echo "Quarterly assets on the sec-data release:"; echo "${release_q:-  <none>}"
 
-          # Best-effort: pull any newly published SEC quarter into the release.
-          # SEC blocks datacenter IPs, so treat any failure as "not available"
-          # and fall back to whatever is already on the release.
-          if [ -n "$release_q" ]; then
-            latest="$(echo "$release_q" | sed -E 's/Q/ /' \
-              | awk '{ printf "%d\n", $1 * 10 + $2 }' | sort -n | tail -1)"
-            y=$(( latest / 10 )); q=$(( latest % 10 ))
-            probe="$(curl -sSL -A "$UA" -I -o /dev/null -w '%{http_code}' "${BASE_URL}/${y}q${q}.zip" || echo 000)"
-            if [ "$probe" = "200" ]; then
-              cur_code=$(( $(date -u +%Y) * 10 + ( ($(date -u +%-m) + 2) / 3 ) ))
-              while : ; do
-                q=$(( q + 1 )); if [ "$q" -gt 4 ]; then q=1; y=$(( y + 1 )); fi
-                [ $(( y * 10 + q )) -gt "$cur_code" ] && break
-                name="${y}q${q}.zip"
-                code="$(curl -sSL -A "$UA" -o "$name" -w '%{http_code}' "${BASE_URL}/${name}" || echo 000)"
-                if [ "$code" != "200" ]; then rm -f "$name"; break; fi
-                if unzip -t "$name" >/dev/null 2>&1; then
-                  gh release upload sec-data "$name" --repo "$GITHUB_REPOSITORY" --clobber
-                  release_q="$(printf '%s\n%s' "$release_q" "${y}Q${q}" | sort -u)"
-                  echo "::notice::Synced new SEC quarter to release: ${name}"
-                fi
-                rm -f "$name"
-              done
-            else
-              echo "SEC not reachable from this runner (HTTP ${probe}); using release contents only. Upload new quarterly zips to the sec-data release manually if SEC blocks the runner."
+          # "2026Q2" <-> 20262, so quarters compare and increment as integers.
+          code_of() { echo "$1" | sed -E 's/Q/ /' | awk '{ printf "%d", $1 * 10 + $2 }'; }
+          label_of() { printf '%dQ%d' $(( $1 / 10 )) $(( $1 % 10 )); }
+          next_code() {
+            local y=$(( $1 / 10 )) q=$(( $1 % 10 ))
+            q=$(( q + 1 )); if [ "$q" -gt 4 ]; then q=1; y=$(( y + 1 )); fi
+            echo $(( y * 10 + q ))
+          }
+
+          # Newest quarter SEC should have published by now. DERA posts a
+          # quarter's dataset roughly 5-6 weeks after the quarter closes, so a
+          # quarter counts as due once 45 days have passed since its end.
+          now="$(date -u +%s)"
+          ey="$(date -u +%Y)"; eq=$(( ($(date -u +%-m) + 2) / 3 ))
+          expected=""
+          for _ in 1 2 3 4 5 6 7 8; do
+            eq=$(( eq - 1 )); if [ "$eq" -lt 1 ]; then eq=4; ey=$(( ey - 1 )); fi
+            case "$eq" in
+              1) qend="${ey}-03-31" ;;
+              2) qend="${ey}-06-30" ;;
+              3) qend="${ey}-09-30" ;;
+              4) qend="${ey}-12-31" ;;
+            esac
+            if [ "$(date -u -d "${qend} +45 days" +%s)" -le "$now" ]; then
+              expected="${ey}Q${eq}"
+              break
             fi
+          done
+          echo "Newest quarter SEC should have published by now: ${expected:-<unknown>}"
+
+          # Best-effort: pull any SEC quarter the release is missing, up to the
+          # one that is due. Ask for the zip directly rather than probing with
+          # HEAD first: the probe cost a request, and a HEAD that SEC rejects
+          # made a reachable SEC look unreachable. The response code on the
+          # real download tells us what actually happened.
+          blocked=""
+          if [ -n "$release_q" ] && [ -n "$expected" ]; then
+            have="$(echo "$release_q" | sed -E 's/Q/ /' \
+              | awk '{ printf "%d\n", $1 * 10 + $2 }' | sort -n | tail -1)"
+            want="$(code_of "$expected")"
+            cand="$(next_code "$have")"
+            while [ "$cand" -le "$want" ]; do
+              y=$(( cand / 10 )); q=$(( cand % 10 ))
+              name="${y}q${q}.zip"
+              code="$(curl -sSL -A "$UA" -o "$name" -w '%{http_code}' "${BASE_URL}/${name}" || echo 000)"
+              if [ "$code" = "200" ] && unzip -t "$name" >/dev/null 2>&1; then
+                gh release upload sec-data "$name" --repo "$GITHUB_REPOSITORY" --clobber
+                release_q="$(printf '%s\n%s' "$release_q" "$(label_of "$cand")" | sort -u)"
+                echo "::notice::Synced new SEC quarter to release: ${name}"
+                rm -f "$name"
+                cand="$(next_code "$cand")"
+                continue
+              fi
+              rm -f "$name"
+              case "$code" in
+                401|403)
+                  blocked="$code"
+                  echo "SEC refused ${name} (HTTP ${code}) -- this runner's IP is blocked. Upload the zip to the sec-data release by hand."
+                  ;;
+                404) echo "SEC has not published ${name} yet (HTTP 404)." ;;
+                200) echo "Downloaded ${name} but it is not a valid zip; ignoring." ;;
+                *)   echo "Could not download ${name} (HTTP ${code})." ;;
+              esac
+              break
+            done
           fi
 
           # Reprocess when the release holds a quarter the repo hasn't processed.
@@ -119,6 +167,24 @@ jobs:
             echo "new_asset=false" >> "$GITHUB_OUTPUT"
           fi
           echo "pending=$(echo $pending | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
+
+          # How far behind SEC the data will still be once this run finishes.
+          # Everything on the release gets processed, so the newest quarter we
+          # will hold is the newest of (processed, release).
+          behind=""
+          newest="$(printf '%s\n%s\n' "$processed" "$release_q" | sed '/^$/d' \
+            | sed -E 's/Q/ /' | awk '{ printf "%d\n", $1 * 10 + $2 }' | sort -n | tail -1)"
+          if [ -n "$expected" ] && [ -n "$newest" ] && [ "$newest" -lt "$(code_of "$expected")" ]; then
+            cand="$(next_code "$newest")"
+            while [ "$cand" -le "$(code_of "$expected")" ]; do
+              behind="${behind}${behind:+ }$(label_of "$cand")"
+              cand="$(next_code "$cand")"
+            done
+            echo "::warning::Bank data is behind SEC: missing ${behind}"
+          fi
+          echo "expected=${expected}" >> "$GITHUB_OUTPUT"
+          echo "behind=${behind}" >> "$GITHUB_OUTPUT"
+          echo "blocked=${blocked}" >> "$GITHUB_OUTPUT"
 
       # ============================================
       # SEC Financial Statement Data Sets Processing
@@ -251,3 +317,50 @@ jobs:
                 "https://banksift.org/glossary"
               ]
             }'
+
+  # ============================================
+  # Fail the run when the site is serving quarters older than the newest one
+  # SEC has published. This is a separate job on purpose: a stale-data failure
+  # must not gate the deploy of whatever data we *do* have.
+  # ============================================
+  report-freshness:
+    if: always() && needs.update-data.outputs.behind != ''
+    runs-on: ubuntu-latest
+    needs: update-data
+    steps:
+      - name: Report missing SEC quarters
+        env:
+          BEHIND: ${{ needs.update-data.outputs.behind }}
+          EXPECTED: ${{ needs.update-data.outputs.expected }}
+          BLOCKED: ${{ needs.update-data.outputs.blocked }}
+        run: |
+          set -euo pipefail
+          BASE_URL="https://www.sec.gov/files/dera/data/financial-statement-data-sets"
+
+          {
+            echo "## Bank data is behind SEC"
+            echo
+            echo "Missing quarter(s): \`${BEHIND}\` (newest published by SEC: \`${EXPECTED}\`)"
+            echo
+            if [ -n "$BLOCKED" ]; then
+              echo "SEC refused this runner's download with HTTP ${BLOCKED}: GitHub-hosted"
+              echo "runners come from datacenter IPs that SEC blocks, so the zips have to be"
+              echo "added to the \`sec-data\` release by hand."
+              echo
+            fi
+            echo "To fix, from a machine SEC will serve:"
+            echo
+            echo '```sh'
+            for q in $BEHIND; do
+              name="$(echo "$q" | tr '[:upper:]' '[:lower:]').zip"
+              echo "curl -O -A 'Bank-Analyzer/1.0 (your@email)' ${BASE_URL}/${name}"
+              echo "gh release upload sec-data ${name} --repo ${GITHUB_REPOSITORY} --clobber"
+            done
+            echo '```'
+            echo
+            echo "The next scheduled run (or a manual re-run of this workflow) picks the"
+            echo "new zips up, reprocesses, and redeploys."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          echo "::error::Bank data is behind SEC -- missing ${BEHIND}. See the job summary for the upload steps."
+          exit 1
