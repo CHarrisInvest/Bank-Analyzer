@@ -269,28 +269,50 @@ The workflow downloads quarterly ZIP files from the `sec-data` release and proce
 ### Adding a new quarter
 
 A quarter's dataset only reaches the site once its ZIP is an asset on the
-`sec-data` release. The workflow tries to fetch new quarters from SEC itself,
-but SEC serves HTTP 403 to datacenter IPs, so on GitHub-hosted runners that
-attempt fails and the ZIP has to be uploaded by hand:
-
-```sh
-# from a machine SEC will serve (not a cloud runner)
-curl -O -A 'Bank-Analyzer/1.0 (your@email)' \
-  https://www.sec.gov/files/dera/data/financial-statement-data-sets/2026q2.zip
-gh release upload sec-data 2026q2.zip --repo CHarrisInvest/Bank-Analyzer --clobber
-```
-
-The next daily run (or a manual `workflow_dispatch`) sees the new asset,
-reprocesses every quarter, commits, and deploys.
+`sec-data` release. The daily workflow downloads any newly published quarter
+from SEC and uploads it there itself, then reprocesses, commits and deploys.
 
 Note that SEC names a dataset for the quarter in which filings were *received*,
 not the period they cover: the `2026q1` dataset holds the FY2025 10-Ks, so the
 newest period it yields is Q4 2025. Q1 2026 balance sheets arrive in `2026q2`.
 
 If the release is missing a quarter SEC has already published, the
-`report-freshness` job fails the run and prints the upload commands in the job
-summary. That failure is deliberately in its own job so it does not block the
-deploy of the data already in hand.
+`report-freshness` job fails the run and says which quarter. That failure is
+deliberately in its own job so it does not block the deploy of the data
+already in hand.
+
+### The SEC User-Agent
+
+**SEC requires a User-Agent of exactly the form `Company Name contact@domain`**
+— a bare name and address. Anything more conventional fails:
+
+```
+Bank-Analyzer/1.0 (x@y.com; +https://github.com/...)  ->  403
+Bank Analyzer x@y.com                                 ->  200
+```
+
+This is worth spelling out because the failure is so misleading. With an
+unparseable User-Agent, `data.sec.gov` returns *"Your Request Originates from
+an Undeclared Automated Tool"* but `www.sec.gov` returns **"Request Rate
+Threshold Exceeded"** — which reads like an IP ban or a rate limit and is
+neither. The project lost several months of quarterly data to that message
+being taken at face value; the requests were refused for their headers the
+whole time. `Accept-Encoding` makes no difference either way.
+
+`scripts/fetch-sec-fs-datasets.cjs`, `scripts/update-exchanges.cjs`, and the
+`Check for new quarterly data` step in `update-sec-data.yml` each build this
+header; keep all three in the same form. The contact address comes from the
+`SEC_CONTACT_EMAIL` secret, falling back to `VITE_CONTACT_EMAIL`. With neither
+set the User-Agent has no address and SEC refuses everything.
+
+### Diagnosing a 403
+
+`.github/workflows/probe-sec-access.yml` (manual dispatch) requests the
+quarterly ZIP, the landing page and the submissions API under several
+User-Agent and header combinations, and prints the status **and body** of each
+refusal. Run it whenever SEC starts refusing the pipeline: SEC's block pages
+name the objection, and the probe varies one requirement at a time so the
+result says which one to fix.
 
 ---
 
