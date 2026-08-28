@@ -123,6 +123,29 @@ const TAG_EQUIVALENTS = {
 const TEMP_DIR = path.join(__dirname, '..', '.sec-data-cache');
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'data');
 
+// The label normaliser is shared with the UI (src/utils/labels.js) so a caption
+// reads the same in both places. It is an ES module and this script is CommonJS,
+// so it is pulled in with a dynamic import from main() before any processing.
+let cleanLabel = (label) => label;
+
+/**
+ * Key used to decide that two XBRL tags are the same concept.
+ *
+ * Filers embed the filing's own comparatives in the label, so the raw text
+ * differs between every filing even when the line item is identical --
+ * "issued 172,185,507 and 171,360,188" one quarter, different figures the
+ * next. Keying on the raw label therefore almost never matches, no
+ * equivalence is recorded, and the older tag is appended as a second row.
+ * Normalising first compares captions rather than captions-plus-figures.
+ */
+function equivalenceKey(item) {
+  const caption = cleanLabel(item.label || '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim();
+  return `${caption}|${item.line}`;
+}
+
 // SEC's fair-access policy wants a User-Agent of exactly the shape
 // "Company Name contact@domain" -- a bare name and address, nothing else.
 // A conventional product/version string with the address in parentheses does
@@ -1268,11 +1291,9 @@ function buildHistoricalStatements(bankData) {
     const tagSet = new Set(canonicalItems.map(item => item.tag));
 
     // Build lookup by normalized label + line for auto-detection of equivalences
-    // Normalize label: lowercase, trim whitespace
     const labelLineToTag = new Map();
     for (const item of canonicalItems) {
-      const key = `${(item.label || '').toLowerCase().trim()}|${item.line}`;
-      labelLineToTag.set(key, item.tag);
+      labelLineToTag.set(equivalenceKey(item), item.tag);
     }
 
     // Helper to check if a tag or any of its equivalents are already in the set
@@ -1303,7 +1324,7 @@ function buildHistoricalStatements(bankData) {
 
       for (const item of pres[stmtType]) {
         // Check for automatic equivalence: same label + line number = same concept
-        const key = `${(item.label || '').toLowerCase().trim()}|${item.line}`;
+        const key = equivalenceKey(item);
         const existingTag = labelLineToTag.get(key);
 
         if (existingTag && existingTag !== item.tag) {
@@ -1452,11 +1473,17 @@ function buildHistoricalStatements(bankData) {
       });
     }
 
+    // fromOlderFiling is carried through rather than dropped: these rows take
+    // their caption from an earlier filing (the tag is absent from the most
+    // recent one), so the label can lag the data by years. Filings are sorted
+    // newest-first, so the label used is already the newest available for that
+    // tag -- the flag records that it is still not current.
     const canonicalItemsClean = canonicalItems.map(item => ({
       tag: item.tag,
       label: item.label,
       line: item.line,
       indent: item.indent ?? 0,
+      ...(item.fromOlderFiling ? { fromOlderFiling: true } : {}),
     }));
 
     return { statements, canonicalItems: canonicalItemsClean };
@@ -1836,11 +1863,17 @@ function buildHistoricalStatements(bankData) {
       });
     }
 
+    // fromOlderFiling is carried through rather than dropped: these rows take
+    // their caption from an earlier filing (the tag is absent from the most
+    // recent one), so the label can lag the data by years. Filings are sorted
+    // newest-first, so the label used is already the newest available for that
+    // tag -- the flag records that it is still not current.
     const canonicalItemsClean = canonicalItems.map(item => ({
       tag: item.tag,
       label: item.label,
       line: item.line,
       indent: item.indent ?? 0,
+      ...(item.fromOlderFiling ? { fromOlderFiling: true } : {}),
     }));
 
     return { statements, canonicalItems: canonicalItemsClean };
@@ -2582,6 +2615,10 @@ function findCachedQuarters() {
  * Main function
  */
 async function main() {
+  // Load the shared label normaliser before any processing: equivalenceKey
+  // depends on it, and without it every caption compares as raw text again.
+  ({ cleanLabel } = await import('../src/utils/labels.js'));
+
   if (HELP) {
     console.log('SEC Financial Statement Data Sets Processor');
     console.log('');
