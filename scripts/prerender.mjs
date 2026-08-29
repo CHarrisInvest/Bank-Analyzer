@@ -384,8 +384,7 @@ async function generatePages() {
 
   function generateBankLinksHtml(bankList) {
     return bankList.map(b => {
-      const label = b.ticker ? `${b.bankName} (${b.ticker})` : b.bankName;
-      return `<li><a href="${SITE_URL}/bank/${encodeURIComponent(bankPath(b))}">${escapeHtml(label)}</a></li>`;
+      return `<li><a href="${SITE_URL}/bank/${encodeURIComponent(b.ticker)}">${escapeHtml(b.bankName)} (${escapeHtml(b.ticker)})</a></li>`;
     }).join('\n            ');
   }
 
@@ -2299,11 +2298,10 @@ async function generatePages() {
   let bankCount = 0;
   let bankSkipped = 0;
   for (const bank of banks) {
-    // Addressed by ticker where there is one, otherwise by padded CIK. Banks
-    // with no separately listed common stock (HSBC USA, Santander Holdings
-    // USA) used to be skipped here because the SPA could not resolve them;
-    // it now accepts the CIK form, so they get a page like everyone else.
-    if (!bank.ticker && !bank.cik) {
+    // Skip banks without a listed ticker: they are US arms of foreign parents
+    // or shells, and out of scope for this site. The app filters them out of
+    // the dataset too, so a page here would have nothing to render against.
+    if (!bank.ticker) {
       bankSkipped++;
       continue;
     }

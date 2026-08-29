@@ -100,12 +100,13 @@ function App() {
       const banksResult = await fetchBankData();
 
       if (banksResult.success) {
-        // Every bank in banks.json is kept. Nine live filers have no ticker
-        // because their common stock is not separately listed (HSBC USA,
-        // Santander Holdings USA); they used to be dropped here as
-        // unlookupable, which also removed them from the screener. They are
-        // addressed by CIK now -- see src/utils/bankPath.js.
-        setBanks(banksResult.data);
+        // Only banks with a listed ticker are shown. The filers without one
+        // are US arms of foreign parents (HSBC USA, Santander Holdings USA)
+        // plus a handful of shells; this site covers US banks and US bank
+        // holding companies, so the absence of a listed common stock is a
+        // usable proxy for "not in scope".
+        const banksWithTickers = banksResult.data.filter(bank => bank.ticker);
+        setBanks(banksWithTickers);
         setError(null);
       } else {
         setError(banksResult.error?.message || 'Failed to load bank data');

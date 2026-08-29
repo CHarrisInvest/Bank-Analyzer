@@ -1234,12 +1234,9 @@ function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
                     displayContent = <span className="date-badge">{formatted.label}</span>;
                   } else if (column.key === 'ticker' && typeof formatted === 'string') {
                     // Ticker is always a clickable link to the bank detail page
-                    // A bank with no separately listed common stock has no
-                    // ticker; show a dash rather than an empty, unclickable cell.
-                    const tickerText = formatted || '\u2014';
                     const tickerContent = searchQuery
-                      ? highlightMatch(tickerText, searchQuery, false)
-                      : tickerText;
+                      ? highlightMatch(formatted, searchQuery, false)
+                      : formatted;
 
                     const handleTickerClick = (e) => {
                       e.preventDefault();
