@@ -724,9 +724,9 @@
               "line": 19,
               "indent": 0,
               "negating": false,
-              "value": 1486000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "OtherLiabilities",
@@ -945,10 +945,11 @@
               "label": "Allowance for credit losses",
               "line": 9,
               "indent": 0,
-              "negating": true,
-              "value": -6863000,
+              "negating": false,
+              "value": 6863000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "LoansAndLeasesReceivableAllowance",
@@ -1125,10 +1126,11 @@
               "label": "Less treasury stock, at cost",
               "line": 28,
               "indent": 0,
-              "negating": true,
-              "value": -11702000,
+              "negating": false,
+              "value": 11702000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
@@ -2117,14 +2119,15 @@
               "label": "Allowance for credit losses",
               "line": 9,
               "indent": 0,
-              "negating": false,
-              "value": 7176000,
+              "negating": true,
+              "value": -7176000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -2355,14 +2358,15 @@
               "label": "Less treasury stock, at cost",
               "line": 27,
               "indent": 0,
-              "negating": false,
-              "value": 11701000,
+              "negating": true,
+              "value": -11701000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
@@ -3961,14 +3965,15 @@
               "label": "Allowance for credit losses",
               "line": 9,
               "indent": 0,
-              "negating": false,
-              "value": 6871000,
+              "negating": true,
+              "value": -6871000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -4102,9 +4107,9 @@
               "line": 20,
               "indent": 0,
               "negating": false,
-              "value": 1486000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -4199,14 +4204,15 @@
               "label": "Less treasury stock, at cost",
               "line": 27,
               "indent": 0,
-              "negating": false,
-              "value": 11701000,
+              "negating": true,
+              "value": -11701000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
@@ -7522,7 +7528,8 @@
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
             "label": "Total Loans",
             "line": 7,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCrediTlossAfterBasisAdjustment",
@@ -7534,7 +7541,8 @@
             "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
             "label": "Loans, net of unearned income",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
@@ -7546,7 +7554,8 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Allowance for loan losses",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -7600,7 +7609,8 @@
             "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
             "label": "Federal funds purchased and securities sold under agreements to repurchase",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherLiabilities",
@@ -7660,7 +7670,8 @@
             "tag": "TreasuryStockValue",
             "label": "Less treasury stock, at cost",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LiabilitiesAndStockholdersEquity",
@@ -7710,7 +7721,8 @@
             "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
             "label": "Total loans",
             "line": 7,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLossAfterBasisAdjustment",
@@ -7722,19 +7734,22 @@
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
             "label": "Total loans",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Allowance for credit losses",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
             "label": "Loans, net of unearned income",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
@@ -7800,7 +7815,8 @@
             "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
             "label": "Federal funds purchased and securities sold under agreements to repurchase",
             "line": 20,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Liabilities",
@@ -7824,7 +7840,8 @@
             "tag": "PreferredStockValue",
             "label": "Preferred stock",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RetainedEarningsAccumulatedDeficit",
@@ -7854,7 +7871,8 @@
             "tag": "TreasuryStockValue",
             "label": "Less treasury stock, at cost",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LiabilitiesAndStockholdersEquity",
@@ -8882,9 +8900,9 @@
               "line": 18,
               "indent": 0,
               "negating": false,
-              "value": 3234000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncome",
@@ -15634,7 +15652,8 @@
             "tag": "ProvisionForLoanLeaseAndOtherLosses",
             "label": "Provision for loan losses",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -15670,7 +15689,8 @@
             "tag": "GainLossOnSaleOfPropertyPlantEquipment",
             "label": "Gain on sale of premises and equipment",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -15682,7 +15702,8 @@
             "tag": "DebtSecuritiesRealizedGainLoss",
             "label": "Securities losses, net",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -15712,7 +15733,8 @@
             "tag": "EmployeeRetentionTaxCredit",
             "label": "Employee Retention Tax Credit",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherNoninterestExpense",
@@ -15792,7 +15814,8 @@
             "tag": "InterestIncomeSecuritiesTaxExempt",
             "label": "Securities - Tax-exempt",
             "line": 4,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestAndDividendIncomeOperating",
@@ -15822,7 +15845,8 @@
             "tag": "InterestExpenseShortTermBorrowings",
             "label": "Short-term borrowings",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestCreditLossExpenseReversal",
@@ -15840,7 +15864,8 @@
             "tag": "ProvisionForLoanLeaseAndOtherLosses",
             "label": "Provision for credit losses",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
@@ -15876,7 +15901,8 @@
             "tag": "GainLossOnSaleOfPropertyPlantEquipment",
             "label": "Gain on sale of premises and equipment",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -15888,7 +15914,8 @@
             "tag": "DebtSecuritiesRealizedGainLoss",
             "label": "Securities gains, net",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OccupancyNet",
@@ -15924,13 +15951,15 @@
             "tag": "FdicAndOtherRegulatoryAssessments",
             "label": "FDIC and other regulatory assessments",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "EmployeeRetentionTaxCredit",
             "label": "Employee Retention Tax Credit",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeTaxExpenseBenefit",

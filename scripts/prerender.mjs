@@ -8,6 +8,7 @@
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { bankPath } from '../src/utils/bankPath.js';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -2297,17 +2298,18 @@ async function generatePages() {
   let bankCount = 0;
   let bankSkipped = 0;
   for (const bank of banks) {
-    // Use ticker for URL (matches React Router's bank/:ticker route)
-    // Skip banks without tickers - they can't be looked up in the SPA
+    // Skip banks without a listed ticker: they are US arms of foreign parents
+    // or shells, and out of scope for this site. The app filters them out of
+    // the dataset too, so a page here would have nothing to render against.
     if (!bank.ticker) {
       bankSkipped++;
       continue;
     }
     const cik = bank.cik.replace(/^0+/, '');
-    const path = `/bank/${bank.ticker}`;
+    const path = `/bank/${bankPath(bank)}`;
     const bankName = bank.bankName || 'Unknown Bank';
-    const ticker = ` (${bank.ticker})`;
-    const tickerOnly = bank.ticker;
+    const ticker = bank.ticker ? ` (${bank.ticker})` : '';
+    const tickerOnly = bank.ticker || '';
 
     // Look up alternate names / keywords for this bank
     const keywordData = bankKeywords[tickerOnly] || null;

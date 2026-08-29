@@ -100,7 +100,11 @@ function App() {
       const banksResult = await fetchBankData();
 
       if (banksResult.success) {
-        // Filter out banks without tickers - they can't be looked up by users
+        // Only banks with a listed ticker are shown. The filers without one
+        // are US arms of foreign parents (HSBC USA, Santander Holdings USA)
+        // plus a handful of shells; this site covers US banks and US bank
+        // holding companies, so the absence of a listed common stock is a
+        // usable proxy for "not in scope".
         const banksWithTickers = banksResult.data.filter(bank => bank.ticker);
         setBanks(banksWithTickers);
         setError(null);

@@ -250,16 +250,6 @@
               "hasValue": true
             },
             {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") (Fair Value of $130,902 and $158,540 at December 31, 2024 and December 31, 2023, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "Investments",
               "label": "Total Investments",
               "line": 9,
@@ -288,16 +278,6 @@
               "value": 673056000,
               "uom": "USD",
               "hasValue": true
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance of $13,894 and $12,569 at December 31, 2024 and December 31, 2023, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLossAndHeldForSaleFinancingReceivable",
@@ -687,16 +667,6 @@
               "line": 8,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") (Fair Value of $130,902 and $158,540 at December 31, 2024 and December 31, 2023, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
               "value": 135200000,
               "uom": "USD",
               "hasValue": true
@@ -724,16 +694,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance of $13,529 and $13,894 at December 31, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance of $13,894 and $12,569 at December 31, 2024 and December 31, 2023, Respectively)",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -1129,16 +1089,6 @@
               "line": 8,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") (Fair Value of $158,540 and $161,464 at December 31, 2023 and December 31, 2022, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
               "value": 163072000,
               "uom": "USD",
               "hasValue": true
@@ -1166,16 +1116,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance of $13,529 and $13,894 at December 31, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance of $12,569 and $11,178 at December 31, 2023 and December 31, 2022, Respectively)",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -1576,16 +1516,6 @@
               "hasValue": false
             },
             {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") (Fair Value of $130,902 and $158,540 at December 31, 2024 and December 31, 2023, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
               "tag": "Investments",
               "label": "Total Investments",
               "line": 9,
@@ -1608,16 +1538,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance of $13,529 and $13,894 at December 31, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Total Loans Receivable, Net",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -1910,10 +1830,11 @@
               "label": "Treasury Stock, Value",
               "line": 38,
               "indent": 0,
-              "negating": false,
-              "value": 4331000,
+              "negating": true,
+              "value": -4331000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
@@ -2051,20 +1972,6 @@
               "isRestated": false
             },
             {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") Net of Allowance for Credit Losses of $0 (Fair Value of $130,550 and $130,902 at March 31, 2025 and December 31, 2024, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "Investments",
               "label": "Total Investments",
               "line": 9,
@@ -2115,20 +2022,6 @@
               "value": 673056000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance for Credit Losses of $14,005 and $13,894 at March 31, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -2527,20 +2420,6 @@
               "isRestated": false
             },
             {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,459,388 Shares Issued and 3,113,843 Shares Outstanding at December 31, 2025 and 3,458,050 Shares Issued and 3,186,571 Shares Outstanding at December 31, 2024",
               "line": 35,
@@ -2549,20 +2428,6 @@
               "value": 35000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -2736,20 +2601,6 @@
               "isRestated": false
             },
             {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") Net of Allowance for Credit Losses of $0 (Fair Value of $130,550 and $130,902 at March 31, 2025 and December 31, 2024, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "Investments",
               "label": "Total Investments",
               "line": 9,
@@ -2800,20 +2651,6 @@
               "value": 677070000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance for Credit Losses of $14,005 and $13,894 at March 31, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -3212,20 +3049,6 @@
               "isRestated": false
             },
             {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,459,093 Shares Issued and 3,123,691 Shares Outstanding at September 30, 2025 and 3,458,050 Shares Issued and 3,186,571 Shares Outstanding at December 31, 2024, Respectively",
               "line": 35,
@@ -3234,20 +3057,6 @@
               "value": 35000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -3421,20 +3230,6 @@
               "isRestated": false
             },
             {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") Net of Allowance for Credit Losses of $0 (Fair Value of $130,550 and $130,902 at March 31, 2025 and December 31, 2024, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "Investments",
               "label": "Total Investments",
               "line": 9,
@@ -3485,20 +3280,6 @@
               "value": 685501000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance for Credit Losses of $14,005 and $13,894 at March 31, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -3897,20 +3678,6 @@
               "isRestated": false
             },
             {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,458,722 Shares Issued and 3,184,218 Shares Outstanding at June 30, 2025 and 3,458,050 Shares Issued and 3,186,571 Shares Outstanding at December 31, 2024, Respectively",
               "line": 35,
@@ -3919,20 +3686,6 @@
               "value": 35000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -4097,20 +3850,6 @@
               "line": 8,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") Net of Allowance for Credit Losses of $0 (Fair Value of $130,550 and $130,902 at March 31, 2025 and December 31, 2024, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
               "value": 133817000,
               "uom": "USD",
               "hasValue": true,
@@ -4164,20 +3903,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance for Credit Losses of $13,603 and $13,894 at September 30, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance for Credit Losses of $14,005 and $13,894 at March 31, 2025 and December 31, 2024, Respectively)",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -4582,20 +4307,6 @@
               "isRestated": false
             },
             {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,458,407 Shares Issued and 3,186,903 Shares Outstanding at March 31, 2025 and 3,458,050 Shares Issued and 3,186,571 Shares Outstanding at December 31, 2024, Respectively",
               "line": 35,
@@ -4604,20 +4315,6 @@
               "value": 35000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -4782,20 +4479,6 @@
               "line": 8,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") (Fair Value of $130,902 and $158,540 at December 31, 2024 and December 31, 2023, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
               "value": 135200000,
               "uom": "USD",
               "hasValue": true,
@@ -4849,20 +4532,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance for Credit Losses of $13,603 and $13,894 at September 30, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance of $13,894 and $12,569 at December 31, 2024 and December 31, 2023, Respectively)",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -5267,20 +4936,6 @@
               "isRestated": false
             },
             {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,458,050 Shares Issued and 3,186,571 Shares Outstanding at December 31, 2024 and 3,456,136 Shares Issued and 3,228,777 Shares Outstanding at December 31, 2023",
               "line": 35,
@@ -5289,20 +4944,6 @@
               "value": 35000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -5467,20 +5108,6 @@
               "line": 8,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") Net of Allowance for Credit Losses of $0 (Fair Value of $135,502 and $158,540 at September 30, 2024 and December 31, 2023, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
               "value": 137851000,
               "uom": "USD",
               "hasValue": true,
@@ -5534,20 +5161,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance for Credit Losses of $13,603 and $13,894 at September 30, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance for Credit Losses of $13,604 and $12,569 at September 30, 2024 and December 31, 2023, Respectively)",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -5952,20 +5565,6 @@
               "isRestated": false
             },
             {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,457,706 Shares Issued and 3,194,437 Shares Outstanding at September 30, 2024 and 3,456,136 Shares Issued and 3,228,777 Shares Outstanding at December 31, 2023, Respectively",
               "line": 35,
@@ -5974,20 +5573,6 @@
               "value": 35000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -6152,20 +5737,6 @@
               "line": 8,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") Net of Allowance for Credit Losses of $0 (Fair Value of $138,187 and $158,540 at June 30, 2024 and December 31, 2023, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
               "value": 142601000,
               "uom": "USD",
               "hasValue": true,
@@ -6219,20 +5790,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance for Credit Losses of $13,603 and $13,894 at September 30, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance for Credit Losses of $12,958 and $12,569 at June 30, 2024 and December 31, 2023, Respectively)",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -6637,20 +6194,6 @@
               "isRestated": false
             },
             {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,457,212 Shares Issued and 3,196,443 Shares Outstanding at June 30, 2024 and 3,456,136 Shares Issued and 3,228,777 Shares Outstanding at December 31, 2023, Respectively",
               "line": 35,
@@ -6659,20 +6202,6 @@
               "value": 35000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -6837,20 +6366,6 @@
               "line": 8,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") Net of Allowance for Credit Losses of $0 (Fair Value of $154,938 and $158,540 at March 31, 2024 and December 31, 2023, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
               "value": 159085000,
               "uom": "USD",
               "hasValue": true,
@@ -6904,20 +6419,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance for Credit Losses of $13,603 and $13,894 at September 30, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance for Credit Losses of $12,842 and $12,569 at March 31, 2024 and December 31, 2023, Respectively)",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -7322,20 +6823,6 @@
               "isRestated": false
             },
             {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,456,714 Shares Issued and 3,225,125 Shares Outstanding at March 31, 2024 and 3,456,136 Shares Issued and 3,228,777 Shares Outstanding at December 31, 2023, Respectively",
               "line": 35,
@@ -7344,20 +6831,6 @@
               "value": 35000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -7522,20 +6995,6 @@
               "line": 8,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") (Fair Value of $158,540 and $161,464 at December 31, 2023 and December 31, 2022, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
               "value": 163072000,
               "uom": "USD",
               "hasValue": true,
@@ -7589,20 +7048,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance for Credit Losses of $13,603 and $13,894 at September 30, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance of $12,569 and $11,178 at December 31, 2023 and December 31, 2022, Respectively)",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -8007,20 +7452,6 @@
               "isRestated": false
             },
             {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,456,136 Shares Issued and 3,228,777 Shares Outstanding at December 31, 2023 and 3,453,817 Shares Issued and 3,252,884 Shares Outstanding at December 31, 2022",
               "line": 35,
@@ -8029,20 +7460,6 @@
               "value": 35000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -8207,20 +7624,6 @@
               "line": 8,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") Net of Allowance for Credit Losses of $0 (Fair Value of $166,638,696 and $161,463,573 at September 30, 2023 and December 31, 2022, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
               "value": 174136215,
               "uom": "USD",
               "hasValue": true,
@@ -8274,20 +7677,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance for Credit Losses of $13,603 and $13,894 at September 30, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance for Credit Losses of $12,348,125 and $11,177,753 at September 30, 2023 and December 31, 2022, Respectively)",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -8692,20 +8081,6 @@
               "isRestated": false
             },
             {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,455,446 and 3,453,817 Shares Issued and 3,241,813 and 3,252,884 Shares Outstanding at September 30, 2023 and December 31, 2022, Respectively",
               "line": 35,
@@ -8714,20 +8089,6 @@
               "value": 34555,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -8892,20 +8253,6 @@
               "line": 8,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") Net of Allowance for Credit Losses of $0 (Fair Value of $170,589,274 and $161,463,573 at June 30, 2023 and December 31, 2022, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
               "value": 176622658,
               "uom": "USD",
               "hasValue": true,
@@ -8959,20 +8306,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance for Credit Losses of $13,603 and $13,894 at September 30, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Held For Investment (Net of Allowance for Credit Losses of $12,283,325 and $11,177,753 at June 30, 2023 and December 31, 2022, Respectively)",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -9377,20 +8710,6 @@
               "isRestated": false
             },
             {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,669 and 3,453,817 Shares Issued and 3,253,736 and 3,252,884 Shares Outstanding at June 30, 2023 and December 31, 2022, Respectively",
               "line": 35,
@@ -9399,20 +8718,6 @@
               "value": 34547,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -9586,20 +8891,6 @@
               "isRestated": false
             },
             {
-              "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-              "label": "\"Held To Maturity (\"\"HTM\"\") Net of Allowance for Credit Losses of $0 (Fair Value of $130,550 and $130,902 at March 31, 2025 and December 31, 2024, Respectively)\"",
-              "line": 8,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
               "tag": "Investments",
               "label": "Total Investments And Mortgage-Backed Securities",
               "line": 9,
@@ -9644,20 +8935,6 @@
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
               "label": "Held For Investment (Net of Allowance for Credit Losses of $13,603 and $13,894 at September 30, 2025 and December 31, 2024, Respectively)",
-              "line": 12,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "NotesReceivableNet",
-              "label": "Total Loans Receivable, Net",
               "line": 12,
               "indent": 0,
               "negating": false,
@@ -10053,20 +9330,6 @@
               "line": 34,
               "indent": 0,
               "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "PreferredStockValueOutstanding",
-              "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-              "line": 34,
-              "indent": 0,
-              "negating": false,
               "value": 82949000,
               "uom": "USD",
               "hasValue": true,
@@ -10078,20 +9341,6 @@
             {
               "tag": "CommonStockValue",
               "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,459,093 Shares Issued and 3,123,691 Shares Outstanding at September 30, 2025 and 3,458,050 Shares Issued and 3,186,571 Shares Outstanding at December 31, 2024, Respectively",
-              "line": 35,
-              "indent": 0,
-              "negating": false,
-              "value": null,
-              "uom": "USD",
-              "hasValue": false,
-              "isDerived": false,
-              "derivedUnavailable": false,
-              "isAnnualProxy": false,
-              "isRestated": false
-            },
-            {
-              "tag": "CommonStockValueOutstanding",
-              "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
               "line": 35,
               "indent": 0,
               "negating": false,
@@ -10217,12 +9466,6 @@
             "indent": 0
           },
           {
-            "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-            "label": "\"Held To Maturity (\"\"HTM\"\") (Fair Value of $130,902 and $158,540 at December 31, 2024 and December 31, 2023, Respectively)\"",
-            "line": 8,
-            "indent": 0
-          },
-          {
             "tag": "Investments",
             "label": "Total Investments",
             "line": 9,
@@ -10237,12 +9480,6 @@
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Held For Investment (Net of Allowance of $13,529 and $13,894 at December 31, 2025 and December 31, 2024, Respectively)",
-            "line": 12,
-            "indent": 0
-          },
-          {
-            "tag": "NotesReceivableNet",
-            "label": "Held For Investment (Net of Allowance of $13,894 and $12,569 at December 31, 2024 and December 31, 2023, Respectively)",
             "line": 12,
             "indent": 0
           },
@@ -10298,7 +9535,8 @@
             "tag": "HeldToMaturitySecuritiesAmortizedCostBeforeOtherThanTemporaryImpairment",
             "label": "\"Held To Maturity (\"\"HTM\"\") (Fair Value of $161,464 and $23,721 at December 31, 2022 and December 31, 2021, Respectively)\"",
             "line": 20,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Goodwill",
@@ -10322,7 +9560,8 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Loans and Leases Receivable, Net Amount",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Deposits",
@@ -10340,7 +9579,8 @@
             "tag": "InterestReceivableAndOtherAssets",
             "label": "Accrued Interest Receivable",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherBorrowings",
@@ -10358,7 +9598,8 @@
             "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
             "label": "Land Held for Sale",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "SubordinatedDebt",
@@ -10382,7 +9623,8 @@
             "tag": "OtherRealEstateAndForeclosedAssets",
             "label": "\"Other Real Estate Owned (\"\"OREO\"\")\"",
             "line": 31,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Liabilities",
@@ -10448,7 +9690,8 @@
             "tag": "CommonStockValueOutstanding",
             "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,453,817 Shares Issued and 3,252,884 Shares Outstanding at December 31, 2022 and 2021",
             "line": 49,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ],
         "quarterly": [
@@ -10468,7 +9711,8 @@
             "tag": "InvestmentsinDebtandMarketableEquitySecuritiesandCertainTradingAssetsHeldtoMaturityDisclosure",
             "label": "Investment and Mortgage-Backed Securities, Held to Maturity",
             "line": 6,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
@@ -10483,12 +9727,6 @@
             "indent": 0
           },
           {
-            "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
-            "label": "\"Held To Maturity (\"\"HTM\"\") Net of Allowance for Credit Losses of $0 (Fair Value of $130,550 and $130,902 at March 31, 2025 and December 31, 2024, Respectively)\"",
-            "line": 8,
-            "indent": 0
-          },
-          {
             "tag": "Investments",
             "label": "Total Investments",
             "line": 9,
@@ -10498,7 +9736,8 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Loans and Leases Receivable, Net Amount",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
@@ -10513,12 +9752,6 @@
             "indent": 0
           },
           {
-            "tag": "NotesReceivableNet",
-            "label": "Held For Investment (Net of Allowance for Credit Losses of $14,005 and $13,894 at March 31, 2025 and December 31, 2024, Respectively)",
-            "line": 12,
-            "indent": 0
-          },
-          {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLossAndHeldForSaleFinancingReceivable",
             "label": "Total Loans Receivable, Net",
             "line": 13,
@@ -10528,7 +9761,8 @@
             "tag": "AccruedInvestmentIncomeReceivable",
             "label": "Investments",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestReceivable",
@@ -10540,7 +9774,8 @@
             "tag": "InterestReceivableAndOtherAssets",
             "label": "Total Accrued Interest Receivable",
             "line": 14,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OperatingLeaseRightOfUseAsset",
@@ -10552,7 +9787,8 @@
             "tag": "FinancingReceivableAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Loans",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LandAvailableForSale",
@@ -10564,7 +9800,8 @@
             "tag": "DebtSecuritiesHeldtomaturityAndAvailableforsaleAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Investments",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PropertyPlantAndEquipmentNet",
@@ -10594,7 +9831,8 @@
             "tag": "HeldToMaturitySecuritiesAmortizedCostBeforeOtherThanTemporaryImpairment",
             "label": "\"Held To Maturity (\"\"HTM\"\") (Fair Value of $161,464 and $23,721 at December 31, 2022 and December 31, 2021, Respectively)\"",
             "line": 20,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Goodwill",
@@ -10642,7 +9880,8 @@
             "tag": "AssetsHeldForSaleNotPartOfDisposalGroup",
             "label": "Land Held for Sale",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "SubordinatedDebt",
@@ -10654,7 +9893,8 @@
             "tag": "SeniorNotes",
             "label": "Senior Notes",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OperatingLeaseLiability",
@@ -10678,7 +9918,8 @@
             "tag": "CommitmentsAndContingencies",
             "label": "Commitments (Note 18)",
             "line": 33,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PreferredStockValue",
@@ -10687,20 +9928,8 @@
             "indent": 0
           },
           {
-            "tag": "PreferredStockValueOutstanding",
-            "label": "Senior Non-Cumulative Perpetual Preferred Stock, Series ECIP, $1,000 Par Value; 82,949 Shares Authorized, Issued and Outstanding at March 31, 2023 and December 31, 2022",
-            "line": 34,
-            "indent": 0
-          },
-          {
             "tag": "CommonStockValue",
             "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,459,093 Shares Issued and 3,123,691 Shares Outstanding at September 30, 2025 and 3,458,050 Shares Issued and 3,186,571 Shares Outstanding at December 31, 2024, Respectively",
-            "line": 35,
-            "indent": 0
-          },
-          {
-            "tag": "CommonStockValueOutstanding",
-            "label": "Common Stock, $0.01 Par Value; 5,000,000 Shares Authorized; 3,454,143 and 3,453,817 Shares Issued and 3,253,210 and 3,252,884 Shares Outstanding at March 31, 2023 and December 31, 2022, Respectively",
             "line": 35,
             "indent": 0
           },
@@ -23048,7 +22277,8 @@
             "tag": "InvestmentIncomeInterestAndDividend",
             "label": "Investment Securities",
             "line": 5,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestAndFeeIncomeLoansAndLeases",
@@ -23072,7 +22302,8 @@
             "tag": "InterestExpenseOtherShortTermBorrowings",
             "label": "FHLB Advances and Other Borrowings",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherInterestAndDividendIncome",
@@ -23132,7 +22363,8 @@
             "tag": "ServiceFeesonDepositAccounts",
             "label": "Service Fees on Deposit Accounts",
             "line": 20,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -23144,7 +22376,8 @@
             "tag": "TrustIncome",
             "label": "Trust Income",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnSaleOfInvestments",
@@ -23162,7 +22395,8 @@
             "tag": "Checkcardrevenue",
             "label": "ATM and Check Card Fee Income",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnSaleOfProperties",
@@ -23174,7 +22408,8 @@
             "tag": "GrantRevenue",
             "label": "Grant Income",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -23222,7 +22457,8 @@
             "tag": "Depreciation",
             "label": "Depreciation and Maintenance of Equipment",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -23234,7 +22470,8 @@
             "tag": "OtherRevenueExpenseFromRealEstateOperations",
             "label": "Net (Recovery) Expense from Operation of OREO",
             "line": 34,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OccupancyNet",
@@ -23258,7 +22495,8 @@
             "tag": "CommunicationsAndInformationTechnology",
             "label": "Debit Card Expenses",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalDepositInsuranceCorporationPremiumExpense",
@@ -23270,13 +22508,15 @@
             "tag": "ImpairmentOfLongLivedAssetsToBeDisposedOf",
             "label": "Write Down of Land Held for Sale",
             "line": 38,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherExpenses",
             "label": "Other",
             "line": 38,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProfessionalFees",
@@ -23288,7 +22528,8 @@
             "tag": "GeneralAndAdministrativeExpense",
             "label": "Total Non-Interest Expense",
             "line": 39,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebitCardExpense",
@@ -23300,7 +22541,8 @@
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
             "label": "Income Before Income Taxes",
             "line": 40,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DataProcessing",
@@ -23380,7 +22622,8 @@
             "tag": "InvestmentIncomeInterestAndDividend",
             "label": "Investment Securities",
             "line": 5,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestAndFeeIncomeLoansAndLeases",
@@ -23398,7 +22641,8 @@
             "tag": "InterestAndDividendIncomeSecurities",
             "label": "Investments",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeSecuritiesTaxExempt",
@@ -23410,7 +22654,8 @@
             "tag": "InterestExpenseOtherShortTermBorrowings",
             "label": "FHLB Advances and Other Borrowings",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherInterestAndDividendIncome",
@@ -23464,13 +22709,15 @@
             "tag": "ProvisionForLoanLossesExpensed",
             "label": "Provision for Credit Losses",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ServiceFeesonDepositAccounts",
             "label": "Service Fees on Deposit Accounts",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProvisionForLoanLeaseAndOtherLosses",
@@ -23488,7 +22735,8 @@
             "tag": "TrustIncome",
             "label": "Trust Income",
             "line": 21,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnSaleOfInvestments",
@@ -23500,7 +22748,8 @@
             "tag": "Checkcardrevenue",
             "label": "ATM and Check Card Fee Income",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnSalesOfLoansNet",
@@ -23518,13 +22767,15 @@
             "tag": "GainLossOnSaleOfProperties",
             "label": "Gain on Sale of Land Held for Sale",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GrantRevenue",
             "label": "Grant Income",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InsuranceCommissionsAndFees",
@@ -23542,7 +22793,8 @@
             "tag": "GovernmentAssistanceAmount",
             "label": "Grant Income",
             "line": 27,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BankOwnedLifeInsuranceIncome",
@@ -23566,7 +22818,8 @@
             "tag": "Depreciation",
             "label": "Depreciation and Maintenance of Equipment",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -23590,13 +22843,15 @@
             "tag": "DebitCardExpenses",
             "label": "Debit Card Expenses",
             "line": 34,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherRevenueExpenseFromRealEstateOperations",
             "label": "Net (Recovery) Expense from Operation of OREO",
             "line": 34,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DepreciationAndMaintenanceOfEquipment",
@@ -23614,13 +22869,15 @@
             "tag": "ImpairmentOfLongLivedAssetsToBeDisposedOf",
             "label": "Write-down of Land Held for Sale",
             "line": 36,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherExpenses",
             "label": "Other",
             "line": 36,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProfessionalFees",
@@ -23632,13 +22889,15 @@
             "tag": "GeneralAndAdministrativeExpense",
             "label": "Total Non-Interest Expense",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommunicationsAndInformationTechnology",
             "label": "Debit Card Expenses",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebitCardExpense",
@@ -23650,7 +22909,8 @@
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
             "label": "Income Before Income Taxes",
             "line": 38,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DataProcessing",

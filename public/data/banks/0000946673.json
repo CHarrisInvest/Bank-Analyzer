@@ -104,7 +104,7 @@
         "form": "10-Q+10-K+10-Q+10-Q"
       },
       "InterestExpense": {
-        "value": -106836000,
+        "value": 211900000,
         "date": "20260331",
         "method": "sum-4Q-statements",
         "form": "10-Q+10-K+10-Q+10-Q"
@@ -3107,14 +3107,15 @@
               "label": "Financing Receivable, Allowance for Credit Loss",
               "line": 17,
               "indent": 0,
-              "negating": true,
-              "value": -160276000,
+              "negating": false,
+              "value": 160276000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "LoansAndLeasesReceivableAllowance",
@@ -5959,14 +5960,15 @@
               "label": "Financing Receivable, Allowance for Credit Loss",
               "line": 17,
               "indent": 0,
-              "negating": true,
-              "value": -155521000,
+              "negating": false,
+              "value": 155521000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "LoansAndLeasesReceivableAllowance",
@@ -8825,14 +8827,15 @@
               "label": "Allowance for credit losses  loans",
               "line": 17,
               "indent": 0,
-              "negating": true,
-              "value": -149643000,
+              "negating": false,
+              "value": 149643000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "NotesReceivableNet",
@@ -11482,7 +11485,8 @@
             "tag": "TradingSecurities",
             "label": "Securitiestrading",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
@@ -11500,7 +11504,8 @@
             "tag": "DebtSecuritiesHeldtomaturityNetofAllowanceforCreditLosses",
             "label": "Securitiesheld-to-maturity, net of allowance for credit losses of $332 and $379, respectively",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalHomeLoanBankStock",
@@ -11512,7 +11517,8 @@
             "tag": "DebtSecurities",
             "label": "Debt Securities",
             "line": 14,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansReceivableHeldForSaleAmount",
@@ -11530,7 +11536,8 @@
             "tag": "SecuritiesPurchasedUnderAgreementsToResell",
             "label": "Securities purchased under agreements to resell",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLosses",
@@ -11548,7 +11555,8 @@
             "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
             "label": "Loans receivable",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestReceivable",
@@ -11560,7 +11568,8 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Allowance for credit losses  loans",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PropertyPlantAndEquipmentNet",
@@ -11572,7 +11581,8 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Net loans receivable",
             "line": 20,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Goodwill",
@@ -11590,7 +11600,8 @@
             "tag": "RealEstateHeldForDevelopmentAndSaleNet",
             "label": "Real estate owned (REO), held for sale, net",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BankOwnedLifeInsurance",
@@ -11778,7 +11789,8 @@
             "tag": "TradingSecurities",
             "label": "Securitiestrading",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
@@ -11796,13 +11808,15 @@
             "tag": "DebtSecurities",
             "label": "Total securities",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtSecuritiesHeldtomaturityNetofAllowanceforCreditLosses",
             "label": "Securitiesheld-to-maturity, net of allowance for credit losses of $355 and $379, respectively",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalHomeLoanBankStock",
@@ -11826,13 +11840,15 @@
             "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
             "label": "Loans receivable",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "SecuritiesPurchasedUnderAgreementsToResell",
             "label": "Securities purchased under agreements to resell",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLosses",
@@ -11844,7 +11860,8 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Allowance for credit losses  loans",
             "line": 17,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NotesReceivableNet",
@@ -11880,7 +11897,8 @@
             "tag": "RealEstateHeldForDevelopmentAndSaleNet",
             "label": "Real estate owned (REO), held for sale, net",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BankOwnedLifeInsurance",
@@ -11934,7 +11952,8 @@
             "tag": "NoninterestBearingDepositLiabilities",
             "label": "Non-interest-bearing",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Deposits",
@@ -11946,7 +11965,8 @@
             "tag": "InterestBearingDomesticDepositTransactionAndSavings",
             "label": "Interest-bearing transaction and savings accounts",
             "line": 33,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalHomeLoanBankBorrowingsFairValueDisclosure",
@@ -14283,13 +14303,14 @@
               "line": 11,
               "indent": 0,
               "negating": true,
-              "value": -47649000,
+              "value": 47649000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -14967,14 +14988,15 @@
               "label": "Total interest expense",
               "line": 11,
               "indent": 0,
-              "negating": false,
+              "negating": true,
               "value": 52532000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -15653,13 +15675,14 @@
               "line": 11,
               "indent": 0,
               "negating": true,
-              "value": -55859000,
+              "value": 55859000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -16338,13 +16361,14 @@
               "line": 11,
               "indent": 0,
               "negating": true,
-              "value": -55860000,
+              "value": 55860000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -17023,13 +17047,14 @@
               "line": 11,
               "indent": 0,
               "negating": true,
-              "value": -52785000,
+              "value": 52785000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -17707,14 +17732,15 @@
               "label": "Total interest expense",
               "line": 11,
               "indent": 0,
-              "negating": false,
+              "negating": true,
               "value": 55900000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -18393,13 +18419,14 @@
               "line": 11,
               "indent": 0,
               "negating": true,
-              "value": -60166000,
+              "value": 60166000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -19078,13 +19105,14 @@
               "line": 11,
               "indent": 0,
               "negating": true,
-              "value": -56592000,
+              "value": 56592000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -19763,13 +19791,14 @@
               "line": 11,
               "indent": 0,
               "negating": true,
-              "value": -51729000,
+              "value": 51729000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -20448,13 +20477,14 @@
               "line": 11,
               "indent": 0,
               "negating": true,
-              "value": -45329000,
+              "value": 45329000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -21133,13 +21163,14 @@
               "line": 11,
               "indent": 0,
               "negating": true,
-              "value": -37298000,
+              "value": 37298000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -21818,13 +21849,14 @@
               "line": 11,
               "indent": 0,
               "negating": true,
-              "value": -29291000,
+              "value": 29291000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -22503,13 +22535,14 @@
               "line": 11,
               "indent": 0,
               "negating": true,
-              "value": -13649000,
+              "value": 13649000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -23118,7 +23151,8 @@
             "tag": "ProvisionForLoanLossesExpensed",
             "label": "Financing Receivable, Credit Loss, Expense (Reversal)",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -23178,7 +23212,8 @@
             "tag": "BusinessCombinationBargainPurchaseGainRecognizedAmount",
             "label": "Gain on sale of branches, including related deposits",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -23262,7 +23297,8 @@
             "tag": "LossOnExtinguishmentOfDebt",
             "label": "Loss on extinguishment of debt",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
@@ -23280,7 +23316,8 @@
             "tag": "NoninterestOperatingExpenseBeforeCOVID19andAcquisitionRelatedCosts",
             "label": "Total other operating expense, before acquisition related costs",
             "line": 39,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NetIncomeLoss",
@@ -23292,13 +23329,15 @@
             "tag": "COVID19",
             "label": "COVID-19 expenses",
             "line": 40,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BusinessCombinationAcquisitionRelatedCosts",
             "label": "Merger and acquisition - related expenses",
             "line": 41,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "EarningsPerShareBasic",
@@ -23360,7 +23399,8 @@
             "tag": "InvestmentIncomeInterest",
             "label": "Total interest income",
             "line": 5,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseDeposits",
@@ -23408,7 +23448,8 @@
             "tag": "ProvisionForLoanLossesExpensed",
             "label": "Financing Receivable, Credit Loss, Expense (Reversal)",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -23468,7 +23509,8 @@
             "tag": "GainOnSaleOfBranchesIncludingRelatedDeposits",
             "label": "Gain on sale of branches, including related deposits",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -23552,7 +23594,8 @@
             "tag": "GainsLossesOnExtinguishmentOfDebt",
             "label": "Loss on extinguishment of debt",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
@@ -23570,7 +23613,8 @@
             "tag": "NoninterestOperatingExpenseBeforeCOVID19andAcquisitionRelatedCosts",
             "label": "Total other operating expense, before acquisition related costs",
             "line": 39,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NetIncomeLoss",
@@ -23582,13 +23626,15 @@
             "tag": "COVID19",
             "label": "COVID-19 expenses",
             "line": 40,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BusinessCombinationAcquisitionRelatedCosts",
             "label": "Merger and acquisition - related expenses",
             "line": 41,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "EarningsPerShareBasic",

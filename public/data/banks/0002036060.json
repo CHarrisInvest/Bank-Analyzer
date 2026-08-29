@@ -219,9 +219,9 @@
               "line": 6,
               "indent": 0,
               "negating": false,
-              "value": 980144,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "AvailableForSaleSecuritiesDebtSecurities",
@@ -1097,9 +1097,9 @@
               "line": 6,
               "indent": 0,
               "negating": false,
-              "value": 980144,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -3259,7 +3259,8 @@
             "tag": "HeldToMaturitySecuritiesFairValue",
             "label": "Held-to-maturity securities",
             "line": 6,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
@@ -3361,7 +3362,8 @@
             "tag": "StockSubscriptionProceedsInEscrow",
             "label": "Stock subscription proceeds in escrow",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AdvancesFromFederalHomeLoanBanks",
@@ -6601,7 +6603,8 @@
             "tag": "GainLossOnSalesOfMortgageBackedSecuritiesMBS",
             "label": "Loss on sale of investment securities",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -6613,7 +6616,8 @@
             "tag": "GainsLossesOnSalesOfOtherRealEstate",
             "label": "Gain on sale of real estate owned",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",

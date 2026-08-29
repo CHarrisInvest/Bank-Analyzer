@@ -459,9 +459,9 @@
               "line": 31,
               "indent": 0,
               "negating": true,
-              "value": -1557000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "RetainedEarningsAccumulatedDeficit",
@@ -1303,9 +1303,9 @@
               "line": 28,
               "indent": 0,
               "negating": true,
-              "value": -1557000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -2638,7 +2638,8 @@
             "tag": "TreasuryStockCommonValue",
             "label": "Treasury stock, at cost (164,645 shares at September 30, 2025 and December 31, 2024)",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockValue",
@@ -2873,9 +2874,9 @@
               "line": 23,
               "indent": 0,
               "negating": false,
-              "value": 6000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "EarningsOnDeferredCompensationPlanAssets",
@@ -5338,7 +5339,8 @@
             "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterestAllowanceForCreditLossNotPreviouslyRecorded",
             "label": "Provision for credit losses available-for-sale securities",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -5374,13 +5376,15 @@
             "tag": "BankOwnedLifeInsuranceIncome",
             "label": "Earnings on bank-owned life insurance",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtAndEquitySecuritiesGainLoss",
             "label": "Net gain on sales of available-for-sale securities",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -5416,7 +5420,8 @@
             "tag": "PremisesAndEquipment",
             "label": "Premises and equipment",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "SuppliesAndPostageExpense",

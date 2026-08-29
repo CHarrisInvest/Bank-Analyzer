@@ -13767,10 +13767,10 @@
               "line": 23,
               "indent": 0,
               "negating": false,
-              "value": 1000000,
+              "value": -2000000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
+              "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
@@ -13795,10 +13795,10 @@
               "line": 24,
               "indent": 0,
               "negating": false,
-              "value": 1000000,
+              "value": -2000000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
+              "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
@@ -18795,7 +18795,8 @@
             "tag": "ProvisionForLoanLossesExpensedOnUnfundedCommitments",
             "label": "(Recovery of) provision for credit losses on unfunded commitments",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProvisionForRecoveryOfLoanLossesExpensedOnInvestmentSecurities",
@@ -18807,7 +18808,8 @@
             "tag": "ProvisionForLoanLossesExpensedOnInvestmentSecurities",
             "label": "Provision for credit losses on investment securities",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProvisionForLoanLeaseAndOtherLosses",
@@ -18885,7 +18887,8 @@
             "tag": "DebtAndEquitySecuritiesRealizedGainLoss",
             "label": "Gain on securities, net",
             "line": 38,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -19019,7 +19022,8 @@
             "tag": "InterestExpenseFederalFundsPurchased",
             "label": "Federal funds purchased",
             "line": 17,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseSecuritiesSoldUnderAgreementsToRepurchase",
@@ -19067,13 +19071,15 @@
             "tag": "ProvisionForLoanLossesExpensedOnUnfundedCommitments",
             "label": "(Recovery of) provision for credit losses on unfunded commitments",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProvisionForRecoveryOfLoanLossesExpensedOnUnfundedCommitments",
             "label": "Recovery of credit losses on unfunded commitments",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -19085,13 +19091,15 @@
             "tag": "ProvisionForRecoveryOfLoanLossesExpensedOnInvestmentSecurities",
             "label": "Recovery of credit losses on investment securities",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProvisionForLoanLossesExpensedOnInvestmentSecurities",
             "label": "Provision for credit losses on investment securities",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
@@ -19169,7 +19177,8 @@
             "tag": "DebtAndEquitySecuritiesRealizedGainLoss",
             "label": "Gain on securities, net",
             "line": 38,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",

@@ -2672,14 +2672,15 @@
               "label": "Allowance for loan and lease losses",
               "line": 22,
               "indent": 0,
-              "negating": false,
-              "value": 161846000,
+              "negating": true,
+              "value": -161846000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -5188,14 +5189,15 @@
               "label": "Allowance for loan and lease losses",
               "line": 22,
               "indent": 0,
-              "negating": false,
-              "value": 155540000,
+              "negating": true,
+              "value": -155540000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -10355,31 +10357,36 @@
             "tag": "CommonStockNoParValue",
             "label": "Common Stock, Par or Stated Value Per Share",
             "line": 58,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockSharesAuthorized",
             "label": "Common stock, Authorized shares",
             "line": 59,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockSharesIssued",
             "label": "Common stock, issued shares",
             "line": 60,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TreasuryStockCommonShares",
             "label": "Treasury Stock, Common, Shares",
             "line": 61,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TreasuryStockShares",
             "label": "Cost of common stock in treasury, shares",
             "line": 61,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ],
         "quarterly": [
@@ -10597,55 +10604,64 @@
             "tag": "PreferredStockSharesAuthorized",
             "label": "Preferred stock, authorized shares (in shares)",
             "line": 56,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PreferredStockNoParValue",
             "label": "Preferred stock; no par value (in dollars per share)",
             "line": 56,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PreferredStockSharesOutstanding",
             "label": "Preferred stock, issued shares (in shares)",
             "line": 57,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PreferredStockSharesIssued",
             "label": "Preferred stock, issued shares",
             "line": 58,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockNoParValue",
             "label": "Common stock; no par value (in dollars per share)",
             "line": 60,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockSharesAuthorized",
             "label": "Common stock, Authorized shares",
             "line": 61,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockSharesIssued",
             "label": "Common stock, issued shares",
             "line": 62,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TreasuryStockCommonShares",
             "label": "Treasury Stock, Common, Shares",
             "line": 63,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TreasuryStockShares",
             "label": "Cost of common stock in treasury, shares",
             "line": 63,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ]
       },
@@ -20677,7 +20693,8 @@
             "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
             "label": "Losses on investment securities available-for-sale",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -20749,7 +20766,8 @@
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
             "label": "Income before income taxes",
             "line": 42,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestExpense",
@@ -20797,7 +20815,8 @@
             "tag": "CommonStockDividendsPerShareDeclared",
             "label": "Cash dividends (in dollars per share)",
             "line": 50,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "EarningsPerShareDiluted",

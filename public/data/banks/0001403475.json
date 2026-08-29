@@ -104,7 +104,7 @@
         "form": "10-Q+10-K+10-Q+10-Q"
       },
       "InterestExpense": {
-        "value": 48394000,
+        "value": 47773000,
         "date": "20260331",
         "method": "sum-4Q-statements",
         "form": "10-Q+10-K+10-Q+10-Q"
@@ -7809,7 +7809,8 @@
             "tag": "OtherRealEstateOwned",
             "label": "Other real estate owned",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Assets",
@@ -7943,7 +7944,8 @@
             "tag": "DebtSecuritiesHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
             "label": "Held-to-maturity, at amortized cost (net of zero allowance for credit losses at September 30, 2025 and December 31, 2024)",
             "line": 4,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Investments",
@@ -8015,7 +8017,8 @@
             "tag": "OtherRealEstateOwned",
             "label": "Other real estate owned",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestBearingDepositLiabilities",
@@ -11499,10 +11502,10 @@
               "line": 15,
               "indent": 0,
               "negating": false,
-              "value": 1365000,
+              "value": 1591000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
+              "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
@@ -11513,10 +11516,10 @@
               "line": 16,
               "indent": 0,
               "negating": false,
-              "value": 371000,
+              "value": 609000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
+              "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
@@ -11527,10 +11530,10 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": 7626000,
+              "value": 7961000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
+              "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
@@ -11541,10 +11544,10 @@
               "line": 18,
               "indent": 0,
               "negating": false,
-              "value": 2431000,
+              "value": 1516000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
+              "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
@@ -11555,10 +11558,10 @@
               "line": 19,
               "indent": 0,
               "negating": false,
-              "value": 91000,
+              "value": 6000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
+              "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
@@ -11569,10 +11572,10 @@
               "line": 20,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": 368000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
+              "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
@@ -11583,10 +11586,10 @@
               "line": 21,
               "indent": 0,
               "negating": false,
-              "value": 12672000,
+              "value": 12051000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
+              "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
@@ -11919,10 +11922,10 @@
               "line": 45,
               "indent": 0,
               "negating": false,
-              "value": 121000,
+              "value": 127000,
               "uom": "USD",
               "hasValue": true,
-              "isDerived": false,
+              "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
               "isRestated": false
@@ -21043,7 +21046,8 @@
             "tag": "InterestExpenseTrustPreferredSecurities",
             "label": "Interest on subordinated debenture",
             "line": 20,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseOperating",
@@ -21073,7 +21077,8 @@
             "tag": "ProvisionForReversalOfLossesOnUnfundedLoanCommitments",
             "label": "Reversal of credit losses on unfunded loan commitments",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -21091,7 +21096,8 @@
             "tag": "BankOwnedLifeInsuranceIncome",
             "label": "Earnings on bank-owned life insurance, net",
             "line": 27,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BankOwnedLifeInsuranceIncomeNetExcludingDeathBenefits",
@@ -21277,7 +21283,8 @@
             "tag": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForInvestmentTransferredFromAvailableForSaleToHeldToMaturityBeforeTax",
             "label": "Net unrealized losses on securities transferred from available-for-sale to held-to-maturity",
             "line": 62,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherComprehensiveIncomeLossReclassificationAdjustmentGainOrLossesFairValueHedge",
@@ -21345,7 +21352,8 @@
             "tag": "InterestDueFromBanksAndOther",
             "label": "Interest on federal funds sold and due from banks",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestAndDividendIncomeOperating",
@@ -21411,7 +21419,8 @@
             "tag": "ProvisionForReversalOfLossesOnUnfundedLoanCommitments",
             "label": "Reversal of credit losses on unfunded loan commitments",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal",
@@ -21531,7 +21540,8 @@
             "tag": "OtherRealEstateOwnedExpense",
             "label": "Other real estate owned",
             "line": 44,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DepositNetworkFees",
@@ -21615,13 +21625,15 @@
             "tag": "OtherComprehensiveIncomeLossReclassificationAdjustmentGainOrLossesFairValueHedge",
             "label": "Reclassification adjustment for gains on fair value hedges",
             "line": 61,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForInvestmentTransferredFromAvailableForSaleToHeldToMaturityBeforeTax",
             "label": "Net unrealized losses on securities transferred from available-for-sale to held-to-maturity",
             "line": 61,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForInvestmentTransferredFromHeldToMaturityToAvailableForSaleBeforeTax",

@@ -5724,14 +5724,15 @@
               "label": "Allowance for credit losses",
               "line": 8,
               "indent": 0,
-              "negating": false,
-              "value": 29419000,
+              "negating": true,
+              "value": -29419000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableNetOfDeferredIncome",
@@ -9809,7 +9810,8 @@
             "tag": "CashCashEquivalentsAndFederalFundsSold",
             "label": "Cash and cash equivalents",
             "line": 4,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "SecuritiesPurchasedUnderAgreementsToResell",
@@ -9833,7 +9835,8 @@
             "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
             "label": "Loans",
             "line": 7,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalHomeLoanBankStock",
@@ -9845,7 +9848,8 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Allowance for loan losses",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableNetOfDeferredIncome",
@@ -9857,7 +9861,8 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Loans, net",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AllowanceForCreditLossesExcludingAccruedInterest",
@@ -9923,7 +9928,8 @@
             "tag": "TimeDepositsAtOrAboveFDICInsuranceLimit",
             "label": "Time",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DepositsSavingsDeposits",
@@ -9941,7 +9947,8 @@
             "tag": "FederalFundsPurchased",
             "label": "Federal funds purchased and other short-term borrowings",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Deposits",
@@ -10045,7 +10052,8 @@
             "tag": "CashCashEquivalentsAndFederalFundsSold",
             "label": "Cash and cash equivalents",
             "line": 4,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "SecuritiesPurchasedUnderAgreementsToResell",
@@ -10069,7 +10077,8 @@
             "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
             "label": "Loans",
             "line": 7,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalHomeLoanBankStock",
@@ -10081,7 +10090,8 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Allowance for credit losses",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableNetOfDeferredIncome",
@@ -10093,7 +10103,8 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Loans, net",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLossExclAccruedInterest",
@@ -10105,7 +10116,8 @@
             "tag": "AllowanceForCreditLossesExcludingAccruedInterest",
             "label": "Allowance for credit losses, excluding accrued interest",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAfterAllowanceForCreditLosses",
@@ -10117,7 +10129,8 @@
             "tag": "LoansAfterAllowanceForCreditLosses",
             "label": "Loans, after allowance for credit losses",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PropertyPlantAndEquipmentNet",
@@ -10171,7 +10184,8 @@
             "tag": "TimeDepositsAtOrAboveFDICInsuranceLimit",
             "label": "Time",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DepositsSavingsDeposits",
@@ -10189,7 +10203,8 @@
             "tag": "FederalFundsPurchasedAndOtherShortTermBorrowings",
             "label": "Federal funds purchased and other short-term borrowings",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Deposits",
@@ -18821,7 +18836,8 @@
             "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
             "label": "Federal Home Loan Bank advances",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseDeposits",
@@ -18881,7 +18897,8 @@
             "tag": "DebtSecuritiesAvailableForSaleRealizedGainLossExcludingOtherThanTemporaryImpairment",
             "label": "Realized securities gains (losses), net",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
@@ -18929,7 +18946,8 @@
             "tag": "SubscriptionsAndServiceContracts",
             "label": "Subscriptions and service contracts",
             "line": 36,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -18953,7 +18971,8 @@
             "tag": "NoninterestExpenseDirectorsFees",
             "label": "Director fees",
             "line": 40,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TechnologyAndSoftware",
@@ -19081,7 +19100,8 @@
             "tag": "InterestExpenseShortTermBorrowings",
             "label": "Federal funds purchased and other short-term borrowings",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseFHLBAdvances",
@@ -19105,7 +19125,8 @@
             "tag": "InterestExpenseFederalFundsPurchased",
             "label": "Federal funds purchased and other short-term borrowings",
             "line": 21,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseNet",
@@ -19147,7 +19168,8 @@
             "tag": "GainFromBankOwnedLifeInsurance",
             "label": "Gain from bank-owned life insurance",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -19159,13 +19181,15 @@
             "tag": "LoanSwapFees",
             "label": "Loan swap fees",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtSecuritiesAvailableForSaleRealizedGainLossExcludingOtherThanTemporaryImpairment",
             "label": "Realized securities gains (losses), net",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -19189,7 +19213,8 @@
             "tag": "Loanswapfees",
             "label": "Loan swap fees",
             "line": 33,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TechnologyAndSoftware",
@@ -19201,7 +19226,8 @@
             "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
             "label": "Securities (gains)losses, net",
             "line": 34,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalDepositInsuranceCorporationPremiumExpense",
@@ -19219,7 +19245,8 @@
             "tag": "SubscriptionsAndServiceContracts",
             "label": "Subscriptions and service contracts",
             "line": 36,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherNoninterestExpense",
@@ -19237,7 +19264,8 @@
             "tag": "NoninterestExpenseDirectorsFees",
             "label": "Director fees",
             "line": 38,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
@@ -19273,7 +19301,8 @@
             "tag": "OperatingIncomeLoss",
             "label": "Operating Income (Loss)",
             "line": 51,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ]
       },

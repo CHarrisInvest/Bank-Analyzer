@@ -452,9 +452,9 @@
               "line": 22,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "PreferredStockValue",
@@ -462,9 +462,9 @@
               "line": 24,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "CommonStockValue",
@@ -804,9 +804,9 @@
               "line": 24,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "CommonStockValue",
@@ -916,9 +916,9 @@
               "line": 3,
               "indent": 0,
               "negating": false,
-              "value": 49567000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
@@ -1146,9 +1146,9 @@
               "line": 24,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "CommonStockValue",
@@ -1478,9 +1478,9 @@
               "line": 22,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "PreferredStockValue",
@@ -1488,9 +1488,9 @@
               "line": 24,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "CommonStockValue",
@@ -2338,9 +2338,9 @@
               "line": 21,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -2352,9 +2352,9 @@
               "line": 23,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -4140,9 +4140,9 @@
               "line": 23,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -5634,9 +5634,9 @@
               "line": 3,
               "indent": 0,
               "negating": false,
-              "value": 49567000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -5928,9 +5928,9 @@
               "line": 23,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -6081,9 +6081,9 @@
               "line": 3,
               "indent": 0,
               "negating": false,
-              "value": 49567000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -6484,8 +6484,8 @@
           ]
         },
         {
-          "period": "Q1 2023",
-          "label": "Q1 2023",
+          "period": "Q2 2023",
+          "label": "Q2 2023",
           "form": "10-Q",
           "fy": "2023",
           "fp": "Q1",
@@ -7396,7 +7396,8 @@
             "tag": "SecuritiesPurchasedUnderAgreementsToResell",
             "label": "Securities purchased under agreements to resell, at cost",
             "line": 3,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
@@ -7426,7 +7427,8 @@
             "tag": "LoansReceivableHeldForInvestmentBeforeAllowanceForLoanLosses",
             "label": "Loans held for investment",
             "line": 7,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLossNoncurrent",
@@ -7438,13 +7440,15 @@
             "tag": "LoansReceivableAllowanceForLoanLosses",
             "label": "Less: allowance for credit losses",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Less: allowance for loan losses",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PropertyPlantAndEquipmentNet",
@@ -7456,7 +7460,8 @@
             "tag": "LoansReceivableHeldForInvestmentNet",
             "label": "Loans, net of allowance",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAccruedInterestAfterAllowanceForCreditLoss",
@@ -7474,7 +7479,8 @@
             "tag": "InterestReceivable",
             "label": "Accrued interest receivable",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherAssets",
@@ -7596,7 +7602,8 @@
             "tag": "SecuritiesPurchasedUnderAgreementsToResell",
             "label": "Securities purchased under agreements to resell, at cost",
             "line": 3,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtSecuritiesHeldToMaturityAmortizedCostAfterAllowanceForCreditLoss",
@@ -7626,7 +7633,8 @@
             "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
             "label": "Loans held for investment",
             "line": 7,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLossNoncurrent",
@@ -7638,7 +7646,8 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Less: allowance for loan losses",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PropertyPlantAndEquipmentNet",
@@ -7650,7 +7659,8 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Loans, net of allowance",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAccruedInterestAfterAllowanceForCreditLoss",
@@ -7668,7 +7678,8 @@
             "tag": "DeferredIncomeTaxAssetsNet",
             "label": "Deferred tax assets, net",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Assets",
@@ -7904,8 +7915,8 @@
             "isDerived": false
           },
           {
-            "key": "Q1 2023",
-            "label": "Q1 2023",
+            "key": "Q2 2023",
+            "label": "Q2 2023",
             "form": "10-Q",
             "fy": "2023",
             "fp": "Q1",
@@ -7962,9 +7973,9 @@
               "line": 4,
               "indent": 0,
               "negating": false,
-              "value": 1526000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
@@ -8304,9 +8315,9 @@
               "line": 4,
               "indent": 0,
               "negating": false,
-              "value": 1251000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeDepositsWithFinancialInstitutions",
@@ -8424,9 +8435,9 @@
               "line": 18,
               "indent": 0,
               "negating": false,
-              "value": 4013000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "PrincipalTransactionsRevenue",
@@ -8454,9 +8465,9 @@
               "line": 20,
               "indent": 0,
               "negating": false,
-              "value": -88000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "LaborAndRelatedExpense",
@@ -8796,9 +8807,9 @@
               "line": 20,
               "indent": 0,
               "negating": false,
-              "value": -88000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "LaborAndRelatedExpense",
@@ -11800,11 +11811,11 @@
               "line": 4,
               "indent": 0,
               "negating": false,
-              "value": -275000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -12289,9 +12300,9 @@
               "line": 4,
               "indent": 0,
               "negating": false,
-              "value": 158000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -12471,9 +12482,9 @@
               "line": 18,
               "indent": 0,
               "negating": false,
-              "value": -14000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -12778,9 +12789,9 @@
               "line": 4,
               "indent": 0,
               "negating": false,
-              "value": 715000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -13267,9 +13278,9 @@
               "line": 4,
               "indent": 0,
               "negating": false,
-              "value": 653000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -13449,9 +13460,9 @@
               "line": 18,
               "indent": 0,
               "negating": false,
-              "value": 4027000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -14676,8 +14687,8 @@
           ]
         },
         {
-          "period": "Q1 2023",
-          "label": "Q1 2023",
+          "period": "Q2 2023",
+          "label": "Q2 2023",
           "form": "10-Q",
           "fy": "2023",
           "fp": "Q1",
@@ -15762,7 +15773,8 @@
             "tag": "GainLossOnInvestments",
             "label": "Gain (loss) on loans held for sale",
             "line": 20,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -15780,7 +15792,8 @@
             "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
             "label": "Noninterest income",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProfessionalFees",
@@ -15878,7 +15891,8 @@
             "tag": "InterestIncomeSecuritiesPurchasedUnderAgreementsToResell",
             "label": "Securities purchased under agreements to resell",
             "line": 4,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestAndDividendIncomeOperating",
@@ -15956,7 +15970,8 @@
             "tag": "EquitySecuritiesFvNiRealizedGainLoss",
             "label": "Gain on equity investment",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -15968,7 +15983,8 @@
             "tag": "GainLossOnInvestments",
             "label": "Gain (loss) on loans held for sale",
             "line": 20,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OccupancyNet",
@@ -15998,7 +16014,8 @@
             "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
             "label": "Noninterest income",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TravelAndEntertainmentExpense",
@@ -16198,8 +16215,8 @@
             "isDerived": false
           },
           {
-            "key": "Q1 2023",
-            "label": "Q1 2023",
+            "key": "Q2 2023",
+            "label": "Q2 2023",
             "form": "10-Q",
             "fy": "2023",
             "fp": "Q1",

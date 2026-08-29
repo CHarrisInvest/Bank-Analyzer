@@ -4755,9 +4755,9 @@
               "line": 25,
               "indent": 0,
               "negating": false,
-              "value": 10000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -7758,7 +7758,8 @@
             "tag": "FederalFundsSold",
             "label": "Federal funds sold",
             "line": 5,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
@@ -7958,7 +7959,8 @@
             "tag": "FederalFundsSold",
             "label": "Federal funds sold",
             "line": 5,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
@@ -8078,7 +8080,8 @@
             "tag": "ShortTermBorrowings",
             "label": "Short-term borrowings",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Liabilities",
@@ -9028,9 +9031,9 @@
               "line": 19,
               "indent": 0,
               "negating": false,
-              "value": -83000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "LeaseIncome",
@@ -15024,7 +15027,8 @@
             "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
             "label": "Net (loss) gain on sales and prepayments of investment securities",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LeaseIncome",
@@ -15206,7 +15210,8 @@
             "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
             "label": "Net (loss) gain on sales and prepayments of investment securities",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncomeOther",

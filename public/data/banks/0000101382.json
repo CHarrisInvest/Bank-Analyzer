@@ -857,9 +857,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 1800000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "LongTermDebt",
@@ -4777,9 +4777,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 1800000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -8867,7 +8867,8 @@
             "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
             "label": "Loans",
             "line": 2,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingHeldToMaturity",
@@ -9011,7 +9012,8 @@
             "tag": "ShortTermBorrowings",
             "label": "Short-term debt",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LongTermDebt",
@@ -9091,7 +9093,8 @@
             "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
             "label": "Loans",
             "line": 2,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NotesReceivableGross",
@@ -9205,7 +9208,8 @@
             "tag": "ShortTermBorrowings",
             "label": "Short-term debt",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestBearingDepositLiabilities",

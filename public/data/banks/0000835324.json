@@ -1577,10 +1577,11 @@
               "label": "Allowance for credit losses on loans",
               "line": 16,
               "indent": 0,
-              "negating": false,
-              "value": 73531000,
+              "negating": true,
+              "value": -73531000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -9086,14 +9087,15 @@
               "label": "Allowance for credit losses on loans",
               "line": 16,
               "indent": 0,
-              "negating": false,
-              "value": 75673000,
+              "negating": true,
+              "value": -75673000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -9542,7 +9544,8 @@
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
             "label": "Available for sale debt securities (amortized cost of $1,114,961 in 2024 and $1,154,153 in 2023, respectively)",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
@@ -9554,7 +9557,8 @@
             "tag": "HeldToMaturitySecurities",
             "label": "Held to maturity debt securities (fair value of $341,357 in 2024 and $408,519 in 2023, respectively)",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
@@ -9572,7 +9576,8 @@
             "tag": "NotesReceivableGross",
             "label": "Loans",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalHomeLoanBankStock",
@@ -9584,7 +9589,8 @@
             "tag": "FinancingReceivableAllowanceForCreditLosses",
             "label": "Allowance for credit losses on loans",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -9596,7 +9602,8 @@
             "tag": "NotesReceivableNet",
             "label": "Net loans",
             "line": 17,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
@@ -9716,7 +9723,8 @@
             "tag": "CommitmentsAndContingencies",
             "label": "Commitments and contingent liabilities (Footnote 21)",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Liabilities",
@@ -9790,7 +9798,8 @@
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
             "label": "Available for sale debt securities (amortized cost of $1,140,571 in 2025 and $1,114,961 in 2024, respectively)",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
@@ -9802,7 +9811,8 @@
             "tag": "HeldToMaturitySecurities",
             "label": "Held to maturity debt securities (fair value of $189,017 in 2025 and $341,357 in 2024, respectively)",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
@@ -9820,7 +9830,8 @@
             "tag": "NotesReceivableGross",
             "label": "Loans",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalHomeLoanBankStock",
@@ -9832,7 +9843,8 @@
             "tag": "FinancingReceivableAllowanceForCreditLosses",
             "label": "Allowance for credit losses on loans",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -9844,7 +9856,8 @@
             "tag": "NotesReceivableNet",
             "label": "Net loans",
             "line": 17,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
@@ -9964,7 +9977,8 @@
             "tag": "CommitmentsAndContingencies",
             "label": "Commitments and contingent liabilities (Footnote 12)",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Liabilities",
@@ -13112,11 +13126,11 @@
               "line": 35,
               "indent": 0,
               "negating": false,
-              "value": -44000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
-              "derivedUnavailable": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -21254,13 +21268,15 @@
             "tag": "BusinessCombinationAcquisitionRelatedCosts",
             "label": "Merger expenses",
             "line": 50,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
             "label": "Federal Home Loans Bank early termination penalty",
             "line": 50,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
@@ -21272,7 +21288,8 @@
             "tag": "GainLossOnSaleOfBusiness",
             "label": "Loss on disposition of LFA",
             "line": 51,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherNoninterestExpense",
@@ -21314,7 +21331,8 @@
             "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
             "label": "Less net income attributed to non-controlling interest",
             "line": 57,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "EarningsPerShareDiluted",
@@ -21326,7 +21344,8 @@
             "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
             "label": "Net income available to stockholders",
             "line": 58,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
@@ -21460,7 +21479,8 @@
             "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
             "label": "Loss on sale of securities AFS debt securities",
             "line": 35,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnSaleOfPropertyPlantEquipment",
@@ -21538,13 +21558,15 @@
             "tag": "AmortizationOfInvestmentInTaxCreditPartnerships",
             "label": "Amortization of investments in tax credit partnerships",
             "line": 48,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BusinessCombinationAcquisitionRelatedCosts",
             "label": "Merger expenses",
             "line": 48,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AmortizationOfIntangibleAssets",
@@ -21562,7 +21584,8 @@
             "tag": "FederalHomeLoanBankEarlyTerminationPenalty",
             "label": "Federal Home Loans Bank early termination penalty",
             "line": 50,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestExpense",
@@ -21574,7 +21597,8 @@
             "tag": "GainLossOnSaleOfBusiness",
             "label": "Loss on disposition of LFA",
             "line": 51,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
@@ -21604,7 +21628,8 @@
             "tag": "NetIncomeLossAttributableToNoncontrollingInterest",
             "label": "Less income attributed to non-controlling interest",
             "line": 55,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "EarningsPerShareDiluted",
@@ -21616,7 +21641,8 @@
             "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
             "label": "Net income available to stockholders",
             "line": 56,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "WeightedAverageNumberOfSharesOutstandingBasic",

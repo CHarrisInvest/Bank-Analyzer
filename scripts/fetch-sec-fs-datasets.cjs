@@ -123,6 +123,111 @@ const TAG_EQUIVALENTS = {
 const TEMP_DIR = path.join(__dirname, '..', '.sec-data-cache');
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'data');
 
+// The label normaliser is shared with the UI (src/utils/labels.js) so a caption
+// reads the same in both places. It is an ES module and this script is CommonJS,
+// so it is pulled in with a dynamic import from main() before any processing.
+let cleanLabel = (label) => label;
+
+/**
+ * Key used to decide that two XBRL tags are the same concept.
+ *
+ * Filers embed the filing's own comparatives in the label, so the raw text
+ * differs between every filing even when the line item is identical --
+ * "issued 172,185,507 and 171,360,188" one quarter, different figures the
+ * next. Keying on the raw label therefore almost never matches, no
+ * equivalence is recorded, and the older tag is appended as a second row.
+ * Normalising first compares captions rather than captions-plus-figures.
+ */
+/**
+ * Make the sign convention of a statement consistent across its columns.
+ *
+ * pre.txt's "negating" flag is per filing, so the same concept can be flipped
+ * in one quarter and not the next: Farmers & Merchants shows noninterest
+ * expense positive in Q1 and Q4 of 2025 and negative in Q2 and Q3. A line
+ * item that changes sign between columns of one table cannot be read.
+ *
+ * Two rules, both conservative:
+ *   1. Where a tag's flag disagrees across the periods of a statement, the
+ *      majority convention wins.
+ *   2. A negated subtotal whose positive components add up to its magnitude
+ *      is not really negative -- Banner's total interest expense sits at
+ *      -47,649,000 under four positive components summing to +47,649,000,
+ *      and that sign reached the screener as a negative TTM interest expense.
+ *
+ * Rule 2 needs at least two components and an exact-to-2% match, so it fires
+ * only where the arithmetic itself says the sign is wrong.
+ */
+function normaliseStatementSigns(statements) {
+  if (!statements || statements.length === 0) return;
+
+  // Rule 1: majority flag per tag across the statement's periods.
+  const votes = new Map();
+  for (const stmt of statements) {
+    for (const item of stmt.items || []) {
+      if (item.value === null || item.value === undefined) continue;
+      if (!votes.has(item.tag)) votes.set(item.tag, { yes: 0, no: 0 });
+      votes.get(item.tag)[item.negating ? 'yes' : 'no']++;
+    }
+  }
+  for (const stmt of statements) {
+    for (const item of stmt.items || []) {
+      if (item.value === null || item.value === undefined) continue;
+      const v = votes.get(item.tag);
+      if (!v || v.yes === 0 || v.no === 0) continue;      // already consistent
+      const majority = v.yes > v.no;
+      if (item.negating === majority) continue;
+      item.value = -item.value;
+      item.negating = majority;
+      item.signNormalized = true;
+    }
+  }
+
+  // Rule 2: a negated subtotal contradicted by its own components.
+  for (const stmt of statements) {
+    const valued = (stmt.items || []).filter(i => i.value !== null && i.value !== undefined);
+    for (const item of valued) {
+      if (!item.negating || item.value >= 0) continue;
+      const stem = item.tag.replace(/(Operating|Total|Net)$/, '');
+      if (stem === item.tag || stem.length < 8) continue;
+      const parts = valued.filter(x => x !== item && x.tag.startsWith(stem) && x.value > 0);
+      if (parts.length < 2) continue;
+      const sum = parts.reduce((s, x) => s + x.value, 0);
+      if (Math.abs(sum + item.value) > Math.abs(item.value) * 0.02) continue;
+      item.value = -item.value;
+      item.signNormalized = true;
+    }
+  }
+}
+
+/**
+ * "Q1 2026" for a period ending 2026-03-31.
+ *
+ * Names a column by when it actually ended rather than by the fiscal quarter
+ * the filer assigned, so a June-year and a December-year bank line up and no
+ * two columns in one statement share a name.
+ */
+function fiscalYearKey(ddate) {
+  const s = String(ddate || '');
+  return /^\d{8}$/.test(s) ? `FY ${s.slice(0, 4)}` : null;
+}
+
+function calendarQuarterKey(ddate) {
+  const s = String(ddate || '');
+  if (!/^\d{8}$/.test(s)) return null;
+  const year = s.slice(0, 4);
+  const month = parseInt(s.slice(4, 6), 10);
+  if (!month || month > 12) return null;
+  return `Q${Math.floor((month - 1) / 3) + 1} ${year}`;
+}
+
+function equivalenceKey(item) {
+  const caption = cleanLabel(item.label || '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim();
+  return `${caption}|${item.line}`;
+}
+
 // SEC's fair-access policy wants a User-Agent of exactly the shape
 // "Company Name contact@domain" -- a bare name and address, nothing else.
 // A conventional product/version string with the address in parentheses does
@@ -1268,11 +1373,9 @@ function buildHistoricalStatements(bankData) {
     const tagSet = new Set(canonicalItems.map(item => item.tag));
 
     // Build lookup by normalized label + line for auto-detection of equivalences
-    // Normalize label: lowercase, trim whitespace
     const labelLineToTag = new Map();
     for (const item of canonicalItems) {
-      const key = `${(item.label || '').toLowerCase().trim()}|${item.line}`;
-      labelLineToTag.set(key, item.tag);
+      labelLineToTag.set(equivalenceKey(item), item.tag);
     }
 
     // Helper to check if a tag or any of its equivalents are already in the set
@@ -1303,7 +1406,7 @@ function buildHistoricalStatements(bankData) {
 
       for (const item of pres[stmtType]) {
         // Check for automatic equivalence: same label + line number = same concept
-        const key = `${(item.label || '').toLowerCase().trim()}|${item.line}`;
+        const key = equivalenceKey(item);
         const existingTag = labelLineToTag.get(key);
 
         if (existingTag && existingTag !== item.tag) {
@@ -1370,18 +1473,15 @@ function buildHistoricalStatements(bankData) {
         d.adsh === filing.adsh && d.qtrs === targetQtrs && d.ddate === filing.period
       );
     }
-    // Fallback 2: try without ddate match (version mismatch across years)
-    if (!match) {
-      match = conceptData.find(d =>
-        d.adsh === filing.adsh && d.qtrs === targetQtrs && d.version === version
-      );
-    }
-    // Fallback 3: try with just adsh + qtrs (most permissive)
-    if (!match) {
-      match = conceptData.find(d =>
-        d.adsh === filing.adsh && d.qtrs === targetQtrs
-      );
-    }
+    // No further fallbacks: ddate is what identifies the period.
+    //
+    // There used to be two more, matching on adsh + qtrs while dropping ddate.
+    // A 10-K carries qtrs=1 facts for several quarters, not just its own, so
+    // when the Q4 fact was missing those fallbacks returned whichever quarter
+    // came first in the file and presented it as Q4. MCHB's Q4 2025 net income
+    // was Q3's figure and MSBI's Q4 2024 was Q2's, which is why neither year's
+    // quarters added up to its annual column. A missing value is better than
+    // another period's value wearing this period's label.
 
     // If still no match, try equivalent tags (both manual and dynamic)
     if (!match) {
@@ -1404,9 +1504,22 @@ function buildHistoricalStatements(bankData) {
     const canonicalItems = buildCanonicalItems(allFilings, stmtType);
     if (canonicalItems.length === 0) return { statements: [], canonicalItems: [] };
 
-    const statements = [];
+    // One column per fiscal year end, newest first, named for the year the
+    // period actually ended. HomeTrust's 2026 10-K reports fy=2024, which
+    // produced two columns both labelled "FY 2024"; ddate says 2025-12-31 and
+    // is right. Where two filings cover the same year end, the one filed most
+    // recently wins.
+    const annualByPeriodEnd = new Map();
     for (const filing of annual10Ks) {
-      const periodKey = `FY ${filing.fy}`;
+      const seen = annualByPeriodEnd.get(filing.period);
+      if (!seen || String(filing.filed) > String(seen.filed)) annualByPeriodEnd.set(filing.period, filing);
+    }
+    const annualFilings = [...annualByPeriodEnd.values()]
+      .sort((a, b) => String(b.period).localeCompare(String(a.period)));
+
+    const statements = [];
+    for (const filing of annualFilings) {
+      const periodKey = fiscalYearKey(filing.period) || `FY ${filing.fy}`;
       const pres = presentationByFiling[filing.adsh];
 
       const filingPresMap = new Map();
@@ -1452,13 +1565,20 @@ function buildHistoricalStatements(bankData) {
       });
     }
 
+    // fromOlderFiling is carried through rather than dropped: these rows take
+    // their caption from an earlier filing (the tag is absent from the most
+    // recent one), so the label can lag the data by years. Filings are sorted
+    // newest-first, so the label used is already the newest available for that
+    // tag -- the flag records that it is still not current.
     const canonicalItemsClean = canonicalItems.map(item => ({
       tag: item.tag,
       label: item.label,
       line: item.line,
       indent: item.indent ?? 0,
+      ...(item.fromOlderFiling ? { fromOlderFiling: true } : {}),
     }));
 
+    normaliseStatementSigns(statements);
     return { statements, canonicalItems: canonicalItemsClean };
   };
 
@@ -1602,20 +1722,41 @@ function buildHistoricalStatements(bankData) {
       }
     }
 
-    // Sort quarters: most recent first (by year desc, then quarter desc)
-    allQuarters.sort((a, b) => {
-      const fyDiff = parseInt(b.fy) - parseInt(a.fy);
-      if (fyDiff !== 0) return fyDiff;
-      const qA = parseInt(a.fp.replace('Q', ''));
-      const qB = parseInt(b.fp.replace('Q', ''));
-      return qB - qA;
-    });
+    // Order and identify columns by the period end date, not by the fiscal
+    // year and quarter the filer reported.
+    //
+    // fy/fp are filer-supplied and sometimes wrong or unusual: Fulton tagged
+    // its September 2023 10-Q as Q2, giving two columns both labelled "Q2
+    // 2023" with different figures and no Q3; F&M Bank labelled a September
+    // 2025 period "Q3 2026", which then sorted ahead of March 2026. ddate is
+    // the period end and is always right, so the column a reader sees is
+    // named and ordered by it. fy/fp are still what drives Q4 derivation
+    // below -- that grouping is genuinely fiscal.
+    for (const q of allQuarters) {
+      q.ddate = q.filing.period;
+    }
+    allQuarters.sort((a, b) => String(b.ddate).localeCompare(String(a.ddate)));
+
+    // Two filings can land on the same period end (an amendment, or the
+    // mislabelling above resolving onto a quarter already present). Keep the
+    // one filed most recently so a column appears once, with the latest data.
+    const byPeriodEnd = new Map();
+    for (const q of allQuarters) {
+      const seen = byPeriodEnd.get(q.ddate);
+      if (!seen || String(q.filing.filed) > String(seen.filing.filed)) byPeriodEnd.set(q.ddate, q);
+    }
+    allQuarters.length = 0;
+    allQuarters.push(...[...byPeriodEnd.values()].sort(
+      (a, b) => String(b.ddate).localeCompare(String(a.ddate))
+    ));
 
     const statements = [];
     for (const quarter of allQuarters) {
       const { fy, fp, filing, form, isDerived, priorQuarters, annualFiling, priorQuarterFiling } = quarter;
-      const periodKey = `${fp} ${fy}`;
-      const periodLabel = isDerived ? `${fp} ${fy} (derived)` : periodKey;
+      // Calendar quarter of the period end, so columns are comparable across
+      // banks whatever their fiscal calendar, and unique within a statement.
+      const periodKey = calendarQuarterKey(quarter.ddate) || `${fp} ${fy}`;
+      const periodLabel = isDerived ? `${periodKey} (derived)` : periodKey;
 
       const pres = presentationByFiling[filing.adsh];
       const filingPresMap = new Map();
@@ -1836,13 +1977,20 @@ function buildHistoricalStatements(bankData) {
       });
     }
 
+    // fromOlderFiling is carried through rather than dropped: these rows take
+    // their caption from an earlier filing (the tag is absent from the most
+    // recent one), so the label can lag the data by years. Filings are sorted
+    // newest-first, so the label used is already the newest available for that
+    // tag -- the flag records that it is still not current.
     const canonicalItemsClean = canonicalItems.map(item => ({
       tag: item.tag,
       label: item.label,
       line: item.line,
       indent: item.indent ?? 0,
+      ...(item.fromOlderFiling ? { fromOlderFiling: true } : {}),
     }));
 
+    normaliseStatementSigns(statements);
     return { statements, canonicalItems: canonicalItemsClean };
   };
 
@@ -2582,6 +2730,10 @@ function findCachedQuarters() {
  * Main function
  */
 async function main() {
+  // Load the shared label normaliser before any processing: equivalenceKey
+  // depends on it, and without it every caption compares as raw text again.
+  ({ cleanLabel } = await import('../src/utils/labels.js'));
+
   if (HELP) {
     console.log('SEC Financial Statement Data Sets Processor');
     console.log('');
@@ -2832,6 +2984,31 @@ async function main() {
   }
 
   console.log(`Saved ${savedBankCount} individual bank data files to: ${banksDataDir}/`);
+
+  // Remove files for banks this run did not produce.
+  //
+  // A bank leaves the set when it is acquired or stops filing -- Synovus into
+  // Pinnacle, Comerica into Fifth Third -- and its file used to stay behind
+  // forever, because nothing here deleted and the workflow only ever added.
+  // 121 had accumulated: 21.7MB shipped with every deploy, holding output from
+  // whichever version of this script last wrote them. They were unreachable,
+  // so the harm was weight and confusion rather than wrong pages, but stale
+  // output that no longer matches the current code is worth not keeping.
+  // Keep anything this run wrote, and anything banks.json still lists, so a
+  // divergence between the two can never delete a file a live bank needs.
+  const keepCiks = new Set(Object.keys(rawDataStore));
+  for (const bank of results) if (bank.cik) keepCiks.add(bank.cik);
+
+  let prunedCount = 0;
+  for (const file of fs.readdirSync(banksDataDir)) {
+    if (!file.endsWith('.json')) continue;
+    if (keepCiks.has(file.slice(0, -5))) continue;
+    fs.unlinkSync(path.join(banksDataDir, file));
+    prunedCount++;
+  }
+  if (prunedCount > 0) {
+    console.log(`Pruned ${prunedCount} data file(s) for banks no longer in the set`);
+  }
 
   // Save lightweight index file (metadata only, no raw data)
   const indexOutputPath = path.join(OUTPUT_DIR, 'sec-data-index.json');

@@ -1,92 +1,8 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
+import { cleanLabel, resolveLabels, truncateLabel } from '../utils/labels';
+import { detectSection, groupItemsIntoSections } from '../utils/statementLayout';
 
-/**
- * Clean financial statement labels by removing period-specific values
- *
- * The key insight: period-specific data typically shows TWO values for two periods,
- * connected by "and". Single values are usually thresholds/definitions to keep.
- *
- * Removes patterns like:
- * - "(fair value of $4,493 and $4,293)"
- * - "(issued 519,147,397 and 515,777,584)"
- * - "net of allowance for credit losses of $74 and $69"
- * - "4,312,228 and 3,630,636 shares, respectively"
- *
- * Keeps patterns like:
- * - "$250,000" (single threshold)
- * - "30 million" (single authorization)
- * - "(in thousands)"
- */
-function cleanLabel(label) {
-  if (!label) return label;
 
-  let cleaned = label;
-
-  // ============================================
-  // PARENTHETICAL PATTERNS (content inside parentheses)
-  // ============================================
-
-  // Remove parentheses containing "$X and $Y" pattern (two dollar amounts)
-  // e.g., "(fair value of $4,493 and $4,293)"
-  // e.g., "(included $404,609 and $286,771 at fair value)"
-  cleaned = cleaned.replace(/\s*\([^)]*\$[\d,]+\s+and\s+\$[\d,]+[^)]*\)/gi, '');
-
-  // Remove parentheses containing "X and Y" followed by shares/issued/outstanding
-  // e.g., "(issued 519,147,397 and 515,777,584; and outstanding 307,827,978 and 305,387,550)"
-  cleaned = cleaned.replace(/\s*\([^)]*[\d,]+\s+and\s+[\d,]+[^)]*(?:shares|issued|outstanding)[^)]*\)/gi, '');
-
-  // Remove parentheses containing "X and Y" with "respectively"
-  // e.g., "(72,899,970 and 72,699,245 shares issued, respectively)"
-  cleaned = cleaned.replace(/\s*\([^)]*[\d,]+\s+and\s+[\d,]+[^)]*respectively[^)]*\)/gi, '');
-
-  // Remove parentheses with "allowance" or "credit losses" containing two values
-  // e.g., "(net of allowance for credit losses of $74 and $69)"
-  cleaned = cleaned.replace(/\s*\([^)]*(?:allowance|credit loss)[^)]*\$?[\d,]+\s+and\s+\$?[\d,]+[^)]*\)/gi, '');
-
-  // ============================================
-  // INLINE PATTERNS (not in parentheses)
-  // ============================================
-
-  // Remove inline "of $X and $Y" patterns
-  // e.g., "net of allowance for credit losses of $74 and $69"
-  cleaned = cleaned.replace(/,?\s*(?:of|:)\s+\$[\d,]+\s+and\s+\$[\d,]+/gi, '');
-
-  // Remove inline "X and Y shares, respectively" patterns
-  // e.g., "4,312,228 and 3,630,636 shares, respectively"
-  cleaned = cleaned.replace(/,?\s*[\d,]+\s+and\s+[\d,]+\s+shares,?\s*(?:respectively)?/gi, '');
-
-  // Remove inline "; X and Y shares issued, respectively" patterns
-  // e.g., "; 72,899,970 and 72,699,245 shares issued, respectively"
-  cleaned = cleaned.replace(/[;,]\s*[\d,]+\s+and\s+[\d,]+\s+shares\s+(?:issued|outstanding),?\s*(?:respectively)?/gi, '');
-
-  // Remove date-specific patterns
-  // e.g., "September 30, 2025 1,310,485,026 shares and December 31, 2024..."
-  cleaned = cleaned.replace(/[:,]?\s*(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\s*[\d,]+\s+shares(?:\s+and\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\s*[\d,]+\s+shares)?/gi, '');
-
-  // Remove "as of [date] [number]" patterns
-  cleaned = cleaned.replace(/,?\s*(?:issued\s+)?(?:shares:?)?\s*as of\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\s*[\d,]+(?:\s+and\s+as of\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\s*[\d,]+)?[^(]*/gi, '');
-
-  // Remove ", at aggregate liquidation value" suffix
-  cleaned = cleaned.replace(/,?\s*at aggregate liquidation value\s*$/gi, '');
-
-  // ============================================
-  // CLEANUP
-  // ============================================
-
-  // Remove empty parentheses
-  cleaned = cleaned.replace(/\(\s*\)/g, '');
-  // Fix doubled punctuation
-  cleaned = cleaned.replace(/,\s*,/g, ',');
-  cleaned = cleaned.replace(/;\s*;/g, ';');
-  cleaned = cleaned.replace(/;\s*\)/g, ')');
-  cleaned = cleaned.replace(/\(\s*;/g, '(');
-  // Clean up spaces
-  cleaned = cleaned.replace(/\s+/g, ' ').trim();
-  // Remove trailing punctuation
-  cleaned = cleaned.replace(/[,;:]\s*$/, '');
-
-  return cleaned;
-}
 
 /**
  * Sparkline Component - Mini inline SVG chart showing trend
@@ -181,75 +97,17 @@ function formatChange(change, invertColor = false) {
   return <span className={`change-value ${colorClass}`}>{sign}{change.toFixed(1)}%</span>;
 }
 
-/**
- * Detect if an item is a section header based on common patterns
- */
-function detectSection(item, prevItem) {
-  const label = item.label.toLowerCase();
-  const tag = item.tag.toLowerCase();
-
-  // Common section headers
-  const sectionPatterns = [
-    'assets', 'liabilities', 'equity', 'stockholders',
-    'revenue', 'income', 'expense', 'interest', 'operating',
-    'current assets', 'current liabilities', 'non-current',
-    'total assets', 'total liabilities'
-  ];
-
-  // Check if this looks like a section header (bold/total item with children)
-  const isSection = sectionPatterns.some(p => label.includes(p) || tag.includes(p));
-  const hasNoIndent = !item.indent || item.indent === 0;
-
-  return isSection && hasNoIndent;
-}
-
-/**
- * Group items into collapsible sections
- */
-function groupItemsIntoSections(items) {
-  const sections = [];
-  let currentSection = null;
-
-  items.forEach((item, idx) => {
-    const isSection = detectSection(item, items[idx - 1]);
-
-    if (isSection && (!item.indent || item.indent === 0)) {
-      // Start a new section
-      if (currentSection) {
-        sections.push(currentSection);
-      }
-      currentSection = {
-        header: item,
-        headerIdx: idx,
-        children: [],
-        id: `section-${idx}`,
-      };
-    } else if (currentSection) {
-      currentSection.children.push({ item, idx });
-    } else {
-      // Items before first section header
-      sections.push({
-        header: null,
-        headerIdx: -1,
-        children: [{ item, idx }],
-        id: `section-pre-${idx}`,
-      });
-    }
-  });
-
-  if (currentSection) {
-    sections.push(currentSection);
-  }
-
-  return sections;
-}
 
 /**
  * Export data to CSV format
  */
 function exportToCSV(items, periods, getValue, title, annotations = {}) {
-  const headers = ['Item', ...periods.map(p => p.label), 'Notes'];
-  const rows = items.map(item => {
+  // Export what the table shows, not the filing's raw caption -- otherwise a
+  // download reintroduces every comparative the table strips. The original is
+  // kept in a trailing column so nothing is lost.
+  const shown = resolveLabels(items);
+  const headers = ['Item', ...periods.map(p => p.label), 'Notes', 'Original SEC label'];
+  const rows = items.map((item, i) => {
     const values = periods.map(p => {
       const val = getValue(item.tag, p.key, item.idx);
       const v = (val !== null && typeof val === 'object') ? val.value : val;
@@ -260,7 +118,7 @@ function exportToCSV(items, periods, getValue, title, annotations = {}) {
       const key = `${item.tag}-${p.key}`;
       return annotations[key] || '';
     }).filter(n => n).join('; ');
-    return [item.label, ...values, notes];
+    return [shown[i] ?? item.label, ...values, notes, item.label];
   });
 
   const csvContent = [
@@ -417,9 +275,12 @@ export default function FinancialStatementTable({
   }, [annotations, bankId, title]);
 
   // Filter items based on search and whether they have values in displayed periods
-  const filteredItems = useMemo(() => {
-    // First filter to only items that have at least one value in displayed periods
-    const itemsWithValues = items.filter(item => {
+  // Rows that actually render, each with the label it will display.
+  // Labels are resolved over this whole set rather than per row, because
+  // disambiguating a collision needs to know which other rows are on screen.
+  // Resolved before the search filter so typing does not change a label.
+  const rowsWithValues = useMemo(() => {
+    const withValues = items.filter(item => {
       // Check if item has a value in any displayed period
       return periods.some(p => {
         const val = getValue(item.tag, p.key, item.idx);
@@ -427,14 +288,21 @@ export default function FinancialStatementTable({
         return value !== null && value !== undefined;
       });
     });
+    const labels = resolveLabels(withValues);
+    return withValues.map((item, i) => ({ ...item, displayLabel: labels[i] }));
+  }, [items, periods, getValue]);
 
-    if (!searchTerm.trim()) return itemsWithValues;
+  const filteredItems = useMemo(() => {
+    if (!searchTerm.trim()) return rowsWithValues;
     const term = searchTerm.toLowerCase();
-    return itemsWithValues.filter(item =>
+    // Match the visible text as well as the raw label, so searching for
+    // something on screen works, and searching a stripped figure still does.
+    return rowsWithValues.filter(item =>
+      item.displayLabel.toLowerCase().includes(term) ||
       item.label.toLowerCase().includes(term) ||
       item.tag.toLowerCase().includes(term)
     );
-  }, [items, searchTerm, periods, getValue]);
+  }, [rowsWithValues, searchTerm]);
 
   // Group items into sections for collapsible UI
   const sections = useMemo(() => {
@@ -806,7 +674,15 @@ export default function FinancialStatementTable({
           onClick={() => setFocusedCell({ row: rowIdx, col: 0 })}
         >
           {item.indent > 0 && <span className="indent-marker" style={{ paddingLeft: `${item.indent * 12}px` }} />}
-          <span className="item-label" title={item.label}>{cleanLabel(item.label)}</span>
+          <span className="item-label" title={item.label}>{item.displayLabel ?? cleanLabel(item.label)}</span>
+          {/* A row the filer reported once reads as a row full of gaps. Say
+              which it is, so a reader does not take the blanks for zeros. */}
+          {itemValues.filter(v => v !== null).length === 1 && displayPeriods.length >= 4 && (
+            <span
+              className="indicator indicator-single-period"
+              title="Reported in only one of the periods shown"
+            >1P</span>
+          )}
           {showSparklines && itemValues.filter(v => v !== null).length >= 2 && (
             <Sparkline values={itemValues} />
           )}
@@ -825,11 +701,11 @@ export default function FinancialStatementTable({
             <tr>
               <th className="label-col sticky-col">Period</th>
               {filteredItems.map((item, idx) => {
-                const cleaned = cleanLabel(item.label);
+                const cleaned = item.displayLabel ?? cleanLabel(item.label);
                 return (
                   <th key={`${item.tag}-${idx}`} className="value-col transposed-header">
                     <div className="transposed-item-label" title={cleaned}>
-                      {cleaned.length > 20 ? cleaned.substring(0, 18) + '...' : cleaned}
+                      {truncateLabel(cleaned)}
                     </div>
                   </th>
                 );
@@ -945,10 +821,10 @@ export default function FinancialStatementTable({
                           <SectionToggle
                             isCollapsed={isCollapsed}
                             onClick={() => toggleSection(section.id)}
-                            label={cleanLabel(section.header.label)}
+                            label={section.header.displayLabel ?? cleanLabel(section.header.label)}
                           />
                         )}
-                        <span className="item-label" title={section.header.label}>{cleanLabel(section.header.label)}</span>
+                        <span className="item-label" title={section.header.label}>{section.header.displayLabel ?? cleanLabel(section.header.label)}</span>
                         {showSparklines && (
                           <Sparkline values={getItemValues(section.header)} />
                         )}
@@ -983,6 +859,18 @@ export default function FinancialStatementTable({
             {' • '}{filteredItems.length}{searchTerm ? ` of ${items.length}` : ''} line items
             {showDerivedNote && viewMode === 'quarterly' && ' • Q4 derived'}
           </p>
+          {/* Fewer than four quarters cannot support a trailing-twelve-month
+              reading, and the ratios elsewhere on the page lean on one. Say so
+              rather than letting a short history look like a full one. */}
+          {viewMode === 'quarterly' && allPeriods.length > 0 && allPeriods.length < 4 && (
+            <p className="statement-warning" role="status">
+              {allPeriods.length === 1
+                ? 'Only one quarter has'
+                : `Only ${allPeriods.length} quarters have`} been filed since this bank began
+              reporting — not enough for a twelve-month view, so TTM figures and the ratios
+              derived from them are incomplete.
+            </p>
+          )}
         </div>
         <div className="statement-header-right">
           <div className="period-toggle">
@@ -1079,6 +967,9 @@ export default function FinancialStatementTable({
             </span>
             <span className="indicator-legend">
               <span className="indicator indicator-proxy">~</span> Annual Proxy
+            </span>
+            <span className="indicator-legend">
+              <span className="indicator indicator-single-period">1P</span> One period only
             </span>
           </>
         )}

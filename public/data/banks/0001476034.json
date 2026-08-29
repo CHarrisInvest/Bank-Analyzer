@@ -413,9 +413,9 @@
               "line": 21,
               "indent": 0,
               "negating": false,
-              "value": 210000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "AdvancesFromFederalHomeLoanBanks",
@@ -423,9 +423,9 @@
               "line": 22,
               "indent": 0,
               "negating": false,
-              "value": 240000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "JuniorSubordinatedNotes",
@@ -715,9 +715,9 @@
               "line": 14,
               "indent": 0,
               "negating": false,
-              "value": 87648000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "Assets",
@@ -855,9 +855,9 @@
               "line": 26,
               "indent": 0,
               "negating": false,
-              "value": 10178000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "CommonStockValue",
@@ -1649,9 +1649,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 24712000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "RetainedEarningsAccumulatedDeficit",
@@ -2563,9 +2563,9 @@
               "line": 21,
               "indent": 0,
               "negating": false,
-              "value": 210000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -2591,9 +2591,9 @@
               "line": 22,
               "indent": 0,
               "negating": false,
-              "value": 240000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -4617,9 +4617,9 @@
               "line": 14,
               "indent": 0,
               "negating": false,
-              "value": 87648000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -4771,9 +4771,9 @@
               "line": 26,
               "indent": 0,
               "negating": false,
-              "value": 10178000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -5218,9 +5218,9 @@
               "line": 21,
               "indent": 0,
               "negating": false,
-              "value": 99000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -5749,9 +5749,9 @@
               "line": 21,
               "indent": 0,
               "negating": false,
-              "value": 99000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -6280,9 +6280,9 @@
               "line": 21,
               "indent": 0,
               "negating": false,
-              "value": 99000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -7342,9 +7342,9 @@
               "line": 21,
               "indent": 0,
               "negating": false,
-              "value": 150000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -8665,7 +8665,8 @@
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
             "label": "Investment securities available for sale, at fair value",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -8677,7 +8678,8 @@
             "tag": "HeldToMaturitySecurities",
             "label": "Investment securities held to maturity (estimated fair value of $437.3 million and $380.1 million at December 31, 2022 and 2021, respectively)",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
@@ -8701,7 +8703,8 @@
             "tag": "OtherReceivables",
             "label": "Receivable from global payments business, net",
             "line": 14,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Assets",
@@ -8713,19 +8716,22 @@
             "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
             "label": "Loans, net of deferred fees and costs",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Allowance for loan losses",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Net loans",
             "line": 17,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestBearingDepositLiabilities",
@@ -8785,7 +8791,8 @@
             "tag": "PrepaidThirdPartyDebitCardholderBalances",
             "label": "Prepaid third-party debit cardholder balances",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockValue",
@@ -8803,7 +8810,8 @@
             "tag": "SubordinatedDebt",
             "label": "Subordinated debt, net of issuance cost",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RetainedEarningsAccumulatedDeficit",
@@ -8889,13 +8897,15 @@
             "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
             "label": "Loans, net of deferred fees and costs",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
             "label": "Investment securities available for sale, at fair value",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -8907,13 +8917,15 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Allowance for credit losses",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "HeldToMaturitySecurities",
             "label": "Investment securities held to maturity (estimated fair value of $437.3 million and $380.1 million at December 31, 2022 and 2021, respectively)",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
@@ -8925,7 +8937,8 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Net loans",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -8943,7 +8956,8 @@
             "tag": "OtherReceivables",
             "label": "Receivable from global payments business, net",
             "line": 14,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Assets",
@@ -8973,7 +8987,8 @@
             "tag": "FederalFundsPurchased",
             "label": "Federal funds purchased",
             "line": 21,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "JuniorSubordinatedNotes",
@@ -8985,7 +9000,8 @@
             "tag": "AdvancesFromFederalHomeLoanBanks",
             "label": "Federal Home Loan Bank of New York advances",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "SecuredDebt",
@@ -9009,7 +9025,8 @@
             "tag": "PrepaidThirdPartyDebitCardholderBalances",
             "label": "Prepaid third-party debit cardholder balances",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockValue",
@@ -9033,7 +9050,8 @@
             "tag": "SubordinatedDebt",
             "label": "Subordinated debt, net of issuance cost",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
@@ -9495,9 +9513,9 @@
               "line": 33,
               "indent": 0,
               "negating": false,
-              "value": -5521000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "OtherNoninterestExpense",
@@ -9707,9 +9725,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": 605000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -10059,9 +10077,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": 605000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseNet",
@@ -10361,9 +10379,9 @@
               "line": 13,
               "indent": 0,
               "negating": false,
-              "value": 34000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "InterestExpenseDeposits",
@@ -10772,9 +10790,9 @@
               "line": 14,
               "indent": 0,
               "negating": false,
-              "value": 4316000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -11527,11 +11545,11 @@
               "line": 33,
               "indent": 0,
               "negating": false,
-              "value": 10000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
-              "derivedUnavailable": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -12016,9 +12034,9 @@
               "line": 33,
               "indent": 0,
               "negating": false,
-              "value": 10000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -13483,11 +13501,11 @@
               "line": 33,
               "indent": 0,
               "negating": false,
-              "value": 10000000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
-              "derivedUnavailable": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -14950,9 +14968,9 @@
               "line": 33,
               "indent": 0,
               "negating": false,
-              "value": -2500000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -16710,9 +16728,9 @@
               "line": 18,
               "indent": 0,
               "negating": false,
-              "value": 605000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -17017,7 +17035,8 @@
             "tag": "InterestIncomeSecuritiesTaxable",
             "label": "Taxable",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestAndDividendIncomeOperating",
@@ -17029,13 +17048,15 @@
             "tag": "InterestIncomeSecuritiesTaxExempt",
             "label": "Tax-exempt",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeMoneyMarketDeposits",
             "label": "Money market funds",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseDeposits",
@@ -17065,7 +17086,8 @@
             "tag": "InterestExpenseSubordinatedNotesAndDebentures",
             "label": "Subordinated debt",
             "line": 17,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseNet",
@@ -17143,7 +17165,8 @@
             "tag": "LicensingFees",
             "label": "Licensing fees",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RegulatorySettlementReserveExpense",
@@ -17229,13 +17252,15 @@
             "tag": "InterestIncomeSecuritiesTaxable",
             "label": "Taxable",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeSecuritiesTaxExempt",
             "label": "Tax-exempt",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseDeposits",
@@ -17247,7 +17272,8 @@
             "tag": "InterestIncomeMoneyMarketDeposits",
             "label": "Money market funds",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseFederalFundsPurchasedAndFederalHomeLoanBankAdvances",
@@ -17283,7 +17309,8 @@
             "tag": "InterestExpenseSubordinatedNotesAndDebentures",
             "label": "Subordinated debt",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -17349,7 +17376,8 @@
             "tag": "LicensingFees",
             "label": "Licensing fees",
             "line": 31,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherNoninterestExpense",
@@ -17367,7 +17395,8 @@
             "tag": "RegulatorySettlementReserveExpense",
             "label": "Regulatory settlement reserve",
             "line": 33,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",

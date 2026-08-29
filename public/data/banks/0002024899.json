@@ -563,9 +563,9 @@
               "line": 4,
               "indent": 0,
               "negating": false,
-              "value": 107000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "CashCashEquivalentsAndFederalFundsSold",
@@ -882,8 +882,8 @@
       ],
       "quarterly": [
         {
-          "period": "Q4 2026",
-          "label": "Q4 2026",
+          "period": "Q1 2026",
+          "label": "Q1 2026",
           "form": "10-K",
           "fy": "2026",
           "fp": "Q4",
@@ -1385,8 +1385,8 @@
           ]
         },
         {
-          "period": "Q3 2026",
-          "label": "Q3 2026",
+          "period": "Q4 2025",
+          "label": "Q4 2025",
           "form": "10-Q",
           "fy": "2026",
           "fp": "Q3",
@@ -1888,8 +1888,8 @@
           ]
         },
         {
-          "period": "Q2 2026",
-          "label": "Q2 2026",
+          "period": "Q3 2025",
+          "label": "Q3 2025",
           "form": "10-Q",
           "fy": "2026",
           "fp": "Q2",
@@ -2391,8 +2391,8 @@
           ]
         },
         {
-          "period": "Q1 2026",
-          "label": "Q1 2026",
+          "period": "Q2 2025",
+          "label": "Q2 2025",
           "form": "10-Q",
           "fy": "2026",
           "fp": "Q1",
@@ -2894,8 +2894,8 @@
           ]
         },
         {
-          "period": "Q4 2025",
-          "label": "Q4 2025",
+          "period": "Q1 2025",
+          "label": "Q1 2025",
           "form": "10-K",
           "fy": "2025",
           "fp": "Q4",
@@ -2938,9 +2938,9 @@
               "line": 4,
               "indent": 0,
               "negating": false,
-              "value": 107000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -3397,8 +3397,8 @@
           ]
         },
         {
-          "period": "Q3 2025",
-          "label": "Q3 2025",
+          "period": "Q4 2024",
+          "label": "Q4 2024",
           "form": "10-Q",
           "fy": "2025",
           "fp": "Q3",
@@ -3900,8 +3900,8 @@
           ]
         },
         {
-          "period": "Q2 2025",
-          "label": "Q2 2025",
+          "period": "Q3 2024",
+          "label": "Q3 2024",
           "form": "10-Q",
           "fy": "2025",
           "fp": "Q2",
@@ -3944,9 +3944,9 @@
               "line": 4,
               "indent": 0,
               "negating": false,
-              "value": 107000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -4403,8 +4403,8 @@
           ]
         },
         {
-          "period": "Q1 2025",
-          "label": "Q1 2025",
+          "period": "Q2 2024",
+          "label": "Q2 2024",
           "form": "10-Q",
           "fy": "2025",
           "fp": "Q1",
@@ -5244,7 +5244,8 @@
             "tag": "StockSubscriptionsProceedsHeldInEscrow",
             "label": "Stock subscription proceeds in escrow",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PensionAndOtherPostretirementDefinedBenefitPlansLiabilitiesCurrentAndNoncurrent",
@@ -5347,8 +5348,8 @@
         ],
         "quarterly": [
           {
-            "key": "Q4 2026",
-            "label": "Q4 2026",
+            "key": "Q1 2026",
+            "label": "Q1 2026",
             "form": "10-K",
             "fy": "2026",
             "fp": "Q4",
@@ -5356,8 +5357,8 @@
             "isDerived": false
           },
           {
-            "key": "Q3 2026",
-            "label": "Q3 2026",
+            "key": "Q4 2025",
+            "label": "Q4 2025",
             "form": "10-Q",
             "fy": "2026",
             "fp": "Q3",
@@ -5365,8 +5366,8 @@
             "isDerived": false
           },
           {
-            "key": "Q2 2026",
-            "label": "Q2 2026",
+            "key": "Q3 2025",
+            "label": "Q3 2025",
             "form": "10-Q",
             "fy": "2026",
             "fp": "Q2",
@@ -5374,8 +5375,8 @@
             "isDerived": false
           },
           {
-            "key": "Q1 2026",
-            "label": "Q1 2026",
+            "key": "Q2 2025",
+            "label": "Q2 2025",
             "form": "10-Q",
             "fy": "2026",
             "fp": "Q1",
@@ -5383,8 +5384,8 @@
             "isDerived": false
           },
           {
-            "key": "Q4 2025",
-            "label": "Q4 2025",
+            "key": "Q1 2025",
+            "label": "Q1 2025",
             "form": "10-K",
             "fy": "2025",
             "fp": "Q4",
@@ -5392,8 +5393,8 @@
             "isDerived": false
           },
           {
-            "key": "Q3 2025",
-            "label": "Q3 2025",
+            "key": "Q4 2024",
+            "label": "Q4 2024",
             "form": "10-Q",
             "fy": "2025",
             "fp": "Q3",
@@ -5401,8 +5402,8 @@
             "isDerived": false
           },
           {
-            "key": "Q2 2025",
-            "label": "Q2 2025",
+            "key": "Q3 2024",
+            "label": "Q3 2024",
             "form": "10-Q",
             "fy": "2025",
             "fp": "Q2",
@@ -5410,8 +5411,8 @@
             "isDerived": false
           },
           {
-            "key": "Q1 2025",
-            "label": "Q1 2025",
+            "key": "Q2 2024",
+            "label": "Q2 2024",
             "form": "10-Q",
             "fy": "2025",
             "fp": "Q1",
@@ -6090,8 +6091,8 @@
       ],
       "quarterly": [
         {
-          "period": "Q4 2026",
-          "label": "Q4 2026 (derived)",
+          "period": "Q1 2026",
+          "label": "Q1 2026 (derived)",
           "form": "10-K",
           "fy": "2026",
           "fp": "Q4",
@@ -6551,8 +6552,8 @@
           ]
         },
         {
-          "period": "Q3 2026",
-          "label": "Q3 2026",
+          "period": "Q4 2025",
+          "label": "Q4 2025",
           "form": "10-Q",
           "fy": "2026",
           "fp": "Q3",
@@ -7012,8 +7013,8 @@
           ]
         },
         {
-          "period": "Q2 2026",
-          "label": "Q2 2026",
+          "period": "Q3 2025",
+          "label": "Q3 2025",
           "form": "10-Q",
           "fy": "2026",
           "fp": "Q2",
@@ -7473,8 +7474,8 @@
           ]
         },
         {
-          "period": "Q1 2026",
-          "label": "Q1 2026",
+          "period": "Q2 2025",
+          "label": "Q2 2025",
           "form": "10-Q",
           "fy": "2026",
           "fp": "Q1",
@@ -7934,8 +7935,8 @@
           ]
         },
         {
-          "period": "Q4 2025",
-          "label": "Q4 2025 (derived)",
+          "period": "Q1 2025",
+          "label": "Q1 2025 (derived)",
           "form": "10-K",
           "fy": "2025",
           "fp": "Q4",
@@ -8395,8 +8396,8 @@
           ]
         },
         {
-          "period": "Q3 2025",
-          "label": "Q3 2025",
+          "period": "Q4 2024",
+          "label": "Q4 2024",
           "form": "10-Q",
           "fy": "2025",
           "fp": "Q3",
@@ -8856,8 +8857,8 @@
           ]
         },
         {
-          "period": "Q2 2025",
-          "label": "Q2 2025",
+          "period": "Q3 2024",
+          "label": "Q3 2024",
           "form": "10-Q",
           "fy": "2025",
           "fp": "Q2",
@@ -9317,8 +9318,8 @@
           ]
         },
         {
-          "period": "Q1 2025",
-          "label": "Q1 2025",
+          "period": "Q2 2024",
+          "label": "Q2 2024",
           "form": "10-Q",
           "fy": "2025",
           "fp": "Q1",
@@ -10128,7 +10129,8 @@
             "tag": "GainLossOnSaleOfInvestments",
             "label": "Loss on sale of available-for-sale investments",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestExpense",
@@ -10189,8 +10191,8 @@
         ],
         "quarterly": [
           {
-            "key": "Q4 2026",
-            "label": "Q4 2026",
+            "key": "Q1 2026",
+            "label": "Q1 2026",
             "form": "10-K",
             "fy": "2026",
             "fp": "Q4",
@@ -10198,8 +10200,8 @@
             "isDerived": false
           },
           {
-            "key": "Q3 2026",
-            "label": "Q3 2026",
+            "key": "Q4 2025",
+            "label": "Q4 2025",
             "form": "10-Q",
             "fy": "2026",
             "fp": "Q3",
@@ -10207,8 +10209,8 @@
             "isDerived": false
           },
           {
-            "key": "Q2 2026",
-            "label": "Q2 2026",
+            "key": "Q3 2025",
+            "label": "Q3 2025",
             "form": "10-Q",
             "fy": "2026",
             "fp": "Q2",
@@ -10216,8 +10218,8 @@
             "isDerived": false
           },
           {
-            "key": "Q1 2026",
-            "label": "Q1 2026",
+            "key": "Q2 2025",
+            "label": "Q2 2025",
             "form": "10-Q",
             "fy": "2026",
             "fp": "Q1",
@@ -10225,8 +10227,8 @@
             "isDerived": false
           },
           {
-            "key": "Q4 2025",
-            "label": "Q4 2025",
+            "key": "Q1 2025",
+            "label": "Q1 2025",
             "form": "10-K",
             "fy": "2025",
             "fp": "Q4",
@@ -10234,8 +10236,8 @@
             "isDerived": false
           },
           {
-            "key": "Q3 2025",
-            "label": "Q3 2025",
+            "key": "Q4 2024",
+            "label": "Q4 2024",
             "form": "10-Q",
             "fy": "2025",
             "fp": "Q3",
@@ -10243,8 +10245,8 @@
             "isDerived": false
           },
           {
-            "key": "Q2 2025",
-            "label": "Q2 2025",
+            "key": "Q3 2024",
+            "label": "Q3 2024",
             "form": "10-Q",
             "fy": "2025",
             "fp": "Q2",
@@ -10252,8 +10254,8 @@
             "isDerived": false
           },
           {
-            "key": "Q1 2025",
-            "label": "Q1 2025",
+            "key": "Q2 2024",
+            "label": "Q2 2024",
             "form": "10-Q",
             "fy": "2025",
             "fp": "Q1",

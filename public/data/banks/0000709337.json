@@ -122,7 +122,7 @@
         "form": "10-Q+10-K+10-Q+10-Q"
       },
       "NoninterestExpense": {
-        "value": 7543000,
+        "value": 125251000,
         "date": "20260331",
         "method": "sum-4Q-statements",
         "form": "10-Q+10-K+10-Q+10-Q"
@@ -8659,7 +8659,8 @@
             "tag": "FederalFundsSoldAndOther",
             "label": "Federal funds sold and other",
             "line": 3,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CashAndDueFromBanks",
@@ -8683,7 +8684,8 @@
             "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
             "label": "Loans",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
@@ -8695,7 +8697,8 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Less allowance for credit losses",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherInvestments",
@@ -8707,7 +8710,8 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "NET LOANS",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
@@ -8731,7 +8735,8 @@
             "tag": "FiniteLivedIntangibleAssetsNet",
             "label": "Other intangibles, net",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NotesReceivableNet",
@@ -8749,7 +8754,8 @@
             "tag": "AffordableHousingInvestments",
             "label": "Affordable housing investments",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Goodwill",
@@ -8851,7 +8857,8 @@
             "tag": "TreasuryStockValue",
             "label": "Treasury stock, at cost; 1,736,097 and 1,818,936 shares, respectively",
             "line": 33,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RetainedEarningsAccumulatedDeficit",
@@ -8907,7 +8914,8 @@
             "tag": "LoansAndLeasesReceivableNetOfDeferredIncome",
             "label": "Loans",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
@@ -8919,7 +8927,8 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Less allowance for credit losses",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherInvestments",
@@ -8931,7 +8940,8 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "NET LOANS",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansReceivableHeldForSaleNetNotPartOfDisposalGroup",
@@ -8991,7 +9001,8 @@
             "tag": "AffordableHousingInvestments",
             "label": "Affordable housing investments",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherAssets",
@@ -9027,7 +9038,8 @@
             "tag": "TimeDeposits",
             "label": "Brokered time deposits",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ShortTermBorrowings",
@@ -9039,7 +9051,8 @@
             "tag": "BrokeredTimeDeposits",
             "label": "Brokered time deposits",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LongTermDebt",
@@ -9105,7 +9118,8 @@
             "tag": "TreasuryStockValue",
             "label": "Treasury stock, at cost; 1,748,059 and 1,818,936 shares in 2024 and 2023, respectively",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ]
       },
@@ -12965,14 +12979,15 @@
               "label": "TOTAL NONINTEREST EXPENSES",
               "line": 47,
               "indent": 0,
-              "negating": true,
-              "value": -31679000,
+              "negating": false,
+              "value": 31679000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
@@ -13608,14 +13623,15 @@
               "label": "TOTAL NONINTEREST EXPENSES",
               "line": 47,
               "indent": 0,
-              "negating": true,
-              "value": -27175000,
+              "negating": false,
+              "value": 27175000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
@@ -19501,7 +19517,8 @@
             "tag": "FederalFundsSoldAndOtherInterestIncome",
             "label": "Federal funds sold and other interest income",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DividendIncomeOperating",
@@ -19549,7 +19566,8 @@
             "tag": "ProvisionForLoanLeaseAndOtherLossesExcludingUnfundedLoans",
             "label": "Provision for credit losses",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseNet",
@@ -19561,7 +19579,8 @@
             "tag": "ProvisionCreditForUnfundedCommitment",
             "label": "(Credit) provision for unfunded commitments",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProvisionForLoanLossesExpensed",
@@ -19585,7 +19604,8 @@
             "tag": "BankOwnedLifeInsuranceIncomeIncludingDeathBenefit",
             "label": "Bank owned life insurance income, including death benefits",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -19609,7 +19629,8 @@
             "tag": "OtherMortgageBankingIncomeLossNet",
             "label": "Other mortgage banking income, net",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnSalesOfLoansNet",
@@ -19621,7 +19642,8 @@
             "tag": "LegalSettlementIncome",
             "label": "Legal settlement",
             "line": 33,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherMortgageBankingIncomeExpenseNet",
@@ -19669,7 +19691,8 @@
             "tag": "MergerRelatedCostsIncomes",
             "label": "Merger related costs",
             "line": 41,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BusinessCombinationAcquisitionRelatedCosts",
@@ -19693,7 +19716,8 @@
             "tag": "CoreProcessingCharge",
             "label": "Core processing charges",
             "line": 44,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoanProcessingFee",
@@ -19705,7 +19729,8 @@
             "tag": "CharitableDonationExpense",
             "label": "Charitable donation",
             "line": 45,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherNoninterestExpense",
@@ -19773,7 +19798,8 @@
             "tag": "FederalFundsSoldAndOtherInterestIncome",
             "label": "Federal funds sold and other interest income",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DividendIncomeOperating",
@@ -19827,13 +19853,15 @@
             "tag": "ProvisionForUnfundedLoans",
             "label": "Provision (credit) for unfunded loans",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProvisionCreditForUnfundedCommitment",
             "label": "(Credit) provision for unfunded commitments",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProvisionForLoanLossesExpensed",
@@ -19857,7 +19885,8 @@
             "tag": "BankOwnedLifeInsuranceIncomeIncludingDeathBenefit",
             "label": "Bank owned life insurance income, including death benefits",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -19881,7 +19910,8 @@
             "tag": "OtherMortgageBankingIncomeLossNet",
             "label": "Other mortgage banking income, net",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnSalesOfLoansNet",
@@ -19893,7 +19923,8 @@
             "tag": "LegalSettlementIncome",
             "label": "Legal settlement",
             "line": 33,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherMortgageBankingIncomeExpenseNet",
@@ -19935,7 +19966,8 @@
             "tag": "MergerRelatedCostsIncomes",
             "label": "Merger related costs",
             "line": 40,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProfessionalFees",
@@ -19959,7 +19991,8 @@
             "tag": "CoreProcessingCharge",
             "label": "Core processing charges",
             "line": 43,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AmortizationOfIntangibleAssets",
@@ -19977,7 +20010,8 @@
             "tag": "CharitableDonationExpense",
             "label": "Charitable donation",
             "line": 45,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherNoninterestExpense",

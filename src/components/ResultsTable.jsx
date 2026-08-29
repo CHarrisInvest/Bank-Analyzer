@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
+import { bankPath } from '../utils/bankPath';
 import { useNavigate } from 'react-router-dom';
 import { formatNumber } from '../utils/csv.js';
 import { sendPageView } from '../analytics/gtag.js';
@@ -1242,8 +1243,8 @@ function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
                       e.stopPropagation();
                       // Capture scroll position and navigate
                       const scrollY = window.scrollY;
-                      sendPageView(`/bank/${bank.ticker}`, bank.ticker);
-                      navigate(`/bank/${bank.ticker}`, {
+                      sendPageView(`/bank/${bankPath(bank)}`, bank.ticker || bank.cik);
+                      navigate(`/bank/${bankPath(bank)}`, {
                         state: { from: 'screener', filters: filters, scrollY },
                       });
                     };
@@ -1263,7 +1264,7 @@ function ResultsTable({ banks, loading, searchQuery = '', filters = {} }) {
                           </svg>
                         </button>
                         <a
-                          href={`/bank/${bank.ticker}`}
+                          href={`/bank/${bankPath(bank)}`}
                           className="ticker-link"
                           onClick={handleTickerClick}
                         >

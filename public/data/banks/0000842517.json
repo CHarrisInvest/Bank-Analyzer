@@ -2805,14 +2805,15 @@
               "label": "Less allowance for credit losses",
               "line": 10,
               "indent": 0,
-              "negating": false,
-              "value": 13727000,
+              "negating": true,
+              "value": -13727000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
@@ -3518,14 +3519,15 @@
               "label": "Less allowance for credit losses",
               "line": 10,
               "indent": 0,
-              "negating": false,
-              "value": 13149000,
+              "negating": true,
+              "value": -13149000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
@@ -4231,14 +4233,15 @@
               "label": "Less allowance for loan losses",
               "line": 10,
               "indent": 0,
-              "negating": false,
-              "value": 12977000,
+              "negating": true,
+              "value": -12977000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
@@ -4944,14 +4947,15 @@
               "label": "Less allowance for loan losses",
               "line": 10,
               "indent": 0,
-              "negating": false,
-              "value": 12735000,
+              "negating": true,
+              "value": -12735000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
@@ -5657,14 +5661,15 @@
               "label": "Less allowance for loan losses",
               "line": 10,
               "indent": 0,
-              "negating": false,
-              "value": 12895000,
+              "negating": true,
+              "value": -12895000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
@@ -11304,7 +11309,8 @@
             "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
             "label": "Loans and Leases Receivable, Gross",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -11316,7 +11322,8 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Less allowance for loan losses",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLossExcludingAccruedInterest",
@@ -11328,7 +11335,8 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Net loans",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -11340,7 +11348,8 @@
             "tag": "LoansandLeasesReceivableGrossCommercialExcludingAgriculturalandAgriculturalRealEstate",
             "label": "Commercial",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PropertyPlantAndEquipmentNet",
@@ -11352,7 +11361,8 @@
             "tag": "LoansReceivableGrossAgriculturalandAgriculturalRealEstate",
             "label": "Agricultural",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BankOwnedLifeInsurance",
@@ -11364,13 +11374,15 @@
             "tag": "EquityMethodAndOtherInvestments",
             "label": "Equity securities without readily determinable fair values",
             "line": 14,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansandLeasesReceivableGrossConsumerRealEstate",
             "label": "Loans and Leases Receivable, Gross, Consumer Real Estate",
             "line": 14,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IntangibleAssetsNetIncludingGoodwill",
@@ -11382,7 +11394,8 @@
             "tag": "LoanandLeasesReceivableGrossConsumerOther",
             "label": "Loan and Leases Receivable, Gross, Consumer Other",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestReceivableAndOtherAssets",
@@ -11412,13 +11425,15 @@
             "tag": "InterestBearingDomesticDepositDemand",
             "label": "Interest-Bearing Domestic Deposit, Demand",
             "line": 21,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DepositsNegotiableOrderOfWithdrawalNOW",
             "label": "NOW accounts",
             "line": 21,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Deposits",
@@ -11430,25 +11445,29 @@
             "tag": "DepositsSavingsDeposits",
             "label": "Deposits, Savings Deposits",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CertificatesOfDepositUnderOtherSavings",
             "label": "Certificates of deposit under $100 and other savings",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TimeDeposits",
             "label": "Time Deposits",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TimeDepositsAtOrAboveFDICInsuranceLimit",
             "label": "Time Deposits, at or Above FDIC Insurance Limit",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
@@ -11490,7 +11509,8 @@
             "tag": "InterestPayableAndOtherLiabilities",
             "label": "Accrued interest payable and other liabilities",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockValue",
@@ -11576,13 +11596,15 @@
             "tag": "LoansAndLeasesReceivableGrossCarryingAmount",
             "label": "Loans and Leases Receivable, Gross",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Less allowance for loan losses",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -11594,7 +11616,8 @@
             "tag": "FinancingReceivableAllowanceForCreditLosses",
             "label": "Less allowance for loan losses",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalHomeLoanBankStock",
@@ -11606,13 +11629,15 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Net loans",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansandLeasesReceivableGrossCommercialExcludingAgriculturalandAgriculturalRealEstate",
             "label": "Commercial",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PropertyPlantAndEquipmentNet",
@@ -11624,7 +11649,8 @@
             "tag": "LoansReceivableGrossAgriculturalandAgriculturalRealEstate",
             "label": "Agricultural",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BankOwnedLifeInsurance",
@@ -11636,13 +11662,15 @@
             "tag": "EquityMethodAndOtherInvestments",
             "label": "Equity securities without readily determinable fair values",
             "line": 14,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansandLeasesReceivableGrossConsumerRealEstate",
             "label": "Loans and Leases Receivable, Gross, Consumer Real Estate",
             "line": 14,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IntangibleAssetsNetIncludingGoodwill",
@@ -11654,7 +11682,8 @@
             "tag": "LoanandLeasesReceivableGrossConsumerOther",
             "label": "Loan and Leases Receivable, Gross, Consumer Other",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestReceivableAndOtherAssets",
@@ -11684,13 +11713,15 @@
             "tag": "DepositsNegotiableOrderOfWithdrawalNOW",
             "label": "NOW accounts",
             "line": 21,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestBearingDepositLiabilities",
             "label": "Interest bearing deposits",
             "line": 21,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DepositsMoneyMarketDeposits",
@@ -11702,7 +11733,8 @@
             "tag": "CertificatesOfDepositUnderOtherSavings",
             "label": "Certificates of deposit under $250 and other savings",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DepositsSavingsDeposits",
@@ -11714,7 +11746,8 @@
             "tag": "TimeDepositsAtOrAboveFDICInsuranceLimit",
             "label": "Certificates of deposit over $250",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TimeDeposits",
@@ -11744,7 +11777,8 @@
             "tag": "FederalHomeLoanBankAdvancesLongTerm",
             "label": "Federal Home Loan Bank Advances",
             "line": 27,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "SubordinatedDebt",
@@ -11768,13 +11802,15 @@
             "tag": "DebtLongtermAndShorttermCombinedAmount",
             "label": "Total borrowed funds",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestPayableAndOtherLiabilities",
             "label": "Accrued interest payable and other liabilities",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockValue",
@@ -11786,7 +11822,8 @@
             "tag": "DeferredCompensationArrangementWithIndividualCommonStockReservedForFutureIssuance",
             "label": "Deferred Compensation Arrangement with Individual, Common Stock Reserved for Future Issuance",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DeferredCompensationArrangementwithIndividualDeferredCompensationObligations",
@@ -11804,7 +11841,8 @@
             "tag": "CommonStockSharesIssued",
             "label": "Common Stock, Shares Authorized",
             "line": 34,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
@@ -11828,7 +11866,8 @@
             "tag": "CommonStockSharesAuthorized",
             "label": "Common Stock, Shares Authorized",
             "line": 40,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ]
       },
@@ -22172,7 +22211,8 @@
             "tag": "InterestIncomeDebtSecuritiesAvailableForSaleOperating",
             "label": "Interest Income, Debt Securities, Available-for-Sale, Operating",
             "line": 3,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeSecuritiesTaxable",
@@ -22214,7 +22254,8 @@
             "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
             "label": "Interest Expense, Federal Home Loan Bank and Federal Reserve Bank Advances, Long-term",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseFederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
@@ -22286,7 +22327,8 @@
             "tag": "BankOwnedLifeInsuranceIncomeFromPolicyRedemption",
             "label": "Bank Owned Life Insurance Income, From Policy Redemption",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtSecuritiesAvailableForSaleGainLoss",
@@ -22298,7 +22340,8 @@
             "tag": "NoncontrollingInterestInNetIncomeLossJointVenturePartnersNonredeemable",
             "label": "Noncontrolling Interest in Net Income (Loss) Joint Venture Partners",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -22316,7 +22359,8 @@
             "tag": "EquipmentExpense",
             "label": "Furniture and equipment",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -22334,7 +22378,8 @@
             "tag": "GainsLossesOnExtinguishmentOfDebt",
             "label": "Loss on extinguishment of debt",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProfessionalAndContractServicesExpense",
@@ -22364,7 +22409,8 @@
             "tag": "ExpenseRelatedToDistributionOrServicingAndUnderwritingFees",
             "label": "Loan underwriting fees",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "MembershipsAndSubscriptionsExpense",
@@ -22438,7 +22484,8 @@
             "tag": "InterestIncomeDebtSecuritiesAvailableForSaleOperating",
             "label": "AFS securities",
             "line": 3,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeSecuritiesTaxable",
@@ -22480,7 +22527,8 @@
             "tag": "InterestExpenseFederalHomeLoanBankAndFederalReserveBankAdvancesLongTerm",
             "label": "Interest Expense Federal Home Loan Bank Advances",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseFederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
@@ -22528,7 +22576,8 @@
             "tag": "NoninterestIncomeInvestmentandTrustAdvisoryFees",
             "label": "Noninterest Income Investment and Trust Advisory Fees",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncomeServiceChargesandFees",
@@ -22558,7 +22607,8 @@
             "tag": "BankOwnedLifeInsuranceIncomeFromPolicyRedemption",
             "label": "Bank Owned Life Insurance Income, From Policy Redemption",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -22570,13 +22620,15 @@
             "tag": "DebtSecuritiesAvailableForSaleGainLoss",
             "label": "Net gains on sale of AFS securities",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoncontrollingInterestInNetIncomeLossJointVenturePartnersNonredeemable",
             "label": "Noncontrolling Interest in Net Income (Loss) Joint Venture Partners",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -22594,7 +22646,8 @@
             "tag": "EquipmentExpense",
             "label": "Furniture and equipment",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OccupancyNet",
@@ -22612,7 +22665,8 @@
             "tag": "GainsLossesOnExtinguishmentOfDebt",
             "label": "Loss on extinguishment of debt",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ATMandDebitCardExpense",
@@ -22630,7 +22684,8 @@
             "tag": "OtherLosses",
             "label": "Other losses",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalDepositInsuranceCorporationPremiumExpense",
@@ -22648,7 +22703,8 @@
             "tag": "ExpenseRelatedToDistributionOrServicingAndUnderwritingFees",
             "label": "Loan underwriting fees",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestExpense",
@@ -22660,7 +22716,8 @@
             "tag": "MembershipsAndSubscriptionsExpense",
             "label": "Memberships and subscriptions",
             "line": 33,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",

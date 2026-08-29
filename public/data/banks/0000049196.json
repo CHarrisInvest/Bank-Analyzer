@@ -467,9 +467,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "PreferredStockValue",
@@ -899,9 +899,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "PreferredStockValue",
@@ -1331,9 +1331,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "PreferredStockValue",
@@ -1763,9 +1763,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "PreferredStockValue",
@@ -2899,9 +2899,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -5303,9 +5303,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -7707,9 +7707,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -9763,7 +9763,8 @@
             "tag": "InterestbearingdepositsatFederalReserveBank",
             "label": "Interest-bearing deposits at Federal Reserve Bank",
             "line": 3,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TradingSecuritiesDebt",
@@ -10017,7 +10018,8 @@
             "tag": "InterestbearingdepositsatFederalReserveBank",
             "label": "Interest-bearing deposits at Federal Reserve Bank",
             "line": 3,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TradingSecuritiesDebt",
@@ -22059,7 +22061,8 @@
             "tag": "FeesandCommissionsServiceChargesonDepositAccounts",
             "label": "Service charges on deposit accounts",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestAndDividendIncomeSecuritiesHeldToMaturity",
@@ -22071,7 +22074,8 @@
             "tag": "ElectronicBanking",
             "label": "Card and payment processing income",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeSecuritiesOperatingOtherTaxable",
@@ -22089,7 +22093,8 @@
             "tag": "FeesandCommissionsTrustandInvestmentManagementServices",
             "label": "Trust and investment management services",
             "line": 21,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestAndDividendIncomeOperating",
@@ -22107,7 +22112,8 @@
             "tag": "InsuranceCommissionsAndFees",
             "label": "Insurance income",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseShortTermBorrowings",
@@ -22119,7 +22125,8 @@
             "tag": "FeesAndCommissionsPaymentsAndCashManagement",
             "label": "Payments and cash management revenue",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseOtherLongTermDebt",
@@ -22131,7 +22138,8 @@
             "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
             "label": "Wealth and asset management revenue",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseOperating",
@@ -22143,7 +22151,8 @@
             "tag": "FeesAndCommissionsCustomerDepositAndLoanFees",
             "label": "Customer deposit and loan fees",
             "line": 27,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseNet",
@@ -22155,7 +22164,8 @@
             "tag": "CapitalMarketsFeeIncome",
             "label": "Capital markets and advisory fees",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAndOffBalanceSheetCreditLossExpenseReversal",
@@ -22167,7 +22177,8 @@
             "tag": "FeesAndCommissionsMortgageBankingAndServicing",
             "label": "Mortgage banking income",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -22179,13 +22190,15 @@
             "tag": "LeaseIncome",
             "label": "Leasing revenue",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BankOwnedLifeInsuranceIncome",
             "label": "Bank owned life insurance income",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -22197,13 +22210,15 @@
             "tag": "GainLossOnSalesOfLoansNet",
             "label": "Gain on sale of loans",
             "line": 31,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtAndEquitySecuritiesGainLoss",
             "label": "Net gains (losses) on sales of securities",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -22215,7 +22230,8 @@
             "tag": "NoninterestIncomeOtherOperatingIncome",
             "label": "Other noninterest income",
             "line": 33,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InformationTechnologyAndDataProcessing",
@@ -22263,7 +22279,8 @@
             "tag": "MarketingAndAdvertisingExpense",
             "label": "Marketing",
             "line": 40,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DepreciationNonproduction",
@@ -22385,7 +22402,8 @@
             "tag": "ElectronicBanking",
             "label": "Wealth and asset management revenue",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeSecuritiesOperatingOtherTaxable",
@@ -22415,7 +22433,8 @@
             "tag": "InsuranceCommissionsAndFees",
             "label": "Insurance income",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseShortTermBorrowings",
@@ -22427,13 +22446,15 @@
             "tag": "FeesandCommissionsServiceChargesonDepositAccounts",
             "label": "Payments and cash management revenue",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnSalesOfLoansNet",
             "label": "Bank owned life insurance income",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseOtherLongTermDebt",
@@ -22445,13 +22466,15 @@
             "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
             "label": "Wealth and asset management revenue",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BankOwnedLifeInsuranceIncome",
             "label": "Gain on sale of loans",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseOperating",
@@ -22463,13 +22486,15 @@
             "tag": "CapitalMarketsFeeIncome",
             "label": "Customer deposit and loan fees",
             "line": 27,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtAndEquitySecuritiesGainLoss",
             "label": "Net gains (losses) on sales of securities",
             "line": 27,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseNet",
@@ -22481,7 +22506,8 @@
             "tag": "FeesandCommissionsTrustandInvestmentManagementServices",
             "label": "Capital markets and advisory fees",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAndOffBalanceSheetCreditLossExpenseReversal",
@@ -22493,7 +22519,8 @@
             "tag": "LeaseIncome",
             "label": "Leasing revenue",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -22505,7 +22532,8 @@
             "tag": "FeesAndCommissionsMortgageBankingAndServicing",
             "label": "Mortgage banking income",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -22517,7 +22545,8 @@
             "tag": "NoninterestIncomeOtherOperatingIncome",
             "label": "Other noninterest income",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -22571,7 +22600,8 @@
             "tag": "MarketingAndAdvertisingExpense",
             "label": "Marketing",
             "line": 41,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DepreciationNonproduction",
@@ -22631,7 +22661,8 @@
             "tag": "OtherPreferredStockDividendsAndAdjustments",
             "label": "Impact of preferred stock redemptions and repurchases",
             "line": 50,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",

@@ -1633,10 +1633,11 @@
               "label": "Treasury stock, value",
               "line": 35,
               "indent": 0,
-              "negating": false,
-              "value": 48625000,
+              "negating": true,
+              "value": -48625000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "TreasuryStockCommonShares",
@@ -8642,7 +8643,8 @@
             "tag": "FinancingReceivableAllowanceForCreditLosses",
             "label": "Loans and Leases Receivable, Allowance",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -8780,7 +8782,8 @@
             "tag": "TreasuryStockCommonShares",
             "label": "Treasury Stock, Common, Shares",
             "line": 35,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "StockholdersEquity",
@@ -8824,7 +8827,8 @@
             "tag": "HeldToMaturitySecurities",
             "label": "Investment securities held-to-maturity (fair value $109,724 and $115,007 at December 31, 2025 and 2024, respectively)",
             "line": 5,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtSecuritiesAvailableForSaleExcludingAccruedInterest",
@@ -8836,7 +8840,8 @@
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
             "label": "Investment securities available-for-sale (amortized cost $398,476 and $402,651, net of allowance for credit losses of $11 and $839 at December 31, 2025 and 2024, respectively)",
             "line": 6,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "EquitySecuritiesFvNi",
@@ -9016,7 +9021,8 @@
             "tag": "TreasuryStockCommonShares",
             "label": "Treasury Stock, Common, Shares",
             "line": 38,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ]
       },
@@ -18258,13 +18264,15 @@
             "tag": "InterestExpenseDemandDepositAccounts",
             "label": "Interest on demand deposits",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseSavingsDeposits",
             "label": "Interest on savings deposits",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeSecuritiesTaxable",
@@ -18276,7 +18284,8 @@
             "tag": "InterestExpenseTimeDeposits",
             "label": "Interest on time deposits",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeSecuritiesTaxExempt",
@@ -18480,7 +18489,8 @@
             "tag": "DebtAndEquitySecuritiesGainLoss",
             "label": "Net gain on sales of investment securities",
             "line": 49,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ]
       },

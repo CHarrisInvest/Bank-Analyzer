@@ -1137,9 +1137,9 @@
               "line": 35,
               "indent": 0,
               "negating": false,
-              "value": 0.01,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "CommonStockValue",
@@ -1479,9 +1479,9 @@
               "line": 35,
               "indent": 0,
               "negating": false,
-              "value": 0.01,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "CommonStockValue",
@@ -3479,9 +3479,9 @@
               "line": 43,
               "indent": 0,
               "negating": false,
-              "value": 74748370,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -5351,9 +5351,9 @@
               "line": 35,
               "indent": 0,
               "negating": false,
-              "value": 0.01,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -5840,9 +5840,9 @@
               "line": 35,
               "indent": 0,
               "negating": false,
-              "value": 0.01,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -6329,9 +6329,9 @@
               "line": 35,
               "indent": 0,
               "negating": false,
-              "value": 0.01,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -6818,9 +6818,9 @@
               "line": 35,
               "indent": 0,
               "negating": false,
-              "value": 0.01,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -7307,9 +7307,9 @@
               "line": 35,
               "indent": 0,
               "negating": false,
-              "value": 0.01,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -7796,9 +7796,9 @@
               "line": 35,
               "indent": 0,
               "negating": false,
-              "value": 0.01,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -7995,7 +7995,8 @@
             "tag": "NoninterestBearingDomesticDepositDemand",
             "label": "Non-interest bearing",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestBearingDomesticDepositDemand",
@@ -8031,7 +8032,8 @@
             "tag": "FederalFundsPurchased",
             "label": "Federal funds purchased",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LongTermDebtAndCapitalLeaseObligations",
@@ -8225,7 +8227,8 @@
             "tag": "FederalFundsPurchased",
             "label": "Federal funds purchased",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LongTermDebtAndCapitalLeaseObligations",
@@ -8255,7 +8258,8 @@
             "tag": "CommonStockSharesOutstanding",
             "label": "Common stock, shares outstanding (in Shares)",
             "line": 34,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockValue",
@@ -8267,7 +8271,8 @@
             "tag": "CommonStockParOrStatedValuePerShare",
             "label": "Common stock, par value (in Dollars per Share)",
             "line": 35,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AdditionalPaidInCapital",
@@ -8303,13 +8308,15 @@
             "tag": "CommonStockSharesIssued",
             "label": "Common stock, shares issued (in Shares)",
             "line": 43,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommonStockSharesAuthorized",
             "label": "Common stock, shares authorized (in Shares)",
             "line": 44,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ]
       },
@@ -15833,13 +15840,15 @@
             "tag": "GainLossOnInvestments",
             "label": "Gain (loss) on investment securities, net",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnSaleOfLoansAndLeases",
             "label": "Gain (loss) on sale of loans, net",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CapitalMarketsRevenue",
@@ -15887,7 +15896,8 @@
             "tag": "ProfessionalFees",
             "label": "Professional fees",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OperatingLeaseExpense",
@@ -15911,7 +15921,8 @@
             "tag": "SwapTerminationExpenses",
             "label": "Discontinuance of cash flow hedges",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
@@ -16021,7 +16032,8 @@
             "tag": "GainLossOnSaleOfLoansAndLeases",
             "label": "Gain (loss) on sale of loans, net",
             "line": 15,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "SubleaseIncome",
@@ -16057,7 +16069,8 @@
             "tag": "FederalDepositInsuranceCorporationPremiumExpense",
             "label": "Deposit insurance expense",
             "line": 21,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OccupancyNet",
@@ -16075,7 +16088,8 @@
             "tag": "ProfessionalFees",
             "label": "Professional fees",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CommunicationsAndInformationTechnology",
@@ -16099,7 +16113,8 @@
             "tag": "SwapTerminationExpenses",
             "label": "Discontinuance of cash flow hedges",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestExpense",

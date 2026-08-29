@@ -1058,10 +1058,11 @@
               "label": "Unearned fees and unamortized loan origination costs - net",
               "line": 14,
               "indent": 0,
-              "negating": true,
-              "value": 1299000,
+              "negating": false,
+              "value": -1299000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableAllowanceForCreditLosses",
@@ -6225,14 +6226,15 @@
               "label": "Unearned fees and unamortized loan origination costs - net",
               "line": 14,
               "indent": 0,
-              "negating": true,
-              "value": 1299000,
+              "negating": false,
+              "value": -1299000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableAllowanceForCreditLosses",
@@ -8256,7 +8258,8 @@
             "tag": "CashCashEquivalentsAndFederalFundsSold",
             "label": "Cash and cash equivalents",
             "line": 2,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "CashAndCashEquivalentsAtCarryingValue",
@@ -8268,7 +8271,8 @@
             "tag": "CashAndDueFromBanks",
             "label": "Cash and noninterest-bearing deposits in other banks",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
@@ -8280,7 +8284,8 @@
             "tag": "DueFromFrbInterestBearingCash",
             "label": "Due from Federal Reserve Bank (FRB)",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "EquitySecuritiesFvNi",
@@ -8292,7 +8297,8 @@
             "tag": "NotesReceivableGross",
             "label": "Loans",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ShortTermInvestments",
@@ -8304,7 +8310,8 @@
             "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
             "label": "Unearned fees and unamortized loan origination costs - net",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
@@ -8394,7 +8401,8 @@
             "tag": "FederalFundsPurchased",
             "label": "Short-term borrowings",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestBearingDepositLiabilities",
@@ -8486,13 +8494,15 @@
             "tag": "CashAndDueFromBanks",
             "label": "Cash and noninterest-bearing deposits in other banks",
             "line": 7,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DueFromFrbInterestBearingCash",
             "label": "Due from Federal Reserve Bank (FRB)",
             "line": 8,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AvailableForSaleSecuritiesDebtSecurities",
@@ -8504,7 +8514,8 @@
             "tag": "CashCashEquivalentsAndFederalFundsSold",
             "label": "Cash and cash equivalents",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "EquitySecuritiesFvNi",
@@ -8516,7 +8527,8 @@
             "tag": "NotesReceivableGross",
             "label": "Loans",
             "line": 10,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ShortTermInvestments",
@@ -8528,7 +8540,8 @@
             "tag": "UnamortizedLoanCommitmentAndOriginationFeesAndUnamortizedDiscountsOrPremiums",
             "label": "Unearned fees and unamortized loan origination costs - net",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableBeforeAllowanceForCreditLossAndFee",
@@ -8618,7 +8631,8 @@
             "tag": "FederalFundsPurchasedAndSecuritiesSoldUnderAgreementsToRepurchase",
             "label": "Federal funds purchased and securities sold under agreements to resell",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestBearingDepositLiabilities",
@@ -8648,7 +8662,8 @@
             "tag": "FederalFundsPurchased",
             "label": "Short-term borrowings",
             "line": 33,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AccountsPayableAndOtherAccruedLiabilities",
@@ -17506,7 +17521,8 @@
             "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
             "label": "Unrealized gain (loss) on fair value of marketable equity securities",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossonFairValueOptionofFinancialLiability",
@@ -17524,7 +17540,8 @@
             "tag": "GainLossOnDispositionOfAssets1",
             "label": "Gain on sale of assets",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -17536,7 +17553,8 @@
             "tag": "GainLossOnSaleOfOtherInvestments",
             "label": "Gain on sale of investment securities",
             "line": 19,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -17566,7 +17584,8 @@
             "tag": "InformationTechnologyAndDataProcessing",
             "label": "Data processing",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProfessionalFees",
@@ -17608,7 +17627,8 @@
             "tag": "CorrespondentBankServiceCharges",
             "label": "Correspondent bank service charges",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestExpense",
@@ -17620,7 +17640,8 @@
             "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
             "label": "Net cost of operation of OREO",
             "line": 31,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
@@ -17656,7 +17677,8 @@
             "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
             "label": "Basic (in shares)",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "WeightedAverageNumberOfSharesIssuedBasic",
@@ -17754,7 +17776,8 @@
             "tag": "EquitySecuritiesFvNiUnrealizedGainLoss",
             "label": "Unrealized gain (loss) on fair value of marketable equity securities",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossonFairValueOptionofFinancialLiability",
@@ -17772,7 +17795,8 @@
             "tag": "GainLossOnSaleOfOtherInvestments",
             "label": "Gain on sale of investment securities",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -17814,7 +17838,8 @@
             "tag": "InformationTechnologyAndDataProcessing",
             "label": "Data processing",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ProfessionalFees",
@@ -17832,7 +17857,8 @@
             "tag": "NoncashMergerRelatedCosts",
             "label": "Merger-related expenses",
             "line": 27,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RegulatoryAssessmentsExpenseBenefit",
@@ -17850,7 +17876,8 @@
             "tag": "CorrespondentBankServiceCharges",
             "label": "Correspondent bank service charges",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherNoninterestExpense",
@@ -17862,7 +17889,8 @@
             "tag": "GainsLossesOnSalesOfInvestmentRealEstate",
             "label": "Net cost of operation of OREO",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestExpense",

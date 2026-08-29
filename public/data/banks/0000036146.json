@@ -8409,7 +8409,8 @@
             "tag": "FederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell",
             "label": "Federal funds sold and securities purchased under reverse repurchase agreements",
             "line": 3,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "HeldToMaturitySecurities",
@@ -8433,7 +8434,8 @@
             "tag": "PaycheckProtectionProgramLoansAssets",
             "label": "Paycheck Protection Program (PPP) loans",
             "line": 6,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLosses",
@@ -8475,7 +8477,8 @@
             "tag": "IntangibleAssetsNetExcludingGoodwill",
             "label": "Identifiable intangible assets, net",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OperatingLeaseRightOfUseAsset",
@@ -8499,7 +8502,8 @@
             "tag": "AssetsOfDisposalGroupIncludingDiscontinuedOperation",
             "label": "Assets of discontinued operations",
             "line": 16,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestBearingDepositLiabilities",
@@ -8577,7 +8581,8 @@
             "tag": "LiabilitiesOfDisposalGroupIncludingDiscontinuedOperation",
             "label": "Liabilities of discontinued operations",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AdditionalPaidInCapitalCommonStock",
@@ -8627,7 +8632,8 @@
             "tag": "FederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell",
             "label": "Federal funds sold and securities purchased under reverse repurchase agreements",
             "line": 3,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "HeldToMaturitySecurities",
@@ -8651,7 +8657,8 @@
             "tag": "PaycheckProtectionProgramLoansAssets",
             "label": "Paycheck Protection Program (PPP) loans",
             "line": 6,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FinancingReceivableAllowanceForCreditLosses",
@@ -8699,7 +8706,8 @@
             "tag": "IntangibleAssetsNetExcludingGoodwill",
             "label": "Identifiable intangible assets, net",
             "line": 13,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherAssets",
@@ -8717,7 +8725,8 @@
             "tag": "AssetsOfDisposalGroupIncludingDiscontinuedOperation",
             "label": "Assets of discontinued operations",
             "line": 17,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestBearingDepositLiabilities",
@@ -8801,7 +8810,8 @@
             "tag": "LiabilitiesOfDisposalGroupIncludingDiscontinuedOperation",
             "label": "Liabilities of discontinued operations",
             "line": 31,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RetainedEarningsAccumulatedDeficit",
@@ -16475,11 +16485,11 @@
               "line": 3,
               "indent": 0,
               "negating": false,
-              "value": -168000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -18362,9 +18372,9 @@
               "line": 3,
               "indent": 0,
               "negating": false,
-              "value": 168000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -18981,7 +18991,8 @@
             "tag": "InterestIncomeFederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell",
             "label": "Interest on federal funds sold and securities purchased under reverse repurchase agreements",
             "line": 7,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestAndFeeIncomeLoansAndLeasesHeldInPortfolio",
@@ -18993,7 +19004,8 @@
             "tag": "InterestAndFeeIncomeOnPaycheckProtectionProgramLoans",
             "label": "Interest and fees on PPP loans",
             "line": 9,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeSecuritiesTaxable",
@@ -19065,7 +19077,8 @@
             "tag": "GeneralBankingOther",
             "label": "Bank card and other fees",
             "line": 21,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -19077,7 +19090,8 @@
             "tag": "InsuranceCommissionsAndFees",
             "label": "Insurance commissions",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ServiceChargesOnDepositAccounts",
@@ -19247,7 +19261,8 @@
             "tag": "InterestAndFeeIncomeOnPaycheckProtectionProgramLoans",
             "label": "Interest and fees on PPP loans",
             "line": 3,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestAndFeeIncomeLoansAndLeasesHeldInPortfolio",
@@ -19277,13 +19292,15 @@
             "tag": "InterestIncomeSecuritiesTaxExempt",
             "label": "Tax exempt",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeFederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell",
             "label": "Interest on federal funds sold and securities purchased under reverse repurchase agreements",
             "line": 12,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestExpenseDeposits",
@@ -19343,7 +19360,8 @@
             "tag": "InsuranceCommissionsAndFees",
             "label": "Insurance commissions",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BankCardAndOtherFees",
@@ -19373,7 +19391,8 @@
             "tag": "GeneralBankingOther",
             "label": "Bank card and other fees",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -19391,7 +19410,8 @@
             "tag": "GainLossOnSaleOfInvestments",
             "label": "Securities gains (losses), net",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ServicesAndFees",
@@ -19445,7 +19465,8 @@
             "tag": "LitigationSettlementExpense",
             "label": "Litigation settlement expense",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "EarningsPerShareBasic",
@@ -19463,49 +19484,57 @@
             "tag": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
             "label": "Income (Loss) From Continuing Operations",
             "line": 40,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationBeforeIncomeTax",
             "label": "Income from discontinued operations before income taxes",
             "line": 41,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeTaxExpenseBenefitContinuingOperationsDiscontinuedOperationsExtraordinaryItems",
             "label": "Income taxes from discontinued operations",
             "line": 42,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromDiscontinuedOperationsNetOfTax",
             "label": "Income From Discontinued Operations",
             "line": 43,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsPerBasicShare",
             "label": "Basic EPS from continuing operations",
             "line": 46,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
             "label": "Basic EPS from discontinued operations",
             "line": 47,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsPerDilutedShare",
             "label": "Diluted EPS from continuing operations",
             "line": 49,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
             "label": "Diluted EPS from discontinued operations",
             "line": 50,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ]
       },

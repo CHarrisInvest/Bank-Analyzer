@@ -9107,7 +9107,8 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Allowance for loan losses",
             "line": 7,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PropertyPlantAndEquipmentNet",
@@ -9275,7 +9276,8 @@
             "tag": "AdditionalPaidInCapitalCommonStock",
             "label": "Additional paid-in capital",
             "line": 36,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
@@ -9457,7 +9459,8 @@
             "tag": "TrustPreferredSecurities",
             "label": "Trust preferred securities",
             "line": 27,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestPayableCurrentAndNoncurrent",
@@ -9529,7 +9532,8 @@
             "tag": "TreasuryStockCommonValue",
             "label": "Treasury stock, at cost; (2024 - 1,847,073 common shares; 2023 - 1,756,733 common shares)",
             "line": 39,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LiabilitiesAndStockholdersEquity",
@@ -11229,9 +11233,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": 1050000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "ProvisionForUnfundedCommitments",
@@ -11249,7 +11253,7 @@
               "line": 19,
               "indent": 0,
               "negating": false,
-              "value": 1050000,
+              "value": 0,
               "uom": "USD",
               "hasValue": true
             },
@@ -15967,14 +15971,15 @@
               "label": "Provision for unfunded commitments",
               "line": 19,
               "indent": 0,
-              "negating": false,
-              "value": 507000,
+              "negating": true,
+              "value": -507000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
@@ -16666,14 +16671,15 @@
               "label": "Provision for unfunded commitments",
               "line": 19,
               "indent": 0,
-              "negating": false,
-              "value": 47000,
+              "negating": true,
+              "value": -47000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
@@ -17365,14 +17371,15 @@
               "label": "Provision for unfunded commitments",
               "line": 19,
               "indent": 0,
-              "negating": false,
-              "value": 86000,
+              "negating": true,
+              "value": -86000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
@@ -20767,7 +20774,8 @@
             "tag": "TitleInsuranceIncome",
             "label": "Title insurance income",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnDispositionOfOtherFinancialAssets",
@@ -20791,7 +20799,8 @@
             "tag": "NetGainOnSaleOfSecurities",
             "label": "Net gain on sale of securities",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -20851,7 +20860,8 @@
             "tag": "OtherLaborRelatedExpenses",
             "label": "Employee expense",
             "line": 38,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TaxesExcludingIncomeAndExciseTaxes",
@@ -20937,7 +20947,8 @@
             "tag": "OtherInterestAndDividendIncome",
             "label": "Other interest income",
             "line": 7,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "InterestIncomeOther",
@@ -21045,7 +21056,8 @@
             "tag": "TitleInsuranceIncome",
             "label": "Title insurance income",
             "line": 26,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnDispositionOfOtherFinancialAssets",
@@ -21063,7 +21075,8 @@
             "tag": "NetGainOnSaleOfSecurities",
             "label": "Net gain on sale of securities",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainLossOnSaleOfOtherAssets",
@@ -21135,7 +21148,8 @@
             "tag": "OtherLaborRelatedExpenses",
             "label": "Employee expense",
             "line": 40,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TaxesExcludingIncomeAndExciseTaxes",

@@ -9220,7 +9220,8 @@
             "tag": "AssetsOfDisposalGroupIncludingDiscontinuedOperation",
             "label": "Assets of discontinued operations",
             "line": 24,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherAssets",
@@ -9298,7 +9299,8 @@
             "tag": "LiabilitiesOfDisposalGroupIncludingDiscontinuedOperation",
             "label": "Liabilities of discontinued operations",
             "line": 39,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Liabilities",
@@ -12905,9 +12907,9 @@
               "line": 39,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -13450,9 +13452,9 @@
               "line": 37,
               "indent": 0,
               "negating": true,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -19046,7 +19048,8 @@
             "tag": "IssuanceCostForPreferredStockRedeemed",
             "label": "Issuance cost for redeemed preferred stock",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
@@ -19186,7 +19189,8 @@
             "tag": "DebtAndEquitySecuritiesGainLoss",
             "label": "Net securities loss",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -19294,13 +19298,15 @@
             "tag": "DiscountForPreferredStockRedeemed",
             "label": "Discount on redeemed preferred stock",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IssuanceCostForPreferredStockRedeemed",
             "label": "Issuance cost for redeemed preferred stock",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsPerBasicShare",

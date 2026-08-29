@@ -9237,10 +9237,11 @@
               "label": "Loan and lease servicing fees, including mortgage servicing right impairment",
               "line": 16,
               "indent": 0,
-              "negating": true,
-              "value": 861758,
+              "negating": false,
+              "value": -861758,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
@@ -15327,14 +15328,15 @@
               "label": "Loan and lease servicing fees",
               "line": 16,
               "indent": 0,
-              "negating": true,
-              "value": 109643,
+              "negating": false,
+              "value": -109643,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "GainLossOnSalesOfLoansNet",
@@ -15844,14 +15846,15 @@
               "label": "Loan and lease servicing fees",
               "line": 16,
               "indent": 0,
-              "negating": true,
-              "value": 120072,
+              "negating": false,
+              "value": -120072,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "GainLossOnSalesOfLoansNet",
@@ -16474,7 +16477,8 @@
             "tag": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
             "label": "Net gains (loss) on securities (includes $0, $11,331, $(156,859), and $(50,698), respectively, related to accumulated other comprehensive income reclassifications)",
             "line": 17,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncomeOther",
@@ -16486,7 +16490,8 @@
             "tag": "GainLossOnSaleOfOtherAssets",
             "label": "Gain on sale of real estate owned",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestIncome",
@@ -16570,7 +16575,8 @@
             "tag": "GainsLossesOnSalesOfOtherRealEstate",
             "label": "Loss on sale of real estate owned",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",

@@ -2709,14 +2709,15 @@
               "label": "Underfunded pension liability",
               "line": 39,
               "indent": 0,
-              "negating": false,
-              "value": 875000,
+              "negating": true,
+              "value": -875000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
@@ -4889,14 +4890,15 @@
               "label": "Accumulated Other Comprehensive (Income) Loss, Defined Benefit Plan, after Tax",
               "line": 39,
               "indent": 0,
-              "negating": false,
-              "value": 1442000,
+              "negating": true,
+              "value": -1442000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
@@ -7069,14 +7071,15 @@
               "label": "Accumulated Other Comprehensive (Income) Loss, Defined Benefit Plan, after Tax",
               "line": 39,
               "indent": 0,
-              "negating": false,
-              "value": 2581000,
+              "negating": true,
+              "value": -2581000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
@@ -8902,7 +8905,8 @@
             "tag": "FederalFundsPurchased",
             "label": "FHLB short-term advances",
             "line": 27,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherLiabilities",
@@ -9120,7 +9124,8 @@
             "tag": "FederalFundsPurchased",
             "label": "FHLB short-term advances",
             "line": 27,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherLiabilities",
@@ -9156,7 +9161,8 @@
             "tag": "AdditionalPaidInCapital",
             "label": "Capital surplus",
             "line": 33,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AdditionalPaidInCapitalCommonStock",
@@ -19160,7 +19166,8 @@
             "tag": "GainOnSaleOfInvestments",
             "label": "Sale of VISA shares",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LaborAndRelatedExpense",
@@ -19208,7 +19215,8 @@
             "tag": "PostageExpense",
             "label": "Postage, delivery, and statement mailings",
             "line": 37,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "GainsLossesOnSalesOfOtherRealEstate",
@@ -19220,7 +19228,8 @@
             "tag": "SuppliesExpense",
             "label": "Office supplies",
             "line": 38,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "TaxesExcludingIncomeAndExciseTaxes",
@@ -19238,7 +19247,8 @@
             "tag": "Communication",
             "label": "Telecommunications",
             "line": 40,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherNoninterestExpense",
@@ -19292,13 +19302,15 @@
             "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
             "label": "Average shares outstanding, basic",
             "line": 48,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Average shares outstanding, diluted",
             "line": 50,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ],
         "quarterly": [
@@ -19378,7 +19390,8 @@
             "tag": "DebtAndEquitySecuritiesGainLoss",
             "label": "Net gains (losses) on sale of investment securities",
             "line": 25,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DebtAndEquitySecuritiesRealizedGainLoss",
@@ -19402,7 +19415,8 @@
             "tag": "GainOnSaleOfInvestments",
             "label": "Sale of VISA shares",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BankOwnedLifeInsuranceIncome",
@@ -19468,7 +19482,8 @@
             "tag": "PostageExpense",
             "label": "Postage, delivery, and statement mailings",
             "line": 40,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherNoninterestExpense",
@@ -19480,13 +19495,15 @@
             "tag": "GainsLossesOnSalesOfOtherRealEstate",
             "label": "Repossessed asset losses, net of expenses",
             "line": 41,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "SuppliesExpense",
             "label": "Office supplies",
             "line": 41,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NoninterestExpense",
@@ -19504,7 +19521,8 @@
             "tag": "Communication",
             "label": "Telecommunications",
             "line": 43,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "IncomeTaxExpenseBenefit",
@@ -19522,7 +19540,8 @@
             "tag": "BusinessCombinationAcquisitionRelatedCosts",
             "label": "Merger related expenses",
             "line": 45,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "EarningsPerShareBasic",
@@ -19546,19 +19565,22 @@
             "tag": "WeightedAverageNumberOfSharesOutstandingBasic",
             "label": "Average shares outstanding, basic (in shares)",
             "line": 49,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
             "label": "Effect of dilutive securities (in shares)",
             "line": 50,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "WeightedAverageNumberOfDilutedSharesOutstanding",
             "label": "Average shares outstanding, diluted (in shares)",
             "line": 51,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           }
         ]
       },

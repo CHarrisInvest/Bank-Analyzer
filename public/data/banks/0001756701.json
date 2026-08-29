@@ -1164,9 +1164,9 @@
               "line": 48,
               "indent": 0,
               "negating": false,
-              "value": 483000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "LiabilitiesAndStockholdersEquity",
@@ -1236,9 +1236,9 @@
               "line": 11,
               "indent": 0,
               "negating": false,
-              "value": 5623000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "HeldToMaturitySecurities",
@@ -1576,9 +1576,9 @@
               "line": 40,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "PreferredStockValue",
@@ -3791,9 +3791,9 @@
               "line": 25,
               "indent": 0,
               "negating": false,
-              "value": 94146000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -4448,9 +4448,9 @@
               "line": 25,
               "indent": 0,
               "negating": false,
-              "value": 94146000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -5427,9 +5427,9 @@
               "line": 48,
               "indent": 0,
               "negating": false,
-              "value": 483000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -6084,9 +6084,9 @@
               "line": 48,
               "indent": 0,
               "negating": false,
-              "value": 483000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -6741,9 +6741,9 @@
               "line": 48,
               "indent": 0,
               "negating": false,
-              "value": 483000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -7398,9 +7398,9 @@
               "line": 48,
               "indent": 0,
               "negating": false,
-              "value": 483000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -7495,9 +7495,9 @@
               "line": 11,
               "indent": 0,
               "negating": false,
-              "value": 5623000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -7943,9 +7943,9 @@
               "line": 40,
               "indent": 0,
               "negating": false,
-              "value": 0,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -10081,7 +10081,8 @@
             "tag": "CertificatesOfDepositAtCarryingValue",
             "label": "Certificates of deposit with other banks",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "HeldToMaturitySecurities",
@@ -10105,7 +10106,8 @@
             "tag": "LoansHeldForSale",
             "label": "Loans held for sale",
             "line": 14,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansAndLeasesReceivableGrossCarryingAmountCovered",
@@ -10129,7 +10131,8 @@
             "tag": "LoansAndLeasesReceivableAllowance",
             "label": "Less: Allowance for credit losses - loans",
             "line": 17,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "RestrictedInvestments",
@@ -10141,7 +10144,8 @@
             "tag": "LoansAndLeasesReceivableNetReportedAmount",
             "label": "Net loans",
             "line": 18,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "PropertyPlantAndEquipmentNet",
@@ -10159,7 +10163,8 @@
             "tag": "OperatingLeaseRightOfUseAsset",
             "label": "Right-to-Use Asset  Premises",
             "line": 20,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "BankOwnedLifeInsurance",
@@ -10177,7 +10182,8 @@
             "tag": "IntangibleAssetsNetIncludingGoodwill",
             "label": "Goodwill and other intangible assets",
             "line": 22,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "OtherIntangibleAssetsNet",
@@ -10213,7 +10219,8 @@
             "tag": "OtherBorrowings",
             "label": "Other borrowings",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Deposits",
@@ -10231,7 +10238,8 @@
             "tag": "OperatingLeaseLiability",
             "label": "Operating lease liabilities",
             "line": 31,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "ShortTermBorrowings",
@@ -10321,7 +10329,8 @@
             "tag": "StockholdersEquity",
             "label": "Total equity attributable to parent",
             "line": 47,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
@@ -10333,7 +10342,8 @@
             "tag": "MinorityInterest",
             "label": "Noncontrolling interest in consolidated subsidiary",
             "line": 48,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LiabilitiesAndStockholdersEquity",
@@ -10371,7 +10381,8 @@
             "tag": "CertificatesOfDepositAtCarryingValue",
             "label": "Certificates of deposit with other banks",
             "line": 11,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "HeldToMaturitySecurities",
@@ -10395,7 +10406,8 @@
             "tag": "LoansHeldForSale",
             "label": "Loans held for sale",
             "line": 14,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LoansAndLeasesReceivableGrossCarryingAmountCovered",
@@ -10443,7 +10455,8 @@
             "tag": "OperatingLeaseRightOfUseAsset",
             "label": "Right-to-Use Asset  Premises",
             "line": 21,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "Goodwill",
@@ -10461,7 +10474,8 @@
             "tag": "IntangibleAssetsNetIncludingGoodwill",
             "label": "Goodwill and other intangible assets",
             "line": 23,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "DeferredIncomeTaxAssetsNet",
@@ -10497,7 +10511,8 @@
             "tag": "OtherBorrowings",
             "label": "Other borrowings",
             "line": 30,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LongTermBorrowings",
@@ -10515,7 +10530,8 @@
             "tag": "OperatingLeaseLiability",
             "label": "Operating lease liabilities",
             "line": 32,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "NotesPayable",
@@ -10599,7 +10615,8 @@
             "tag": "StockholdersEquity",
             "label": "Total equity attributable to parent",
             "line": 47,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
@@ -10611,7 +10628,8 @@
             "tag": "MinorityInterest",
             "label": "Noncontrolling interest in consolidated subsidiary",
             "line": 48,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "LiabilitiesAndStockholdersEquity",
@@ -13643,9 +13661,9 @@
               "line": 19,
               "indent": 0,
               "negating": false,
-              "value": 4000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -19025,7 +19043,8 @@
             "tag": "FederalDepositInsuranceCorporationPremiumExpense",
             "label": "FDIC insurance",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalDepositInsuranceCorporationInsuranceAndSupervisoryFees",
@@ -19037,7 +19056,8 @@
             "tag": "TaxesExcludingIncomeAndExciseTaxes",
             "label": "Bank shares tax",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AmortizationOfIntangibleAssets",
@@ -19255,7 +19275,8 @@
             "tag": "FederalDepositInsuranceCorporationPremiumExpense",
             "label": "FDIC insurance",
             "line": 28,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "FederalDepositInsuranceCorporationInsuranceAndSupervisoryFees",
@@ -19267,7 +19288,8 @@
             "tag": "TaxesExcludingIncomeAndExciseTaxes",
             "label": "Bank shares tax",
             "line": 29,
-            "indent": 0
+            "indent": 0,
+            "fromOlderFiling": true
           },
           {
             "tag": "AmortizationOfIntangibleAssets",

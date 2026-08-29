@@ -148,7 +148,7 @@ async function generateSitemap() {
   if (existsSync(banksPath)) {
     const banks = JSON.parse(readFileSync(banksPath, 'utf-8'));
     for (const bank of banks) {
-      if (!bank.ticker) continue; // Skip banks without tickers
+      if (!bank.ticker) continue; // Out of scope: no listed common stock
       urls.push({
         loc: `${SITE_URL}/bank/${encodeURIComponent(bank.ticker)}`,
         lastmod: TODAY,
