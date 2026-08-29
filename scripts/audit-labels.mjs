@@ -5,14 +5,19 @@
  * The tables show cleanLabel(canonicalItems[].label), so replaying that over
  * every bank file reproduces exactly what a reader sees, without a browser.
  *
- * Two modes:
+ * Three modes:
  *   node scripts/audit-labels.mjs                  report, and write a snapshot
  *   node scripts/audit-labels.mjs --compare FILE   diff against a snapshot
+ *   node scripts/audit-labels.mjs --check          assert invariants (CI)
  *
  * The compare mode is the regression check: it separates labels that got
  * better from labels that got worse, which a single summary count hides --
  * a rule change can easily fix 200 labels and break 20 while the headline
  * number still improves.
+ *
+ * --check is the CI gate. It asserts what must never be true of a rendered
+ * label rather than comparing to a snapshot: new filers bring new captions
+ * every quarter, so snapshot equality would fail on every data refresh.
  */
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -165,6 +170,56 @@ for (const r of rows) snapshot[`${r.ticker}|${r.stmt}|${r.bucket}|${r.tag}|${r.r
 if (writePath) {
   writeFileSync(writePath, JSON.stringify(snapshot, null, 0));
   console.log(`\nsnapshot written: ${writePath} (${Object.keys(snapshot).length} rows)`);
+}
+
+if (args.includes('--check')) {
+  /**
+   * A blank or visibly broken label is a bug at any count -- those are zero.
+   *
+   * "Still period-specific" is a rate, not a count, because it depends on how
+   * filers write their captions: a quarter that adds fifty banks can add a few
+   * uncleaned labels without anything having regressed. The ceilings are set
+   * roughly five times current, so ordinary drift passes and a rule that stops
+   * working does not.
+   */
+  const rate = n => (n / rows.length) * 100;
+  const INVARIANTS = [
+    ['labels rendering blank', a.blank.length, 0],
+    ['labels rendering visibly broken', a.mangled.length, 0],
+  ];
+  const RATES = [
+    ['labels still carrying period detail', a.dirty.length, rate(a.dirty.length), 0.5],
+    ['rows cleaned onto the same text as a sibling', a.collisions.cleaning.length, rate(a.collisions.cleaning.length), 1.0],
+  ];
+  // A cleaner that deletes everything scores perfectly on every metric above,
+  // and so does an audit pointed at an empty directory.
+  const FLOORS = [
+    ['rendered rows audited', rows.length, 40000],
+    ['banks audited', banks, 300],
+  ];
+
+  console.log('\n=== invariant check ===');
+  let failed = 0;
+  for (const [what, n, budget] of INVARIANTS) {
+    console.log(`  ${n <= budget ? 'ok   ' : 'FAIL '} ${what}: ${n} (max ${budget})`);
+    if (n > budget) failed++;
+  }
+  for (const [what, n, pc, ceiling] of RATES) {
+    console.log(`  ${pc <= ceiling ? 'ok   ' : 'FAIL '} ${what}: ${n} = ${pc.toFixed(2)}% (max ${ceiling}%)`);
+    if (pc > ceiling) failed++;
+  }
+  for (const [what, n, floor] of FLOORS) {
+    console.log(`  ${n >= floor ? 'ok   ' : 'FAIL '} ${what}: ${n} (min ${floor})`);
+    if (n < floor) failed++;
+  }
+  if (failed) {
+    const sample = [...a.mangled, ...a.blank, ...a.dirty].slice(0, 10);
+    for (const s of sample) console.error(`    ${s.ticker} ${s.tag}: ${JSON.stringify(s.shown)}`);
+    console.error(`\n${failed} invariant(s) broken.`);
+    process.exitCode = 1;
+  } else {
+    console.log('\nall invariants hold');
+  }
 }
 
 if (comparePath) {
