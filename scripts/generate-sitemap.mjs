@@ -8,6 +8,7 @@
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { bankPath } from '../src/utils/bankPath.js';
 import { execSync } from 'child_process';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -148,9 +149,10 @@ async function generateSitemap() {
   if (existsSync(banksPath)) {
     const banks = JSON.parse(readFileSync(banksPath, 'utf-8'));
     for (const bank of banks) {
-      if (!bank.ticker) continue; // Skip banks without tickers
+      // Tickerless banks are addressed by CIK, not skipped.
+      if (!bank.ticker && !bank.cik) continue;
       urls.push({
-        loc: `${SITE_URL}/bank/${encodeURIComponent(bank.ticker)}`,
+        loc: `${SITE_URL}/bank/${encodeURIComponent(bankPath(bank))}`,
         lastmod: TODAY,
         changefreq: 'daily',
         priority: '0.7'

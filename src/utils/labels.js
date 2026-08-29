@@ -285,6 +285,27 @@ export function cleanLabel(label) {
 }
 
 /**
+ * Shorten a label for the transposed view, where each row label becomes a
+ * column header.
+ *
+ * The old limit cut at 18 characters mid-word, which left concept names
+ * indistinguishable from one another -- "Income (Loss) from Continuing
+ * Operations before Equity Method Investments" and its three siblings all
+ * rendered as "Income (Loss) from…". Break on a word boundary and allow
+ * enough characters for the distinguishing part to survive; the full text is
+ * still in the cell's title.
+ */
+export function truncateLabel(label, max = 42) {
+  if (!label || label.length <= max) return label;
+  const cut = label.slice(0, max);
+  const space = cut.lastIndexOf(' ');
+  // Only honour the word boundary if it leaves most of the budget intact,
+  // otherwise a single long word would shrink the label to almost nothing.
+  const base = space > max * 0.6 ? cut.slice(0, space) : cut;
+  return `${base.replace(/[\s,;:]+$/, '')}…`;
+}
+
+/**
  * Turn an XBRL tag into readable words, for rows whose label cannot carry
  * the distinction on its own.
  */

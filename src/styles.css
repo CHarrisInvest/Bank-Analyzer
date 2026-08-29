@@ -4616,6 +4616,30 @@ body {
   border: 1px solid var(--color-muted, #9ca3af);
 }
 
+/* Marks a row the filer reported in only one of the periods shown, so the
+   blank cells beside it read as "not reported" rather than as zero. Sits on
+   the label, not in a value cell, so it never competes with a figure. */
+.indicator-single-period {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 1px 3px;
+  margin-left: 6px;
+  border-radius: 2px;
+  cursor: help;
+  line-height: 1;
+  vertical-align: middle;
+  background: var(--color-muted-light, #f3f4f6);
+  color: var(--color-muted, #6b7280);
+  border: 1px solid var(--color-muted, #9ca3af);
+}
+
+.statement-header-left .statement-warning {
+  font-size: var(--font-size-xs);
+  color: var(--color-warning, #b45309);
+  margin: 4px 0 0;
+  max-width: 62ch;
+}
+
 /* Annotation styles */
 .annotation-indicator {
   font-size: 10px;

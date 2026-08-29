@@ -8,6 +8,7 @@
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { bankPath } from '../src/utils/bankPath.js';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -383,7 +384,8 @@ async function generatePages() {
 
   function generateBankLinksHtml(bankList) {
     return bankList.map(b => {
-      return `<li><a href="${SITE_URL}/bank/${encodeURIComponent(b.ticker)}">${escapeHtml(b.bankName)} (${escapeHtml(b.ticker)})</a></li>`;
+      const label = b.ticker ? `${b.bankName} (${b.ticker})` : b.bankName;
+      return `<li><a href="${SITE_URL}/bank/${encodeURIComponent(bankPath(b))}">${escapeHtml(label)}</a></li>`;
     }).join('\n            ');
   }
 
@@ -2297,17 +2299,19 @@ async function generatePages() {
   let bankCount = 0;
   let bankSkipped = 0;
   for (const bank of banks) {
-    // Use ticker for URL (matches React Router's bank/:ticker route)
-    // Skip banks without tickers - they can't be looked up in the SPA
-    if (!bank.ticker) {
+    // Addressed by ticker where there is one, otherwise by padded CIK. Banks
+    // with no separately listed common stock (HSBC USA, Santander Holdings
+    // USA) used to be skipped here because the SPA could not resolve them;
+    // it now accepts the CIK form, so they get a page like everyone else.
+    if (!bank.ticker && !bank.cik) {
       bankSkipped++;
       continue;
     }
     const cik = bank.cik.replace(/^0+/, '');
-    const path = `/bank/${bank.ticker}`;
+    const path = `/bank/${bankPath(bank)}`;
     const bankName = bank.bankName || 'Unknown Bank';
-    const ticker = ` (${bank.ticker})`;
-    const tickerOnly = bank.ticker;
+    const ticker = bank.ticker ? ` (${bank.ticker})` : '';
+    const tickerOnly = bank.ticker || '';
 
     // Look up alternate names / keywords for this bank
     const keywordData = bankKeywords[tickerOnly] || null;

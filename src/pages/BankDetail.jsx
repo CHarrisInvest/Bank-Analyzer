@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import { bankPath, matchesBank } from '../utils/bankPath';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import { trackBankViewed, trackBankTabChanged } from '../analytics/events.js';
 import { fetchBankRawData, fetchBankList } from '../data/sheets.js';
@@ -35,17 +36,11 @@ function BankDetail({ banks = [], loading = false }) {
   const [rawDataLoading, setRawDataLoading] = useState(false);
   const [associatedTickers, setAssociatedTickers] = useState([]);
 
-  // Find the bank by ticker, with CIK fallback for backward-compatible URLs
-  const bank = useMemo(() => {
-    // Primary lookup: by ticker symbol (e.g., /bank/JPM)
-    const byTicker = banks.find(b => b.ticker?.toUpperCase() === ticker?.toUpperCase());
-    if (byTicker) return byTicker;
-    // Fallback: by CIK number (e.g., /bank/19617 from old URLs)
-    return banks.find(b => {
-      const cik = b.cik?.replace(/^0+/, '');
-      return cik === ticker;
-    });
-  }, [banks, ticker]);
+  // Find the bank by ticker, padded CIK, or the unpadded CIK old links use.
+  const bank = useMemo(
+    () => banks.find(b => matchesBank(b, ticker)),
+    [banks, ticker]
+  );
 
   // Fetch raw data for this bank on-demand
   useEffect(() => {
@@ -204,7 +199,7 @@ function BankDetail({ banks = [], loading = false }) {
       <SEO
         title={`${bank.bankName}${bankTicker} - Bank Analysis`}
         description={`Financial analysis and metrics for ${bank.bankName}${bankTicker}${aliasFragment}.${metricsSnippet ? ` ${metricsSnippet}.` : ''} View comprehensive SEC filing data and Graham Number valuation.`}
-        canonical={`/bank/${bank.ticker || ticker}`}
+        canonical={`/bank/${bankPath(bank) || ticker}`}
         image="https://banksift.org/og-bank.png"
         type="article"
       />

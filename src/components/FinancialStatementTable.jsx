@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
-import { cleanLabel, resolveLabels } from '../utils/labels';
+import { cleanLabel, resolveLabels, truncateLabel } from '../utils/labels';
+import { detectSection, groupItemsIntoSections } from '../utils/statementLayout';
 
 
 
@@ -96,68 +97,6 @@ function formatChange(change, invertColor = false) {
   return <span className={`change-value ${colorClass}`}>{sign}{change.toFixed(1)}%</span>;
 }
 
-/**
- * Detect if an item is a section header based on common patterns
- */
-function detectSection(item, prevItem) {
-  const label = item.label.toLowerCase();
-  const tag = item.tag.toLowerCase();
-
-  // Common section headers
-  const sectionPatterns = [
-    'assets', 'liabilities', 'equity', 'stockholders',
-    'revenue', 'income', 'expense', 'interest', 'operating',
-    'current assets', 'current liabilities', 'non-current',
-    'total assets', 'total liabilities'
-  ];
-
-  // Check if this looks like a section header (bold/total item with children)
-  const isSection = sectionPatterns.some(p => label.includes(p) || tag.includes(p));
-  const hasNoIndent = !item.indent || item.indent === 0;
-
-  return isSection && hasNoIndent;
-}
-
-/**
- * Group items into collapsible sections
- */
-function groupItemsIntoSections(items) {
-  const sections = [];
-  let currentSection = null;
-
-  items.forEach((item, idx) => {
-    const isSection = detectSection(item, items[idx - 1]);
-
-    if (isSection && (!item.indent || item.indent === 0)) {
-      // Start a new section
-      if (currentSection) {
-        sections.push(currentSection);
-      }
-      currentSection = {
-        header: item,
-        headerIdx: idx,
-        children: [],
-        id: `section-${idx}`,
-      };
-    } else if (currentSection) {
-      currentSection.children.push({ item, idx });
-    } else {
-      // Items before first section header
-      sections.push({
-        header: null,
-        headerIdx: -1,
-        children: [{ item, idx }],
-        id: `section-pre-${idx}`,
-      });
-    }
-  });
-
-  if (currentSection) {
-    sections.push(currentSection);
-  }
-
-  return sections;
-}
 
 /**
  * Export data to CSV format
@@ -736,6 +675,14 @@ export default function FinancialStatementTable({
         >
           {item.indent > 0 && <span className="indent-marker" style={{ paddingLeft: `${item.indent * 12}px` }} />}
           <span className="item-label" title={item.label}>{item.displayLabel ?? cleanLabel(item.label)}</span>
+          {/* A row the filer reported once reads as a row full of gaps. Say
+              which it is, so a reader does not take the blanks for zeros. */}
+          {itemValues.filter(v => v !== null).length === 1 && displayPeriods.length >= 4 && (
+            <span
+              className="indicator indicator-single-period"
+              title="Reported in only one of the periods shown"
+            >1P</span>
+          )}
           {showSparklines && itemValues.filter(v => v !== null).length >= 2 && (
             <Sparkline values={itemValues} />
           )}
@@ -758,7 +705,7 @@ export default function FinancialStatementTable({
                 return (
                   <th key={`${item.tag}-${idx}`} className="value-col transposed-header">
                     <div className="transposed-item-label" title={cleaned}>
-                      {cleaned.length > 20 ? cleaned.substring(0, 18) + '...' : cleaned}
+                      {truncateLabel(cleaned)}
                     </div>
                   </th>
                 );
@@ -912,6 +859,18 @@ export default function FinancialStatementTable({
             {' • '}{filteredItems.length}{searchTerm ? ` of ${items.length}` : ''} line items
             {showDerivedNote && viewMode === 'quarterly' && ' • Q4 derived'}
           </p>
+          {/* Fewer than four quarters cannot support a trailing-twelve-month
+              reading, and the ratios elsewhere on the page lean on one. Say so
+              rather than letting a short history look like a full one. */}
+          {viewMode === 'quarterly' && allPeriods.length > 0 && allPeriods.length < 4 && (
+            <p className="statement-warning" role="status">
+              {allPeriods.length === 1
+                ? 'Only one quarter has'
+                : `Only ${allPeriods.length} quarters have`} been filed since this bank began
+              reporting — not enough for a twelve-month view, so TTM figures and the ratios
+              derived from them are incomplete.
+            </p>
+          )}
         </div>
         <div className="statement-header-right">
           <div className="period-toggle">
@@ -1008,6 +967,9 @@ export default function FinancialStatementTable({
             </span>
             <span className="indicator-legend">
               <span className="indicator indicator-proxy">~</span> Annual Proxy
+            </span>
+            <span className="indicator-legend">
+              <span className="indicator indicator-single-period">1P</span> One period only
             </span>
           </>
         )}

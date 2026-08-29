@@ -100,9 +100,12 @@ function App() {
       const banksResult = await fetchBankData();
 
       if (banksResult.success) {
-        // Filter out banks without tickers - they can't be looked up by users
-        const banksWithTickers = banksResult.data.filter(bank => bank.ticker);
-        setBanks(banksWithTickers);
+        // Every bank in banks.json is kept. Nine live filers have no ticker
+        // because their common stock is not separately listed (HSBC USA,
+        // Santander Holdings USA); they used to be dropped here as
+        // unlookupable, which also removed them from the screener. They are
+        // addressed by CIK now -- see src/utils/bankPath.js.
+        setBanks(banksResult.data);
         setError(null);
       } else {
         setError(banksResult.error?.message || 'Failed to load bank data');
