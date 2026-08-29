@@ -2985,6 +2985,31 @@ async function main() {
 
   console.log(`Saved ${savedBankCount} individual bank data files to: ${banksDataDir}/`);
 
+  // Remove files for banks this run did not produce.
+  //
+  // A bank leaves the set when it is acquired or stops filing -- Synovus into
+  // Pinnacle, Comerica into Fifth Third -- and its file used to stay behind
+  // forever, because nothing here deleted and the workflow only ever added.
+  // 121 had accumulated: 21.7MB shipped with every deploy, holding output from
+  // whichever version of this script last wrote them. They were unreachable,
+  // so the harm was weight and confusion rather than wrong pages, but stale
+  // output that no longer matches the current code is worth not keeping.
+  // Keep anything this run wrote, and anything banks.json still lists, so a
+  // divergence between the two can never delete a file a live bank needs.
+  const keepCiks = new Set(Object.keys(rawDataStore));
+  for (const bank of results) if (bank.cik) keepCiks.add(bank.cik);
+
+  let prunedCount = 0;
+  for (const file of fs.readdirSync(banksDataDir)) {
+    if (!file.endsWith('.json')) continue;
+    if (keepCiks.has(file.slice(0, -5))) continue;
+    fs.unlinkSync(path.join(banksDataDir, file));
+    prunedCount++;
+  }
+  if (prunedCount > 0) {
+    console.log(`Pruned ${prunedCount} data file(s) for banks no longer in the set`);
+  }
+
   // Save lightweight index file (metadata only, no raw data)
   const indexOutputPath = path.join(OUTPUT_DIR, 'sec-data-index.json');
   fs.writeFileSync(indexOutputPath, JSON.stringify({

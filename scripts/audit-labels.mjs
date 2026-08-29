@@ -64,9 +64,16 @@ const MANGLED = [
 ];
 
 function collect() {
+  // Only banks the site serves. Data files for banks that have stopped filing
+  // are pruned now, but scoping here keeps the audit measuring what a reader
+  // can actually reach rather than whatever happens to be on disk.
+  const live = new Set(
+    JSON.parse(readFileSync(join(BANKS_DIR, '..', 'banks.json'), 'utf8')).map(b => b.cik)
+  );
   const rows = [];
   for (const f of readdirSync(BANKS_DIR)) {
     if (!f.endsWith('.json')) continue;
+    if (!live.has(f.replace('.json', ''))) continue;
     const d = JSON.parse(readFileSync(join(BANKS_DIR, f), 'utf8'));
     const ticker = d.ticker || f.replace('.json', '');
     for (const key of ['historicalBalanceSheet', 'historicalIncomeStatement']) {
