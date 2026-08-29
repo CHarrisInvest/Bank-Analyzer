@@ -63,34 +63,49 @@ function detectSection(item) {
  * a flat 38-row balance sheet became 38 "sections". A header that turns out to
  * have no rows under it is demoted back to an ordinary row, so the UI never
  * offers a toggle that expands to nothing.
+ *
+ * A statement can open more than one unheaded group -- JPM's, NTRS's and
+ * STT's income statements each demote a childless heading part way down, and
+ * the rows after it have no heading to sit under. The id is both the React key
+ * and the collapse-state key, so it is built from the group's first row rather
+ * than being the constant it was: two groups keyed alike shared one collapse
+ * toggle and collided on reconcile. An unheaded group also stays open until a
+ * heading actually earns its own section, so a demotion rejoins the rows above
+ * it instead of starting a second group in the same place.
  */
 function groupItemsIntoSections(items) {
   const sections = [];
-  let current = null;
-  let lead = null;
+  let current = null; // heading whose rows are still arriving
+  let lead = null;    // rows with no heading over them
 
-  const openLead = () => (lead ??= { header: null, headerIdx: -1, children: [], id: `section-lead` });
-  const flushLead = () => { if (lead) { sections.push(lead); lead = null; } };
+  const addLead = (item, idx) => {
+    lead ??= { header: null, headerIdx: -1, children: [], id: `section-lead-${idx}` };
+    lead.children.push({ item, idx });
+  };
+
+  const closeCurrent = () => {
+    if (!current) return;
+    if (current.children.length) {
+      if (lead) { sections.push(lead); lead = null; }
+      sections.push(current);
+    } else {
+      addLead(current.header, current.headerIdx);
+    }
+    current = null;
+  };
 
   items.forEach((item, idx) => {
     if (detectSection(item)) {
-      if (current) {
-        if (current.children.length) sections.push(current);
-        else openLead().children.push({ item: current.header, idx: current.headerIdx });
-      }
-      flushLead();
+      closeCurrent();
       current = { header: item, headerIdx: idx, children: [], id: `section-${idx}` };
       return;
     }
     if (current) current.children.push({ item, idx });
-    else openLead().children.push({ item, idx });
+    else addLead(item, idx);
   });
 
-  if (current) {
-    if (current.children.length) { flushLead(); sections.push(current); }
-    else openLead().children.push({ item: current.header, idx: current.headerIdx });
-  }
-  flushLead();
+  closeCurrent();
+  if (lead) sections.push(lead);
 
   return sections;
 }
