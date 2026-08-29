@@ -138,6 +138,88 @@ let cleanLabel = (label) => label;
  * equivalence is recorded, and the older tag is appended as a second row.
  * Normalising first compares captions rather than captions-plus-figures.
  */
+/**
+ * Make the sign convention of a statement consistent across its columns.
+ *
+ * pre.txt's "negating" flag is per filing, so the same concept can be flipped
+ * in one quarter and not the next: Farmers & Merchants shows noninterest
+ * expense positive in Q1 and Q4 of 2025 and negative in Q2 and Q3. A line
+ * item that changes sign between columns of one table cannot be read.
+ *
+ * Two rules, both conservative:
+ *   1. Where a tag's flag disagrees across the periods of a statement, the
+ *      majority convention wins.
+ *   2. A negated subtotal whose positive components add up to its magnitude
+ *      is not really negative -- Banner's total interest expense sits at
+ *      -47,649,000 under four positive components summing to +47,649,000,
+ *      and that sign reached the screener as a negative TTM interest expense.
+ *
+ * Rule 2 needs at least two components and an exact-to-2% match, so it fires
+ * only where the arithmetic itself says the sign is wrong.
+ */
+function normaliseStatementSigns(statements) {
+  if (!statements || statements.length === 0) return;
+
+  // Rule 1: majority flag per tag across the statement's periods.
+  const votes = new Map();
+  for (const stmt of statements) {
+    for (const item of stmt.items || []) {
+      if (item.value === null || item.value === undefined) continue;
+      if (!votes.has(item.tag)) votes.set(item.tag, { yes: 0, no: 0 });
+      votes.get(item.tag)[item.negating ? 'yes' : 'no']++;
+    }
+  }
+  for (const stmt of statements) {
+    for (const item of stmt.items || []) {
+      if (item.value === null || item.value === undefined) continue;
+      const v = votes.get(item.tag);
+      if (!v || v.yes === 0 || v.no === 0) continue;      // already consistent
+      const majority = v.yes > v.no;
+      if (item.negating === majority) continue;
+      item.value = -item.value;
+      item.negating = majority;
+      item.signNormalized = true;
+    }
+  }
+
+  // Rule 2: a negated subtotal contradicted by its own components.
+  for (const stmt of statements) {
+    const valued = (stmt.items || []).filter(i => i.value !== null && i.value !== undefined);
+    for (const item of valued) {
+      if (!item.negating || item.value >= 0) continue;
+      const stem = item.tag.replace(/(Operating|Total|Net)$/, '');
+      if (stem === item.tag || stem.length < 8) continue;
+      const parts = valued.filter(x => x !== item && x.tag.startsWith(stem) && x.value > 0);
+      if (parts.length < 2) continue;
+      const sum = parts.reduce((s, x) => s + x.value, 0);
+      if (Math.abs(sum + item.value) > Math.abs(item.value) * 0.02) continue;
+      item.value = -item.value;
+      item.signNormalized = true;
+    }
+  }
+}
+
+/**
+ * "Q1 2026" for a period ending 2026-03-31.
+ *
+ * Names a column by when it actually ended rather than by the fiscal quarter
+ * the filer assigned, so a June-year and a December-year bank line up and no
+ * two columns in one statement share a name.
+ */
+function fiscalYearKey(ddate) {
+  const s = String(ddate || '');
+  return /^\d{8}$/.test(s) ? `FY ${s.slice(0, 4)}` : null;
+}
+
+function calendarQuarterKey(ddate) {
+  const s = String(ddate || '');
+  if (!/^\d{8}$/.test(s)) return null;
+  const year = s.slice(0, 4);
+  const month = parseInt(s.slice(4, 6), 10);
+  if (!month || month > 12) return null;
+  return `Q${Math.floor((month - 1) / 3) + 1} ${year}`;
+}
+
 function equivalenceKey(item) {
   const caption = cleanLabel(item.label || '')
     .toLowerCase()
@@ -1391,18 +1473,15 @@ function buildHistoricalStatements(bankData) {
         d.adsh === filing.adsh && d.qtrs === targetQtrs && d.ddate === filing.period
       );
     }
-    // Fallback 2: try without ddate match (version mismatch across years)
-    if (!match) {
-      match = conceptData.find(d =>
-        d.adsh === filing.adsh && d.qtrs === targetQtrs && d.version === version
-      );
-    }
-    // Fallback 3: try with just adsh + qtrs (most permissive)
-    if (!match) {
-      match = conceptData.find(d =>
-        d.adsh === filing.adsh && d.qtrs === targetQtrs
-      );
-    }
+    // No further fallbacks: ddate is what identifies the period.
+    //
+    // There used to be two more, matching on adsh + qtrs while dropping ddate.
+    // A 10-K carries qtrs=1 facts for several quarters, not just its own, so
+    // when the Q4 fact was missing those fallbacks returned whichever quarter
+    // came first in the file and presented it as Q4. MCHB's Q4 2025 net income
+    // was Q3's figure and MSBI's Q4 2024 was Q2's, which is why neither year's
+    // quarters added up to its annual column. A missing value is better than
+    // another period's value wearing this period's label.
 
     // If still no match, try equivalent tags (both manual and dynamic)
     if (!match) {
@@ -1425,9 +1504,22 @@ function buildHistoricalStatements(bankData) {
     const canonicalItems = buildCanonicalItems(allFilings, stmtType);
     if (canonicalItems.length === 0) return { statements: [], canonicalItems: [] };
 
-    const statements = [];
+    // One column per fiscal year end, newest first, named for the year the
+    // period actually ended. HomeTrust's 2026 10-K reports fy=2024, which
+    // produced two columns both labelled "FY 2024"; ddate says 2025-12-31 and
+    // is right. Where two filings cover the same year end, the one filed most
+    // recently wins.
+    const annualByPeriodEnd = new Map();
     for (const filing of annual10Ks) {
-      const periodKey = `FY ${filing.fy}`;
+      const seen = annualByPeriodEnd.get(filing.period);
+      if (!seen || String(filing.filed) > String(seen.filed)) annualByPeriodEnd.set(filing.period, filing);
+    }
+    const annualFilings = [...annualByPeriodEnd.values()]
+      .sort((a, b) => String(b.period).localeCompare(String(a.period)));
+
+    const statements = [];
+    for (const filing of annualFilings) {
+      const periodKey = fiscalYearKey(filing.period) || `FY ${filing.fy}`;
       const pres = presentationByFiling[filing.adsh];
 
       const filingPresMap = new Map();
@@ -1486,6 +1578,7 @@ function buildHistoricalStatements(bankData) {
       ...(item.fromOlderFiling ? { fromOlderFiling: true } : {}),
     }));
 
+    normaliseStatementSigns(statements);
     return { statements, canonicalItems: canonicalItemsClean };
   };
 
@@ -1629,20 +1722,41 @@ function buildHistoricalStatements(bankData) {
       }
     }
 
-    // Sort quarters: most recent first (by year desc, then quarter desc)
-    allQuarters.sort((a, b) => {
-      const fyDiff = parseInt(b.fy) - parseInt(a.fy);
-      if (fyDiff !== 0) return fyDiff;
-      const qA = parseInt(a.fp.replace('Q', ''));
-      const qB = parseInt(b.fp.replace('Q', ''));
-      return qB - qA;
-    });
+    // Order and identify columns by the period end date, not by the fiscal
+    // year and quarter the filer reported.
+    //
+    // fy/fp are filer-supplied and sometimes wrong or unusual: Fulton tagged
+    // its September 2023 10-Q as Q2, giving two columns both labelled "Q2
+    // 2023" with different figures and no Q3; F&M Bank labelled a September
+    // 2025 period "Q3 2026", which then sorted ahead of March 2026. ddate is
+    // the period end and is always right, so the column a reader sees is
+    // named and ordered by it. fy/fp are still what drives Q4 derivation
+    // below -- that grouping is genuinely fiscal.
+    for (const q of allQuarters) {
+      q.ddate = q.filing.period;
+    }
+    allQuarters.sort((a, b) => String(b.ddate).localeCompare(String(a.ddate)));
+
+    // Two filings can land on the same period end (an amendment, or the
+    // mislabelling above resolving onto a quarter already present). Keep the
+    // one filed most recently so a column appears once, with the latest data.
+    const byPeriodEnd = new Map();
+    for (const q of allQuarters) {
+      const seen = byPeriodEnd.get(q.ddate);
+      if (!seen || String(q.filing.filed) > String(seen.filing.filed)) byPeriodEnd.set(q.ddate, q);
+    }
+    allQuarters.length = 0;
+    allQuarters.push(...[...byPeriodEnd.values()].sort(
+      (a, b) => String(b.ddate).localeCompare(String(a.ddate))
+    ));
 
     const statements = [];
     for (const quarter of allQuarters) {
       const { fy, fp, filing, form, isDerived, priorQuarters, annualFiling, priorQuarterFiling } = quarter;
-      const periodKey = `${fp} ${fy}`;
-      const periodLabel = isDerived ? `${fp} ${fy} (derived)` : periodKey;
+      // Calendar quarter of the period end, so columns are comparable across
+      // banks whatever their fiscal calendar, and unique within a statement.
+      const periodKey = calendarQuarterKey(quarter.ddate) || `${fp} ${fy}`;
+      const periodLabel = isDerived ? `${periodKey} (derived)` : periodKey;
 
       const pres = presentationByFiling[filing.adsh];
       const filingPresMap = new Map();
@@ -1876,6 +1990,7 @@ function buildHistoricalStatements(bankData) {
       ...(item.fromOlderFiling ? { fromOlderFiling: true } : {}),
     }));
 
+    normaliseStatementSigns(statements);
     return { statements, canonicalItems: canonicalItemsClean };
   };
 

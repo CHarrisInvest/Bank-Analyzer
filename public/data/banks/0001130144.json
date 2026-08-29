@@ -1221,9 +1221,9 @@
               "line": 6,
               "indent": 0,
               "negating": false,
-              "value": 973314000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "DebtSecuritiesAvailableForSaleAndHeldToMaturityExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -1331,9 +1331,9 @@
               "line": 13,
               "indent": 0,
               "negating": false,
-              "value": 93000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "FinancingReceivableAndNetInvestmentInLeaseAllowanceForCreditLossExcludingAccruedInterest",
@@ -1391,9 +1391,9 @@
               "line": 16,
               "indent": 0,
               "negating": false,
-              "value": 1989726000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "BankOwnedLifeInsurance",
@@ -1411,9 +1411,9 @@
               "line": 17,
               "indent": 0,
               "negating": true,
-              "value": -14256000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "OtherAssets",
@@ -1431,9 +1431,9 @@
               "line": 18,
               "indent": 0,
               "negating": false,
-              "value": -1865000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "Assets",
@@ -1451,9 +1451,9 @@
               "line": 19,
               "indent": 0,
               "negating": false,
-              "value": 1973605000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "NoninterestBearingDepositLiabilities",
@@ -1866,9 +1866,9 @@
               "line": 13,
               "indent": 0,
               "negating": false,
-              "value": 1565000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -10760,9 +10760,9 @@
               "line": 24,
               "indent": 0,
               "negating": false,
-              "value": 200000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "BenefitForCreditLossesOnUnfundedLoanCommitments",
@@ -10780,9 +10780,9 @@
               "line": 25,
               "indent": 0,
               "negating": false,
-              "value": -47000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "InterestIncomeExpenseAfterProvisionForLoanLoss",
@@ -10840,9 +10840,9 @@
               "line": 32,
               "indent": 0,
               "negating": false,
-              "value": -14500000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "NoninterestIncomeOtherOperatingIncome",
@@ -12033,9 +12033,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 122000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -12550,11 +12550,11 @@
               "line": 24,
               "indent": 0,
               "negating": false,
-              "value": 120000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -12648,11 +12648,11 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": -76000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -13207,9 +13207,9 @@
               "line": 25,
               "indent": 0,
               "negating": false,
-              "value": -1000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -13263,9 +13263,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 73000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -15108,11 +15108,11 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": -222000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
-              "isDerived": true,
-              "derivedUnavailable": false,
+              "hasValue": false,
+              "isDerived": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
@@ -15624,14 +15624,15 @@
               "label": "Credit loss expense (benefit) - unfunded commitments",
               "line": 24,
               "indent": 0,
-              "negating": true,
-              "value": 120000,
+              "negating": false,
+              "value": -120000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "ProvisionForCreditLossesOnUnfundedCommitments",
@@ -16239,14 +16240,15 @@
               "label": "Credit loss (benefit) expense - unfunded commitments",
               "line": 24,
               "indent": 0,
-              "negating": true,
-              "value": -20000,
+              "negating": false,
+              "value": 20000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "ProvisionForCreditLossesOnUnfundedCommitments",
@@ -16282,9 +16284,9 @@
               "line": 25,
               "indent": 0,
               "negating": false,
-              "value": -47000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
@@ -16338,9 +16340,9 @@
               "line": 29,
               "indent": 0,
               "negating": false,
-              "value": 351000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,

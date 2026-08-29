@@ -4405,10 +4405,11 @@
               "label": "Loss on sale and disposal of fixed assets",
               "line": 30,
               "indent": 0,
-              "negating": true,
+              "negating": false,
               "value": 0,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "GainsLossesOnSalesOfOtherRealEstate",
@@ -6304,14 +6305,15 @@
               "label": "Loss on sale of other real estate owned",
               "line": 30,
               "indent": 0,
-              "negating": true,
-              "value": 22213,
+              "negating": false,
+              "value": -22213,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "NoninterestExpense",

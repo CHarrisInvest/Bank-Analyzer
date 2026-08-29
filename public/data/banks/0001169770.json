@@ -181,9 +181,11 @@
     "dividends": {
       "CommonStockDividendsPerShareDeclared": {
         "value": 0.4,
-        "date": "20260331",
-        "method": "sum-4Q-equity",
-        "form": "10-Q+10-K+10-Q+10-Q"
+        "date": "20251231",
+        "method": "sum-4Q-derived",
+        "form": "10-Q+10-Q+10-Q+10-K(derived)",
+        "derivedQ4": 0.08000000000000004,
+        "fiscalYear": "2025"
       }
     },
     "averages": {
@@ -1967,10 +1969,11 @@
               "label": "Allowance for loan losses",
               "line": 18,
               "indent": 0,
-              "negating": true,
-              "value": -85960000,
+              "negating": false,
+              "value": 85960000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "LoansAndLeasesReceivableDeferredIncome",
@@ -3401,14 +3404,15 @@
               "label": "Allowance for loan and lease losses",
               "line": 16,
               "indent": 0,
-              "negating": false,
-              "value": 245612000,
+              "negating": true,
+              "value": -245612000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "LoansAndLeasesReceivableDeferredIncome",
@@ -6757,14 +6761,15 @@
               "label": "Allowance for loan and lease losses",
               "line": 16,
               "indent": 0,
-              "negating": false,
-              "value": 239360000,
+              "negating": true,
+              "value": -239360000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "LoansAndLeasesReceivableDeferredIncome",
@@ -16365,10 +16370,11 @@
               "label": "Income tax expense",
               "line": 40,
               "indent": 0,
-              "negating": false,
-              "value": 47945000,
+              "negating": true,
+              "value": -47945000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "NetIncomeLoss",
@@ -17214,14 +17220,15 @@
               "label": "Information technology and data processing",
               "line": 37,
               "indent": 0,
-              "negating": false,
-              "value": 23802000,
+              "negating": true,
+              "value": -23802000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "NetIncomeLoss",
@@ -19032,14 +19039,15 @@
               "label": "Income tax expense",
               "line": 37,
               "indent": 0,
-              "negating": false,
-              "value": 22716000,
+              "negating": true,
+              "value": -22716000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "NetIncomeLoss",
@@ -19941,14 +19949,15 @@
               "label": "Income tax expense",
               "line": 37,
               "indent": 0,
-              "negating": false,
-              "value": 19495000,
+              "negating": true,
+              "value": -19495000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "NetIncomeLoss",
@@ -26304,14 +26313,15 @@
               "label": "Income tax expense",
               "line": 37,
               "indent": 0,
-              "negating": false,
-              "value": 16258000,
+              "negating": true,
+              "value": -16258000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "NetIncomeLoss",
@@ -27213,14 +27223,15 @@
               "label": "Income tax expense",
               "line": 37,
               "indent": 0,
-              "negating": false,
-              "value": 6745000,
+              "negating": true,
+              "value": -6745000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "NetIncomeLoss",
@@ -28122,14 +28133,15 @@
               "label": "Income tax expense",
               "line": 37,
               "indent": 0,
-              "negating": false,
-              "value": 7395000,
+              "negating": true,
+              "value": -7395000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "NetIncomeLoss",

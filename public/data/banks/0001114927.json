@@ -9446,10 +9446,11 @@
               "label": "Provision for income tax",
               "line": 40,
               "indent": 0,
-              "negating": true,
-              "value": -8092000,
+              "negating": false,
+              "value": 8092000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "NetIncomeLoss",
@@ -9858,10 +9859,11 @@
               "label": "Provision for income tax",
               "line": 40,
               "indent": 0,
-              "negating": true,
-              "value": -5782000,
+              "negating": false,
+              "value": 5782000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "NetIncomeLoss",
@@ -16274,14 +16276,15 @@
               "label": "Provision for income tax",
               "line": 40,
               "indent": 0,
-              "negating": true,
-              "value": -2606000,
+              "negating": false,
+              "value": 2606000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": true,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "NetIncomeLoss",

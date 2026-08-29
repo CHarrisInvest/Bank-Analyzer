@@ -1058,10 +1058,11 @@
               "label": "Unearned fees and unamortized loan origination costs - net",
               "line": 14,
               "indent": 0,
-              "negating": true,
-              "value": 1299000,
+              "negating": false,
+              "value": -1299000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableAllowanceForCreditLosses",
@@ -6225,14 +6226,15 @@
               "label": "Unearned fees and unamortized loan origination costs - net",
               "line": 14,
               "indent": 0,
-              "negating": true,
-              "value": 1299000,
+              "negating": false,
+              "value": -1299000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableAllowanceForCreditLosses",

@@ -11233,9 +11233,9 @@
               "line": 17,
               "indent": 0,
               "negating": false,
-              "value": 1050000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": false
             },
             {
               "tag": "ProvisionForUnfundedCommitments",
@@ -11253,7 +11253,7 @@
               "line": 19,
               "indent": 0,
               "negating": false,
-              "value": 1050000,
+              "value": 0,
               "uom": "USD",
               "hasValue": true
             },
@@ -15971,14 +15971,15 @@
               "label": "Provision for unfunded commitments",
               "line": 19,
               "indent": 0,
-              "negating": false,
-              "value": 507000,
+              "negating": true,
+              "value": -507000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
@@ -16670,14 +16671,15 @@
               "label": "Provision for unfunded commitments",
               "line": 19,
               "indent": 0,
-              "negating": false,
-              "value": 47000,
+              "negating": true,
+              "value": -47000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",
@@ -17369,14 +17371,15 @@
               "label": "Provision for unfunded commitments",
               "line": 19,
               "indent": 0,
-              "negating": false,
-              "value": 86000,
+              "negating": true,
+              "value": -86000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "ProvisionForLoanLeaseAndOtherLosses",

@@ -1577,10 +1577,11 @@
               "label": "Allowance for credit losses on loans",
               "line": 16,
               "indent": 0,
-              "negating": false,
-              "value": 73531000,
+              "negating": true,
+              "value": -73531000,
               "uom": "USD",
-              "hasValue": true
+              "hasValue": true,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -9086,14 +9087,15 @@
               "label": "Allowance for credit losses on loans",
               "line": 16,
               "indent": 0,
-              "negating": false,
-              "value": 75673000,
+              "negating": true,
+              "value": -75673000,
               "uom": "USD",
               "hasValue": true,
               "isDerived": false,
               "derivedUnavailable": false,
               "isAnnualProxy": false,
-              "isRestated": false
+              "isRestated": false,
+              "signNormalized": true
             },
             {
               "tag": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -13124,11 +13126,11 @@
               "line": 35,
               "indent": 0,
               "negating": false,
-              "value": -44000,
+              "value": null,
               "uom": "USD",
-              "hasValue": true,
+              "hasValue": false,
               "isDerived": false,
-              "derivedUnavailable": false,
+              "derivedUnavailable": true,
               "isAnnualProxy": false,
               "isRestated": false
             },
