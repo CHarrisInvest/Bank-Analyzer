@@ -460,6 +460,24 @@ function extractZip(zipPath, destDir) {
 /**
  * Parse TSV file (tab-separated values) using streaming for large files
  */
+/**
+ * Undo the quoting SEC applies to a field that contains a quote character.
+ *
+ * The datasets are tab-separated, so a field never needs quoting to protect a
+ * delimiter -- but the writer still emits RFC4180 quoting when the value has a
+ * quote in it, and splitting on tabs alone leaves that quoting in the data.
+ * 208 statement rows displayed captions like
+ *   "Bank-owned life insurance (""BOLI"")"
+ * because the wrapper quotes and the doubled inner quotes were never removed.
+ */
+function unquoteField(value) {
+  const s = (value ?? '').trim();
+  if (s.length >= 2 && s.startsWith('"') && s.endsWith('"')) {
+    return s.slice(1, -1).replace(/""/g, '"');
+  }
+  return s;
+}
+
 async function parseTsvFile(filePath, filterFn = null) {
   if (!fs.existsSync(filePath)) {
     console.warn(`  File not found: ${filePath}`);
@@ -489,7 +507,7 @@ async function parseTsvFile(filePath, filterFn = null) {
 
       const row = {};
       headers.forEach((header, idx) => {
-        row[header] = values[idx]?.trim() || '';
+        row[header] = unquoteField(values[idx]);
       });
 
       if (filterFn && !filterFn(row)) {

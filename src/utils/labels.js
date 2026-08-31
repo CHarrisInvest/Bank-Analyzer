@@ -28,9 +28,13 @@ const MONTH =
   '(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|' +
   'Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)';
 
+// The day and year may be separated by a comma with no space after it, which
+// is how one filer writes it: "amortized cost at March 31,2026- $1,777,262".
+const DAY_YEAR = '\\d{1,2}(?:,\\s*|\\s+)\\d{4}';
+
 // "December 31, 2025" | "December 2025" | "3/31/26" | a bare year.
 const DATE =
-  `(?:${MONTH}\\s+\\d{1,2},?\\s+\\d{4}|${MONTH},?\\s+\\d{4}|` +
+  `(?:${MONTH}\\s+${DAY_YEAR}|${MONTH},?\\s+\\d{4}|` +
   '\\d{1,2}\\/\\d{1,2}\\/\\d{2,4}|\\b(?:19|20)\\d{2}\\b)';
 
 // Anchored on both sides so a grouped number is never split into a false
@@ -68,7 +72,17 @@ const PIN = `(?:${AT}\\s+|[-–]\\s*)`;
  * adjacency as a pin there would eat the caption. A full calendar date next to
  * a number is only ever a period reference.
  */
-const FULL_DATE = `(?:${MONTH}\\s+\\d{1,2},?\\s+\\d{4}|\\d{1,2}\\/\\d{1,2}\\/\\d{2,4})`;
+const FULL_DATE = `(?:${MONTH}\\s+${DAY_YEAR}|\\d{1,2}\\/\\d{1,2}\\/\\d{2,4})`;
+
+/**
+ * A bare year pinned to a figure: "(2024 - 34,708,169)", "2025- 1,234".
+ *
+ * A year on its own is deliberately not a pin -- "2025 Equity Incentive Plan"
+ * names a plan -- but a year followed by a dash or colon and then a number is
+ * only ever a period reference. 32 rows kept a comparative this way, and the
+ * check that was meant to catch them shared the blind spot.
+ */
+const YEAR_FIGURE = `(?:19|20)\\d{2}\\s*[-–:]\\s*${AMOUNT}\\s*(?:shares?)?`;
 
 /**
  * The pin written the other way round -- date first, figure after.
@@ -90,7 +104,10 @@ const FIGURE_THEN_DATE = `${AMOUNT}\\s*(?:shares?)?\\s*(?:${AT}\\s+|[-–:]\\s*)
 // A comma is admitted only when whitespace follows it. A thousands separator
 // never has a space after it, so "127,688,691, 129,836,672 and 132,204,305"
 // splits into three figures while "500,000,000" stays whole.
-const JOIN = '(?:\\s+and\\s+|\\s*;\\s*|,\\s+and\\s+|,\\s+|\\s+\\/\\s+)';
+// "; and" is listed before the bare semicolon so the longer form wins: without
+// it, "$223; $42; and $(16)" joined only its first two figures and left
+// "; and $(16)" stranded on the page.
+const JOIN = '(?:\\s+and\\s+|\\s*;\\s*and\\s+|\\s*;\\s*|,\\s+and\\s+|,\\s+|\\s+\\/\\s+)';
 
 const re = (body, flags = 'gi') => new RegExp(body, flags);
 
@@ -141,6 +158,7 @@ const DROP_PAREN = [
   re(`${AMOUNT}\\s+${AT}\\s+${DATE}`, 'i'),    // one figure pinned to a date
   re(`${AT}\\s+${DATE}${JOIN}(?:${AT}\\s+)?${DATE}`, 'i'), // "at D1 and D2"
   re(DATED_FIGURE, 'i'),                       // "(December 31, 2024 - $163)"
+  re(YEAR_FIGURE, 'i'),                        // "(2024 - 34,708,169)"
 ];
 
 /**
@@ -207,8 +225,10 @@ const INLINE = [
   // looser "of ..." rule below -- otherwise that rule eats the figures and
   // leaves the tail stranded as "Common stock issuable shares, respectively".
   //
-  // "…: 608,291 and 600,168 shares, respectively"
-  re(`\\s*[;,:]?\\s*${AMOUNT}${JOIN}${AMOUNT}\\s*(?:shares?)?\\s*(?:issued|outstanding)?(?:\\s+and\\s+outstanding)?\\s*,?\\s*respectively`),
+  // "…: 608,291 and 600,168 shares, respectively". Written as a series rather
+  // than a pair: with exactly two figures the engine matched the LAST two of
+  // "$223; $42; and $(16), respectively" and left "of $223" behind.
+  re(`\\s*[;,:]?\\s*${AMOUNT}(?:${JOIN}${AMOUNT})+\\s*(?:shares?)?\\s*(?:issued|outstanding)?(?:\\s+and\\s+outstanding)?\\s*,?\\s*respectively`),
 
   // Any remaining figure series trailed by "respectively".
   re(`\\s*[;,:]?\\s*${FIGURE_SERIES}\\s*,?\\s*respectively`),
@@ -248,6 +268,12 @@ const INLINE = [
   // No pinning word either way: "authorized 40,000,000 shares 12/31/25 and
   // 20,000,000 shares 12/31/24".
   re(`\\s*[;,:]?\\s*${FIGURE_THEN_DATE}(?:${JOIN}${FIGURE_THEN_DATE})+`),
+
+  // A bare year pinned to a figure, in a series or on its own:
+  // "shares issued and outstanding 2025-1,234,567 and 2024-1,200,000",
+  // "Treasury stock - at cost, 39,201,844 shares (2024 - 34,708,169)".
+  re(`\\s*[;,:]?\\s*${YEAR_FIGURE}(?:${JOIN}${YEAR_FIGURE})+`),
+  re(`\\s*[;,:]?\\s*${YEAR_FIGURE}`),
 
   // "(includes $0, $0, and $(151) accumulated other comprehensive income
   // reclassification ...)". The figures are a comparative series with a word
@@ -366,9 +392,41 @@ function tidy(text) {
  */
 export function cleanLabel(label) {
   if (!label || typeof label !== 'string') return label;
-  const cleaned = tidy(stripInline(stripParentheticals(label)));
-  if (!cleaned || !/[A-Za-z]/.test(cleaned)) return label.trim();
+  const source = preNormalise(label);
+  const cleaned = tidy(stripInline(stripParentheticals(source)));
+  if (!cleaned || !/[A-Za-z]/.test(cleaned)) return source.trim();
   return cleaned;
+}
+
+/**
+ * Undo the RFC4180 quoting SEC applies to a field containing a quote mark.
+ *
+ * The datasets are tab-separated, so quoting is never needed to protect a
+ * delimiter, and the generator's parser split on tabs and left it in place.
+ * 208 rows displayed captions like `"Bank-owned life insurance (""BOLI"")"`.
+ * The parser now unquotes too, so this is belt and braces -- but it is what
+ * repairs the labels already sitting in the committed data, without waiting
+ * for a rebuild, and it is a no-op once they are clean.
+ */
+function preNormalise(text) {
+  let out = text.trim();
+  if (out.length >= 2 && out.startsWith('"') && out.endsWith('"')) out = out.slice(1, -1);
+  out = out.replace(/""/g, '"');
+
+  // A currency sign carrying no figure. Filers write a nil as "$-", and one
+  // writes a bare "$" where a period had nothing to report: "net of tax of
+  // $(1); $; $(1) and $". Left in place, the stray sign breaks the comparative
+  // series around it, so the whole clause survives half-stripped.
+  //
+  // The lookahead keeps a real figure in every shape it is written: "$775",
+  // "$.01" without its leading zero, and "$(1)" in accounting parentheses.
+  // The optional dash goes with it: a nil is written "$-", and leaving the
+  // dash behind strands it as "credit losses of -". A real negative keeps its
+  // sign, because the lookahead then sees the digit.
+  out = out.replace(/\$\s*[-–—]?\s*(?![\d.]\d|\d|\(\d)/g, '');
+  // ...and close the gap that leaves between two separators.
+  out = out.replace(/([;,])\s*(?=[;,])/g, '');
+  return out.replace(/\s+/g, ' ').trim();
 }
 
 /**
