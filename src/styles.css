@@ -4631,6 +4631,9 @@ body {
    blank cells beside it read as "not reported" rather than as zero. Sits on
    the label, not in a value cell, so it never competes with a figure. */
 .indicator-single-period {
+  /* inline-block, so the badge's padding and border stay inside its own line
+     box instead of spilling onto the caption line above it */
+  display: inline-block;
   font-size: 9px;
   font-weight: 600;
   padding: 1px 3px;
@@ -5821,7 +5824,11 @@ body {
   margin-top: var(--spacing-4);
 }
 
-.indicator {
+/* Scoped to its own widget on the metric pages. Unscoped, this put 12px of
+   padding on the statement tables' D / R / ~ / 1P badges too, which are 9px
+   glyphs -- the 1P badge grew to 37x36 and struck through the caption beside
+   it. */
+.good-bad-indicators .indicator {
   padding: var(--spacing-4);
   border-radius: var(--radius-md);
 }
