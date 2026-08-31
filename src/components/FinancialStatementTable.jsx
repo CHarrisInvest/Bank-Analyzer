@@ -102,7 +102,7 @@ function formatChange(change, invertColor = false) {
 /**
  * Export data to CSV format
  */
-function exportToCSV(items, periods, getValue, title, annotations = {}) {
+function exportToCSV(items, periods, valueFor, title, annotations = {}) {
   // Export what the table shows, not the filing's raw caption -- otherwise a
   // download reintroduces every comparative the table strips. The original is
   // kept in a trailing column so nothing is lost.
@@ -114,7 +114,7 @@ function exportToCSV(items, periods, getValue, title, annotations = {}) {
   const headers = ['Item', ...periods.map(p => p.label), 'Notes', 'Original SEC label'];
   const rows = items.map((item, i) => {
     const values = periods.map(p => {
-      const val = getValue(item.tag, p.key, item.idx);
+      const val = valueFor(item, p.key);
       const v = (val !== null && typeof val === 'object') ? val.value : val;
       return v !== null ? v : '';
     });
@@ -295,6 +295,25 @@ export default function FinancialStatementTable({
     return withValues.map((item, i) => ({ ...item, displayLabel: labels[i] }));
   }, [items, periods, getValue]);
 
+  /**
+   * Read a row's value for a period.
+   *
+   * A row can stand for more than one XBRL concept: when a filer re-tags a
+   * line mid-history the two are merged into one row, and the value for a
+   * period comes from whichever of them reported it.
+   */
+  const valueFor = useCallback((item, periodKey) => {
+    if (!item?.mergedTags) return getValue(item.tag, periodKey, item.idx);
+    for (const tag of item.mergedTags) {
+      // No index fast-path here: it addresses the canonical row, which is only
+      // ever the primary tag's.
+      const raw = getValue(tag, periodKey, undefined);
+      const v = (raw !== null && typeof raw === 'object') ? raw.value : raw;
+      if (v !== null && v !== undefined) return raw;
+    }
+    return getValue(item.tag, periodKey, undefined);
+  }, [getValue]);
+
   const filteredItems = useMemo(() => {
     if (!searchTerm.trim()) return rowsWithValues;
     const term = searchTerm.toLowerCase();
@@ -332,10 +351,10 @@ export default function FinancialStatementTable({
   // Get all values for an item across periods (for sparkline)
   const getItemValues = useCallback((item) => {
     return allPeriods.map(p => {
-      const val = getValue(item.tag, p.key, item.idx);
+      const val = valueFor(item, p.key);
       return (val !== null && typeof val === 'object') ? val.value : val;
     });
-  }, [allPeriods, getValue]);
+  }, [allPeriods, valueFor]);
 
   // Toggle section collapse
   const toggleSection = useCallback((sectionId) => {
@@ -408,8 +427,8 @@ export default function FinancialStatementTable({
     // rowsWithValues, not the raw items and not the search-filtered set: the
     // export follows what the statement contains, not what is typed in the
     // search box.
-    exportToCSV(rowsWithValues, periods, getValue, title, annotations);
-  }, [rowsWithValues, periods, getValue, title, annotations]);
+    exportToCSV(rowsWithValues, periods, valueFor, title, annotations);
+  }, [rowsWithValues, periods, valueFor, title, annotations]);
 
   // Handle annotation update
   const updateAnnotation = useCallback((key, value) => {
@@ -513,7 +532,7 @@ export default function FinancialStatementTable({
     const nextPeriod = displayPeriods[periodIdx + 1];
     if (!nextPeriod) return;
 
-    const nextRawVal = getValue(item.tag, nextPeriod.key, item.idx);
+    const nextRawVal = valueFor(item, nextPeriod.key);
     const nextValue = (nextRawVal !== null && typeof nextRawVal === 'object') ? nextRawVal.value : nextRawVal;
 
     const rect = e.currentTarget.getBoundingClientRect();
@@ -552,7 +571,7 @@ export default function FinancialStatementTable({
   const renderCell = (item, period, periodIdx, rowIdx, isTotal = false) => {
     if (!item || !period) return null;
 
-    const rawVal = getValue(item.tag, period.key, item.idx);
+    const rawVal = valueFor(item, period.key);
     // Note: typeof null === 'object' in JS, so check for null explicitly
     const value = (rawVal !== null && typeof rawVal === 'object') ? rawVal.value : rawVal;
     const derivedUnavailable = (rawVal !== null && typeof rawVal === 'object') ? rawVal.derivedUnavailable : false;
@@ -571,7 +590,7 @@ export default function FinancialStatementTable({
     if (showComparison && periodIdx < displayPeriods.length - 1) {
       const nextPeriod = displayPeriods[periodIdx + 1];
       if (nextPeriod) {
-        const nextRawVal = getValue(item.tag, nextPeriod.key, item.idx);
+        const nextRawVal = valueFor(item, nextPeriod.key);
         const nextValue = (nextRawVal !== null && typeof nextRawVal === 'object') ? nextRawVal.value : nextRawVal;
         const change = calcChange(value, nextValue);
         changeEl = formatChange(change, isExpense);
@@ -725,7 +744,7 @@ export default function FinancialStatementTable({
                   </td>
                   {filteredItems.map((item, itemIdx) => {
                     if (!item) return null;
-                    const rawVal = getValue(item.tag, period.key, item.idx);
+                    const rawVal = valueFor(item, period.key);
                     const value = (rawVal !== null && typeof rawVal === 'object') ? rawVal.value : rawVal;
                     const valueClass = getValueClass(value, item);
                     // Same helper as the upright view: this used to have its

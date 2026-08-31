@@ -98,6 +98,52 @@ test('share counts below the footing total belong to the parenthetical schedule'
   );
 });
 
+test('a line re-tagged mid-history is one row, not two half-empty ones', () => {
+  // ABCB reports "Provision for unfunded commitments" under one concept for
+  // FY2025-24 and another for FY2023-22.
+  const kept = selectStatementRows([
+    { tag: 'OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal', label: 'Provision for unfunded commitments', values: [22.8, -11.0, null, null] },
+    { tag: 'FinancingReceivableCreditLossUnfundedCommitmentsExpenseReversal', label: 'Provision for unfunded commitments', values: [null, null, -10.9, 19.2] },
+  ]);
+  assert.equal(kept.length, 1);
+  assert.deepEqual(kept[0].values, [22.8, -11.0, -10.9, 19.2]);
+  // The row keeps the concept the filer uses now -- periods run newest first.
+  assert.equal(kept[0].tag, 'OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal');
+  assert.equal(kept[0].mergedTags.length, 2);
+});
+
+test('two concepts reported in the same period stay two rows', () => {
+  // ABCB's "Provision for credit losses" is two different lines: same recent
+  // years, genuinely different older ones. Merging would destroy one.
+  const kept = selectStatementRows([
+    { tag: 'ProvisionForLoanLeaseAndOtherLosses', label: 'Provision for credit losses', values: [70.2, 58.8, 153.5, 52.6] },
+    { tag: 'AllowanceForCreditLossExpenseReversal', label: 'Provision for credit losses', values: [70.2, 58.8, 142.7, 71.7] },
+  ]);
+  assert.equal(kept.length, 2);
+  assert.ok(!kept.some(r => r.mergedTags));
+});
+
+test('a shared caption is not enough when the concepts disagree', () => {
+  // BANC's balance sheet gives "Bank owned life insurance" to both the life
+  // insurance concept and the other-real-estate one. Coverage is disjoint, so
+  // only the concepts themselves say these are two lines.
+  const kept = selectStatementRows([
+    { tag: 'BankOwnedLifeInsurance', label: 'Bank owned life insurance', values: [100, 98, null, null] },
+    { tag: 'OtherRealEstateAndForeclosedAssets', label: 'Bank owned life insurance', values: [null, null, 37, 40] },
+  ]);
+  assert.equal(kept.length, 2);
+});
+
+test('the same concept in a different case is the same concept', () => {
+  // EWBC files both DepositAccountFees and Depositaccountfees.
+  const kept = selectStatementRows([
+    { tag: 'DepositAccountFees', label: 'Deposit account fees', values: [10, 11, null] },
+    { tag: 'Depositaccountfees', label: 'Deposit account fees', values: [null, null, 9] },
+  ]);
+  assert.equal(kept.length, 1);
+  assert.deepEqual(kept[0].values, [10, 11, 9]);
+});
+
 test('indices survive grouping, so cells still line up with their period', () => {
   const items = [{ label: 'Cash' }, { label: 'Assets' }, { label: 'Loans' }];
   const sections = groupItemsIntoSections(items);
