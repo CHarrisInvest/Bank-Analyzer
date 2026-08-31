@@ -187,7 +187,7 @@ function AnnotationPopup({ value, onChange, onClose, position }) {
 /**
  * Tooltip component for showing period-over-period changes
  */
-function ValueTooltip({ value, prevValue, prevLabel, position, isExpense }) {
+function ValueTooltip({ value, prevValue, prevLabel, position, isExpense, tag }) {
   if (!position) return null;
 
   const change = calcChange(value, prevValue);
@@ -209,7 +209,9 @@ function ValueTooltip({ value, prevValue, prevLabel, position, isExpense }) {
       </div>
       {prevValue !== null && (
         <div className="tooltip-prev">
-          Prior: {typeof prevValue === 'number' ? prevValue.toLocaleString() : prevValue}
+          {/* Same formatter as the cell: the tooltip used to print raw
+              dollars beside a figure the table showed in millions. */}
+          Prior: {typeof prevValue === 'number' ? formatStatementCell(prevValue, tag) : prevValue}
         </div>
       )}
     </div>
@@ -544,8 +546,9 @@ export default function FinancialStatementTable({
       prevLabel: nextPeriod.label,
       position: { top: rect.top - 60, left: rect.left + rect.width / 2 },
       isExpense,
+      tag: item.tag,
     });
-  }, [displayPeriods, getValue]);
+  }, [displayPeriods, valueFor]);
 
   const handleCellMouseLeave = useCallback(() => {
     setTooltip(null);
@@ -778,7 +781,7 @@ export default function FinancialStatementTable({
 
     return (
       <div className={`financial-table-wrapper${freezeLabels ? ' labels-frozen' : ''}`} ref={wrapperRef}>
-        <table className="financial-table multi-period" ref={tableRef} onKeyDown={handleKeyDown}>
+        <table className={`financial-table multi-period${showSparklines ? ' with-trends' : ''}`} ref={tableRef} onKeyDown={handleKeyDown}>
           <thead>
             <tr>
               <th className="label-col sticky-col" ref={labelColRef}>Item</th>
@@ -1005,6 +1008,7 @@ export default function FinancialStatementTable({
           prevLabel={tooltip.prevLabel}
           position={tooltip.position}
           isExpense={tooltip.isExpense}
+          tag={tooltip.tag}
         />
       )}
 
