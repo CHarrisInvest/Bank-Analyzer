@@ -16,6 +16,7 @@
  * Most statements now render flat, which is the honest reading of data that
  * carries no hierarchy.
  */
+import { isPerShareTag, isShareCountTag } from './format.js';
 
 /**
  * Headings that name a whole group rather than one line in it.
@@ -110,4 +111,48 @@ function groupItemsIntoSections(items) {
   return sections;
 }
 
-export { detectSection, groupItemsIntoSections };
+/**
+ * The line on which a balance sheet closes.
+ *
+ * Anything below it is not part of the footing, whatever line number the
+ * filer gave it.
+ */
+const FOOTING_TAGS = new Set([
+  'LiabilitiesAndStockholdersEquity',
+  'LiabilitiesAndStockholdersEquityIncludingPortionAttributableToNoncontrollingInterest',
+]);
+
+/**
+ * Which rows belong on the face of the statement.
+ *
+ * Takes rows in statement order, each carrying the values it would display,
+ * and drops three kinds of row that are not figures:
+ *
+ * - Rows with no value in any displayed period. A row of dashes says nothing.
+ * - Rows valued zero in every displayed period. These are note references
+ *   ("Commitments and contingencies (refer to Notes 22, 23 and 24)") and
+ *   "none issued" placeholders; they rendered as a column of $0, which reads
+ *   as a measured zero rather than as an absence.
+ * - Share counts and per-share amounts below the footing total. SRCE stacked
+ *   eight of them under "Total liabilities and equity" -- authorised shares,
+ *   issued shares, par value, treasury shares -- which belong to the
+ *   parenthetical schedule, not the balance sheet. The inpth flag in SEC's
+ *   data drops most of these; these are the ones their filers left unflagged.
+ *   Only share-shaped concepts are dropped, so the real lines that some
+ *   filers order after the total -- noncontrolling interests, a fair-value
+ *   disclosure -- stay.
+ */
+function selectStatementRows(rows) {
+  let footing = -1;
+  rows.forEach((r, i) => { if (FOOTING_TAGS.has(r.tag)) footing = i; });
+
+  return rows.filter((row, i) => {
+    const present = (row.values || []).filter(v => v !== null && v !== undefined);
+    if (!present.length) return false;
+    if (present.every(v => v === 0)) return false;
+    if (footing >= 0 && i > footing && (isShareCountTag(row.tag) || isPerShareTag(row.tag))) return false;
+    return true;
+  });
+}
+
+export { detectSection, groupItemsIntoSections, selectStatementRows };

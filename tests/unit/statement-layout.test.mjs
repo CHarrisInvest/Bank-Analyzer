@@ -7,7 +7,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { detectSection, groupItemsIntoSections } from '../../src/utils/statementLayout.js';
+import { detectSection, groupItemsIntoSections, selectStatementRows } from '../../src/utils/statementLayout.js';
 
 test('a heading names a group; a line item that starts the same way does not', () => {
   assert.equal(detectSection({ label: 'Assets' }), true);
@@ -60,6 +60,41 @@ test('every section is keyed uniquely', () => {
   assert.deepEqual(
     sections.map(s => [s.header?.label ?? null, s.children.map(c => c.item.label)]),
     [[null, ['Cash']], ['Assets', ['Loans']], [null, ['Liabilities']]]
+  );
+});
+
+test('a row with no figure in any period is not a row', () => {
+  const kept = selectStatementRows([
+    { tag: 'Assets', values: [100, 200] },
+    { tag: 'Ghost', values: [null, null] },
+  ]);
+  assert.deepEqual(kept.map(r => r.tag), ['Assets']);
+});
+
+test('a row valued zero in every period is a note reference, not a figure', () => {
+  // "Commitments and contingencies (refer to Notes 22, 23 and 24)" rendered as
+  // a column of $0, which reads as a measured zero rather than as an absence.
+  const kept = selectStatementRows([
+    { tag: 'Assets', values: [100, 200] },
+    { tag: 'CommitmentsAndContingencies', values: [0, 0] },
+    { tag: 'PreferredStockValue', values: [0, null] },
+    { tag: 'RealZeroThisPeriod', values: [0, 500] },
+  ]);
+  assert.deepEqual(kept.map(r => r.tag), ['Assets', 'RealZeroThisPeriod']);
+});
+
+test('share counts below the footing total belong to the parenthetical schedule', () => {
+  const kept = selectStatementRows([
+    { tag: 'CommonStockSharesIssued', values: [28_205_674, 28_205_674] },   // above: keep
+    { tag: 'Assets', values: [100, 200] },
+    { tag: 'LiabilitiesAndStockholdersEquity', values: [100, 200] },
+    { tag: 'CommonStockSharesAuthorized', values: [40_000_000, 40_000_000] },
+    { tag: 'CommonStockParOrStatedValuePerShare', values: [0.01, 0.01] },
+    { tag: 'MinorityInterest', values: [42_900_000, 43_100_000] },          // below, but real
+  ]);
+  assert.deepEqual(
+    kept.map(r => r.tag),
+    ['CommonStockSharesIssued', 'Assets', 'LiabilitiesAndStockholdersEquity', 'MinorityInterest']
   );
 });
 

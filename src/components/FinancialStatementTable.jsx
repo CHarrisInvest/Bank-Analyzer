@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { cleanLabel, resolveLabels, truncateLabel } from '../utils/labels';
-import { detectSection, groupItemsIntoSections } from '../utils/statementLayout';
+import { detectSection, groupItemsIntoSections, selectStatementRows } from '../utils/statementLayout';
+import { formatStatementCell, isPerShareTag, isShareCountTag } from '../utils/format.js';
 
 
 
@@ -105,6 +106,10 @@ function exportToCSV(items, periods, getValue, title, annotations = {}) {
   // Export what the table shows, not the filing's raw caption -- otherwise a
   // download reintroduces every comparative the table strips. The original is
   // kept in a trailing column so nothing is lost.
+  //
+  // Takes the table's own rows, so the download does not reintroduce the ones
+  // it drops either: note references valued zero in every period, and the
+  // share counts below the balance sheet's footing total.
   const shown = resolveLabels(items);
   const headers = ['Item', ...periods.map(p => p.label), 'Notes', 'Original SEC label'];
   const rows = items.map((item, i) => {
@@ -220,7 +225,6 @@ export default function FinancialStatementTable({
   periods,
   allPeriods,
   getValue,
-  formatValue,
   viewMode,
   onViewModeChange,
   expanded,
@@ -280,14 +284,13 @@ export default function FinancialStatementTable({
   // disambiguating a collision needs to know which other rows are on screen.
   // Resolved before the search filter so typing does not change a label.
   const rowsWithValues = useMemo(() => {
-    const withValues = items.filter(item => {
-      // Check if item has a value in any displayed period
-      return periods.some(p => {
+    const withValues = selectStatementRows(items.map(item => ({
+      ...item,
+      values: periods.map(p => {
         const val = getValue(item.tag, p.key, item.idx);
-        const value = (val !== null && typeof val === 'object') ? val.value : val;
-        return value !== null && value !== undefined;
-      });
-    });
+        return (val !== null && typeof val === 'object') ? val.value : val;
+      }),
+    })));
     const labels = resolveLabels(withValues);
     return withValues.map((item, i) => ({ ...item, displayLabel: labels[i] }));
   }, [items, periods, getValue]);
@@ -402,8 +405,11 @@ export default function FinancialStatementTable({
 
   // Handle export
   const handleExport = useCallback(() => {
-    exportToCSV(items, periods, getValue, title, annotations);
-  }, [items, periods, getValue, title, annotations]);
+    // rowsWithValues, not the raw items and not the search-filtered set: the
+    // export follows what the statement contains, not what is typed in the
+    // search box.
+    exportToCSV(rowsWithValues, periods, getValue, title, annotations);
+  }, [rowsWithValues, periods, getValue, title, annotations]);
 
   // Handle annotation update
   const updateAnnotation = useCallback((key, value) => {
@@ -558,8 +564,6 @@ export default function FinancialStatementTable({
     const annotationKey = `${item.tag}-${period.key}`;
     const hasAnnotation = !!annotations[annotationKey];
 
-    const isPerShare = /per(?:basic|diluted|common)?share/i.test(item.tag || '');
-    const isShares = item.tag?.toLowerCase().includes('shares') && !isPerShare;
     const isExpense = item.label?.toLowerCase().includes('expense') || item.tag?.toLowerCase().includes('expense');
 
     // Calculate comparison (YoY/QoQ change)
@@ -601,14 +605,7 @@ export default function FinancialStatementTable({
       );
     }
 
-    let displayValue;
-    if (isShares) {
-      displayValue = value !== null ? value.toLocaleString() : '-';
-    } else if (isPerShare) {
-      displayValue = value !== null ? '$' + value.toFixed(2) : '-';
-    } else {
-      displayValue = formatValue(value);
-    }
+    const displayValue = formatStatementCell(value, item.tag);
 
     // Build tooltip text for data quality indicators
     const indicatorTitles = [];
@@ -730,18 +727,11 @@ export default function FinancialStatementTable({
                     if (!item) return null;
                     const rawVal = getValue(item.tag, period.key, item.idx);
                     const value = (rawVal !== null && typeof rawVal === 'object') ? rawVal.value : rawVal;
-                    const isPerShare = item.tag?.toLowerCase().includes('pershare') || item.tag?.startsWith('EarningsPerShare');
-                    const isShares = item.tag?.toLowerCase().includes('shares');
                     const valueClass = getValueClass(value, item);
-
-                    let displayValue;
-                    if (isShares) {
-                      displayValue = value !== null ? value.toLocaleString() : '-';
-                    } else if (isPerShare) {
-                      displayValue = value !== null ? '$' + value.toFixed(2) : '-';
-                    } else {
-                      displayValue = formatValue(value);
-                    }
+                    // Same helper as the upright view: this used to have its
+                    // own test for what counts as a per-share figure, and it
+                    // rendered twelve of them as currency in millions.
+                    const displayValue = formatStatementCell(value, item.tag);
 
                     return (
                       <td
