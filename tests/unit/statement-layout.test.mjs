@@ -144,6 +144,40 @@ test('the same concept in a different case is the same concept', () => {
   assert.deepEqual(kept[0].values, [10, 11, 9]);
 });
 
+test('cosmetic caption drift is still the same line', () => {
+  // A filer who re-tags a line usually retypes its caption too, and the
+  // rewrite is punctuation, case, or a parenthetical qualifier.
+  const drift = [
+    ['Less: allowance for loan and lease losses', 'Less allowance for loan and lease losses'],
+    ['Securities available-for-sale, at fair value', 'Securities available for sale, at fair value'],
+    ['Total Loans', 'Total loans'],
+    ['Deferred loan (fees) costs, net', 'Deferred loan costs, net'],
+  ];
+  for (const [a, b] of drift) {
+    const kept = selectStatementRows([
+      { tag: 'FinancingReceivableAllowanceForCreditLoss', label: a, values: [10, 11, null, null] },
+      { tag: 'LoansAndLeasesReceivableAllowance', label: b, values: [null, null, 12, 13] },
+    ]);
+    assert.equal(kept.length, 1, `should have merged: "${a}" / "${b}"`);
+    assert.deepEqual(kept[0].values, [10, 11, 12, 13]);
+  }
+});
+
+test('an overlapping row cannot veto a merge that fits around it', () => {
+  // ECBK files three rows under one caption; two cover the same quarters.
+  // Taking the group all-or-nothing let that pair block the third, so a
+  // looser caption key would have UNDONE a join that already worked.
+  const kept = selectStatementRows([
+    { tag: 'InterestIncomeShorttermInvestments', label: 'Interest on short-term investments', values: [0.8, null, 1.2, null] },
+    { tag: 'InterestIncomeShortTermInvestmentOther', label: 'Interest on short term investments', values: [0.8, null, 1.2, null] },
+    { tag: 'InterestOnShortTermInvestments', label: 'Interest on short term investments', values: [null, null, null, 1.6] },
+  ]);
+  assert.equal(kept.length, 2);
+  assert.deepEqual(kept[0].values, [0.8, null, 1.2, 1.6]);
+  assert.deepEqual(kept[0].mergedTags, ['InterestIncomeShorttermInvestments', 'InterestOnShortTermInvestments']);
+  assert.equal(kept[1].mergedTags, undefined);
+});
+
 test('indices survive grouping, so cells still line up with their period', () => {
   const items = [{ label: 'Cash' }, { label: 'Assets' }, { label: 'Loans' }];
   const sections = groupItemsIntoSections(items);
