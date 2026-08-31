@@ -4337,29 +4337,40 @@ body {
   background: rgba(66, 153, 225, 0.05);
 }
 
-/* Sparkline component - anchored to right of label cell */
+/* Sparkline component - anchored to the top right of the label cell.
+   Positioned rather than floated so it stays level with the first line of a
+   caption that wraps. The label cell is sticky, so it is already the
+   containing block. */
 .sparkline {
   display: inline-block;
   vertical-align: middle;
   flex-shrink: 0;
-  margin-left: auto;
-  align-self: flex-start;
-  margin-top: 3px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 
 .label-col .item-label {
   display: inline;
-  flex: 1;
   min-width: 0;
   line-height: 1.4;
   cursor: default;
 }
 
+/* The label cell must stay a table cell.
+   It used to be display:flex, which takes a cell out of the table's column
+   sizing: the browser wraps it in an anonymous cell, and the column ends up
+   wider than the cell sitting inside it. That left 245px of dead space --
+   nearly a fifth of the table -- between the captions and the first period
+   column on every statement, with the figures crammed against the right edge. */
 .label-col {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--spacing-2);
+  position: relative;
+  vertical-align: top;
+}
+
+/* Room for the sparkline, reserved only when trends are switched on. */
+.financial-table.with-trends .label-col {
+  padding-right: 62px;
 }
 
 /* Indent marker for hierarchical items */
@@ -4620,6 +4631,9 @@ body {
    blank cells beside it read as "not reported" rather than as zero. Sits on
    the label, not in a value cell, so it never competes with a figure. */
 .indicator-single-period {
+  /* inline-block, so the badge's padding and border stay inside its own line
+     box instead of spilling onto the caption line above it */
+  display: inline-block;
   font-size: 9px;
   font-weight: 600;
   padding: 1px 3px;
@@ -5810,7 +5824,11 @@ body {
   margin-top: var(--spacing-4);
 }
 
-.indicator {
+/* Scoped to its own widget on the metric pages. Unscoped, this put 12px of
+   padding on the statement tables' D / R / ~ / 1P badges too, which are 9px
+   glyphs -- the 1P badge grew to 37x36 and struck through the caption beside
+   it. */
+.good-bad-indicators .indicator {
   padding: var(--spacing-4);
   border-radius: var(--radius-md);
 }

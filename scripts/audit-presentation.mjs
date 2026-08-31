@@ -9,6 +9,12 @@
  *   node scripts/audit-presentation.mjs                  report
  *   node scripts/audit-presentation.mjs --write          report + snapshot
  *   node scripts/audit-presentation.mjs --compare FILE   diff against snapshot
+ *   node scripts/audit-presentation.mjs --check          assert invariants (CI)
+ *
+ * --check is the CI gate. It asserts the properties that are wrong at any
+ * count rather than comparing to a snapshot: the data legitimately changes
+ * every quarter, so snapshot equality would fail on every refresh and teach
+ * everyone to ignore it.
  *
  * Only banks listed in banks.json are audited. Files for banks that have
  * stopped filing linger in the directory and are not served, so measuring
@@ -18,7 +24,7 @@ import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { cleanLabel } from '../src/utils/labels.js';
-import { detectSection, groupItemsIntoSections } from '../src/utils/statementLayout.js';
+import { detectSection, groupItemsIntoSections, selectStatementRows } from '../src/utils/statementLayout.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA = join(__dirname, '..', 'public', 'data');
@@ -28,11 +34,16 @@ const args = process.argv.slice(2);
 const ci = args.indexOf('--compare');
 const comparePath = ci !== -1 ? args[ci + 1] : null;
 
-const live = new Set(JSON.parse(readFileSync(join(DATA, 'banks.json'), 'utf8')).map(b => b.cik));
+// Only banks the site serves: it covers US banks and US bank holding
+// companies, and the filers without a listed ticker are neither shown in the
+// screener nor prerendered. Auditing them measures pages no reader can reach.
+const live = new Set(
+  JSON.parse(readFileSync(join(DATA, 'banks.json'), 'utf8')).filter(b => b.ticker).map(b => b.cik)
+);
 
 const M = {
   tables: 0, rows: 0,
-  sections: 0, emptySections: 0, headerRows: 0, flatTables: 0,
+  sections: 0, emptySections: 0, duplicateSectionIds: 0, headerRows: 0, flatTables: 0,
   singlePeriodRows: 0,
   shortHistoryTables: 0,
   duplicatePeriodColumns: 0,
@@ -40,7 +51,7 @@ const M = {
   balanceSheetsChecked: 0, balanceSheetsOff: 0,
   negativeSubtotals: 0,
 };
-const detail = { dupPeriods: [], outOfOrder: [], negSubtotal: [], bsOff: [] };
+const detail = { dupPeriods: [], outOfOrder: [], negSubtotal: [], bsOff: [], dupSectionIds: [] };
 
 /** A subtotal shown negative while the components above it are positive. */
 function negativeSubtotalCells(period) {
@@ -69,10 +80,21 @@ for (const f of readdirSync(join(DATA, 'banks'))) {
     for (const bucket of ['annual', 'quarterly']) {
       const periods = H[bucket] || [];
       if (!periods.length) continue;
-      const valued = new Set();
-      for (const p of periods) for (const it of p.items || []) if (it.value != null) valued.add(it.tag);
-      const rows = (H.canonicalItems?.[bucket] || []).filter(it => it?.label && valued.has(it.tag));
-      if (!rows.length) continue;
+      const byTag = new Map();
+      for (const p of periods) {
+        for (const it of p.items || []) {
+          if (!byTag.has(it.tag)) byTag.set(it.tag, []);
+          byTag.get(it.tag).push(it.value ?? null);
+        }
+      }
+      const ordered = (H.canonicalItems?.[bucket] || [])
+        .filter(it => it?.label)
+        .map(it => ({ ...it, values: byTag.get(it.tag) || [] }));
+      const visible = selectStatementRows(ordered);
+      if (!visible.length) continue;
+      // Grouping runs on the displayed label, so the audit has to clean first
+      // or it measures a layout no reader sees.
+      const rows = visible.map(it => ({ ...it, displayLabel: cleanLabel(it.label) }));
 
       M.tables++; M.rows += rows.length;
 
@@ -82,6 +104,13 @@ for (const f of readdirSync(join(DATA, 'banks'))) {
       const groups = groupItemsIntoSections(rows.map((item, idx) => ({ ...item, idx })));
       M.sections += groups.length;
       M.emptySections += groups.filter(g => g.header && g.children.length === 0).length;
+      // The id is the React key and the collapse-state key; two groups keyed
+      // alike share one toggle.
+      const ids = groups.map(g => g.id);
+      if (new Set(ids).size !== ids.length) {
+        M.duplicateSectionIds++;
+        if (detail.dupSectionIds.length < 6) detail.dupSectionIds.push(`${t} ${stmt}/${bucket}: ${ids.join(', ')}`);
+      }
 
       for (const it of rows) {
         let n = 0;
@@ -135,6 +164,7 @@ console.log('');
 console.log(`  rows treated as section headers : ${M.headerRows} (${((M.headerRows / M.rows) * 100).toFixed(0)}% of rows)`);
 console.log(`  sections per table              : ${per(M.sections)}`);
 console.log(`  sections with no child rows     : ${M.emptySections}`);
+console.log(`  tables with duplicate section ids: ${M.duplicateSectionIds}`);
 console.log(`  tables rendering flat           : ${M.flatTables} of ${M.tables}`);
 console.log(`  rows valued in a single period  : ${M.singlePeriodRows}`);
 console.log(`  quarterly tables under 4 columns: ${M.shortHistoryTables}`);
@@ -149,6 +179,49 @@ for (const [k, list] of Object.entries(detail)) {
 if (args.includes('--write')) {
   writeFileSync(SNAPSHOT, JSON.stringify(M, null, 2));
   console.log(`\nsnapshot written: ${SNAPSHOT}`);
+}
+
+if (args.includes('--check')) {
+  /**
+   * Invariants: properties that are wrong at any count, whatever the quarter.
+   *
+   * Deliberately not a snapshot comparison. Every metric that varies with the
+   * data -- single-period rows, short histories, how many tables render flat --
+   * is left out, because a check that fails on ordinary quarterly change gets
+   * ignored, and an ignored check is worse than none.
+   */
+  const INVARIANTS = [
+    ['balance sheets that do not foot', M.balanceSheetsOff, 0],
+    ['period columns duplicated', M.duplicatePeriodColumns, 0],
+    ['period columns not newest-first', M.columnsOutOfOrder, 0],
+    ['subtotals shown negative over positive components', M.negativeSubtotals, 0],
+    ['sections offering a toggle that expands to nothing', M.emptySections, 0],
+    ['tables with two sections sharing an id', M.duplicateSectionIds, 0],
+  ];
+  // Without these the audit can pass by measuring nothing at all, which is
+  // exactly what a broken data path looks like.
+  const FLOORS = [
+    ['statement tables audited', M.tables, 1000],
+    ['rendered rows audited', M.rows, 40000],
+    ['balance sheets checked for footing', M.balanceSheetsChecked, 4000],
+  ];
+
+  console.log('\n=== invariant check ===');
+  let failed = 0;
+  for (const [what, n, budget] of INVARIANTS) {
+    console.log(`  ${n <= budget ? 'ok   ' : 'FAIL '} ${what}: ${n} (max ${budget})`);
+    if (n > budget) failed++;
+  }
+  for (const [what, n, floor] of FLOORS) {
+    console.log(`  ${n >= floor ? 'ok   ' : 'FAIL '} ${what}: ${n} (min ${floor})`);
+    if (n < floor) failed++;
+  }
+  if (failed) {
+    console.error(`\n${failed} invariant(s) broken -- see the detail above.`);
+    process.exitCode = 1;
+  } else {
+    console.log('\nall invariants hold');
+  }
 }
 
 if (comparePath) {

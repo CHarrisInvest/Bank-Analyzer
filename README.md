@@ -148,6 +148,45 @@ curl -X POST http://localhost:3001/api/banks/refresh
 
 Wait a few minutes for the data to populate (SEC EDGAR API can be slow).
 
+## Checks
+
+```bash
+npm run check          # unit tests + statement invariants
+npm test               # unit tests only
+```
+
+`npm run check` is what CI runs (`.github/workflows/checks.yml`), and the
+update-sec-data workflow runs the invariant half against freshly generated data
+before committing it.
+
+The invariants are properties that are wrong at any count, whatever the
+quarter: a blank or mangled row label, a row whose own cells change unit
+partway across, a duplicated or out-of-order period column, a subtotal shown
+negative over positive components, a balance sheet that does not foot. They are
+deliberately not snapshot comparisons — the data changes every quarter, and a
+check that fails on ordinary change gets ignored.
+
+For a fuller picture of what the statement tables look like, the same scripts
+report without asserting, and can diff against a committed snapshot:
+
+```bash
+npm run audit:labels                                       # what every row is called
+npm run audit:cells                                        # what every figure reads as
+npm run audit:presentation                                 # how the tables hold together
+node scripts/audit-labels.mjs --compare tests/label-snapshot.json
+node scripts/audit-cells.mjs --compare tests/cell-snapshot.json
+```
+
+The compare modes are the ones to use when changing the rules. The label diff
+separates labels that got better from labels that got worse, and flags any that
+lost a descriptive word. The cell diff reads each formatted figure back to a
+number, so a format change that quietly rounds a figure away is separated from
+one that only changes how it is punctuated — a distinction comparing the text
+cannot make, since every cell's text changes when the format does.
+
+All three replay the same code the tables do, through the same row selection,
+so what CI checks is what a reader sees.
+
 ## Project Structure
 
 ```

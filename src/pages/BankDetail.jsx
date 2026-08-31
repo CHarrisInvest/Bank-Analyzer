@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { bankPath, matchesBank } from '../utils/bankPath';
+import { formatNumber, formatCurrency, formatPercent } from '../utils/format.js';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import { trackBankViewed, trackBankTabChanged } from '../analytics/events.js';
 import { fetchBankRawData, fetchBankList } from '../data/sheets.js';
@@ -101,44 +102,6 @@ function BankDetail({ banks = [], loading = false }) {
   const handleTabChange = (tab) => {
     setSearchParams({ tab });
     trackBankTabChanged(ticker, tab);
-  };
-
-  const formatNumber = (num, decimals = 0) => {
-    if (num === null || num === undefined) return '-';
-    return num.toLocaleString(undefined, {
-      minimumFractionDigits: decimals,
-      maximumFractionDigits: decimals,
-    });
-  };
-
-  const formatCurrency = (num) => {
-    if (num === null || num === undefined) return '-';
-    // Always show in millions for consistency and easy comparison
-    const inMillions = num / 1e6;
-    const absMillions = Math.abs(inMillions);
-
-    if (absMillions >= 1000) {
-      // Billions range: show with comma separator (e.g., $4,200.5M)
-      return '$' + inMillions.toLocaleString(undefined, {
-        minimumFractionDigits: 1,
-        maximumFractionDigits: 1
-      }) + 'M';
-    } else if (absMillions >= 1) {
-      // Millions range: show with 1 decimal (e.g., $345.6M)
-      return '$' + inMillions.toFixed(1) + 'M';
-    } else if (absMillions >= 0.01) {
-      // Sub-million but significant: show with 2 decimals (e.g., $0.45M)
-      return '$' + inMillions.toFixed(2) + 'M';
-    } else if (Math.abs(num) >= 1) {
-      // Very small: show actual value
-      return '$' + num.toLocaleString(undefined, { maximumFractionDigits: 0 });
-    }
-    return '$0';
-  };
-
-  const formatPercent = (num) => {
-    if (num === null || num === undefined) return '-';
-    return num.toFixed(2) + '%';
   };
 
   const formatDate = (dateStr) => {
@@ -594,7 +557,6 @@ function BalanceSheetTab({ bank, rawData, rawDataLoading, formatCurrency, format
         periods={periods}
         allPeriods={allPeriods}
         getValue={getValue}
-        formatValue={formatCurrency}
         viewMode={viewMode}
         onViewModeChange={handleViewModeChange}
         expanded={expanded}
@@ -725,7 +687,6 @@ function IncomeStatementTab({ bank, rawData, rawDataLoading, formatCurrency, for
         periods={periods}
         allPeriods={allPeriods}
         getValue={getValue}
-        formatValue={formatCurrency}
         viewMode={viewMode}
         onViewModeChange={handleViewModeChange}
         expanded={expanded}

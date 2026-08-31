@@ -5,6 +5,12 @@ on:
     # Run daily at 3am UTC (after SEC data typically updates)
     - cron: '0 3 * * *'
   workflow_dispatch:
+    inputs:
+      force_reprocess:
+        description: 'Reprocess every quarter on the sec-data release, even if none is new'
+        type: boolean
+        default: false
+        required: false
 
 permissions:
   contents: write
@@ -25,6 +31,7 @@ jobs:
       behind: ${{ steps.check.outputs.behind }}
       blocked: ${{ steps.check.outputs.blocked }}
       deploy: ${{ steps.commit.outputs.changed }}
+      quality: ${{ steps.quality.outcome }}
 
     steps:
       - name: Checkout repository
@@ -55,11 +62,18 @@ jobs:
       # now and records any gap in the "behind" output. The report-freshness
       # job below turns a non-empty gap into a failure, so the site silently
       # serving months-old quarters shows up as a red run, not a green no-op.
+      #
+      # The force_reprocess dispatch input overrides the gate. Without it the
+      # only way to exercise a generator change is to wait for SEC to publish
+      # the next quarter, which is up to three months of a change sitting
+      # unrun; with it, a run rebuilds every bank from the quarters already on
+      # the release and the diff shows exactly what the change did.
       # ============================================
       - name: Check for new quarterly data
         id: check
         env:
           GH_TOKEN: ${{ github.token }}
+          FORCE_REPROCESS: ${{ inputs.force_reprocess }}
           # SEC's fair-access policy expects a declared contact in the
           # User-Agent; reuse the project's contact email (SEC_CONTACT_EMAIL
           # is an optional dedicated override).
@@ -160,10 +174,14 @@ jobs:
             done
           fi
 
-          # Reprocess when the release holds a quarter the repo hasn't processed.
+          # Reprocess when the release holds a quarter the repo hasn't processed,
+          # or when a run was dispatched with force_reprocess.
           pending="$(comm -23 <(echo "$release_q") <(echo "$processed") | sed '/^$/d')"
           if [ -n "$pending" ]; then
             echo "::notice::New quarter(s) on the release to process: $(echo $pending | tr '\n' ' ')"
+            echo "new_asset=true" >> "$GITHUB_OUTPUT"
+          elif [ "${FORCE_REPROCESS:-false}" = "true" ]; then
+            echo "::notice::force_reprocess requested; rebuilding from every quarter on the release."
             echo "new_asset=true" >> "$GITHUB_OUTPUT"
           else
             echo "No unprocessed quarters on the release; skipping rebuild."
@@ -231,6 +249,28 @@ jobs:
         run: |
           echo "Refreshing exchange data from SEC EDGAR submissions API..."
           node scripts/update-exchanges.cjs
+
+      # ============================================
+      # Check what was just generated, before it is committed.
+      #
+      # This has to live here rather than in the Checks workflow: a push made
+      # with the default GITHUB_TOKEN does not trigger other workflows, so the
+      # data commit below is never checked by anything else.
+      #
+      # continue-on-error on purpose -- a broken invariant must not block the
+      # deploy of data that is still fresher than what is live. The
+      # report-quality job turns it into a red run instead, the same way
+      # report-freshness handles stale data.
+      # ============================================
+      - name: Check statement invariants
+        id: quality
+        continue-on-error: true
+        run: |
+          rc=0
+          node scripts/audit-labels.mjs --check || rc=1
+          node scripts/audit-cells.mjs --check || rc=1
+          node scripts/audit-presentation.mjs --check || rc=1
+          exit $rc
 
       # ============================================
       # Commit and Deploy
@@ -320,6 +360,41 @@ jobs:
                 "https://banksift.org/glossary"
               ]
             }'
+
+  # ============================================
+  # Fail the run when the data just generated broke a statement invariant.
+  # Separate job, same reasoning as report-freshness: the deploy of fresher
+  # data goes ahead, and the run still comes out red so somebody looks.
+  # ============================================
+  report-quality:
+    if: always() && needs.update-data.outputs.quality == 'failure'
+    runs-on: ubuntu-latest
+    needs: update-data
+    steps:
+      - name: Report broken invariants
+        run: |
+          {
+            echo "## Generated data broke a statement invariant"
+            echo
+            echo "The **Check statement invariants** step in the update-data job lists"
+            echo "which invariant broke and gives a sample of the offending rows."
+            echo
+            echo "These are properties that are wrong at any count -- a blank or mangled"
+            echo "row label, a duplicated or out-of-order period column, a subtotal shown"
+            echo "negative over positive components, a balance sheet that does not foot."
+            echo "They held when the data was last regenerated, so a break means the"
+            echo "generator or the label rules changed behaviour, not that SEC filed"
+            echo "something unusual."
+            echo
+            echo "To reproduce locally:"
+            echo
+            echo '```sh'
+            echo "npm run check"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          echo "::error::Generated data broke a statement invariant -- see the job summary."
+          exit 1
 
   # ============================================
   # Fail the run when the site is serving quarters older than the newest one

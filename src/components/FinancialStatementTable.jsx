@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { cleanLabel, resolveLabels, truncateLabel } from '../utils/labels';
-import { detectSection, groupItemsIntoSections } from '../utils/statementLayout';
+import { detectSection, groupItemsIntoSections, selectStatementRows } from '../utils/statementLayout';
+import { formatStatementCell, isPerShareTag, isShareCountTag } from '../utils/format.js';
 
 
 
@@ -101,15 +102,19 @@ function formatChange(change, invertColor = false) {
 /**
  * Export data to CSV format
  */
-function exportToCSV(items, periods, getValue, title, annotations = {}) {
+function exportToCSV(items, periods, valueFor, title, annotations = {}) {
   // Export what the table shows, not the filing's raw caption -- otherwise a
   // download reintroduces every comparative the table strips. The original is
   // kept in a trailing column so nothing is lost.
+  //
+  // Takes the table's own rows, so the download does not reintroduce the ones
+  // it drops either: note references valued zero in every period, and the
+  // share counts below the balance sheet's footing total.
   const shown = resolveLabels(items);
   const headers = ['Item', ...periods.map(p => p.label), 'Notes', 'Original SEC label'];
   const rows = items.map((item, i) => {
     const values = periods.map(p => {
-      const val = getValue(item.tag, p.key, item.idx);
+      const val = valueFor(item, p.key);
       const v = (val !== null && typeof val === 'object') ? val.value : val;
       return v !== null ? v : '';
     });
@@ -182,7 +187,7 @@ function AnnotationPopup({ value, onChange, onClose, position }) {
 /**
  * Tooltip component for showing period-over-period changes
  */
-function ValueTooltip({ value, prevValue, prevLabel, position, isExpense }) {
+function ValueTooltip({ value, prevValue, prevLabel, position, isExpense, tag }) {
   if (!position) return null;
 
   const change = calcChange(value, prevValue);
@@ -204,7 +209,9 @@ function ValueTooltip({ value, prevValue, prevLabel, position, isExpense }) {
       </div>
       {prevValue !== null && (
         <div className="tooltip-prev">
-          Prior: {typeof prevValue === 'number' ? prevValue.toLocaleString() : prevValue}
+          {/* Same formatter as the cell: the tooltip used to print raw
+              dollars beside a figure the table showed in millions. */}
+          Prior: {typeof prevValue === 'number' ? formatStatementCell(prevValue, tag) : prevValue}
         </div>
       )}
     </div>
@@ -220,7 +227,6 @@ export default function FinancialStatementTable({
   periods,
   allPeriods,
   getValue,
-  formatValue,
   viewMode,
   onViewModeChange,
   expanded,
@@ -280,17 +286,35 @@ export default function FinancialStatementTable({
   // disambiguating a collision needs to know which other rows are on screen.
   // Resolved before the search filter so typing does not change a label.
   const rowsWithValues = useMemo(() => {
-    const withValues = items.filter(item => {
-      // Check if item has a value in any displayed period
-      return periods.some(p => {
+    const withValues = selectStatementRows(items.map(item => ({
+      ...item,
+      values: periods.map(p => {
         const val = getValue(item.tag, p.key, item.idx);
-        const value = (val !== null && typeof val === 'object') ? val.value : val;
-        return value !== null && value !== undefined;
-      });
-    });
+        return (val !== null && typeof val === 'object') ? val.value : val;
+      }),
+    })));
     const labels = resolveLabels(withValues);
     return withValues.map((item, i) => ({ ...item, displayLabel: labels[i] }));
   }, [items, periods, getValue]);
+
+  /**
+   * Read a row's value for a period.
+   *
+   * A row can stand for more than one XBRL concept: when a filer re-tags a
+   * line mid-history the two are merged into one row, and the value for a
+   * period comes from whichever of them reported it.
+   */
+  const valueFor = useCallback((item, periodKey) => {
+    if (!item?.mergedTags) return getValue(item.tag, periodKey, item.idx);
+    for (const tag of item.mergedTags) {
+      // No index fast-path here: it addresses the canonical row, which is only
+      // ever the primary tag's.
+      const raw = getValue(tag, periodKey, undefined);
+      const v = (raw !== null && typeof raw === 'object') ? raw.value : raw;
+      if (v !== null && v !== undefined) return raw;
+    }
+    return getValue(item.tag, periodKey, undefined);
+  }, [getValue]);
 
   const filteredItems = useMemo(() => {
     if (!searchTerm.trim()) return rowsWithValues;
@@ -329,10 +353,10 @@ export default function FinancialStatementTable({
   // Get all values for an item across periods (for sparkline)
   const getItemValues = useCallback((item) => {
     return allPeriods.map(p => {
-      const val = getValue(item.tag, p.key, item.idx);
+      const val = valueFor(item, p.key);
       return (val !== null && typeof val === 'object') ? val.value : val;
     });
-  }, [allPeriods, getValue]);
+  }, [allPeriods, valueFor]);
 
   // Toggle section collapse
   const toggleSection = useCallback((sectionId) => {
@@ -402,8 +426,11 @@ export default function FinancialStatementTable({
 
   // Handle export
   const handleExport = useCallback(() => {
-    exportToCSV(items, periods, getValue, title, annotations);
-  }, [items, periods, getValue, title, annotations]);
+    // rowsWithValues, not the raw items and not the search-filtered set: the
+    // export follows what the statement contains, not what is typed in the
+    // search box.
+    exportToCSV(rowsWithValues, periods, valueFor, title, annotations);
+  }, [rowsWithValues, periods, valueFor, title, annotations]);
 
   // Handle annotation update
   const updateAnnotation = useCallback((key, value) => {
@@ -507,7 +534,7 @@ export default function FinancialStatementTable({
     const nextPeriod = displayPeriods[periodIdx + 1];
     if (!nextPeriod) return;
 
-    const nextRawVal = getValue(item.tag, nextPeriod.key, item.idx);
+    const nextRawVal = valueFor(item, nextPeriod.key);
     const nextValue = (nextRawVal !== null && typeof nextRawVal === 'object') ? nextRawVal.value : nextRawVal;
 
     const rect = e.currentTarget.getBoundingClientRect();
@@ -519,8 +546,9 @@ export default function FinancialStatementTable({
       prevLabel: nextPeriod.label,
       position: { top: rect.top - 60, left: rect.left + rect.width / 2 },
       isExpense,
+      tag: item.tag,
     });
-  }, [displayPeriods, getValue]);
+  }, [displayPeriods, valueFor]);
 
   const handleCellMouseLeave = useCallback(() => {
     setTooltip(null);
@@ -546,7 +574,7 @@ export default function FinancialStatementTable({
   const renderCell = (item, period, periodIdx, rowIdx, isTotal = false) => {
     if (!item || !period) return null;
 
-    const rawVal = getValue(item.tag, period.key, item.idx);
+    const rawVal = valueFor(item, period.key);
     // Note: typeof null === 'object' in JS, so check for null explicitly
     const value = (rawVal !== null && typeof rawVal === 'object') ? rawVal.value : rawVal;
     const derivedUnavailable = (rawVal !== null && typeof rawVal === 'object') ? rawVal.derivedUnavailable : false;
@@ -558,8 +586,6 @@ export default function FinancialStatementTable({
     const annotationKey = `${item.tag}-${period.key}`;
     const hasAnnotation = !!annotations[annotationKey];
 
-    const isPerShare = /per(?:basic|diluted|common)?share/i.test(item.tag || '');
-    const isShares = item.tag?.toLowerCase().includes('shares') && !isPerShare;
     const isExpense = item.label?.toLowerCase().includes('expense') || item.tag?.toLowerCase().includes('expense');
 
     // Calculate comparison (YoY/QoQ change)
@@ -567,7 +593,7 @@ export default function FinancialStatementTable({
     if (showComparison && periodIdx < displayPeriods.length - 1) {
       const nextPeriod = displayPeriods[periodIdx + 1];
       if (nextPeriod) {
-        const nextRawVal = getValue(item.tag, nextPeriod.key, item.idx);
+        const nextRawVal = valueFor(item, nextPeriod.key);
         const nextValue = (nextRawVal !== null && typeof nextRawVal === 'object') ? nextRawVal.value : nextRawVal;
         const change = calcChange(value, nextValue);
         changeEl = formatChange(change, isExpense);
@@ -601,14 +627,7 @@ export default function FinancialStatementTable({
       );
     }
 
-    let displayValue;
-    if (isShares) {
-      displayValue = value !== null ? value.toLocaleString() : '-';
-    } else if (isPerShare) {
-      displayValue = value !== null ? '$' + value.toFixed(2) : '-';
-    } else {
-      displayValue = formatValue(value);
-    }
+    const displayValue = formatStatementCell(value, item.tag);
 
     // Build tooltip text for data quality indicators
     const indicatorTitles = [];
@@ -728,20 +747,13 @@ export default function FinancialStatementTable({
                   </td>
                   {filteredItems.map((item, itemIdx) => {
                     if (!item) return null;
-                    const rawVal = getValue(item.tag, period.key, item.idx);
+                    const rawVal = valueFor(item, period.key);
                     const value = (rawVal !== null && typeof rawVal === 'object') ? rawVal.value : rawVal;
-                    const isPerShare = item.tag?.toLowerCase().includes('pershare') || item.tag?.startsWith('EarningsPerShare');
-                    const isShares = item.tag?.toLowerCase().includes('shares');
                     const valueClass = getValueClass(value, item);
-
-                    let displayValue;
-                    if (isShares) {
-                      displayValue = value !== null ? value.toLocaleString() : '-';
-                    } else if (isPerShare) {
-                      displayValue = value !== null ? '$' + value.toFixed(2) : '-';
-                    } else {
-                      displayValue = formatValue(value);
-                    }
+                    // Same helper as the upright view: this used to have its
+                    // own test for what counts as a per-share figure, and it
+                    // rendered twelve of them as currency in millions.
+                    const displayValue = formatStatementCell(value, item.tag);
 
                     return (
                       <td
@@ -769,7 +781,7 @@ export default function FinancialStatementTable({
 
     return (
       <div className={`financial-table-wrapper${freezeLabels ? ' labels-frozen' : ''}`} ref={wrapperRef}>
-        <table className="financial-table multi-period" ref={tableRef} onKeyDown={handleKeyDown}>
+        <table className={`financial-table multi-period${showSparklines ? ' with-trends' : ''}`} ref={tableRef} onKeyDown={handleKeyDown}>
           <thead>
             <tr>
               <th className="label-col sticky-col" ref={labelColRef}>Item</th>
@@ -996,6 +1008,7 @@ export default function FinancialStatementTable({
           prevLabel={tooltip.prevLabel}
           position={tooltip.position}
           isExpense={tooltip.isExpense}
+          tag={tooltip.tag}
         />
       )}
 

@@ -16,6 +16,8 @@
  * Most statements now render flat, which is the honest reading of data that
  * carries no hierarchy.
  */
+import { isPerShareTag, isShareCountTag } from './format.js';
+import { cleanLabel } from './labels.js';
 
 /**
  * Headings that name a whole group rather than one line in it.
@@ -63,36 +65,208 @@ function detectSection(item) {
  * a flat 38-row balance sheet became 38 "sections". A header that turns out to
  * have no rows under it is demoted back to an ordinary row, so the UI never
  * offers a toggle that expands to nothing.
+ *
+ * A statement can open more than one unheaded group -- JPM's, NTRS's and
+ * STT's income statements each demote a childless heading part way down, and
+ * the rows after it have no heading to sit under. The id is both the React key
+ * and the collapse-state key, so it is built from the group's first row rather
+ * than being the constant it was: two groups keyed alike shared one collapse
+ * toggle and collided on reconcile. An unheaded group also stays open until a
+ * heading actually earns its own section, so a demotion rejoins the rows above
+ * it instead of starting a second group in the same place.
  */
 function groupItemsIntoSections(items) {
   const sections = [];
-  let current = null;
-  let lead = null;
+  let current = null; // heading whose rows are still arriving
+  let lead = null;    // rows with no heading over them
 
-  const openLead = () => (lead ??= { header: null, headerIdx: -1, children: [], id: `section-lead` });
-  const flushLead = () => { if (lead) { sections.push(lead); lead = null; } };
+  const addLead = (item, idx) => {
+    lead ??= { header: null, headerIdx: -1, children: [], id: `section-lead-${idx}` };
+    lead.children.push({ item, idx });
+  };
+
+  const closeCurrent = () => {
+    if (!current) return;
+    if (current.children.length) {
+      if (lead) { sections.push(lead); lead = null; }
+      sections.push(current);
+    } else {
+      addLead(current.header, current.headerIdx);
+    }
+    current = null;
+  };
 
   items.forEach((item, idx) => {
     if (detectSection(item)) {
-      if (current) {
-        if (current.children.length) sections.push(current);
-        else openLead().children.push({ item: current.header, idx: current.headerIdx });
-      }
-      flushLead();
+      closeCurrent();
       current = { header: item, headerIdx: idx, children: [], id: `section-${idx}` };
       return;
     }
     if (current) current.children.push({ item, idx });
-    else openLead().children.push({ item, idx });
+    else addLead(item, idx);
   });
 
-  if (current) {
-    if (current.children.length) { flushLead(); sections.push(current); }
-    else openLead().children.push({ item: current.header, idx: current.headerIdx });
-  }
-  flushLead();
+  closeCurrent();
+  if (lead) sections.push(lead);
 
   return sections;
 }
 
-export { detectSection, groupItemsIntoSections };
+/**
+ * The line on which a balance sheet closes.
+ *
+ * Anything below it is not part of the footing, whatever line number the
+ * filer gave it.
+ */
+const FOOTING_TAGS = new Set([
+  'LiabilitiesAndStockholdersEquity',
+  'LiabilitiesAndStockholdersEquityIncludingPortionAttributableToNoncontrollingInterest',
+]);
+
+/**
+ * Which rows belong on the face of the statement.
+ *
+ * Takes rows in statement order, each carrying the values it would display,
+ * and drops three kinds of row that are not figures:
+ *
+ * - Rows with no value in any displayed period. A row of dashes says nothing.
+ * - Rows valued zero in every displayed period. These are note references
+ *   ("Commitments and contingencies (refer to Notes 22, 23 and 24)") and
+ *   "none issued" placeholders; they rendered as a column of $0, which reads
+ *   as a measured zero rather than as an absence.
+ * - Share counts and per-share amounts below the footing total. SRCE stacked
+ *   eight of them under "Total liabilities and equity" -- authorised shares,
+ *   issued shares, par value, treasury shares -- which belong to the
+ *   parenthetical schedule, not the balance sheet. The inpth flag in SEC's
+ *   data drops most of these; these are the ones their filers left unflagged.
+ *   Only share-shaped concepts are dropped, so the real lines that some
+ *   filers order after the total -- noncontrolling interests, a fair-value
+ *   disclosure -- stay.
+ */
+function selectStatementRows(rows) {
+  let footing = -1;
+  rows.forEach((r, i) => { if (FOOTING_TAGS.has(r.tag)) footing = i; });
+
+  const kept = rows.filter((row, i) => {
+    const present = (row.values || []).filter(v => v !== null && v !== undefined);
+    if (!present.length) return false;
+    if (present.every(v => v === 0)) return false;
+    if (footing >= 0 && i > footing && (isShareCountTag(row.tag) || isPerShareTag(row.tag))) return false;
+    return true;
+  });
+
+  return mergeRetaggedRows(kept);
+}
+
+// ---------------------------------------------------------------------------
+// Re-tagged rows
+// ---------------------------------------------------------------------------
+
+/** Words that carry no meaning when comparing two XBRL concepts. */
+const TAG_FILLER = new Set([
+  'and', 'for', 'the', 'net', 'other', 'excluding', 'including', 'gross',
+  'amount', 'value', 'total', 'current', 'noncurrent', 'reported', 'carrying',
+  'from', 'with', 'after', 'before', 'not', 'part', 'of',
+]);
+
+/** Crude but symmetric: applied to both sides, so it only has to be consistent. */
+const stem = w => w.replace(/ies$/, 'y').replace(/s$/, '').replace(/e$/, '');
+
+const conceptWords = tag => new Set(
+  (tag.replace(/([a-z0-9])([A-Z])/g, '$1 $2').toLowerCase().match(/[a-z]{3,}/g) || [])
+    .map(stem)
+    .filter(w => !TAG_FILLER.has(w))
+);
+
+/**
+ * Could these two concepts be the same statement line?
+ *
+ * A shared caption is not enough on its own. BANC's balance sheet gives "Bank
+ * owned life insurance" to both BankOwnedLifeInsurance and
+ * OtherRealEstateAndForeclosedAssets, and CVBF gives one caption to a
+ * sale-leaseback gain and an other-real-estate gain. Merging those would print
+ * one concept's figures under another's name, which is worse than showing two
+ * rows. So the tags have to agree on something: the same letters in a
+ * different case (filers do submit DepositAccountFees and Depositaccountfees),
+ * or at least one meaningful word in common.
+ */
+function sameConcept(a, b) {
+  const flat = t => t.toLowerCase().replace(/[^a-z]/g, '');
+  if (flat(a) === flat(b)) return true;
+  const A = conceptWords(a);
+  for (const w of conceptWords(b)) if (A.has(w)) return true;
+  return false;
+}
+
+/**
+ * Join rows that are one statement line reported under two concepts.
+ *
+ * A filer who re-tags a line mid-history leaves two rows, each mostly dashes,
+ * saying the same thing: ABCB's "Provision for unfunded commitments" is
+ * OffBalanceSheetCreditLossLiabilityCreditLossExpenseReversal for FY2025-24
+ * and FinancingReceivableCreditLossUnfundedCommitmentsExpenseReversal for
+ * FY2023-22. The reader sees two half-empty rows where the filing has one.
+ *
+ * Merged only when the coverage is disjoint -- no period reports both -- so a
+ * genuine pair of concepts that happen to share a caption is left alone. ABCB
+ * reports "Provision for credit losses" under two concepts in the same years,
+ * with different figures in the older ones; those are two lines and stay two
+ * lines, disambiguated by resolveLabels as before.
+ *
+ * The row keeps the position, caption and tag of whichever member reports the
+ * newest period, since that is the filer's current name for the line.
+ */
+function mergeRetaggedRows(rows) {
+  const byCaption = new Map();
+  rows.forEach((row, i) => {
+    const caption = cleanLabel(row.label) || row.label || '';
+    if (!byCaption.has(caption)) byCaption.set(caption, []);
+    byCaption.get(caption).push({ row, i });
+  });
+
+  const merged = new Map();  // index of the surviving row -> merged row
+  const dropped = new Set();
+
+  for (const group of byCaption.values()) {
+    if (group.length < 2) continue;
+
+    const width = Math.max(...group.map(g => (g.row.values || []).length));
+    const has = (row, p) => row.values?.[p] !== null && row.values?.[p] !== undefined;
+
+    let disjoint = true;
+    for (let p = 0; p < width && disjoint; p++) {
+      if (group.filter(g => has(g.row, p)).length > 1) disjoint = false;
+    }
+    if (!disjoint) continue;
+    if (!group.every(g => sameConcept(group[0].row.tag, g.row.tag))) continue;
+
+    // Periods run newest first, so the member covering the lowest index is the
+    // one the filer is using now.
+    const rank = g => {
+      for (let p = 0; p < width; p++) if (has(g.row, p)) return p;
+      return width;
+    };
+    const ordered = [...group].sort((a, b) => rank(a) - rank(b));
+    const primary = ordered[0];
+
+    const values = [];
+    for (let p = 0; p < width; p++) {
+      const hit = ordered.find(g => has(g.row, p));
+      values.push(hit ? hit.row.values[p] : null);
+    }
+
+    merged.set(primary.i, {
+      ...primary.row,
+      values,
+      mergedTags: ordered.map(g => g.row.tag),
+    });
+    for (const g of ordered.slice(1)) dropped.add(g.i);
+  }
+
+  if (!merged.size) return rows;
+  return rows
+    .map((row, i) => (merged.has(i) ? merged.get(i) : row))
+    .filter((_, i) => !dropped.has(i));
+}
+
+export { detectSection, groupItemsIntoSections, selectStatementRows };
