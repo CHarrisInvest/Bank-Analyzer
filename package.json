@@ -16,8 +16,9 @@
     "test": "node --test tests/unit/*.test.mjs",
     "test:ttm": "node --test tests/unit/ttm.test.mjs",
     "audit:labels": "node scripts/audit-labels.mjs",
+    "audit:cells": "node scripts/audit-cells.mjs",
     "audit:presentation": "node scripts/audit-presentation.mjs",
-    "check": "npm test && node scripts/audit-labels.mjs --check && node scripts/audit-presentation.mjs --check"
+    "check": "npm test && node scripts/audit-labels.mjs --check && node scripts/audit-cells.mjs --check && node scripts/audit-presentation.mjs --check"
   },
   "dependencies": {
     "axios": "^1.13.2",

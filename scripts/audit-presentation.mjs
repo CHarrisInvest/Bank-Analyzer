@@ -24,7 +24,7 @@ import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { cleanLabel } from '../src/utils/labels.js';
-import { detectSection, groupItemsIntoSections } from '../src/utils/statementLayout.js';
+import { detectSection, groupItemsIntoSections, selectStatementRows } from '../src/utils/statementLayout.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA = join(__dirname, '..', 'public', 'data');
@@ -34,7 +34,12 @@ const args = process.argv.slice(2);
 const ci = args.indexOf('--compare');
 const comparePath = ci !== -1 ? args[ci + 1] : null;
 
-const live = new Set(JSON.parse(readFileSync(join(DATA, 'banks.json'), 'utf8')).map(b => b.cik));
+// Only banks the site serves: it covers US banks and US bank holding
+// companies, and the filers without a listed ticker are neither shown in the
+// screener nor prerendered. Auditing them measures pages no reader can reach.
+const live = new Set(
+  JSON.parse(readFileSync(join(DATA, 'banks.json'), 'utf8')).filter(b => b.ticker).map(b => b.cik)
+);
 
 const M = {
   tables: 0, rows: 0,
@@ -75,9 +80,17 @@ for (const f of readdirSync(join(DATA, 'banks'))) {
     for (const bucket of ['annual', 'quarterly']) {
       const periods = H[bucket] || [];
       if (!periods.length) continue;
-      const valued = new Set();
-      for (const p of periods) for (const it of p.items || []) if (it.value != null) valued.add(it.tag);
-      const visible = (H.canonicalItems?.[bucket] || []).filter(it => it?.label && valued.has(it.tag));
+      const byTag = new Map();
+      for (const p of periods) {
+        for (const it of p.items || []) {
+          if (!byTag.has(it.tag)) byTag.set(it.tag, []);
+          byTag.get(it.tag).push(it.value ?? null);
+        }
+      }
+      const ordered = (H.canonicalItems?.[bucket] || [])
+        .filter(it => it?.label)
+        .map(it => ({ ...it, values: byTag.get(it.tag) || [] }));
+      const visible = selectStatementRows(ordered);
       if (!visible.length) continue;
       // Grouping runs on the displayed label, so the audit has to clean first
       // or it measures a layout no reader sees.

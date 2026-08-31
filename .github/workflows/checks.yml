@@ -46,6 +46,9 @@ jobs:
       - name: Label invariants
         run: node scripts/audit-labels.mjs --check
 
+      - name: Figure formatting invariants
+        run: node scripts/audit-cells.mjs --check
+
       - name: Statement presentation invariants
         run: node scripts/audit-presentation.mjs --check
 

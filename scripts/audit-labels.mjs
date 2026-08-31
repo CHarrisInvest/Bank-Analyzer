@@ -23,6 +23,7 @@ import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { cleanLabel } from '../src/utils/labels.js';
+import { selectStatementRows } from '../src/utils/statementLayout.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const BANKS_DIR = join(__dirname, '..', 'public', 'data', 'banks');
@@ -45,6 +46,7 @@ const DIRTY = new RegExp(
     '\\b(?:19|20)\\d{2}\\s+and\\s+(?:19|20)\\d{2}\\b', // "2025 and 2024"
     '\\d{1,2}/\\d{1,2}/\\d{2,4}',            // "3/31/26"
     '[\\d,]{4,}\\s+and\\s+[\\d,]{4,}',       // "172,185,507 and 171,360,188"
+    '[\\d,]{4,}\\s*[-–]\\s*(?:19|20)\\d{2}\\b', // "$1,896,135-2026"
     '\\brespectively\\b',
   ].join('|'),
   'i'
@@ -73,7 +75,9 @@ function collect() {
   // are pruned now, but scoping here keeps the audit measuring what a reader
   // can actually reach rather than whatever happens to be on disk.
   const live = new Set(
-    JSON.parse(readFileSync(join(BANKS_DIR, '..', 'banks.json'), 'utf8')).map(b => b.cik)
+    JSON.parse(readFileSync(join(BANKS_DIR, '..', 'banks.json'), 'utf8'))
+      .filter(b => b.ticker)
+      .map(b => b.cik)
   );
   const rows = [];
   for (const f of readdirSync(BANKS_DIR)) {
@@ -86,16 +90,19 @@ function collect() {
       if (!H) continue;
       const stmt = key === 'historicalBalanceSheet' ? 'BS' : 'IS';
       for (const bucket of ['annual', 'quarterly']) {
-        // Mirror the component: a row renders only when it has a value in
-        // some displayed period. Auditing hidden rows would inflate every count.
-        const hasValue = new Set();
+        // Mirror the component exactly, through the same row selection it
+        // uses. Auditing rows the reader never sees inflates every count.
+        const byTag = new Map();
         for (const p of H[bucket] || []) {
           for (const it of p.items || []) {
-            if (it.value !== null && it.value !== undefined) hasValue.add(it.tag);
+            if (!byTag.has(it.tag)) byTag.set(it.tag, []);
+            byTag.get(it.tag).push(it.value ?? null);
           }
         }
-        for (const it of H.canonicalItems?.[bucket] || []) {
-          if (!it?.label || !hasValue.has(it.tag)) continue;
+        const ordered = (H.canonicalItems?.[bucket] || [])
+          .filter(it => it?.label)
+          .map(it => ({ ...it, values: byTag.get(it.tag) || [] }));
+        for (const it of selectStatementRows(ordered)) {
           rows.push({ ticker, stmt, bucket, tag: it.tag, raw: it.label, shown: cleanLabel(it.label) });
         }
       }
