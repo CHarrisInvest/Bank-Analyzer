@@ -83,6 +83,74 @@ test('cleans inside a parenthetical rather than discarding it whole', () => {
   );
 });
 
+test('a comparative reads the same written date-first', () => {
+  // Every rule was built around "figure at date". Filers who write the pin the
+  // other way round went untouched, or worse, had the date half swept and the
+  // figure left behind.
+  assert.equal(
+    cleanLabel('Treasury Stock, at Cost (Shares: December 31, 2025 - 19,054,555 and December 31, 2024 - 19,003,609)'),
+    'Treasury Stock, at Cost'
+  );
+  assert.equal(
+    cleanLabel('Loans, net of allowance for credit losses March 31, 2026 $56,601; December 31, 2025 $58,204'),
+    'Loans, net of allowance for credit losses'
+  );
+  assert.equal(
+    cleanLabel('Unearned common stock held by employee stock ownership plan (unallocated shares September 30, 2025: 50,133: September 30, 2024: 53,989)'),
+    'Unearned common stock held by employee stock ownership plan'
+  );
+});
+
+test('a pinning word is optional when the date is unambiguous', () => {
+  assert.equal(
+    cleanLabel('Treasury stock - 816,351 shares 12/31/25 and 864,889 shares 12/31/24'),
+    'Treasury stock'
+  );
+  // ...and the two halves may be strung together with no joining word at all.
+  assert.equal(
+    cleanLabel('Common stock, $.01 par value; 50,000,000 shares authorized March 31, 2026 - 20,564,719 shares issued and outstanding March 31, 2025 - 20,976,200 shares issued and outstanding'),
+    'Common stock, $.01 par value; 50,000,000 shares authorized'
+  );
+});
+
+test('a bare year next to a figure is not a date pin', () => {
+  // Adjacency counts as a pin only for a full date. "2025" here names a plan.
+  assert.equal(
+    cleanLabel('Common stock issued under the 2025 Equity Incentive Plan'),
+    'Common stock issued under the 2025 Equity Incentive Plan'
+  );
+});
+
+test('reads one level of nested parentheses', () => {
+  // Matching only flat groups tested the inner "(ALLL)" on its own, never
+  // tested the outer group at all, and let the inline sweep hollow it out.
+  assert.equal(
+    cleanLabel('Loans held-for-investment (net of allowance for loan and lease losses (ALLL) of $809,773 and $702,052)'),
+    'Loans held-for-investment'
+  );
+  // A footnote marker is not a figure worth keeping a clause for.
+  assert.equal(
+    cleanLabel('Loans held for sale (includes $514 and $214 measured at fair value (1))'),
+    'Loans held for sale'
+  );
+});
+
+test('a negative in accounting parentheses is a figure', () => {
+  assert.equal(
+    cleanLabel('Subordinated debentures (includes $0, $0, and $(151) accumulated other comprehensive income reclassification for change in fair value of interest rate swaps)'),
+    'Subordinated debentures'
+  );
+});
+
+test('a scaled comparative is not cut in half', () => {
+  // "$3.5 billion and $3.6 billion" once left "(includes .6 billion pledged
+  // to creditors)" on JPM's balance sheet.
+  assert.equal(
+    cleanLabel('Trading assets (includes $3.5 billion and $3.6 billion pledged to creditors)'),
+    'Trading assets'
+  );
+});
+
 test('leaves an already-clean caption untouched', () => {
   for (const label of ['Total assets', 'Interest expense', 'Net income per share - diluted']) {
     assert.equal(cleanLabel(label), label);

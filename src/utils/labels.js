@@ -36,14 +36,53 @@ const DATE =
 // Anchored on both sides so a grouped number is never split into a false
 // pair: without the boundaries, "500,000,000" reads as "500" and "000,000"
 // joined by a comma, and the surrounding rules then delete a threshold.
+// The digit run may not END on a comma either: "$0," swallowed its own
+// separator, so "includes $0, $0, and $(151)" read as one amount followed by
+// nothing joinable, and the clause survived as a comparative nobody caught.
+// The trailing guard rejects a following digit, and a comma only when a digit
+// follows it -- that comma is a thousands separator, so the match would be a
+// prefix of a longer number; a comma before a space just ends the figure.
+// The final guard also refuses the day half of a written date: "31" in
+// "March 31, 2026" is followed by ", 2026", and reading that as a comparative
+// pair of figures deletes the year and strands "at March".
+// A negative written in accounting parentheses -- "$(151)" -- is a figure
+// like any other, and a comparative series that ends in one was leaving
+// "(includes, and $(151) accumulated ...)" behind.
+const PAREN_NEG = '\\$\\s?\\(\\d(?:[\\d,]*\\d)?(?:\\.\\d+)?\\)';
+
 const AMOUNT =
-  '(?<![\\d,.])\\$?\\s?\\d[\\d,]*(?:\\.\\d+)?(?:\\s*(?:million|billion|thousand))?(?![\\d,])';
+  `(?:${PAREN_NEG}|` +
+  '(?<![\\d,.])\\$?\\s?\\d(?:[\\d,]*\\d)?(?:\\.\\d+)?(?:\\s*(?:million|billion|thousand))?' +
+  '(?!\\d|,\\d|,\\s*(?:19|20)\\d{2}\\b))';
 
 // Filers use all of these to attach a figure to a period.
-const AT = '(?:at|as\\s+of|on|for|through)';
+const AT = '(?:at|as\\s+of|on|in|for|through)';
 
 // The same attachment written as punctuation: "59,012,423 shares - 2025".
 const PIN = `(?:${AT}\\s+|[-–]\\s*)`;
+
+/**
+ * A date specific enough that sitting next to a figure is itself the pin.
+ *
+ * A bare year is not: "2025 Equity Incentive Plan" names a plan, and treating
+ * adjacency as a pin there would eat the caption. A full calendar date next to
+ * a number is only ever a period reference.
+ */
+const FULL_DATE = `(?:${MONTH}\\s+\\d{1,2},?\\s+\\d{4}|\\d{1,2}\\/\\d{1,2}\\/\\d{2,4})`;
+
+/**
+ * The pin written the other way round -- date first, figure after.
+ *
+ * Every rule below was built around "figure at date", which is how most
+ * filers write it. The ones who write "December 31, 2025 - 19,054,555" or
+ * "March 31, 2026 $969,159; December 31, 2025 $957,295" went untouched, and
+ * where a later sweep caught only the date half it left "amortized cost
+ * -$1,516,376; December 31, 2024-$1,595,583" on screen.
+ */
+const DATED_FIGURE = `${FULL_DATE}\\s*[-–:]?\\s*${AMOUNT}\\s*(?:shares?)?`;
+
+/** And the same pair with no pinning word at all: "14,564,425 shares 12/31/25". */
+const FIGURE_THEN_DATE = `${AMOUNT}\\s*(?:shares?)?\\s*(?:${AT}\\s+|[-–:]\\s*)?${FULL_DATE}`;
 
 // Comparatives are joined by "and" or a semicolon. A bare comma is excluded
 // on purpose -- it is the thousands separator, and admitting it here is how
@@ -72,6 +111,14 @@ const FIGURE = `${AMOUNT}(?:\\s+${COUNT_ROLE})?(?:\\s*${PIN}${DATE})?`;
 const DATED_COUNT =
   `(?:${AT}\\s+)?${MONTH}\\s+\\d{1,2},?\\s+\\d{4}[\\d,]*(?:\\s+\\d[\\d,]*)?\\s*(?:shares?)?`;
 
+/**
+ * A date-first figure with its role spelled out after it, which is how one
+ * filer strings two of them together with no joining word at all:
+ * "March 31, 2026 - 20,564,719 shares issued and outstanding March 31, 2025 -
+ * 20,976,200 shares issued and outstanding".
+ */
+const DATED_FIGURE_ROLE = `${DATED_FIGURE}(?:\\s+${COUNT_ROLE})?`;
+
 /** Two or more such figures in a row: the comparative pair. */
 const FIGURE_SERIES = `${FIGURE}(?:${JOIN}${FIGURE})+`;
 
@@ -93,11 +140,25 @@ const DROP_PAREN = [
   re(`${AMOUNT}${JOIN}${AMOUNT}`, 'i'),        // two figures, however joined
   re(`${AMOUNT}\\s+${AT}\\s+${DATE}`, 'i'),    // one figure pinned to a date
   re(`${AT}\\s+${DATE}${JOIN}(?:${AT}\\s+)?${DATE}`, 'i'), // "at D1 and D2"
+  re(DATED_FIGURE, 'i'),                       // "(December 31, 2024 - $163)"
 ];
 
+/**
+ * A figure worth keeping a clause for: a money amount or a grouped number.
+ *
+ * A lone digit is not one. Twenty-two labels nest a footnote marker inside a
+ * parenthetical -- "(includes $514 and $214 measured at fair value (1))" --
+ * and once the comparative pair goes, the "(1)" was enough to make the hollow
+ * remainder look like it still carried a figure.
+ */
+const REAL_FIGURE = /\$\s?\d|\d[\d,]{2,}/;
+
 function stripParentheticals(text) {
-  // Flat groups only; nested parentheses do not occur in these labels.
-  return text.replace(/\(([^()]*)\)/g, (whole, inner) => {
+  // One level of nesting: "(net of allowance for loan and lease losses (ALLL)
+  // of $809,773 and $702,052)". Matching only flat groups meant the inner
+  // "(ALLL)" was tested on its own, the outer group was never tested at all,
+  // and the inline sweep then hollowed it out from underneath.
+  return text.replace(/\(((?:[^()]|\([^()]*\))*)\)/g, (whole, inner) => {
     // "respectively" is only ever the tail of a comparative, so it settles the
     // question before the digit test -- filers with an unbalanced paren strand
     // a bare "( respectively)" that carries no figures but is still noise.
@@ -118,7 +179,7 @@ function stripParentheticals(text) {
     // half-stripped parenthetical quoting one period out of thirteen.
     const stillPeriodic =
       DROP_PAREN.some(r => r.test(kept)) || new RegExp(DATE, 'i').test(kept);
-    const worthKeeping = /[A-Za-z]/.test(kept) && /\d/.test(kept) && !stillPeriodic;
+    const worthKeeping = /[A-Za-z]/.test(kept) && REAL_FIGURE.test(kept) && !stillPeriodic;
     return worthKeeping ? ` (${kept})` : ' ';
   });
 }
@@ -169,6 +230,30 @@ const INLINE = [
   // residue "issued at March 31, 2026 and December 31, 2025" that earlier
   // rules can leave behind.
   re(`\\s*[;,:]?\\s*(?:issued|outstanding)?\\s*(?:${AMOUNT}\\s*)?(?:shares?\\s*)?${AT}\\s+${DATE}${JOIN}(?:${AT}\\s+)?${DATE}`),
+
+  // Date first: "(Shares: December 31, 2025 - 19,054,555 and December 31,
+  // 2024 - 19,003,609)", "amortized cost March 31, 2026 $969,159; December 31,
+  // 2025 $957,295", "unallocated shares September 30, 2025: 50,133: September
+  // 30, 2024: 53,989". The leading role word goes with them -- "Shares:" on
+  // its own describes figures that are no longer there.
+  //
+  // Runs after the rules above, not before: those handle a date PAIR that
+  // precedes a single figure ("September 30, 2025 and September 30, 2024:
+  // 75,000,000 shares authorized"), where matching one date to the figure
+  // takes the authorisation and strands the other date.
+  // The separator may be nothing at all: every element starts with a full
+  // date, so adjacency is unambiguous.
+  re(`\\s*[;,:]?\\s*(?:${COUNT_ROLE}|shares?)?\\s*:?\\s*${DATED_FIGURE_ROLE}(?:(?:${JOIN}|\\s*:\\s*|\\s+)${DATED_FIGURE_ROLE})+`),
+
+  // No pinning word either way: "authorized 40,000,000 shares 12/31/25 and
+  // 20,000,000 shares 12/31/24".
+  re(`\\s*[;,:]?\\s*${FIGURE_THEN_DATE}(?:${JOIN}${FIGURE_THEN_DATE})+`),
+
+  // "(includes $0, $0, and $(151) accumulated other comprehensive income
+  // reclassification ...)". The figures are a comparative series with a word
+  // in front of them rather than "of" or ":", and what follows describes them
+  // rather than being part of the caption.
+  re(`\\s*[;,:]?\\s*includes\\s+${AMOUNT}(?:${JOIN}${AMOUNT})+`),
 
   // "143,213,102 and 142,944,704 shares issued" with no "respectively".
   re(`\\s*[;,:]?\\s*${AMOUNT}${JOIN}${AMOUNT}\\s+shares?\\s+(?:issued|outstanding)(?:\\s+and\\s+outstanding)?`),
@@ -239,6 +324,8 @@ function tidy(text) {
   // Removing a clause can butt punctuation against the next word
   // ("shares;issued"); restore the space rather than leaving them fused.
   out = out.replace(/([;,:])(?=[A-Za-z])/g, '$1 ');
+  // ...and left a gap in front of it ("credit losses ; at amortized cost").
+  out = out.replace(/\s+([;,:])/g, '$1');
   out = out.replace(/\s*,\s*,/g, ',');
   out = out.replace(/\s*;\s*;/g, ';');
   out = out.replace(/\s+/g, ' ');
