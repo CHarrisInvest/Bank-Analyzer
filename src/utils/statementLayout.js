@@ -199,6 +199,28 @@ function sameConcept(a, b) {
 }
 
 /**
+ * How much caption drift still counts as the same line.
+ *
+ * A filer who re-tags a line often retypes its caption at the same time, and
+ * the rewrite is usually cosmetic: "Less: allowance" for "Less allowance",
+ * "available-for-sale" for "available for sale", "Total Loans" for "Total
+ * loans", or a parenthetical qualifier added or dropped ("Deferred loan (fees)
+ * costs, net"). Keying on the exact caption left 100 such pairs split.
+ *
+ * Case, punctuation and parentheticals are therefore ignored here. This only
+ * widens which rows are CONSIDERED together -- disjoint coverage and agreeing
+ * concepts still decide whether they actually merge, so a looser key cannot on
+ * its own join two lines that are really different.
+ */
+function captionKey(caption) {
+  return caption
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+/**
  * Join rows that are one statement line reported under two concepts.
  *
  * A filer who re-tags a line mid-history leaves two rows, each mostly dashes,
@@ -207,19 +229,26 @@ function sameConcept(a, b) {
  * and FinancingReceivableCreditLossUnfundedCommitmentsExpenseReversal for
  * FY2023-22. The reader sees two half-empty rows where the filing has one.
  *
- * Merged only when the coverage is disjoint -- no period reports both -- so a
- * genuine pair of concepts that happen to share a caption is left alone. ABCB
- * reports "Provision for credit losses" under two concepts in the same years,
- * with different figures in the older ones; those are two lines and stay two
- * lines, disambiguated by resolveLabels as before.
+ * A row joins only where the coverage is disjoint -- no period reports both --
+ * so a genuine pair of concepts that happen to share a caption is left alone.
+ * ABCB reports "Provision for credit losses" under two concepts in the same
+ * years, with different figures in the older ones; those are two lines and
+ * stay two lines, disambiguated by resolveLabels as before.
  *
- * The row keeps the position, caption and tag of whichever member reports the
- * newest period, since that is the filer's current name for the line.
+ * Candidates are clustered rather than taken all-or-nothing. ECBK carries
+ * three rows under one caption, two of which cover the same quarters: an
+ * all-or-nothing rule let that overlapping pair veto the merge for the third,
+ * so widening the caption key would have UNDONE a join that already worked.
+ * Clustering seeds on the row seen in the newest period, absorbs what fits
+ * around it, and starts again on whatever is left.
+ *
+ * Each cluster keeps the position, caption and tag of its seed, since that is
+ * the filer's current name for the line.
  */
 function mergeRetaggedRows(rows) {
   const byCaption = new Map();
   rows.forEach((row, i) => {
-    const caption = cleanLabel(row.label) || row.label || '';
+    const caption = captionKey(cleanLabel(row.label) || row.label || '');
     if (!byCaption.has(caption)) byCaption.set(caption, []);
     byCaption.get(caption).push({ row, i });
   });
@@ -231,36 +260,49 @@ function mergeRetaggedRows(rows) {
     if (group.length < 2) continue;
 
     const width = Math.max(...group.map(g => (g.row.values || []).length));
-    const has = (row, p) => row.values?.[p] !== null && row.values?.[p] !== undefined;
-
-    let disjoint = true;
-    for (let p = 0; p < width && disjoint; p++) {
-      if (group.filter(g => has(g.row, p)).length > 1) disjoint = false;
-    }
-    if (!disjoint) continue;
-    if (!group.every(g => sameConcept(group[0].row.tag, g.row.tag))) continue;
-
-    // Periods run newest first, so the member covering the lowest index is the
-    // one the filer is using now.
-    const rank = g => {
-      for (let p = 0; p < width; p++) if (has(g.row, p)) return p;
-      return width;
+    const has = (g, p) => g.row.values?.[p] !== null && g.row.values?.[p] !== undefined;
+    const coverage = g => {
+      const cols = [];
+      for (let p = 0; p < width; p++) if (has(g, p)) cols.push(p);
+      return cols;
     };
-    const ordered = [...group].sort((a, b) => rank(a) - rank(b));
-    const primary = ordered[0];
 
-    const values = [];
-    for (let p = 0; p < width; p++) {
-      const hit = ordered.find(g => has(g.row, p));
-      values.push(hit ? hit.row.values[p] : null);
+    // Periods run newest first, so the member covering the lowest column is
+    // the one the filer is using now. Original order breaks ties, to keep the
+    // result stable when two rows cover exactly the same periods.
+    const first = g => { const c = coverage(g); return c.length ? c[0] : width; };
+    const pending = [...group].sort((a, b) => first(a) - first(b) || a.i - b.i);
+
+    while (pending.length) {
+      const seed = pending.shift();
+      const cluster = [seed];
+      const taken = new Set(coverage(seed));
+
+      for (let n = 0; n < pending.length;) {
+        const cand = pending[n];
+        const cols = coverage(cand);
+        const fits = cols.length && cols.every(p => !taken.has(p))
+          && cluster.every(c => sameConcept(c.row.tag, cand.row.tag));
+        if (fits) {
+          cluster.push(cand);
+          cols.forEach(p => taken.add(p));
+          pending.splice(n, 1);
+        } else {
+          n++;
+        }
+      }
+
+      if (cluster.length < 2) continue;
+
+      const values = [];
+      for (let p = 0; p < width; p++) {
+        const hit = cluster.find(g => has(g, p));
+        values.push(hit ? hit.row.values[p] : null);
+      }
+
+      merged.set(seed.i, { ...seed.row, values, mergedTags: cluster.map(g => g.row.tag) });
+      for (const g of cluster.slice(1)) dropped.add(g.i);
     }
-
-    merged.set(primary.i, {
-      ...primary.row,
-      values,
-      mergedTags: ordered.map(g => g.row.tag),
-    });
-    for (const g of ordered.slice(1)) dropped.add(g.i);
   }
 
   if (!merged.size) return rows;

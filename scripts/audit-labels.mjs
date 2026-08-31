@@ -47,6 +47,8 @@ const DIRTY = new RegExp(
     '\\d{1,2}/\\d{1,2}/\\d{2,4}',            // "3/31/26"
     '[\\d,]{4,}\\s+and\\s+[\\d,]{4,}',       // "172,185,507 and 171,360,188"
     '[\\d,]{4,}\\s*[-–]\\s*(?:19|20)\\d{2}\\b', // "$1,896,135-2026"
+    '(?:19|20)\\d{2}\\s*[-–:]\\s*\\$?[\\d,]{3,}', // "(2024 - 34,708,169)"
+    '""',                                    // an unrepaired RFC4180 field
     '\\brespectively\\b',
   ].join('|'),
   'i'
@@ -68,6 +70,7 @@ const MANGLED = [
   ['dangling connector', /\b(?:of|and|at|net of)\s*$/i],
   ['empty or stray parens', /\(\s*\)|\(\s*[;,]|[;,]\s*\)|\s\)/],
   ['doubled punctuation', /,\s*,|;\s*;/],
+  ['currency sign with no figure', /\$\s*(?![\d.]\d|\d)/],
 ];
 
 function collect() {

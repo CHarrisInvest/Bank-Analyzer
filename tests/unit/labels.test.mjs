@@ -151,6 +151,67 @@ test('a scaled comparative is not cut in half', () => {
   );
 });
 
+test('undoes the quoting SEC puts round a field containing a quote', () => {
+  // The datasets are tab-separated, so this quoting protects nothing -- but
+  // the parser split on tabs and left it in, and 208 rows displayed it.
+  assert.equal(
+    cleanLabel('"Bank-owned life insurance (""BOLI"")"'),
+    'Bank-owned life insurance ("BOLI")'
+  );
+  assert.equal(
+    cleanLabel('"Federal Home Loan Bank of New York (""FHLBNY"") stock, at cost"'),
+    'Federal Home Loan Bank of New York ("FHLBNY") stock, at cost'
+  );
+});
+
+test('a bare year pinned to a figure is a period reference', () => {
+  assert.equal(
+    cleanLabel('Treasury stock - at cost, 39,201,844 shares (2024 - 34,708,169)'),
+    'Treasury stock - at cost, 39,201,844 shares'
+  );
+  assert.equal(
+    cleanLabel('Treasury stock, at cost; (2026 - 2,240,560 common shares; 2025 - 2,249,417 common shares)'),
+    'Treasury stock, at cost'
+  );
+  // ...but a year with no figure pinned to it still names a plan.
+  assert.equal(
+    cleanLabel('Common stock issued under the 2025 Equity Incentive Plan'),
+    'Common stock issued under the 2025 Equity Incentive Plan'
+  );
+});
+
+test('a date may omit the space after its comma', () => {
+  assert.equal(
+    cleanLabel('Securities available-for-sale, at fair value (amortized cost at March 31,2026- $1,777,262, December 31,2025 - $1,516,376)'),
+    'Securities available-for-sale, at fair value'
+  );
+});
+
+test('a currency sign with no figure is not a figure', () => {
+  // Filers write a nil as "$-", and one writes a bare "$" for a period with
+  // nothing to report. Left in place the stray sign breaks the series around
+  // it, and the clause survives half-stripped.
+  assert.equal(
+    cleanLabel('Investment securities held-to-maturity, at amortized cost, net of allowance for credit losses of $- and $-, (fair value 2025 - $449)'),
+    'Investment securities held-to-maturity, at amortized cost, net of allowance for credit losses'
+  );
+  // A real figure keeps its sign in every shape it is written.
+  assert.equal(
+    cleanLabel('Common stock, $.01 par value; 500,000,000 shares authorized'),
+    'Common stock, $.01 par value; 500,000,000 shares authorized'
+  );
+  assert.equal(cleanLabel('Preferred stock, $25 liquidation preference'), 'Preferred stock, $25 liquidation preference');
+});
+
+test('a semicolon before "and" still separates a list', () => {
+  // With the pair rule matching exactly two figures, the engine took the LAST
+  // two of "$223; $42; and $(16)" and left "of $223" on the page.
+  assert.equal(
+    cleanLabel('Change in net unrealized (loss) gain on securities available for sale, net of tax of $223; $42; and $(16), respectively'),
+    'Change in net unrealized (loss) gain on securities available for sale, net of tax'
+  );
+});
+
 test('leaves an already-clean caption untouched', () => {
   for (const label of ['Total assets', 'Interest expense', 'Net income per share - diluted']) {
     assert.equal(cleanLabel(label), label);
