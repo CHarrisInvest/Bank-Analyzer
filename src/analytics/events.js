@@ -232,6 +232,24 @@ export function trackNavigation(menuItem) {
 }
 
 // =============================================================================
+// GAME EVENTS
+// =============================================================================
+
+/**
+ * Track a BankCEO gameplay event relayed from the game iframe
+ * @param {string} eventName - Whitelisted game event name (see bankceo.js)
+ * @param {Object} params - Sanitized event parameters
+ */
+export function trackGameEvent(eventName, params = {}) {
+  if (!canTrack()) return;
+
+  sendEvent(eventName, {
+    ...params,
+    event_category: 'game',
+  });
+}
+
+// =============================================================================
 // ERROR EVENTS
 // =============================================================================
 

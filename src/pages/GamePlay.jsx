@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO.jsx';
+import { sendPageView } from '../analytics/gtag.js';
+import { trackGameEvent } from '../analytics/events.js';
+import { sanitizeGameMessage } from '../analytics/bankceo.js';
 
 const STRIP_H = 30;
 
 function GamePlay() {
+  const frameRef = useRef(null);
+
+  // This route sits outside Layout, so it sends its own page view.
+  useEffect(() => {
+    const timer = setTimeout(() => sendPageView('/game/BankCEO', document.title), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Relay gameplay events posted by the game iframe (public/game/analytics.js).
+  useEffect(() => {
+    const onMessage = (e) => {
+      if (e.origin !== window.location.origin) return;
+      if (!frameRef.current || e.source !== frameRef.current.contentWindow) return;
+      const evt = sanitizeGameMessage(e.data);
+      if (evt) trackGameEvent(evt.name, evt.params);
+    };
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, []);
+
   return (
     <div className="bs-game-play">
       <SEO
@@ -127,6 +150,7 @@ function GamePlay() {
       </div>
 
       <iframe
+        ref={frameRef}
         className="bs-game-frame"
         src="/game/play.html"
         title="BankCEO — bank simulation game"
