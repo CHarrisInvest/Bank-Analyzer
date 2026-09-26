@@ -3,7 +3,11 @@ const { useState, useEffect, useRef, useMemo: useMemoA } = React;
 const { palette: AP } = window.Theme;
 const ABE = window.BankEngine;
 
+const GA = window.GameAnalytics || { track() {} };
+
 function deepClone(s) { return JSON.parse(JSON.stringify(s)); }
+// Ratio → percent with one decimal, for analytics params.
+const pct = (x) => (Number.isFinite(x) ? Math.round(x * 1000) / 10 : undefined);
 
 const TAB_FLOW = { cockpit: null, levers: "levers", capital: "capital", report: "report", history: "history" };
 const COACH_SEEN_KEY = "bankceo.coach.seen";
@@ -26,6 +30,38 @@ function App() {
   });
 
   const ratios = useMemoA(() => ABE.computeRatios(state, state.lastIS), [state]);
+
+  // ---- Analytics (forwarded to GA4 by the parent page; see analytics.js) ----
+  useEffect(() => { GA.track("game_start", {}); }, []);
+
+  const prevQuarter = useRef(state.quarter);
+  useEffect(() => {
+    const prev = prevQuarter.current;
+    prevQuarter.current = state.quarter;
+    if (state.quarter <= prev) return; // mount or restart
+    GA.track("quarter_advanced", {
+      quarter: prev,
+      net_income: Math.round(state.lastIS.netIncome),
+      roe_pct: pct(ratios.roe),
+      cet1_pct: pct(ratios.cet1),
+      nim_pct: pct(ratios.nim),
+    });
+  }, [state.quarter]);
+
+  useEffect(() => {
+    const g = state.gameOver;
+    if (!g) return;
+    const st = g.stats || {};
+    GA.track("game_over", {
+      outcome: g.reason,
+      grade: g.grade,
+      quarters_played: st.failedAtQ || state.quarter - 1,
+      total_return_pct: pct(st.totalReturn),
+      final_cet1_pct: pct(st.finalCET1),
+      macro_difficulty: st.macroDifficulty,
+      failure_cause: g.cause,
+    });
+  }, [state.gameOver]);
 
   // Compute next-quarter forecast (deterministic preview)
   const forecast = useMemoA(() => {
@@ -77,6 +113,7 @@ function App() {
   };
 
   const restart = () => {
+    GA.track("game_restart", { quarter: state.quarter, was_over: state.gameOver ? "yes" : "no" });
     setState(deepClone({ ...ABE.INITIAL_STATE, runSeed: Math.floor(Math.random() * 100000) }));
     setTab("cockpit");
   };
@@ -97,6 +134,7 @@ function App() {
 
   const handleTabChange = (newTab) => {
     if (newTab === tab) return;
+    GA.track("game_tab_changed", { tab_name: newTab, quarter: state.quarter });
     // Switching tabs interrupts any active flow — mark it seen so it doesn't re-fire.
     if (coachFlow) {
       const seen = readSeen();
@@ -130,7 +168,7 @@ function App() {
   else if (effTab === "markets") body = <MobileMarkets state={state} />;
 
   const coachNode = (
-    <Coach flow={coachFlow && (coachFlow !== "intro" || (state.quarter === 1 && !state.gameOver)) ? coachFlow : null} onDismiss={dismissCoach} />
+    <Coach flow={coachFlow && (coachFlow !== "intro" || (state.quarter === 1 && !state.gameOver)) ? coachFlow : null} onDismiss={() => { GA.track("coach_closed", { flow_name: coachFlow, quarter: state.quarter }); dismissCoach(); }} />
   );
 
   // ---- Compact shell (phone + tablet) ----
