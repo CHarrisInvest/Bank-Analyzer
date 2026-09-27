@@ -5,7 +5,7 @@ import { sendPageView } from '../analytics/gtag.js';
 import { trackGameEvent } from '../analytics/events.js';
 import { sanitizeGameMessage } from '../analytics/bankceo.js';
 import GameAdBanner from '../components/GameAdBanner.jsx';
-import { GAME_AD_SLOT, BANNER_SIZES, bannerSizeFor, refreshesAd } from '../ads/adsense.js';
+import { BANNER_SIZES, bannerSizeFor, refreshesAd } from '../ads/adsense.js';
 
 const STRIP_H = 30;
 const AD_PAD = 4; // space between the banner and the strip / game above and below it
@@ -16,8 +16,7 @@ function GamePlay() {
   // a fresh ad (see refreshesAd).
   const [adNumber, setAdNumber] = useState(0);
   const [adSize, setAdSize] = useState(() => bannerSizeFor(window.innerWidth));
-  const showAd = Boolean(GAME_AD_SLOT);
-  const adBarH = showAd ? BANNER_SIZES[adSize].height + AD_PAD * 2 + 1 : 0; // +1 for the border
+  const adBarH = BANNER_SIZES[adSize].height + AD_PAD * 2 + 1; // +1 for the border
   const frameTop = STRIP_H + adBarH;
 
   useEffect(() => {
@@ -176,11 +175,9 @@ function GamePlay() {
         </div>
       </div>
 
-      {showAd && (
-        <div className="bs-game-ad" style={{ height: adBarH }}>
-          <GameAdBanner key={`${adNumber}-${adSize}`} size={adSize} />
-        </div>
-      )}
+      <div className="bs-game-ad" style={{ height: adBarH }}>
+        <GameAdBanner key={`${adNumber}-${adSize}`} size={adSize} />
+      </div>
 
       <iframe
         ref={frameRef}
