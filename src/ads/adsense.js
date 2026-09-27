@@ -6,13 +6,14 @@
 
 export const ADSENSE_CLIENT = 'ca-pub-1929910138338917';
 
-// Display ad unit ID (data-ad-slot) for the in-game banner. Create a display
-// ad unit in AdSense and set VITE_ADSENSE_GAME_SLOT; without it no ad renders.
-export const GAME_AD_SLOT = import.meta.env?.VITE_ADSENSE_GAME_SLOT || '';
+// "BankCEO Banner" responsive display ad unit (data-ad-slot).
+export const GAME_AD_SLOT = '1644843402';
 
-// Fixed IAB banner sizes: mobile leaderboard on phones, leaderboard on wider screens.
+// Banner-height strips for the responsive unit. AdSense fills each with any ad
+// that fits (e.g. 320x50 or 300x50 on phones; 728x90 or 468x60 on wider
+// screens) but can't grow past them. width null = full width of the strip.
 export const BANNER_SIZES = {
-  mobile: { width: 320, height: 50 },
+  mobile: { width: null, height: 50 },
   desktop: { width: 728, height: 90 },
 };
 
@@ -39,6 +40,17 @@ const AD_REFRESH_EVENTS = new Set([
  */
 export function refreshesAd(eventName) {
   return AD_REFRESH_EVENTS.has(eventName);
+}
+
+/**
+ * Whether to force non-personalized ads. Only a visitor who actively turned
+ * advertising off in the BankSift cookie banner is forced; otherwise Google's
+ * consent message (EEA/UK) or the default (elsewhere) decides.
+ * @param {{ status: string, advertising: boolean }} consent - stored BankSift consent
+ * @returns {boolean}
+ */
+export function forceNonPersonalizedAds(consent) {
+  return Boolean(consent) && consent.status !== 'pending' && !consent.advertising;
 }
 
 /**
