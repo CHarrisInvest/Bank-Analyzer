@@ -11,12 +11,15 @@ import { getStoredConsent } from '../analytics/consent.js';
  */
 function GameAdBanner({ size }) {
   const insRef = useRef(null);
+  const pushedRef = useRef(false);
   const { width, height } = BANNER_SIZES[size];
 
   useEffect(() => {
     const ins = insRef.current;
-    // Guard against a second push for the same <ins> (e.g. StrictMode re-run).
-    if (!ins || ins.getAttribute('data-adsbygoogle-status')) return;
+    // One push per <ins>: StrictMode re-runs effects, and before the AdSense
+    // script loads nothing marks the <ins> as filled.
+    if (!ins || pushedRef.current || ins.getAttribute('data-adsbygoogle-status')) return;
+    pushedRef.current = true;
 
     // Serve non-personalized ads unless the visitor opted in to advertising cookies.
     const adsbygoogle = (window.adsbygoogle = window.adsbygoogle || []);

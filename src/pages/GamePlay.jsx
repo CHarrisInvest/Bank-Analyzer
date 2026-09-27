@@ -5,19 +5,23 @@ import { sendPageView } from '../analytics/gtag.js';
 import { trackGameEvent } from '../analytics/events.js';
 import { sanitizeGameMessage } from '../analytics/bankceo.js';
 import GameAdBanner from '../components/GameAdBanner.jsx';
-import { GAME_AD_SLOT, BANNER_SIZES, bannerSizeFor, nextPlayingState } from '../ads/adsense.js';
+import { GAME_AD_SLOT, BANNER_SIZES, bannerSizeFor, nextAdRefresh } from '../ads/adsense.js';
 
 const STRIP_H = 30;
 const AD_PAD = 4; // space between the banner and the strip / game above and below it
+// The last quarter's advance and the end screen arrive back to back; one
+// fresh ad covers both.
+const AD_REFRESH_COALESCE_MS = 1000;
 
 function GamePlay() {
   const frameRef = useRef(null);
-  // Ads show only while a game is in progress (see nextPlayingState).
-  const [playing, setPlaying] = useState(false);
-  const playingRef = useRef(false);
-  const [gameNumber, setGameNumber] = useState(0);
+  // The banner shows the whole time the game is open; adNumber bumps to load
+  // a fresh ad (see nextAdRefresh).
+  const [adNumber, setAdNumber] = useState(0);
+  const adQuartersRef = useRef(0);
+  const adRefreshTimerRef = useRef(null);
   const [adSize, setAdSize] = useState(() => bannerSizeFor(window.innerWidth));
-  const showAd = Boolean(GAME_AD_SLOT) && playing;
+  const showAd = Boolean(GAME_AD_SLOT);
   const adBarH = showAd ? BANNER_SIZES[adSize].height + AD_PAD * 2 + 1 : 0; // +1 for the border
   const frameTop = STRIP_H + adBarH;
 
@@ -41,15 +45,21 @@ function GamePlay() {
       const evt = sanitizeGameMessage(e.data);
       if (!evt) return;
       trackGameEvent(evt.name, evt.params);
-      const was = playingRef.current;
-      const now = nextPlayingState(was, evt.name);
-      if (now === was) return;
-      playingRef.current = now;
-      if (now) setGameNumber((n) => n + 1); // fresh ad per game
-      setPlaying(now);
+      const { quarters, refresh } = nextAdRefresh(adQuartersRef.current, evt.name);
+      adQuartersRef.current = quarters;
+      if (refresh && !adRefreshTimerRef.current) {
+        adRefreshTimerRef.current = setTimeout(() => {
+          adRefreshTimerRef.current = null;
+          setAdNumber((n) => n + 1);
+        }, AD_REFRESH_COALESCE_MS);
+      }
     };
     window.addEventListener('message', onMessage);
-    return () => window.removeEventListener('message', onMessage);
+    return () => {
+      window.removeEventListener('message', onMessage);
+      clearTimeout(adRefreshTimerRef.current);
+      adRefreshTimerRef.current = null;
+    };
   }, []);
 
   return (
@@ -184,7 +194,7 @@ function GamePlay() {
 
       {showAd && (
         <div className="bs-game-ad" style={{ height: adBarH }}>
-          <GameAdBanner key={`${gameNumber}-${adSize}`} size={adSize} />
+          <GameAdBanner key={`${adNumber}-${adSize}`} size={adSize} />
         </div>
       )}
 

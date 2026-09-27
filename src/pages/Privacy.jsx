@@ -162,8 +162,8 @@ function Privacy() {
 
           <h3>Google AdSense</h3>
           <p>
-            We display advertisements from Google AdSense on the BankCEO game page while a
-            game is in progress. Google and its partners use cookies to serve ads based on
+            We display advertisements from Google AdSense on the BankCEO game play page.
+            Google and its partners use cookies to serve ads based on
             your prior visits to this and other websites. Unless you accept advertising
             cookies in our cookie settings, we request non-personalized ads only.
           </p>

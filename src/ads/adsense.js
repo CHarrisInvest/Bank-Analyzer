@@ -25,23 +25,29 @@ export function bannerSizeFor(viewportWidth) {
   return viewportWidth >= BANNER_SIZES.desktop.width + 32 ? 'desktop' : 'mobile';
 }
 
+// A fresh ad loads after this many advanced quarters (one in-game year).
+export const QUARTERS_PER_REFRESH = 4;
+
 /**
- * Whether the banner should show after a game event. Ads show only while a
- * game is in progress: from the player's first advanced quarter until the
- * game ends or is restarted (the next advanced quarter shows it again).
- * @param {boolean} playing - current state
+ * Track quarters since the last fresh ad and decide whether a game event
+ * should load a new one. The banner is always shown on the play page; a
+ * fresh ad loads every QUARTERS_PER_REFRESH advanced quarters, when the end
+ * screen is reached (success or failure), and when a new game is started.
+ * @param {number} quarters - advanced quarters since the last fresh ad
  * @param {string} eventName - sanitized BankCEO event name
- * @returns {boolean}
+ * @returns {{ quarters: number, refresh: boolean }}
  */
-export function nextPlayingState(playing, eventName) {
+export function nextAdRefresh(quarters, eventName) {
   switch (eventName) {
-    case 'quarter_advanced':
-      return true;
+    case 'quarter_advanced': {
+      const n = quarters + 1;
+      return n >= QUARTERS_PER_REFRESH ? { quarters: 0, refresh: true } : { quarters: n, refresh: false };
+    }
     case 'game_over':
     case 'game_restart':
-      return false;
+      return { quarters: 0, refresh: true };
     default:
-      return playing;
+      return { quarters, refresh: false };
   }
 }
 
