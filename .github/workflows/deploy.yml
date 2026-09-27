@@ -34,6 +34,7 @@ jobs:
       - name: Build
         env:
           VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
+          VITE_ADSENSE_GAME_SLOT: ${{ secrets.VITE_ADSENSE_GAME_SLOT }}
           VITE_CONTACT_EMAIL: ${{ secrets.VITE_CONTACT_EMAIL }}
         run: npm run build
 

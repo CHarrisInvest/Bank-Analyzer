@@ -160,13 +160,25 @@ function Privacy() {
             </a>.
           </p>
 
-          {/* [CUSTOMIZE] Add this section when you implement AdSense */}
-          <h3>Advertising Services (Future)</h3>
+          <h3>Google AdSense</h3>
           <p>
-            We may display advertisements on our website through advertising networks.
-            These services may use cookies to serve ads based on your interests.
-            When advertising is implemented, this section will be updated with specific
-            details about the advertising partners and how to opt out.
+            We display advertisements from Google AdSense on the BankCEO game page while a
+            game is in progress. Google and its partners use cookies to serve ads based on
+            your prior visits to this and other websites. Unless you accept advertising
+            cookies in our cookie settings, we request non-personalized ads only.
+          </p>
+          <p>
+            You can opt out of personalized advertising in{' '}
+            <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">
+              Google's Ads Settings
+            </a>{' '}
+            or at{' '}
+            <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">
+              www.aboutads.info
+            </a>. See{' '}
+            <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">
+              how Google uses information from sites that use its services
+            </a>.
           </p>
         </section>
 
