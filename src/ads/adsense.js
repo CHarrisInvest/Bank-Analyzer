@@ -43,6 +43,17 @@ export function refreshesAd(eventName) {
 }
 
 /**
+ * Whether to force non-personalized ads. Only a visitor who actively turned
+ * advertising off in the BankSift cookie banner is forced; otherwise Google's
+ * consent message (EEA/UK) or the default (elsewhere) decides.
+ * @param {{ status: string, advertising: boolean }} consent - stored BankSift consent
+ * @returns {boolean}
+ */
+export function forceNonPersonalizedAds(consent) {
+  return Boolean(consent) && consent.status !== 'pending' && !consent.advertising;
+}
+
+/**
  * Inject the AdSense loader once
  */
 export function loadAdSense() {

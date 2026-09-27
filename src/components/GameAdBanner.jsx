@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ADSENSE_CLIENT, GAME_AD_SLOT, BANNER_SIZES, loadAdSense } from '../ads/adsense.js';
+import { ADSENSE_CLIENT, GAME_AD_SLOT, BANNER_SIZES, loadAdSense, forceNonPersonalizedAds } from '../ads/adsense.js';
 import { getStoredConsent } from '../analytics/consent.js';
 
 /**
@@ -23,9 +23,10 @@ function GameAdBanner({ size }) {
     if (!ins || pushedRef.current || ins.getAttribute('data-adsbygoogle-status')) return;
     pushedRef.current = true;
 
-    // Serve non-personalized ads unless the visitor opted in to advertising cookies.
+    // Honor an explicit opt-out from the BankSift cookie banner; otherwise
+    // leave it to Google's consent message (EEA/UK) or the default.
     const adsbygoogle = (window.adsbygoogle = window.adsbygoogle || []);
-    adsbygoogle.requestNonPersonalizedAds = getStoredConsent().advertising ? 0 : 1;
+    adsbygoogle.requestNonPersonalizedAds = forceNonPersonalizedAds(getStoredConsent()) ? 1 : 0;
 
     loadAdSense();
     try {

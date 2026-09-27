@@ -164,7 +164,9 @@ function Privacy() {
           <p>
             We display advertisements from Google AdSense on the BankCEO game play page.
             Google and its partners use cookies to serve ads based on
-            your prior visits to this and other websites. Unless you accept advertising
+            your prior visits to this and other websites. Visitors in the European Economic
+            Area, the United Kingdom and Switzerland are asked for consent through Google's
+            consent message before personalized ads are shown. If you turn off advertising
             cookies in our cookie settings, we request non-personalized ads only.
           </p>
           <p>
