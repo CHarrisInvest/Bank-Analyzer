@@ -1,14 +1,30 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO.jsx';
 import { sendPageView } from '../analytics/gtag.js';
 import { trackGameEvent } from '../analytics/events.js';
 import { sanitizeGameMessage } from '../analytics/bankceo.js';
+import GameAdBanner from '../components/GameAdBanner.jsx';
+import { GAME_AD_SLOT, BANNER_SIZES, bannerSizeFor, refreshesAd } from '../ads/adsense.js';
 
 const STRIP_H = 30;
+const AD_PAD = 4; // space between the banner and the strip / game above and below it
 
 function GamePlay() {
   const frameRef = useRef(null);
+  // The banner shows the whole time the game is open; adNumber bumps to load
+  // a fresh ad (see refreshesAd).
+  const [adNumber, setAdNumber] = useState(0);
+  const [adSize, setAdSize] = useState(() => bannerSizeFor(window.innerWidth));
+  const showAd = Boolean(GAME_AD_SLOT);
+  const adBarH = showAd ? BANNER_SIZES[adSize].height + AD_PAD * 2 + 1 : 0; // +1 for the border
+  const frameTop = STRIP_H + adBarH;
+
+  useEffect(() => {
+    const onResize = () => setAdSize(bannerSizeFor(window.innerWidth));
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   // This route sits outside Layout, so it sends its own page view.
   useEffect(() => {
@@ -22,7 +38,9 @@ function GamePlay() {
       if (e.origin !== window.location.origin) return;
       if (!frameRef.current || e.source !== frameRef.current.contentWindow) return;
       const evt = sanitizeGameMessage(e.data);
-      if (evt) trackGameEvent(evt.name, evt.params);
+      if (!evt) return;
+      trackGameEvent(evt.name, evt.params);
+      if (refreshesAd(evt.name)) setAdNumber((n) => n + 1);
     };
     window.addEventListener('message', onMessage);
     return () => window.removeEventListener('message', onMessage);
@@ -96,16 +114,25 @@ function GamePlay() {
         .bs-game-play .bs-game-strip-sep {
           width: 1px; height: 14px; background: #2a384e;
         }
+        .bs-game-play .bs-game-ad {
+          position: absolute; top: ${STRIP_H}px; left: 0; right: 0;
+          display: flex; align-items: center; justify-content: center;
+          padding: ${AD_PAD}px 0;
+          background: #0d1218;
+          border-bottom: 1px solid #2a384e;
+          box-sizing: border-box;
+          overflow: hidden;
+        }
         .bs-game-play .bs-game-frame {
           position: absolute;
-          top: ${STRIP_H}px; left: 0; right: 0;
+          left: 0; right: 0;
           /* An iframe is a replaced element: with width/height auto it falls
              back to its intrinsic 300x150, and left/right/top/bottom won't
              stretch it. So set both dimensions explicitly — 100% width and a
              percentage height of the fixed parent (which tracks the visible
-             viewport, no vh/dvh) — so it fills the area below the strip. */
+             viewport, no vh/dvh) — so it fills the area below the strip.
+             top/height are set inline because the ad bar comes and goes. */
           width: 100%;
-          height: calc(100% - ${STRIP_H}px);
           border: 0;
           display: block;
           background: #0d1218;
@@ -149,9 +176,16 @@ function GamePlay() {
         </div>
       </div>
 
+      {showAd && (
+        <div className="bs-game-ad" style={{ height: adBarH }}>
+          <GameAdBanner key={`${adNumber}-${adSize}`} size={adSize} />
+        </div>
+      )}
+
       <iframe
         ref={frameRef}
         className="bs-game-frame"
+        style={{ top: frameTop, height: `calc(100% - ${frameTop}px)` }}
         src="/game/play.html"
         title="BankCEO — bank simulation game"
         allow="fullscreen"
