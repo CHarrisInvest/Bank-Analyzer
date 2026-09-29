@@ -6,6 +6,7 @@ import { trackGameEvent } from '../analytics/events.js';
 import { sanitizeGameMessage } from '../analytics/bankceo.js';
 import GameAdBanner from '../components/GameAdBanner.jsx';
 import { BANNER_SIZES, bannerSizeFor, refreshesAd } from '../ads/adsense.js';
+import { applyBankCEOAppHead } from '../data/bankceoApp.js';
 
 const STRIP_H = 30;
 const AD_PAD = 4; // space between the banner and the strip / game above and below it
@@ -24,6 +25,9 @@ function GamePlay() {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
+
+  // Make "Add to Home Screen" install BankCEO rather than BankSift.
+  useEffect(() => applyBankCEOAppHead(), []);
 
   // This route sits outside Layout, so it sends its own page view.
   useEffect(() => {
