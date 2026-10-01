@@ -1,8 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO.jsx';
 
+// iPadOS reports itself as a Mac, so also check for a touch screen.
+function detectPlatform() {
+  const ua = navigator.userAgent || '';
+  if (/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return 'ios';
+  if (/Android/.test(ua)) return 'android';
+  return null;
+}
+
+const INSTALL_GUIDES = [
+  {
+    platform: 'ios',
+    title: 'iPhone & iPad',
+    steps: [
+      <>Tap <strong>Play BankCEO</strong> above to open the game.</>,
+      <>Tap the <strong>Share</strong> button. In Safari on iOS 26, tap <strong>•••</strong> in the address bar first, then <strong>Share</strong>.</>,
+      <>Scroll down and tap <strong>Add to Home Screen</strong>.</>,
+      <>Leave <strong>Open as Web App</strong> on, then tap <strong>Add</strong>.</>,
+    ],
+  },
+  {
+    platform: 'android',
+    title: 'Android',
+    steps: [
+      <>Tap <strong>Play BankCEO</strong> above to open the game in Chrome.</>,
+      <>Tap the <strong>⋮</strong> menu in the top-right corner.</>,
+      <>Tap <strong>Add to home screen</strong> (or <strong>Install app</strong>).</>,
+      <>Choose <strong>Install</strong> and confirm.</>,
+    ],
+  },
+];
+
 function Game() {
+  const [platform, setPlatform] = useState(null);
+  useEffect(() => setPlatform(detectPlatform()), []);
+  // Put the visitor's own platform first.
+  const guides = platform === 'android' ? [...INSTALL_GUIDES].reverse() : INSTALL_GUIDES;
+
   return (
     <div className="page bs-game-landing">
       <SEO
@@ -55,6 +91,42 @@ function Game() {
         .bs-game-landing .bs-game-pillar p {
           margin: 0; font-size: 13.5px; line-height: 1.5; color: #4a5568;
         }
+        .bs-game-landing .bs-game-install {
+          margin-top: 48px; padding: 24px; border-radius: 14px;
+          background: #0d1218; color: #eef2f6;
+        }
+        .bs-game-landing .bs-game-install h2 {
+          margin: 0 0 6px; font-size: 1.25rem; letter-spacing: -0.01em; color: #eef2f6;
+        }
+        .bs-game-landing .bs-game-install-lede {
+          margin: 0 0 20px; font-size: 14px; line-height: 1.55; color: #9aa7b8;
+        }
+        .bs-game-landing .bs-game-install-grid {
+          display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+        }
+        .bs-game-landing .bs-game-install-card {
+          padding: 16px 18px; border-radius: 10px;
+          background: #141b24; border: 1px solid #2a384e;
+        }
+        .bs-game-landing .bs-game-install-card.is-yours { border-color: #c98c3b; }
+        .bs-game-landing .bs-game-install-card h3 {
+          display: flex; align-items: center; gap: 8px;
+          margin: 0 0 10px; font-size: 15px; font-weight: 600; color: #f3b561;
+        }
+        .bs-game-landing .bs-game-install-tag {
+          font-size: 11px; font-weight: 600; color: #1a1408;
+          background: #f3b561; border-radius: 999px; padding: 2px 8px;
+        }
+        .bs-game-landing .bs-game-install-card ol {
+          margin: 0; padding-left: 20px;
+          font-size: 13.5px; line-height: 1.55; color: #c9d2dd;
+        }
+        .bs-game-landing .bs-game-install-card li { margin-bottom: 6px; }
+        .bs-game-landing .bs-game-install-card li:last-child { margin-bottom: 0; }
+        .bs-game-landing .bs-game-install-card strong { color: #eef2f6; }
+        .bs-game-landing .bs-game-install-note {
+          margin: 16px 0 0; font-size: 12.5px; line-height: 1.5; color: #6a7686;
+        }
         .bs-game-landing .bs-game-docs {
           margin-top: 40px; padding-top: 28px; border-top: 1px solid #e2e8f0;
           display: flex; flex-wrap: wrap; gap: 24px;
@@ -68,6 +140,8 @@ function Game() {
           .bs-game-landing { padding: 32px 16px 48px; }
           .bs-game-landing h1 { font-size: 1.875rem; }
           .bs-game-landing .bs-game-pillars { grid-template-columns: 1fr; }
+          .bs-game-landing .bs-game-install { padding: 20px 16px; }
+          .bs-game-landing .bs-game-install-grid { grid-template-columns: 1fr; }
           .bs-game-landing .bs-game-docs { gap: 14px; }
         }
       `}</style>
@@ -99,6 +173,31 @@ function Game() {
           <p>Macro shifts every few quarters. Provision early, manage liquidity, and outlast the recession.</p>
         </div>
       </div>
+
+      <section className="bs-game-install" aria-labelledby="bs-game-install-title">
+        <h2 id="bs-game-install-title">Add BankCEO to your home screen</h2>
+        <p className="bs-game-install-lede">
+          Install BankCEO on your phone and it opens full-screen from its own icon,
+          like an app. No app store and no download.
+        </p>
+        <div className="bs-game-install-grid">
+          {guides.map((g) => (
+            <div key={g.platform} className={`bs-game-install-card${g.platform === platform ? ' is-yours' : ''}`}>
+              <h3>
+                {g.title}
+                {g.platform === platform && <span className="bs-game-install-tag">Your device</span>}
+              </h3>
+              <ol>
+                {g.steps.map((step, i) => <li key={i}>{step}</li>)}
+              </ol>
+            </div>
+          ))}
+        </div>
+        <p className="bs-game-install-note">
+          Add it from the game screen, not this page, so the icon opens straight into BankCEO.
+          Other browsers have the same option in their share or main menu.
+        </p>
+      </section>
 
       <div className="bs-game-docs">
         <Link to="/game/about">About BankCEO →</Link>

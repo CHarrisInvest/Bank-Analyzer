@@ -9,6 +9,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { bankPath } from '../src/utils/bankPath.js';
+import { BANKCEO_APP_HEAD } from '../src/data/bankceoApp.js';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -72,8 +73,28 @@ async function loadData() {
 /**
  * Create HTML for a route with proper SEO tags
  */
-function createPage({ path, title, description, canonical, type = 'website', schema, content, noindex = false }) {
+function createPage({ path, title, description, canonical, type = 'website', schema, content, noindex = false, appHead }) {
   let html = template;
+
+  // Swap in a page-specific home-screen app (manifest, icon, standalone meta)
+  if (appHead) {
+    html = html.replace(
+      /<link rel="manifest" href="[^"]*"/,
+      `<link rel="manifest" href="${appHead.manifest}"`
+    );
+    html = html.replace(
+      /<link rel="apple-touch-icon" sizes="[^"]*" href="[^"]*"/,
+      `<link rel="apple-touch-icon" sizes="180x180" href="${appHead.appleTouchIcon}"`
+    );
+    html = html.replace(
+      /<meta name="theme-color" content="[^"]*"/,
+      `<meta name="theme-color" content="${appHead.themeColor}"`
+    );
+    const appMeta = Object.entries(appHead.meta)
+      .map(([name, value]) => `<meta name="${name}" content="${value}" />`)
+      .join('\n    ');
+    html = html.replace('</head>', `  ${appMeta}\n  </head>`);
+  }
 
   // Update title
   html = html.replace(
@@ -1563,6 +1584,7 @@ async function generatePages() {
     description: 'Play BankCEO — run First Meridian Bank for 40 quarters. Set strategy, manage capital, and survive the credit cycle.',
     canonical: `${SITE_URL}/game/BankCEO`,
     noindex: true,
+    appHead: BANKCEO_APP_HEAD,
   }));
   count++;
 
