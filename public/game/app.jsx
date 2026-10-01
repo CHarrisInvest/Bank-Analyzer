@@ -10,6 +10,7 @@ function deepClone(s) { return JSON.parse(JSON.stringify(s)); }
 const pct = (x) => (Number.isFinite(x) ? Math.round(x * 1000) / 10 : undefined);
 
 const TAB_FLOW = { cockpit: null, levers: "levers", capital: "capital", report: "report", history: "history" };
+const TAB_FLOW_ALL = { ...TAB_FLOW, markets: null }; // every tab a save may restore
 const COACH_SEEN_KEY = "bankceo.coach.seen";
 function readSeen() {
   try { return new Set(JSON.parse(sessionStorage.getItem(COACH_SEEN_KEY) || "[]")); }
@@ -19,9 +20,44 @@ function writeSeen(set) {
   try { sessionStorage.setItem(COACH_SEEN_KEY, JSON.stringify([...set])); } catch {}
 }
 
+// Saved game — kept in localStorage so a page refresh resumes the same run.
+// The engine state is plain JSON (the run's randomness is derived from
+// runSeed + quarter), so a restored game plays out exactly as it would have.
+const SAVE_KEY = "bankceo.save.v1";
+const SAVE_DELAY_MS = 250;
+function freshState() {
+  return deepClone({ ...ABE.INITIAL_STATE, runSeed: Math.floor(Math.random() * 100000) });
+}
+function loadSave() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return null;
+    const save = JSON.parse(raw);
+    const s = save && save.state;
+    const valid = s && typeof s === "object"
+      && Number.isFinite(s.quarter) && s.quarter >= 1
+      && s.bs && typeof s.bs === "object"
+      && s.levers && typeof s.levers === "object"
+      && s.lastIS && typeof s.lastIS === "object"
+      && Array.isArray(s.history);
+    if (!valid) throw new Error("bad save");
+    // Fill any top-level fields added to the engine since the game was saved.
+    const state = { ...deepClone(ABE.INITIAL_STATE), ...s };
+    ABE.computeRatios(state, state.lastIS); // throws if the save can't be played
+    return { state, tab: Object.prototype.hasOwnProperty.call(TAB_FLOW_ALL, save.tab) ? save.tab : "cockpit" };
+  } catch {
+    try { localStorage.removeItem(SAVE_KEY); } catch {}
+    return null;
+  }
+}
+function writeSave(state, tab) {
+  try { localStorage.setItem(SAVE_KEY, JSON.stringify({ v: 1, state, tab })); } catch {}
+}
+
 function App() {
-  const [state, setState] = useState(() => deepClone(ABE.INITIAL_STATE));
-  const [tab, setTab] = useState("cockpit");
+  const [initial] = useState(() => loadSave());
+  const [state, setState] = useState(() => (initial ? initial.state : deepClone(ABE.INITIAL_STATE)));
+  const [tab, setTab] = useState(() => (initial ? initial.tab : "cockpit"));
   const [advancing, setAdvancing] = useState(false);
   const [flashKey, setFlashKey] = useState(0);
   const [coachFlow, setCoachFlow] = useState(() => {
@@ -32,7 +68,26 @@ function App() {
   const ratios = useMemoA(() => ABE.computeRatios(state, state.lastIS), [state]);
 
   // ---- Analytics (forwarded to GA4 by the parent page; see analytics.js) ----
-  useEffect(() => { GA.track("game_start", {}); }, []);
+  // A refresh that resumes a saved game isn't a new start.
+  useEffect(() => { if (!initial) GA.track("game_start", {}); }, []);
+
+  // ---- Save (debounced; flushed when the page is hidden or unloaded) ----
+  const latest = useRef({ state, tab });
+  latest.current = { state, tab };
+  useEffect(() => {
+    const t = setTimeout(() => writeSave(state, tab), SAVE_DELAY_MS);
+    return () => clearTimeout(t);
+  }, [state, tab]);
+  useEffect(() => {
+    const flush = () => writeSave(latest.current.state, latest.current.tab);
+    const onVis = () => { if (document.visibilityState === "hidden") flush(); };
+    window.addEventListener("pagehide", flush);
+    document.addEventListener("visibilitychange", onVis);
+    return () => {
+      window.removeEventListener("pagehide", flush);
+      document.removeEventListener("visibilitychange", onVis);
+    };
+  }, []);
 
   const prevQuarter = useRef(state.quarter);
   useEffect(() => {
@@ -48,9 +103,13 @@ function App() {
     });
   }, [state.quarter]);
 
+  // Seeded with a restored game's result so a refresh on the end screen
+  // doesn't report the same game over twice.
+  const reportedOver = useRef(initial ? initial.state.gameOver : null);
   useEffect(() => {
     const g = state.gameOver;
-    if (!g) return;
+    if (!g || g === reportedOver.current) return;
+    reportedOver.current = g;
     const st = g.stats || {};
     GA.track("game_over", {
       outcome: g.reason,
@@ -113,9 +172,20 @@ function App() {
   };
 
   const restart = () => {
+    if (advancing) return; // the pending advance would land on the new game
     GA.track("game_restart", { quarter: state.quarter, was_over: state.gameOver ? "yes" : "no" });
-    setState(deepClone({ ...ABE.INITIAL_STATE, runSeed: Math.floor(Math.random() * 100000) }));
+    const ns = freshState();
+    writeSave(ns, "cockpit");
+    setState(ns);
     setTab("cockpit");
+  };
+
+  // Header restart: confirm before throwing away a game in progress.
+  const confirmRestart = () => {
+    if (advancing) return;
+    const inProgress = state.quarter > 1 && !state.gameOver;
+    if (inProgress && !window.confirm("Restart BankCEO? Your current game will be lost.")) return;
+    restart();
   };
 
   const dismissCoach = () => {
@@ -185,7 +255,7 @@ function App() {
           background: AP.bg,
           position: "relative",
         }}>
-          <Header state={state} ratios={ratios} />
+          <Header state={state} ratios={ratios} onRestart={confirmRestart} restartDisabled={advancing} />
           <div style={{ display: "flex", flex: 1, minHeight: 0 }}>
             <SideNav tab={tab} setTab={handleTabChange} onAdvance={advance} advancing={advancing} state={state} />
             <div style={{ flex: 1, minWidth: 0, position: "relative" }}>
@@ -209,7 +279,7 @@ function App() {
         background: AP.bg,
         position: "relative",
       }}>
-        <Header state={state} ratios={ratios} />
+        <Header state={state} ratios={ratios} onRestart={confirmRestart} restartDisabled={advancing} />
         <div style={{ flex: 1, minHeight: 0, position: "relative", overflow: "hidden" }}>
           {advancing && <div className="q-flash" key={flashKey} />}
           <div key={effTab + "-" + state.quarter} style={{ height: "100%" }}>
@@ -231,7 +301,7 @@ function App() {
       background: AP.bg,
       position: "relative",
     }}>
-      <Header state={state} ratios={ratios} />
+      <Header state={state} ratios={ratios} onRestart={confirmRestart} restartDisabled={advancing} />
       <div style={{ display: "flex", flex: 1, minHeight: 0 }}>
         <TabStrip tab={tab} setTab={handleTabChange} />
         <div style={{ flex: 1, minWidth: 0, position: "relative" }}>

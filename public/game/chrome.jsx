@@ -121,8 +121,46 @@ function CycleChip({ cycle }) {
   );
 }
 
+// ---------- Restart button (header) ----------
+function RestartButton({ onRestart, disabled, compact }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={onRestart}
+      disabled={disabled}
+      title="Restart game"
+      aria-label="Restart game"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6,
+        // Compact: a 32px tap target whose negative margins keep its layout
+        // height to 24px, so it doesn't make the header taller.
+        height: compact ? 32 : 28, minWidth: compact ? 32 : undefined,
+        margin: compact ? "-4px 0" : 0,
+        padding: compact ? 0 : "0 11px",
+        borderRadius: 7, flexShrink: 0,
+        border: `1px solid ${hover && !disabled ? P.amber + "88" : P.line}`,
+        background: hover && !disabled ? P.amber + "14" : P.panel2,
+        color: hover && !disabled ? P.amber : P.textDim,
+        fontFamily: "inherit", fontSize: 11.5, fontWeight: 500, letterSpacing: "0.02em",
+        cursor: disabled ? "default" : "pointer", opacity: disabled ? 0.5 : 1,
+        transition: "color 0.12s, background 0.12s, border-color 0.12s",
+        WebkitTapHighlightColor: "transparent",
+      }}
+    >
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 12a9 9 0 1 0 3-6.7" />
+        <path d="M3 3v6h6" />
+      </svg>
+      {!compact && <span>Restart</span>}
+    </button>
+  );
+}
+
 // ---------- Header ----------
-function Header({ state, ratios }) {
+function Header({ state, ratios, onRestart, restartDisabled }) {
   const { label } = qlbl(state.quarter);
   const m = state.macro;
   const vp = window.Theme.useViewport();
@@ -176,9 +214,12 @@ function Header({ state, ratios }) {
           <Vital dense label="Net Income" value={BE.fmt$(state.lastIS.netIncome)} color={state.lastIS.netIncome < 0 ? P.bad : P.text} />
         </div>
 
-        {/* Progress track full width — short bars, normal year labels */}
-        <div data-coach="header-progress">
-          <ProgressTrack history={state.history} currentQ={state.quarter} height={7} />
+        {/* Progress track full width — short bars, normal year labels; restart at its end */}
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 10 }}>
+          <div data-coach="header-progress" style={{ flex: 1, minWidth: 0 }}>
+            <ProgressTrack history={state.history} currentQ={state.quarter} height={7} />
+          </div>
+          {onRestart && <RestartButton compact onRestart={onRestart} disabled={restartDisabled} />}
         </div>
       </div>
     );
@@ -224,8 +265,14 @@ function Header({ state, ratios }) {
         </div>
       </div>
 
-      {/* Progress track full width */}
-      <ProgressTrack history={state.history} currentQ={state.quarter} height={13} />
+      {/* Progress track full width; restart sits at its end, where it adds
+          no height and can't push the top row into wrapping */}
+      <div style={{ display: "flex", alignItems: "flex-end", gap: 16 }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <ProgressTrack history={state.history} currentQ={state.quarter} height={13} />
+        </div>
+        {onRestart && <RestartButton onRestart={onRestart} disabled={restartDisabled} />}
+      </div>
     </div>
   );
 }
