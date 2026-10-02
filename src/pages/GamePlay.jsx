@@ -11,8 +11,17 @@ import { applyBankCEOAppHead } from '../data/bankceoApp.js';
 const STRIP_H = 30;
 const AD_PAD = 4; // space between the banner and the strip / game above and below it
 
+// Fullscreen API, with the prefixed form older Safari still uses.
+const fullscreenEnabled = () =>
+  Boolean(document.fullscreenEnabled || document.webkitFullscreenEnabled);
+const fullscreenElement = () =>
+  document.fullscreenElement || document.webkitFullscreenElement || null;
+
 function GamePlay() {
+  const rootRef = useRef(null);
   const frameRef = useRef(null);
+  const [canFullscreen] = useState(fullscreenEnabled);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   // The banner shows the whole time the game is open; adNumber bumps to load
   // a fresh ad (see refreshesAd).
   const [adNumber, setAdNumber] = useState(0);
@@ -25,6 +34,34 @@ function GamePlay() {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
+
+  useEffect(() => {
+    const onChange = () => setIsFullscreen(fullscreenElement() === rootRef.current);
+    document.addEventListener('fullscreenchange', onChange);
+    document.addEventListener('webkitfullscreenchange', onChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', onChange);
+      document.removeEventListener('webkitfullscreenchange', onChange);
+    };
+  }, []);
+
+  // Fullscreen the whole play page (strip, banner, game) so the exit
+  // button stays on screen; Esc also exits.
+  const toggleFullscreen = () => {
+    const el = rootRef.current;
+    if (!el) return;
+    try {
+      if (fullscreenElement()) {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen;
+        const p = exit && exit.call(document);
+        if (p && p.catch) p.catch(() => {});
+      } else {
+        const request = el.requestFullscreen || el.webkitRequestFullscreen;
+        const p = request && request.call(el);
+        if (p && p.catch) p.catch(() => {});
+      }
+    } catch { /* fullscreen refused — nothing to do */ }
+  };
 
   // Make "Add to Home Screen" install BankCEO rather than BankSift.
   useEffect(() => applyBankCEOAppHead(), []);
@@ -50,7 +87,7 @@ function GamePlay() {
   }, []);
 
   return (
-    <div className="bs-game-play">
+    <div className="bs-game-play" ref={rootRef}>
       <SEO
         title="Play BankCEO | Bank Simulation Game"
         description="Play BankCEO — run First Meridian Bank for 40 quarters. Set strategy, manage capital, and survive the credit cycle."
@@ -117,6 +154,25 @@ function GamePlay() {
         .bs-game-play .bs-game-strip-sep {
           width: 1px; height: 14px; background: #2a384e;
         }
+        .bs-game-play .bs-game-strip-fs {
+          display: inline-flex; align-items: center; gap: 6px;
+          color: #9aa7b8;
+          background: transparent;
+          border: 0;
+          font: inherit;
+          padding: 4px 10px;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: color 0.12s, background 0.12s;
+        }
+        .bs-game-play .bs-game-strip-fs:hover {
+          color: #eef2f6;
+          background: #1a2230;
+        }
+        /* Desktop only: hidden on narrower screens and touch devices. */
+        @media (max-width: 1023px), (pointer: coarse) {
+          .bs-game-play .bs-game-strip-fs-wrap { display: none; }
+        }
         .bs-game-play .bs-game-ad {
           position: absolute; top: ${STRIP_H}px; left: 0; right: 0;
           display: flex; align-items: center; justify-content: center;
@@ -176,6 +232,25 @@ function GamePlay() {
               <span className="bs-lbl-full">Strategy Guide</span><span className="bs-lbl-short">Strategy</span>
             </a>
           </div>
+          {canFullscreen && (
+            <div className="bs-game-strip-links bs-game-strip-fs-wrap">
+              <span className="bs-game-strip-sep" />
+              <button
+                type="button"
+                className="bs-game-strip-fs"
+                onClick={toggleFullscreen}
+                aria-pressed={isFullscreen}
+                title={isFullscreen ? 'Exit fullscreen (Esc)' : 'Play fullscreen'}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  {isFullscreen
+                    ? <path d="M9 3v6H3M15 3v6h6M9 21v-6H3M15 21v-6h6" />
+                    : <path d="M3 9V3h6M21 9V3h-6M3 15v6h6M21 15v6h-6" />}
+                </svg>
+                {isFullscreen ? 'Exit fullscreen' : 'Fullscreen'}
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
