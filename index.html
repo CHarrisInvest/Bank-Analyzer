@@ -128,6 +128,24 @@
       })();
     </script>
 
+    <!-- Google AdSense - site-wide (Auto ads). Static in <head> so it ships in
+         every pre-rendered page and the AdSense crawler can see it.
+         Honors an explicit opt-out from the BankSift cookie banner by
+         requesting non-personalized ads; otherwise Google's consent message
+         (EEA/UK) or the default decides. Must run before adsbygoogle.js. -->
+    <script>
+      (function() {
+        var adsbygoogle = (window.adsbygoogle = window.adsbygoogle || []);
+        try {
+          var c = JSON.parse(localStorage.getItem('banksift_cookieConsent'));
+          if (c && c.status && c.status !== 'pending' && !c.advertising) {
+            adsbygoogle.requestNonPersonalizedAds = 1;
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1929910138338917" crossorigin="anonymous"></script>
+
     <script>
       // Log JavaScript errors to console without destroying pre-rendered content
       // Important: Do NOT replace document.body.innerHTML as that destroys

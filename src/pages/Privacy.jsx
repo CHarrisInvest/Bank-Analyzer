@@ -162,7 +162,7 @@ function Privacy() {
 
           <h3>Google AdSense</h3>
           <p>
-            We display advertisements from Google AdSense on the BankCEO game play page.
+            We display advertisements from Google AdSense across BankSift.
             Google and its partners use cookies to serve ads based on
             your prior visits to this and other websites. Visitors in the European Economic
             Area, the United Kingdom and Switzerland are asked for consent through Google's
