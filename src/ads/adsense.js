@@ -1,6 +1,6 @@
 /**
- * Google AdSense — used only on the BankCEO play page (/game/BankCEO).
- * The loader script is injected on demand, so no other page loads AdSense.
+ * Google AdSense. The loader script ships site-wide in index.html (Auto ads);
+ * the BankCEO play page (/game/BankCEO) also places its own banner unit.
  * Kept free of imports so the pure helpers can be unit tested under plain Node.
  */
 
@@ -54,7 +54,7 @@ export function forceNonPersonalizedAds(consent) {
 }
 
 /**
- * Inject the AdSense loader once
+ * Inject the AdSense loader if index.html's site-wide tag is missing
  */
 export function loadAdSense() {
   if (document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) return;
