@@ -131,11 +131,13 @@
     <!-- Google AdSense - site-wide (Auto ads). Static in <head> so it ships in
          every pre-rendered page and the AdSense crawler can see it.
          Honors an explicit opt-out from the BankSift cookie banner by
-         requesting non-personalized ads; otherwise Google's consent message
+         requesting non-personalized ads, as does a Global Privacy Control
+         signal from the browser; otherwise Google's consent message
          (EEA/UK) or the default decides. Must run before adsbygoogle.js. -->
     <script>
       (function() {
         var adsbygoogle = (window.adsbygoogle = window.adsbygoogle || []);
+        if (navigator.globalPrivacyControl === true) adsbygoogle.requestNonPersonalizedAds = 1;
         try {
           var c = JSON.parse(localStorage.getItem('banksift_cookieConsent'));
           if (c && c.status && c.status !== 'pending' && !c.advertising) {

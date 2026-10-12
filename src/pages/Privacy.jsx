@@ -174,7 +174,9 @@ function Privacy() {
             your prior visits to this and other websites. Visitors in the European Economic
             Area, the United Kingdom and Switzerland are asked for consent through Google's
             consent message before personalized ads are shown. If you turn off advertising
-            cookies in our cookie settings, we request non-personalized ads only.
+            cookies in our cookie settings, or if your browser sends a Global Privacy Control
+            signal, we request non-personalized ads only and treat this as a request to opt
+            out of the sale or sharing of your personal information.
           </p>
           <p>
             You can opt out of personalized advertising in{' '}
