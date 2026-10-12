@@ -191,9 +191,6 @@ function InsightsIndex() {
                   <h3>{category.name}</h3>
                   <p className="method-summary">{category.shortDescription}</p>
                   <div className="method-card-footer">
-                    <span className="insight-article-count">
-                      {category.articles.length} {category.articles.length === 1 ? 'article' : 'articles'}
-                    </span>
                     <span className="method-learn-badge">Explore →</span>
                   </div>
                 </NavigationLink>
