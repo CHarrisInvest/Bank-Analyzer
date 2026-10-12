@@ -8,7 +8,7 @@ import SEO from '../components/SEO.jsx';
  */
 function Privacy() {
   const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || '[Contact email not configured]';
-  const lastUpdated = 'January 2026';
+  const lastUpdated = 'October 2026';
 
   return (
     <div className="page legal-page privacy-page">
@@ -51,8 +51,8 @@ function Privacy() {
               and screen resolution
             </li>
             <li>
-              <strong>Location Data:</strong> Country-level geographic information based on
-              IP address (we do not collect precise location)
+              <strong>Location Data:</strong> Approximate geographic information (such as city
+              or country) derived from IP address (we do not collect precise location)
             </li>
             <li>
               <strong>Referral Information:</strong> How you arrived at our site (search engine,
@@ -64,6 +64,13 @@ function Privacy() {
           <p>
             BankSift does not currently require user registration or collect personal
             information such as names, email addresses, or financial data directly from users.
+          </p>
+          <p>
+            Some features save your settings in your browser's local storage so they persist
+            between visits: screener columns, layout and saved filter presets, notes you add
+            to financial statements, your BankCEO game progress, and your cookie preferences.
+            This data stays on your device and is never sent to us. You can remove it at any
+            time by clearing your browser's site data.
           </p>
         </section>
 
@@ -98,8 +105,8 @@ function Privacy() {
             <tbody>
               <tr>
                 <td><strong>Essential</strong></td>
-                <td>Required for basic website functionality, such as remembering your preferences</td>
-                <td>Session / 1 year</td>
+                <td>Browser local storage used for basic website functionality, such as remembering your cookie choices and screener settings</td>
+                <td>Until you clear your browser data</td>
               </tr>
               <tr>
                 <td><strong>Analytics</strong></td>
@@ -143,7 +150,7 @@ function Privacy() {
             <li>IP anonymization is enabled</li>
             <li>Data retention is set to the minimum period (2 months)</li>
             <li>Google Signals (cross-device tracking) is disabled</li>
-            <li>Advertising personalization signals are disabled by default until consent</li>
+            <li>Advertising personalization signals are disabled</li>
           </ul>
           <h3>Google Consent Mode</h3>
           <p>
@@ -167,7 +174,9 @@ function Privacy() {
             your prior visits to this and other websites. Visitors in the European Economic
             Area, the United Kingdom and Switzerland are asked for consent through Google's
             consent message before personalized ads are shown. If you turn off advertising
-            cookies in our cookie settings, we request non-personalized ads only.
+            cookies in our cookie settings, or if your browser sends a Global Privacy Control
+            signal, we request non-personalized ads only and treat this as a request to opt
+            out of the sale or sharing of your personal information.
           </p>
           <p>
             You can opt out of personalized advertising in{' '}
@@ -182,13 +191,23 @@ function Privacy() {
               how Google uses information from sites that use its services
             </a>.
           </p>
+
+          <h3>Hosting and Content Delivery</h3>
+          <p>
+            BankSift is hosted on GitHub Pages, which may log your IP address and browser
+            information when serving pages. The BankCEO game also loads code from unpkg.com
+            and fonts from Google Fonts, which receive your IP address when your browser
+            requests those files. These providers handle that data under their own privacy
+            policies.
+          </p>
         </section>
 
         <section className="legal-section">
           <h2>Data Retention</h2>
           <p>
-            We retain analytics data for a maximum of 2 months. Cookie consent preferences
-            are stored locally in your browser until you clear them.
+            Google Analytics data is retained for a maximum of 2 months. Data collected by
+            Google AdSense is retained by Google under its own policies. Settings saved in
+            your browser's local storage remain there until you clear them.
           </p>
         </section>
 
@@ -200,7 +219,6 @@ function Privacy() {
           <ul>
             <li>Choose which cookies to accept via our consent banner</li>
             <li>Clear cookies from your browser at any time</li>
-            <li>Use browser "Do Not Track" settings</li>
           </ul>
 
           <h3>For European Union Residents (GDPR)</h3>
@@ -221,7 +239,7 @@ function Privacy() {
             <li>Right to equal service and price (non-discrimination)</li>
           </ul>
 
-          <h3>For Virginia Residents (VCDPA)</h3>
+          <h3>For Residents of Other U.S. States With Privacy Laws</h3>
           <ul>
             <li>Right to confirm whether personal data is being processed</li>
             <li>Right to access and obtain a copy of personal data</li>

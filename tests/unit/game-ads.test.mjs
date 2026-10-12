@@ -36,3 +36,9 @@ test('only an explicit advertising opt-out forces non-personalized ads', () => {
   // Never saw or answered the banner: Google's consent message or the default decides.
   assert.equal(forceNonPersonalizedAds({ status: 'pending', advertising: false }), false);
 });
+
+test('a Global Privacy Control signal forces non-personalized ads', () => {
+  assert.equal(forceNonPersonalizedAds({ status: 'pending', advertising: false }, true), true);
+  assert.equal(forceNonPersonalizedAds({ status: 'accepted', advertising: true }, true), true);
+  assert.equal(forceNonPersonalizedAds({ status: 'accepted', advertising: true }, undefined), false);
+});

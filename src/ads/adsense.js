@@ -43,13 +43,16 @@ export function refreshesAd(eventName) {
 }
 
 /**
- * Whether to force non-personalized ads. Only a visitor who actively turned
- * advertising off in the BankSift cookie banner is forced; otherwise Google's
- * consent message (EEA/UK) or the default (elsewhere) decides.
+ * Whether to force non-personalized ads. A visitor who actively turned
+ * advertising off in the BankSift cookie banner, or whose browser sends a
+ * Global Privacy Control signal, is forced; otherwise Google's consent
+ * message (EEA/UK) or the default (elsewhere) decides.
  * @param {{ status: string, advertising: boolean }} consent - stored BankSift consent
+ * @param {boolean} [gpc] - navigator.globalPrivacyControl
  * @returns {boolean}
  */
-export function forceNonPersonalizedAds(consent) {
+export function forceNonPersonalizedAds(consent, gpc = false) {
+  if (gpc === true) return true;
   return Boolean(consent) && consent.status !== 'pending' && !consent.advertising;
 }
 

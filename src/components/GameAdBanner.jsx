@@ -23,10 +23,11 @@ function GameAdBanner({ size }) {
     if (!ins || pushedRef.current || ins.getAttribute('data-adsbygoogle-status')) return;
     pushedRef.current = true;
 
-    // Honor an explicit opt-out from the BankSift cookie banner; otherwise
+    // Honor an explicit opt-out from the BankSift cookie banner or a Global
+    // Privacy Control signal; otherwise
     // leave it to Google's consent message (EEA/UK) or the default.
     const adsbygoogle = (window.adsbygoogle = window.adsbygoogle || []);
-    adsbygoogle.requestNonPersonalizedAds = forceNonPersonalizedAds(getStoredConsent()) ? 1 : 0;
+    adsbygoogle.requestNonPersonalizedAds = forceNonPersonalizedAds(getStoredConsent(), navigator.globalPrivacyControl) ? 1 : 0;
 
     loadAdSense();
     try {
