@@ -192,6 +192,16 @@ function Privacy() {
             </a>.
           </p>
 
+          <h3>Infolinks</h3>
+          <p>
+            We also display advertisements from Infolinks. Infolinks and its partners may
+            use cookies and similar technologies to serve and measure ads. See the{' '}
+            <a href="https://www.infolinks.com/privacy-policy/" target="_blank" rel="noopener noreferrer">
+              Infolinks Privacy Policy
+            </a>{' '}
+            for details and opt-out options.
+          </p>
+
           <h3>Hosting and Content Delivery</h3>
           <p>
             BankSift is hosted on GitHub Pages, which may log your IP address and browser
