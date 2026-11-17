@@ -12,8 +12,9 @@ export const INFOLINKS_PID = 3449468;
 export const INFOLINKS_WSID = 0;
 
 // Pages that must not carry ad code: bank pages (data tables without
-// editorial content) and placeholder pages that have no content yet.
-const AD_FREE_PATHS = new Set(['/game/about', '/game/how-to-play', '/game/strategy-guide']);
+// editorial content), plus any single route listed here, such as a
+// placeholder page that has no content yet.
+const AD_FREE_PATHS = new Set();
 
 /**
  * Whether a route must not load any ad code

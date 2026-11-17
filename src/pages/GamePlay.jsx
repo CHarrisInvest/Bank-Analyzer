@@ -220,10 +220,6 @@ function GamePlay() {
         <div className="bs-game-strip-right">
           <span className="bs-game-strip-hint">Open in new tab »</span>
           <div className="bs-game-strip-links">
-            <a href="/game/about" target="_blank" rel="noopener noreferrer">
-              <span className="bs-lbl-full">About BankCEO</span><span className="bs-lbl-short">About</span>
-            </a>
-            <span className="bs-game-strip-sep" />
             <a href="/game/how-to-play" target="_blank" rel="noopener noreferrer">
               <span className="bs-lbl-full">How to Play</span><span className="bs-lbl-short">How-to</span>
             </a>

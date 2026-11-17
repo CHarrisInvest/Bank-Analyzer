@@ -11,6 +11,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { bankPath } from '../src/utils/bankPath.js';
 import { BANKCEO_APP_HEAD } from '../src/data/bankceoApp.js';
 import { isAdFreePath, stripAdTags } from '../src/ads/adsense.js';
+import { GAME_GUIDES } from '../src/data/content/gameGuides.js';
+import { parseInline } from '../src/utils/inlineMarkup.js';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -77,7 +79,7 @@ async function loadData() {
 function createPage({ path, title, description, canonical, type = 'website', schema, content, noindex = false, appHead }) {
   let html = template;
 
-  // Bank pages and placeholder pages ship without any ad code
+  // Ad-free pages (bank pages) ship without any ad code
   if (isAdFreePath(path)) {
     html = stripAdTags(html);
   }
@@ -356,6 +358,79 @@ function renderFormattedTextToHtml(text) {
   }
 
   return elements.join('\n');
+}
+
+/**
+ * Renders inline guide markup (**bold**, [label](/path)) to static HTML.
+ * Mirrors the Inline component in src/components/GameGuide.jsx.
+ */
+function renderGuideInlineToHtml(text) {
+  return parseInline(text).map(token => {
+    if (token.type === 'bold') return `<strong>${escapeHtml(token.text)}</strong>`;
+    if (token.type === 'link') return `<a href="${SITE_URL}${token.href}">${escapeHtml(token.text)}</a>`;
+    return escapeHtml(token.text);
+  }).join('');
+}
+
+/**
+ * Renders a BankCEO guide (src/data/content/gameGuides.js) to static HTML.
+ * Mirrors src/components/GameGuide.jsx.
+ */
+function renderGameGuideToHtml(guide) {
+  const inline = renderGuideInlineToHtml;
+  const renderBlock = (block) => {
+    switch (block.type) {
+      case 'h3':
+        return `<h3>${inline(block.text)}</h3>`;
+      case 'list':
+        return `<ul>\n${block.items.map(item => `<li>${inline(item)}</li>`).join('\n')}\n</ul>`;
+      case 'steps':
+        return `<ol>\n${block.items.map(item => `<li>${inline(item)}</li>`).join('\n')}\n</ol>`;
+      case 'note':
+        return `<aside>${block.title ? `<p><strong>${escapeHtml(block.title)}</strong></p>` : ''}<p>${inline(block.text)}</p></aside>`;
+      case 'formula':
+        return `<p><code>${escapeHtml(block.text)}</code></p>`;
+      case 'table': {
+        const caption = block.caption ? `<caption>${escapeHtml(block.caption)}</caption>` : '';
+        const head = block.head.map(cell => `<th scope="col">${escapeHtml(cell)}</th>`).join('');
+        const rows = block.rows.map(row => `<tr>${row.map((cell, i) => (i === 0
+          ? `<th scope="row">${inline(cell)}</th>`
+          : `<td>${inline(cell)}</td>`)).join('')}</tr>`).join('\n');
+        return `<table>${caption}<thead><tr>${head}</tr></thead>\n<tbody>\n${rows}\n</tbody></table>`;
+      }
+      default:
+        return `<p>${inline(block.text)}</p>`;
+    }
+  };
+
+  const toc = guide.sections
+    .map(section => `<li><a href="#${section.id}">${escapeHtml(section.heading)}</a></li>`)
+    .join('\n');
+  const sections = guide.sections.map(section => `
+      <section id="${section.id}">
+        <h2>${escapeHtml(section.heading)}</h2>
+        ${section.blocks.map(renderBlock).join('\n        ')}
+      </section>`).join('\n');
+  const otherGuides = GAME_GUIDES
+    .filter(g => g.slug !== guide.slug)
+    .map(g => `<a href="${SITE_URL}${g.path}">${escapeHtml(g.navLabel)}</a> | `)
+    .join('');
+
+  return `
+      <article>
+        <p><a href="${SITE_URL}/game">BankCEO</a> / ${escapeHtml(guide.navLabel)}</p>
+        <h1>${escapeHtml(guide.title)}</h1>
+        <p>${escapeHtml(guide.lede)}</p>
+        <p><a href="${SITE_URL}/game/BankCEO">Play BankCEO</a></p>
+        <nav aria-label="On this page">
+          <ol>
+${toc}
+          </ol>
+        </nav>
+${sections}
+      </article>
+      <p>${otherGuides}<a href="${SITE_URL}/game">BankCEO home</a> | <a href="${SITE_URL}/game/fake-bank-names">Fake Bank Names</a></p>
+    `;
 }
 
 /**
@@ -1579,7 +1654,12 @@ async function generatePages() {
         ])
       ]
     },
-    content: `<h1>Run a community bank for 10 years.</h1><p>Take the helm of First Meridian Bank, NA. Set loan and deposit strategy, manage capital and liquidity, and steer through 40 quarters of expansion, late cycle, recession, and recovery.</p>`
+    content: `<h1>Run a community bank for 10 years.</h1><p>Take the helm of First Meridian Bank, NA. Set loan and deposit strategy, manage capital and liquidity, and steer through 40 quarters of expansion, late cycle, recession, and recovery.</p>
+      <p><a href="${SITE_URL}/game/BankCEO">Play BankCEO</a></p>
+      <ul>
+        ${GAME_GUIDES.map(g => `<li><a href="${SITE_URL}${g.path}">${escapeHtml(g.navLabel)}</a></li>`).join('\n        ')}
+        <li><a href="${SITE_URL}/game/fake-bank-names">Fake Bank Names</a></li>
+      </ul>`
   }));
   count++;
 
@@ -1594,35 +1674,38 @@ async function generatePages() {
   }));
   count++;
 
-  // /game/about — doc shell (placeholder content). noindex until written.
-  writePage('/game/about', createPage({
-    path: '/game/about',
-    title: 'About BankCEO | Bank Simulation Game',
-    description: "About BankCEO — what the simulation models, who it's for, and why it exists.",
-    canonical: `${SITE_URL}/game/about`,
-    noindex: true,
-  }));
-  count++;
-
-  // /game/how-to-play — doc shell (placeholder content). noindex until written.
-  writePage('/game/how-to-play', createPage({
-    path: '/game/how-to-play',
-    title: 'How to Play BankCEO | Bank Simulation Game',
-    description: 'How to play BankCEO — controls, tabs, and what each lever does.',
-    canonical: `${SITE_URL}/game/how-to-play`,
-    noindex: true,
-  }));
-  count++;
-
-  // /game/strategy-guide — doc shell (placeholder content). noindex until written.
-  writePage('/game/strategy-guide', createPage({
-    path: '/game/strategy-guide',
-    title: 'BankCEO Strategy Guide | Bank Simulation Game',
-    description: 'BankCEO strategy guide — how to manage NIM, capital, and credit through the cycle.',
-    canonical: `${SITE_URL}/game/strategy-guide`,
-    noindex: true,
-  }));
-  count++;
+  // /game/how-to-play and /game/strategy-guide — long-form guides, rendered
+  // from the same data the React pages use. Indexable.
+  for (const guide of GAME_GUIDES) {
+    writePage(guide.path, createPage({
+      path: guide.path,
+      title: `${guide.metaTitle} | ${SITE_NAME}`,
+      description: guide.metaDescription,
+      canonical: `${SITE_URL}${guide.path}`,
+      type: 'article',
+      schema: {
+        "@context": "https://schema.org",
+        "@graph": [
+          createBreadcrumbSchema([
+            { name: "Home", path: "" },
+            { name: "BankCEO Simulation", path: "/game" },
+            { name: guide.navLabel, path: guide.path }
+          ]),
+          {
+            "@type": "Article",
+            "headline": guide.title,
+            "description": guide.metaDescription,
+            "url": `${SITE_URL}${guide.path}`,
+            "dateModified": BUILD_DATE,
+            "about": { "@type": "VideoGame", "name": "BankCEO", "url": `${SITE_URL}/game` },
+            "publisher": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL }
+          }
+        ]
+      },
+      content: renderGameGuideToHtml(guide)
+    }));
+    count++;
+  }
 
   // /game/fake-bank-names — parody spreadsheet companion. Indexable, shareable.
   writePage('/game/fake-bank-names', createPage({

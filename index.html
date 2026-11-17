@@ -120,8 +120,8 @@
     <!-- Google AdSense (Auto ads). Static in <head> so it ships in pre-rendered
          pages. Everything between the ads:start / ads:end markers is stripped
          by scripts/prerender.mjs from ad-free pages (see isAdFreePath in
-         src/ads/adsense.js): bank pages and placeholder pages. Ships in
-         every other pre-rendered page and the AdSense crawler can see it.
+         src/ads/adsense.js): bank pages. Ships in every other pre-rendered
+         page and the AdSense crawler can see it.
          Honors an explicit opt-out from the BankSift cookie banner by
          requesting non-personalized ads, as does a Global Privacy Control
          signal from the browser; otherwise Google's consent message

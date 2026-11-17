@@ -29,8 +29,8 @@ function SpaRedirectHandler() {
 }
 
 /**
- * Keeps ad code off ad-free routes (bank pages, placeholder pages) across
- * client-side navigation. Ad scripts can't be unloaded once running, so
+ * Keeps ad code off ad-free routes (bank pages) across client-side
+ * navigation. Ad scripts can't be unloaded once running, so
  * entering an ad-free route from a page that has them does a full load of
  * the pre-rendered, ad-free HTML. Going the other way, the scripts are
  * injected.
@@ -90,7 +90,6 @@ import NotFound from './pages/NotFound.jsx';
 // Lazy-loaded routes (kept out of the main bundle)
 const Game = lazy(() => import('./pages/Game.jsx'));
 const GamePlay = lazy(() => import('./pages/GamePlay.jsx'));
-const GameAbout = lazy(() => import('./pages/GameAbout.jsx'));
 const GameHowToPlay = lazy(() => import('./pages/GameHowToPlay.jsx'));
 const GameStrategy = lazy(() => import('./pages/GameStrategy.jsx'));
 const FakeBankNames = lazy(() => import('./pages/FakeBankNames.jsx'));
@@ -235,14 +234,6 @@ function App() {
               element={
                 <Suspense fallback={<div className="page" style={{ padding: 48, textAlign: 'center' }}>Loading…</div>}>
                   <Game />
-                </Suspense>
-              }
-            />
-            <Route
-              path="game/about"
-              element={
-                <Suspense fallback={<div className="page" style={{ padding: 48, textAlign: 'center' }}>Loading…</div>}>
-                  <GameAbout />
                 </Suspense>
               }
             />

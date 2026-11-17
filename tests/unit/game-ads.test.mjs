@@ -43,14 +43,14 @@ test('a Global Privacy Control signal forces non-personalized ads', () => {
   assert.equal(forceNonPersonalizedAds({ status: 'accepted', advertising: true }, undefined), false);
 });
 
-test('bank pages and placeholder pages carry no ad code', () => {
-  for (const path of ['/bank/JPM', '/bank/JPM/', '/bank/19617', '/game/about', '/game/how-to-play', '/game/strategy-guide']) {
+test('bank pages carry no ad code', () => {
+  for (const path of ['/bank', '/bank/JPM', '/bank/JPM/', '/bank/19617']) {
     assert.equal(isAdFreePath(path), true, path);
   }
 });
 
 test('content pages and the game keep their ads', () => {
-  for (const path of ['/', '/screener', '/search', '/faq/what-is-roe', '/metrics/roe', '/game', '/game/BankCEO', '/game/fake-bank-names', '/banking']) {
+  for (const path of ['/', '/screener', '/search', '/faq/what-is-roe', '/metrics/roe', '/game', '/game/BankCEO', '/game/how-to-play', '/game/strategy-guide', '/game/fake-bank-names', '/banking']) {
     assert.equal(isAdFreePath(path), false, path);
   }
 });
