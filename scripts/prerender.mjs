@@ -10,6 +10,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { bankPath } from '../src/utils/bankPath.js';
 import { BANKCEO_APP_HEAD } from '../src/data/bankceoApp.js';
+import { isAdFreePath, stripAdTags } from '../src/ads/adsense.js';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -75,6 +76,11 @@ async function loadData() {
  */
 function createPage({ path, title, description, canonical, type = 'website', schema, content, noindex = false, appHead }) {
   let html = template;
+
+  // Bank pages and placeholder pages ship without any ad code
+  if (isAdFreePath(path)) {
+    html = stripAdTags(html);
+  }
 
   // Swap in a page-specific home-screen app (manifest, icon, standalone meta)
   if (appHead) {

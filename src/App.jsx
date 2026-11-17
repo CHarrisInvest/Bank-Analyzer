@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useCallback, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { fetchBankData } from './data/sheets.js';
 import { initializeGA4 } from './analytics/gtag.js';
+import { isAdFreePath, adScriptsLoaded, loadSiteAds } from './ads/adsense.js';
 
 // Layout and Navigation
 import Layout from './components/Layout.jsx';
@@ -23,6 +24,45 @@ function SpaRedirectHandler() {
       navigate(redirectPath, { replace: true });
     }
   }, [navigate, location.pathname]);
+
+  return null;
+}
+
+/**
+ * Keeps ad code off ad-free routes (bank pages, placeholder pages) across
+ * client-side navigation. Ad scripts can't be unloaded once running, so
+ * entering an ad-free route from a page that has them does a full load of
+ * the pre-rendered, ad-free HTML. Going the other way, the scripts are
+ * injected.
+ */
+function AdRouteGuard() {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    const adFree = isAdFreePath(pathname);
+    const hasAds = adScriptsLoaded();
+
+    if (!adFree) {
+      if (!hasAds) loadSiteAds();
+      return;
+    }
+    // The dev server always serves index.html with the ad tags, so a reload
+    // there would never produce an ad-free document.
+    if (!hasAds || import.meta.env.DEV) return;
+
+    // Reload at most once per path in quick succession: a path with no
+    // pre-rendered file (unknown ticker) comes back through 404.html with
+    // the ad tags again, and must not loop.
+    const key = `adfree-reload:${pathname}`;
+    try {
+      const last = Number(sessionStorage.getItem(key)) || 0;
+      if (Date.now() - last < 10000) return;
+      sessionStorage.setItem(key, String(Date.now()));
+    } catch (e) {
+      return;
+    }
+    window.location.reload();
+  }, [pathname]);
 
   return null;
 }
@@ -72,15 +112,17 @@ function App() {
   // React Router can't match routes and renders NotFound. In that case, the
   // pre-rendered static HTML in #seo-root is the correct content to display.
   useEffect(() => {
-    if (loading) return; // Wait for data before hiding pre-rendered content
+    if (loading) return; // Wait for data before removing pre-rendered content
 
     const root = document.getElementById('root');
     const renderedNotFound = root && root.querySelector('.not-found-page, .not-found');
     if (!renderedNotFound) {
       document.body.classList.add('react-ready');
-      // Keep #seo-root in DOM (hidden via CSS) for crawler compatibility.
-      // Crawlers that render JS can still find the pre-rendered content in the DOM
-      // even if it's visually hidden, providing a safety net.
+      // Remove the pre-rendered copy rather than hiding it: content left in
+      // the DOM but clipped out of view reads as hidden text to search and
+      // ad-network reviewers. Crawlers without JS still get it in the HTML.
+      const seoRoot = document.getElementById('seo-root');
+      if (seoRoot) seoRoot.remove();
     }
   }, [loading]);
 
@@ -132,6 +174,7 @@ function App() {
     <HelmetProvider>
       <BrowserRouter basename={basename}>
         <SpaRedirectHandler />
+        <AdRouteGuard />
         <ScrollToTop />
         <Routes>
           {/* Full-screen simulation route — outside Layout, no BankSift nav/footer */}

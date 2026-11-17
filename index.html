@@ -95,20 +95,8 @@
 
       /* Flicker prevention: hide React root until app is mounted, show SEO content */
       body:not(.react-ready) #root { display: none; }
-      /* Once React mounts, visually hide pre-rendered SEO content.
-         Uses clip technique instead of display:none so content remains in the DOM
-         and accessible to search engine crawlers that render JavaScript. */
-      body.react-ready #seo-root {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-      }
+      /* Once React mounts, App.jsx removes #seo-root from the DOM, so the
+         rendered page carries no hidden copy of the content. */
     </style>
 
     <!-- Google Analytics 4 - Loaded asynchronously -->
@@ -128,8 +116,12 @@
       })();
     </script>
 
-    <!-- Google AdSense - site-wide (Auto ads). Static in <head> so it ships in
-         every pre-rendered page and the AdSense crawler can see it.
+    <!-- ads:start -->
+    <!-- Google AdSense (Auto ads). Static in <head> so it ships in pre-rendered
+         pages. Everything between the ads:start / ads:end markers is stripped
+         by scripts/prerender.mjs from ad-free pages (see isAdFreePath in
+         src/ads/adsense.js): bank pages and placeholder pages. Ships in
+         every other pre-rendered page and the AdSense crawler can see it.
          Honors an explicit opt-out from the BankSift cookie banner by
          requesting non-personalized ads, as does a Global Privacy Control
          signal from the browser; otherwise Google's consent message
@@ -147,6 +139,7 @@
       })();
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1929910138338917" crossorigin="anonymous"></script>
+    <!-- ads:end -->
 
     <script>
       // Log JavaScript errors to console without destroying pre-rendered content
@@ -209,10 +202,10 @@
         </ul>
       </div>
     </noscript>
-    <!-- Pre-rendered SEO content: lives OUTSIDE #root so React never destroys it.
+    <!-- Pre-rendered SEO content: lives OUTSIDE #root so it shows until React is ready.
          Prerender.mjs replaces #loading-fallback with page-specific content at build time.
          Visible to all crawlers (Bingbot, Googlebot, Internet Archive) without JS.
-         Hidden via CSS once React mounts (body.react-ready). -->
+         Removed from the DOM by App.jsx once React has mounted with data. -->
     <div id="seo-root">
       <div id="loading-fallback" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; background: #f7fafc;">
         <p style="font-size: 18px; color: #1a365d;">Loading BankSift...</p>
@@ -232,9 +225,11 @@
     </script>
     <script type="module" src="/src/main.jsx"></script>
 
+    <!-- ads:start -->
     <!-- Infolinks (publisher ads). Placed right before </body> per Infolinks'
-         install instructions; ships in every pre-rendered page. -->
+         install instructions; stripped from ad-free pages like the block above. -->
     <script type="text/javascript"> var infolinks_pid = 3449468; var infolinks_wsid = 0; </script>
     <script type="text/javascript" src="https://resources.infolinks.com/js/infolinks_main.js"></script>
+    <!-- ads:end -->
   </body>
 </html>

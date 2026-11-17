@@ -1,10 +1,38 @@
 /**
- * Google AdSense. The loader script ships site-wide in index.html (Auto ads);
+ * Ads. The AdSense (Auto ads) and Infolinks scripts ship in index.html and in
+ * every pre-rendered page except the ad-free ones (see isAdFreePath);
  * the BankCEO play page (/game/BankCEO) also places its own banner unit.
  * Kept free of imports so the pure helpers can be unit tested under plain Node.
  */
 
 export const ADSENSE_CLIENT = 'ca-pub-1929910138338917';
+
+// Infolinks publisher / website ids (mirrors the tag in index.html).
+export const INFOLINKS_PID = 3449468;
+export const INFOLINKS_WSID = 0;
+
+// Pages that must not carry ad code: bank pages (data tables without
+// editorial content) and placeholder pages that have no content yet.
+const AD_FREE_PATHS = new Set(['/game/about', '/game/how-to-play', '/game/strategy-guide']);
+
+/**
+ * Whether a route must not load any ad code
+ * @param {string} pathname - route path, e.g. "/bank/JPM"
+ * @returns {boolean}
+ */
+export function isAdFreePath(pathname) {
+  const path = (pathname || '/').replace(/\/+$/, '') || '/';
+  return path === '/bank' || path.startsWith('/bank/') || AD_FREE_PATHS.has(path);
+}
+
+/**
+ * Remove the ad tags (between ads:start / ads:end markers) from page HTML
+ * @param {string} html
+ * @returns {string}
+ */
+export function stripAdTags(html) {
+  return html.replace(/[ \t]*<!-- ads:start -->[\s\S]*?<!-- ads:end -->\n?/g, '');
+}
 
 // "BankCEO Banner" responsive display ad unit (data-ad-slot).
 export const GAME_AD_SLOT = '1644843402';
@@ -66,4 +94,40 @@ export function loadAdSense() {
   script.crossOrigin = 'anonymous';
   script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
   document.head.appendChild(script);
+}
+
+/**
+ * Whether ad scripts are present in the current document
+ * @returns {boolean}
+ */
+export function adScriptsLoaded() {
+  return Boolean(document.querySelector(
+    'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"], script[src*="resources.infolinks.com"]'
+  ));
+}
+
+/**
+ * Inject the site-wide ad scripts into a document that was served without
+ * them (the visitor landed on an ad-free page, then moved to a regular one).
+ */
+export function loadSiteAds() {
+  const adsbygoogle = (window.adsbygoogle = window.adsbygoogle || []);
+  let consent = null;
+  try {
+    consent = JSON.parse(localStorage.getItem('banksift_cookieConsent'));
+  } catch (e) {
+    // unreadable consent: leave the default
+  }
+  if (forceNonPersonalizedAds(consent, navigator.globalPrivacyControl)) {
+    adsbygoogle.requestNonPersonalizedAds = 1;
+  }
+  loadAdSense();
+
+  if (!document.querySelector('script[src*="resources.infolinks.com"]')) {
+    window.infolinks_pid = INFOLINKS_PID;
+    window.infolinks_wsid = INFOLINKS_WSID;
+    const script = document.createElement('script');
+    script.src = 'https://resources.infolinks.com/js/infolinks_main.js';
+    document.body.appendChild(script);
+  }
 }
