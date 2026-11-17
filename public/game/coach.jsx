@@ -76,7 +76,7 @@ const COACH_FLOWS = {
     {
       target: "[data-coach='capital-provision']",
       title: "Provision override",
-      body: "Override the CECL model to build reserves ahead of trouble or run lean for a few quarters. But charge-offs that outrun the allowance hit capital directly plus a remediation fee, and below 0.35x ACL/NPL coverage a mandatory catch-up overrides you. Auto keeps you safely reserved — and clear of the examiner.",
+      body: "Override the CECL model to build reserves ahead of trouble, or to soften a bad quarter. It is a short-term tool: examiners measure the allowance against the model's level, and each quarter you under-provide while it sits below 95% draws a warning. The third warning, or reserves under 60%, brings an enforcement action — the shortfall restored at once, a penalty of the same size (more for a repeat offence), and eight quarters with the override locked and dividends and buybacks suspended. Auto never draws a warning.",
       placement: "top",
     },
     {

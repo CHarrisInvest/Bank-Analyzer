@@ -217,6 +217,51 @@
     return 1.060;
   }
 
+  // ---------- reserve supervision ----------
+  // The provision override exists to smooth a quarter or two: build a cushion ahead of
+  // trouble, or soften the model's spike when a recession lands. It is not a way to run
+  // the bank permanently under-reserved, so the allowance is measured against the level
+  // the model itself would be carrying (state.modelACL):
+  //   - a quarter where the override books less than the model AND leaves the allowance
+  //     under RESERVE_FLOOR of the model level draws an examiner warning;
+  //   - warnings only clear, one a quarter, once reserves are back above the floor;
+  //   - the third warning, or reserves under RESERVE_GROSS of the model level, brings an
+  //     enforcement action: the whole shortfall is provided at once, a civil money
+  //     penalty of the same size (min $500K) is paid, and a consent order locks the
+  //     override and suspends dividends and buybacks for RESERVE_ORDER_QTRS quarters.
+  //     Repeat offences multiply the penalty (2x for the second order, 3x for the third...).
+  // A pure-Auto bank sits at exactly 100% of the model level and is never touched.
+  const RESERVE_FLOOR = 0.95;
+  const RESERVE_GROSS = 0.60;
+  const RESERVE_WARNINGS = 3;
+  const RESERVE_ORDER_QTRS = 8;
+  const RESERVE_PENALTY_MIN = 500;
+  const RESERVE_PENALTY_MAX = 3_000;
+
+  // Whether a reserve consent order is in force for quarter q (default: the quarter the
+  // state is about to play, which is what the UI wants).
+  function reserveOrderActive(s, q) {
+    const quarter = q != null ? q : s.quarter;
+    return !!s.reserveOrder && quarter <= s.reserveOrder.endsAfter;
+  }
+
+  // Where reserves stand against the model right now, for the UI.
+  function reserveStatus(s) {
+    const modelACL = s.modelACL != null ? s.modelACL : s.bs.acl;
+    const adequacy = modelACL > 0 ? s.bs.acl / modelACL : 1;
+    const orderActive = reserveOrderActive(s);
+    return {
+      acl: s.bs.acl, modelACL, adequacy,
+      shortfall: Math.max(0, modelACL - s.bs.acl),
+      warnings: s.reserveStrikes || 0,
+      maxWarnings: RESERVE_WARNINGS,
+      priorOrders: s.reserveOrderCount || 0,
+      floor: RESERVE_FLOOR, gross: RESERVE_GROSS,
+      orderActive,
+      orderQtrsLeft: orderActive ? s.reserveOrder.endsAfter - s.quarter + 1 : 0,
+    };
+  }
+
   // ---------- initial state ----------
   const INITIAL_STATE = {
     quarter: 1,
@@ -335,6 +380,13 @@
     feeLoadPts: 0,
     overdraftHistory: [],
     cfpbConsent: null,
+    // Reserve supervision (see reserveSupervision below). modelACL is the allowance the
+    // CECL model would be carrying had it never been overridden; null means "same as the
+    // books", which is also how a game saved before this existed picks it up.
+    modelACL: null,
+    reserveStrikes: 0,
+    reserveOrder: null,
+    reserveOrderCount: 0,
     history: [],
     log: [
       { q: 0, type: "system", msg: "Welcome to First Meridian Bank, NA. You are CEO of a single-branch community bank. Make it through 40 quarters without failing." },
@@ -395,6 +447,12 @@
         s.cfpbConsent = null;
         if (!forecastMode) log.push({ q, type: "good", msg: "CFPB CONSENT ORDER LIFTED: reputational drag rolled off." });
       }
+    }
+
+    // Lift an expired reserve consent order.
+    if (s.reserveOrder && q > s.reserveOrder.endsAfter) {
+      s.reserveOrder = null;
+      if (!forecastMode) log.push({ q, type: "good", msg: "RESERVE CONSENT ORDER LIFTED: examiners are satisfied with the allowance. The provision override is available again and dividends and buybacks may resume — set them on the Treasury tab." });
     }
 
     const event = (forecastMode || q === 1) ? null : maybeEvent(s, q);
@@ -473,6 +531,15 @@
     is._nf = nf;
     is._event = event;
 
+    // Reserve supervision outcome. Set before capital actions so an order issued this
+    // quarter already blocks this quarter's dividend and buyback.
+    const warningsBefore = s.reserveStrikes || 0;
+    s.reserveStrikes = is.reserveWarnings;
+    if (is.reserveEnforcement) {
+      s.reserveOrder = { openedAt: q, endsAfter: q + RESERVE_ORDER_QTRS - 1 };
+      s.reserveOrderCount = is.reserveEnforcement.offence;
+    }
+
     const preActionRatios = computeRatios(s, is);
     applyCapitalActions(s, is, preActionRatios);
     applyBalanceSheet(s, deposits, loans, securities, is);
@@ -501,6 +568,23 @@
       if (s._forcedAfsLossLog) {
         log.push({ q, type: "bad", msg: `SECURITIES SOLD AT A LOSS: ${fmt$(Math.abs(s._forcedAfsLossLog))} of unrealized loss was realized into earnings to raise cash. Underwater AFS is not free liquidity.` });
         s._forcedAfsLossLog = 0;
+      }
+    }
+
+    // Reserve supervision announcements.
+    if (!forecastMode) {
+      const adequacyPct = `${(is.reserveAdequacy * 100).toFixed(0)}%`;
+      if (is.reserveEnforcement) {
+        const e = is.reserveEnforcement;
+        const why = e.gross
+          ? `the allowance fell to ${(e.adequacyBefore * 100).toFixed(0)}% of the level the CECL model requires`
+          : `the allowance was under-provided for a third time without being restored`;
+        log.push({ q, type: "bad", msg: `RESERVE ENFORCEMENT ACTION: ${why}. Examiners forced a ${fmt$(e.restore)} catch-up provision to restore it in full and assessed a ${fmt$(e.penalty)} civil money penalty${e.offence > 1 ? ` (${e.offence}x for a repeat offence)` : ""}. A consent order now sets the provision for you and suspends dividends and buybacks for ${RESERVE_ORDER_QTRS} quarters. Finishing the game under the order costs a letter grade.` });
+      } else if (is.reserveWarnings > warningsBefore) {
+        const left = RESERVE_WARNINGS - is.reserveWarnings;
+        log.push({ q, type: "warn", msg: `RESERVE WARNING ${is.reserveWarnings} OF ${RESERVE_WARNINGS}: the override left the allowance at ${adequacyPct} of the level the CECL model requires. ${left === 1 ? "One more under-provided quarter" : "Two more under-provided quarters"} before reserves are back above ${(RESERVE_FLOOR * 100).toFixed(0)}% brings an enforcement action. Return to Auto or provide more to rebuild.` });
+      } else if (warningsBefore > 0 && is.reserveWarnings === 0) {
+        log.push({ q, type: "good", msg: `RESERVE WARNINGS CLEARED: the allowance is back at ${adequacyPct} of the model level and examiners have closed their findings.` });
       }
     }
 
@@ -576,7 +660,12 @@
     };
 
     if (s.quarter > 40 && !s.gameOver) {
-      const finalEq = totalEquity(s.bs);
+      // Closing exam: reserves still below the model level are charged against book
+      // value (after tax) before the run is scored, so easing the provision in the last
+      // few quarters cannot buy a better grade. Zero for any bank at or above the model.
+      const closingReserves = reserveStatus(s);
+      const reserveMarkdown = closingReserves.shortfall > 1 ? closingReserves.shortfall * (1 - 0.21) : 0;
+      const finalEq = totalEquity(s.bs) - reserveMarkdown;
       const finalShares = s.bs.sharesOutstanding;
       const finalBVPS = finalEq / finalShares;
       const finalPx = estimatedSharePrice(s, ratios);
@@ -631,6 +720,10 @@
       const satPenalty = (s.satisfaction ?? 65) < 50;
       if (satPenalty && tierIdx > 0) tierIdx -= 1;
 
+      // Reserve consent order still in force in the final quarter: drops one tier.
+      const reserveOrderPenalty = reserveOrderActive(s, q);
+      if (reserveOrderPenalty && tierIdx > 0) tierIdx -= 1;
+
       const grade = TIERS[tierIdx];
       const GRADE_MSGS = {
         "A+": "OUTSTANDING — top decile bank performance",
@@ -653,6 +746,10 @@
       }
       if (ldPenalty) modifiersApplied.push(`L/D ${ratios.ltd.toFixed(2)} outside healthy band 0.65-1.15`);
       if (satPenalty) modifiersApplied.push(`customer satisfaction ${Math.round(s.satisfaction)} below 50`);
+      if (reserveOrderPenalty) modifiersApplied.push(`finished under a reserve consent order`);
+      if (reserveMarkdown > 0) {
+        modifiersApplied.push(`loss allowance ${fmt$(closingReserves.shortfall)} below the model level — book value marked down $${(reserveMarkdown / finalShares).toFixed(2)}/share at the closing exam`);
+      }
 
       s.gameOver = {
         reason: "victory",
@@ -668,6 +765,7 @@
           finalLTD: ratios.ltd, finalSat: s.satisfaction,
           macroDifficulty, macroScore,
           recessionQtrs, lateCycleQtrs, badEventCount,
+          reserveMarkdown, reserveOrderPenalty,
         },
       };
     }
@@ -1168,7 +1266,6 @@
 
     const targetAclRate = 0.0115 + (s.macro.cycle === "recession" ? 0.004 : s.macro.cycle === "late_cycle" ? 0.0015 : 0);
     const loanTargetACL = avgLoans * targetAclRate;
-    const loanShortfall = Math.max(0, (loanTargetACL - (bs.acl - netChargeOffs)) * 0.25);
     const expectedLossOnNew = newNplFormation * 0.40;
 
     // Coverage-based reserve floor — keeps the Auto model safely above the examiner's
@@ -1176,11 +1273,29 @@
     // pure-Auto bank structurally maintains >= 0.70x coverage and is never cited.
     const projNpl = Math.max(0, bs.npl + newNplFormation - grossChargeOffs - bs.npl * 0.06);
     const coverageFloorACL = projNpl * 0.70;
-    const coverageShortfall = Math.max(0, coverageFloorACL - bs.acl - loanShortfall - expectedLossOnNew * 0.5);
 
-    const modelProvision = Math.max(0, netChargeOffs + loanShortfall + coverageShortfall + expectedLossOnNew * 0.5);
+    // The CECL model's provision for a bank carrying `acl` of allowance.
+    const provisionFor = (acl) => {
+      const loanShortfall = Math.max(0, (loanTargetACL - (acl - netChargeOffs)) * 0.25);
+      const coverageShortfall = Math.max(0, coverageFloorACL - acl - loanShortfall - expectedLossOnNew * 0.5);
+      return Math.max(0, netChargeOffs + loanShortfall + coverageShortfall + expectedLossOnNew * 0.5);
+    };
 
-    const overrideActive = s.decisions.provisionOverride !== null && s.decisions.provisionOverride !== undefined;
+    // Model allowance: what the books would carry had the model never been overridden.
+    // It is the yardstick for reserve supervision, and for a pure-Auto bank it is the
+    // allowance itself.
+    const modelACLStart = s.modelACL != null ? s.modelACL : bs.acl;
+    const modelACLEnd = Math.max(0, modelACLStart + (provisionFor(modelACLStart) - netChargeOffs));
+
+    // Auto: the model's provision for the allowance actually on the books, plus a
+    // rebuild of a quarter of any gap an earlier override left against the model level.
+    const baseProvision = provisionFor(bs.acl);
+    const reserveRebuild = Math.max(0, modelACLEnd - (bs.acl + (baseProvision - netChargeOffs))) * 0.25;
+    const modelProvision = baseProvision + reserveRebuild;
+
+    // A consent order takes the override away.
+    const orderActive = reserveOrderActive(s);
+    const overrideActive = !orderActive && s.decisions.provisionOverride !== null && s.decisions.provisionOverride !== undefined;
     let provision = overrideActive ? s.decisions.provisionOverride : modelProvision;
 
     // Piece B — mandatory catch-up: an override that has run ACL/NPL coverage below
@@ -1192,6 +1307,29 @@
       const rebuildNeed = Math.max(0, bs.npl * 0.50 - (bs.acl - netChargeOffs));
       const catchUp = Math.min(rebuildNeed, avgLoans * 0.004);
       if (catchUp > provision) { provision = catchUp; provisionCatchUp = true; }
+    }
+
+    // Reserve supervision (see the constants at the top of the file).
+    const allowanceAfter = (prov) => Math.max(0, bs.acl + (prov - netChargeOffs));
+    let reserveAdequacy = modelACLEnd > 0 ? allowanceAfter(provision) / modelACLEnd : 1;
+    const underProvided = overrideActive && provision < modelProvision - 0.5 && reserveAdequacy < RESERVE_FLOOR;
+    let reserveWarnings = s.reserveStrikes || 0;
+    let reserveEnforcement = null;
+    let reservePenalty = 0;
+    if (underProvided) {
+      reserveWarnings += 1;
+      const gross = reserveAdequacy < RESERVE_GROSS;
+      if (gross || reserveWarnings >= RESERVE_WARNINGS) {
+        const restore = Math.max(0, modelACLEnd - allowanceAfter(provision));
+        const offence = (s.reserveOrderCount || 0) + 1;
+        reservePenalty = clamp(restore, RESERVE_PENALTY_MIN, RESERVE_PENALTY_MAX) * offence;
+        reserveEnforcement = { restore, penalty: reservePenalty, gross, offence, adequacyBefore: reserveAdequacy };
+        provision += restore;
+        reserveAdequacy = 1;
+        reserveWarnings = 0;
+      }
+    } else if (reserveWarnings > 0 && reserveAdequacy >= RESERVE_FLOOR) {
+      reserveWarnings -= 1;
     }
 
     // Piece A — charge-offs beyond the allowance + provision spill into the income
@@ -1257,6 +1395,7 @@
     nonintExpenseVariable += advLenderExpense;
     if (event?.type === "fraud") nonintExpenseVariable += 350;
     nonintExpenseVariable += reserveShortfallFee;
+    nonintExpenseVariable += reservePenalty;
     let nonintExpense = nonintExpenseFixed + nonintExpenseVariable;
 
     // Uncovered charge-offs flow through the income statement as a credit cost,
@@ -1272,6 +1411,7 @@
       interestIncome, interestExpense, nii,
       provision, netChargeOffs, grossChargeOffs,
       uncoveredChargeOffs, reserveShortfallFee, provisionCatchUp,
+      modelProvision, modelACLEnd, reserveAdequacy, reserveWarnings, reserveEnforcement, reservePenalty,
       nonintIncome, nonintExpense,
       nonintExpenseFixed, nonintExpenseVariable,
       pretax, tax, netIncome,
@@ -1321,9 +1461,11 @@
     else payoutFactor = 0;
 
     const regulatory = earningsBase * payoutFactor;
+    // A reserve consent order suspends distributions outright.
+    const suspended = reserveOrderActive(s);
     return {
-      capacity: Math.min(accounting, regulatory),
-      payoutFactor, accounting, regulatory, earningsBase,
+      capacity: suspended ? 0 : Math.min(accounting, regulatory),
+      payoutFactor, accounting, regulatory, earningsBase, suspended,
     };
   }
 
@@ -1333,7 +1475,7 @@
     // PCA-style restriction: if indirect concentration is critical, suppress discretionary
     // capital distributions (dividends + buybacks). Auto-detected, examiner-imposed.
     const indirectShare = s.bs.loansGross > 0 ? s.bs.loansIndirect / s.bs.loansGross : 0;
-    const distRestricted = indirectShare > 0.25;
+    const distRestricted = indirectShare > 0.25 || reserveOrderActive(s);
     if (distRestricted) {
       dec.repurchaseAmount = 0;
       dec.dividendPerShare = Math.min(dec.dividendPerShare, 0);
@@ -1438,7 +1580,7 @@
     if (s.bs.subDebt === 0) s.bs.subDebtAvgCost = 0;
     s.bs.cash += subDelta;
 
-    // Brokered CDs: target balance dial; auto-rolls each quarter at FedFunds + 35bp
+    // Brokered CDs: target balance dial; auto-rolls each quarter at FedFunds + 75bp
     // (cost is already applied in computeIncome based on opening balance).
     const bcdTarget = Math.max(0, dec.brokeredCDsTarget || 0);
     const bcdDelta = bcdTarget - (s.bs.brokeredCDs || 0);
@@ -1486,6 +1628,7 @@
     bs.loansGross = Math.max(0, bs.loansGross - is.netChargeOffs);
     bs.acl += is.provision - is.netChargeOffs;
     bs.acl = Math.max(0, bs.acl);
+    if (is.modelACLEnd != null) s.modelACL = is.modelACLEnd;
     const cures = bs.npl * 0.06;
     bs.npl = Math.max(0, bs.npl + is.newNplFormation - is.grossChargeOffs - cures);
 
@@ -1771,6 +1914,8 @@
     if (aociPctEquity < -0.10) pb *= 0.92;
     if (aociPctEquity < -0.20) pb *= 0.85;
 
+    if (reserveOrderActive(s)) pb *= 0.85;
+
     const marketNoise = 1 + noise(s.runSeed, s.quarter, 9, 0.04);
     pb *= marketNoise;
 
@@ -1786,6 +1931,11 @@
     computeSatisfaction, retentionMult, distributionCapacity,
     computeFeeIncome, computeFeeLoadPts, computeAdLift, satisfactionImpact,
     latentRiskFlow, pendingVintageRisk, totalLatentRisk,
+    reserveStatus, reserveOrderActive,
+    RESERVE_RULES: {
+      floor: RESERVE_FLOOR, gross: RESERVE_GROSS, warnings: RESERVE_WARNINGS,
+      orderQtrs: RESERVE_ORDER_QTRS, penaltyMin: RESERVE_PENALTY_MIN, penaltyMax: RESERVE_PENALTY_MAX,
+    },
     totalAssets, totalDeposits, totalLiabilities, totalEquity,
     fmt$, fmtPct, fmtBps, clamp, noise,
   };

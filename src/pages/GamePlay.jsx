@@ -22,11 +22,15 @@ function GamePlay() {
   const frameRef = useRef(null);
   const [canFullscreen] = useState(fullscreenEnabled);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  // The banner shows the whole time the game is open; adNumber bumps to load
-  // a fresh ad (see refreshesAd).
+  // adNumber bumps to request a fresh ad (see refreshesAd). The banner bar
+  // only takes space while the current request has an ad to show: servedKey
+  // names the request AdSense last filled, so a new request starts collapsed.
   const [adNumber, setAdNumber] = useState(0);
   const [adSize, setAdSize] = useState(() => bannerSizeFor(window.innerWidth));
-  const adBarH = BANNER_SIZES[adSize].height + AD_PAD * 2 + 1; // +1 for the border
+  const [servedKey, setServedKey] = useState(null);
+  const adKey = `${adNumber}-${adSize}`;
+  const adServed = servedKey === adKey;
+  const adBarH = adServed ? BANNER_SIZES[adSize].height + AD_PAD * 2 + 1 : 0; // +1 for the border
   const frameTop = STRIP_H + adBarH;
 
   useEffect(() => {
@@ -182,6 +186,12 @@ function GamePlay() {
           box-sizing: border-box;
           overflow: hidden;
         }
+        /* No ad to show: the bar collapses and the game takes the space. The
+           unit stays laid out at its real size inside (clipped, not
+           display:none) so AdSense can still measure and fill it. */
+        .bs-game-play .bs-game-ad.is-empty {
+          padding: 0; border-bottom: 0;
+        }
         .bs-game-play .bs-game-frame {
           position: absolute;
           left: 0; right: 0;
@@ -250,8 +260,12 @@ function GamePlay() {
         </div>
       </div>
 
-      <div className="bs-game-ad" style={{ height: adBarH }}>
-        <GameAdBanner key={`${adNumber}-${adSize}`} size={adSize} />
+      <div className={`bs-game-ad${adServed ? '' : ' is-empty'}`} style={{ height: adBarH }} aria-hidden={!adServed}>
+        <GameAdBanner
+          key={adKey}
+          size={adSize}
+          onServed={(served) => setServedKey((current) => (served ? adKey : current === adKey ? null : current))}
+        />
       </div>
 
       <iframe
