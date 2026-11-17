@@ -5,7 +5,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { refreshesAd, bannerSizeFor, forceNonPersonalizedAds } from '../../src/ads/adsense.js';
+import { refreshesAd, bannerSizeFor, forceNonPersonalizedAds, isAdFreePath, stripAdTags } from '../../src/ads/adsense.js';
 
 test('the end screen loads a fresh ad', () => {
   assert.equal(refreshesAd('game_over'), true);
@@ -41,4 +41,21 @@ test('a Global Privacy Control signal forces non-personalized ads', () => {
   assert.equal(forceNonPersonalizedAds({ status: 'pending', advertising: false }, true), true);
   assert.equal(forceNonPersonalizedAds({ status: 'accepted', advertising: true }, true), true);
   assert.equal(forceNonPersonalizedAds({ status: 'accepted', advertising: true }, undefined), false);
+});
+
+test('bank pages and placeholder pages carry no ad code', () => {
+  for (const path of ['/bank/JPM', '/bank/JPM/', '/bank/19617', '/game/about', '/game/how-to-play', '/game/strategy-guide']) {
+    assert.equal(isAdFreePath(path), true, path);
+  }
+});
+
+test('content pages and the game keep their ads', () => {
+  for (const path of ['/', '/screener', '/search', '/faq/what-is-roe', '/metrics/roe', '/game', '/game/BankCEO', '/game/fake-bank-names', '/banking']) {
+    assert.equal(isAdFreePath(path), false, path);
+  }
+});
+
+test('stripping ad tags removes every marked block and nothing else', () => {
+  const html = '<head>\n  <!-- ads:start -->\n  <script src="a.js"></script>\n  <!-- ads:end -->\n  <title>t</title>\n</head><body>\n  <!-- ads:start -->\n  <script src="b.js"></script>\n  <!-- ads:end -->\n</body>';
+  assert.equal(stripAdTags(html), '<head>\n  <title>t</title>\n</head><body>\n</body>');
 });

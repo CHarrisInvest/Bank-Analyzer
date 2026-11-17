@@ -128,8 +128,12 @@
       })();
     </script>
 
-    <!-- Google AdSense - site-wide (Auto ads). Static in <head> so it ships in
-         every pre-rendered page and the AdSense crawler can see it.
+    <!-- ads:start -->
+    <!-- Google AdSense (Auto ads). Static in <head> so it ships in pre-rendered
+         pages. Everything between the ads:start / ads:end markers is stripped
+         by scripts/prerender.mjs from ad-free pages (see isAdFreePath in
+         src/ads/adsense.js): bank pages and placeholder pages. Ships in
+         every other pre-rendered page and the AdSense crawler can see it.
          Honors an explicit opt-out from the BankSift cookie banner by
          requesting non-personalized ads, as does a Global Privacy Control
          signal from the browser; otherwise Google's consent message
@@ -147,6 +151,7 @@
       })();
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1929910138338917" crossorigin="anonymous"></script>
+    <!-- ads:end -->
 
     <script>
       // Log JavaScript errors to console without destroying pre-rendered content
@@ -232,9 +237,11 @@
     </script>
     <script type="module" src="/src/main.jsx"></script>
 
+    <!-- ads:start -->
     <!-- Infolinks (publisher ads). Placed right before </body> per Infolinks'
-         install instructions; ships in every pre-rendered page. -->
+         install instructions; stripped from ad-free pages like the block above. -->
     <script type="text/javascript"> var infolinks_pid = 3449468; var infolinks_wsid = 0; </script>
     <script type="text/javascript" src="https://resources.infolinks.com/js/infolinks_main.js"></script>
+    <!-- ads:end -->
   </body>
 </html>
