@@ -112,15 +112,17 @@ function App() {
   // React Router can't match routes and renders NotFound. In that case, the
   // pre-rendered static HTML in #seo-root is the correct content to display.
   useEffect(() => {
-    if (loading) return; // Wait for data before hiding pre-rendered content
+    if (loading) return; // Wait for data before removing pre-rendered content
 
     const root = document.getElementById('root');
     const renderedNotFound = root && root.querySelector('.not-found-page, .not-found');
     if (!renderedNotFound) {
       document.body.classList.add('react-ready');
-      // Keep #seo-root in DOM (hidden via CSS) for crawler compatibility.
-      // Crawlers that render JS can still find the pre-rendered content in the DOM
-      // even if it's visually hidden, providing a safety net.
+      // Remove the pre-rendered copy rather than hiding it: content left in
+      // the DOM but clipped out of view reads as hidden text to search and
+      // ad-network reviewers. Crawlers without JS still get it in the HTML.
+      const seoRoot = document.getElementById('seo-root');
+      if (seoRoot) seoRoot.remove();
     }
   }, [loading]);
 

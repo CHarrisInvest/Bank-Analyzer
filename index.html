@@ -95,20 +95,8 @@
 
       /* Flicker prevention: hide React root until app is mounted, show SEO content */
       body:not(.react-ready) #root { display: none; }
-      /* Once React mounts, visually hide pre-rendered SEO content.
-         Uses clip technique instead of display:none so content remains in the DOM
-         and accessible to search engine crawlers that render JavaScript. */
-      body.react-ready #seo-root {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-      }
+      /* Once React mounts, App.jsx removes #seo-root from the DOM, so the
+         rendered page carries no hidden copy of the content. */
     </style>
 
     <!-- Google Analytics 4 - Loaded asynchronously -->
@@ -214,10 +202,10 @@
         </ul>
       </div>
     </noscript>
-    <!-- Pre-rendered SEO content: lives OUTSIDE #root so React never destroys it.
+    <!-- Pre-rendered SEO content: lives OUTSIDE #root so it shows until React is ready.
          Prerender.mjs replaces #loading-fallback with page-specific content at build time.
          Visible to all crawlers (Bingbot, Googlebot, Internet Archive) without JS.
-         Hidden via CSS once React mounts (body.react-ready). -->
+         Removed from the DOM by App.jsx once React has mounted with data. -->
     <div id="seo-root">
       <div id="loading-fallback" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; background: #f7fafc;">
         <p style="font-size: 18px; color: #1a365d;">Loading BankSift...</p>
