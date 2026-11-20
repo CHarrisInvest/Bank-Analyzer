@@ -19,7 +19,7 @@ function Block({ block }) {
     case 'list':
       return <ul>{block.items.map((item, i) => <li key={i}><Inline text={item} /></li>)}</ul>;
     case 'steps':
-      return <ol>{block.items.map((item, i) => <li key={i}><Inline text={item} /></li>)}</ol>;
+      return <ol className="bs-guide-steps">{block.items.map((item, i) => <li key={i}><Inline text={item} /></li>)}</ol>;
     case 'note':
       return (
         <aside className="bs-guide-note">
@@ -72,82 +72,114 @@ function GameGuide({ guide }) {
       />
 
       <style>{`
-        .bs-guide { max-width: 800px; margin: 0 auto; padding: 40px 24px 64px; }
-        .bs-guide .breadcrumb { margin-bottom: 22px; }
+        /* Built from BankSift's own article patterns: white reading panel on the
+           page background, navy step numbers, small radii, no shadows. */
+        .bs-guide { max-width: 860px; margin: 0 auto; padding: 32px 24px 64px; }
+        .bs-guide .breadcrumb { margin-bottom: 16px; }
+        .bs-guide-panel {
+          background: #fff; border: 1px solid #e2e8f0; border-radius: 6px;
+          padding: 36px 44px 40px;
+        }
         .bs-guide-eyebrow {
-          font-size: 13px; letter-spacing: 0.04em;
-          color: #c98c3b; font-weight: 600; margin: 0 0 12px;
+          font-size: 14px; font-weight: 600; color: #1a365d; margin: 0 0 8px;
         }
         .bs-guide h1 {
-          font-size: 2.25rem; line-height: 1.12; margin: 0 0 16px;
-          letter-spacing: -0.02em; color: #1a202c;
+          font-size: 2.1rem; line-height: 1.15; margin: 0 0 14px; color: #1a202c;
         }
         .bs-guide-lede {
-          font-size: 1.125rem; line-height: 1.6; color: #4a5568; margin: 0 0 28px;
+          font-size: 1.125rem; line-height: 1.65; color: #4a5568; margin: 0 0 22px;
         }
         .bs-guide-play {
-          display: inline-flex; align-items: center; gap: 10px;
-          padding: 13px 24px; border-radius: 12px;
-          background: linear-gradient(135deg, #f3b561 0%, #c98c3b 100%);
-          color: #1a1408; font-weight: 700; font-size: 16px;
-          text-decoration: none; letter-spacing: -0.01em;
-          box-shadow: 0 6px 20px rgba(243,181,97,0.28);
-          transition: transform 0.12s, box-shadow 0.2s;
+          display: inline-flex; align-items: center; gap: 8px;
+          padding: 11px 20px; border-radius: 6px;
+          background: #1a365d; color: #fff; font-weight: 600; font-size: 15px;
+          text-decoration: none; transition: background 0.15s;
         }
-        .bs-guide-play:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(243,181,97,0.38); }
+        .bs-guide-play:hover { background: #2c5282; }
+
+        /* Contents */
         .bs-guide-toc {
-          margin: 32px 0 8px; padding: 18px 22px;
-          border: 1px solid #e2e8f0; border-radius: 12px; background: #fafbfc;
+          margin: 30px 0 4px; padding: 18px 22px 12px;
+          background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 6px;
         }
         .bs-guide-toc h2 {
-          margin: 0 0 10px; font-size: 13px; font-weight: 600;
-          letter-spacing: 0.04em; color: #718096;
+          margin: 0 0 10px; font-size: 15px; font-weight: 700; color: #1a365d;
         }
         .bs-guide-toc ol {
-          margin: 0; padding-left: 20px; columns: 2; column-gap: 32px;
-          font-size: 14.5px; line-height: 1.5;
+          margin: 0; padding: 0; list-style: none; counter-reset: toc;
+          columns: 2; column-gap: 32px; font-size: 15px; line-height: 1.45;
         }
-        .bs-guide-toc li { margin-bottom: 6px; break-inside: avoid; }
+        .bs-guide-toc li {
+          counter-increment: toc; break-inside: avoid;
+          display: flex; gap: 10px; margin-bottom: 8px;
+        }
+        .bs-guide-toc li::before {
+          content: counter(toc); flex: 0 0 18px; text-align: right;
+          font-variant-numeric: tabular-nums; color: #718096; font-size: 14px;
+        }
         .bs-guide-toc a { color: #2b6cb0; text-decoration: none; }
         .bs-guide-toc a:hover { text-decoration: underline; }
+
+        /* Sections */
         .bs-guide-section { scroll-margin-top: 80px; }
         .bs-guide-section h2 {
-          font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.01em;
-          color: #1a365d; margin: 48px 0 14px;
-          padding-top: 28px; border-top: 1px solid #e2e8f0;
+          font-size: 1.45rem; line-height: 1.25; color: #1a365d;
+          margin: 40px 0 14px; padding-top: 32px; border-top: 1px solid #e2e8f0;
         }
         .bs-guide-section h3 {
-          font-size: 1.1rem; line-height: 1.3; color: #2d3748; margin: 28px 0 8px;
+          font-size: 1.1rem; line-height: 1.3; color: #1a202c; margin: 28px 0 8px;
         }
         .bs-guide-section p,
         .bs-guide-section li { font-size: 16px; line-height: 1.7; color: #2d3748; }
         .bs-guide-section p { margin: 0 0 16px; }
-        .bs-guide-section ul,
-        .bs-guide-section ol { margin: 0 0 18px; padding-left: 24px; }
-        .bs-guide-section li { margin-bottom: 8px; }
+        .bs-guide-section ul { margin: 0 0 18px; padding-left: 22px; }
+        .bs-guide-section ul li { margin-bottom: 8px; padding-left: 2px; }
+        .bs-guide-section ul li::marker { color: #2b6cb0; }
         .bs-guide-section a { color: #2b6cb0; }
         .bs-guide-section strong { color: #1a202c; }
+
+        /* Numbered steps: navy number markers, as on the Screener Guide */
+        .bs-guide-section ol.bs-guide-steps {
+          list-style: none; counter-reset: step; margin: 6px 0 20px; padding: 0;
+        }
+        .bs-guide-steps li {
+          counter-increment: step; position: relative;
+          padding-left: 44px; margin-bottom: 14px; min-height: 28px;
+        }
+        .bs-guide-steps li::before {
+          content: counter(step); position: absolute; left: 0; top: 0;
+          width: 28px; height: 28px; border-radius: 50%;
+          background: #1a365d; color: #fff; font-size: 14px; font-weight: 700;
+          display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Notes */
         .bs-guide-note {
-          margin: 22px 0; padding: 16px 20px; border-radius: 10px;
-          background: #fffaf2; border: 1px solid #f1dfc2; border-left: 4px solid #c98c3b;
+          margin: 24px 0; padding: 16px 20px;
+          background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 6px;
         }
-        .bs-guide-note p { margin: 0; font-size: 15px; line-height: 1.6; }
-        .bs-guide-note .bs-guide-note-title { font-weight: 700; color: #1a202c; margin-bottom: 4px; }
+        .bs-guide-note p { margin: 0; font-size: 15.5px; line-height: 1.65; }
+        .bs-guide-note .bs-guide-note-title { font-weight: 700; color: #1a365d; margin-bottom: 4px; }
+
+        /* Formula: same treatment as the formula on the metric pages */
         .bs-guide-formula {
-          margin: 18px 0; padding: 14px 18px; border-radius: 10px;
-          background: #f7fafc; border: 1px solid #e2e8f0;
+          margin: 18px 0 20px; padding: 16px 20px;
+          background: linear-gradient(135deg, rgba(26, 54, 93, 0.06), rgba(43, 108, 176, 0.1));
+          border: 1px solid rgba(43, 108, 176, 0.18); border-radius: 6px;
           font-family: var(--font-family-mono, ui-monospace, Menlo, monospace);
-          font-size: 14.5px; line-height: 1.5; color: #1a365d; overflow-x: auto;
+          font-size: 14.5px; font-weight: 600; line-height: 1.5; color: #0f2942; overflow-x: auto;
         }
+
+        /* Tables */
         .bs-guide-table-wrap {
-          margin: 18px 0 22px; overflow-x: auto;
-          border: 1px solid #e2e8f0; border-radius: 10px;
+          margin: 18px 0 24px; overflow-x: auto;
+          border: 1px solid #e2e8f0; border-radius: 6px;
         }
         .bs-guide table { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.5; }
         .bs-guide caption {
-          caption-side: top; text-align: left; padding: 10px 14px;
-          font-size: 13px; font-weight: 600; color: #4a5568;
-          background: #fafbfc; border-bottom: 1px solid #e2e8f0;
+          caption-side: top; text-align: left; padding: 11px 14px;
+          font-size: 14px; font-weight: 700; color: #1a365d;
+          border-bottom: 1px solid #e2e8f0;
         }
         .bs-guide th, .bs-guide td {
           padding: 10px 14px; text-align: left; vertical-align: top;
@@ -155,33 +187,42 @@ function GameGuide({ guide }) {
         }
         .bs-guide thead th {
           font-size: 13px; font-weight: 600; color: #4a5568;
-          background: #f7fafc; white-space: nowrap;
+          background: #f7fafc; border-bottom: 1px solid #e2e8f0; white-space: nowrap;
         }
-        .bs-guide tbody th { font-weight: 600; color: #1a202c; min-width: 120px; }
-        .bs-guide tbody tr:last-child th, .bs-guide tbody tr:last-child td { border-bottom: 0; }
+        .bs-guide tbody tr:nth-child(even) th,
+        .bs-guide tbody tr:nth-child(even) td { background: #fbfcfd; }
+        .bs-guide tbody th { font-weight: 600; color: #1a202c; min-width: 110px; }
+        .bs-guide tbody tr:last-child th,
+        .bs-guide tbody tr:last-child td { border-bottom: 0; }
+
+        /* Closing */
         .bs-guide-end {
-          margin-top: 52px; padding: 26px 28px; border-radius: 14px;
-          background: #0d1218; color: #eef2f6;
-          display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px;
+          margin-top: 24px; padding: 24px 28px;
+          background: #fff; border: 1px solid #e2e8f0; border-radius: 6px;
+          display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px;
         }
-        .bs-guide-end-body { flex: 1 1 280px; }
-        .bs-guide-end h2 { margin: 0 0 6px; font-size: 1.25rem; color: #eef2f6; letter-spacing: -0.01em; }
-        .bs-guide-end p { margin: 0; font-size: 14.5px; line-height: 1.55; color: #9aa7b8; }
+        .bs-guide-end-body { flex: 1 1 300px; }
+        .bs-guide-end h2 { margin: 0 0 4px; font-size: 1.2rem; color: #1a365d; }
+        .bs-guide-end p { margin: 0; font-size: 15px; line-height: 1.6; color: #4a5568; }
         .bs-guide-more {
-          margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 14.5px;
+          margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 15px;
         }
-        .bs-guide-more a { color: #c98c3b; text-decoration: none; font-weight: 500; }
+        .bs-guide-more a { color: #2b6cb0; text-decoration: none; font-weight: 500; }
         .bs-guide-more a:hover { text-decoration: underline; }
+
         @media (max-width: 640px) {
-          .bs-guide { padding: 28px 16px 48px; }
-          .bs-guide h1 { font-size: 1.8rem; }
+          .bs-guide { padding: 20px 12px 48px; }
+          .bs-guide-panel { padding: 24px 18px 28px; }
+          .bs-guide h1 { font-size: 1.75rem; }
           .bs-guide-lede { font-size: 1.05rem; }
+          .bs-guide-toc { padding: 16px 16px 10px; }
           .bs-guide-toc ol { columns: 1; }
-          .bs-guide-section h2 { font-size: 1.3rem; margin-top: 40px; padding-top: 24px; }
+          .bs-guide-section h2 { font-size: 1.3rem; margin-top: 32px; padding-top: 26px; }
           .bs-guide th, .bs-guide td { padding: 9px 11px; }
           /* Wide tables keep readable columns and scroll sideways instead. */
           .bs-guide .bs-guide-table-wide { min-width: 560px; }
-          .bs-guide-end { padding: 22px 18px; }
+          .bs-guide-end { padding: 20px 18px; }
+          .bs-guide-formula { padding: 12px 14px; font-size: 13.5px; }
         }
       `}</style>
 
@@ -191,7 +232,7 @@ function GameGuide({ guide }) {
         <span>{guide.navLabel}</span>
       </nav>
 
-      <article>
+      <article className="bs-guide-panel">
         <header>
           <p className="bs-guide-eyebrow">BankCEO · Bank Management Simulation</p>
           <h1>{guide.title}</h1>
