@@ -30,22 +30,14 @@ const HOW_TO_PLAY = {
   metaDescription:
     "Learn how to play BankCEO, the free bank simulation game. What every tab and control does, how a quarter works, what ends the game, and how your final grade is scored.",
   lede:
-    "BankCEO puts you in charge of a small community bank for ten years. Each turn you look at the numbers, change whatever settings you like, and press one button to run the next three months. This page covers the screen, every control, and how the game works out your grade.",
+    "BankCEO puts you in charge of a small community bank for ten years. Each quarter you make your decisions, then advance three months to see how they played out. This page covers the screen, every control, and how the game works out your grade.",
   sections: [
     {
       id: 'one-minute',
       heading: 'The game in one minute',
       blocks: [
-        { type: 'p', text: "You are the new CEO of First Meridian Bank, a one-branch bank with $335 million in assets. The game lasts 40 turns. Each turn is one quarter (three months), so a full game covers ten years." },
-        { type: 'p', text: "A turn has three parts:" },
-        {
-          type: 'steps',
-          items: [
-            "**Read.** The Overview tab shows what happened last quarter and a forecast for the next one.",
-            "**Decide.** Change any settings on the Operations and Treasury tabs. The forecast updates as you move them.",
-            "**Run.** Press the amber Run button. The quarter plays out, the results post, and you go again.",
-          ],
-        },
+        { type: 'p', text: "You are the new CEO of First Meridian Bank, a one-branch bank with $335 million in assets. The game lasts 40 quarters of three months each, so a full game covers ten years." },
+        { type: 'p', text: "Each quarter, **make your decisions and advance to see the results.** Change as much or as little as you like on the Operations and Treasury tabs, and the forecast for next quarter updates as you go. When it looks right, press the amber Run button. The quarter plays out, the results post, and the next one is ready." },
         { type: 'p', text: "The game can end two ways. If the bank's capital runs too low, regulators close it and the game is over on the spot. If you make it through all 40 quarters, you get a letter grade from F to A+ based on how much value you built for shareholders." },
         {
           type: 'note',
@@ -84,7 +76,7 @@ const HOW_TO_PLAY = {
       blocks: [
         { type: 'h3', text: 'The forecast and the surprise' },
         { type: 'p', text: "The Overview tab opens with a table of headline numbers: net income, earnings per share, net interest margin, provision, loans, deposits and a few more. One column shows last quarter's actual results. Another shows the forecast for next quarter under your current settings." },
-        { type: 'p', text: "The forecast is an estimate. It assumes a quiet quarter, with no surprise events and none of the small random swings in loan demand, deposit flows and loan losses that the real quarter will bring. On larger screens the table adds Plan and Surprise columns after your first turn, so you can see how far each result landed from what you expected." },
+        { type: 'p', text: "The forecast is an estimate. It assumes a quiet quarter, with no surprise events and none of the small random swings in loan demand, deposit flows and loan losses that the real quarter will bring. On larger screens the table adds Plan and Surprise columns after your first quarter, so you can see how far each result landed from what you expected." },
         { type: 'p', text: "Below the table, the Earnings Walk splits the expected change in profit into its causes: interest income, provision, fee income, expenses and tax. When the forecast drops after you move a slider, this is the quickest place to see why." },
         { type: 'h3', text: 'What carries over and what resets' },
         { type: 'p', text: "Sliders on the Operations tab stay where you leave them. So do the dividend, the securities duration, the liquidity target and the brokered CD balance." },
@@ -526,7 +518,7 @@ const STRATEGY_GUIDE = {
         { type: 'h3', text: 'The capacity limit' },
         { type: 'p', text: "You cannot hand back more than about a year of profit in any one quarter, and dividends are served first. Asking for $5 million of buybacks will usually get you less. The Distribution Capacity bar shows how much is fundable." },
         { type: 'p', text: "A lower dividend leaves more room for buybacks, and in testing that trade was worth making. The full plan at the end of this guide scored higher with a $0.10 dividend than with $0.18, and higher again with none." },
-        { type: 'p', text: "Two housekeeping points. The repurchase slider resets to zero after every quarter, so set it again each turn while the window is open. And keep CET1 comfortably above 10%, because the same recession that makes the stock cheap is also raising your loan losses." },
+        { type: 'p', text: "Two housekeeping points. The repurchase slider resets to zero after every quarter, so set it again each quarter while the window is open. And keep CET1 comfortably above 10%, because the same recession that makes the stock cheap is also raising your loan losses." },
         { type: 'h3', text: 'Raising capital' },
         { type: 'p', text: "Equity issuance is the emergency exit. It costs a 5% fee, and a bank that needs it is almost always trading below book, which means selling shares for less than they are worth on paper. Use it only when the alternative is failure." },
         { type: 'p', text: "Subordinated debt will not save a bank either. It raises the total capital ratio but leaves CET1 and Tier 1 leverage, the two ratios that end the game, where they were. The [difference between the capital ratios](/faq/cet1-vs-tier1-vs-total-capital) is worth a read if that surprises you." },
@@ -611,10 +603,9 @@ const STRATEGY_GUIDE = {
           items: [
             "Read the Loan/Deposit ratio on the Overview tab. Under 0.85: Push, marketing off. From 0.85 to 0.97: Push, marketing at $100K. Over 0.97: Match Demand, marketing at $250K.",
             "Open Treasury and compare the estimated price with BVPS under the repurchase slider. If the price is lower and CET1 is above 12%, slide the repurchase to its maximum. Otherwise leave it at zero.",
-            "Press Run.",
           ],
         },
-        { type: 'p', text: "That is the entire plan. It never touches underwriting, deposit pricing, the liquidity target, wholesale borrowing or the provision." },
+        { type: 'p', text: "Then run the quarter. That is the entire plan. It never touches underwriting, deposit pricing, the liquidity target, wholesale borrowing or the provision." },
         { type: 'h3', text: 'Variations' },
         {
           type: 'table',
