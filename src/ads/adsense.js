@@ -1,7 +1,8 @@
 /**
  * Ads. The AdSense (Auto ads) and Infolinks scripts ship in index.html and in
  * every pre-rendered page except the ad-free ones (see isAdFreePath);
- * the BankCEO play page (/game/BankCEO) also places its own banner unit.
+ * the BankCEO play page (/game/BankCEO) also places its own banner unit,
+ * which takes up space only while an ad is being served.
  * Kept free of imports so the pure helpers can be unit tested under plain Node.
  */
 
@@ -12,8 +13,9 @@ export const INFOLINKS_PID = 3449468;
 export const INFOLINKS_WSID = 0;
 
 // Pages that must not carry ad code: bank pages (data tables without
-// editorial content) and placeholder pages that have no content yet.
-const AD_FREE_PATHS = new Set(['/game/about', '/game/how-to-play', '/game/strategy-guide']);
+// editorial content), plus any single route listed here, such as a
+// placeholder page that has no content yet.
+const AD_FREE_PATHS = new Set();
 
 /**
  * Whether a route must not load any ad code
@@ -54,8 +56,20 @@ export function bannerSizeFor(viewportWidth) {
   return viewportWidth >= BANNER_SIZES.desktop.width + 32 ? 'desktop' : 'mobile';
 }
 
-// Game events that load a fresh ad. The banner is always shown on the play
-// page, and each page load (opening the game, or refreshing) gets its own ad.
+/**
+ * Whether AdSense filled an ad unit. AdSense sets data-ad-status on the <ins>
+ * to "filled" or "unfilled" once the request resolves; until then (or when
+ * the script is blocked) the attribute is absent.
+ * @param {string | null | undefined} status - the unit's data-ad-status
+ * @returns {boolean}
+ */
+export function adIsServed(status) {
+  return status === 'filled';
+}
+
+// Game events that request a fresh ad. Each page load (opening the game, or
+// refreshing) also requests one. The banner bar is only shown while an ad is
+// actually being served (see adIsServed).
 const AD_REFRESH_EVENTS = new Set([
   'game_over',    // end screen reached, success or failure
   'game_restart', // next game or new game

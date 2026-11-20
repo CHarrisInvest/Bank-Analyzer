@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ADSENSE_CLIENT, GAME_AD_SLOT, BANNER_SIZES, loadAdSense, forceNonPersonalizedAds } from '../ads/adsense.js';
+import { ADSENSE_CLIENT, GAME_AD_SLOT, BANNER_SIZES, loadAdSense, forceNonPersonalizedAds, adIsServed } from '../ads/adsense.js';
 import { getStoredConsent } from '../analytics/consent.js';
 
 /**
@@ -9,12 +9,30 @@ import { getStoredConsent } from '../analytics/consent.js';
  * Each mount requests one ad; the parent remounts it (via key) to request a
  * fresh one, e.g. for a new game or a different banner size.
  *
+ * The parent keeps the banner bar collapsed until AdSense reports the unit as
+ * filled, so an empty slot (no fill, blocked script, request still pending)
+ * never takes space from the game. onServed reports each change.
+ *
  * @param {'mobile' | 'desktop'} size
+ * @param {(served: boolean) => void} [onServed]
  */
-function GameAdBanner({ size }) {
+function GameAdBanner({ size, onServed }) {
   const insRef = useRef(null);
   const pushedRef = useRef(false);
+  const onServedRef = useRef(onServed);
+  onServedRef.current = onServed;
   const { width, height } = BANNER_SIZES[size];
+
+  // Watch the status AdSense writes on the <ins> once the request resolves.
+  useEffect(() => {
+    const ins = insRef.current;
+    if (!ins) return undefined;
+    const report = () => onServedRef.current?.(adIsServed(ins.getAttribute('data-ad-status')));
+    report();
+    const observer = new MutationObserver(report);
+    observer.observe(ins, { attributes: true, attributeFilter: ['data-ad-status'] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const ins = insRef.current;

@@ -139,6 +139,7 @@ function CallReportTab({ state, ratios }) {
             {(is.cfpbCharge ?? 0) > 0 && <ReportRow label="of which: CFPB consent order" value={f$(is.cfpbCharge)} indent={2} neg />}
             {(is.reserveShortfallFee ?? 0) > 0 && <ReportRow label="of which: reserve shortfall charge" value={f$(is.reserveShortfallFee)} indent={2} neg />}
             {(is.examFee ?? 0) > 0 && <ReportRow label="of which: exam remediation" value={f$(is.examFee)} indent={2} neg />}
+            {(is.reservePenalty ?? 0) > 0 && <ReportRow label="of which: reserve enforcement penalty" value={f$(is.reservePenalty)} indent={2} neg />}
             <ReportRow label="Noninterest Expense" value={f$(is.nonintExpense)} bold />
             <ReportRow label="Pre-tax Income" value={f$(is.pretax)} bold />
             <ReportRow label="Income Tax (21%)" value={f$(is.tax)} dim />
@@ -163,6 +164,7 @@ function CallReportTab({ state, ratios }) {
             <ReportRow label="Net charge-offs" value={f$(is.netChargeOffs)} />
             <ReportRow label="ACL / Loans" value={fpct(bs.acl / bs.loansGross)} dim />
             <ReportRow label="ACL / NPL coverage" value={`${(bs.acl / Math.max(1, bs.npl)).toFixed(2)}x`} dim />
+            <ReportRow label="ACL / CECL model level" value={fpct(RBE.reserveStatus(state).adequacy, 0)} dim />
           </ReportSection>
 
           <ReportSection title="Schedule RC-R — Regulatory Capital" compact={compact}>

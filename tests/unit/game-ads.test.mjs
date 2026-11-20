@@ -1,11 +1,20 @@
 /**
- * BankCEO in-game banner: the banner stays up the whole time the game is
- * open, a fresh ad loads at the end screen and on a new game (never during
+ * BankCEO in-game banner: the bar only shows while an ad is being served, a
+ * fresh ad is requested at the end screen and on a new game (never during
  * play), and the banner size follows the viewport.
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { refreshesAd, bannerSizeFor, forceNonPersonalizedAds, isAdFreePath, stripAdTags } from '../../src/ads/adsense.js';
+import { refreshesAd, bannerSizeFor, forceNonPersonalizedAds, isAdFreePath, stripAdTags, adIsServed } from '../../src/ads/adsense.js';
+
+test('the banner counts as served only once AdSense reports a fill', () => {
+  assert.equal(adIsServed('filled'), true);
+  assert.equal(adIsServed('unfilled'), false);
+  // Request still pending, or the AdSense script never ran (blocked).
+  assert.equal(adIsServed(null), false);
+  assert.equal(adIsServed(undefined), false);
+  assert.equal(adIsServed(''), false);
+});
 
 test('the end screen loads a fresh ad', () => {
   assert.equal(refreshesAd('game_over'), true);
@@ -43,14 +52,14 @@ test('a Global Privacy Control signal forces non-personalized ads', () => {
   assert.equal(forceNonPersonalizedAds({ status: 'accepted', advertising: true }, undefined), false);
 });
 
-test('bank pages and placeholder pages carry no ad code', () => {
-  for (const path of ['/bank/JPM', '/bank/JPM/', '/bank/19617', '/game/about', '/game/how-to-play', '/game/strategy-guide']) {
+test('bank pages carry no ad code', () => {
+  for (const path of ['/bank', '/bank/JPM', '/bank/JPM/', '/bank/19617']) {
     assert.equal(isAdFreePath(path), true, path);
   }
 });
 
 test('content pages and the game keep their ads', () => {
-  for (const path of ['/', '/screener', '/search', '/faq/what-is-roe', '/metrics/roe', '/game', '/game/BankCEO', '/game/fake-bank-names', '/banking']) {
+  for (const path of ['/', '/screener', '/search', '/faq/what-is-roe', '/metrics/roe', '/game', '/game/BankCEO', '/game/how-to-play', '/game/strategy-guide', '/game/fake-bank-names', '/banking']) {
     assert.equal(isAdFreePath(path), false, path);
   }
 });

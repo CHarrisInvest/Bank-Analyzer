@@ -27,7 +27,7 @@ function NumberDial({ label, value, onChange, min, max, step, format, hint, colo
 // Shared-capacity meter. Dividends and buybacks draw on ONE pool, so the bar shows how
 // much each is consuming and what is left for the other — and flags the overage when the
 // two together ask for more than the bank can fund.
-function DistributionCapacity({ capacity, dividends, buybacks, payoutFactor, compact }) {
+function DistributionCapacity({ capacity, dividends, buybacks, payoutFactor, suspended, compact }) {
   const divFunded = Math.min(dividends, capacity);
   const buyFunded = Math.max(0, Math.min(buybacks, capacity - divFunded));
   const remaining = Math.max(0, capacity - divFunded - buyFunded);
@@ -65,13 +65,18 @@ function DistributionCapacity({ capacity, dividends, buybacks, payoutFactor, com
         <Row c={KP.panel2} label="Unused" value={remaining} />
       </div>
 
-      {over > 0.5 && (
+      {over > 0.5 && !suspended && (
         <div style={{ fontSize: compact ? 11.5 : 11, color: KP.warn, marginTop: 7, lineHeight: 1.4 }}>
           Requesting {KBE.fmt$(over)} more than capacity. Dividends are funded first, so the
           buyback is cut back — raising one lowers what the other can do.
         </div>
       )}
-      {payoutFactor < 1 && (
+      {suspended && (
+        <div style={{ fontSize: compact ? 11.5 : 11, color: KP.bad, marginTop: 7, lineHeight: 1.4 }}>
+          Suspended: the reserve consent order blocks dividends and buybacks until it is lifted.
+        </div>
+      )}
+      {payoutFactor < 1 && !suspended && (
         <div style={{ fontSize: compact ? 11.5 : 11, color: KP.textMute, marginTop: 6, lineHeight: 1.4 }}>
           Capital conservation buffer: CET1 is inside the buffer zone, so payouts are capped
           at {(payoutFactor * 100).toFixed(0)}% of earnings.
@@ -196,6 +201,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
             dividends={reqDiv}
             buybacks={reqBuyback}
             payoutFactor={cap.payoutFactor}
+            suspended={cap.suspended}
             compact={compact}
           />
 
@@ -238,7 +244,7 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
               min={0} max={50000} step={500} format="money"
               color={KP.warn}
               pill={d.brokeredCDsTarget > 0 ? `$${(d.brokeredCDsTarget / 1000).toFixed(1)}M` : "Off"}
-              hint={`Outstanding: ${KBE.fmt$(state.bs.brokeredCDs || 0)} · cost ≈ ${(((state.macro.fedFunds || 0) + 0.0035) * 100).toFixed(2)}% · counts toward wholesale concentration (≤ 15%)`}
+              hint={`Outstanding: ${KBE.fmt$(state.bs.brokeredCDs || 0)} · cost ≈ ${(((state.macro.fedFunds || 0) + 0.0075) * 100).toFixed(2)}% · counts toward wholesale concentration (≤ 15%)`}
               locked={locked}
             />
             <div style={{ padding: "8px 12px", background: KP.bgRaised, borderRadius: 8, fontSize: 11.5, color: KP.textDim, display: "flex", justifyContent: "space-between" }}>
@@ -280,38 +286,96 @@ function CapitalTab({ state, ratios, forecast, setLever, setDecision, locked }) 
       </div>
 
       {/* Provision override */}
-      <div className="panel panel-pad" data-coach="capital-provision">
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
-          <div className="label-strong" style={{ fontSize: compact ? 12.5 : undefined }}>Provision Override</div>
-          <button onClick={() => setDecision("provisionOverride", null)} disabled={locked || d.provisionOverride === null}
-            style={{
-              fontSize: 11, padding: "5px 12px", borderRadius: 6,
-              background: d.provisionOverride === null ? KP.panel2 : KP.amber,
-              color: d.provisionOverride === null ? KP.textMute : "#1a1408",
-              border: "none", fontWeight: 600,
+      {(() => {
+        const rs = KBE.reserveStatus(state);
+        const rules = KBE.RESERVE_RULES;
+        const next = forecast.snapshot || {};
+        const nextIS = next.lastIS || {};
+        const pct = (v) => `${(v * 100).toFixed(0)}%`;
+        const overridden = d.provisionOverride !== null && d.provisionOverride !== undefined;
+        const adequacyTone = rs.adequacy >= rules.floor ? KP.good : rs.adequacy >= rules.gross ? KP.warn : KP.bad;
+
+        // What the setting on the dial does next quarter, read off the live forecast so
+        // the warning and the simulation can never disagree.
+        let outlook = null;
+        if (rs.orderActive) {
+          outlook = {
+            tone: KP.bad,
+            text: `Consent order in force for ${rs.orderQtrsLeft} more quarter${rs.orderQtrsLeft === 1 ? "" : "s"}. Examiners set the provision; dividends and buybacks are suspended. Finishing the game under the order costs a letter grade.`,
+          };
+        } else if (nextIS.reserveEnforcement) {
+          const e = nextIS.reserveEnforcement;
+          outlook = {
+            tone: KP.bad,
+            text: `This setting triggers an enforcement action next quarter: a ${KBE.fmt$(e.restore)} catch-up provision, a ${KBE.fmt$(e.penalty)} penalty, and ${rules.orderQtrs} quarters with the override locked and dividends and buybacks suspended.`,
+          };
+        } else if ((nextIS.reserveWarnings || 0) > rs.warnings) {
+          outlook = {
+            tone: KP.warn,
+            text: `This setting leaves the allowance at ${pct(nextIS.reserveAdequacy)} of the model level and draws warning ${nextIS.reserveWarnings} of ${rules.warnings}.`,
+          };
+        } else if (rs.warnings > 0) {
+          outlook = {
+            tone: KP.warn,
+            text: `${rs.warnings} of ${rules.warnings} warnings on file. They clear one a quarter once the allowance is back at ${pct(rules.floor)} of the model level.`,
+          };
+        }
+
+        const modelNext = nextIS.modelProvision;
+        const modelStr = Number.isFinite(modelNext) ? ` · model calls for ${KBE.fmt$(modelNext)}` : "";
+        const hint = rs.orderActive
+          ? `Set by examiners while the order is in force${modelStr}`
+          : overridden
+            ? `Manual override: ${KBE.fmt$(d.provisionOverride)}${modelStr} · resets to Auto after the quarter`
+            : `Auto model will run · last quarter ${KBE.fmt$(state.lastIS.provision)}`;
+
+        return (
+          <div className="panel panel-pad" data-coach="capital-provision">
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
+              <div className="label-strong" style={{ fontSize: compact ? 12.5 : undefined }}>Provision Override</div>
+              <button onClick={() => setDecision("provisionOverride", null)} disabled={locked || rs.orderActive || !overridden}
+                style={{
+                  fontSize: 11, padding: "5px 12px", borderRadius: 6,
+                  background: overridden && !rs.orderActive ? KP.amber : KP.panel2,
+                  color: overridden && !rs.orderActive ? "#1a1408" : KP.textMute,
+                  border: "none", fontWeight: 600,
+                }}>
+                {rs.orderActive ? "Locked" : overridden ? "Reset to auto" : "Auto (model)"}
+              </button>
+            </div>
+            <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 12 }}>
+              Set the provision by hand to build a cushion ahead of trouble or to soften a bad quarter. It is a short-term tool. Examiners measure the allowance against the CECL model's level: under-provide while it is below {pct(rules.floor)} and you draw a warning. The third warning, or an allowance under {pct(rules.gross)}, brings an enforcement action. Auto never draws one.
+            </div>
+
+            <div style={{
+              marginBottom: 12, padding: "10px 12px", borderRadius: 10,
+              background: KP.bgRaised, border: `1px solid ${outlook ? outlook.tone : KP.lineSoft}`,
             }}>
-            {d.provisionOverride === null ? "Auto (model)" : "Reset to auto"}
-          </button>
-        </div>
-        <div style={{ fontSize: 13, color: KP.textMute, marginBottom: 12 }}>
-          Override the CECL model's provision. Running lean flatters earnings now — but charge-offs that outrun the allowance spill straight into capital plus a remediation fee, and below 0.35x ACL/NPL coverage a mandatory catch-up overrides you. Auto keeps reserves safely above the examiner's line.
-        </div>
-        {(() => {
-          const cov = state.bs.npl > 0 ? state.bs.acl / state.bs.npl : null;
-          const covStr = cov === null ? "ACL/NPL coverage —" : `ACL/NPL coverage ${cov.toFixed(2)}x`;
-          const hint = d.provisionOverride === null
-            ? `Auto model will run · ${covStr} · last quarter ${KBE.fmt$(state.lastIS.provision)}`
-            : `Manual override: ${KBE.fmt$(d.provisionOverride)} · ${covStr} · catch-up forces a top-up below 0.35x`;
-          return (
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
+                <div className="label" style={{ fontSize: compact ? 11.5 : 9.5 }}>Reserve Adequacy</div>
+                <div className="num" style={{ fontSize: compact ? 14 : 13, fontWeight: 700, color: adequacyTone }}>
+                  {pct(rs.adequacy)} of model
+                </div>
+              </div>
+              <div className="num" style={{ fontSize: compact ? 11.5 : 11, color: KP.textDim, marginTop: 4 }}>
+                Allowance {KBE.fmt$(rs.acl)} · model level {KBE.fmt$(rs.modelACL)} · warnings {rs.warnings} of {rules.warnings}
+              </div>
+              {outlook && (
+                <div style={{ fontSize: compact ? 11.5 : 11, color: outlook.tone, marginTop: 7, lineHeight: 1.4 }}>
+                  {outlook.text}
+                </div>
+              )}
+            </div>
+
             <NumberDial label="Provision Expense (next qtr)"
-              value={d.provisionOverride ?? 0}
+              value={rs.orderActive ? Math.min(2000, Math.round(modelNext || 0)) : (d.provisionOverride ?? 0)}
               onChange={v => setDecision("provisionOverride", v)}
               min={0} max={2000} step={50} format="money"
               hint={hint}
-              color={KP.info} locked={locked} />
-          );
-        })()}
-      </div>
+              color={KP.info} locked={locked || rs.orderActive} />
+          </div>
+        );
+      })()}
     </div>
   );
 }
