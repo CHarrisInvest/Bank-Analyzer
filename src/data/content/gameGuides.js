@@ -37,7 +37,7 @@ const HOW_TO_PLAY = {
       heading: 'The game in one minute',
       blocks: [
         { type: 'p', text: "You are the new CEO of First Meridian Bank, a one-branch bank with $335 million in assets. The game lasts 40 quarters of three months each, so a full game covers ten years." },
-        { type: 'p', text: "Each quarter, **make your decisions and advance to see the results.** Change as much or as little as you like on the Operations and Treasury tabs, and the forecast for next quarter updates as you go. When it looks right, press the amber Run button. The quarter plays out, the results post, and the next one is ready." },
+        { type: 'p', text: "Each quarter, **make your decisions and advance to see the results.** Change as much or as little as you like on the Operations and Treasury tabs, and the forecast for next quarter updates as you go. When it looks right, press Run. The quarter plays out, the results post, and the next one is ready." },
         { type: 'p', text: "The game can end two ways. If the bank's capital runs too low, regulators close it and the game is over on the spot. If you make it through all 40 quarters, you get a letter grade from F to A+ based on how much value you built for shareholders." },
         {
           type: 'note',
